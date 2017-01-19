@@ -1,0 +1,124 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+\title{Homework: Quantum Field Theory}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+
+
+
+
+
+
+
+
+
+{\bf{3.2}}. Derive the \emph{Gordon identity}
+\begin{align}\label{40}
+  \bar{u}(p')\gamma^{\mu}u(p)=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}}u(p)
+\end{align}
+where $q=(p'-p)$.
+
+From the standard covariant form of Dirac equation
+\begin{align*}
+  (i\gamma^{\mu}\partial_{\mu}-m)\psi(x)=0
+\end{align*}
+and can be written as
+\begin{align}
+  \gamma^{\mu}p_{\mu}u(p)=m u(p)
+\end{align}
+From previous definition
+\begin{align*}
+  \bar{u}(p)\equiv u^{\dagger}(p)\gamma^0
+\end{align*}
+and
+\begin{align*}
+  u^{\dagger}(p)p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}=m u^{\dagger}(p)
+\end{align*}
+So we have
+\begin{align*}
+  \bar{u}(p)\gamma^0p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}\gamma^0=m \bar{u}(p)
+\end{align*}
+Then
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\frac{\bar{u}(p')\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0}{m}\gamma^{\mu}\frac{\gamma^{\mu''}p_{\mu''}u(p)}{m}\\
+  &=\bar{u}(p')\frac{\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0\gamma^{\mu}\gamma^{\mu''}p_{\mu''}}{m^2}u(p)
+\end{align*}
+Note that $p_{\mu}$ and $\gamma$ commute, and
+\begin{align*}
+  \gamma^0(\gamma^{\mu})^{\dagger}\gamma^0&=\Pmqty{0&1\\1&0}\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}^{\dagger}\Pmqty{0&1\\1&0}\\
+  &=\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}\\&=
+  \gamma^{\mu}
+\end{align*}
+which means
+\begin{align*}
+  \bar{u}(p)\gamma^{\mu}p_{\mu}=m \bar{u}(p)
+\end{align*}
+and
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)
+\end{align*}
+
+Now we observe
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}[\gamma^{\mu},\gamma^{\nu}](p'_{\nu}-p_{\nu})\\
+  &=-\frac{1}{2}(\gamma^{\mu}\gamma^{\nu}p'_{\nu}-\gamma^{\nu}\gamma^{\mu}p'_{\nu}-\gamma^{\mu}\gamma^{\nu}p_{\nu}+\gamma^{\nu}\gamma^{\mu}p_{\nu})
+\end{align*}
+and
+\begin{align*}
+  \gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu}+2g^{\mu\nu}
+\end{align*}
+We have
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}(2\gamma^{\mu}\gamma^{\nu}p'_{\nu}-2g^{\mu\nu}p'_{\nu}-2\gamma^{\mu}\gamma^{\nu}p_{\nu}+2g^{\mu\nu}p_{\nu})\\&=(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})
+\end{align*}
+With this \eqref{40} becomes
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+  %\\  &=\bar{u}(p')\bqty{\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{4 m}}u(p)
+\end{align*}
+We know that
+\begin{align*}
+  \bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)&=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-\gamma^{\nu}p'_{\nu}\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}\gamma^{\nu}p_{\nu}+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-m\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}m+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{m}-\frac{\gamma^{\nu}\gamma^{\mu}p_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{-\gamma^{\mu}\gamma^{\nu}p'_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+\end{align*}
+And it consists with the former one.
+
+\end{document}

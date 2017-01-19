@@ -1,0 +1,88 @@
+%!mode::"Tex:UTF-8"
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,urlcolor=blue,citecolor=green,anchorcolor=blue]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{float}
+%\usepackage{intent}
+%\hypersetup{colorlinks,linkcolor=blue,citecolor=green}
+
+\title{Linear potential $\abs{x}$ -- momentum space}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+Using the parametrised basis mentioned in LiMing's paper (to save time, only 16 bases were used.)
+\begin{equation}
+  \psi_n(p)= \sqrt{\frac{\alpha }{\sqrt{\pi } 2^n n!}} H_n(\alpha  p)e^{-\frac{1}{2} \left(\alpha ^2\right) p^2}
+\end{equation}
+and the Schr\"odinger equation in momentum space
+\begin{equation}
+  (E-\mu)\phi(p)=\omega (p) \phi(p)-\frac{\lambda  }{\pi }\int_{\infty}^{\infty}\frac{\phi (k)-\phi (p)-(k-p) \phi '(p)}{(p-k)^2}
+\end{equation}
+with $\omega(p)=\sqrt{m^2+p^2}$,
+I have the following results: eigenenergy solved in momentum space
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    n & 0 & 1 & 2 & 3 \\\hline
+    Schr\"odinger equation&0.805086&1.84766&2.56684&3.23044\\\hline
+    't Hooft equation& 0.62674 & 1.62773 & 2.32744 & 2.95498 \\\hline
+    1st-order perturbation&0.792475&1.81352&2.49903&3.12609\\\hline
+    {\color{red}{error}} comparing with 't Hooft eqn&26.44\%&11.41\%&7.37\%&5.79\%\\\hline
+    momentum representation &0.761624&1.73534&2.35721&2.9225\\\hline
+    {\color{red}{error}} comparing with 't Hooft eqn&21.52\%&6.61\%&1.28\%&-1.10\%\\\hline
+  \end{tabular}
+  \caption{$\mu=2.5$ with $a=0.474$}
+\end{table}
+
+In the process, I find out the best value for parameter $a=0.474$ (which was determined under 6 bases).
+
+And with larger mass $\mu=25$, we have
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    n & 0 & 1 & 2 & 3 \\\hline
+    Schr\"odinger equation&0.373688& 0.857606& 1.19142& 1.49944\\\hline
+    't Hooft equation& 0.3541& 0.836931& 1.17025&1.4773 \\\hline
+    1st-order perturbation&0.373416&0.85687& 1.18996& 1.49719\\\hline
+   {\color{red}{error}} comparing with 't Hooft eqn&5.45\%&2.38\%&1.68\%&1.34\%\\\hline
+    momentum representation &0.367673&0.849901&1.18106&1.48622\\\hline
+    {\color{red}{error}} comparing with 't Hooft eqn&3.83\%&1.55\%&0.92\%&0.60\%\\\hline
+  \end{tabular}
+  \caption{$\mu=25$ with $a=0.232$}
+\end{table}
+
+with $a=0.232$.
+
+With $\mu=250$ and $\alpha=0.108$
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    n & 0 & 1 & 2 & 3 \\\hline
+    Schr\"odinger equation&0.173451& 0.398065& 0.553009&0.695978\\\hline
+    't Hooft equation& 0.171459& 0.39605& 0.550983&0.69393 \\\hline
+    1st-order perturbation&0.173445&0.39805& 0.552978& 0.69593\\\hline
+   {\color{red}{error}} comparing with 't Hooft eqn&1.16\%&0.50\%&0.36\%&0.29\%\\\hline
+    momentum representation &0.168524&0.393399&0.548678&0.692045\\\hline
+    {\color{red}{error}} comparing with 't Hooft eqn&-1.71\%&-0.67\%&-0.42\%&-0.27\%\\\hline
+  \end{tabular}
+  \caption{$\mu=250$ with $a=0.108$}
+\end{table}
+we might notice that when the energy is low, the result from momentum representation is a little ``inferior" to coordinate space with 1st-order perturbation.
+\end{document} 

@@ -1,0 +1,503 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{slashbox}
+%\usepackage{intent}
+\title{Renormalization and effective theory for Schrodinger equation}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Introduction}
+Renormalization and effective theory can be used for non-relativistic quantum mechanics,for Schrodinger equation,according to Lepage\cite{Lepage}.
+
+The basic idea is to mimic the high-energy physics we yet don't know from low-energy data.First,we introduce a momentum cutoff $\Lambda$ as the renormalization process in QFT.This cutoff preserve only those physics that we know of.Then we add local corrections,and use low energy data to fit it.
+\section{Constructing a effective theory for Schrodinger equation}
+\subsection{The ``true" Theory}
+Starting with a simple Coulomb potential,we attach a short-distance potential to it.
+\begin{eqnarray}
+  H&=&\frac{\vb{p}^2}{2m}+V(r)\\
+  \text{where \qquad}V(r)&=&-\frac{\alpha}{r}+V_s(r)
+\end{eqnarray}
+The exact form of this short-distance potential in Lepage's paper is unknown.With Lepage's original data of one of his figures,I have this potential as my short distance potential:
+\begin{equation}
+  V_s(r)=-\frac{1.04152e^{-0.9991r}}{r}
+\end{equation}
+We choose $\alpha=1$ and $m=1$,so the fullform of my potential is
+\begin{equation}
+  V(r)=-\frac{1}{r}-\frac{1.04152e^{-0.9991r}}{r}
+\end{equation}
+Solve it and we get
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{|cccccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    energy & my energy & Lepage's  & relative & energy& my energy & Lepage's & relative \\
+    level&              &    energy  &  error    &level & & energy & error \\
+    \hline
+    1S & 1.33732 & 1.28711542 & 3.90057\% & 6S & 0.0156184 & 0.0155492598 & 0.444587\% \\
+    2S & 0.186434 & 0.183325753 & 1.69544\% & \dots &   &  & \\
+    3S & 0.0710575 & 0.0703755485 & 0.968963\% & 10S & 0.00535929 & 0.00534541931 & 0.259539\% \\
+    4S & 0.0374072 & 0.0371495726 & 0.693401\% & 20S & 0.0012937 & 0.00129205010 &0.127336\%\\
+    5S & 0.023051 & 0.0229268241 & 0.541494\% &  &  & & \\
+    \hline
+  \end{tabular}
+  \caption{Comparison in S-wave binding energy of my potential and Lepage's}\label{V2swave}
+\end{table}
+
+And the S-wave phase shift can also be computed.Here I choose the phase shift at $r=50$ as Lepage did.So now we have s set of data can be used as experimental data and from now on we pretend that the exact form of $V_s$ is completely unknown.
+\subsection{Try delta function and perturbation theory}
+We can choose delta function $\delta^3(\vb{r})$ to approximate the unknown short-distance potential.The Hamiltonian then is
+\begin{equation}
+  H_{app}=\frac{\vb{p}^2}{2m}+V(r)+c\delta^3(\vb{r})
+\end{equation}
+Using 1st-order perturbation theory and we have the binding energy
+\begin{equation}\label{e2n}
+  E_{2n}=-\frac{1}{2n^2}+c\;\frac{\delta_{l,0}}{\sqrt{\pi}\;n^3}
+\end{equation}
+The idea is to fit \eqref{e2n} to the lowest energy we have (in our case,it's the 20S binding energy).Here I calculated based on both Lepage's binding energy and my own data,which respectively give $c=-.596255$ and $c=-.619584$.The relative error is given in figure \ref{LepageFigure1}.
+
+But this delta function and perturbation approximation blows up when we ask for more accuracy.The 2nd-order perturbation
+\begin{equation}
+  \sum_{m\neq n}\frac{\mel{n}{c\delta^3(\vb{r})}{m}\mel{m}{c\delta^3(\vb{r})}{n}}{E_n-E_m}
+\end{equation}
+obviously gives a divergent term when the scattering momentum $\vb{p}\rightarrow\infty$.The delta function is too singular to be meaningful beyond 1st-order perturbation theory.
+
+Another problem is,we can Fourier transform $V_s$ into momentum space and Taylor expand it.The first term can be transformed back and becomes a delta function.The 2nd term is the Laplacian of delta function.It seems we can get another correction,but the first order perturbation of the 2nd term $\mel{n}{\laplacian{\delta^3(\vb{r})} }{n}$ is again too singular to have any physical meaning.
+\subsection{Constructing effective theory}
+Now we construct a effective theory in the guidance of renormalization theory (using potential model,of course).This effective theory is specified by this Hamiltonian
+\begin{equation}
+  H_{eff}=\frac{\vb{p}^2}{2m}+V_{eff}(\vb{r})
+\end{equation}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=5.2in]{Test_LepageFigure_1.eps}
+  \caption{Relative errors in S-wave binding energy plotted versus binding energy for the Coulomb theory,the two curves upper are for only the Coulomb theory and the other two are for $E_{2n}$.}\label{LepageFigure1}
+\end{figure}
+First we Fourier transform the Coulomb potential $\displaystyle\frac{1}{r}$ into $\displaystyle\frac{4\pi}{q^2}$.Then we introduce a cutoff $\displaystyle\Lambda=\frac{1}{a}$.Potential in momentum space becomes $\displaystyle\frac{4\pi}{q^2}e^{-q^2a^2/2}$.Fourier transform it back into coordinate space and we have the first term of our effective potential $\displaystyle-\frac{erf\pqty{\frac{r}{\sqrt{2}a}}}{r}$ where $\displaystyle erf (z)=\frac{2}{\sqrt{\pi }}\int _0^z\dd t\;e^{-t^2}$.
+
+Now we add local corrections.First we ``smear" the delta function to make it less singular.Define ``smeared" delta function by
+\begin{equation}
+  \delta_a^3(\vb{r})=\frac{e^{-\frac{r^2}{2a^2}}}{(2\pi)^{\frac{3}{2}}\;a^3}.
+\end{equation}
+The effective potential with $\mathcal{O}(a^2)$ is
+\begin{equation}\label{Veffa2}
+  V_{eff}^{(a^2)}=-\frac{\alpha}{r}\;erf\pqty{\frac{r}{\sqrt{2}a}}+c\; a^2\;\delta_a^3(\vb{r})+\mathcal{O}(a^2)
+\end{equation}
+then.Similarily,the effective potential with $\mathcal{O}(a^4)$ is
+\begin{equation}\label{Veffa4}
+  V_{eff}^{(a^4)}=-\frac{\alpha}{r}\;erf\pqty{\frac{r}{\sqrt{2}a}}+c\; a^2\;\delta_a^3(\vb{r})+d_1\;a^4\;\laplacian{\delta_a^3(\vb{r})}+d_2\;a^4\;\div{\delta_a^3(\vb{r})}\grad+\mathcal{O}(a^4)，
+\end{equation}
+Using phase shift in $E=10^{-10}$ and $E=10^{-5}$,we can determine the values of c and d in both effective potential.We then have $c^{(a^2)}=-44.294$,$c^{(a^4)}=-39.9477$ and ${d_1}^{(a^4)}=3.26552$.Note that in S-wave,${d_2}^{(a^4)}=0$,and here we just choose $a=1$,we'll discuss why in the following section.
+
+The relative error in S-wave binding energy is as following:
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{Test_PS_CurveFitting_Figure2_1.eps}
+  \caption{Binding energy for only the Coulomb theory,delta function and perturbative theory,$V_{eff}^{(a^2)}$ and $V_{eff}^{(a^4)}$. }
+\end{figure}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{Test_PS_CurveFitting_Figure2.eps}
+  \caption{Relative error in binding energy for only the Coulomb theory,delta function and perturbative theory,$V_{eff}^{(a^2)}$ and $V_{eff}^{(a^4)}$.}
+\end{figure}
+And the error in phase shift of all four theory is
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{Test_PS_CurveFitting_Figure3.eps}
+  \caption{Absolute error in phase shift for only the Coulomb theory,delta function and perturbative theory,$V_{eff}^{(a^2)}$ and $V_{eff}^{(a^4)}$.}
+\end{figure}
+\subsection{The influence of cutoff a}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=5.5in]{Test_PhaseShift_Various_a.eps}
+  \caption{The absolute error of phase shift using effective potential $V_{eff}^{(a^2)}$ in our "true" theory with different cutoff a.}\label{cutoffa}
+\end{figure}
+In our "ture" theory with an additional short-distance potential,if we choose different value of a,the final result can be different.It's showed in figure \ref{cutoffa}.
+
+If we change the value of $\alpha$ and m as well,the best cutoff a sticks to 1.But if we change the "true" theory into only a Coulomb potential,when a decreases,the error decreases with it and doesn't stop.
+\begin{figure}[!htbp]
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=0.1&m=0.1}.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=0.01&m=0.1}.eps}
+\end{minipage}\\
+
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=0.1&m=0.01}.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=0.01&m=0.01}.eps}
+\end{minipage}\\
+
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=1&m=0.1}.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{{Test_Determine_a_Alpha=0.1&m=1}.eps}
+\end{minipage}
+\caption{The absolute error of phase shift using effective potential $V_{eff}^{(a^2)}$ in our "true" theory with different cutoff a and different $\alpha$ and m as well.}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_2_Various_a_1.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_3_Various_a_1.eps}
+\end{minipage}\\
+
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_5_Various_a.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_5_Various_a_2.eps}
+\end{minipage}\\
+
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_6_Various_a.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Test_Coulomb_6_Various_a_1.eps}
+\end{minipage}
+\caption{The absolute error of phase shift using effective potential $V_{eff}^{(a^2)}$ in only Coulomb potential with different cutoff a and different $\alpha$ and m as well.}
+\end{figure}
+\subsection{Misconceptions}
+Firstly,the effective theory can never be the true theory.The odd that we happen to choose the true theory as our effective theory is just too small.
+
+Secondly,the Fourier transform of our effective theory $V_{eff}$ can't converge to that of the true theory.
+\clearpage
+
+In my effective theory,the potentials in coordinate space are
+\begin{eqnarray}
+% \nonumber % Remove numbering (before each equation)
+  V(\vb{r}) &=& -\frac{1}{r}-\frac{1.04152 e^{-0.9991 r}}{r} \\
+  V_{eff}^{(a^2)}(\vb{r}) &=& -\frac{\text{erf}\left(\frac{r}{\sqrt{2}}\right)}{r}-2.81241 e^{-\frac{r^2}{2}} \\
+  V_{eff}^{(a^4)}(\vb{r}) &=& -\frac{\text{erf}\left(\frac{r}{\sqrt{2}}\right)}{r}+3.26552 \left(\frac{e^{-\frac{r^2}{2}} r^2}{2 \sqrt{2} \pi ^{3/2}}-\frac{3 e^{-\frac{r^2}{2}}}{2 \sqrt{2} \pi ^{3/2}}\right)-2.53643 e^{-\frac{r^2}{2}}
+\end{eqnarray}
+They look like this:
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{NoFourierTransformation.eps}
+  \caption{"True" theory and effective theory in coordinate space.}
+\end{figure}
+And can be Fourier transformed into momentum space and become
+\begin{eqnarray}
+% \nonumber % Remove numbering (before each equation)
+  v(\vb{k}) &=& -\frac{12.5438}{k^2 \left(k^2+0.998201\right)}-\frac{25.6545}{k^2+0.998201} \\
+  v_{eff}^{(a^2)}(\vb{k}) &=& -\frac{12.5664 e^{-0.5 k^2}}{k^2} -44.2944 e^{-0.5 k^2} \\
+  v_{eff}^{(a^4)}(\vb{k}) &=& -\frac{12.5664 e^{-0.5 k^2}}{k^2}-3.26552 e^{-0.5 k^2} k^2-39.9477 e^{-0.5 k^2}
+\end{eqnarray}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{FourierTransformation_1.eps}
+  \caption{"True" theory and effective theory in momentum space.}\label{TotalFourier}
+\end{figure}
+We can divide those in momentum space into two parts:the first term, and the rest.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{FourierTransformation_2.eps}
+  \caption{The first term of "true" theory and effective theory in momentum space.}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{FourierTransformation_3.eps}
+  \caption{The rest terms of "true" theory and effective theory in momentum space.}
+\end{figure}
+The rest terms are not identical obviously,but the first terms are not identical when close to zero.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=6in]{FourierTransformation_4.eps}
+  \caption{The first term of "true" theory minus that of effective theory in momentum space.}
+\end{figure}
+The last one,it's curve fitting,but it's more systematical and highly optimized.We can improve the accuracy only though adding more correction terms,and the error is removed order-by-order in a.
+\subsection{matrix element}
+\subsubsection{$\expval{\vb{p}^4}$}
+When calculating the matrix element $\expval{\vb{p}^4}$,we found that we can't do the integration directly.It's because of $\vb{p}^4$ in effective theory stands for different physical meaning as in our "true" theory.So we need corrections.Lepage give this as his corrections:
+\begin{equation}\label{p4true}
+  \expval{\vb{p}^4}_{true}=Z\expval{\vb{p^4}}_{eff}+\frac{\gamma}{a}\expval{\delta^3_a(\vb{r})}_{eff}+\eta a\expval{\laplacian{\delta^3_a(\vb{r})}}_{eff}+\mathcal{O}(a^3)
+\end{equation}
+\begin{table}[!hbtp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level & $\expval{\vb{p}^4}$ & $\expval{\vb{p^4}}_{eff}$ & Relative error & $\expval{Z\vb{p}^4+\gamma \delta^3_a/a+\dots}_{eff}$ & Relative error after correction \\
+    \hline
+    1S & 75.0651 & 6.39016&0.914872 & 86.2584&0.149114 \\
+    2S & 5.89805 & 1.80467&0.694022 & 5.63427&0.0447230 \\
+    3S & 1.38388 & 0.459182&0.668193 & 1.37834&0.00400119 \\
+    4S & 0.533537 & 0.181115&0.660539 & 0.533006&0.000995149 \\
+    5S & 0.259685 & 0.0892336&0.656377 & 0.259594&0.000349898 \\
+    6S & 0.145438 & 0.0503636&0.653711 & 0.145417&0.000142768 \\
+    7S & 0.0895058 & 0.0311615&0.651849 & 0.895003&0.0000608579 \\
+    8S & 0.0589478 & 0.0206038&0.650473 & 0.0589463&0.0000247520 \\
+    9S & 0.0408594 & 0.0143248&0.649413 & 0.0408591&$7.89362\times10^{-6}$ \\
+    10S& 0.0294762 & 0.0103588 & 0.648572 & 0.0294762 & $0.\times10^{-50}$\\
+    11S& 0.0219577 & 0.00773158 & 0.647888 & 0.0219578 & $2.86723\times10^{-6}$\\
+    12S& 0.0167936 & 0.00592277 & 0.647320 & 0.0167937 & $3.65482\times10^{-6}$\\
+    13S& 0.0131299 & 0.00463692 & 0.646842 & 0.0131299 & $3.06033\times10^{-6}$\\
+    14S& 0.0104589 & 0.00369791 & 0.646433 & 0.0104589 & $1.68057\times10^{-6}$\\
+    15S& 0.00846592 & 0.00299626 & 0.646080 & 0.00846592 &  $0.\times10^{-50}$\\
+    16S& 0.00694880 & 0.00246146 & 0.645772 & 0.00694878 & $1.78021\times10^{-6}$\\
+    17S& 0.00577356 & 0.00204673 & 0.645500 & 0.00577354 & $3.67384\times10^{-6}$\\
+    18S& 0.00484908 & 0.00172016 & 0.645260 & 0.00484906 & $5.47461\times10^{-6}$\\
+    19S& 0.00411194 & 0.00145962 & 0.645029 & 0.00411195 & $2.37062\times10^{-6}$\\
+    20S& 0.00503698 & 0.00278627 & 0.446837 & 0.00503698 & $0.\times10^{-50}$\\
+    \hline
+  \end{tabular}
+  \caption{$\expval{\vb{p}^4}$ matrix element in "true" theory,effective theory without correction and effective theory with correction}\label{p41}
+\end{table}
+\subsubsection{$\displaystyle\expval{\frac{1}{r}}$}
+\begin{equation}\label{rtrue}
+  \expval{\frac{1}{r}}_{true}=Z\expval{\frac{1}{r}}_{eff}+\frac{\gamma}{a}\expval{\delta^3_a(\vb{r})}_{eff}+\eta a\expval{\laplacian{\delta^3_a(\vb{r})}}_{eff}+\mathcal{O}(a^3)
+\end{equation}
+\begin{table}[!hbtp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   level & $\expval{1/r}$ & $\expval{1/r}_{eff}$ & Relative error& $\expval{Z/r+\gamma \delta^3_a/a+\dots}_{eff}$ & Relative error after correction \\
+    \hline
+    1S & 1.92548 & 1.28960 &0.330244& 1.7642&0.0837596 \\
+    2S & 0.351169 & 0.344153 &0.0199786& 0.345096&0.0172951 \\
+    3S & 0.136034 & 0.134796 &0.00909973& 0.135905&0.00094791 \\
+    4S & 0.0724346 & 0.0719137 &0.00719131& 0.0724226&0.000165167 \\
+    5S & 0.0449404 & 0.0446755 &0.00589443& 0.0449384&$0.0000438437$ \\
+    6S & 0.0305861 & 0.0304343 &0.00496313& 0.0305856&$0.0000143115$ \\
+    \hline
+  \end{tabular}
+  \caption{$\displaystyle\expval{\frac{1}{r}}$ matrix element in "true" theory,effective theory without correction and effective theory with correction}\label{evr1}
+\end{table}
+\subsection{$\displaystyle\expval{\frac{1}{r^2}}$}
+\begin{equation}\label{r2true}
+  \expval{\frac{1}{r^2}}_{true}=Z\expval{\frac{1}{r^2}}_{eff}+\frac{\gamma}{a}\expval{\delta^3_a(\vb{r})}_{eff}+\eta a\expval{\laplacian{\delta^3_a(\vb{r})}}_{eff}+\mathcal{O}(a^3)
+\end{equation}
+\begin{table}[!hbtp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level & $\expval{1/r^2}$ & $\expval{1/r^2}_{eff}$ &Relative error& $\expval{Z/r^2+\gamma \delta^3_a/a+\dots}_{eff}$ &  Relative error after correction \\
+    \hline
+    1S & 7.54675 & 2.64833 &0.649077& -15.8996&3.10682 \\
+    2S & 0.513020 & 0.338657 &0.339876& 0.519597&0.0128214 \\
+    3S & 0.117680 & 0.0787820 &0.330541& 0.11814&0.00391092 \\
+    4S & 0.0448732 & 0.0299838 &0.331810& 0.0449209&0.00106295 \\
+    5S & 0.0217022 & 0.0144860 &0.332509& 0.02171&0.000359689 \\
+    6S & 0.0121042 & 0.00807484 &0.332891& 0.0121059&0.000136607 \\
+    \hline
+  \end{tabular}
+  \caption{$\displaystyle\expval{\frac{1}{r^2}}$ matrix element in "true" theory,effective theory without correction and effective theory with correction}\label{evr2}
+\end{table}
+\subsection{$\displaystyle\expval{\frac{1}{r^3}}$}
+\begin{equation}\label{r3true}
+  \expval{\frac{1}{r^3}}_{true}=Z\expval{\frac{1}{r^3}}_{eff}+\frac{\gamma}{a}\expval{\delta^3_a(\vb{r})}_{eff}+\eta a\expval{\laplacian{\delta^3_a(\vb{r})}}_{eff}+\mathcal{O}(a^3)
+\end{equation}
+\begin{table}[!hbtp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level & $\expval{1/r^3}$ & $\expval{1/r^3}_{eff}$ & Relative error& $\expval{Z/r^3+\gamma \delta^3_a/a+\dots}_{eff}$ &  Relative error after correction \\
+    \hline
+    1S & 21261.3 & 2612.36 &0.877131& 30560.7&0.437390 \\
+    2S & 1365.28 & 336.763 &0.753337& 1302.27&0.0461507 \\
+    3S & 309.748 & 78.1585 &0.747671& 308.562&0.00382939 \\
+    4S & 117.801 & 29.6996 &0.747882& 117.700&0.000849579 \\
+    5S & 56.9110 & 14.3375 &0.748072& 56.8958&0.000265940 \\
+    6S & 31.7243 & 7.98857 &0.748187& 31.7212&0.0000974506 \\
+    \hline
+  \end{tabular}
+  \caption{$\displaystyle\expval{\frac{1}{r^3}}$ matrix element in "true" theory,effective theory without correction and effective theory with correction}\label{evr31}
+\end{table}
+\subsection{$\psi(0)$}
+Just like $\expval{\vb{p}^4}$,$\psi(0)$ also needs correction.But it's more interesting because now we know even effective theory,after those correction and fitting,can not have the exact same wavefunction.
+\begin{equation}\label{psi0}
+  \psi_{true}(0)=\overline{\gamma}\int\dd^3r\psi_{eff}\delta^3_a(\vb{r})+\overline{\eta}a^2\int\dd^3r\psi_{eff}\laplacian{\delta^3_a(\vb{r})}+\mathcal{O}(a^3)
+\end{equation}
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level & $\psi(0)$ & $\psi_{eff}(0)$ & $\psi_{eff}(0)$ Relative error& $\overline{\gamma}\int\psi_{eff}\delta^3_a+\dots$ & Relative error after correction \\
+    \hline
+    1S & -1.54924 & -0.542484 &0.64984& 4.11644&3.65707 \\
+    2S & -0.392598 & -0.194805 &0.503805& -0.377193&0.0392382 \\
+    3S & -0.187001 & -0.0938498 &0.498132& -0.186328&0.00360212 \\
+    4S & 0.115323 & 0.0578526 &0.498341& 0.115242&0.000698381 \\
+    5S & 0.0801566 & 0.0401962 &0.498529& 0.0801444&0.000151733 \\
+    6S & -0.0598462 & -0.0300043 &0.498643& -0.0598454&0.0000141098 \\
+    \hline
+  \end{tabular}
+  \caption{$\psi(0)$in "true" theory,effective theory without correction and effective theory with correction}\label{psi01}
+\end{table}
+\section{Using effective theory in perturbative theory}
+Effective theory can be used to understand those high-energy physics that we have no knowledge of,and it can be used to simplify calculation of low energy behavior as well.
+
+We use only simple Coulomb potential,
+\begin{equation}\label{CoulombSmall}
+  H=\frac{\vb{p}^2}{2m}-\frac{\alpha}{r}
+\end{equation}
+where $\alpha =0.01$,$m=100$,and the effective theory is
+\begin{equation}\label{CoulombSmall}
+  H_{eff}=\frac{\vb{p}^2}{2m}-\frac{\alpha}{r}erf(\frac{r}{\sqrt{2}a})-2\pi\alpha ca^2\delta_a^3(\vb{r})
+\end{equation}
+Using 1st-order Born approximation
+\begin{equation}
+  f^{(1)}(\vb{q})=\int\dd^3 x' e^{-i\vb{q}\cdot\vb{x'}}V=-\frac{4\pi\alpha}{q^2}
+\end{equation}
+$\vb{q}=\vb{k_0}-\vb{k'}$ is the momentum transfer.For $H_{eff}$:
+\begin{eqnarray}\label{Heff}
+  f_{eff}^{(1)}(\vb{q})&=&-\frac{4\pi\alpha}{q^2}e^{-q^2a^2/2}(1+cq^2a^2/2)\\
+  &=&-\frac{4\pi\alpha}{q^2}（1+（c-1)q^2a^2/2+\mathcal{O}(q^4a^4))
+\end{eqnarray}
+when $c=0$,the relative error in the 1S binding energy is 0.0387861\%.If $c=1$,the effective potential is
+\begin{equation}
+  V_{eff}=-\frac{\alpha}{r}erf(\frac{r}{\sqrt{2}a})-2\pi\alpha a^2\delta_a^3(\vb{r})
+\end{equation}
+$\delta_a^3(\vb{r})$ is given before.
+
+When $a=0.01$,
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level&binding energy&relative error &level&binding energy&relative error\\\hline
+    1S & 0.00499998 & $3.61412\times10^{-6}$ & 11S & 0.0000413223 & $3.27197\times10^{-7}$\\
+    2S & 0.00125 & $1.83241\times10^{-6}$ & 12S & 0.0000347222 & $2.68281\times10^{-7}$\\
+    3S & 0.000555556 & $1.77179\times10^{-8}$ & 13S & 0.0000295858 & $2.78941\times10^{-7}$\\
+    4S & 0.0003125 & $9.04534\times10^{-7}$ & 14S & 0.0000255102 & $2.57908\times10^{-7}$\\
+    5S & 0.0002 & $7.10634\times10^{-7}$ & 15S & 0.0000222222 & $2.30776\times10^{-7}$\\
+    6S & 0.000138889 & $5.8436\times10^{-7}$ & 16S & 0.0000195313 & $2.25173\times10^{-7}$\\
+    7S & 0.000102041 & $5.13932\times10^{-7}$ & 17S & 0.000017301 & $2.1558\times10^{-7}$\\
+    8S & 0.000078125 & $4.49199\times10^{-7}$ & 18S & 0.0000154321 & $2.04102\times10^{-7}$\\
+    9S & 0.0000617284 & $3.98123\times10^{-7}$ & 19S & 0.0000138504 & $1.92648\times10^{-7}$\\
+    10S & 0.00005 & $3.54257\times10^{-7}$ & 20S & 0.0000125 & $1.85357\times10^{-7}$\\
+    \hline
+  \end{tabular}
+  \caption{Relative error in binding energy of 1st-perturbation approximation}
+\end{table}
+
+When calculating 2nd-order Born approximation
+\begin{equation}
+  T=V+V\frac{1}{E_i-E_m+i\hbar\epsilon}V
+\end{equation}
+we have
+\begin{equation}
+  V\ket{\psi^{(+)}}=T\ket{\vb{k}}=V\ket{\vb{k}}+V\frac{1}{E_i-E_m+i\hbar\epsilon}V\ket{\vb{k}}
+\end{equation}
+and
+\begin{eqnarray}
+% \nonumber % Remove numbering (before each equation)
+  f(\vb{k_0},\vb{k'}) &=& (2\pi)^3\mel{\vb{k'}}{V}{\psi^{(+)}}\\
+   &=& (2\pi)^3(\mel{\vb{k'}}{V}{\vb{k_0}}+\mel{\vb{k'}}{V\frac{1}{E_i-E_m+i\hbar\epsilon}V}{\vb{k_0}}) \\
+   &=& f^{(1)}(\vb{k_0},\vb{k'})+f^{(2)}(\vb{k_0},\vb{k'})
+\end{eqnarray}
+$f^{(1)}(\vb{k_0},\vb{k'})$ as above,and$f^{(2)}(\vb{k_0},\vb{k'})$ can be the integration form of $f^{(1)}(\vb{k_0},\vb{k'})$.
+\begin{eqnarray}
+  f^{(2)}(\vb{k_0},\vb{k'})&=&(2\pi)^3\mel{\vb{k'}}{V\frac{1}{E_i-E_m+i\hbar\epsilon}V}{\vb{k_0}} \\
+  &=&\int\frac{\dd^3k''}{(2\pi)^3}f^{(1)}(\vb{k''},\vb{k'})\frac{1}{E_i-E_m+i\hbar\epsilon}f^{(1)}(\vb{k_0},\vb{k''})\\
+  &=&\int\frac{\dd^3k''}{(2\pi)^3}f^{(1)}(\vb{k''},\vb{k'})\frac{2m}{k_0^2-k''^2+2mi\hbar\epsilon}f^{(1)}(\vb{k_0},\vb{k''})
+\end{eqnarray}
+Assuming $\vb{k}=\vb{k_0}-\vb{k''}$,and $\vb{k}-\vb{q}=\vb{k'}-\vb{k''}$,redefine $\epsilon$ as $2m\epsilon$,and
+\begin{equation}
+  f^{(2)}=\int\frac{\dd^3k}{(2\pi)^3}f^{(1)}(\vb{k}-\vb{q})\frac{2m}{k_0^2-(\vb{k}-\vb{k_0})^2+i\hbar\epsilon}f^{(1)}(\vb{k})
+\end{equation}
+For the 1st-order,the ``true" theory is almost identical to the effective one.In the 2nd-order,the difference in scattering amplitude of these two is mainly contribute by $f^{(2)}$ and $f_{eff}^{(2)}$,and $p$ and $q$ can be ignored comparing to $k$.
+\begin{eqnarray}
+% \nonumber % Remove numbering (before each equation)
+  f_{eff}^{(2)}-f^{(2)} &=& \int\frac{\dd^3k}{(2\pi)^3}\bqty{\pqty{\frac{-4\pi\alpha}{k^2}\frac{-2m}{k^2}\frac{-4\pi\alpha}{k^2}}e^{-k^2a^2}(1+k^2a^2/2)^2-\pqty{\frac{-4\pi\alpha}{k^2}\frac{-2m}{k^2}\frac{-4\pi\alpha}{k^2}}} \\
+   &=& \frac{10}{3} \sqrt{\pi } \alpha^2  a^3 m
+\end{eqnarray}
+making correction to c
+\begin{equation}
+  -\frac{4\pi\alpha}{q^2}(c-1)q^2a^2/2=-\frac{10}{3} \sqrt{\pi } \alpha^2  a^3 m
+\end{equation}
+and we have $\displaystyle c=1+\frac{5}{3\sqrt{\pi}}\alpha a m=1.00940316$.
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{|cccccc|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    level&binding energy&relative error&level&binding energy&relative error\\\hline
+    1S & 0.005 & $2.12769\times10^{-8}$ & 11S & 0.0000413223 & $4.18928\times10^{-9}$\\
+    2S & 0.00125 & $1.33472\times10^{-8}$ & 12S & 0.0000347222 & $4.21076\times10^{-9}$\\
+    3S & 0.000555556 & $2.5859\times10^{-9}$ & 13S & 0.0000295858 & $2.66263\times10^{-10}$\\
+    4S & 0.0003125 & $3.1513\times10^{-8}$ & 14S & 0.0000255102 & $8.8104\times10^{-12}$\\
+    5S & 0.0002 & $1.04359\times10^{-9}$ & 15S & 0.0000222222 & $2.89155\times10^{-10}$\\
+    6S & 0.000138889 & $9.14987\times10^{-9}$ & 16S & 0.0000195313 & $2.68476\times10^{-9}$\\
+    7S & 0.000102041 & $1.30144\times10^{-8}$ & 17S & 0.000017301 & $2.15443\times10^{-9}$\\
+    8S & 0.000078125 & $6.59177\times10^{-9}$ & 18S & 0.0000154321 & $2.08666\times10^{-9}$\\
+    9S & 0.0000617284 & $7.4271\times10^{-9}$ & 19S & 0.0000138504 & $2.99971\times10^{-9}$\\
+    10S & 0.00005 & $5.1792\times10^{-9}$ & 20S & 0.0000125 & $2.81353\times10^{-9}$\\
+    \hline
+  \end{tabular}
+  \caption{Relative error in binding energy of 2nd-perturbation approximation}
+\end{table}
+It's very close to the result we get from non-perturbative effective theory,which have c equal to 1.0094723.
+%\section{Effective theory working on Coulomb potential}
+%We can use effective theory on
+%\begin{equation}
+%  V(\vb{r})=-\frac{\alpha}{r}
+%\end{equation}
+%and the form of effective potential can be
+%\begin{equation}
+%  V_{eff}(\vb{r})=-\frac{\alpha}{r}\erf(\frac{r}{\sqrt{2}a})+c a^2\delta_a^3(\vb{r})
+%\end{equation}
+
+\begin{thebibliography}{b}
+
+\bibitem{Lepage}
+Lepage P. How to Renormalize the Schrodinger Equation[J]. Nuclear Theory, 1997.
+\bibitem{sakurai}
+Sakurai J J, Tuan S F, Commins E D. Modern Quantum Mechanics, Second Edition. Pearson Schweiz Ag, 2013.
+%\bibitem{Jinyan}
+%曾谨言. 量子力学(卷I)(第5版)(现代物理学丛书)(精)[M]. 科学, 2013.
+\bibitem{Griffiths}
+Griffiths, David Jeffery. Introduction to quantum mechanics. Pearson Education India, 2013.
+%\bibitem{Chen}
+%陈鄂生. 量子力学基础教程(第5版)[M]. 山东大学出版社, 2013.
+\bibitem{Korsch}
+Korsch H J, Glck M. Computing quantum eigenvalues made easy[J]. European Journal of Physics, 2002, 23(23):413-426.
+%\bibitem{Landau}
+%朗道, 栗弗席兹. 量子力学：非相对论理论[M]. 高等教育出版社, 2008.
+\bibitem{Weinberg}
+Weinberg S. Lectures on Quantum Mechanics[J]. Lectures on Quantum Mechanics by Steven Weinberg Cambridge Uk Cambridge University Press, 2012, 83(9):xiv,528.
+%\bibitem{MMA}
+%徐安农. 科学计算引论: 基于 Mathematica 的数值分析[M]. 机械工业出版社, 2010.
+%\bibitem{dong1}
+%董键. Mathematica与大学物理计算 第2版[M]. 清华大学出版社, 2013.
+\end{thebibliography}
+\end{document} 

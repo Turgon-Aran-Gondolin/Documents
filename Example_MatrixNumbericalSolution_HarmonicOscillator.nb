@@ -1,0 +1,137 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3948,        127]
+NotebookOptionsPosition[      3692,        113]
+NotebookOutlinePosition[      4050,        129]
+CellTagsIndexPosition[      4007,        126]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TISE1D", "[", 
+   RowBox[{"U_Function", ",", 
+    RowBox[{"{", 
+     RowBox[{"xmin_", ",", "xmax_"}], "}"}], ",", 
+    RowBox[{"N0Grid_:", " ", "101"}], ",", 
+    RowBox[{"BoundaryCondition_String:", " ", "\"\<zero\>\""}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[CapitalDelta]x", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"xmax", "-", "xmin"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"N0Grid", "-", "1"}], ")"}]}]}], ",", "Hmtx", ",", "Tmtx", 
+      ",", "Vmtx"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"Tmtx", "=", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{
+             RowBox[{"(", "\[CapitalDelta]x", ")"}], "^", "2"}]}], ")"}]}], 
+         ")"}]}], " ", 
+       RowBox[{"SparseArray", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"i_", ",", "i_"}], "}"}], "\[Rule]", 
+            RowBox[{"-", "2"}]}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"i_", ",", "j_"}], "}"}], "/;", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{"i", "-", "j"}], "]"}], "\[Equal]", "1"}]}], "\[Rule]",
+             "1"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"N0Grid", ",", "N0Grid"}], "}"}]}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Vmtx", "=", 
+      RowBox[{"DiagonalMatrix", "[", 
+       RowBox[{"U", "/@", 
+        RowBox[{"Range", "[", 
+         RowBox[{"xmin", ",", "xmax", ",", "\[CapitalDelta]x"}], "]"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Hmtx", "=", 
+      RowBox[{"Tmtx", "+", "Vmtx"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"BoundaryCondition", "\[Equal]", "\"\<periodic\>\""}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Hmtx", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", 
+            RowBox[{"-", "1"}]}], "]"}], "]"}], "=", 
+         RowBox[{
+          RowBox[{"Hmtx", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "=", 
+          RowBox[{"-", 
+           RowBox[{"(", 
+            RowBox[{"1", "/", 
+             RowBox[{"(", 
+              RowBox[{"2", " ", 
+               RowBox[{
+                RowBox[{"(", "\[CapitalDelta]x", ")"}], "^", "2"}]}], ")"}]}],
+             ")"}]}]}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Sort", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "@", 
+        RowBox[{"Eigensystem", "[", "Hmtx", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"#1", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "<", 
+          RowBox[{"#2", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ")"}], "&"}]}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.663211377218625*^9, 3.6632113772196255`*^9}}]
+},
+WindowSize->{953, 783},
+WindowMargins->{{409, Automatic}, {59, Automatic}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7412\:670821\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3130, 91, 152, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,459 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19968,        449]
+NotebookOptionsPosition[     19064,        417]
+NotebookOutlinePosition[     19421,        433]
+CellTagsIndexPosition[     19378,        430]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"u0", "=", 
+   RowBox[{"1.", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]]}]}], ";", 
+  RowBox[{"\[Alpha]", "=", "0.262713"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"V", "[", "r_", "]"}], ":=", 
+  FractionBox[
+   RowBox[{"-", "14.3996"}], "r"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Reap", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"f", ":=", 
+          RowBox[{"Compile", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"e", ",", "_Real"}], "}"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Block", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"u", ",", "r", ",", 
+                RowBox[{"r1", "=", "i"}], ",", 
+                RowBox[{"r2", "=", 
+                 RowBox[{"1.", "*", 
+                  SuperscriptBox["10", 
+                   RowBox[{"-", "6"}]]}]}]}], "}"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"First", "[", 
+               RowBox[{
+                RowBox[{"u", "[", "r2", "]"}], "/.", "\[IndentingNewLine]", 
+                RowBox[{"NDSolve", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"u", "''"}], "[", "r", "]"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", 
+                    RowBox[{"(", 
+                    RowBox[{"e", "-", 
+                    RowBox[{"V", "[", "r", "]"}]}], ")"}]}], "-", 
+                    FractionBox["0", 
+                    SuperscriptBox["r", "2"]]}], ")"}], 
+                    RowBox[{"u", "[", "r", "]"}]}]}], "\[Equal]", "0"}], ",", 
+                    RowBox[{
+                    RowBox[{"u", "[", "r1", "]"}], "\[Equal]", "u0"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"u", "'"}], "[", "r1", "]"}], "\[Equal]", 
+                    RowBox[{
+                    SqrtBox[
+                    RowBox[{"\[Alpha]", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"V", "[", "r1", "]"}], "-", "e"}], ")"}]}]], " ", 
+                    "u0"}]}]}], "}"}], ",", "\[IndentingNewLine]", "u", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"r", ",", "r1", ",", "r2"}], "}"}]}], "]"}]}], 
+               "]"}]}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"g", "=", 
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"f", "[", "e", "]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"e", ",", 
+              RowBox[{"-", "15."}], ",", "0"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "15."}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<E\>\"", ",", "\"\<u\>\""}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"RGBColor", "[", 
+              RowBox[{
+               RowBox[{"0.05", "i"}], ",", 
+               RowBox[{"0.05", "i"}], ",", 
+               RowBox[{"0.05", "i"}]}], "]"}]}], ",", 
+            RowBox[{"PlotPoints", "\[Rule]", "100"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"h", "=", 
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"f", "[", "e", "]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"e", ",", 
+              RowBox[{"-", "15."}], ",", "0"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "15"}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "50"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<E\>\"", ",", "\"\<u\>\""}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"RGBColor", "[", 
+              RowBox[{
+               RowBox[{"0.05", "i"}], ",", 
+               RowBox[{"0.05", "i"}], ",", 
+               RowBox[{"0.05", "i"}]}], "]"}]}], ",", 
+            RowBox[{"PlotPoints", "\[Rule]", "100"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Sow", "[", 
+          RowBox[{"g", ",", "x"}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Sow", "[", 
+          RowBox[{"h", ",", "y"}], "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "5.", ",", "20.", ",", "0.1"}], "}"}]}], "]"}], 
+      ",", 
+      RowBox[{"RuntimeAttributes", "\[Rule]", 
+       RowBox[{"{", "Listable", "}"}]}], ",", 
+      RowBox[{"Parallelization", "\[Rule]", "True"}]}], "\[IndentingNewLine]",
+      "]"}], "//", "AbsoluteTiming"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "data", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.657281529216359*^9, 3.65728161898287*^9}, {
+   3.6572843555825844`*^9, 3.6572844447952547`*^9}, {3.6572845750933867`*^9, 
+   3.6572847045321856`*^9}, {3.6572847460169516`*^9, 
+   3.6572847675015326`*^9}, {3.657284820220827*^9, 3.657284863736856*^9}, {
+   3.6572851269425755`*^9, 3.657285186099386*^9}, {3.657321670672028*^9, 
+   3.6573217344851365`*^9}, 3.6573217743995767`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Compile", "::", "part"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:7531\:4e8e\:53d8\:91cf\:4e0d\:662f\:4e00\:4e2a\:5177\
+\:6709\:8db3\:591f\:9636\:6570\:7684\:5f20\:91cf\:ff0c\:90e8\:5206\:6307\:5b9a\
+ \[NoBreak]\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"u\\\", \
+\\\"[\\\", \\\"r2\\\", \\\"]\\\"}], \\\"/.\\\", \\\"\[VeryThinSpace]\\\", \
+RowBox[{\\\"NDSolve\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"r\\\", \\\"]\\\"}], \\\"+\\\", RowBox[{RowBox[{\\\"Plus\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}], \\\" \\\", RowBox[{\\\"u\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"u\\\
+\", \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"u0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{SqrtBox[RowBox[{\\\"Times\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]], \
+\\\" \\\", \\\"u0\\\"}]}]}], \\\"}\\\"}], \\\",\\\", \\\"u\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \\\",\\\", \\\"r1\\\", \\\",\\\", \
+\\\"r2\\\"}], \\\"}\\\"}]}], \\\"]\\\"}]}], \\\")\\\"}], \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] \:4e0d\:80fd\:88ab\:7f16\:8bd1. \:8ba1\:7b97\:5c06\:4f7f\:7528\
+\:672a\:7f16\:8bd1\:7684\:51fd\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\
+\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Compile\\\", ButtonNote -> \
+\\\"Compile::part\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.657321766321351*^9, 3.6573217770245743`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Compile", "::", "part"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:7531\:4e8e\:53d8\:91cf\:4e0d\:662f\:4e00\:4e2a\:5177\
+\:6709\:8db3\:591f\:9636\:6570\:7684\:5f20\:91cf\:ff0c\:90e8\:5206\:6307\:5b9a\
+ \[NoBreak]\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"u\\\", \
+\\\"[\\\", \\\"r2\\\", \\\"]\\\"}], \\\"/.\\\", \\\"\[VeryThinSpace]\\\", \
+RowBox[{\\\"NDSolve\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"r\\\", \\\"]\\\"}], \\\"+\\\", RowBox[{RowBox[{\\\"Plus\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}], \\\" \\\", RowBox[{\\\"u\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"u\\\
+\", \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`*^-6\\\"}], \
+\\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{SqrtBox[RowBox[{\\\"Times\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]], \
+\\\" \\\", \\\"1.`*^-6\\\"}]}]}], \\\"}\\\"}], \\\",\\\", \\\"u\\\", \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \\\",\\\", \\\"r1\\\", \\\",\
+\\\", \\\"r2\\\"}], \\\"}\\\"}]}], \\\"]\\\"}]}], \\\")\\\"}], \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] \:4e0d\:80fd\:88ab\:7f16\:8bd1. \:8ba1\:7b97\:5c06\:4f7f\:7528\
+\:672a\:7f16\:8bd1\:7684\:51fd\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\
+\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Compile\\\", ButtonNote -> \
+\\\"Compile::part\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.657321766321351*^9, 3.6573217773839808`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:88ab\:7f16\:8bd1\:8868\:8fbe\:5f0f \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"-\\\", \
+\\\"1.9024654621923946`*^-7\\\"}], \\\"}\\\"}]\\)\[NoBreak] \
+\:5e94\:8be5\:662f\:4e00\:4e2a \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"machine-size real number\\\\\\\"\\\"}]\
+\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfse\\\", ButtonNote -> \
+\\\"CompiledFunction::cfse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.657321766321351*^9, 3.6573217780558624`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:8bf4\:660e \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"6\\\"}]\\)\[NoBreak] \:4e2d\:4e0d\:80fd\:5b8c\
+\:6210\:5916\:90e8\:8ba1\:7b97\:ff1b\:7ee7\:7eed\:672a\:7f16\:8bd1\:7684\:8ba1\
+\:7b97. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\", ButtonNote -> \
+\\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.657321766321351*^9, 3.6573217781495852`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Compile", "::", "part"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:7531\:4e8e\:53d8\:91cf\:4e0d\:662f\:4e00\:4e2a\:5177\
+\:6709\:8db3\:591f\:9636\:6570\:7684\:5f20\:91cf\:ff0c\:90e8\:5206\:6307\:5b9a\
+ \[NoBreak]\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"u\\\", \
+\\\"[\\\", \\\"r2\\\", \\\"]\\\"}], \\\"/.\\\", \\\"\[VeryThinSpace]\\\", \
+RowBox[{\\\"NDSolve\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"r\\\", \\\"]\\\"}], \\\"+\\\", RowBox[{RowBox[{\\\"Plus\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}], \\\" \\\", RowBox[{\\\"u\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"u\\\
+\", \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"u0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{SuperscriptBox[\\\"u\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"r1\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{SqrtBox[RowBox[{\\\"Times\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]], \
+\\\" \\\", \\\"u0\\\"}]}]}], \\\"}\\\"}], \\\",\\\", \\\"u\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \\\",\\\", \\\"r1\\\", \\\",\\\", \
+\\\"r2\\\"}], \\\"}\\\"}]}], \\\"]\\\"}]}], \\\")\\\"}], \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] \:4e0d\:80fd\:88ab\:7f16\:8bd1. \:8ba1\:7b97\:5c06\:4f7f\:7528\
+\:672a\:7f16\:8bd1\:7684\:51fd\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\
+\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Compile\\\", ButtonNote -> \
+\\\"Compile::part\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.6573253838321447`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[RowBox[{\\\"Compile\\\", \\\"::\\\", \\\"part\\\"}], \
+\\\"MessageName\\\"]\\)\[NoBreak] \:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\
+\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.657325384024269*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:88ab\:7f16\:8bd1\:8868\:8fbe\:5f0f \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"-\\\", \
+\\\"1.9024654621923946`*^-7\\\"}], \\\"}\\\"}]\\)\[NoBreak] \
+\:5e94\:8be5\:662f\:4e00\:4e2a \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"machine-size real number\\\\\\\"\\\"}]\
+\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfse\\\", ButtonNote -> \
+\\\"CompiledFunction::cfse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.657325384320468*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:8bf4\:660e \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"6\\\"}]\\)\[NoBreak] \:4e2d\:4e0d\:80fd\:5b8c\
+\:6210\:5916\:90e8\:8ba1\:7b97\:ff1b\:7ee7\:7eed\:672a\:7f16\:8bd1\:7684\:8ba1\
+\:7b97. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\", ButtonNote -> \
+\\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.6573253843675237`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:88ab\:7f16\:8bd1\:8868\:8fbe\:5f0f \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"-\\\", \
+\\\"2.2022437007030137`*^-7\\\"}], \\\"}\\\"}]\\)\[NoBreak] \
+\:5e94\:8be5\:662f\:4e00\:4e2a \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"machine-size real number\\\\\\\"\\\"}]\
+\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfse\\\", ButtonNote -> \
+\\\"CompiledFunction::cfse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.6573279040396223`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[RowBox[{\\\"CompiledFunction\\\", \\\"::\\\", \\\"cfse\\\"}], \
+\\\"MessageName\\\"]\\)\[NoBreak] \:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\
+\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.6573279040436296`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:8bf4\:660e \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"6\\\"}]\\)\[NoBreak] \:4e2d\:4e0d\:80fd\:5b8c\
+\:6210\:5916\:90e8\:8ba1\:7b97\:ff1b\:7ee7\:7eed\:672a\:7f16\:8bd1\:7684\:8ba1\
+\:7b97. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\", ButtonNote -> \
+\\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.65732790423376*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[RowBox[{\\\"CompiledFunction\\\", \\\"::\\\", \\\"cfex\\\"}], \
+\\\"MessageName\\\"]\\)\[NoBreak] \:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\
+\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.657321766321351*^9, 3.6573279042407675`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["0.262713`"], "Input",
+ NumberMarks->False],
+
+Cell[BoxData["0.262713`"], "Output",
+ CellChangeTimes->{3.6572847767672496`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 816},
+WindowMargins->{{124, Automatic}, {52, Automatic}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7411\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6296, 152, 637, "Input"],
+Cell[6879, 176, 2017, 31, 77, "Message"],
+Cell[8899, 209, 2027, 31, 91, "Message"],
+Cell[10929, 242, 719, 14, 30, "Message"],
+Cell[11651, 258, 619, 12, 24, "Message"],
+Cell[12273, 272, 2015, 31, 77, "Message"],
+Cell[14291, 305, 626, 12, 24, "Message"],
+Cell[14920, 319, 715, 14, 30, "Message"],
+Cell[15638, 335, 617, 12, 24, "Message"],
+Cell[16258, 349, 717, 14, 30, "Message"],
+Cell[16978, 365, 637, 12, 24, "Message"],
+Cell[17618, 379, 614, 12, 24, "Message"],
+Cell[18235, 393, 637, 12, 24, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18909, 410, 56, 1, 31, "Input"],
+Cell[18968, 413, 80, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

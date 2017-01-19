@@ -1,0 +1,286 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass[11pt]{article}
+\usepackage[a3paper]{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+
+\usepackage{luatexja-fontspec}
+\usepackage{extarrows}
+
+\setmainjfont[BoldFont=FandolSong-Bold]{FandolSong-Regular}
+\setsansjfont{FandolSong-Bold}
+
+\geometry{left=0.3cm,right=0.3cm,top=0.3cm,bottom=0.3cm}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\newcommand{\phixp}{\phi^+(x)}
+\newcommand{\phixm}{\phi^-(x)}
+\newcommand{\phiyp}{\phi^+(y)}
+\newcommand{\phiym}{\phi^-(y)}
+\newcommand{\ddv}[2]{\frac{\delta{#1}}{\delta{#2}}}
+\newcommand{\pa}{\partial}
+\newcommand{\La}{\Lambda}
+\newcommand{\qs}{\slashed q}
+
+
+\newcommand{\Tscr}{\mathscr{T}}
+\newcommand{\Cscr}{\mathscr{C}}
+\newcommand{\N}[1]{N\Bqty{#1}}
+\newcommand{\T}[1]{T\Bqty{#1}}
+\newcommand{\conphi}[2]{\contraction{}{\phi}{_1}{\phi}\phi_{#1}\phi_{#2}}
+\newcommand{\conphit}[3]{\contraction{}{\phi}{_{1}{#2}}{\phi}\phi_{#1}{#2}\phi_{#3}}
+%\newcommand{\contra}{\contraction{}{}}
+
+\linespread{1}
+\setlength{\parskip}{0\baselineskip}
+\title{Homework: Quantum Field Theory \#8}
+\author{Yingsheng Huang}
+\begin{document}
+Euler-Lagarange equation (面上$\delta\phi=0$): $\delta S=\int\dd^4x\delta \lag(x)=\int\dd^4x[\pdv{\lag}{\phi}\delta\phi+\pdv{\lag}{(\partial_{\mu}\phi)}\delta(\partial_{\mu}\phi)]=\int\dd^4x\Bqty{(\pdv{\lag}{\phi}-\partial_{\mu}\pdv{\lag}{(\partial_{\mu}\phi)})\delta\phi+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta\phi)}$
+$\pdv{\lag}{\phi}-\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)})=0$
+全局对称性：时空对称性：庞加莱群，分立对称性：P，T；内禀对称性：连续：电荷，同位旋，相位对称性：$\phi(x)\rightarrow e^{-i\a}\phi(x)$；分立：$\phi\rightarrow-\phi$.
+Noether's theorom: $\delta\lag(x)=0\xLongrightarrow{U(1)}0=\ddv{\lag}{\a}=\sum_n\Bqty{\pdv{\lag}{\phi_n}\ddv{\phi_n}{\a}+\pdv{\lag}{(\partial_{\mu}\phi_n)}\ddv{(\partial_{\mu}\phi_n)}{\a}}=\sum_n[\pdv{\lag}{\phi_n}-\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi_n)})]\ddv{\phi_n}{\a}+\partial_{\mu}J^{\mu}$
+$\partial_{\mu}J^{\mu}=0$ where $J^{\mu}=\sum_n\pdv{\lag}{(\partial_{\mu}\phi_n)}\ddv{\phi_n}{\a}$， $Q=\int\dd^3x J^0(x)$. General: $\delta S=\int\dd^4x\partial_{\mu}[(\mathcal{L}g^{\mu}_{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)\delta x^{\rho}+\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\delta\phi]=0$,$f(x)\rightarrow f'(x')$,$\delta f\equiv f'(x')-f(x)=\delta_0f+\delta x^{\mu}\pa_{\mu}f$,$x'^{\mu}=x^{\mu}+\epsilon^{\mu}$,$\delta f=0\Longrightarrow\delta_0 f=-\epsilon^{\mu}\pa_{\mu}f$,
+$\delta S=\id\delta\lag+\int\delta(\dd^4x)\lag=0$,$\dd^4x'=\abs{\pdv{x'^{\mu}}{x^{\nu}}}\dd^4x=\abs{\pdv{(x^{\mu}+\delta x^{\mu})}{x^{\nu}}}\dd^4x=(1+\pdv{\delta x^{\mu}}{x^{\mu}})\dd^4x$,
+$\delta\lag=\delta_0\lag+\delta x^{\mu}\partial_{\mu}\lag=\pdv{\lag}{\phi}\delta_0\phi+\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0(\partial_{\mu}\phi)+\delta x^{\mu}\partial_{\mu}\lag=\delta x^{\mu}\partial_{\mu}\lag+(\pdv{\lag}{\phi}-\partial_{\mu}\pdv{\lag}{(\partial_{\mu}\phi)})\delta_0\phi+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0\phi)$.
+能动张量：$T^{\mu\nu}=\sum_n\pdv{\lag}{(\pa_{\mu}\phi_n)}\pa_{\nu}\phi_n-g_{\mu\nu}\lag$,$\pa^{\mu}T_{\mu\nu}=0$,$T_{00}=\mathcal{H}$,$Q_{\nu}=\int\dd^3xT_{0\nu}\Longrightarrow Q_0=H$.
+{\bf K-G场算符}：$\phi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-i\vb{p\cdot x}}+a_{\vb{p}}^{\dagger}e^{i\vb{p\cdot x}})$, $\pi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}i\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}^{\dagger}e^{i\vb{p\cdot x}}-a_{\vb{p}}e^{-i\vb{p\cdot x}})$, $\phi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}+b_{\vb{p}}^{\dagger}e^{ip\cdot x})$
+等时对易关系：$[a_{\vbp},a_{\vbp'}^{\dagger}]=(2\pi)^3\delta^3(\vbp-\vbp')$, $[\phi(\vb{x}),\pi(\vb{x'})]=i\delta^3(\vb{x-x'})$, $\ket{\vbp}=\sqrt{2\omega_{\vbp}}a_{\vbp}^{\dagger}\ket{0}$, $\braket{\vbp}{\psi}=e^{-i\vb{p\cdot x}}$, $D_F(x-y)=\theta(x^0-y^0)\mel{0}{\phi(x)\phi(y)}{0}+\theta(y^0-x^0)\mel{0}{\phi(y)\phi(x)}{0}\equiv\mel{0}{T\phi(x)\phi(y)}{0}$.
+留数定理：$\oint _{\gamma }f(z)\,dz=2\pi i\sum _{k=1}^{n}\operatorname {Res} (f,a_{k})$.
+{\bf K-G传播子}：$[\phi(x),\phi(y)]=\mel{0}{[\phi(x),\phi(y)]}{0}=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vbp}}(e^{-ip\cdot(x-y)}-e^{ip\cdot(x-y)})=\int\frac{\dd^3p}{(2\pi)^3}\int\frac{\dd p^0}{2\pi i}\frac{-1}{p^2-m^2}e^{-ip\cdot(x-y)}$, $D_F(x-y)=\int\frac{\dd^4p}{(2\pi)^4}\frac{i}{p^2-m^2+i\epsilon}e^{-ip\cdot(x-y)}$.
+阶跃函数：$\mel{0}{\theta(x^0-y^0)\phi(x)\phi(y)}{0}=\bra{0}{\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}+a_{\vb{p}}^{\dagger}e^{ip\cdot x})\int\frac{\dd^3q}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{q}}}}(a_{\vb{q}}e^{-iq\cdot y}+a_{\vb{q}}^{\dagger}e^{iq\cdot y})}\ket{0}=\mel{0}{\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3q}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}\frac{1}{\sqrt{2\omega_{\vb{q}}}}[a_{\vb{p}},a_{\vb{q}}^{\dagger}]e^{-ip\cdot x}e^{iq\cdot y}}{0}=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2\omega_{\vb{p}}}e^{-ip\cdot (x-y)}=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}e^{-iE_{\vbp} (x^0-y^0)+i\vb{p\cdot(x-y)}}=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{1}{E_{\vb{p}}}\frac{e^{-i(p^0+E_{\vbp})(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{p^0+i\epsilon}\text{make $p^0=(p^0+E_{\vbp})$}=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{e^{-ip^0(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{(E_{\vbp})(p^0-E_{\vbp}+i\epsilon)}$.
+
+{\bf Dirac场}：$\s^0=1,\s^1=\Pmqty{0&1\\1&0},\s^2=\Pmqty{0&-1\\i&0},\s^3=\Pmqty{1&0\\0&-1}$. 主动变换：$x^{\mu}\rightarrow x'^{\mu}=\La^{\mu}_{\nu}$, $\phi(x)\rightarrow\phi'(x)=\phi(\La^{-1}x)$, $\pa_{\mu}\phi(x)\rightarrow \pa_{\mu}\phi(\La^{-1}x)=(\La^{-1})^{\nu}_{\mu}(\pa_{\nu}\phi)(\La^{-1}x)$, $(\La^{-1})^{\rho}_{\mu}(\La^{-1})^{\s}_{\nu}g^{\mu\nu}=g^{\rho\s}$,  $(\pa_{\mu}\phi(x))^2\rightarrow (\pa_{\mu}\phi)^2(\La^{-1}x)$,  $\lag(x)\rightarrow\lag'(x)=\lag(\La^{-1}x)$, $V^{\mu}(x)\rightarrow \La^{\mu}_{\nu}V^{\nu}(\La^{-1}x)$, $\Phi_a(x)\rightarrow M_{ab}(\La)\Phi_b(\La^{-1}x)$, $\psi(x)\rightarrow \La_{\frac{1}{2}}\psi(\La^{-1}x)$.
+Lorentz生成元：$J^{\mu\nu}=i(x^{\mu}\pa^{\nu}-x^{\nu}\pa^{\mu})$, $[J^{\mu\nu},J^{\rho\s}]=i(g^{\nu\rho}J^{\mu\s}-g^{\mu\rho}J^{\nu\s}-g^{\nu\s}J^{\mu\rho}+g^{\mu\s}J^{\nu\rho})$, $(\mathcal{J}^{\mu\nu})_{\a\b}=i(\delta^{\mu}_{\a}\delta^{\nu}{b}-\delta^{\mu}_{\b}\delta^{\nu}_{\a})$, $V\rightarrow e^{-\frac{i}{2}\omega_{\mu\nu}\mathcal{J}^{\mu\nu}}V$, $V^{\a}=(\delta^{\a}_{\b}-\frac{i}{2}\omega_{\mu\nu}(\mathcal{J}^{\mu\nu})^{\a}_{\b})V^{\b}$.
+$S^{\mu\nu}=\frac{i}{4}[\gm,\gn]$, $\{\s^i,\s^j\}=2\delta^{ij}$, $\s^{\mu\nu}=\frac{i}{2}[\g^{\mu},\g^{\nu}]$, {\bf Weyl rep}: $\g^0=\Pmqty{0&1\\1&0},\g^i=\Pmqty{0&\s^i\\-\s^i&0}$.
+\begin{tabular}{|c|ccccc|}
+  \hline
+  &$\g^0$&$\g^1$&$\g^2$&$\g^3$&$\g^5$\\\hline
+  T&1&-1&1&-1&1\\%\hline
+  -1&1&-1&-1&-1&1\\\hline
+\end{tabular}
+\begin{tabular}{|c|ccccc|}
+  \hline
+  &$\g^0$&$\g^1$&$\g^2$&$\g^3$&$\g^5$\\\hline
+  *&1&1&-1&1&1\\%\hline
+  \dagger&1&-1&-1&-1&1\\\hline
+\end{tabular},
+$\g^5\equiv i\g^0\g^1\g^2\g^3=\frac{i}{4!}\epsilon^{\mu\nu\rho\s}\g_{\mu}\g_{\nu}\g_{\rho}\g_{\s}=\Pmqty{-1&0\\0&1}$, $\g_{\mu}\slashed p\g^{\mu}=-2\slashed p$, $\g_{\mu}\ps\slashed q \ps\g^{\mu}=-2\ps\slashed q\ps$, $\Bqty{\g^5,\g^{\mu}}=0$.
+$[\gm,S^{\rho\s}]=(\mathcal{J}^{\rho\s})^{\mu}_{\nu}\gn$, $\La^{-1}_{\frac{1}{2}}\gm\La_{\frac{1}{2}}=\La^{\mu}_{\nu}\gn$, $\s^2\bm{\s}^*=-\bm{\s}\s^2$, $\bar\s^{\mu}\s_{\mu}=4$.
+$\lag_{Dirac}=\bar\psi(i\pars-m)\psi$, $\mathcal{H}=\bar\psi(-i\bm{\g}\cdot\nabla+m)\psi$, $j^{\mu}=\bar\psi\g^{\mu}\psi$, $j^{5\mu}=\bar\psi\g^{\mu}\g^5\psi$.
+{\bf Dirac方程}：$i\pars\psi=m\psi$, $\bar\psi(i\overleftarrow{\pars}-m)=0$.
+$(\ps-m)u(p)=0$, $\bar{u}(p)(\ps-m)=0$, $(\ps+m)v(p)=0$, $\bar v(p)(\ps+m)=0$.
+{\bf 解}：$u^s=\Pmqty{\sqrt{p\cdot \s}\xi^s\\\sqrt{p\cdot\bar\s}\xi^s}$, $v^s=\Pmqty{\sqrt{p\cdot \s}\eta^s\\-\sqrt{p\cdot\bar\s}\eta^s}$, $\bar u^s(p)u^{s'}(p)=2m\delta^{ss'}$, $u^{s\dagger}(p)u^{s'}(p)=2E_{\vbp}\delta{ss'}$, $\bar v^s(p)v^{s'}(p)=-2m\delta^{ss'}$, $v^{s\dagger}(p)v^{s'}(p)=2E_{\vbp}\delta{ss'}$, $\bar u^r(p)v^s(p)=\bar v^r(p)u^s(p)=0$, $u^{r\dagger}(\vbp)v^s(-\vbp)=v^{r\dagger}(-\vbp)u^s(\vbp)=0$, others uncertain.
+$\sum_su_s(p)\bar u_s(p)=\ps+m$, $\sum_sv^s(p)\bar v^{s}(p)=\ps-m$. $\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$, $\bar{u}(p')\gamma^{\mu}u(p)=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}}u(p)$ (Gordon identity, $q=p'-p$).
+{\bf Dirac场量子化}：$\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)e^{-ip\cdot x}+b^s^{\dagger}_{\vb{p}}v^s(p)e^{ip\cdot x})$,
+$\bar\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)e^{-ip\cdot x}+a^s^{\dagger}_{\vb{p}}\bar u^s(p)e^{ip\cdot x})$, {\bf 条件}：$\{\psi_a(\vb{x}),\psi_b^{\dagger}(\vb{y})\}=\delta^3(\vb{x-y})\delta_{ab}$, $\{\psi_a(\vb{x}),\psi_b(\vb{y})\}=\{\psi_a^{\dagger}(\vb{x}),\psi_b^{\dagger}(\vb{y})\}=0$, $\{a^r_{\vbp},a^{s\dagger}_{\vbk}\}=\{b^r_{\vbp},b^{s\dagger}_{\vbk}\}=(2\pi)^3\delta^3(\vbp-\vbk)\delta^{rs}$, others are zero.
+$H=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}+b^{s\dagger}_{\vb{p}}b^s_{\vb{p}})$, $P=\int\dd^3x\psi^{\dagger}(-i\nabla)\psi$, $J_z=\int\dd^3x\int\frac{\dd^3p\dd^3q}{(2\pi)^6}\frac{1}{\sqrt{2E_{\vb{p}}2E_{\vb{q}}}}e^{-i\vb{q\cdot x}}e^{i\vb{p\cdot x}}\sum_{r,s}(a_{\vb{q}}^{r\dagger}u^{r\dagger}(\vb{q})+b_{-\vb{q}}^{r}v^{r\dagger}(-\vb{q}))\frac{\Sigma^3}{2}(a^s_{\vb{p}}u^s(\vb{p})+b^{s\dagger}_{-\vb{p}}v^s(-\vb{p}))$. 量子守恒荷：$\hat{Q}=\int\dd^3x\hat{j}^0(x)=\int\dd^3x\psi^{\dagger}(x)\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\sum_s(a_{\vbp}^{s\dagger}a^s_{\vbp}-b_{\vbp}^{s\dagger}b^s_{\vbp})$.
+单粒子态：$\ket{p,s}=\sqrt{2E_{\vbp}}a^{s\dagger}_{\vbp}\ket{0}$.
+
+{\bf H,P}: In Schr\"odinger picture
+$\psi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)e^{i\vb{p}\cdot \vb{x}}+b^s^{\dagger}_{\vb{p}}v^s(p)e^{-i\vb{p}\cdot \vb{x}})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}$,
+$\bar\psi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)e^{i\vb{p}\cdot \vb{x}}+a^s^{\dagger}_{\vb{p}}\bar u^s(p)e^{-i\vb{p}\cdot \vb{x}})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))e^{i\vb{p}\cdot \vb{x}}$. $\nabla\psi=\nabla\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}=\int\frac{\dd^3p}{(2\pi)^3}\frac{i\vb{p}}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}$. $H=\int\dd^3x\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}2E_{\vb{p}}}}\sum_{s,r}[(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))(\g\cdot\vb{k}+m)(a^r_{\vb{k}}u^r(k)+b^r^{\dagger}_{-\vb{k}}v^r(-k))]e^{i(\vb{p+k})\cdot \vb{x}}=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}2E_{\vb{p}}}}\sum_{s,r}[-(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g\cdot\vb{p}(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})+m((b^s_{\vb{p}}\bar v^s_pb^{r\dagger}_{\vb{p}}v^r_{p}+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p}a^r_{\vb{-p}}u^r_{-p})]$. $m((b^s_{\vb{p}}\bar v^s_pb^{r\dagger}_{\vb{p}}v^r_{p}+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p}a^r_{\vb{-p}}u^r_{-p})=-2m^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})$, $(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g\cdot\vb{p}(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})=(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g^ip_i(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})=2\vb{p}^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})$. Use $\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$ and $\bar v_{\s}(p)\gm v_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$, $H=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_{s}[-2\vb{p}^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})-2m^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})]=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}-b^s_{\vb{p}}b^{s\dagger}_{\vb{p}})=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}+b^{s\dagger}_{\vb{p}}b^s_{\vb{p}})$. $P=\int\dd^3x\psi^{\dagger}(-i\nabla)\psi$,
+$P=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))\g^0\frac{-\vb{p}}{\sqrt{2E_{\vb{p}}}}\sum_r(a^r_{\vb{-p}}u^r(-p)+b^r^{\dagger}_{\vb{p}}v^r(p))=\int\frac{\dd^3p}{(2\pi)^3}\frac{-i\vb{p}}{2E_{\vb{p}}}\sum_{s,r}(b^s_{\vb{p}} v^s^{\dagger}(p)+a^s^{\dagger}_{-\vb{p}} u^s^{\dagger}(-p))(a^r_{\vb{-p}}u^r(-p)+b^r^{\dagger}_{\vb{p}}v^r(p))=\int\frac{\dd^3p}{(2\pi)^3}\frac{-\vb{p}}{2E_{\vb{p}}}\sum_{s}2E_{\vb{p}}(b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{-\vb{p}}a^s_{\vb{-p}})=-\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{-\vb{p}}a^s_{\vb{-p}})=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(-b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}})=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}}+b^s^{\dagger}_{\vb{p}}b^s_{\vb{p}}-(2\pi)^3\delta(0))=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}}+b^s^{\dagger}_{\vb{p}}b^s_{\vb{p}})$.
+
+{\bf CPT对称性}：
+{\bf P}: $P\psi P^{-1}=\eta\g^0\psi(t,-\vb{x})$, $P\bar\psi P^{-1}=\eta^*\bar\psi(t,-\vb{x}) \g^0$.
+{\bf T}: $\Tscr\equiv i\g^1\g^3$ and $T\psi T^{-1}=\Tscr\psi$, $T\bar\psi T^{-1}=\bar\psi\Tscr^{-1}$, $\Tscr(\gm)^*\Tscr^{-1}=\g_{\mu}=(-1)^{\mu}\gm$, $\Tscr(\g^5)^*\Tscr^{-1}=\g^5$, $\Tscr=\Tscr^{-1}=\Tscr^{\dagger}$.
+{\bf C}: $\Cscr\equiv i\g^2\g^0$ and $C\psi C^{-1}=\Cscr\bar\psi^T$, $C\bar\psi C^{-1}=\psi^T\Cscr$, $\Cscr(\gm)^T\Cscr^{-1}=-\gm$, $\Cscr(\g^5)^T\Cscr^{-1}=\g^5$, $\Cscr^{\dagger}=\Cscr^{-1}=-\Cscr=\Cscr^T$, $(\Cscr(\gm)^T\Cscr^{-1})^{\dagger}=-(\gm)^{\dagger}=\Cscr(\gm)^*\Cscr^{-1}=-(\gm)^{\dagger}$, $\Cscr\g^5\Cscr^{-1}=\g^5$.
+
+结果：$P\bar\psi\psi P^{-1}=+\bar\psi\psi(t, -\vb{x})$,
+$T\bar\psi\psi T^{-1}=+\bar\psi\psi(-t, \vb{x})$,
+$C\bar\psi\psi C^{-1}=+\bar\psi\psi(t, \vb{x})$,
+$P\bar\psi\g^5\psi P^{-1}=-\bar\psi\g^5\psi(t, -\vb{x})$,
+$T\bar\psi\g^5\psi T^{-1}=-\bar\psi\g^5\psi(-t, \vb{x})$,
+$C\bar\psi\g^5\psi C^{-1}=+\bar\psi\g^5\psi(t, \vb{x})$,
+$P\bar\psi\gm\psi P^{-1}=(-1)^{\mu}\bar\psi\gm\psi(t, -\vb{x})$,
+$T\bar\psi\gm\psi T^{-1}=(-1)^{\mu}\bar\psi\gm\psi(-t, \vb{x})$,
+$C\bar\psi\gm\psi C^{-1}=-\bar\psi\gm\psi(t, \vb{x})$,
+$CPT\bar\psi\g^5\psi CPT^{-1}=+\bar\psi\g^5\psi(-t, -\vb{x})$,
+$CPT\bar\psi\psi CPT^{-1}=+\bar\psi\psi(-t, -\vb{x})$,
+$CPT\bar\psi\gm\psi CPT^{-1}=-\bar\psi\gm\psi(-t, -\vb{x})$,
+$P\bar\psi\gm\g^5\psi P^{-1}=\abs{\eta}^2\bar\psi\g^0\gm\g^5\g^0\psi=-(-1)^{\mu}\bar\psi\gm\g^5\psi$,
+$T\bar\psi\gm\g^5\psi T^{-1}=\bar\psi\Tscr^{-1}(\gm\g^5)^*\Tscr\psi=\bar\psi\Tscr^{-1}\gm^*\Tscr^{-1}\Tscr\g^5^*\Tscr\psi=\bar\psi\g_{\mu}\g^5\psi=(-1)^{\mu}\bar\psi\gm\g^5\psi$,
+$C\bar\psi\gm\g^5\psi C^{-1}=\psi^T\Cscr\gm\g^5\Cscr\bar\psi^T=\psi^T\gm^T\g^5^T\bar\psi^T=-(\bar\psi\g^5\gm\psi)^T=\bar\psi\gm\g^5\psi$,
+$P\bar\psi\s^{\mu\nu}\psi P^{-1}=\frac{i}{2}\bar\psi\g^0[\gm,\gn]\g^0\psi=\frac{i}{2}(-1)^{\mu}(-1)^{\nu}\bar\psi[\g^{\mu},\gn]\psi=(-1)^{\mu}(-1)^{\nu}\bar\psi\s^{\mu\nu}\psi$,
+$T\bar\psi\s^{\mu\nu}\psi T^{-1}=-\frac{i}{2}T\bar\psi[\gm,\gn]\psi T^{-1}=-\frac{i}{2}\bar\psi\Tscr[\gm,\gn]^*\Tscr^{-1}\psi=-(-1)^{\mu}(-1)^{\nu}\bar\psi\s^{\mu\nu}\psi$,
+$C\bar\psi\s^{\mu\nu}\psi C^{-1}=\frac{i}{2}\psi^T\Cscr[\gm,\gn]\Cscr\bar\psi^T=-\frac{i}{2}\psi^T[\gm^T,\gn^T]\bar\psi^T=\frac{i}{2}(\bar\psi[\gn,\gm]\psi)^T=-\bar\psi\s^{\mu\nu}\psi$,
+$P\bar\psi\partial_{\mu}\psi P^{-1}=(-1)^{\mu}\bar\psi\partial_{\mu}\psi$,
+$T\bar\psi\partial_{\mu}\psi T^{-1}=-(-1)^{\mu}\bar\psi\partial_{\mu}\psi$,
+$C\bar\psi\partial_{\mu}\psi C^{-1}=\bar\psi\partial_{\mu}\psi$.
+$(-1)^{\mu}=1,\mu=0;(-1)^{\mu}=-1,\mu=1,2,3$.
+
+{\bf Dirac传播子}：$\mel{0}{\psi_a(x)\bar\psi_b(y)}{0}=\intphead{p}\frac{1}{2E_{\vbp}}\sum_su^s_a(p)\bar u^s_b(p)e^{-ip\cdot(x-y)}=(i\pars_x+m)_{ab}\intphead{p}\frac{1}{2E_{\vbp}}e^{-ip\cdot(x-y)}$,
+$\mel{0}{\bar\psi_b(y)\psi_a(x)}{0}=\intphead{p}\frac{1}{2E_{\vbp}}\sum_sv^s_a(p)\bar v^s_b(p)e^{-ip\cdot(x-y)}=-(i\pars_x+m)_{ab}\intphead{p}\frac{1}{2E_{\vbp}}e^{ip\cdot(x-y)}$.
+$S_F(x-y)=\int\frac{\dd^4p}{(2\pi)^4}\frac{i(\ps+m)}{p^2-m^2+i\epsilon}e^{-ip\cdot(x-y)}$
+
+{\bf 矢量场}：$\lag_{Maxwell}=-\frac{1}{4}(F_{\mu\nu})^2-A_{\mu}(x)J^{\mu}(x)=-\frac{1}{2}(\pa_{\mu}A_{\nu})^2+\frac{1}{2}(\pa_{\mu}A^{\mu})^2-A_{\mu}J^{\mu}$. $F^{\mu\nu}=\pa^{\mu}A^{\nu}-\pa^{\nu}A^{\mu}$.
+E-L eq: $-J_{\nu}-\pa_{\mu}(-\pa^{\mu}A_\nu)-\pa_{\nu}(\pa^{\mu}A_{\mu})=0$.
+{\bf Failed}: $\lag=-\frac{1}{2}A_{\mu}(\square+m^2 )A^{\mu}$. E-L eq: $(\square+m^2)A_{\mu}=0$. $\pi^{\mu}(x)=-\dot{A}^{\mu}(x)$. 能量密度：$\varepsilon=\pi^{\mu}\dot{A}_{\mu}-\lag=-(\dot{A}_{\mu})^2+\frac{1}{2}\dot{A}_{\mu}\dot{A}^{\mu}-\frac{1}{2}\nabla A_{\mu}\cdot\nabla A^{\mu}-\frac{1}{2}m^2(A^0)^2+\frac{1}{2}m^2\vb{A}^2=-\frac{1}{2}[\dot{A}_0^2+(\nabla A_0)^2+m^2A_0^2]+\frac{1}{2}[\vb{A}^2+(\pa_i\vb{A})^2+m^2\vb{A}^2]$ 能量不囿于下.
+{\bf General Proca Lagrangian}: $\lag=-\frac{a}{2}\pa_{\nu}A_{\mu}\pa^{\nu}A^{\mu}-\frac{b}{2}\pa_{\mu}A_{\nu}\pa^{\nu}A^{\mu}+\frac{1}{2}m^2A^2-A_{\mu}J^{\mu}$.
+$\pdv{\lag}{(\pa_{\mu}A_{\nu})}=-F^{\mu\nu}$
+E-L eq: $-a\square A^{\mu}-b\pa^{\mu}(\pa_{\nu}A^{\nu})-m^2A^{\mu}=-J$.
+两边求$\pa_{\mu}$：$\Bqty{(a+b)\square+m^2}\pa\cdot A=\pa_{\mu}J^{\mu}$. $(\pa\cdot A)$是标量场，自旋为0，令$a+b=0$，$m^2\pa\cdot A=0$（无源），除掉自旋为0的自由度。取$a=1,b=-1$，$\lag_{Proca}=-\frac{1}{4}(F_{\mu\nu})^2+\frac{1}{2}m^2A^2-A_{\mu}J^{\mu}$. E-L eq: $\square A^{\mu}+m^2 A^{\mu}=J^{\mu}\Longrightarrow (\square+m^2)A^{\mu}=0,\pa\cdot A=0$.
+极化矢量：纵向：$\epsilon^3=(\frac{p_z}{m},0,0,\frac{E}{m})^T$ 横向：$\epsilon^1=(0,1,0,0)^T,\epsilon^2=(0,0,1,0)^T$ 右旋圆极化：$\epsilon^{\mu}_{(+1)}=-\frac{1}{\sqrt{2}}(0,1,i,0)^T$ 左旋圆极化：$\epsilon^{\mu}_{(-1)}=\frac{1}{\sqrt{2}}(0,1,-i,0)^T$, $\la=0$不存在（已去除），主要纵向贡献.
+正交性：$\epsilon^{\la}(p)\epsilon^{*(\la)}(p)=-\delta^{\la\la'}=g^{\la\la'}(\la=1,2,3)$
+完备性：$\sum_{\la=1,2,3}\epsilon^{(\la)}_{\mu}\epsilon^{*(\la)}_{\nu}=-g_{\mu\nu}+\frac{p_{\mu}p_{\nu}}{m^2}$
+
+{\bf 量子化Proca场}：$A_{\mu}(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{E_{\vbp}}\sum_{\la=1,2,3}[a^{(\la)}_{\vbp}\epsilon^{(\la)}_{\mu}(p)e^{-ip\cdot x}+{a^{(\la)}_{\vbp}}^{\dagger}\epsilon^{*(\la)}_{\mu}(p)e^{ip\cdot x}]$ 条件：$[a^{(\la)}_{\vbp},{a^{(\la')}_{\vbp'}}^{\dagger}]=(2\pi)^3\delta^3(\vbp-\vbp')\delta^{\la\la'}$ 单粒子态：$\ket{\vbp,\la}=\sqrt{2E_{\vbp}}{a^{(\la)}_{\vbp}}^{\dagger}\ket{0}$. $[A^i(t,\vb{x}),\pi^j(t,\vb{y})]=-i\delta^{ij}\delta^3(\vb{x-y})\Longrightarrow[A^{\mu}(t,\vb{x}),\pi^{\nu}(t,\vb{y})]=ig^{\mu\nu}\delta^3(\vb{x-y})$, $[A_{\mu}(x),A_{\nu}(y)]=[-g_{\mu\nu}-\frac{\pa_{\mu}\pa_{\nu}}{m^2}]\Delta(x-y)$ where $\Delta(x-y)=[\phi(x),\phi(y)]$.
+
+$\pi_{i}(x)=-\dot{A}_{i}-\partial_iA_0=i\int\frac{\dd^3 p}{(2\pi)^3}\sqrt{\frac{E_{\vbp}}{2}}\sum_{\lambda}[a^{\la}_{\vbp}\epsilon^{\la}_{i}(p)e^{-ip\cdot x}-{a^{\la}_{\vbp}}^{\dagger}{\epsilon^{\la}_{i}}^*(p)e^{ip\cdot x}]-i\int\frac{\dd^3 p}{(2\pi)^3}\frac{p_i}{\sqrt{2E_{\vbp}}}\sum_{\lambda}[a^{\la}_{\vbp}\epsilon^{\la}_{0}(p)e^{-ip\cdot x}-{a^{\la}_{\vbp}}^{\dagger}{\epsilon^{\la}_{0}}^*(p)e^{ip\cdot x}]$.
+
+$[A^i(x),\pi^j(y)]=i\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\sum_{\la,\la'}\Bigg\{\sqrt{\frac{E_{\vbk}}{4E_{\vbp}}}(-2)[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]\epsilon^{\la}_{i}(p){\epsilon^{\la'}_{j}}^*(k)e^{-ip\cdot x}e^{ik\cdot y}+\frac{k_j}{2\sqrt{E_{\vbp}E_{\vbk}}}[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]\epsilon^{\la}_{i}(p)e^{-ip\cdot x}{\epsilon_0^{\la'}}^*(k)e^{ik\cdot y}+\frac{k_j}{2\sqrt{E_{\vbp}E_{\vbk}}}[a^{\la'}_{\vbk},{a^{\la}_{\vbp}}^{\dagger}]\epsilon^{\la'}_{0}(k)e^{-ik\cdot y}{\epsilon_{i}^{\la}}^*(p)e^{ip\cdot x}\Bigg\}\\=i\int\frac{\dd^3p}{(2\pi)^3}\sum_{\la}\Bqty{-\epsilon^{\la}_i(p){\epsilon^{\la}_j}^*(p)e^{-ip\cdot{(x-y)}}+\frac{p_j}{2E_{\vbp}}[\epsilon^{\la}_{i}(p){\epsilon^{\la}_0}^*(p)e^{-ip\cdot{(x-y)}}+\epsilon^{\la}_0(p){\epsilon^{\la}_{i}}^*(p)e^{ip\cdot{(x-y)}}]}=i\int\frac{\dd^3p}{(2\pi)^3}\Bqty{g_{ij}-\frac{p_ip_j}{m^2}+\frac{p_j}{2E_{\vbp}}[\delta_{i0}+\frac{p_ip_0}{m^2}-\delta_{i0}+\frac{p_ip_0}{m^2}]}e^{-ip\cdot(x-y)}\\=i\int\frac{\dd^3p}{(2\pi)^3}\Bqty{g_{ij}-\frac{p_ip_j}{m^2}[1-\frac{p_0}{E_{\vbp}}]}=-i\delta^{ij}\delta^3{(\vb{x-y})}
+
+{\bf Maxwell场}：$L_{Max}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-J_{\mu}A^{\mu}$ 困难：$\epsilon^{\mu}_3=(\frac{p_z}{m},0,0,\frac{E}{m})\xrightarrow{m\rightarrow0}\infty$, $\sum\epsilon^{\mu}\epsilon^{\nu}=-g^{\mu\nu}+\frac{p^{\mu}p^{\nu}}{m^2}\rightarrow\infty$, 物理极化$3\neq2$.
+
+{\bf 量子化Maxwell场}(协变规范$\pa\cdot A=0$)：$\lag_{Max}=-\frac{1}{4}F_{\mu\nu}^2-\frac{\la}{2}(\pa\cdot A)^2-J\cdot A$ E-L eq: $\square A_{\mu}-(1-\la)\pa_{\mu}(\pa\cdot A)=0$
+费曼规范：$\la=1$, $\square A_{\mu}=0$, $\lag=-\frac{1}{2}(\pa_{\nu}A_{\mu})(\pa^{\nu}A^{\mu})$, 正则动量：$\pi^{\mu}=\pdv{\lag}{\dot{A}_{\mu}}=-\dot{A}^{\mu}(x)$. $\mathcal{H}=-\frac{1}{2}[\dot{A}_0^2+(\nabla A_0)^2]+\frac{1}{2}[\dot{\vb{A}}^2+(\pa_i\vb{A})^2]$.
+
+{\bf 矢量场算符}： $A_{\mu}(x)=\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2\abs{\vb{k}}}}\sum_{\la}(a^{\la}_{\vbk}\epsilon^{\la}_{\mu}(k)e^{-ik\cdot x}+{a^{\la}_{\vbk}}^{\dagger}{\epsilon^{\la}_{\mu}}^*(k)e^{ik\cdot x})$. $[a^{\la}(k),{a^{\la'}}^{\dagger}(p)]=-g^{\la\la'}(2\pi)^3\delta^3(\vb{k-p})$，$[A^{\mu}(t,\vb{x}),\pi^{\nu}(t,\vb{y})]=ig^{\mu\nu}\delta^3(\vb{x-y})$, others are zero.  $\vb{k}$沿z轴，$k^{\mu}=(\abs{\vbk},0,0,k)$, $\vbk\cdot\bm{\epsilon}=0$（物理极化方向与波矢正交），$\pa\cdot A\neq0\Longrightarrow k\cdot\epsilon^{(3)}\neq0，k\cdot\epsilon^{(0)}\neq0$（非物理极化方向不正交）. $\epsilon^{(0)\mu}(\vbk)\equiv n^{\mu}=(1,\vb{0})$, $\epsilon^{(3)\mu}(\vbk)=(0,\vbk)=\frac{k^{\mu}-(k\cdot n)n^{\mu}}{k\cdot n}\rightarrow\frac{k^{\mu}-(k\cdot n)n^{\mu}}{\sqrt{(k\cdot n)^2-k^2}}$(off-shell). $\epsilon_R^{\mu}=\frac{1}{\sqrt{2}}(0,1,i,0)$, $\epsilon_L^{\mu}=\frac{1}{\sqrt{2}}(0,1,-i,0)$.
+正交性：$\epsilon^{(\la)}(k)\cdot\epsilon^{(\la')}(k)=g^{\la\la'}$，完备性：$\sum_{\la=0}^3g_{\la\la}\epsilon^{(\la)}_{\mu}\epsilon^{(\la)*}_{\nu}=g_{\mu\nu}$（$\la$不求和）.
+$H=\int\frac{\dd^3k}{(2\pi)^3}\sum_{\la=0}^3\abs{\vbk}(-g_{\la\la}){a^{(\la)}_{\vbk}}^{\dagger}a^{(\la)}_{\vbk}+constant$
+真空：$a^{(\la)}_{\vbk}\ket{0}=0$, 单光子态：$\ket{\vbk,\la}=a^{(\la)\dagger}_{\vbk}\ket{0}$. Number算符：$N^{(\la)}(\vbk)=-g_{\la\la}a^{(\la)\dagger}_{\vbk}a^{(\la)}_{\vbk}$.
+负模态：$\ket{1}=\int\dd^3kf(\vbk)a^{(\la)\dagger}_{\vbk}\ket{0}$, $\braket{1}{1}=\int\dd^3k\dd^3k'f(k)f(k')\mel{0}{[a^{(\la)}_{\vbk},a^{(\la')\dagger}_{\vbk'}]}{0}=-g_{\la\la}\braket{0}{0}\int\dd^3k\abs{f(\vbk)}^2$，$\la=0$时出现负模态.
+G-B方案：初末态要求允许的态：$\pa_{\mu}A^{(+)}(x)\ket{\psi}=0=\bra{\psi}\pa_{\mu}^TA^{\mu(-)}(x)\Longrightarrow(a^{(3)}(\vbk)-a^{(0)}(\vbk))\ket{\psi}=0\Longrightarrow k\cdot\epsilon^{(0)}=k\cdot n=\abs{\vbk},k\cdot\epsilon^{(3)}=-\frac{(k\cdot n)^2}{k\cdot n}=-\abs{\vbk}$.
+{\bf 矢量场传播子}：$D^{\mu\nu}_F(x-y)\equiv\mel{0}{T[A^{\mu}(x)A^{\nu}(y)]}{0}$. $\mel{0}{A^{\mu}(x)A^{\nu}(y)}{0}=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2\abs{\vbp}}e^{-ip\cdot(x-y)}(-g^{\mu\nu})$. $D^{\mu\nu}_F(x-y)=-g^{\mu\nu}\{\theta(x^0-y^0)\int\frac{\dd^3p}{(2\pi)^32\abs{\vbp}}e^{-ip\cdot(x-y)}+\theta(y^0-x^0)\int\frac{\dd^3p}{(2\pi)^3\abs{\vbp}}e^{ip\cdot(x-y)}\}=-g_{\mu\nu}D_F(x-y)$, $\tilde D^{\mu\nu}(k)=(-g^{\mu\nu})\frac{i}{k^2+i\epsilon}$.
+
+{\bf S矩阵元}：$S_{\b\a}=\braket{\b_{out}}{\a_{in}}_{Heisenberg}$, $S_{fi}=\braket{f}{\psi(\infty)}=\mel{f}{U(\infty,-\infty)}{i}=\mel{f}{S_I}{i}$,
+interaction picture: $i\dv{t}U(t_f,t_i)=H_I(t_f)U(t_f,t_i)$,
+$\ket{\psi(t)}_I=\ket{i}+(-i)\int_{-\infty}^{t}\dd t_1H_I(t_1)\ket{\psi(t_1)}_I\\=\ket{i}+(-i)\int_{-\infty}^{t}\dd t_1H_I(t_1)(\ket{i}+(-i)\int_{-\infty}^{t_1}\dd t_2H_I(t_2)\ket{\psi(t_2)}_I)$,
+$S=\sum_{n=0}^{\infty}(-i)^n\int_{-\infty}^{t}\dd t_1\int_{-\infty}^{t_1}\dd t_2 \cdots\int_{-\infty}^{t_{n-1}}\dd t_n H_I(t_1)H_I(t_2)\cdots H_I(t_n) $,
+$\int_{t_0}^{t}\dd t_1\int_{t_0}^{t_1}\dd t_2  H_I(t_1)H_I(t_2),\;\;t_1>t_2=\int_{t_0}^{t}\dd t_2\int_{t_0}^{t_2}\dd t_1  H_I(t_2)H_I(t_1),\;\;t_2>t_1=\frac{1}{2}\int_{t_0}^{t}\dd t_1\int_{t_0}^{t}\dd t_2  T\{H_I(t_1)H_I(t_2)\}$,
+$S=\sum_{n=0}^{\infty}\frac{(-i)^n}{2^n}\int_{-\infty}^{t}\dd t_1\int_{-\infty}^{t}\dd t_2 \cdots\int_{-\infty}^{t}\dd t_n T\{H_I(t_1)H_I(t_2)\cdots H_I(t_n)\}|_{t=\infty}=Te^{-i\int_{-\infty}^{\infty}\dd tH_I(t)}=Te^{i\int_{-\infty}^{\infty}\dd^4 x\lag_I(x)}$.
+
+{\bf LIPS}: $\dd\Phi_{N_{\beta}}=\prod_{f=1}^{N_{\beta}}\frac{\dd^3p_f}{(2\pi)^32E_{\vb{p}}}\delta^4(\sum_{N_{\alpha}}p_{\alpha}-\sum_{N_{\beta}} p_{\beta})$. $\dd\Phi=\frac{\dd^3p_1\dd^3p_2}{(2\pi)^62E_{\vb{p_1}}2E_{\vb{p_2}}}\delta^4(\sum_{N_{\alpha}}p_{\alpha}-\sum_{N_{\beta}} p_{\beta})=\frac{p_1^2\dd p_1\dd\Omega}{(2\pi)^62E_12E_2}\delta(M-E_1-E_2)$ and $\delta(M-E_1-E_2)=\abs{\dv{(M-E_1-E_2)}{p_1}}^{-1}_{p_1=p_0}\delta(p_1-p_0)=\frac{E_1E_2}{p_0(E_1+E_2)}\delta(p_1-p_0)$ where $p_0$ is the solution of $f(p_1)=M-E_1-E_2=0$ $\dd\Phi=\frac{p_0^2\dd\Omega}{(2\pi)^62E_12E_2}\frac{E_1E_2}{p_0(E_1+E_2)}=\frac{p_0}{(2\pi)^34M}\dd\Omega$
+
+{\bf Wick定理}：$\contraction{}{\phi}{(x)}{\ket{\vbp}}\phi(x)\ket{\vbp}=e^{-ip\cdot x}$, $\contraction{}{\bra{\vbp}}{}{\phi}\bra{\vbp}\phi(x)=e^{ip\cdot x}$. $\contraction{}{\psi}{(x)}{\ket{\vbp}}\psi(x)\ket{\vbp,s}=e^{-ip\cdot x}u^s(p)\ket{0}$, $\contraction{}{\bra{\vbp}}{,s}{\bar\psi}\bra{\vbp,s}{\bar}\psi(x)=\bra{0}\bar u^s(p)e^{ip\cdot x}$.
+Fermion: $N(\contraction{}{\psi}{_1\psi_2}{\bar\psi}\psi_1\psi_2\bar\psi_3\bar\psi_4)=-\contraction{}{\psi}{_1}{\bar\psi_3}\psi_1\bar\psi_3N(\psi_2\bar\psi_4) $
+以Yukawa为例：$\contraction{}{\bra{\vbp'}}{\vbk'(\bar\psi\psi)_x(}{\bar\psi}\contraction[2ex]{\vbk'}{\bra{\vbk'}}{(}{\bar\psi}\contraction[2ex]{\bra{\vbp'\vbk'}(\bar\psi}{\psi}{)_x(\bar\psi\psi)_y\vbp}{\ket{\vbk}}\contraction{\bra{\vbp'\vbk'}(\bar\psi\psi)_x(\bar\psi}{\psi}{)_y}{\ket{\vbp}}  \bra{\vbp'\vbk'}(\bar\psi\psi)_x(\bar\psi\psi)_y\ket{\vbp\vbk}$
+$\sim\mel{0}{\contraction{}{a_{\vbp'}}{a_{\vbk'}(\bar\psi\psi)_x(}{\bar\psi}\contraction[2ex]{a_{\vbk'}}{a_{\vbk'}}{(}{\bar\psi}\contraction[2ex]{a_{\vbp'}a_{\vbk'}(\bar\psi}{\psi}{)_x(\bar\psi\psi)_ya_{\vbk}^{\dagger}}{a_{\vbk}^{\dagger}}\contraction{a_{\vbk'}a_{\vbp'}(\bar\psi\psi)_x(\bar\psi}{\psi}{)_y}{a_{\vbp}^{\dagger}}  a_{\vbp'}a_{\vbk'}(\bar\psi\psi)_x(\bar\psi\psi)_ya_{\vbp}^{\dagger}a_{\vbk}^{\dagger}}{0}$
+move to $+\mel{0}{\contraction[2ex]{}{a}{_{\vbp'}a_{\vbp'}\bar\psi_x}{\bar\psi}\contraction{a_{\vbp'}}{a}{_{\vbp'}}{\bar\psi}\contraction[2ex]{a_{\vbk'}a_{\vbp'}\bar\psi_y\bar\psi_x}{\psi}{_x\psi_ya_{\vbp}^{\dagger}}{a}\contraction{a_{\vbk'}a_{\vbp'}\bar\psi_y\bar\psi_x\psi_x}{\psi}{_y}{a}  a_{\vbk'}a_{\vbp'}\bar\psi_y\bar\psi_x \psi_x\psi_y a_{\vbp}^{\dagger}a_{\vbk}^{\dagger}}{0}$
+and $\contraction{\vbk'}{\bra{\vbp'}}{(\bar\psi\psi)_x(}{\bar\psi}\contraction[2ex]{}{\bra{\vbk'}}{\vbk'(}{\bar\psi}\contraction[2ex]{\bra{\vbp'\vbk'}(\bar\psi}{\psi}{)_x(\bar\psi\psi)_y\vbp}{\ket{\vbk}}\contraction{\bra{\vbp'\vbk'}(\bar\psi\psi)_x(\bar\psi}{\psi}{)_y}{\ket{\vbp}}  \bra{\vbp'\vbk'}(\bar\psi\psi)_x(\bar\psi\psi)_y\ket{\vbp\vbk}$ with a minus sign.
+
+{\bf 费曼规则}：Scalar: in: $\contraction{}{\phi}{}{\ket{\vbp}}\phi\ket{\vbp}=1$ out: $\contraction{}{\bra{\vbp}}{}{\phi}\bra{\vbp}\phi=1$.
+Fermion: in: $\contraction{}{\psi}{}{\ket{\vbp}}\psi\ket{\vbp,s}=u^s(p)$ out: $\contraction{}{\bra{\vbp}}{,s}{\bar\psi}\bra{\vbp,s}{\bar}\psi=\bar u^s(p)$
+Anti-fermion: in: $\contraction{}{\psi}{}{\ket{\vbp}}\psi\ket{\vbp,s}=\bar v^s(p)$ out: $\contraction{}{\bra{\vbp}}{,s}{\bar\psi}\bra{\vbp,s}{\bar}\psi=v^s(p)$
+Photon: in: $\contraction{}{A}{_{\mu}}{\ket{\vbp}}A_{\mu}\ket{\vbp}=\epsilon_{\mu}(p)$ out: $\contraction{}{\bra{\vbp}}{}{A}\bra{\vbp}A_{\mu}=\epsilon^*_{\mu}(p)$.
+
+{\bf Trace Technology}:
+$\operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu })=4\eta ^{\mu \nu }$,
+$\tr[\g^{\a}\gm\g^{\b}\gn]=4(g^{\a\mu}g^{\b\nu}-g^{\a\b}g^{\mu\nu}+g^{\a\nu}g^{\mu\b})$,
+$\tr{\g^5}=0$,
+$\tr{\g^5\gm\gn}=0$,
+$\tr{\g^5\gm\gn\gr\gs}=-4i\epsilon^{\mu\nu\rho\s}$,
+$\gamma ^{\mu }\gamma _{\mu }=4$,
+$\gamma ^{\mu }\gamma ^{\nu }\gamma _{\mu }=-2\gamma ^{\nu }$,
+$\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma _{\mu }=4\eta ^{\nu \rho }$,
+$\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma }\gamma _{\mu } =-2\gamma ^{\sigma }\gamma ^{\rho }\gamma ^{\nu }$,
+$\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }=\eta ^{\mu \nu }\gamma ^{\rho }+\eta ^{\nu \rho }\gamma ^{\mu }-\eta ^{\mu \rho }\gamma ^{\nu }-i\epsilon ^{\sigma \mu \nu \rho }\gamma _{\sigma }\gamma ^{5}$,
+trace of $\gamma ^{5}} $ times a product of an odd number of $\gamma ^{\mu }$ is still zero,
+$\operatorname {tr} (\gamma ^{\mu 1}\dots \gamma ^{\mu n})=\operatorname {tr} (\gamma ^{\mu n}\dots \gamma ^{\mu 1})$,
+$a\!\!\!/b\!\!\!/=a\cdot b-ia_{\mu }\sigma ^{\mu \nu }b_{\nu }$,
+$ a\!\!\!/a\!\!\!/=a^{\mu }a^{\nu }\gamma _{\mu }\gamma _{\nu }={\frac {1}{2}}a^{\mu }a^{\nu }(\gamma _{\mu }\gamma _{\nu }+\gamma _{\nu }\gamma _{\mu })=\eta _{\mu \nu }a^{\mu }a^{\nu }=a^{2}$,
+$\operatorname {tr} (a\!\!\!/b\!\!\!/)=4(a\cdot b)$,
+$\operatorname {tr} (a\!\!\!/b\!\!\!/c\!\!\!/d\!\!\!/)=4\left[(a\cdot b)(c\cdot d)-(a\cdot c)(b\cdot d)+(a\cdot d)(b\cdot c)\right]$,
+$\operatorname {tr} (\gamma _{5}a\!\!\!/b\!\!\!/c\!\!\!/d\!\!\!/)=-4i\epsilon _{\mu \nu \rho \sigma }a^{\mu }b^{\nu }c^{\rho }d^{\sigma }$,
+$\gamma _{\mu }a\!\!\!/\gamma ^{\mu }=-2a\!\!\!/$,
+$\gamma _{\mu }a\!\!\!/b\!\!\!/\gamma ^{\mu }=4a\cdot b$,
+$\gamma _{\mu }a\!\!\!/b\!\!\!/c\!\!\!/\gamma ^{\mu }=-2c\!\!\!/b\!\!\!/a\!\!\!/$,
+$(\bar v\gm u)^*=\bar u\gm v$, $\bar uu=\tr{u\bar u}$.
+
+
+
+
+
+{\bf 两体散射}：$e^-\mu^-\rightarrow e^-\mu^-$: $i\mathcal{M}=(ie^2)\bar u^s(p)\gm u^{s'}(p')\frac{g_{\mu\nu}}{q^2}\bar u^{r}(k)\gn u^{r}(k')$, $\dv{\s}{\Omega}|_{CM}=\frac{1}{2E_p2E_{k}\abs{v_p-v_{k}}}\frac{\abs{\vb{p'}}}{(2\pi)^24E_{CM}}\frac{1}{4}\sum_{spins}\abs{\mathcal{M}}^2$, 质量全等：$\dv{\s}{\Omega}|_{CM}=\frac{\abs{\mathcal{M}}^2}{64\pi^2E_{CM}^2}$.
+
+$\frac{1}{4}\sum_{spins}\abs{\mathcal{M}}^2=\frac{e^4}{4q^4}\tr{(\ps+m_e)\gm(\ps'+m_e)\gn}\tr{(\ks+m_{\mu})\g_{\mu}(\ks'+m_{\mu})\g_{\nu}}
+  =\frac{e^4}{4q^4}[4(p^{\mu} p'^{\nu}+p'^{\mu}p^{\nu}-p\cdot p'g^{\mu\nu})+4m_e^2g^{\mu\nu}][4(k^{\mu}k'^{\nu}+k'^{\mu}k^{\nu}-k\cdot k'g_{\mu\nu})+4m_{\mu}^2g_{\mu\nu}]
+  =\frac{4e^4}{q^4}[p^{\mu} p'^{\nu}+p'^{\mu}p^{\nu}-p\cdot p'g^{\mu\nu}+m_e^2g^{\mu\nu}][k^{\mu}k'^{\nu}+k'^{\mu}k^{\nu}-k\cdot k'g_{\mu\nu}+m_{\mu}^2g_{\mu\nu}]
+  =\frac{4e^4}{q^4}[p^{\mu} p'^{\nu}+p'^{\mu}p^{\nu}-p\cdot p'g^{\mu\nu}][k^{\mu}k'^{\nu}+k'^{\mu}k^{\nu}-k\cdot k'g_{\mu\nu}+m_{\mu}^2g_{\mu\nu}]
+  =\frac{4e^4}{q^4}[(p\cdot k)(p'\cdot k')+(p\cdot k')(p'\cdot k)-(p\cdot p')(k\cdot k')+m_{\mu}^2(p\cdot p')+(p'\cdot k)(p\cdot k')+(p'\cdot k')(p\cdot k)-(p'\cdot p)(k\cdot k')
+  +m_{\mu}^2(p'\cdot p)-(p\cdot p')(k\cdot k')-(p\cdot p')(k\cdot k')+4(p\cdot p')(k\cdot k')-4m^2_{\mu}(p\cdot p')]
+  =\frac{8e^4}{q^4}[(p\cdot k)(p'\cdot k')+(p\cdot k')(p'\cdot k)-m_{\mu}^2(p\cdot p')]$
+
+$p=(\omega,\omega\hat z), k=(E_k,-\omega\hat z), p'=(\omega,-\omega\sin\theta,0,-\omega\cos\theta), k'=(E_k,\omega\sin\theta,0,\omega\cos\theta)$, $p\cdot k=\omega E_k+\omega^2, p'\cdot k'=\omega(\omega+E_k), E_k^2=\omega^2+m_{\mu}^2, p\cdot k'=\omega E_k-\omega^2\cos\theta, p'\cdot k=\omega E_k-\omega^2\cos\theta,p\cdot p'=\omega^2(1+\cos\theta), q^2=(p'-p)^2=2\omega^2(1-\cos\theta)$
+
+$\dv{\s}{\Omega}|_{CM}=\frac{1}{2(\omega+E_k)^2}\frac{\alpha^2}{\omega^2(1-\cos\theta)^2}[(E_k+\omega)^2+(E_k-\omega\cos\theta)^2-m_{\mu}^2(1+\cos\theta)]\xLongrightarrow{\text{high energy limit}}\frac{1}{2E_{CM}^2}\frac{\alpha^2}{(1-\cos\theta)^2}[4+(1-\cos\theta)^2]$
+
+{\bf Compton散射}($pk\rightarrow p'k'$)：$p^2=p'^2=m^2,k^2=k'^2=0$, $(p+k)^2-m^2=2p\cdot k,(p-k')^2-m^2=-2p\cdot k', (\ps+m)\gn u(p)=(2p^{\nu}-\gn\ps+m\gn)u(p)=2p^{\nu}u(p)$.
+
+$i\mathcal{M}=\bar u(p')(-ie\gm)\epsilon_{\mu}^*(k')\frac{i(\qs+m)}{q^2-m^2}(-ie\gn)u(p)\epsilon_{\nu}(k)+\bar u(p')(-ie\gn)\epsilon_{\nu}(k)\frac{i(\qs+m)}{q^2-m^2}(-ie\gm)u(p)\epsilon_{\mu}^*(k')=-ie^2\epsilon^*_{\mu}(k')\epsilon_{\nu}(k)\bar u(p')\bqty{\frac{\gm(\ps+\ks+m)\gn}{(p+k)^2-m^2}+\frac{\gn(\ps-\ks'+m)\gm}{(p-k')^2-m^2}}u(p)$,
+
+$i\mathcal{M}=-ie^2\epsilon^*_{\mu}(k')\epsilon_{\nu}(k)\bar u(p')[\frac{\gm\ks\gn+2\gm p^{\nu}}{2p\cdot k}+\frac{\gn\ks'\gm-2\gn p^{\mu}}{2p\cdot k'}]u(p)$
+
+{\bf 费曼参数化}：$\frac{1}{AB}=\int_0^1\dd x\frac{1}{[xA+(1-x)B]^2}$, $\frac{1}{AB^n}=\int_0^1\dd x\frac{n(1-x)^{n-1}}{[xA+(1-x)B]^{n+1}}$, $\frac{1}{A_1A_2\cdots A_n}=\int_0^1\dd x_1\cdots \dd x_n\delta(\sum x_i-1)\frac{(n-1)!}{[x_1A_1+x_2A_2+\cdots x_nA_n]^n}$.
+
+$i\mathcal{M}_2=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\int^1_0\dd x\frac{1}{[x(p-k)^2+(1-x)k^2]^2}=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\int^1_0\dd x\frac{1}{[xp^2-2xp\cdot k+k^2]^2}\xrightarrow{k\rightarrow k+xp}=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\int^1_0\dd x\frac{1}{[xp^2-2xp\cdot (k+xp)+(k+xp)^2]^2}=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\int^1_0\dd x\frac{1}{[k^2+x(1-x)p^2+i\epsilon]^2}$.
+Wick rotation: $k^0\rightarrow ik^0_E,\vb{k}=\vb{k_E},k^2=-k^2_E$. $\Delta\equiv-x(1-x)p^2-i\epsilon$. $\int_0^1\dd x\frac{-x(1-x)p^2-i\epsilon}{\Lambda}=\frac{p^2}{3\Lambda}-\frac{p^2}{2\Lambda}-\frac{i\epsilon}{\Lambda}$,$\int_0^1\dd x\ln{(-x(1-x)p^2-i\epsilon)}=-2+\ln{(p^2)+i\pi}$
+
+{\bf 维数正规化}：Replace the dimension with d:
+$\int\frac{\dd^dk_E}{(2\pi)^d}\int^1_0\dd x\frac{1}{[k_E^2+\Delta]^2}$,
+$\int\dd\Omega_d=\frac{2\pi^{d/2}}{\Gamma(d/2)}$, $\int_0^1\dd xx^{\alpha-1}(1-x)^{\beta-1}=B(\a,\b)=\frac{\Gamma(\a)\Gamma(\b)}{\G(\a+\b)}$,
+
+$\int\frac{\dd^dk_E}{(2\pi)^d}\frac{1}{[k_E^2+\Delta]^2}=\int\frac{\dd\Omega_d}{(2\pi)^d}\dd k_E\frac{k_E^{d-1}}{[k_E^2+\Delta]^2}=\frac{1}{(4\pi)^{d/2}\Gamma(d/2)}\int_0^{\infty}\dd k_E\frac{k_E^{d/2-1}}{[k_E+\Delta]^2}=\frac{1}{(4\pi)^{d/2}\Gamma(d/2)}\int_{1}^{0}\dd l\frac{-\Delta}{l^2}\frac{l^2}{\Delta^2}(\Delta\frac{1-l}{l})^{d/2-1}=\frac{\G(2-d/2)}{(4\pi)^{d/2}\G(2)}\Delta^{d/2-2}\xrightarrow{d\rightarrow4}\frac{\frac{2}{\epsilon}-\g+\mathcal{O}(\epsilon)}{(4\pi)^{2}}(1-\frac{1}{2}\ln{\frac{\Delta}{4\pi}}\epsilon+\mathcal{O}(\epsilon^2))=\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g-\ln{\Delta}+\ln{4\pi}+\mathcal{O}(\epsilon))$ where $l=\Delta/(k_E+\Delta)$, $\G(2-d/2)=\G(\epsilon/2)=\frac{2}{\epsilon}-\g+\mathcal{O}(\epsilon)$.
+
+
+
+\end{document}

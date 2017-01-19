@@ -1,0 +1,307 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{luatexja-fontspec}
+
+\setmainjfont[BoldFont=SimHei]{SimSun}
+\setsansjfont{SimHei}
+
+%\usepackage{CJK}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\bP}{\vb{P}}
+\newcommand{\bA}{\vb{A}}
+\newcommand{\ba}{\boldsymbol{\alpha}}
+\newcommand{\po}{\vb{p}_1}
+\newcommand{\ps}{\vb{p}_2}
+\newcommand{\apo}{\abs{\vb{p}_1}}
+\newcommand{\aps}{\abs{\vb{p}_2}}
+
+\title{Homework: Particle Physics}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+
+{\bf1.} The force range and characteristic interaction time for all three types of interaction but gravity are
+
+\begin{center}
+\begin{tabular}{ccc}
+  \hline
+  &Force Range&Characteristic interaction time\\\hline
+  Strong interaction&1 fm&$1\times10^{-23}$ s\\\hline
+  Electromagnetic interaction&$\infty$&$1\times10^{-16}$ s\\\hline
+  Weak interaction&1/400 fm&$1\times10^{-10}$ s\\\hline
+\end{tabular}
+\end{center}
+
+{\bf2.} For electron in an EM field, Dirac equation can be written as\cite{JINYAN}
+\begin{align}
+  [i\pdv{t}+e\phi-\ba\cdot(\bP+e\bA)-m\beta]\psi=0
+\end{align}
+where $\bP=-i\nabla$.
+Set
+\begin{align*}
+  \psi=\pmqty{\varphi\\\chi}e^{-imt}
+\end{align*}
+so that the certain part of electron rest mass can be removed. Then we have
+\begin{align*}
+  i\pdv{t}\varphi&=\bm{\sigma}\cdot(\bP+e\bA)\chi-e\phi\varphi\\
+  i\pdv{t}\chi&=\bm{\sigma}\cdot(\bP+e\bA)\varphi-e\phi\chi-2m\chi\\
+\end{align*}
+At nonrelativistic limit, we have
+\begin{align}\label{2}
+  \chi\approx\frac{1}{2m}\bm{\sigma}\cdot(\bP+e\bA)\varphi
+\end{align}
+where $\chi/\varphi\ll1$. Then
+\begin{align*}
+  i\pdv{t}\varphi&=\frac{1}{2m}\bqty{\bm{\sigma}\cdot(\bP+e\bA)}^2\varphi-e\phi\varphi
+\end{align*}
+Using
+\begin{align*}
+  \bqty{\bm{\sigma}\cdot(\bP+e\bA)}^2&=(\bP+e\bA)^2+i\bm{\sigma}\cdot\bqty{(\bP+e\bA)\times(\bP+e\bA)}\\
+  &=(\bP+e\bA)^2+ie\bm{\sigma}\cdot\bqty{\bP\times\bA+\bA\times\bP}\\
+  &=(\bP+e\bA)^2+e\bm{\sigma}\cdot(\nabla\times\bA)\\
+  &=(\bP+e\bA)^2+e\bm{\sigma}\cdot\bm{B}
+\end{align*}
+Then \eqref{2} becomes
+\begin{align*}
+  i\pdv{t}\varphi&=\bqty{\frac{1}{2m}(\bP+e\bA)^2+\frac{e}{2m}\bm{\sigma}\cdot\bm{B}-e\phi}\varphi\\
+  &=\bqty{\frac{1}{2m}(\bP+e\bA)^2-\bm{\mu}\cdot\bm{B}-e\phi}\varphi
+\end{align*}
+where $\bm{\mu}=-\frac{e\hbar}{2mc}\bm{\sigma}$ (in our previous calculation $\hbar=c=1$) is the intrinsic magnetic moment of electron.
+
+{\bf3.} From the definition of Breit-Wigner formula, we have the distribution function for decay to a specific quantum state
+\begin{align}\label{3}
+  P(E)=\frac{1}{2\pi}\frac{\Gamma}{(E-M)^2+\Gamma^2/4}
+\end{align}
+and also
+\begin{align*}
+  \Gamma=\frac{1}{\tau}
+\end{align*}
+
+\eqref{3} can be proved by (using some inturtive fourier transformations)
+\begin{align*}
+  \psi(M)=\int_{-\infty}^{\infty}\frac{\dd t}{\sqrt{2\pi}}e^{iMt}\ket{t}=\int_{-\infty}^{\infty}\frac{\dd t}{\sqrt{2\pi}}e^{iMt}e^{-i(m-i\frac{\Gamma}{2})t}\ket{0}=\frac{1}{\sqrt{2\pi}}\frac{1}{(M-m)+i\frac{\Gamma}{2}}
+\end{align*}
+and the mass distribution function would be
+\begin{align*}
+  \rho(M)\equiv\Gamma\psi(M)\psi^*(M)=\frac{1}{2\pi}\frac{\Gamma}{(E-M)^2+\Gamma^2/4}
+\end{align*}
+More strict prove can be found in B.R.Martin's \emph{Particle Physics} which I briefly listed in the end of this problem.
+
+With the rest mass $M$ and the lifetime $\tau$ of the particle, the distribution function would be
+\begin{align}
+    P(E)=\frac{1}{2\pi}\frac{\Gamma}{(E-M)^2+1/\pqty{4\tau^2}}
+\end{align}
+
+Prove\cite{IHP} of \eqref{3}: We choose the wavefunctions of possible final states to be orthonormal, the wavefunction describes state of any timestamp can be expanded by
+\begin{align*}
+  \boldsymbol{\Psi}(\vb{r},t)=\sum_{n=0}^{\infty}a_n(t)e^{-iE_nt}\psi_n(\vb{r})
+\end{align*}
+where
+\begin{align*}
+  a_0(0)=1,\;\;\;\;\;a_n(0)=0(n\geq1)
+\end{align*}
+and
+\begin{align*}
+  E_n=H_{nn}=\int\psi^*_nH\psi_n\dd x
+\end{align*}
+To determine the time dependency of $a_n(t)$, we use the Schr\"odinger equation
+\begin{align*}
+  i\pdv{\boldsymbol{\Psi}}{t}=H\boldsymbol{\Psi}
+\end{align*}
+and
+\begin{align*}
+  \sum_m\Bqty{i\dv{a_m}{t}e^{-iE_mt}\psi_m+E_ma_me^{-iE_mt}\psi_m}=\sum_ma_me^{-iE_mt}H\psi_m
+\end{align*}
+which gives (assuming terms when $n\neq m$ are small except for the first)
+\begin{align*}
+  i\dv{a_n}{t}=H_{n0}e^{-i(E_0-E_n)t}a_0
+\end{align*}
+and also we evaluate this problem in the rest frame for the decaying particle, and asuume $a_0(t)=e^{-\Gamma t/2}$ which consist with the exponential decay law. Now we have
+\begin{align*}
+  ia_n=-iH_{n0}\Bqty{\frac{e^{-i[(M-E_n)-i\Gamma/2]t}-1}{(E_n-M)+i\Gamma/2}}\xlongequal{t\gg1/\Gamma}\frac{iH_{n0}}{(E_n-M)+i\Gamma/2}
+\end{align*}
+Now the probability would be
+\begin{align*}
+  P_n=a_n^2=\frac{\abs{H_{n0}}^2}{(E_n-M)^2+\Gamma^2/4}=\frac{2\pi}{\Gamma}\abs{H_{n0}}^2P(E_n-M)
+\end{align*}
+where
+\begin{align*}
+  P(E_n-M)=\frac{\Gamma/2\pi}{(E-M)^2+\Gamma^2/4}
+\end{align*}
+We can verify it's normalized.
+
+{\bf4.} For unstable particles with long enough lifetime to be tracked, their lifetime can be calculated using simple Lorentz invariance property
+\begin{align*}
+  m\tau=Et-pL=E\frac{L}{v}-pL=E^2\frac{L}{p}-pL=\frac{m^2L}{p}
+\end{align*}
+which means we can estimate the particle lifetime by $\tau=\frac{mL}{p}$.
+
+{\bf5.} The mass of $J/\psi$ particle is 3.1GeV, and which of electron is 0.5MeV. To produce $J/\psi$ particle in $e^+e$ collision, we have
+\begin{align*}
+  M=3.1\text{GeV},\;\;m=0.5\text{MeV}
+\end{align*}
+and in center-of-mass frame
+\begin{align*}
+  4E^2\geq M^2
+\end{align*}
+where $E$ is the energy of one electron/positron. Note that
+\begin{align*}
+  E=\gamma m=\frac{1}{\sqrt{1-\beta^2}}m
+\end{align*}
+So we have
+\begin{align*}
+  \frac{1}{\sqrt{1-\beta^2}}m\geq2M
+\end{align*}
+which gives
+\begin{align*}
+  \beta\geq\sqrt{1-\frac{m^2}{4M^2}}\approx0.99999999024453693539961460987023
+\end{align*}
+And that's the minimum velocity electron/positron must go.
+
+{\bf6.} The Mandelstam variables can be expressed by
+\begin{align}
+  s=(p_1+p_2)^2=(p_3+p_4)^2\\
+  t=(p_1-p_3)^2=(p_2-p_4)^2\\
+  u=(p_1-p_4)^2=(p_2-p_3)^2
+\end{align}
+From which we have (in CM frame)
+\begin{align*}
+  s+t+u&=(p_1+p_2)^2+(p_1-p_3)^2+(p_1-p_4)^2\\
+  &=3p_1^2+p_2^2+p_3^2+p_4^2+2p_1p_2-2p_1p_3-2p_1p_4
+\end{align*}
+Assuming
+\begin{align*}
+  p_1=(E_1,\vb{p_1}),\;\;p_2=(E_2,\vb{p_2})&,\;\;p_3=(E_3,\vb{p_3}),\;\;p_4=(E_4,\vb{p_4})\\
+  E_1+E_2=E_3+E_4&,\;\;\vb{p_1}+\vb{p_2}=\vb{p_3}+\vb{p_4}
+\end{align*}
+and
+\begin{align*}
+  s+t+u&=3p_1^2+p_2^2+p_3^2+p_4^2+2p_1p_2-2p_1p_3-2p_1p_4\\
+  &=3p_1^2+p_2^2+p_3^2+p_4^2+2E_1(E_2-E_3-E_4)-2\vb{p_1}(\vb{p_2}-\vb{p_3}-\vb{p_4})\\
+  &=3p_1^2+p_2^2+p_3^2+p_4^2-2E_1^2+2\abs{\vb{p_1}}^2\\
+  &=p_1^2+p_2^2+p_3^2+p_4^2\\
+  &=m_1^2+m_2^2+m_3^2+m_4^2
+\end{align*}
+
+{\bf7.} For branch $A\rightarrow BC$, the partial width is\cite{IHP}
+\begin{align*}
+  \Gamma(A\rightarrow BC)=\frac{g_{ABC}^2}{8\pi}\frac{\abs{p_B}}{M_A^2}
+\end{align*}
+If $A$ is an unstable particle with width $\Gamma$, from Breit-Wigner formula, we have
+\begin{align}
+  P_f(E)=\frac{1}{2\pi}\frac{\Gamma_f}{(E-M)^2+\Gamma^2/4}
+\end{align}
+which satisfies normalization $\int_{-\infty}^{\infty}\dd E P_f(E)=1$. Considering the momentum of particle B is (using the fact that B and C have the same mass, which means they have opposite momentums, and we choose the centre-of-mass frame of A)
+\begin{align*}
+  p_B=\sqrt{{\pqty{\frac{E}{2}}}^2-M_B^2}
+\end{align*}
+Then the decay width becomes
+\begin{align*}
+  \Gamma&=\frac{g_{ABC}^2}{8\pi}\int_{-\infty}^{\infty}\dd E P_f(E)\frac{p_B}{E^2}\\
+  &=\frac{g_{ABC}^2}{8\pi}\int_{-\infty}^{\infty}\dd E \frac{1}{2\pi}\frac{\Gamma_f}{(E-M_A)^2+\Gamma^2/4}\frac{p_B}{E^2}\\
+  &=\frac{g_{ABC}^2}{16\pi^2}\int_{-\infty}^{\infty}\dd E \frac{\Gamma_f}{(E-M_A)^2+\Gamma^2/4}\frac{\sqrt{{\pqty{\frac{E}{2}}}^2-M_B^2}}{E^2}
+\end{align*}
+
+{\bf8.} 3-particle decay phase space integrals can be derived as follows\cite{MPP}:
+
+First we know that the gengeral non-relativistic expression for N-body phase space is
+\begin{align}
+  \dd n=(2\pi)^3 \prod_{i=1}^{N}\frac{\dd^3\vb{p}_i}{(2\pi)^3}\delta^3\pqty{\vb{p}_{a}-\sum_{i=1}^{N}\vb{p}_i}
+\end{align}
+where $\vb{p}_a$ is the momentum of the decaying particle. (This expression can be derived easily from the phase space volume of each particle.) According to Fermi's golden rule (and notice the $(2E_i)^{1/2}$ ratio difference between $\mathcal{M}_{fi}$ and $T_{fi}$), the decay rate can be written as
+\begin{align}
+  \Gamma_{fi}=\frac{(2\pi)^4}{2E_a}\int\abs{\mathcal{M}_{fi}}^2\delta(E_a-\sum_{i=1}^NE_i)\delta^3(\vb{p}_a-\sum_{i=1}^N\vb{p}_i)\prod_{i=1}^N\frac{\dd^3\vb{p}_i}{(2\pi)^32E_i}
+\end{align}
+So for 3-particle decay the decay rate can be written as
+\begin{align*}
+  \Gamma_{fi}=\frac{(2\pi)^4}{2E_a}\int\abs{\mathcal{M}_{fi}}^2\delta(E_a-E_1-E_2-E_3)\delta^3(\vb{p}_a-\vb{p}_1-\vb{p}_2-\vb{p}_3)\frac{\dd^3\vb{p}_1}{(2\pi)^32E_1}\frac{\dd^3\vb{p}_2}{(2\pi)^32E_2}\frac{\dd^3\vb{p}_3}{(2\pi)^32E_3}
+\end{align*}
+Now we consider it in the centre-of-mass frame of the decaying particle A, which means $E_a=m_a$ and $\vb{p}_a=0$. Through the integration of delta function and $\dd^3\vb{p}_3$, we have
+\begin{align*}
+  \Gamma_{fi}&=\frac{(2\pi)^4}{2m_a}\int\abs{\mathcal{M}_{fi}}^2\delta(m_a-E_1-E_2-E_3)\delta^3(\vb{p}_1+\vb{p}_2+\vb{p}_3)\frac{\dd^3\vb{p}_1}{(2\pi)^32E_1}\frac{\dd^3\vb{p}_2}{(2\pi)^32E_2}\frac{\dd^3\vb{p}_3}{(2\pi)^32E_3}\\
+  &=\frac{(2\pi)^4}{2m_a}\int\abs{\mathcal{M}_{fi}}^2\delta(m_a-E_1-E_2-E_3)\frac{\dd^3\vb{p}_1}{(2\pi)^32E_1}\frac{\dd^3\vb{p}_2}{(2\pi)^32E_2}\frac{1}{(2\pi)^32E_3}\\
+  &=\frac{1}{2^4m_a(2\pi)^5}\int\frac{\abs{\mathcal{M}_{fi}}^2}{E_1E_2E_3}\delta(m_a-E_1-E_2-E_3)\dd^3\vb{p}_1\dd^3\vb{p}_2\\
+  &=\frac{1}{2^4m_a(2\pi)^5}\int\frac{\abs{\mathcal{M}_{fi}}^2}{E_1E_2E_3}\delta(m_a-E_1-E_2-E_3)\dd^3\vb{p}_1\dd^3\vb{p}_2\\
+  &=\frac{1}{2^4m_a(2\pi)^5}\int\frac{\abs{\mathcal{M}_{fi}}^2\abs{\vb{p}_1}^2\abs{\vb{p}_2}^2\dd p_1\dd(\cos\theta_1)\dd\phi_1\dd p_2\dd(\cos\theta_2)\dd\phi_2}{E_1E_2\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta_2+m_3^2}}\\
+  &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\delta(m_a-E_1-E_2-\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta_2+m_3^2})
+\end{align*}
+where $\theta_1$, $\phi_1$ and $\phi_2$ are independent of the integral and therefore can be integrated first. Note that
+\begin{align*}
+  \frac{\dd \abs{\vb{p}_i}}{\dd E_i}=\frac{E_i}{\abs{\vb{p}_i}}
+\end{align*}
+which means
+\begin{align*}
+  \dd \abs{\vb{p}_i}=\frac{E_i}{\abs{\vb{p}_i}}\dd E_i
+\end{align*}
+and mark the kernel of $\delta$ function as
+\begin{align*}
+  f(\cos\theta_2)\equiv m_a-E_1-E_2-\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta_2+m_3^2}
+\end{align*}
+we have
+\begin{align*}
+  f'(\cos\theta_2)=-\frac{2\apo\aps}{2\sqrt{\apo^2+\aps^2+2\apo\aps\cos\theta_2+m_3^2}}
+\end{align*}
+and the real root of $f(\cos\theta_2)=0$ is
+\begin{align*}
+  \cos\theta'_2=\frac{(m_a-E_1-E_2)^2-m_3^2-\apo^2-\aps^2}{2\apo\aps}
+\end{align*}
+So we have
+\begin{align*}
+  &\delta(m_a-E_1-E_2-\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta_2+m_3^2})\\
+  =&\frac{\delta(\cos\theta_2-\cos\theta_2')}{\frac{2\apo\aps}{2\sqrt{\apo^2+\aps^2+2\apo\aps\cos\theta'_2+m_3^2}}}
+\end{align*}
+And the original formula becomes
+\begin{align*}
+  \Gamma_{fi}&=\frac{8\pi^2}{2^4m_a(2\pi)^5}\int\frac{\abs{\mathcal{M}_{fi}}^2\abs{\vb{p}_1}^2\abs{\vb{p}_2}^2\dd p_1\dd p_2\dd(\cos\theta_2)}{E_1E_2\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta_2+m_3^2}}\frac{\delta(\cos\theta_2-\cos\theta_2')}{\frac{2\apo\aps}{2\sqrt{\apo^2+\aps^2+2\apo\aps\cos\theta'_2+m_3^2}}}\\
+  &=\frac{1}{2^3m_a(2\pi)^3}\int\frac{\abs{\mathcal{M}_{fi}}^2\abs{\vb{p}_1}^2\abs{\vb{p}_2}^2\dd p_1\dd p_2}{E_1E_2\sqrt{\abs{\vb{p}_1}^2+\abs{\vb{p}_2}^2+2\abs{\vb{p}_1}\abs{\vb{p}_2}\cos\theta'_2+m_3^2}}\frac{2\sqrt{\apo^2+\aps^2+2\apo\aps\cos\theta'_2+m_3^2}}{2\apo\aps}\\
+  &=\frac{1}{2^3m_a(2\pi)^3}\int\frac{\abs{\mathcal{M}_{fi}}^2\abs{\vb{p}_1}\abs{\vb{p}_2}\dd p_1\dd p_2}{E_1E_2}\\
+  &=\frac{1}{2^3m_a(2\pi)^3}\int\frac{\abs{\mathcal{M}_{fi}}^2\abs{\vb{p}_1}\abs{\vb{p}_2}\frac{E_1}{\abs{\vb{p}_1}}\dd E_1\frac{E_2}{\abs{\vb{p}_2}}\dd E_2}{E_1E_2}\\
+  &=\frac{1}{8m_a(2\pi)^3}\int\abs{\mathcal{M}_{fi}}^2\dd E_1\dd E_2
+\end{align*}
+which is exactly the form of square Dalitz plot. Transform it a little bit and we have the standard form of Dalitz plot (note that $s_2=(p_2+p_3)^2=(p_a-p_1)^2\rightarrow\dd s_2=-2m_a\dd E_1$ and similar for $s_3$)
+\begin{align*}
+  \Gamma_{fi}&=\frac{1}{32m_a(2\pi)^3}\int\abs{\mathcal{M}_{fi}}^2\dd s_2\dd s_3
+\end{align*}
+Now let's review another form of the standard Dalitz form
+\begin{align*}
+  \frac{\dd\Gamma_{fi}}{\dd s_2\dd s_3}=\frac{1}{32m_a(2\pi)^3}\abs{\mathcal{M}_{fi}}^2
+\end{align*}
+and its physical meaning is obvious: the density of data points on a Dalitz plot is proportional to the decay matrix element.
+
+
+\begin{thebibliography}{b}
+  \bibitem{JINYAN}
+  %\begin{CJK*}{UTF8}{gbsn}
+  曾谨言. 量子力学(卷II),第5版.\ 北京：科学出版社, 2013.
+  %\end{CJK*}
+
+  \bibitem{IHP}
+  Martin, Brian R., and Graham Shaw. Particle physics. John Wiley \& Sons, 2013.
+
+
+  \bibitem{MPP}
+  Thomson, Mark. Modern particle physics. Cambridge University Press, 2013.
+\end{thebibliography}
+
+\end{document}

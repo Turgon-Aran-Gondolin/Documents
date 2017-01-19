@@ -1,0 +1,3563 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    173177,       3555]
+NotebookOptionsPosition[    166147,       3373]
+NotebookOutlinePosition[    166520,       3389]
+CellTagsIndexPosition[    166477,       3386]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "r_", "]"}], "=", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "r"]}], "-", 
+    FractionBox[
+     RowBox[{"1.0415223038416566`", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "0.9990999998788636`"}], " ", "r"}]]}], "r"]}]}], ";", 
+  RowBox[{"\[Alpha]", "=", "2."}], ";", 
+  RowBox[{"u0", "=", 
+   RowBox[{"1.", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "8"}]]}]}], ";", 
+  RowBox[{"r1", "=", "1500."}], ";", 
+  RowBox[{"r2", "=", "u0"}], ";", 
+  RowBox[{"a", "=", "1"}], ";", 
+  RowBox[{"l", "=", "0"}], ";", 
+  RowBox[{"nmax", "=", "100"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6628725932469616`*^9, 3.662872596387185*^9}, {
+   3.662883142053407*^9, 3.6628831505535374`*^9}, {3.6628875733086987`*^9, 
+   3.6628875761056023`*^9}, {3.668210350328566*^9, 3.6682103505747213`*^9}, {
+   3.6682128956422772`*^9, 3.6682128957913694`*^9}, 3.6682181944001102`*^9, {
+   3.6682199144966993`*^9, 3.668219914734869*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"R", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], "=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{
+    FractionBox["2", 
+     RowBox[{
+      SuperscriptBox["a", 
+       FractionBox["3", "2"]], 
+      SuperscriptBox["n", "2"], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", "l"}], "+", "1"}], ")"}], "!"}]}]], 
+    SqrtBox[
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"n", "+", "l"}], ")"}], "!"}], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"n", "-", "l", "-", "1"}], ")"}], "!"}]]], 
+    SuperscriptBox["E", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"-", "1"}], "2"], " ", 
+      FractionBox[
+       RowBox[{"2", "r"}], 
+       RowBox[{"n", " ", "a"}]]}]], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"2", "r"}], 
+       RowBox[{"n", " ", "a"}]], ")"}], "l"], 
+    RowBox[{"Hypergeometric1F1", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "n"}], "+", "l", "+", "1"}], ",", 
+      RowBox[{
+       RowBox[{"2", "l"}], "+", "2"}], ",", 
+      FractionBox[
+       RowBox[{"2", "r"}], 
+       RowBox[{"n", " ", "a"}]]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{3.6628726671502924`*^9}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox["r", "n"]}]], " ", 
+   RowBox[{"Hypergeometric1F1", "[", 
+    RowBox[{
+     RowBox[{"1", "-", "n"}], ",", "2", ",", 
+     FractionBox[
+      RowBox[{"2", " ", "r"}], "n"]}], "]"}]}], 
+  SuperscriptBox["n", 
+   RowBox[{"3", "/", "2"}]]]], "Output",
+ CellChangeTimes->{
+  3.6628725998876762`*^9, {3.662872648779309*^9, 3.662872667816781*^9}, 
+   3.6628874345260496`*^9, 3.6628875810899925`*^9, 3.66821033179945*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"u", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], "=", 
+  RowBox[{"r", " ", 
+   RowBox[{"R", "[", 
+    RowBox[{"n", ",", "r"}], "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox["r", "n"]}]], " ", "r", " ", 
+   RowBox[{"Hypergeometric1F1", "[", 
+    RowBox[{
+     RowBox[{"1", "-", "n"}], ",", "2", ",", 
+     FractionBox[
+      RowBox[{"2", " ", "r"}], "n"]}], "]"}]}], 
+  SuperscriptBox["n", 
+   RowBox[{"3", "/", "2"}]]]], "Output",
+ CellChangeTimes->{{3.6628726088690405`*^9, 3.6628726696290607`*^9}, 
+   3.662887435697937*^9, {3.662887583590001*^9, 3.662887588199439*^9}, 
+   3.6628905111684055`*^9, 3.662944644578083*^9, 3.668210333106374*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"u", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], "=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"2", 
+     SuperscriptBox["E", 
+      FractionBox[
+       RowBox[{"-", "r"}], "n"]]}], 
+    SuperscriptBox["n", 
+     FractionBox["3", "2"]]], "r", " "}]}]], "Input",
+ CellChangeTimes->{{3.662873259895026*^9, 3.6628732793397985`*^9}, {
+  3.662873339773592*^9, 3.662873351248708*^9}, {3.6628901044683247`*^9, 
+  3.662890106265219*^9}, {3.662890263358633*^9, 3.6628902820049963`*^9}, {
+  3.662890393427969*^9, 3.66289040827182*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox["r", "n"]}]], " ", "r"}], 
+  SuperscriptBox["n", 
+   RowBox[{"3", "/", "2"}]]]], "Output",
+ CellChangeTimes->{
+  3.6628732812331266`*^9, 3.662873352906891*^9, 3.6628875857150393`*^9, 
+   3.6628898196005335`*^9, {3.6628902650617385`*^9, 3.662890283098711*^9}, {
+   3.6628903980529737`*^9, 3.6628904107093515`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"u", "[", 
+     RowBox[{"2", ",", "r"}], "]"}], 
+    RowBox[{"u", "[", 
+     RowBox[{"2", ",", "r"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.662888970168667*^9, 3.662889000825219*^9}, 
+   3.662889833756973*^9, 3.662890249374611*^9, {3.6628902884425583`*^9, 
+   3.6628902920050926`*^9}, {3.662956392194488*^9, 3.662956410846691*^9}, {
+   3.662961691155348*^9, 3.6629616929466143`*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.6628889967938805`*^9, 3.6628890019345555`*^9}, {
+   3.6628898221786847`*^9, 3.662889834678808*^9}, {3.6628902501245685`*^9, 
+   3.662890292395673*^9}, {3.662890400693615*^9, 3.6628904123499804`*^9}, 
+   3.6629564123907704`*^9, 3.662961694791919*^9, 3.6682103397780914`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"HMax", "=", 
+   RowBox[{"ParallelTable", "[", 
+    RowBox[{
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"u", "[", 
+         RowBox[{"n", ",", "r"}], "]"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[Alpha]", 
+             RowBox[{"-", "1"}]]}], 
+           RowBox[{
+            SubscriptBox["\[PartialD]", 
+             RowBox[{"r", ",", "r"}]], 
+            RowBox[{"(", 
+             RowBox[{"u", "[", 
+              RowBox[{"i", ",", "r"}], "]"}], ")"}]}]}], "+", 
+          RowBox[{
+           RowBox[{"V", "[", "r", "]"}], 
+           RowBox[{"u", "[", 
+            RowBox[{"i", ",", "r"}], "]"}]}]}], ")"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "0", ",", "\[Infinity]"}], "}"}], ",", 
+       RowBox[{"WorkingPrecision", "\[Rule]", "30"}], ",", 
+       RowBox[{"PrecisionGoal", "\[Rule]", "10"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "nmax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "nmax"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{"N", "[", 
+  RowBox[{
+   RowBox[{"Eigenvalues", "[", "HMax", "]"}], ",", "6"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.662872728954068*^9, 3.6628727317150106`*^9}, {
+   3.6628727978398466`*^9, 3.6628728043314404`*^9}, {3.662872881102805*^9, 
+   3.662872890878727*^9}, {3.662872986963766*^9, 3.662872988394779*^9}, {
+   3.662873066829319*^9, 3.6628730712194276`*^9}, {3.662883158491116*^9, 
+   3.662883166553647*^9}, {3.662888359325624*^9, 3.6628883643962183`*^9}, 
+   3.6628885559478188`*^9, {3.662888630266368*^9, 3.6628886507821584`*^9}, {
+   3.662906011788577*^9, 3.662906046835365*^9}, {3.66294473446865*^9, 
+   3.662944739173978*^9}, {3.6629682828065042`*^9, 3.6629682889558535`*^9}, {
+   3.6682181701669793`*^9, 3.668218173304207*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\
+\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}]\\)) is less than \
+WorkingPrecision (\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917659936*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"10\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"9\\\", \\\" \\\", \\\"r\\\"}], \\\"10\\\"], \
+\\\"+\\\", FractionBox[RowBox[{\\\"6\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"25\\\"], \\\"-\\\", \
+FractionBox[RowBox[{\\\"7\\\", \\\" \\\", SuperscriptBox[\\\"r\\\", \
+\\\"3\\\"]}], \\\"250\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"12500\\\"], \\\"-\\\", FractionBox[RowBox[{\
+\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \
+RowBox[{\\\"\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"6\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\\\"}]], \\\"+\\\", FractionBox[SuperscriptBox[\\\
+\"r\\\", \\\"6\\\"], \\\"937500\\\"], \\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"r\\\", \\\"7\\\"], \\\"87500000\\\"], \
+\\\"+\\\", FractionBox[SuperscriptBox[\\\"r\\\", \\\"8\\\"], \
+\\\"15750000000\\\"], \\\"-\\\", FractionBox[SuperscriptBox[\\\"r\\\", \
+\\\"9\\\"], \\\"7087500000000\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\
+\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\
+\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \
+\\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"5\\\", \\\" \
+\\\", SqrtBox[\\\"10\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917683953*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"19\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"18\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"19\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"24\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"18\\\"]}], \
+\\\"193276702610703058538547446097632625\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"19\\\", \\\" \
+\\\", SqrtBox[\\\"19\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66821991770897*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"28\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"27\\\", \\\" \\\", \\\"r\\\"}], \\\"28\\\"], \
+\\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[SuperscriptBox[\\\"r\\\", \
+\\\"26\\\"], RowBox[{\\\"254066\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"44\\\", \\\"\[RightSkeleton]\\\"}], \\\"4000000\\\"}]], \\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"r\\\", \\\"27\\\"], \
+RowBox[{\\\"26890432391020660464\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"21\
+\\\", \\\"\[RightSkeleton]\\\"}], \\\"75959157129216000000\\\"}]]}], \
+\\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\
+\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \
+\\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"28\\\", \\\" \
+\\\", SqrtBox[\\\"7\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199177249813`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], \
+SqrtBox[\\\"2\\\"]], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], SqrtBox[\\\"2\\\"]]}], \\\"-\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}]\\)) is less than \
+WorkingPrecision (\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199177429943`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"10\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"9\\\", \\\" \\\", \\\"r\\\"}], \\\"10\\\"], \
+\\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"+\\\", FractionBox[SuperscriptBox[\\\"r\\\", \\\"8\\\"], \
+\\\"15750000000\\\"], \\\"-\\\", FractionBox[SuperscriptBox[\\\"r\\\", \
+\\\"9\\\"], \\\"7087500000000\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\
+\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]]}], \\\
+\"r\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\
+\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], SqrtBox[\\\"2\\\"]]}], \\\"-\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"5\\\", \
+\\\" \\\", SqrtBox[\\\"10\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917761007*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"19\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"18\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"19\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"24\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"18\\\"]}], RowBox[{\\\"19327670261070\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"8\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"47446097632625\\\"}]]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]]}], \\\
+\"r\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\
+\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], SqrtBox[\\\"2\\\"]]}], \\\"-\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"19\\\", \
+\\\" \\\", SqrtBox[\\\"19\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917783023*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"28\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"27\\\", \\\" \\\", \\\"r\\\"}], \\\"28\\\"], \
+\\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[SuperscriptBox[\\\"r\\\", \
+\\\"26\\\"], RowBox[{\\\"254\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"51\\\", \\\"\[RightSkeleton]\\\"}], \\\"000\\\"}]], \\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"r\\\", \\\"27\\\"], RowBox[{\\\"26890432391020\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"33\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"57129216000000\\\"}]]}], \\\")\\\"}], \\\" \\\
+\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"28\\\", \
+\\\" \\\", SqrtBox[\\\"7\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917806039*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\
+\"2\\\", \\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"9\\\", \\\" \\\", \
+SqrtBox[\\\"3\\\"]}]], \\\"-\\\", FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\
+\" \\\", RowBox[{\\\"Power\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], \
+RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}]\\)) is less than \
+WorkingPrecision (\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66821991786609*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"10\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"5\\\", \\\" \
+\\\", SqrtBox[\\\"10\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199178880973`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"19\\\", \\\" \
+\\\", SqrtBox[\\\"19\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199179111137`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199179381323`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917952143*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219917966153*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"28\\\"}]], \\\" \\\", \
+\\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"28\\\", \\\" \
+\\\", SqrtBox[\\\"7\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199179781604`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66821991800418*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000703297877611965582116655223946`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"4.10138859188830937289609831355`30.*^-14\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199216997914`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000480295855288933970473500877196`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.26219043096761247903509772982`30.*^-14\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66821992176884*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.000043305083534234908513595859819`30.\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"4.16591216829766244821390328137`30.*^-14\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199221841335`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"808.557737137848602930459096926`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000243753448556685522186269281467`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"9.16565664750759455896923775585`30.*^-10\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199262790284`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199262990437`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219933112859*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219934808058*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000217319493014457860779621057764`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.28884795395194396926480164768`30.*^-11\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219934944154*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"808.557737137848602930459096926`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000208326866127915591417473395245`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"1.79982893662539696844994328002`30.*^-11\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199357937546`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682199358397865`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219938355565*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668219938414607*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682202412271185`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668220244283781*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668220247228861*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682202472478747`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"8.86716648857648923439446476709`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.1585051594275790421995062575`30.*^-15\\\"}]\\) for the \
+integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668220636233838*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"8.72604424600106186112314373707`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.10785833162713535470817204769`30.*^-15\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682206404718337`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"8.45477708386824164233569088655`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"3.96508741129874384610674459742`30.*^-15\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682206487311726`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668220648784715*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"37\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"36\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"37\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"8\\\
+\", \\\" \\\", SuperscriptBox[\\\"r\\\", \\\"35\\\"]}], \
+RowBox[{\\\"185495\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"74\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"578125\\\"}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"r\\\", \
+\\\"36\\\"]}], RowBox[{\\\"22854887454980952439\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"50\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"48535811833430078125\\\"}]]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"37\\\", \\\" \
+\\\", SqrtBox[\\\"37\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213119319696`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"37\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"36\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"37\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"51\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"36\\\"]}], RowBox[{\\\"22854887454980\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"62\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"11833430078125\\\"}]]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]]}], \\\
+\"r\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\
+\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], SqrtBox[\\\"2\\\"]]}], \\\"-\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"37\\\", \
+\\\" \\\", SqrtBox[\\\"37\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221312084077*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"37\\\", \\\" \
+\\\", SqrtBox[\\\"37\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213122992296`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213123617744`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000353370608790126102528079737246`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"4.71689814697988017716044234014`30.*^-15\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213164441605`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000316171195299931347462822089988`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"6.04336125631913148925747572233`30.*^-15\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213169805393`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000285070555266645238334882939522`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.49824951373278129561822787858`30.*^-13\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213175164175`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221317576461*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66822132135363*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221326537294*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213280343523`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682213280948963`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"45\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"44\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"45\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"60\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"16\\\", \\\" \\\", SuperscriptBox[\\\"r\\\", \\\"43\\\
+\"]}], RowBox[{\\\"13462\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"102\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"734375\\\"}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", SuperscriptBox[\\\"r\\\", \
+\\\"44\\\"]}], RowBox[{\\\"2998697413128995631\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"78\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"97711658477783203125\\\"}]]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"135\\\", \
+\\\" \\\", SqrtBox[\\\"5\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215405290585`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"45\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"44\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"45\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"63\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"44\\\"]}], RowBox[{\\\"2998697413128\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"90\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"58477783203125\\\"}]]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]]}], \\\
+\"r\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\
+\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], SqrtBox[\\\"2\\\"]]}], \\\"-\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"135\\\", \
+\\\" \\\", SqrtBox[\\\"5\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215407382064`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"135\\\", \\\" \\\
+\", SqrtBox[\\\"5\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215410159025`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221541080448*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000263454190291560694439500543242`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"3.45753078837352788494077213966`30.*^-15\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221545911363*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000235720306440404469144567710985`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"1.7929805501469560968406743765`30.*^-14\\\"}]\\) for the integral and error \
+estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215465097866`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000212533339233112308089682434871`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.65715932896488104441165561261`30.*^-13\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215471547422`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215472067795`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"53\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"52\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"53\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"3\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"53\\\", \\\" \
+\\\", SqrtBox[\\\"53\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221551304177*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"53\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"52\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"53\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"3\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"53\\\", \
+\\\" \\\", SqrtBox[\\\"53\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215515888767`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"53\\\", \\\" \
+\\\", SqrtBox[\\\"53\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221551913106*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221551979154*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215564988484`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221557339942*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000206112702795216473936864324226`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.31438585187100194750186400038`30.*^-15\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215578963356`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221558204053*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215582640953`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000184415173162756969230714945366`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.36966389025759613557730994177`30.*^-14\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215586363583`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.000016627491105045228594430356071`30.\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.2300670505312410798593552451`30.*^-13\\\"}]\\) for the \
+integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66822155936037*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221559408905*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221564986848*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215749133644`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"61\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"60\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"61\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"61\\\", \\\" \
+\\\", SqrtBox[\\\"61\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221575145528*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"61\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"60\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"61\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"61\\\", \
+\\\" \\\", SqrtBox[\\\"61\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221575497277*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221575834015*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221575890555*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"61\\\", \\\" \
+\\\", SqrtBox[\\\"61\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215759480953`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221576015643*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000149352445838318649237169727208`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.47930038336122531994911863772`30.*^-14\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215848999233`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000134661179950360339249015598532`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"1.74811132935852842080567110713`30.*^-13\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221585748023*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000111601066689593018647059473199`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"6.27379670635522507410333150238`30.*^-12\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215875402894`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215876248493`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215932158017`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668221595440375*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66822159880125*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682215988572893`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"69\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"68\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"69\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"19\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"69\\\", \\\" \
+\\\", SqrtBox[\\\"69\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.66822282951971*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"69\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"68\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"69\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"19\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"69\\\", \
+\\\" \\\", SqrtBox[\\\"69\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668222829940507*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"69\\\", \\\" \
+\\\", SqrtBox[\\\"69\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228304248495`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668222830491397*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000124145560162450936454868519459`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"2.38505482670577726696992385356`30.*^-14\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228391224985`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.0000111933805978854142174048725848`30.\\\"}]\\) and \\!\\(\\*RowBox[{\\\
+\"1.35647807449125456866541758886`30.*^-13\\\"}]\\) for the integral and \
+error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228400061226`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"568.481580035899849735140225082`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"9.27656524994633456754240266073`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"5.26228504176867126903307521624`30.*^-12\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668222841903464*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668222841925479*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228488413687`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228550067263`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668222858290047*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682228583440847`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"77\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"76\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"77\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"27\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"77\\\", \\\" \
+\\\", SqrtBox[\\\"77\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223087107792*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"77\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"76\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"77\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"27\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"77\\\", \
+\\\" \\\", SqrtBox[\\\"77\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223087618653*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"77\\\", \\\" \
+\\\", SqrtBox[\\\"77\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223088187054*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223088217576*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"0.000010530940174595068205027711205`30.\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.2168466020635954632952117609`30.*^-14\\\"}]\\) for the \
+integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223098403776*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"9.49504933213581052304107546619`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"1.06439529307946025611729433124`30.*^-13\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682230993864713`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"984.386024432222505106691816482`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"8.61853797065147043798845413202`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"9.09726845967809519325202252024`30.*^-14\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223100441717*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223100483748*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"85\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"84\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"85\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"35\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"85\\\", \\\" \
+\\\", SqrtBox[\\\"85\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223153754402*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"85\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"84\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"85\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"35\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"85\\\", \
+\\\" \\\", SqrtBox[\\\"85\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231543263063`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"85\\\", \\\" \
+\\\", SqrtBox[\\\"85\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231549602547`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223155016294*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"9.0797455564088091729543450135`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.03944404409406628867723346075`30.*^-14\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231658079224`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"8.18660356264155892773976539258`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"1.02110795763219609546519151108`30.*^-13\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231668196373`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"808.224867524847188543202828719`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"7.43087870791130804610435744984`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"5.11427148658380510137542418853`30.*^-12\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223167851867*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231678698797`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231716945834`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223178837633*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223179970433*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223179989447*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231812243214`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231837285905`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682231863784633`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223186425496*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"93\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"92\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"93\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"43\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"r\\\"]}], \\\"-\\\", FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9990999998788636`\\\"}], \\\" \\\", \\\"r\\\"}]]}], \\\"r\\\"]}], \\\")\
+\\\"}], \\\" \\\", \\\"r\\\"}], \\\"-\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]]}], \\\
+\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"-\\\", \\\"r\\\"}]], \\\" \
+\\\", \\\"r\\\"}]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"93\\\", \\\" \
+\\\", SqrtBox[\\\"93\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682232216498957`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \
+\\\"93\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\
+\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"92\\\", \\\" \\\", \\\"r\\\"}], \
+\\\"93\\\"], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"72\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"43\\\", \\\"\[RightSkeleton]\\\"}]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", SuperscriptBox[\\\
+\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]]}], \\\"r\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], SqrtBox[\\\"2\\\"]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \
+SqrtBox[\\\"2\\\"]]}], \\\"-\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[\\\"r\\\", \\\"2\\\"]}], \\\")\\\"}]}], SqrtBox[\\\"2\\\"]], \
+\\\"+\\\", FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+\\\"r\\\"}], RowBox[{\\\"2\\\", \\\" \\\", SqrtBox[\\\"2\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{SuperscriptBox[\\\"\[ExponentialE]\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"2\\\"}]], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[\\\"r\\\", \\\"2\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\"4\\\", \\\" \\\", \
+SqrtBox[\\\"2\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"93\\\", \
+\\\" \\\", SqrtBox[\\\"93\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223222296853*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "precw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The precision of the argument function \
+(\\!\\(\\*FractionBox[RowBox[{\\\"2\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[RowBox[{\\\"2\\\", \
+\\\" \\\", SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"r\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.0415223038416566`\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"r\\\"]}], \
+\\\")\\\"}], \\\" \\\", \\\"r\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\
+\\\"}], \\\"3\\\"], \\\"+\\\", FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"r\\\", \\\"2\\\"]}], \\\"27\\\"]}], \\\")\\\"}]}], \
+RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[RowBox[{\\\"4\\\", \\\" \\\", SuperscriptBox[\\\"\
+\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \\\"r\\\"}], \\\"/\\\", \\\"3\
+\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"2\\\", \\\"3\\\"]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \\\"r\\\"}], \\\"27\\\"]}], \\\")\\\
+\"}]}], RowBox[{\\\"3\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"8\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"r\\\"}], \\\"/\\\", \\\"3\\\"}]], \\\" \\\", \\\"r\\\"}], \
+RowBox[{\\\"81\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\
+\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \\\"r\\\"}], RowBox[{\\\
+\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}]}], RowBox[{\\\"9\\\", \\\" \\\", SqrtBox[\\\"3\\\"]}]], \\\"+\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[\\\"\[ExponentialE]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\" \\\", \\\"r\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"2\\\", \\\" \\\", \\\"r\\\"}], \\\"3\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"2\\\", \\\"27\\\"], \\\" \\\", RowBox[{\\\"Power\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"27\\\", \\\" \\\", SqrtBox[\
+\\\"3\\\"]}]]}], \\\")\\\"}]}]}], \\\")\\\"}]}], RowBox[{\\\"93\\\", \\\" \
+\\\", SqrtBox[\\\"93\\\"]}]]\\)) is less than WorkingPrecision \
+(\\!\\(\\*RowBox[{\\\"30.`\\\"}]\\)).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682232230293703`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"precw\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223223082408*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"418.839764864650458966001068322`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"7.93371809734911565215501387935`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"2.98336038732364461289561726578`30.*^-14\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223235592252*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"808.557737137848602930459096926`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"7.15330772000955239664725834586`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"1.56247350660645356361422512097`30.*^-12\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223236754573*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\\!\\(\\*RowBox[{\\\"9\\\"}]\\) recursive bisections in \
+\\!\\(\\*RowBox[{\\\"r\\\"}]\\) near \\!\\(\\*RowBox[{\\\"{\\\", \\\"r\\\", \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"808.224867524847188543202828719`30.\\\", \\\"}\\\"}]\\). NIntegrate \
+obtained \\!\\(\\*RowBox[{\\\"-\\\", \
+\\\"6.49299418113731558335719633214`30.*^-6\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"3.96759060676706184417182506009`30.*^-11\\\"}]\\) for \
+the integral and error estimates.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223237826331*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"ncvb\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223237846345*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223242127871*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682232502971544`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
+"MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6682232528689637`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\
+\\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
+suppressed during this calculation.\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.668223252887477*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1.00132511993995280140630895784707971304`6."}], ",", 
+   RowBox[{"-", "0.15276128737436711476430997428893996058`6."}], ",", 
+   RowBox[{"-", "0.06201789178550699892294498373337072154`6."}], ",", 
+   RowBox[{"-", "0.03366676132789913509397070751989282714`6."}], ",", 
+   RowBox[{"-", "0.02114369073854102611569576410060047929`6."}], ",", 
+   RowBox[{"-", "0.01451365429382868984560905705387929232`6."}], ",", 
+   RowBox[{"-", "0.01058016373424104171951578388317396072`6."}], ",", 
+   RowBox[{"-", "0.00805533320099972852221602341638300902`6."}], ",", 
+   RowBox[{"-", "0.00633818313050149324015178135193485647`6."}], ",", 
+   RowBox[{"-", "0.00511736277093387727273126036976335336`6."}], ",", 
+   RowBox[{"-", "0.00421837292518272124365752489169861836`6."}], ",", 
+   RowBox[{"-", "0.00353721313129798126044027295521299289`6."}], ",", 
+   RowBox[{"-", "0.00300875677741305513889584561835739961`6."}], ",", 
+   RowBox[{"-", "0.00259052636557182716246904984227250802`6."}], ",", 
+   RowBox[{"-", "0.00225385557933201381514711041876739194`6."}], ",", 
+   RowBox[{"-", "0.00197882928559411098225358439352452552`6."}], ",", 
+   RowBox[{"-", "0.00175126197009623680666854126226885872`6."}], ",", 
+   RowBox[{"-", "0.00156082772546075501454318141748150904`6."}], ",", 
+   RowBox[{"-", "0.00139986253777638125674474600848042303`6."}], ",", 
+   RowBox[{"-", "0.00126263528505120266084473378150172015`6."}], ",", 
+   RowBox[{"-", "0.00114458386957697372819999353872856213`6."}], ",", 
+   RowBox[{"-", "0.00104239925826949945959539836217099872`6."}], ",", 
+   RowBox[{"-", "0.00095328187891510845028221739682352641`6."}], ",", 
+   RowBox[{"-", "0.00087512464539095812114631906605722463`6."}], ",", 
+   RowBox[{"-", "0.0008062032330729349181034811134911794`6."}], ",", 
+   RowBox[{"-", "0.00074511825451988215810230955253139662`6."}], ",", 
+   RowBox[{"-", "0.00069086193166897621342395423416572786`6."}], ",", 
+   RowBox[{"-", "0.00064230188067129576637836228611968227`6."}], ",", 
+   RowBox[{"-", "0.0005996100252839196222499508944871899`6."}], ",", 
+   RowBox[{"-", "0.00056325909670605045956309770671727678`6."}], ",", 
+   RowBox[{"-", "0.00053439996303120541847630794342458022`6."}], ",", 
+   RowBox[{"-", "0.00051184078582052401780390575073697516`6."}], ",", 
+   RowBox[{"-", "0.00049884573650585157483226146383894117`6."}], ",", 
+   RowBox[{"-", "0.0004682803620386935068544351912605082`6."}], ",", 
+   RowBox[{"-", "0.00043537146103971040364597005472810753`6."}], ",", 
+   RowBox[{"-", "0.00041176670706424557169360602052646275`6."}], ",", 
+   RowBox[{"-", "0.00036273407508443212678076242954587506`6."}], ",", 
+   RowBox[{"-", "0.00032751703519589476972721613000189761`6."}], ",", 
+   RowBox[{"-", "0.00032528040092688787292412252230698743`6."}], ",", 
+   RowBox[{"-", "0.0003088147712822577378070875087213259`6."}], ",", 
+   RowBox[{"-", "0.00029274039280231491524169129065788864`6."}], ",", 
+   RowBox[{"-", "0.00027723288616021577523230315091701559`6."}], ",", 
+   RowBox[{"-", "0.00026708164028592984837731240163518819`6."}], ",", 
+   RowBox[{"-", "0.00026015296274967322876531153653896187`6."}], ",", 
+   RowBox[{"-", "0.0002510546538352790595456991154582286`6."}], ",", 
+   RowBox[{"-", "0.00023487030226427724030321934949181707`6."}], ",", 
+   RowBox[{"-", "0.00022939380684654535182935164383427209`6."}], ",", 
+   RowBox[{"-", "0.00022673589958603019461800402250023817`6."}], ",", 
+   RowBox[{"-", "0.00021570883867172756513912110252524107`6."}], ",", 
+   RowBox[{"-", "0.00021154421378554069144242770841640699`6."}], ",", 
+   RowBox[{"-", "0.00018628665584809768589998856657242341`6."}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00018516504404967255621788862751201943`6.150506459778016"}], "+", 
+    RowBox[{
+    "1.16108913745469058564504786339344`3.947813019009322*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00018516504404967255621788862751201943`6.150506459778016"}], "-", 
+    RowBox[{
+    "1.16108913745469058564504786339344`3.947813019009322*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.0001738203761334856264839726340552862`6."}], ",", 
+   RowBox[{"-", "0.00017059603578152310709950668362773963`6."}], ",", 
+   RowBox[{
+    RowBox[{"-", "0.00016697705079313281219564672373209705`6.1503960903529"}],
+     "+", 
+    RowBox[{
+    "3.90790205853157321423313780884728`4.519682974941983*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "0.00016697705079313281219564672373209705`6.1503960903529"}],
+     "-", 
+    RowBox[{
+    "3.90790205853157321423313780884728`4.519682974941983*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.00015968684973872987810596817802357132`6."}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00015082965664398657289929443945768441`6.150479488177351"}], "+", 
+    RowBox[{
+    "1.92885936463923003322016393132683`4.257293309664702*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00015082965664398657289929443945768441`6.150479488177351"}], "-", 
+    RowBox[{
+    "1.92885936463923003322016393132683`4.257293309664702*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.00014120571063228051283963689095057206`6."}], ",", 
+   RowBox[{"-", "0.00013430035386045248588871782188129903`6."}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00011883455667237269364820880695812727`6.150392975428937"}], "+", 
+    RowBox[{
+    "2.817386266865518146839928640194`4.525296618441063*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00011883455667237269364820880695812727`6.150392975428937"}], "-", 
+    RowBox[{
+    "2.817386266865518146839928640194`4.525296618441063*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.0001104040402650532937132871695898973`6."}], ",", 
+   RowBox[{"-", "0.00010914099687155710490495930449385678`6."}], ",", 
+   RowBox[{"-", "0.00010659769713205641743706329348456062`6."}], ",", 
+   RowBox[{"-", "0.00009855090797711525658542308507514859`6."}], ",", 
+   RowBox[{"-", "0.00009407907929982823080018434795988268`6."}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00008252223694729508807277166586884603`6.150140515606515"}], "+", 
+    RowBox[{
+    "3.42844121002670971970066546866094`4.768666230337863*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00008252223694729508807277166586884603`6.150140515606515"}], "-", 
+    RowBox[{
+    "3.42844121002670971970066546866094`4.768666230337863*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00007879501537544799272186196255446204`6.150494517511892"}], "+", 
+    RowBox[{
+    "7.6524446514677425375257761202552`4.137795970027781*^-7", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00007879501537544799272186196255446204`6.150494517511892"}], "-", 
+    RowBox[{
+    "7.6524446514677425375257761202552`4.137795970027781*^-7", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.00007125347872652500846984700548110696`6."}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00006970013711342430008637846025746198`6.1500748439295965"}], "+", 
+    RowBox[{
+    "3.13963286888106946708929511524304`4.803720078563837*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "-", "0.00006970013711342430008637846025746198`6.1500748439295965"}], "-", 
+    RowBox[{
+    "3.13963286888106946708929511524304`4.803720078563837*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{"-", "0.00006588485990940090806005561051286965`6."}], ",", 
+   RowBox[{"-", "0.00005704036889278720959273831473021989`6."}], ",", 
+   RowBox[{"-", "0.00004233601270227325399358263076066437`6."}], ",", 
+   RowBox[{"-", "0.00002571666573608417934584730811383785`6."}], ",", 
+   RowBox[{"-", "0.00002346044379720517138659038487632908`6."}], ",", 
+   RowBox[{"-", "0.00001867128706269231088104581743538257`6."}], ",", 
+   RowBox[{"-", "0.00001295537205046646194446734211880853`6."}], ",", 
+   RowBox[{"-", "0.00001108997956195257341449370056159894`6."}], ",", 
+   "8.42000570432854164273507685103773`6.*^-6", ",", 
+   RowBox[{"-", "6.07614524603414955077010943953535`6.*^-6"}], ",", 
+   RowBox[{"-", "4.40260067625206657970526442758034`6.*^-6"}], ",", 
+   RowBox[{"-", "2.90113681950612911409489186972972`6.*^-6"}], ",", 
+   RowBox[{
+    RowBox[{"-", "7.2442778212314354288034594973656`5.696906532031058*^-7"}], 
+    "+", 
+    RowBox[{
+    "1.92708458401545504422669609890867`6.121812211907424*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "7.2442778212314354288034594973656`5.696906532031058*^-7"}], 
+    "-", 
+    RowBox[{
+    "1.92708458401545504422669609890867`6.121812211907424*^-6", " ", 
+     "\[ImaginaryI]"}]}], ",", "1.58602954351064673812487801552115`6.*^-6", 
+   ",", 
+   RowBox[{"-", "1.36178362982183811555537561680903`6.*^-6"}], ",", 
+   "1.28462518571677120938930488791303`6.*^-6", ",", 
+   RowBox[{"-", "8.1459958091625478565752287268531`6.*^-7"}], ",", 
+   "6.4219494632293992767459591110223`6.*^-7", ",", 
+   "1.3067311125154006788817708106514`6.*^-7", ",", 
+   RowBox[{
+    RowBox[{"-", "2.390751723318417502488452104815`5.707222976902353*^-8"}], 
+    "+", 
+    RowBox[{
+    "6.189071504331404056755253810814`6.120313999668259*^-8", " ", 
+     "\[ImaginaryI]"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "2.390751723318417502488452104815`5.707222976902353*^-8"}], 
+    "-", 
+    RowBox[{
+    "6.189071504331404056755253810814`6.120313999668259*^-8", " ", 
+     "\[ImaginaryI]"}]}], ",", "5.678492584985588764040257944822`6.*^-8", ",", 
+   RowBox[{"-", "2.992200287000588834471625000755`6.*^-8"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6682190312503705`*^9, 3.6682249974982057`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%65", "[", 
+  RowBox[{"[", "20", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6629844456210957`*^9, 3.6629844616994667`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.00125986745102279152084247843699348029`6."}]], "Output",
+ CellChangeTimes->{{3.6629844502783766`*^9, 3.6629844622848687`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", "%100", "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1.0011332873961447`"}], ",", 
+   RowBox[{"-", "0.15271951819674673`"}], ",", 
+   RowBox[{"-", "0.0619984824559525`"}], ",", 
+   RowBox[{"-", "0.033654696953782454`"}], ",", 
+   RowBox[{"-", "0.02113515364522338`"}], ",", 
+   RowBox[{"-", "0.014507134648346333`"}], ",", 
+   RowBox[{"-", "0.010574924100780798`"}], ",", 
+   RowBox[{"-", "0.00805096310914175`"}], ",", 
+   RowBox[{"-", "0.0063344323342428835`"}], ",", 
+   RowBox[{"-", "0.005114067831427921`"}], ",", 
+   RowBox[{"-", "0.00421542093985937`"}], ",", 
+   RowBox[{"-", "0.003534522097683766`"}], ",", 
+   RowBox[{"-", "0.0030062641436132734`"}], ",", 
+   RowBox[{"-", "0.002588181633346261`"}], ",", 
+   RowBox[{"-", "0.0022516151694281813`"}], ",", 
+   RowBox[{"-", "0.001976651816539652`"}], ",", 
+   RowBox[{"-", "0.0017491027766621695`"}], ",", 
+   RowBox[{"-", "0.0015586285006605437`"}], ",", 
+   RowBox[{"-", "0.0013975282002845618`"}], ",", 
+   RowBox[{"-", "0.0012598674502541983`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6628727619994698`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "[", 
+  RowBox[{"[", "10", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.662872785675235*^9, 3.662872789719097*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.005114067831427921`"}]], "Output",
+ CellChangeTimes->{3.662872790465625*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", "%98", "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1.0005702141377755`"}], ",", 
+   RowBox[{"-", "0.152595938523524`"}], ",", 
+   RowBox[{"-", "0.061940110073095175`"}], ",", 
+   RowBox[{"-", "0.03361748671778693`"}], ",", 
+   RowBox[{"-", "0.021107862398816367`"}], ",", 
+   RowBox[{"-", "0.014485240282307573`"}], ",", 
+   RowBox[{"-", "0.010556097316586193`"}], ",", 
+   RowBox[{"-", "0.008033692686893978`"}], ",", 
+   RowBox[{"-", "0.006317327421473296`"}], ",", 
+   RowBox[{"-", "0.00509466660950382`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.662872703296901*^9}]
+}, Open  ]]
+},
+Evaluator->"Auxiliary_1",
+WindowSize->{953, 783},
+WindowMargins->{{467, Automatic}, {Automatic, 72}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (February 25, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1021, 26, 107, "Input"],
+Cell[CellGroupData[{
+Cell[1604, 50, 1233, 44, 78, "Input"],
+Cell[2840, 96, 535, 15, 74, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3412, 116, 180, 6, 45, "Input"],
+Cell[3595, 124, 593, 15, 74, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4225, 144, 557, 15, 64, "Input"],
+Cell[4785, 161, 435, 11, 56, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5257, 177, 551, 13, 45, "Input"],
+Cell[5811, 192, 324, 4, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6172, 201, 1901, 45, 90, "Input"],
+Cell[8076, 248, 1345, 24, 48, "Message"],
+Cell[9424, 274, 2476, 39, 107, "Message"],
+Cell[11903, 315, 1823, 29, 81, "Message"],
+Cell[13729, 346, 2055, 33, 107, "Message"],
+Cell[15787, 381, 2224, 36, 93, "Message"],
+Cell[18014, 419, 2693, 41, 143, "Message"],
+Cell[20710, 462, 2777, 42, 143, "Message"],
+Cell[23490, 506, 2901, 45, 143, "Message"],
+Cell[26394, 553, 3647, 57, 165, "Message"],
+Cell[30044, 612, 3362, 52, 143, "Message"],
+Cell[33409, 666, 3477, 53, 143, "Message"],
+Cell[36889, 721, 378, 9, 24, "Message"],
+Cell[37270, 732, 376, 9, 24, "Message"],
+Cell[37649, 743, 376, 9, 24, "Message"],
+Cell[38028, 754, 3362, 52, 143, "Message"],
+Cell[41393, 808, 375, 9, 24, "Message"],
+Cell[41771, 819, 744, 15, 65, "Message"],
+Cell[42518, 836, 741, 15, 65, "Message"],
+Cell[43262, 853, 743, 15, 65, "Message"],
+Cell[44008, 870, 744, 15, 65, "Message"],
+Cell[44755, 887, 377, 9, 24, "Message"],
+Cell[45135, 898, 402, 10, 45, "Message"],
+Cell[45540, 910, 402, 10, 45, "Message"],
+Cell[45945, 922, 742, 15, 65, "Message"],
+Cell[46690, 939, 744, 15, 65, "Message"],
+Cell[47437, 956, 377, 9, 24, "Message"],
+Cell[47817, 967, 402, 10, 45, "Message"],
+Cell[48222, 979, 377, 9, 24, "Message"],
+Cell[48602, 990, 404, 10, 45, "Message"],
+Cell[49009, 1002, 402, 10, 45, "Message"],
+Cell[49414, 1014, 402, 10, 45, "Message"],
+Cell[49819, 1026, 379, 9, 24, "Message"],
+Cell[50201, 1037, 740, 15, 67, "Message"],
+Cell[50944, 1054, 743, 15, 67, "Message"],
+Cell[51690, 1071, 743, 15, 67, "Message"],
+Cell[52436, 1088, 375, 9, 24, "Message"],
+Cell[52814, 1099, 2228, 35, 107, "Message"],
+Cell[55045, 1136, 2778, 42, 143, "Message"],
+Cell[57826, 1180, 3477, 53, 143, "Message"],
+Cell[61306, 1235, 378, 9, 24, "Message"],
+Cell[61687, 1246, 744, 15, 65, "Message"],
+Cell[62434, 1263, 744, 15, 65, "Message"],
+Cell[63181, 1280, 744, 15, 65, "Message"],
+Cell[63928, 1297, 375, 9, 24, "Message"],
+Cell[64306, 1308, 401, 10, 45, "Message"],
+Cell[64710, 1320, 402, 10, 45, "Message"],
+Cell[65115, 1332, 404, 10, 45, "Message"],
+Cell[65522, 1344, 379, 9, 24, "Message"],
+Cell[65904, 1355, 2228, 35, 107, "Message"],
+Cell[68135, 1392, 2779, 42, 143, "Message"],
+Cell[70917, 1436, 3477, 53, 143, "Message"],
+Cell[74397, 1491, 376, 9, 24, "Message"],
+Cell[74776, 1502, 742, 15, 65, "Message"],
+Cell[75521, 1519, 743, 15, 65, "Message"],
+Cell[76267, 1536, 744, 15, 65, "Message"],
+Cell[77014, 1553, 377, 9, 24, "Message"],
+Cell[77394, 1564, 1764, 28, 81, "Message"],
+Cell[79161, 1594, 2635, 41, 115, "Message"],
+Cell[81799, 1637, 3475, 53, 143, "Message"],
+Cell[85277, 1692, 376, 9, 24, "Message"],
+Cell[85656, 1703, 404, 10, 45, "Message"],
+Cell[86063, 1715, 402, 10, 45, "Message"],
+Cell[86468, 1727, 744, 15, 65, "Message"],
+Cell[87215, 1744, 402, 10, 45, "Message"],
+Cell[87620, 1756, 379, 9, 24, "Message"],
+Cell[88002, 1767, 744, 15, 65, "Message"],
+Cell[88749, 1784, 739, 15, 65, "Message"],
+Cell[89491, 1801, 375, 9, 24, "Message"],
+Cell[89869, 1812, 402, 10, 45, "Message"],
+Cell[90274, 1824, 404, 10, 45, "Message"],
+Cell[90681, 1836, 1765, 28, 81, "Message"],
+Cell[92449, 1866, 2634, 41, 115, "Message"],
+Cell[95086, 1909, 402, 10, 45, "Message"],
+Cell[95491, 1921, 377, 9, 24, "Message"],
+Cell[95871, 1932, 3477, 53, 143, "Message"],
+Cell[99351, 1987, 376, 9, 24, "Message"],
+Cell[99730, 1998, 744, 15, 65, "Message"],
+Cell[100477, 2015, 742, 15, 65, "Message"],
+Cell[101222, 2032, 744, 15, 65, "Message"],
+Cell[101969, 2049, 377, 9, 24, "Message"],
+Cell[102349, 2060, 404, 10, 45, "Message"],
+Cell[102756, 2072, 402, 10, 45, "Message"],
+Cell[103161, 2084, 401, 10, 45, "Message"],
+Cell[103565, 2096, 379, 9, 24, "Message"],
+Cell[103947, 2107, 1764, 28, 81, "Message"],
+Cell[105714, 2137, 2634, 41, 115, "Message"],
+Cell[108351, 2180, 3477, 53, 143, "Message"],
+Cell[111831, 2235, 376, 9, 24, "Message"],
+Cell[112210, 2246, 744, 15, 65, "Message"],
+Cell[112957, 2263, 744, 15, 65, "Message"],
+Cell[113704, 2280, 741, 15, 67, "Message"],
+Cell[114448, 2297, 375, 9, 24, "Message"],
+Cell[114826, 2308, 404, 10, 45, "Message"],
+Cell[115233, 2320, 404, 10, 45, "Message"],
+Cell[115640, 2332, 402, 10, 45, "Message"],
+Cell[116045, 2344, 379, 9, 24, "Message"],
+Cell[116427, 2355, 1765, 28, 81, "Message"],
+Cell[118195, 2385, 2634, 41, 115, "Message"],
+Cell[120832, 2428, 3475, 53, 143, "Message"],
+Cell[124310, 2483, 376, 9, 24, "Message"],
+Cell[124689, 2494, 740, 15, 65, "Message"],
+Cell[125432, 2511, 743, 15, 67, "Message"],
+Cell[126178, 2528, 741, 15, 67, "Message"],
+Cell[126922, 2545, 375, 9, 24, "Message"],
+Cell[127300, 2556, 1765, 28, 81, "Message"],
+Cell[129068, 2586, 2636, 41, 115, "Message"],
+Cell[131707, 2629, 3477, 53, 143, "Message"],
+Cell[135187, 2684, 376, 9, 24, "Message"],
+Cell[135566, 2695, 742, 15, 67, "Message"],
+Cell[136311, 2712, 743, 15, 67, "Message"],
+Cell[137057, 2729, 741, 15, 67, "Message"],
+Cell[137801, 2746, 377, 9, 24, "Message"],
+Cell[138181, 2757, 404, 10, 45, "Message"],
+Cell[138588, 2769, 402, 10, 45, "Message"],
+Cell[138993, 2781, 402, 10, 45, "Message"],
+Cell[139398, 2793, 377, 9, 24, "Message"],
+Cell[139778, 2804, 404, 10, 45, "Message"],
+Cell[140185, 2816, 404, 10, 45, "Message"],
+Cell[140592, 2828, 404, 10, 45, "Message"],
+Cell[140999, 2840, 377, 9, 24, "Message"],
+Cell[141379, 2851, 1767, 28, 81, "Message"],
+Cell[143149, 2881, 2634, 41, 115, "Message"],
+Cell[145786, 2924, 3477, 53, 143, "Message"],
+Cell[149266, 2979, 376, 9, 24, "Message"],
+Cell[149645, 2990, 741, 15, 67, "Message"],
+Cell[150389, 3007, 741, 15, 67, "Message"],
+Cell[151133, 3024, 741, 15, 67, "Message"],
+Cell[151877, 3041, 375, 9, 24, "Message"],
+Cell[152255, 3052, 402, 10, 45, "Message"],
+Cell[152660, 3064, 404, 10, 45, "Message"],
+Cell[153067, 3076, 404, 10, 45, "Message"],
+Cell[153474, 3088, 377, 9, 24, "Message"],
+Cell[153854, 3099, 9730, 193, 370, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[163621, 3297, 150, 3, 31, "Input"],
+Cell[163774, 3302, 157, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[163968, 3309, 88, 2, 31, "Input"],
+Cell[164059, 3313, 1076, 23, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[165172, 3341, 144, 3, 31, "Input"],
+Cell[165319, 3346, 107, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[165463, 3353, 87, 2, 31, "Input"],
+Cell[165553, 3357, 578, 13, 52, "Output"]
+}, Open  ]]
+}
+]
+*)
+

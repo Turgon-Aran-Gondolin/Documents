@@ -1,0 +1,676 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     30355,        666]
+NotebookOptionsPosition[     29054,        626]
+NotebookOutlinePosition[     29408,        642]
+CellTagsIndexPosition[     29365,        639]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"V", "[", "r_", "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"-", "1"}], "r"], "+", 
+   RowBox[{
+    SubscriptBox["V", "s"], "[", "r", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "s"], "[", "r_", "]"}], ":=", 
+  FractionBox["1", 
+   SuperscriptBox["r", "3"]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"txt", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r1", "=", "1"}], ";", 
+  RowBox[{"r2", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";", 
+  RowBox[{
+   RowBox[{"u", "[", "r1", "]"}], "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "100"}], ";", 
+  RowBox[{"\[Delta]", "=", 
+   RowBox[{"0.02", "/", "n"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"equ", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"u", "''"}], "[", "r", "]"}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", 
+             RowBox[{"(", 
+              RowBox[{"\[CapitalEpsilon]", "-", 
+               RowBox[{"V", "[", "r", "]"}]}], ")"}]}], "-", 
+            FractionBox[
+             RowBox[{"l", 
+              RowBox[{"(", 
+               RowBox[{"l", "+", "1"}], ")"}]}], 
+             SuperscriptBox["r", "2"]]}], ")"}], 
+          RowBox[{"u", "[", "r", "]"}]}]}], "\[Equal]", "0"}], ",", 
+       RowBox[{
+        RowBox[{"u", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"u", "'"}], "[", "1", "]"}], "\[Equal]", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{"2", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"V", "[", "r1", "]"}], "-", "\[CapitalEpsilon]"}], 
+            ")"}]}]], " ", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]]}]}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{"equ", ",", "u", ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "r1", ",", "r2"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"U", "=", 
+     RowBox[{"u", "/.", 
+      RowBox[{"s", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"total", "=", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"U", "[", "r", "]"}], "2"], ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "r1", ",", "r2"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"g", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"U", "[", "r", "]"}], 
+        SqrtBox["total"]], ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "r1", ",", "r2"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"r1", ",", 
+            RowBox[{"1.3", "r2"}]}], "}"}], ",", "All"}], "}"}]}]}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"data", ",", "g"}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"txt", ",", 
+      RowBox[{"Text", "[", 
+       RowBox[{
+        RowBox[{"ToString", "[", "\[CapitalEpsilon]", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1.13", "r2"}], ",", 
+          FractionBox[
+           RowBox[{"U", "[", "r2", "]"}], "total"]}], "}"}]}], "]"}]}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalEpsilon]", ",", 
+     RowBox[{"-", "15"}], ",", "0", ",", "\[Delta]"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"data", ",", 
+   RowBox[{"Graphics", "[", "txt", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"AxesOrigin", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<r\>\"", ",", "\"\<u\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.656827882981256*^9, 3.6568278982170377`*^9}, {
+  3.6568279665362687`*^9, 3.6568280301192436`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "deqn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:7b2c\:4e00\:4e2a\:53c2\:6570 \
+\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(2\\\\ \
+\\(\\((\\(\\(-15.`\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\) - \\(l\\\\ \\(\\((1 + \
+l)\\)\\)\\)\\/r\\^2)\\)\\)\\\\ \\(\\(u[r]\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), 5.477225575051661`*^-6}\\)\[NoBreak] \
+\:4e2d\:5e94\:8be5\:4f7f\:7528\:65b9\:7a0b\:6216\:8005\:65b9\:7a0b\:5217\:8868\
+\:ff0c\:800c\:4e0d\:662f \[NoBreak]\\!\\(5.477225575051661`*^-6\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NDSolve/deqn\\\", \
+ButtonNote -> \\\"NDSolve::deqn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280360934362`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "deqn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:7b2c\:4e00\:4e2a\:53c2\:6570 \
+\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(2\\\\ \
+\\(\\((\\(\\(-15.`\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\) - \\(l\\\\ \\(\\((1 + \
+l)\\)\\)\\)\\/r\\^2)\\)\\)\\\\ \\(\\(u[r]\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), 5.477225575051661`*^-6}\\)\[NoBreak] \
+\:4e2d\:5e94\:8be5\:4f7f\:7528\:65b9\:7a0b\:6216\:8005\:65b9\:7a0b\:5217\:8868\
+\:ff0c\:800c\:4e0d\:662f \[NoBreak]\\!\\(5.477225575051661`*^-6\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NDSolve/deqn\\\", \
+ButtonNote -> \\\"NDSolve::deqn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280361090617`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "deqn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:7b2c\:4e00\:4e2a\:53c2\:6570 \
+\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\(u[r]\\)\\)\\\\ \
+\\(\\((\\(\\(-\\(\\(\\(l\\\\ \\(\\((1 + l)\\)\\)\\)\\/r\\^2\\)\\)\\)\\) + \\(\
+\\(2\\\\ \\(\\((\\(\\(-14.9998`\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\))\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \\@\\(\\(\\(13.9998` \
+\[VeryThinSpace]\\)\\) + \\(\\(V\\_\\(NDSolve[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)[1]\\)\\)\\)\\/\\(500000\\\\ \\@2\\)}\\)\[NoBreak] \
+\:4e2d\:5e94\:8be5\:4f7f\:7528\:65b9\:7a0b\:6216\:8005\:65b9\:7a0b\:5217\:8868\
+\:ff0c\:800c\:4e0d\:662f \[NoBreak]\\!\\(\\@\\(\\(\\(13.9998` \
+\[VeryThinSpace]\\)\\) + \\(\\(V\\_\\(NDSolve[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)[1]\\)\\)\\)\\/\\(500000\\\\ \\@2\\)\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NDSolve/deqn\\\", \
+ButtonNote -> \\\"NDSolve::deqn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280361403227`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(NDSolve :: deqn\\), \\\"MessageName\\\"]\\)\[NoBreak] \:7684\
+\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\
+\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828036155925*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dvnoarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:51fd\:6570 \[NoBreak]\\!\\(u\\)\[NoBreak] \:51fa\:73b0\
+\:65f6\:6ca1\:6709\:53c2\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NDSolve\\\", ButtonNote -> \
+\\\"NDSolve::dvnoarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280362496877`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(2\\\\ \
+\\(\\((\\(\\(-15.`\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\) - \\(l\\\\ \\(\\((1 + \
+l)\\)\\)\\)\\/r\\^2)\\)\\)\\\\ \\(\\(u[r]\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \\(\\(\\@\\(\\(\\(13.998` \
+\[VeryThinSpace]\\)\\) + \\(\\(V\\_\\(NDSolve[\\(\\(\\(\\({\\(\[LeftSkeleton] \
+3 \[RightSkeleton]\\)}\\)\\), u, \\(\\({\\(\[LeftSkeleton] 3 \[RightSkeleton]\
+\\)}\\)\\)\\)\\)]\\)[1]\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\[NoBreak] \:65e2\:4e0d\:662f\:66ff\:6362\
+\:89c4\:5219\:5217\:8868\:ff0c\:4e5f\:4e0d\:662f\:4e00\:4e2a\:6709\:6548\:7684\
+\:5206\:6d3e\:8868\:ff0c\:56e0\:6b64\:65e0\:6cd5\:7528\:6765\:66ff\:6362. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280362496877`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(2\\\\ \
+\\(\\((\\(\\(-15.`\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\) - \\(l\\\\ \\(\\((1 + \
+l)\\)\\)\\)\\/r\\^2)\\)\\)\\\\ \\(\\(u[r]\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \\(\\(\\@\\(\\(\\(13.998` \
+\[VeryThinSpace]\\)\\) + \\(\\(V\\_\\(NDSolve[\\(\\(\\(\\({\\(\[LeftSkeleton] \
+3 \[RightSkeleton]\\)}\\)\\), u, \\(\\({\\(\[LeftSkeleton] 3 \[RightSkeleton]\
+\\)}\\)\\)\\)\\)]\\)[1]\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\[NoBreak] \:65e2\:4e0d\:662f\:66ff\:6362\
+\:89c4\:5219\:5217\:8868\:ff0c\:4e5f\:4e0d\:662f\:4e00\:4e2a\:6709\:6548\:7684\
+\:5206\:6d3e\:8868\:ff0c\:56e0\:6b64\:65e0\:6cd5\:7528\:6765\:66ff\:6362. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828036301052*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "inumr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:4ee5 \[NoBreak]\\!\\({\\({1, 1\\/1000000}\\)}\\)\
+\[NoBreak] \:4e3a\:754c\:7684\:533a\:57df\:5185\:ff0c\:5bf9\:4e8e\:6240\:6709\
+\:91c7\:6837\:70b9\:ff0c\:8ba1\:7b97\:88ab\:79ef\:51fd\:6570 \[NoBreak]\\!\\(\
+\\(\\(\\((u/.\[VeryThinSpace] \\(\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(Times[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Times[\\(\\(\
+\[LeftSkeleton] 4 \[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\\\ \
+\\(\\(u[r]\\)\\)\\)\\) + \\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \
+\[Equal] 0\\)\\), \\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\@\\(\\(\\(13.998` \[VeryThinSpace]\\)\\) + \
+\\(\\(\\(\\(Subscript[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\
+\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\\))\\)\\)[r]\\)\\^2\\)\[NoBreak] \
+\:5f97\:5230\:975e\:6570\:503c. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280371608195`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(2\\\\ \
+\\(\\((\\(\\(-15.`\\)\\) + \\(\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\)\\) - \\(l\\\\ \\(\\((1 + \
+l)\\)\\)\\)\\/r\\^2)\\)\\)\\\\ \\(\\(u[r]\\)\\)\\)\\) + \
+\\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \\(\\(\\@\\(\\(\\(13.998` \
+\[VeryThinSpace]\\)\\) + \\(\\(V\\_\\(NDSolve[\\(\\(\\(\\({\\(\[LeftSkeleton] \
+3 \[RightSkeleton]\\)}\\)\\), u, \\(\\({\\(\[LeftSkeleton] 3 \[RightSkeleton]\
+\\)}\\)\\)\\)\\)]\\)[1]\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\[NoBreak] \:65e2\:4e0d\:662f\:66ff\:6362\
+\:89c4\:5219\:5217\:8868\:ff0c\:4e5f\:4e0d\:662f\:4e00\:4e2a\:6709\:6548\:7684\
+\:5206\:6d3e\:8868\:ff0c\:56e0\:6b64\:65e0\:6cd5\:7528\:6765\:66ff\:6362. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280372076955`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\[NoBreak] \
+\:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828037223308*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "inumr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:4ee5 \[NoBreak]\\!\\({\\({1, 1\\/1000000}\\)}\\)\
+\[NoBreak] \:4e3a\:754c\:7684\:533a\:57df\:5185\:ff0c\:5bf9\:4e8e\:6240\:6709\
+\:91c7\:6837\:70b9\:ff0c\:8ba1\:7b97\:88ab\:79ef\:51fd\:6570 \[NoBreak]\\!\\(\
+\\(\\(\\((u/.\[VeryThinSpace] \\(\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(Times[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Times[\\(\\(\
+\[LeftSkeleton] 4 \[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\\\ \
+\\(\\(u[r]\\)\\)\\)\\) + \\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \
+\[Equal] 0\\)\\), \\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\@\\(\\(\\(13.998` \[VeryThinSpace]\\)\\) + \
+\\(\\(\\(\\(Subscript[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\
+\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\\))\\)\\)[r]\\)\\^2\\)\[NoBreak] \
+\:5f97\:5230\:975e\:6570\:503c. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280379945908`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dsvar"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(0.000021428551`\\)\[NoBreak] \:4e0d\:80fd\
+\:7528\:4f5c\:53d8\:91cf. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NDSolve/dsvar\\\", ButtonNote -> \
+\\\"NDSolve::dsvar\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280380258527`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dsvar"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(0.000021428551`\\)\[NoBreak] \:4e0d\:80fd\
+\:7528\:4f5c\:53d8\:91cf. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NDSolve/dsvar\\\", ButtonNote -> \
+\\\"NDSolve::dsvar\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828038041478*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dsvar"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(0.000021428551`\\)\[NoBreak] \:4e0d\:80fd\
+\:7528\:4f5c\:53d8\:91cf. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NDSolve/dsvar\\\", ButtonNote -> \
+\\\"NDSolve::dsvar\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280380571084`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(NDSolve :: dsvar\\), \\\"MessageName\\\"]\\)\[NoBreak] \:7684\
+\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\
+\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280380571084`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "inumr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:4ee5 \[NoBreak]\\!\\({\\({1, 1\\/1000000}\\)}\\)\
+\[NoBreak] \:4e3a\:754c\:7684\:533a\:57df\:5185\:ff0c\:5bf9\:4e8e\:6240\:6709\
+\:91c7\:6837\:70b9\:ff0c\:8ba1\:7b97\:88ab\:79ef\:51fd\:6570 \[NoBreak]\\!\\(\
+\\(\\(\\((u/.\[VeryThinSpace] \\(\\({\\(\\(\\(\\(\\(\\(\\(\\((\\(\\(Times[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\) + \\(\\(Times[\\(\\(\
+\[LeftSkeleton] 4 \[RightSkeleton]\\)\\)]\\)\\))\\)\\)\\\\ \
+\\(\\(u[r]\\)\\)\\)\\) + \\(\\(\\(\\(\\*SuperscriptBox[\\\"u\\\", \
+\\\"\[Prime]\[Prime]\\\", Rule[MultilineFunction, None]]\\)\\)[r]\\)\\)\\)\\) \
+\[Equal] 0\\)\\), \\(\\(\\(\\(u[0]\\)\\) \[Equal] 0\\)\\), \
+\\(\\(\\@\\(\\(\\(13.998` \[VeryThinSpace]\\)\\) + \
+\\(\\(\\(\\(Subscript[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\
+\\)\\)\\)\\/\\(500000\\\\ \\@2\\) \[Equal] \
+5.477225575051661`*^-6\\)\\)}\\)\\))\\)\\)[r]\\)\\^2\\)\[NoBreak] \
+\:5f97\:5230\:975e\:6570\:503c. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280389678373`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(NIntegrate :: inumr\\), \\\"MessageName\\\"]\\)\[NoBreak] \
+\:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568280389834623`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dvnoarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:51fd\:6570 \[NoBreak]\\!\\(u\\)\[NoBreak] \:51fa\:73b0\
+\:65f6\:6ca1\:6709\:53c2\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NDSolve\\\", ButtonNote -> \
+\\\"NDSolve::dvnoarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.6568285142530346`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "litarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e3a\:907f\:514d\:53ef\:80fd\:7684\:6b67\:4e49\:ff0c\
+\[NoBreak]SubscriptBox[\\\"V\\\", RowBox[{\\\"NDSolve\\\", \\\"[\\\", \
+RowBox[{\\\\({\\\\(\\\\(\\\\(\\\\((\\\\(Times[\\\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\\\)]\\\\) + \\\\(Times[\\\\(\[LeftSkeleton] 4 \
+\[RightSkeleton]\\\\)]\\\\))\\\\)\\\\ \\\\(u[r]\\\\)\\\\) + \
+\\\\(\\\\(\\\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\\\)[r]\\\\)\\\\) \[Equal] 0\\\\), \
+\\\\(\\\\(u[0]\\\\) \[Equal] 0\\\\), \\\\(\\\\@\\\\(\\\\(13.998` \
+\[VeryThinSpace]\\\\) + \\\\(\\\\(Subscript[\\\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\\\)]\\\\)[\\\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\\\)]\\\\)\\\\)\\\\/\\\\(500000\\\\ \\\\@2\\\\) \[Equal] \
+5.477225575051661`*^-6\\\\)}\\\\), \\\",\\\", \\\"u\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+FractionBox[\\\"1\\\", RowBox[{\\\"\\\", \\\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\\\), \\\"0\\\"}]]}], \\\"}\\\"}]}], \\\"]\\\"}]]\[NoBreak] \
+\:4e2d\:7684\:56e0\:53d8\:91cf\:7684\:53c2\:6570\:5e94\:8be5\:5728\:5b57\:9762\
+\:4e0a\:4e0e\:81ea\:53d8\:91cf\:5339\:914d. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NDSolve/litarg\\\", ButtonNote -> \
+\\\"NDSolve::litarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828517389847*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "dvnoarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:51fd\:6570 \[NoBreak]\\!\\(u\\)\[NoBreak] \:51fa\:73b0\
+\:65f6\:6ca1\:6709\:53c2\:6570. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NDSolve\\\", ButtonNote -> \
+\\\"NDSolve::dvnoarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828517460855*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(NDSolve :: dvnoarg\\), \\\"MessageName\\\"]\\)\[NoBreak] \
+\:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656828517644143*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "litarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e3a\:907f\:514d\:53ef\:80fd\:7684\:6b67\:4e49\:ff0c\
+\[NoBreak]SubscriptBox[\\\"V\\\", RowBox[{\\\"NDSolve\\\", \\\"[\\\", \
+RowBox[{\\\\({\\\\(\\\\(\\\\(\\\\((\\\\(Times[\\\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\\\)]\\\\) + \\\\(Times[\\\\(\[LeftSkeleton] 4 \
+\[RightSkeleton]\\\\)]\\\\))\\\\)\\\\ \\\\(u[r]\\\\)\\\\) + \
+\\\\(\\\\(\\\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\\\)[r]\\\\)\\\\) \[Equal] 0\\\\), \
+\\\\(\\\\(u[0]\\\\) \[Equal] 0\\\\), \\\\(\\\\@\\\\(\\\\(13.998` \
+\[VeryThinSpace]\\\\) + \\\\(\\\\(Subscript[\\\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\\\)]\\\\)[\\\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\\\)]\\\\)\\\\)\\\\/\\\\(500000\\\\ \\\\@2\\\\) \[Equal] \
+5.477225575051661`*^-6\\\\)}\\\\), \\\",\\\", \\\"u\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+FractionBox[\\\"1\\\", RowBox[{\\\"\\\", \\\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\\\), \\\"0\\\"}]]}], \\\"}\\\"}]}], \\\"]\\\"}]]\[NoBreak] \
+\:4e2d\:7684\:56e0\:53d8\:91cf\:7684\:53c2\:6570\:5e94\:8be5\:5728\:5b57\:9762\
+\:4e0a\:4e0e\:81ea\:53d8\:91cf\:5339\:914d. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NDSolve/litarg\\\", ButtonNote -> \
+\\\"NDSolve::litarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656829935959261*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "litarg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e3a\:907f\:514d\:53ef\:80fd\:7684\:6b67\:4e49\:ff0c\
+\[NoBreak]SubscriptBox[\\\"V\\\", RowBox[{\\\"NDSolve\\\", \\\"[\\\", \
+RowBox[{\\\\({\\\\(\\\\(\\\\(\\\\(u[r]\\\\)\\\\ \\\\((\\\\(Times[\\\\(\
+\[LeftSkeleton] 4 \[RightSkeleton]\\\\)]\\\\) + \\\\(Times[\\\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\\\)]\\\\))\\\\)\\\\) + \
+\\\\(\\\\(\\\\*SuperscriptBox[\\\"u\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]]\\\\)[r]\\\\)\\\\) \[Equal] 0\\\\), \
+\\\\(\\\\(u[0]\\\\) \[Equal] 0\\\\), \\\\(\\\\@\\\\(\\\\(13.998` \
+\[VeryThinSpace]\\\\) + \\\\(\\\\(Subscript[\\\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\\\)]\\\\)[\\\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\\\)]\\\\)\\\\)\\\\/\\\\(500000\\\\ \\\\@2\\\\) \[Equal] \
+\\\\@\\\\(\\\\(13.9998` \[VeryThinSpace]\\\\) + \\\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\\\)\\\\)\\\\/\\\\(500000\\\\ \\\\@2\\\\)\\\\)}\\\\), \
+\\\",\\\", \\\"u\\\", \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"r\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", FractionBox[\\\"1\\\", RowBox[{\\\"\\\", \
+\\\\(\[LeftSkeleton] 6 \[RightSkeleton]\\\\), \\\"0\\\"}]]}], \\\"}\\\"}]}], \
+\\\"]\\\"}]]\[NoBreak] \:4e2d\:7684\:56e0\:53d8\:91cf\:7684\:53c2\:6570\:5e94\
+\:8be5\:5728\:5b57\:9762\:4e0a\:4e0e\:81ea\:53d8\:91cf\:5339\:914d. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NDSolve/litarg\\\", \
+ButtonNote -> \\\"NDSolve::litarg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656829936037408*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\[NoBreak]\\!\\(\
+\\*StyleBox[\\(NDSolve :: litarg\\), \\\"MessageName\\\"]\\)\[NoBreak] \:7684\
+\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236. \\!\\(\\*ButtonBox[\\\
+\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6568279133591766`*^9, 3.6568279963987856`*^9, 
+  3.656829936084284*^9}]
+}, Open  ]]
+},
+WindowSize->{1912, 951},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (2013\:5e742\:670813\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 4406, 131, 487, "Input"],
+Cell[4988, 155, 1166, 20, 43, "Message"],
+Cell[6157, 177, 1166, 20, 43, "Message"],
+Cell[7326, 199, 1465, 24, 49, "Message"],
+Cell[8794, 225, 623, 12, 24, "Message"],
+Cell[9420, 239, 515, 11, 24, "Message"],
+Cell[9938, 252, 1423, 23, 49, "Message"],
+Cell[11364, 277, 1421, 23, 49, "Message"],
+Cell[12788, 302, 1407, 24, 54, "Message"],
+Cell[14198, 328, 1423, 23, 49, "Message"],
+Cell[15624, 353, 626, 12, 24, "Message"],
+Cell[16253, 367, 1407, 24, 54, "Message"],
+Cell[17663, 393, 520, 11, 24, "Message"],
+Cell[18186, 406, 518, 11, 24, "Message"],
+Cell[18707, 419, 520, 11, 24, "Message"],
+Cell[19230, 432, 626, 12, 24, "Message"],
+Cell[19859, 446, 1407, 24, 54, "Message"],
+Cell[21269, 472, 629, 12, 24, "Message"],
+Cell[21901, 486, 515, 11, 24, "Message"],
+Cell[22419, 499, 1577, 26, 45, "Message"],
+Cell[23999, 527, 513, 11, 24, "Message"],
+Cell[24515, 540, 626, 12, 24, "Message"],
+Cell[25144, 554, 1577, 26, 45, "Message"],
+Cell[26724, 582, 1686, 27, 45, "Message"],
+Cell[28413, 611, 625, 12, 24, "Message"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

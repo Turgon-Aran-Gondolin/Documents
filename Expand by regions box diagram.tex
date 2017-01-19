@@ -1,0 +1,279 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+
+\newcolumntype{M}{>{$\displaystyle}c<{$}}
+\newcolumntype{L}{>{$\displaystyle}l<{$}}
+
+\newcommand\Vtextvisiblespace[1][.3em]
+{%
+	\mbox{\kern.06em\vrule height.3ex}%
+	\vbox{\hrule width#1}%
+	\hbox{\vrule height.3ex}
+}
+
+\newcommand{\cbox}[2][cyan]
+{\mathchoice
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\displaystyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\textstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptscriptstyle#2$}}
+}
+
+\newcommand{\typical}{\cbox{\phantom{A}}}
+\newcommand{\tall}{\cbox{\phantom{A^{\vphantom{x^x}}_x}}}
+\newcommand{\grande}{\cbox{\phantom{\frac{1}{xx}}}}
+\newcommand{\venti}{\cbox{\phantom{\sum_x^x}}}
+
+\title{Expand by regions \texttt{box diagram}}
+\author{Shuangran Liang \\ \texttt{liangsr@ihep.ac.cn}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{The box diagram}
+The box diagram:\\
+%import the diagram here
+%%\begin{figure}
+%\includegraphics[scale=1]{draw.ps}
+%\end{figure}
+%explanation of the kinematic quantities here
+The kinematic quantities:\\
+
+$p_1=\frac{q}{2}+p$~~~~~$p_2=\frac{q}{2}-p$~~~~~$p_3=\frac{q}{2}+p'$~~~~~$p_4=\frac{q}{2}-p'$\\
+
+Define the variables $y=m^2-\frac{q^2}{4}=p^2=p'^2$~~and~~$t=(p'-p)^2$\\
+
+Since~~~$p.q=p'.q=0$\\
+It's convinent to choose the frame in which~~~$p=(0,\va*{p})~~~p'=(0,\va*{p'})~~~q=(q^0,\va*{0})$\\
+
+The threshold expansion is performed when $t\sim y<<q^2$
+
+The integral represented by the diagram can be written directly from the Feynman Rules:\\
+\begin{eqnarray}
+I&=&\int[dk]\frac{1}{((k+p_1)^2-m^2)((p_2-k)^2-m^2)(k+p_1-p_3)^2k^2}\\\nonumber
+&=&\int[dk]\frac{1}{((k+p)^2+k.q-y)((k+p)^2-k.q-y)(k+p-p')^2k^2}
+\end{eqnarray}
+
+where $[dk]=e^{\epsilon\gamma_{E}}\frac{d^Dk}{i\pi^\frac{D}{2}}$\\
+
+
+
+Near the threshold,we have four regions.In each region,perform the expansion in the small quantities of the integrand before the loop momentum integration.\\
+
+\subsection{Hard region}
+The loop momentum is of the order of the CMS energy,we say it's hard, ie. $k\sim q$.   The integrand is expand in y,p and p'.
+
+\begin{equation}
+I^h=\int[dk]\frac{1}{(k^2+k.q)(k^2-k.q)(k^2)^2}\\
+\end{equation}
+
+\begin{equation*}
+\frac{1}{(\ k^2+k.q\ )(\ k^2-k.q\ )(\ k^2)^2\ }\ =\frac{1}{2(k^2)^3}(\frac{1}{k^2+k.q}+\frac{1}{k^2-k.q})\\
+\vspace{0.2cm}
+\end{equation*}
+
+Use Feynman parametrization\\
+\begin{equation}
+{x (k^2+k.q) + (1-x) k^2 = (k+\frac{x}{2}q)^2 -\frac{q^2}{4} x^2}\\
+\end{equation}
+
+Integrate over k according to\\
+\begin{equation}
+\int[dl]\frac{1}{(l^2-\Delta)^n}=(-1)^n\frac{\Gamma(n-\frac{D}{2})}{\Gamma(n)}(\frac{1}{\Delta})^{n-\frac{D}{2}}
+\end{equation}
+
+
+The integration left to be done is:\\
+\begin{equation}
+\frac{\Gamma(4)}{\Gamma(3)}\frac{\Gamma(2+\epsilon)}{\Gamma(4)}\int^1_0dx \frac{(1-x)^2}{(\frac{q^2}{4}x^2)^{2+\epsilon}}=-\frac{8}{3}\\
+\end{equation}
+
+\subsection{Soft region }
+Whhe the loop momentum becomes soft,ie. $k\sim \sqrt{y}$.~~~there is a contribution from the gluon poles. To the leading order expansion of the small quantities $y,(k+p)^2$,the integral is\\
+
+\begin{eqnarray}
+I^s&=&\int[dk]\frac{1}{(k.q+i0^+)(-k.q+i0^+)(k+p-p')^2k^2}\nonumber\\
+&=&\frac{1}{q^2}\int[dk]\frac{1}{k_0^2~k^2~(k+p-p')^2}
+\end{eqnarray}
+
+
+Closing the upper complex plane,integrate over $k^0$.\\
+
+\begin{eqnarray*}%adding * removes the number index
+I^s&=&e^{\epsilon\gamma}\frac{2i\pi}{q^2}\int\frac{d^{D-1}k}{i\pi^\frac{D}{2}}{\frac{1}{2(\va*{k}^2)^\frac{3}{2}~[\va*{k}^2-(\va*{k}+\va*{p}-\va*{p'})^2]}+
+{\frac{1}{2(\va*{k}+\va*{p}-\va*{p'})^\frac{3}{2}~[(\va*{k}+\va*{p}-\va*{p'})^2-\va*{k}^2]}}}\nonumber\\
+&=&e^{\epsilon\gamma}\frac{1}{q^2}\int\frac{d^{D-1}k}{\pi^{\frac{D}{2}-1}}\frac{1}{(\va*{k}^2)^\frac{3}{2}}[\frac{1}{-2\va*{k}.(\va*{p}-\va*{p'})+t+i0^+}+\frac{1}{-2\va*{k}.(\va*{p}-\va*{p'})+t-i0^+}]\\
+\end{eqnarray*}
+
+According to $\displaystyle\frac{1}{(q^2)^n~(qv)^m}=\frac{(n+m-1)!}{(n-1)!~(m-1)!}\int^\infty_0 \frac{2^m\lambda^{m-1}d\lambda}{(q^2+2\lambda qv)^{n+m}}$\\
+
+\begin{eqnarray}
+I^s&=&e^{\epsilon\gamma}\frac{3}{q^2}\int^\infty_0d\lambda~\int\frac{d^{D-1}k}{\pi^{\frac{D}{2}-1}}\frac{1}{[\va*{k}^2+(4\lambda^2+2\lambda)t+i0^+]^\frac{5}{2}}+(i0^+\rightarrow -i0^+)\\\nonumber
+&=&-e^{\epsilon\gamma}\frac{3\sqrt{\pi}}{q^2}\frac{\Gamma(1+\epsilon)}{\Gamma(\frac{5}{2})}\frac{1}{(-2t)^{1+\epsilon}}\int^\infty_0d\lambda~[\frac{1}{(2\lambda^2+\lambda)t+i0^+}]^{1+\epsilon}+(i0^+\rightarrow -i0^+)\\\nonumber
+&=&\frac{1}{q^{2(2+\epsilon)}}~[-\frac{4}{\hat{t}}~(~\frac{1}{\epsilon}-\log{(-\hat{t})}~)]
+\end{eqnarray}
+
+
+\subsection{Potential region}
+When the loop momentum is potential, ie. $k^0\sim \frac{y}{q}~~and~~\vec{k}\sim \sqrt{y}$,\quad expand in $k_0^2$.\\
+
+\begin{eqnarray}
+I^p&=&\int[dk]\frac{1}{[-(\vec{k}+\vec{q})^2+k_0 q_0-y+i0^+][-(\vec{k}+\vec{q})^2-k_0 q_0-y+i0^+][-(\vec{k}+\vec{p}-\vec{p'})^2](-\vec{k}^2)}\\\nonumber
+&=&\frac{e^{\epsilon\gamma}}{q_0}\int\frac{d^{D-1}k}{\pi^{\frac{D}{2}-1}}\frac{1}{[(\vec{k}+\vec{p})^2+y-i0^+][(\vec{k}+\vec{p}-\vec{p'})^2-i0^+][\vec{k}^2-i0^+]}\\
+\end{eqnarray}
+
+\begin{eqnarray*}
+x_1[(\vec{k}+\vec{p}-\vec{p'})^2-i0^+]+x_2[(\vec{k}+\vec{p})^2+y-i0^+]+(1-x_1-x_2)[\vec{k}^2-i0^+]\\
+=[\vec{k}+x_1(\vec{p}-\vec{p'})+x_2\vec{p}]^2-[x_2^2\vec{p}^2+2x_1x_2\vec{p}(\vec{p}-\vec{p'})+x_1^2(\vec{p}-\vec{p'})^2+tx_1+i0^+]
+\end{eqnarray*}
+
+\begin{eqnarray*}
+(\vec{p}-\vec{p'})^2=-t\\
+\vec{p}^2=\vec{p'}^2=-y\\
+\Delta=x_2^2\vec{p}^2+2x_1x_2\vec{p}(\vec{p}-\vec{p'})+x_1^2(\vec{p}-\vec{p'})^2+tx_1+i0^+
+&=&-yx_2^2-tx_1^2+t(1-x_2)x_1
+\end{eqnarray*}
+
+First do $x_1->1-u_1$ and $x_2->u_2$;\\and then do $u_1->x_1$ and $u_2->x_1x_2$
+
+
+
+
+
+
+After Feynman parametrition the integral becomes:\\
+\begin{eqnarray}
+I^p=\frac{i\sqrt{\pi}}{q_0}\Gamma(\frac{3}{2}+\epsilon)\int_0^1dx_1 \int_0^1dx_2 \frac{x_1}{\Delta^{\frac{3}{2}+\epsilon}}\\
+\Delta=(-yx_2^2+tx_2-t)x_1^2+t(1-x_2)x_1-i0^+
+\end{eqnarray}
+
+\begin{equation}
+I^p=\frac{ i\sqrt{\pi}}{q_0}\Gamma(\frac{3}{2}+\epsilon)\int_0^1dx_1 \int_0^1dx_2
+\frac{x_1^{\frac{1}{2}}}{[{x_1(-yx_2^2+tx_2-t)+t(1-x_2)+i0^+}]^{\frac{3}{2}+\epsilon}}
+\end{equation}
+
+First do integration over $x_1$ and we get the integrand for the integration over $x_2$ to be:\\
+\begin{equation}
+-\frac{2 (t (1-x_2))^{-\epsilon -\frac{3}{2}} \, _2F_1\left(\frac{1}{2}-\epsilon ,\epsilon +\frac{3}{2};\frac{3}{2}-\epsilon ;\frac{x_2^2 y}{t (1-x_2)}+1\right)}{1-2 \epsilon }
+\end{equation}
+
+0 and 1 are singularity point for hypergeometric functions.Use an identity :\\
+\begin{equation*}
+\, _2F_1\left(\frac{1}{2}-\epsilon ,\epsilon +\frac{3}{2};\frac{3}{2}-\epsilon ;\frac{\text{x2}^2 y}{t (1-\text{x2})}+1\right)=\left(-\frac{\text{x2}^2 y}{t (1-\text{x2})}\right)^{\epsilon -\frac{1}{2}} \, _2F_1\left(\frac{1}{2}-\epsilon ,-2 \epsilon ;\frac{3}{2}-\epsilon ;\frac{t (1-\text{x2})}{\text{x2}^2 y}+1\right)\\
+\end{equation*}
+
+
+After using the identity,(10) becomes:\\
+\begin{equation*}
+\frac{2 t^{-2 \epsilon -1} (1-\text{x2})^{-2 \epsilon -1} \text{x2}^{2 \epsilon -1} (-y)^{\epsilon -\frac{1}{2}} \, _2F_1\left(\frac{1}{2}-\epsilon ,-2 \epsilon ;\frac{3}{2}-\epsilon ;\frac{t (1-\text{x2})}{\text{x2}^2 y}+1\right)}{1-2 \epsilon }
+\end{equation*}
+
+
+Divergences arise when $x_2$ is 0 or 1.Extract the singularities one by one. First use a trick to extract the singularity at $x_2=1$:\\
+\begin{equation*}
+\int dx\frac{f(x,\epsilon )}{(1-x)^{2\epsilon +1}}=\int dx\frac{f(1,\epsilon )}{(1-x)^{2\epsilon +1}}+\int dx\frac{f(x,\epsilon )-f(1,\epsilon )}{(1-x)^{2\epsilon +1}}
+\end{equation*}
+The first integral in the RHS is divergent but here $f(1,\epsilon )$ is finite.The second integral in the RHS is finite,so we can set $\epsilon$ to be 0 there.\\
+
+\begin{equation}
+\frac{\pi  }{2 t \sqrt{y}}\left(\frac{1}{\epsilon }-2 \log (t)+\log (-y)-\gamma +2-\psi ^{(0)}\left(\frac{3}{2}\right)\right)
+\end{equation}
+
+Then do the trick again to extract the singularity at $x_2=0$:\\
+\begin{equation*}
+\int dx\frac{g(x,\epsilon )}{x^{-2\epsilon +1}}=\int dx\frac{g(0,\epsilon )}{x^{-2\epsilon +1}}+\int dx\frac{g(x,\epsilon )-g(0,\epsilon )}{(1-x)^{-2\epsilon +1}}
+\end{equation*}
+
+\begin{equation}
+-\frac{\pi  }{4 t \sqrt{y}}\left(\frac{1}{\epsilon }-2 \log (t)+\log (-y)+\gamma +2+\psi ^{(0)}\left(\frac{3}{2}\right)\right)
+\end{equation}
+
+Those two add up to obtain:\\
+\begin{equation}
+\frac{\pi  }{4 t \sqrt{y}}\left(\frac{1}{\epsilon }-2 \log (t)+\log (-y)-\frac{3}{4}\gamma +2-\frac{3}{4}\psi ^{(0)}\left(\frac{3}{2}\right)\right)
+\end{equation}
+
+I found this can't get a finite answer for $\displaystyle\int dx\frac{g(x,\epsilon )-g(0,\epsilon )}{(1-x)^{-2\epsilon +1}}$,which should be finite.
+
+The answer should be:\\
+\begin{equation}
+I^p=\frac{1}{(q^2)^{2+\epsilon}}\frac{\pi}{\hat{t}\sqrt{\hat{y}}}[~\frac{1}{\epsilon}-\log(-\hat{t})~]
+\end{equation}
+
+
+\textbf{Sector Decomposition}\\
+(12) becomes:\\
+\begin{equation}
+I^p=\frac{i\sqrt{\pi}}{q}\Gamma[\frac{3}{2}+\epsilon][sectA+sectB]
+\end{equation}
+
+\begin{eqnarray}
+sectA&=&\int_0^1dx_1\int_0^1dwx_1^{-1-2\epsilon}w^{-\frac{1}{2}-\epsilon}[[tx_1-y(1-x_1)^2]w+t]^{-\frac{3}{2}-\epsilon}\\
+sectB&=&\int_0^1dx_2\int_0^1dux_2^{-1-2\epsilon}[tux_2-y(1-ux_2)^2+tu]^{-\frac{3}{2}-\epsilon}
+\end{eqnarray}
+
+sectA and sectB is divergent at $x_1->0$ or $x_2->0$ respectively.Perform integration over $x_1$ in sectA and $x_2$ in sectB first and then do the $w$ or $u$ integration later. The divergent term is:\\
+From sectA:\\
+\begin{equation*}
+-\frac{1}{t \epsilon}\sqrt{}\frac{1}{i \delta +t-y}
+\end{equation*}
+From sectB:\\
+\begin{equation*}
+\frac{1}{t \epsilon }(\frac{1}{\sqrt{i \delta +t-y}}-\frac{1}{\sqrt{-y+i \delta }})
+\end{equation*}
+Add up to:\\
+\begin{equation}
+\frac{\pi }{2 t \sqrt{y} \epsilon }
+\end{equation}
+
+
+
+'t Hooft \& Veltaman's paper about one-loop scalar diagrams is a good reference. \cite{'tHooft:1978xw}
+
+
+
+
+
+
+
+
+
+
+\subsection{Ultrosoft region}
+When the loop momentum is ultrasoft, ie. $k\sim \frac{y}{q}$
+\begin{eqnarray}
+I^{us}&=&\frac{1}{t}\int[dk]\frac{1}{(q_0k_0+i0^+)(-q_0k_0+i0^+)k^2}\\\nonumber
+&=&0
+\end{eqnarray}
+
+
+\section{Conclusion}
+We have done the leading term expansion in small quantities of each term of the denominators respectively,and we found there are 3 regions contributing to the box diagram. Adding them together is the leading term threshold expansion:
+\begin{equation}
+I=\frac{1}{q^{2(2+\epsilon)}}~[\frac{\pi}{\hat{t}\sqrt{\hat{y}}}-\frac{4}{\hat{t}}~](\frac{1}{\epsilon}-\log(-\hat{t}))-\frac{8}{3}+\mathcal{O}(\hat{t}^\frac{1}{2},\hat{y}^\frac{1}{2})
+\end{equation}
+
+\begin{thebibliography}{1}
+\bibitem{'tHooft:1978xw}
+  G.~'t Hooft and M.~J.~G.~Veltman,
+  ``Scalar One Loop Integrals,''
+  Nucl.\ Phys.\ B {\bf 153}, 365 (1979).
+  %%CITATION = NUPHA,B153,365;%%
+  %1046 citations counted in INSPIRE as of 21 Dec 2014
+\end{thebibliography}
+
+\end{document} 

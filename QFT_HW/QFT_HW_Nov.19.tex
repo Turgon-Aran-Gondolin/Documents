@@ -1,0 +1,98 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+
+\geometry{left=1cm,right=1cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+
+
+
+
+\newcommand{\Tscr}{\mathscr{T}}
+\newcommand{\Cscr}{\mathscr{C}}
+
+
+\title{Homework: Quantum Field Theory \#7}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+LIPS for N-body:
+$$\dd\Phi_{N_{\beta}}=\prod_{f=1}^{N_{\beta}}\frac{\dd^3p_f}{(2\pi)^32E_{\vb{p}}}\delta^4(\sum_{N_{\alpha}}p_{\alpha}-\sum_{N_{\beta}} p_{\beta})$$
+For two-body scenario:
+
+i). $m_1=m_2=0.\,(p_1^{\mu}+p_2^{\mu}=\Pmqty{M,\vb{0}},\;\text{center-of-mass frame})$
+\begin{align*}
+  \dd\Phi&=\frac{\dd^3p_1\dd^3p_2}{(2\pi)^62E_{\vb{p_1}}2E_{\vb{p_2}}}\delta^4(\sum_{N_{\alpha}}p_{\alpha}-\sum_{N_{\beta}} p_{\beta})\\
+  &=\frac{p_1^2\dd p_1\dd\Omega}{(2\pi)^62E_12E_2}\delta(M-E_1-E_2)\\
+  \intertext{and $\delta(M-E_1-E_2)=\abs{\dv{(M-E_1-E_2)}{p_1}}^{-1}_{p_1=p_0}\delta(p_1-p_0)=\frac{E_1E_2}{p_0(E_1+E_2)}\delta(p_1-p_0)$ where $p_0$ is the solution of $f(p_1)=M-E_1-E_2=0$}
+  &=\frac{p_0^2\dd\Omega}{(2\pi)^62E_12E_2}\frac{E_1E_2}{p_0(E_1+E_2)}\\
+  &=\frac{p_0}{(2\pi)^34M}\dd\Omega\\
+  \intertext{note that $p_0=\sqrt{\frac{M^2}{4}-m^2}=\frac{M}{2}$}
+  &=\frac{1}{8(2\pi)^6}\dd\Omega
+\end{align*}
+
+ii). $m_1=m_2=m$, $M>2m$.
+
+We only need to apply the result of the last one (before we apply the massless condition) and we can get
+$$\dd\Phi=\frac{\sqrt{M^2-4m^2}}{(2\pi)^68M}\dd\Omega$$
+
+\end{document}

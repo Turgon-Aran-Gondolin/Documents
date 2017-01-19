@@ -1,0 +1,46 @@
+%% AMS-LaTeX Created with the Wolfram Language : www.wolfram.com
+
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphics, setspace}
+\usepackage{bm}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+\begin{document}
+
+\begin{doublespace}
+\noindent\(\bm{\text{V0}=-3;a=2;\alpha =0.262713;\text{$\psi $0}=10^{-3};\text{x0}=2a;}\\
+\bm{V[\text{x$\_$}]\text{:=}\text{Which}[\text{Abs}[x]\leq a,\text{V0},\text{True},0]}\\
+\bm{f[\text{e$\_$}?\text{NumberQ}]\text{:=}}\\
+\bm{\text{Block}[\{\psi ,x,\text{x1}=-\text{x0},\text{x2}=\text{x0}\},}\\
+\bm{\text{First}[\psi [\text{x2}]\text{/.}}\\
+\bm{\text{NDSolve}[\{\psi \text{''}[x]+\alpha (e-V[x])\psi [x]==0,\psi [\text{x1}]==\text{$\psi $0},}\\
+\bm{\left.\psi '[\text{x1}]==\sqrt{-\alpha (e-V[\text{x1}])}\text{  }\text{$\psi $0}\right\},}\\
+\bm{\psi ,\{x,\text{x1},\text{x2}\}]]]}\\
+\bm{\text{Plot}[\{f[e],\text{$\psi $0},-\text{$\psi $0}\},\{e,\text{V0},0\},}\\
+\bm{\text{PlotRange}\to \{\{-2.5,0.2\},\{3\text{$\psi $0},-10\text{$\psi $0}\}\},}\\
+\bm{\text{AxesLabel}\to \{\text{{``}E/eV{''}},\text{{``}$\psi $(x2){''}}\},}\\
+\bm{\text{Epilog}\to \{\text{Text}[\text{{``}$\psi $0{''}},\{0.1,\text{$\psi $0}\}],\text{Text}[\text{{``}-$\psi $0{''}},\{0.1,-\text{$\psi $0}\}]\},}\\
+\bm{\text{PlotStyle}\to \text{Black},\text{PlotPoints}\to 100]}\\
+\bm{\text{FindRoot}[f[e]==\text{$\psi $0},\{e,-2.2,-2.0\}]}\\
+\bm{\text{FindRoot}[f[e]==-\text{$\psi $0},\{e,-0.2,0\}]}\\
+\bm{\text{Clear}[\text{{``}Global$\grave{ }$*{''}}]}\)
+\end{doublespace}
+
+\includegraphics{Example_SquarePotenialWell_E-psi[x2]_gr1.eps}
+
+\begin{doublespace}
+\noindent\(\{e\to -2.07927\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\{e\to -0.0930281\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\bm{\text{}}\)
+\end{doublespace}
+
+\end{document}

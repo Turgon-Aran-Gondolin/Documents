@@ -1,0 +1,261 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{slashed}
+%\usepackage{bm}
+\usepackage{dsfont}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gmn}{g^{\mu\nu}}
+\newcommand{\gnm}{g^{\nu\mu}}
+\newcommand{\gmm}{g^{\mu\mu}}
+\newcommand{\gnn}{g^{\nu\nu}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\renewcommand{\G}{\Gamma}
+\newcommand{\s}{\sigma}
+\newcommand{\ps}{\slashed p}
+
+
+\title{Homework: Quantum Field Theory \#3}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+%\tableofcontents
+
+{\bf11.1}\quad
+
+(a). $(\gamma^5)^2=\mathds{1}$
+\begin{align*}
+  (\g^5)^2&=\g^0\g^1\g^2\g^3\g^0\g^1\g^2\g^3&\\
+  &=(-1)^3\g^0\g^0\g^1\g^2\g^3\g^1\g^2\g^3\\
+  &=(-1)^3\g^0\g^0(-1)^2\g^1\g^1\g^2\g^3\g^2\g^3\\
+  &=(-1)^3\g^0\g^0(-1)^2\g^1\g^1(-1)\g^2\g^2\g^3\g^3\\
+  &=\mathds{1}
+\end{align*}
+
+
+(b). $\g_{\mu}\slashed p\g^{\mu}=-2\slashed p$
+\begin{align*}
+  \g_{\mu}\ps\g^{\mu}&=g_{\mu\a}\g^{\a}\g^{\nu}p_{\nu}\g^{\mu}&\\
+  &=(2g^{\a\nu}-\g^{\nu}\g^{\a})\g^{\mu}g_{\mu\a}p_{\nu}\\
+  &=2\g^{\nu}p_{\nu}-\g^{\nu}\g_{\mu}\g^{\mu}p_{\nu}\\
+  &=-2\ps
+\end{align*}
+
+(c). $\g_{\mu}\ps\slashed q \ps\g^{\mu}=-2\ps\slashed q\ps$
+\begin{align*}
+  \g_{\mu}\ps\slashed q \ps\g^{\mu}&=\g_{\mu}\g^{\nu}p_{\nu}\g^{\a}q_{\a}\g^{\b}p_{\b}\g^{\mu}&\\
+  &=g_{\mu\tau}\g^{\tau}\g^{\nu}p_{\nu}\g^{\a}q_{\a}\g^{\b}p_{\b}\g^{\mu}\\
+  &=(2g^{\nu\tau}-\g^{\nu}\g^{\tau})g_{\mu\tau}\g^{\a}\g^{\b}\g^{\mu}p_{\nu}q_{\a}p_{\b}\\
+  &=2\g^{\a}\g^{\b}\g^{\nu}p_{\nu}q_{\a}p_{\b}-\g^{\nu}\g^{\tau}\g^{\a}\g^{\b}\g^{\mu}g_{\mu\tau}p_{\nu}q_{\a}p_{\b}\\
+  &=2\g^{\a}\g^{\b}\g^{\nu}p_{\nu}q_{\a}p_{\b}-\g^{\nu}(2g^{\a\tau}-\g^{\a}\g^{\tau})\g^{\b}\g^{\mu}g_{\mu\tau}p_{\nu}q_{\a}p_{\b}\\
+  &=2\g^{\a}\g^{\b}\g^{\nu}p_{\nu}q_{\a}p_{\b}-2\g^{\nu}\g^{\b}\g^{\a}p_{\nu}q_{\a}p_{\b}+\g^{\nu}\g^{\a}\g^{\tau}\g^{\b}\g^{\mu}g_{\mu\tau}p_{\nu}q_{\a}p_{\b}\\
+  &=2\g^{\a}\g^{\b}\g^{\nu}p_{\nu}q_{\a}p_{\b}-2\g^{\nu}\g^{\b}\g^{\a}p_{\nu}q_{\a}p_{\b}+\g^{\nu}\g^{\a}(2g^{\tau\b}-\g^{\b}\g^{\tau})\g^{\mu}g_{\mu\tau}p_{\nu}q_{\a}p_{\b}\\
+  &=2\g^{\a}\g^{\b}\g^{\nu}p_{\nu}q_{\a}p_{\b}-2\g^{\nu}\g^{\b}\g^{\a}p_{\nu}q_{\a}p_{\b}+2\g^{\nu}\g^{\a}\g^{\b}p_{\nu}q_{\a}p_{\b}-4\g^{\nu}\g^{\a}\g^{\b}p_{\nu}q_{\a}p_{\b}\\
+  &=-2\ps\slashed q\ps
+\end{align*}
+
+(d). $\Bqty{\g^5,\g^{\mu}}=0$
+$$\g^5\g^0=(-1)^3\g^0\g^0\g^1\g^2\g^3=-\g^0\g^5$$
+$$\g^5\g^1=(-1)^3\g^1\g^0\g^1\g^2\g^3=-\g^1\g^5$$
+$$\g^5\g^2=(-1)^3\g^2\g^0\g^1\g^2\g^3=-\g^2\g^5$$
+$$\g^5\g^3=(-1)^3\g^3\g^0\g^1\g^2\g^3=-\g^3\g^5$$
+$$\Longrightarrow\Bqty{\g^5,\g^{\mu}}=0$$
+%\begin{align*}
+%  \Bqty{\g^5,\g^{\mu}}&=\g^5\g^{\mu}+\g^{\mu}\g^5\\
+%  &=\g^0\g^1\g^2\g^3\gm+\gm\g^0\g^1\g^2\g^3\\
+%  &=2g^{\mu3}\g^0\g^1\g^2-\g^0\g^1\g^2\gm\g^3+2g^{\mu0}\g^1\g^2\g^3-\g^0\gm\g^1\g^2\g^3\\
+%  &=2g^{\mu3}\g^0\g^1\g^2-2\g^0\g^1g^{\mu2}\g^3+\g^0\g^1\gm\g^2\g^3+2g^{\mu0}\g^1\g^2\g^3-\g^0g^{\mu1}\g^2\g^3+\g^0\g^1\gm\g^2\g^3
+%\end{align*}
+
+(e). $\Tr[\g^{\a}\gm\g^{\b}\gn]=4(g^{\a\mu}g^{\b\nu}-g^{\a\b}g^{\mu\nu}+g^{\a\nu}g^{\mu\b})$
+\begin{align*}
+  \Tr[\gm\gn]&=\Tr[2g^{\mu\nu}\cdot\mathds{1}-\gn\gm]\\
+  &=8g^{\mu\nu}-\Tr[\gm\gn]
+\\
+&=4g^{\mu\nu}
+\end{align*}
+\begin{align*}
+  \Tr[\g^{\a}\gm\g^{\b}\gn]&=\Tr[(2g^{\a\mu}-\gm\g^{\a})\g^{\b}\gn]\\
+  &=\Tr[2g^{\a\mu}\g^{\b}\gn-2g^{\a\b}\gm\gn+2g^{\a\nu}\gm\g^{\b}-\gm\g^{\b}\gn\g^{\a}]\\&=g^{\a\mu}\Tr[\g^{\b}\gn]-g^{\g\b}\Tr[\gm\gn]+g^{\a\nu}\Tr[\gm\g^{\b}]\\
+  &=4(g^{\a\mu}g^{\b\nu}-g^{\g\b}g^{\mu\nu}+g^{\a\nu}g^{\mu\b})\\
+\end{align*}
+
+{\bf2.}\quad
+Spinor identity:
+
+(a). Show that $\sum_su_s(p)\bar u_s(p)=\ps+m$ and $\sum_sv_s(p)\bar v_s(p)=\ps-m$.
+\begin{align*}
+  \sum_su_s(p)\bar u_s(p)&=\sum_s\pmqty{\sqrt{p\cdot\sigma}\xi^s\\\sqrt{p\cdot\bar\sigma}\xi^s}\pmqty{\xi^{s\dagger}\sqrt{p\cdot\bar\sigma}&\xi^{s\dagger}\sqrt{p\cdot\sigma}}\\
+  &=\sum_s\pmqty{\sqrt{p\cdot\sigma}\xi^s\xi^{s\dagger}\sqrt{p\cdot\bar\sigma}&\sqrt{p\cdot\sigma}\xi^s\xi^{s\dagger}\sqrt{p\cdot\sigma}\\\sqrt{p\cdot\bar\sigma}\xi^s\xi^{s\dagger}\sqrt{p\cdot\bar\sigma}&\sqrt{p\cdot\bar\sigma}\xi^s\xi^{s\dagger}\sqrt{p\cdot\sigma}}\\
+  \intertext{(Use $\sum_s\xi^s\xi^{s\dagger}=\mathds{1}$)}
+  &=\pmqty{m&p\cdot\sigma\\p\cdot\bar\sigma&m}\\
+  &=\ps+m
+\end{align*}
+Similarly, $\sum_sv_s(p)\bar v_s(p)=\ps-m$.
+
+(b). Show that $\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$.
+
+\begin{align*}
+  &\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}\\
+  \Longrightarrow &p_{\mu}\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p_{\mu}p^{\mu}\\
+  \intertext{From the dirac equation for $\bar u$, we have} &\bar u_{\s}\gm p_{\mu}=m\bar u_{\s}
+\end{align*}
+So
+\begin{align*}
+  &p_{\mu}\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p_{\mu}p^{\mu}\\
+  \Longrightarrow &m\bar u_{\s}u_{\s'}=2\delta_{\s\s'}p_{\mu}p^{\mu}\\
+  \Longrightarrow &2m^2\xi_{\s}^{\dagger}\xi_{\s'}=2\delta_{\s\s'}m^2\\
+  \Longrightarrow&2\delta_{\s\s'}m^2=2\delta_{\s\s'}m^2
+\end{align*}
+More strict prove can be done by involving Gordon identity, which is shown in the last of problem {\bf11.4}.
+
+We can also compute only the third component of $p^{i}$, then do a coordinate transformation to the actual $p^{\mu}$ with all 4 component.
+\begin{align*}
+  \bar u_{\s}(p)\gm u_{\s'}(p)&=\pmqty{\xi^{\s\dagger}\sqrt{p\cdot\bar\sigma}&\xi^{\s\dagger}\sqrt{p\cdot\sigma}}\gm\pmqty{\sqrt{p\cdot\sigma}\xi^{\s'}\\\sqrt{p\cdot\bar\sigma}\xi^{\s'}}\\
+  &=\pmqty{\xi^{\s\dagger}\sqrt{p\cdot\bar\sigma}&\xi^{\s\dagger}\sqrt{p\cdot\sigma}}\pmqty{0&\s^{\mu}\\\bar\s^{\mu}&0}\pmqty{\sqrt{p\cdot\sigma}\xi^{\s'}\\\sqrt{p\cdot\bar\sigma}\xi^{\s'}}\\
+  &=\pmqty{\xi^{\s\dagger}\sqrt{p\cdot\sigma}\bar\s^{\mu}&\xi^{\s\dagger}\sqrt{p\cdot\bar\sigma}\s^{\mu}}\pmqty{\sqrt{p\cdot\sigma}\xi^{\s'}\\\sqrt{p\cdot\bar\sigma}\xi^{\s'}}\\
+  &=\xi^{\s\dagger}\sqrt{p\cdot\sigma}\bar\s^{\mu}\sqrt{p\cdot\sigma}\xi^{\s'}+\xi^{\s\dagger}\sqrt{p\cdot\bar\sigma}\s^{\mu}\sqrt{p\cdot\bar\sigma}\xi^{\s'}\\
+  \intertext{Insert $p_\mu=\pmqty{E,0,0,-p^3}$ condition}
+  &=\xi^{\s\dagger}\pmqty{\sqrt{E-p_3}\\&\sqrt{E+p_3}}\bar\s^{\mu}\pmqty{\sqrt{E-p_3}\\&\sqrt{E+p_3}}\xi^{\s'}\\&\;\;\;\;\;+\xi^{\s\dagger}\pmqty{\sqrt{E+p_3}\\&\sqrt{E-p_3}}\s^{\mu}\pmqty{\sqrt{E+p_3}\\&\sqrt{E-p_3}}\xi^{\s'}\\
+  \intertext{if only $p_3$ component exists, all component of $\mu$ but $3$ are zero.}
+%  &=\xi^{\s\dagger}E\bar\s^{\mu}\xi^{\s'}+\xi^{\s\dagger}E\s^{\mu}\xi^{\s'}\\
+  &=\xi^{\s\dagger}\pmqty{\sqrt{E-p_3}\\&\sqrt{E+p_3}}\pmqty{-1\\&1}\pmqty{\sqrt{E-p_3}\\&\sqrt{E+p_3}}\xi^{\s'}\\&\;\;\;\;\;+\xi^{\s\dagger}\pmqty{\sqrt{E+p_3}\\&\sqrt{E-p_3}}\pmqty{1\\&-1}\pmqty{\sqrt{E+p_3}\\&\sqrt{E-p_3}}\xi^{\s'}\\
+  &=\xi^{\s\dagger}\pmqty{2p_3\\&2p_3}\xi^{\s'}\\
+  &=2p_3\xi^{\s\dagger}\xi^{\s'}\\
+  &=2p_3\delta_{\s\s'}
+\end{align*}
+Choose a different coordinate system and we have a set of new $p_{\mu}$, with gives $\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$.
+
+
+
+
+{\bf{3.2}}\quad Derive the \emph{Gordon identity}
+\begin{align}\label{40}
+  \bar{u}(p')\gamma^{\mu}u(p)=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}}u(p)
+\end{align}
+where $q=(p'-p)$.
+
+From the standard covariant form of Dirac equation
+\begin{align*}
+  (i\gamma^{\mu}\partial_{\mu}-m)\psi(x)=0
+\end{align*}
+and can be written as
+\begin{align}
+  \gamma^{\mu}p_{\mu}u(p)=m u(p)
+\end{align}
+From previous definition
+\begin{align*}
+  \bar{u}(p)\equiv u^{\dagger}(p)\gamma^0
+\end{align*}
+and
+\begin{align*}
+  u^{\dagger}(p)p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}=m u^{\dagger}(p)
+\end{align*}
+So we have
+\begin{align*}
+  \bar{u}(p)\gamma^0p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}\gamma^0=m \bar{u}(p)
+\end{align*}
+Then
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\frac{\bar{u}(p')\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0}{m}\gamma^{\mu}\frac{\gamma^{\mu''}p_{\mu''}u(p)}{m}\\
+  &=\bar{u}(p')\frac{\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0\gamma^{\mu}\gamma^{\mu''}p_{\mu''}}{m^2}u(p)
+\end{align*}
+Note that $p_{\mu}$ and $\gamma$ commute, and
+\begin{align*}
+  \gamma^0(\gamma^{\mu})^{\dagger}\gamma^0&=\Pmqty{0&1\\1&0}\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}^{\dagger}\Pmqty{0&1\\1&0}\\
+  &=\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}\\&=
+  \gamma^{\mu}
+\end{align*}
+which means
+\begin{align*}
+  \bar{u}(p)\gamma^{\mu}p_{\mu}=m \bar{u}(p)
+\end{align*}
+and
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)
+\end{align*}
+
+Now we observe
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}[\gamma^{\mu},\gamma^{\nu}](p'_{\nu}-p_{\nu})\\
+  &=-\frac{1}{2}(\gamma^{\mu}\gamma^{\nu}p'_{\nu}-\gamma^{\nu}\gamma^{\mu}p'_{\nu}-\gamma^{\mu}\gamma^{\nu}p_{\nu}+\gamma^{\nu}\gamma^{\mu}p_{\nu})
+\end{align*}
+and
+\begin{align*}
+  \gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu}+2g^{\mu\nu}
+\end{align*}
+We have
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}(2\gamma^{\mu}\gamma^{\nu}p'_{\nu}-2g^{\mu\nu}p'_{\nu}-2\gamma^{\mu}\gamma^{\nu}p_{\nu}+2g^{\mu\nu}p_{\nu})\\&=(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})
+\end{align*}
+With this \eqref{40} becomes
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+  %\\  &=\bar{u}(p')\bqty{\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{4 m}}u(p)
+\end{align*}
+We know that
+\begin{align*}
+  \bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)&=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-\gamma^{\nu}p'_{\nu}\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}\gamma^{\nu}p_{\nu}+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-m\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}m+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{m}-\frac{\gamma^{\nu}\gamma^{\mu}p_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{-\gamma^{\mu}\gamma^{\nu}p'_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+\end{align*}
+And it consists with the former one.
+
+From Gorden identity $\bar{u}(p')\gamma^{\mu}u(p)=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}}u(p)$, we can derive ($p'=p$)
+\begin{align*}
+  \bar{u}(p)\gamma^{\mu}u(p)&=\bar u(p)\frac{p^{\mu}}{m}u(p)\\
+  &=2\delta_{\s\s'}p^{\mu}
+\end{align*}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,405 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16239,        395]
+NotebookOptionsPosition[     15564,        366]
+NotebookOutlinePosition[     15921,        382]
+CellTagsIndexPosition[     15878,        379]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["x", "2"], "-", 
+       RowBox[{"0.3", 
+        RowBox[{"Cos", "[", "t", "]"}], "x", " ", "y"}], "+", 
+       SuperscriptBox["y", "2"]}], "\[Equal]", "1"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.688268704758136*^9, {3.6882687370538883`*^9, 3.6882688171334147`*^9}, {
+   3.688269119916738*^9, 3.6882691998985834`*^9}, {3.688269361556636*^9, 
+   3.6882693772002535`*^9}, {3.6882694566129656`*^9, 3.688269462812396*^9}, {
+   3.6882695039820566`*^9, 3.6882695046345177`*^9}, {3.688269575744331*^9, 
+   3.68826957647187*^9}, {3.6882696125235653`*^9, 3.6882696255145993`*^9}, {
+   3.6882696729137735`*^9, 3.688269679185039*^9}, {3.6882700808849974`*^9, 
+   3.688270085704704*^9}, {3.6882701218849173`*^9, 3.6882701497265043`*^9}, {
+   3.688270527222728*^9, 3.6882705517144585`*^9}, {3.6882963474705796`*^9, 
+   3.6882963894534087`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 2.791026511390831, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 2 Pi}}, Typeset`size$$ = {
+    360., {177., 184.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$182433$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$182433$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot[$CellContext`x^2 - 0.3 
+         Cos[$CellContext`t$$] $CellContext`x $CellContext`y + \
+$CellContext`y^2 == 1, {$CellContext`x, -2, 2}, {$CellContext`y, -2, 2}, 
+        PerformanceGoal -> "Quality"], 
+      "Specifications" :> {{$CellContext`t$$, 0, 2 Pi, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {216., 223.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.688269159705757*^9, 3.6882691666938305`*^9}, 
+   3.6882692008209715`*^9, {3.6882693637055798`*^9, 3.688269378204855*^9}, 
+   3.6882694635772266`*^9, 3.688269627074158*^9, 3.6882696802392864`*^9, 
+   3.6882700864478817`*^9, {3.688270127323908*^9, 3.6882701511995506`*^9}, 
+   3.6882705288419933`*^9, {3.688296336541519*^9, 3.688296391526876*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Animate", "[", 
+   RowBox[{
+    RowBox[{"ContourPlot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"A", " ", 
+            RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+         SuperscriptBox["x", "2"]}], "-", 
+        RowBox[{"2", "A", " ", 
+         RowBox[{"Sin", "[", "t", "]"}], "x", " ", "y"}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"A", " ", 
+            RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+         SuperscriptBox["y", "2"]}]}], "\[Equal]", "1"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+      RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", 
+      RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}], "/.", 
+  RowBox[{"A", "\[Rule]", "0.2"}]}]], "Input",
+ CellChangeTimes->{{3.6882697517402983`*^9, 3.688269762823663*^9}, 
+   3.688270562576729*^9, {3.6882706451954937`*^9, 3.688270656642844*^9}, {
+   3.688270704475582*^9, 3.6882707371777077`*^9}, {3.6882708341082244`*^9, 
+   3.688270862499481*^9}, {3.688271570849102*^9, 3.6882716592077513`*^9}, {
+   3.688271701428093*^9, 3.688271705714302*^9}, 3.6882963239883413`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 6.0649459803293455`, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 2 Pi}}, Typeset`size$$ = {
+    360., {173., 179.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$167771$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$167771$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot[(1 - 0.2 Cos[$CellContext`t$$]) $CellContext`x^2 - 2 0.2 
+         Sin[$CellContext`t$$] $CellContext`x $CellContext`y + (1 + 
+           0.2 Cos[$CellContext`t$$]) $CellContext`y^2 == 
+        1, {$CellContext`x, -1.5, 1.5}, {$CellContext`y, -1.5, 1.5}, 
+        PerformanceGoal -> "Quality"], 
+      "Specifications" :> {{$CellContext`t$$, 0, 2 Pi, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {211., 218.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.6882706595419397`*^9, {3.6882707173007994`*^9, 3.688270737886719*^9}, 
+   3.6882708632115517`*^9, {3.6882715912319417`*^9, 3.688271661007044*^9}, 
+   3.6882717061203604`*^9, 3.6882963248224306`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Animate", "[", 
+   RowBox[{
+    RowBox[{"ContourPlot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"A", " ", 
+            RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+         SuperscriptBox["x", "2"]}], "+", 
+        RowBox[{"2", "A", " ", 
+         RowBox[{"Sin", "[", "t", "]"}], "x", " ", "y"}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"A", " ", 
+            RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+         SuperscriptBox["y", "2"]}]}], "\[Equal]", "1"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+      RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", 
+      RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}], "/.", 
+  RowBox[{"A", "\[Rule]", "0.2"}]}]], "Input",
+ CellChangeTimes->{{3.6882697517402983`*^9, 3.688269762823663*^9}, 
+   3.688270562576729*^9, {3.6882706451954937`*^9, 3.688270656642844*^9}, {
+   3.688270704475582*^9, 3.6882707371777077`*^9}, {3.6882708341082244`*^9, 
+   3.688270862499481*^9}, {3.688271570849102*^9, 3.6882716592077513`*^9}, {
+   3.688271701428093*^9, 3.688271705714302*^9}, {3.688272174368549*^9, 
+   3.688272174864088*^9}, {3.6882925915998154`*^9, 3.6882926343393493`*^9}, {
+   3.688292712635272*^9, 3.6882927299778805`*^9}, {3.68829276498672*^9, 
+   3.688292771276744*^9}, {3.6882928252895412`*^9, 3.6882928291827593`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 5.89063842513716, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 2 Pi}}, Typeset`size$$ = {
+    360., {173., 179.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$149634$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$149634$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot[(1 - 0.2 Cos[$CellContext`t$$]) $CellContext`x^2 + 
+         2 0.2 Sin[$CellContext`t$$] $CellContext`x $CellContext`y + (1 + 
+           0.2 Cos[$CellContext`t$$]) $CellContext`y^2 == 
+        1, {$CellContext`x, -1.5, 1.5}, {$CellContext`y, -1.5, 1.5}, 
+        PerformanceGoal -> "Quality"], 
+      "Specifications" :> {{$CellContext`t$$, 0, 2 Pi, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {211., 218.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.688272176026966*^9, 3.688292604047904*^9, 
+  3.6882927723152585`*^9, 3.688292835192478*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"0.5", 
+           RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+        SuperscriptBox["x", "2"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          RowBox[{"0.5", 
+           RowBox[{"Cos", "[", "t", "]"}]}]}], ")"}], 
+        SuperscriptBox["y", "2"]}]}], "\[Equal]", "1"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.688269294537283*^9, 3.6882693385372553`*^9}, {
+  3.6882927409326596`*^9, 3.688292748727577*^9}, {3.6882965561452456`*^9, 
+  3.6882965742704144`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 4.551891446762192, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 2 Pi}}, Typeset`size$$ = {
+    360., {177., 184.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$224584$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$224584$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot[(1 - 0.5 Cos[$CellContext`t$$]) $CellContext`x^2 + (1 + 
+           0.5 Cos[$CellContext`t$$]) $CellContext`y^2 == 
+        1, {$CellContext`x, -2, 2}, {$CellContext`y, -2, 2}, PerformanceGoal -> 
+        "Quality"], 
+      "Specifications" :> {{$CellContext`t$$, 0, 2 Pi, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {216., 223.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.68826934015296*^9, 3.688292749628606*^9, {3.688296564023384*^9, 
+   3.6882965761162214`*^9}}]
+}, Open  ]]
+},
+WindowSize->{759, 833},
+WindowMargins->{{385, Automatic}, {49, Automatic}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (2016\:5e747\:670828\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1342, 30, 55, "Input"],
+Cell[1925, 54, 2436, 46, 512, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4398, 105, 1456, 37, 74, "Input"],
+Cell[5857, 144, 2386, 46, 446, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8280, 195, 1683, 40, 74, "Input"],
+Cell[9966, 237, 2273, 44, 446, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12276, 286, 1068, 31, 55, "Input"],
+Cell[13347, 319, 2201, 44, 512, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

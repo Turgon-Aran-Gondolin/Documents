@@ -1,0 +1,186 @@
+\documentclass{article}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+%%\usepackage{amsmath}
+\usepackage{fouridx}%%上下标
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage[toc,page,titletoc,title]{appendix}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}%%调整页边距
+\linespread{1.2}
+\begin{document}
+\title{Numerical results for Lamb Shift}
+\author{Sun Qing-Feng\footnote{qfsun@mail.ustc.edu.cn}}
+\date{September 2015}
+\maketitle
+\section{Introduction}
+Lamb shift \cite{Lamb1}, the energy splitting between the $2S_{1/2}$ and $2P_{1/2}$ states, is one of the most important experiments in history. As is known, the fine structure, witch
+is of $\mathcal{O}{(\alpha^4})$, does not split states of the same $j$ with different $l$:
+\begin{equation}
+\Delta E_{\text{fine structure}}=\frac{(Z\alpha)^2}{n}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4n}\right)E_n.
+\end{equation}
+For $n=2$ and $Z=1$, the fine structure splitting of the $2P_{1/2}$ (or $2S_{1/2}$) and $2P_{3/2}$ states:
+\begin{equation}
+\Delta E(2P_{3/2})-\Delta E(2P_{1/2})\approx 4.5\times 10^{-5} \text{ eV}=10948.8 \text{ MHz}.
+\end{equation}
+But in Lamb's experiments, the energy of $2S_{1/2}$ and $2P_{1/2}$ is not exactly the same.
+In this note, I will give a numeric result of the Lamb shift based on the results of  \cite{Pineda}.
+\section{Details of numeric calculations of Lamb shift}
+\subsection{Contribution from the Bethe's log in $\Delta E(2S_{1/2})$}
+The main contribution of Lamb shift comes form the Bethe's log\footnote{In this note, I adopt the atom unite (a.u.) for convenience, details of a.u. are listed in Appendix.}:
+\begin{equation}
+\Delta E_1=\frac{2\alpha^3}{3\pi}\sum_{m\neq n}{\left|\braket{n|\bm{v}|m}\right|^2}\left(E_m-E_n\right)\ln{\frac{E_r}{\left|E_m-E_n\right|}}.
+\end{equation}
+It is easy to check:
+\begin{equation}\label{Bethe's log}
+\Delta E_1=\frac{2\alpha^3}{3\pi}\sum_{m\neq n}{\left|\braket{n|\bm{x}|m}\right|}^2\left(E_m-E_n\right)^3\ln{\frac{E_r}{\left|E_m-E_n\right|}}.
+\end{equation}
+Here, we have used the elementary commutation relation:
+$$
+\left[\bm{x},\bm{v}\right]=i, \qquad \qquad \left[\bm{x},\hat{h}_0\right]=i\bm{v}.
+$$
+$$
+\hat{h}_0=\frac{\bm{v}^2}{2}-\frac{Z}{r},
+$$
+and the $E_r$ above represents the energy of electron at rest:
+$$
+E_r=m_e c^2=\frac{1}{\alpha^2} \text{ a.u.},
+$$
+and the energy level for the bound states:
+$$
+E_n=-\frac{1}{2}\frac{Z^2}{n^2} \text{ a.u.}.
+$$
+It is easy to check $E_n\sim \alpha^2E_r$ and we expect the Lamb shift $\Delta E(2S_{1/2})-\Delta E(2P_{1/2}) \sim \alpha^5E_r$ in our results.
+For the discrete states:
+$$
+\psi_{nlm}(r,\theta,\phi)=Y_{lm}(\theta,\phi)R_{nl}(r).
+$$
+where:
+\begin{equation}
+R_{nl}(r)=\frac{1}{(2n+1)!}\sqrt{\frac{(n+l)!}{(n-l-1)!2n}}\left(\frac{2Z}{n}\right)^{\frac{3}{2}}e^{-\frac{Z r}{n}}\left(\frac{2Z r}{n}\right)^{l}F\left(-(n-l-1),2l+2,\frac{2Z r}{n}\right),
+\end{equation}
+and
+$$
+\int_{0}^{+\infty}{d r}{r^2R_{ml}(r)R_{nl}(r)}=\delta_{mn}.
+$$
+When we take $n=2$ in (\ref{Bethe's log}), the transition matrix elements:
+$$
+\int_{0}^{+\infty}{d r}{r^3R_{20}(r)R_{m1}(r)}=\frac{256\sqrt{2}}{Z}\left(\frac{m-2}{m+2}\right)^m\frac{\sqrt{m^7(m^2-1)}}{(m^2-4)^3}.
+$$
+After integration over the azimuthal angle, $\theta$ and $\phi$, we have
+$$
+\left|\braket{n|\bm{x}|m}\right|^2=\frac{131072}{Z^2}\left(\frac{m-2}{m+2}\right)^{2m}\frac{m^7(m^2-1)}{(m^2-4)^6}.
+$$
+when $m\gg 2$,
+$$
+\left|\braket{n|\bm{x}|m}\right|^2\sim \frac{1}{m^3 Z^2}.
+$$
+We then get the energy shift from the discrete states:
+\begin{equation}
+\Delta E_{1}^{dis}=44.07 \text{ MHz}.
+\end{equation}
+For the continuous states, I adopt the "k-scale" normalization:
+$$
+\int_{0}^{+\infty}{d r}{r^2R_{kl}(r)R_{k'l}(r)}=\delta(k-k').
+$$
+The $k$ above is related to the energy of the continuous states:
+$$
+E(k)=\frac{k^2}{2} \text{ a.u.}.
+$$
+The transition matrix element:
+$$
+\left|\braket{n|\bm{x}|k}\right|^2=\frac{131072}{Z^3}\frac{e^{-4m'\cot^{-1}{\left(\frac{1}{2}m'\right)}}}{(1-e^{-2\pi m'})}\frac{{m'^{9}(m'^2+1)}}{(m'^2+4)^6}.
+$$
+where
+$$
+m'=\frac{Z}{k}.
+$$
+when $k\gg 1$:
+$$
+\left|\braket{n|\bm{x}|k}\right|^2\sim\frac{Z^5}{k^8}.
+$$
+We then get the energy shift from the continuous states:
+\begin{equation}
+\Delta E_{1}^{con}=1003.35 \text{ MHz}.
+\end{equation}
+The the total energy shift from the Bethe's log is
+\begin{equation}
+\Delta E_{1}=\Delta E_{1}^{dis}+\Delta E_{1}^{con}=1047.42\text{ MHz}.
+\end{equation}
+\subsection{Contribution from the vacuum polarization and Darwin terms in $\Delta E(2S_{1/2})$}
+With a.u., the contribution from the vacuum polarization and Darwin terms can be expressed as:
+$$
+\Delta E_{2}=-\frac{4Z\alpha^3}{15}\left|\phi_{n}(\bm{0})\right|^2=-\frac{4Z^4 \alpha^3}{15\pi n^3},
+$$
+and
+$$
+\Delta E_{3}=\frac{4Z\alpha^3}{3}\left(\frac{5}{6}-\ln2\right)\left|\phi_{n}(\bm{0})\right|^2=\frac{4Z^4 \alpha^3}{3\pi n^3}\left(\frac{5}{6}-\ln2\right),
+$$
+where $\left|\phi_{n}(\bm{0})\right|^2$ comes from the zero-point wave function, and only the s-wave states have non-zero value:
+$$
+\left|\phi_{n}(\bm{0})\right|^2=\left|R_{n0}(0)Y_{00}\right|^2=\frac{Z^3}{\pi n^3}\frac{1}{a_0^3}.
+$$
+Then for $n=2$, and $l=0$, $\Delta E_{2}=-27.13 \text{ MHz}$ and $\Delta E_{3}=19.01 \text{ MHz}$.
+\section{summary}
+The total results of energy shift for the $2S_{1/2}$ state:
+\begin{equation}
+\Delta E(2S_{1/2})=\Delta E_{1}+\Delta E_{2}+\Delta E_{3}=1039.31\text{ MHz}.
+\end{equation}
+This result of $\Delta E(2S_{1/2})$ is exactly the same with that in textbook of Weinberg (see Vol. 1,  \emph{The Lamb Shift in Light Atoms}).
+The present experimental value gives \cite{Lundeen}
+$$
+\Delta E(2S_{1/2})-\Delta E(2P_{1/2})=1057.845(9) \text{ MHz}.
+$$
+\begin{appendices}
+\section*{Basic facts about atom units}
+In this note, I adopt the Hartree atomic units, where the numerical values of the following four fundamental physical constants are all unity by definition:\\
+Electron mass $m_e$;\\
+Elementary charge $e$;\\
+Reduced Planck's constant $\hbar = \frac{h}{2\pi}$;\\
+Coulomb's constant $k_e=\frac{1}{4\pi\epsilon_0}$.
+\par
+From the convention above, we can give some derived units:
+\begin{table}[!hbp]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\hline
+Dimension & Name & Symbol & Expression \\
+\hline
+Length & Bohr radius & $a_0$ & $\frac{\hbar}{m_e c\alpha}$\\
+\hline
+Energy & Hartree energy &  $E_h$ & $\alpha^2 m_e c^2$\\
+\hline
+Velocity & & & $\alpha c$\\
+\hline
+\end{tabular}
+\caption{Derived atomic units}
+\end{table}
+\\
+Then the speed of light:
+$$
+c=\frac{1}{\alpha}.
+$$
+In traditional (SI) units, the Hamiltonian is:
+$$
+\hat{h}_0=-\frac{\hbar^2}{2m_e}{\nabla}^2-\frac{1}{4\pi\epsilon_0}\frac{Z e^2}{r}.
+$$
+In a.u., it can be simplified as
+$$
+\hat{h}_0=\frac{\bm{v}^2}{2}-\frac{Z}{r}.
+$$
+The energy spectrum for the discrete states:
+$$
+E_n=-\frac{Z^2}{2n^2}.
+$$
+\end{appendices}
+\begin{thebibliography}{Lam}
+\bibitem{Lamb1}W. E. Lamb, R. C. Retherford, Phys. Rev. 72(1947)241.
+\bibitem{Pineda}Antonio Pineda, Joan Soto, Phys. Lett. B 420(1998)391.
+\bibitem{Bethe}H. A. Bethe, Phys. Rev. 72(1947)339.
+\bibitem{Lundeen}S. R. Lundeen, F. M. Pipkin, Phys. Rev. Lett. 46(1981)232.
+\end{thebibliography}
+\end{document}

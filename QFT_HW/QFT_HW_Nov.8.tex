@@ -1,0 +1,212 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+
+
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+
+
+
+
+\newcommand{\Tscr}{\mathscr{T}}
+\newcommand{\Cscr}{\mathscr{C}}
+
+
+\title{Homework: Quantum Field Theory \#5}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+Complete table at P\&S P71.
+
+For the first three colomn, they're already done in class so I simply give the results. (We use the shorthand in P\&S: $(-1)^{\mu}=1$ for $\mu=0$ and $(-1)^{\mu}=-1$ for $\mu=1,2,3$.\footnote{And I write $(CPT)^{-1}$ as $CPT^{-1}$ for short.})
+$$P\bar\psi\psi P^{-1}=+\bar\psi\psi(t,-\vb{x})$$
+$$T\bar\psi\psi T^{-1}=+\bar\psi\psi(-t,\vb{x})$$
+$$C\bar\psi\psi C^{-1}=+\bar\psi\psi(t,\vb{x})$$
+$$CPT\bar\psi\psi CPT^{-1}=+\bar\psi\psi(-t,-\vb{x})$$
+$$P\bar\psi\g^5\psi P^{-1}=-\bar\psi\g^5\psi(t,-\vb{x})$$
+$$T\bar\psi\g^5\psi T^{-1}=-\bar\psi\g^5\psi(-t,\vb{x})$$
+$$C\bar\psi\g^5\psi C^{-1}=+\bar\psi\g^5\psi(t,\vb{x})$$
+$$CPT\bar\psi\g^5\psi CPT^{-1}=+\bar\psi\g^5\psi(-t,-\vb{x})$$
+$$P\bar\psi\gm\psi P^{-1}=(-1)^{\mu}\bar\psi\gm\psi(t,-\vb{x})$$
+$$T\bar\psi\gm\psi T^{-1}=(-1)^{\mu}\bar\psi\gm\psi(-t,\vb{x})$$
+$$C\bar\psi\gm\psi C^{-1}=-\bar\psi\gm\psi(t,\vb{x})$$
+$$CPT\bar\psi\gm\psi CPT^{-1}=-\bar\psi\gm\psi(-t,-\vb{x})$$
+Now we calculate the rest.
+
+Given
+$$P\psi P^{-1}=\eta\g^0\psi(t,-\vb{x})$$
+$$P\bar\psi P^{-1}=\eta^*\bar\psi(t,-\vb{x}) \g^0$$
+we have
+\begin{align*}
+  P\bar\psi\gm\g^5\psi P^{-1}&=\abs{\eta}^2\bar\psi\g^0\gm\g^5\g^0\psi\\
+  &=-(-1)^{\mu}\bar\psi\gm\g^5\psi
+\end{align*}
+and
+\begin{align*}
+  P\bar\psi\s^{\mu\nu}\psi P^{-1}&=\frac{i}{2}\bar\psi\g^0[\gm,\gn]\g^0\psi\\
+  &=\frac{i}{2}(-1)^{\mu}(-1)^{\nu}\bar\psi[\g^{\mu},\gn]\psi\\
+  &=(-1)^{\mu}(-1)^{\nu}\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+and similarly
+\begin{align*}
+  P\bar\psi\partial_{\mu}\psi P^{-1}&=(-1)^{\mu}\bar\psi\partial_{\mu}\psi
+\end{align*}
+Define
+$$\Tscr\equiv i\g^1\g^3$$
+and
+$$T\psi T^{-1}=\Tscr\psi$$
+$$T\bar\psi T^{-1}=\bar\psi\Tscr^{-1}$$
+$$\Tscr(\gm)^*\Tscr^{-1}=\g_{\mu}=(-1)^{\mu}\gm$$
+$$\Tscr(\g^5)^*\Tscr^{-1}=\g^5$$
+$$\Tscr=\Tscr^{-1}=\Tscr^{\dagger}$$
+we have
+\begin{align*}
+  T\bar\psi\gm\g^5\psi T^{-1}&=\bar\psi\Tscr^{-1}(\gm\g^5)^*\Tscr\psi\\
+  &=\bar\psi\Tscr^{-1}\gm^*\Tscr^{-1}\Tscr\g^5^*\Tscr\psi\\
+  &=\bar\psi\g_{\mu}\g^5\psi\\
+  &=(-1)^{\mu}\bar\psi\gm\g^5\psi
+\end{align*}
+and
+\begin{align*}
+  T\bar\psi\s^{\mu\nu}\psi T^{-1}&=-\frac{i}{2}T\bar\psi[\gm,\gn]\psi T^{-1}\\
+  &=-\frac{i}{2}\bar\psi\Tscr[\gm,\gn]^*\Tscr^{-1}\psi\\
+  &=-(-1)^{\mu}(-1)^{\nu}\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+and
+\begin{align*}
+  T\bar\psi\partial_{\mu}\psi T^{-1}&=-(-1)^{\mu}\bar\psi\partial_{\mu}\psi
+\end{align*}
+Define
+$$\Cscr\equiv i\g^2\g^0$$
+and
+$$C\psi C^{-1}=\Cscr\bar\psi^T$$
+$$C\bar\psi C^{-1}=\psi^T\Cscr$$
+$$\Cscr(\gm)^T\Cscr^{-1}=-\gm$$
+$$\Cscr(\g^5)^T\Cscr^{-1}=\g^5$$
+$$\Cscr^{\dagger}=\Cscr^{-1}=-\Cscr=\Cscr^T$$
+thus
+\begin{align*}
+  &(\Cscr(\gm)^T\Cscr^{-1})^{\dagger}=-(\gm)^{\dagger}\\
+  =&(\Cscr^{-1})^{\dagger}(\gm)^*\Cscr^{\dagger}\\
+  =&-\Cscr^{\dagger}(\gm)^*\Cscr^{-1}\\
+  =&\Cscr(\gm)^*\Cscr^{-1}=-(\gm)^{\dagger}
+\end{align*}
+and
+\begin{align*}
+  \Cscr\g^5\Cscr^{-1}=\g^5
+\end{align*}
+Then we have
+\begin{align*}
+  C\bar\psi\gm\g^5\psi C^{-1}&=\psi^T\Cscr\gm\g^5\Cscr\bar\psi^T\\
+  &=\psi^T\gm^T\g^5^T\bar\psi^T\\
+  &=-(\bar\psi\g^5\gm\psi)^T\\
+  &=\bar\psi\gm\g^5\psi
+\end{align*}
+and
+\begin{align*}
+  C\bar\psi\s^{\mu\nu}\psi C^{-1}&=\frac{i}{2}\psi^T\Cscr[\gm,\gn]\Cscr\bar\psi^T\\
+  &=-\frac{i}{2}\psi^T[\gm^T,\gn^T]\bar\psi^T\\
+  &=\frac{i}{2}(\bar\psi[\gn,\gm]\psi)^T\\
+  &=-\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+and
+\begin{align*}
+  C\bar\psi\partial_{\mu}\psi C^{-1}&=\bar\psi\partial_{\mu}\psi
+\end{align*}
+
+CPT is to multiply all those coefficients and too trival to list here.
+
+{\bf2.}\quad
+Calculate the Dirac propagator.
+$$\mel{0}{\psi_a(x)\bar\psi_b(y)}{0}=\intphead{p}\frac{1}{2E_{\vbp}}\sum_su^s_a(p)\bar u^s_b(p)e^{-ip\cdot(x-y)}=(i\pars_x+m)_{ab}\intphead{p}\frac{1}{2E_{\vbp}}e^{-ip\cdot(x-y)}$$
+$$\mel{0}{\bar\psi_b(y)\psi_a(x)}{0}=\intphead{p}\frac{1}{2E_{\vbp}}\sum_sv^s_a(p)\bar v^s_b(p)e^{-ip\cdot(x-y)}=-(i\pars_x+m)_{ab}\intphead{p}\frac{1}{2E_{\vbp}}e^{ip\cdot(x-y)}$$
+The definition of Dirac propagator
+$$S_F(x-y)=\int\frac{\dd^4p}{(2\pi)^4}\frac{i(\ps+m)}{p^2-m^2+i\epsilon}e^{-ip\cdot(x-y)}$$
+the two poles (if $\epsilon=0$) are located in $p^0=\omega_p\equiv\sqrt{\vbp^2+m^2}$ and $p^0=-\omega_p$.
+
+For $x^0-y^0>0$, we have
+\begin{align*}
+  \int\frac{\dd p^0}{2\pi}\frac{i(\ps+m)}{p^2-m^2+i\epsilon}e^{-ip^0(x^0-y^0)}&=\int\frac{\dd p^0}{2\pi}\frac{i(\ps+m)}{p_0^2-\omega_p^2+i\epsilon}e^{-ip^0(x^0-y^0)}\\
+  &=\int\frac{\dd p^0}{2\pi}\frac{i(\ps+m)}{(p_0-\omega_p+i\epsilon)(p_0+\omega_p-i\epsilon)}e^{-ip^0(x^0-y^0)}\\
+  &=\frac{1}{2(\omega_p-i\epsilon)}\int\frac{\dd p^0}{2\pi}i(\ps+m)(\frac{1}{p_0-\omega_p+i\epsilon}-\frac{1}{p_0+\omega_p-i\epsilon})e^{-ip^0(x^0-y^0)}\\
+  &=\frac{i\pars_x+m}{2(\omega_p-i\epsilon)}\int\frac{\dd p^0}{2\pi}i(\frac{1}{p_0-\omega_p+i\epsilon}-\frac{1}{p_0+\omega_p-i\epsilon})e^{-ip^0(x^0-y^0)}\\
+  \intertext{use residue theorem, and the contour is closed below (only one singularity on the right)}
+  &=\frac{i\pars_x+m}{2(\omega_p-i\epsilon)}e^{-ip^0(x^0-y^0)}\\
+  &=\frac{i\pars_x+m}{2\omega_p}e^{-ip^0(x^0-y^0)}\\
+  \intertext{wihch means}
+  S_F(x-y)&=\mel{0}{\psi_a(x)\bar\psi_b(y)}{0}
+\end{align*}
+Similarly, when $x^0-y^0<0$, the contour is closed above and
+$$S_F(x-y)=-\frac{i\pars_x+m}{2\omega_p}e^{ip^0(x^0-y^0)}=-\mel{0}{\bar\psi_b(y)\psi_a(x)}{0}$$
+
+\appendix
+\subsection*{Appendix}
+\begin{center}
+  \begin{tabular}{|c|ccccc|}
+    \hline
+    &$\g^0$&$\g^1$&$\g^2$&$\g^3$&$\g^5$\\\hline
+    T&1&-1&1&-1&1\\%\hline
+    -1&1&-1&-1&-1&1\\
+    *&1&1&-1&1&1\\%\hline
+    \dagger&1&-1&-1&-1&1\\\hline
+  \end{tabular}
+\end{center}
+
+
+\end{document}

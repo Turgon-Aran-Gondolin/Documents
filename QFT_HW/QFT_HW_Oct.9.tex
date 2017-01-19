@@ -1,0 +1,74 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+
+
+\title{Homework: Quantum Field Theory \#2}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf Prove that $S^{\mu\nu}$ satisfy the Lie algebra of Lorentz group, that's to say, satisfy the commutation relation the same as $[J^{\mu\nu},J^{\rho\sigma}]$.}
+
+First we know that $S^{\mu\nu}=\frac{i}{4}[\gamma^{\mu},\gamma^{\nu}]$. We can write down the commutation relation of $S^{\mu\nu}$
+\begin{align*}
+  [S^{\mu\nu},S^{\rho\sigma}]&=-\frac{1}{16}[[\gamma^{\mu},\gamma^{\nu}],[\gamma^{\rho},\gamma^{\sigma}]]\\
+  &=-\frac{1}{16}[\gamma^{\mu}\gamma^{\nu}-\gamma^{\nu}\gamma^{\mu},\gamma^{\rho}\gamma^{\sigma}-\gamma^{\sigma}\gamma^{\rho}]\\
+  &=-\frac{1}{16}\Bqty{[\gm\gn,\gr\gs]-[\gn\gm,\gr\gs]-[\gm\gn,\gs\gr]+[\gn\gm,\gs\gr]}
+\end{align*}
+We evaluate the commutation relation $[\gm\gn,\gr\gs]$ separately
+\begin{align*}
+  [\gm\gn,\gr\gs]&=\gm[\gn,\gr]\gs+[\gm,\gr]\gs\gn+\gr[\gm,\gs]\gn+\gm\gr[\gn,\gs]\\
+  &=\gm\gn\gr\gs-\gm\gr\gn\gs+\gm\gr\gs\gn-\gr\gm\gs\gn+\gr\gm\gs\gn-\gr\gs\gm\gn+\gm\gr\gn\gs-\gm\gr\gs\gn\\
+  &=2\gm\gnr\gs+2\gmr\gs\gn-2\gm\gr\gns-2\gr\gms\gn
+\end{align*}
+So
+\begin{align*}
+  [S^{\mu\nu},S^{\rho\sigma}]&=-\frac{1}{8}\{\gm\gnr\gs+\gmr\gs\gn-\gm\gr\gns-\gr\gms\gn-\gn\gmr\gs-\gnr\gs\gm+\gn\gr\gms+\gr\gns\gm\\&\;\;\;\;\;\;\;-\gm\gns\gr-\gms\gr\gn+\gm\gs\gnr+\gs\gmr\gn\+\gn\gms\gr+\gns\gr\gm-\gn\gs\gmr-\gs\gnr\gm\}\\
+  &=-\frac{1}{4}\{\gnr[\gm,\gs]+\gmr[\gs,\gn]-\gns[\gm,\gr]-\gms[\gr,\gn]\}\\
+  &=i\{\gnr S^{\mu\sigma}+\gmr S^{\sigma\nu}-\gns S^{\mu\rho}-\gms S^{\rho\nu}\}
+\end{align*}
+which is the same as the commutation relation of $[J^{\mu\nu},J^{\rho\sigma}]$.
+
+
+
+
+\end{document}

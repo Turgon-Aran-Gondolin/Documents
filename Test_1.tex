@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\newcolumntype{M}{>{$\displaystyle}c<{$}}
+\newcolumntype{L}{>{$\displaystyle}l<{$}}
+
+\newcommand\Vtextvisiblespace[1][.3em]
+{%
+	\mbox{\kern.06em\vrule height.3ex}%
+	\vbox{\hrule width#1}%
+	\hbox{\vrule height.3ex}
+}
+
+\newcommand{\cbox}[2][cyan]
+{\mathchoice
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\displaystyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\textstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptscriptstyle#2$}}
+}
+
+\newcommand{\typical}{\cbox{\phantom{A}}}
+\newcommand{\tall}{\cbox{\phantom{A^{\vphantom{x^x}}_x}}}
+\newcommand{\grande}{\cbox{\phantom{\frac{1}{xx}}}}
+\newcommand{\venti}{\cbox{\phantom{\sum_x^x}}}
+
+\begin{document}
+The Newton's second law is F=ma.
+
+The Newton's second law is $F=ma$.
+
+The Newton's second law is
+$$F=ma$$
+
+The Newton's second law is
+\[F=ma\]
+
+Greek Letters $\eta$ and $\mu$
+
+Fraction $\frac{a}{b}$
+
+Power $a^b$
+
+Subscript $a_b$
+
+Derivate $\frac{\partial y}{\partial t} $
+
+Vector $\vec{n}$
+
+Bold $\mathbf{n}$
+
+
+
+$\Delta E_{\text{fine structure}}=\frac{(Z\alpha)^2}{n}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4n}\right)E_n.$
+
+
+%\begin{equation}\label{}
+%  \Delta E_{\text{fine structure}}=\frac{(Z\alpha)^2}{n}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4n}\right)E_n.
+%\end{equation}
+To time differential $\dot{F}$
+
+Matrix (lcr here means left, center or right for each column)
+\[
+\left[
+\begin{array}{lcr}
+a1&b22& c333 \\
+d444 & e555555 & f6
+\end{array}
+\right]
+\]
+
+Equations(here \& is the symbol for aligning different rows)
+\begin{align}
+a+b&=c\\
+d&=e+f+g
+\end{align}
+
+\[
+\left\{
+\begin{aligned}
+&a+b=c\\
+&d=e+f+g
+\end{aligned}
+\right.\]
+
+$$
+i\hbar \pdv{t}(\grande\ket{\alpha,t_0;t}_S)=(H_0+V)\ket{\alpha,t_0;t}_S
+$$
+%\cite{Epelbaum:2012nz}
+\begin{thebibliography}{1}
+
+\bibitem{Epelbaum:2012nz}
+  E.~Epelbaum,
+  %``Nuclear forces: Theory and applications,''
+  PoS QNP {\bf 2012}, 004 (2012).
+  %%CITATION = POSCI,QNP2012,004;%%
+
+%\cite{Dyhdalo:2016ygz}
+\bibitem{Dyhdalo:2016ygz}
+  A.~Dyhdalo, R.~J.~Furnstahl, K.~Hebeler and I.~Tews,
+  %``Regulator Artifacts in Uniform Matter for Chiral Interactions,''
+  arXiv:1602.08038 [nucl-th].
+  %%CITATION = ARXIV:1602.08038;%%
+  
+\bibitem{Kuo:2015lea}
+  T.~T.~S.~Kuo, J.~W.~Holt and E.~Osnes,
+  %``Introduction to low-momentum effective interactions with Brown-Rho scaling and three-nucleon forces,''
+  Phys.\ Scripta {\bf 91} (2016) 3,  033009
+  doi:10.1088/0031-8949/91/3/033009
+  [arXiv:1510.04432 [nucl-th]].
+  %%CITATION = doi:10.1088/0031-8949/91/3/033009;%%
+  %1 citations counted in INSPIRE as of 08 Mar 2016
+\end{thebibliography}
+
+\end{document} 

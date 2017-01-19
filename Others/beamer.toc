@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Origin of anthtropic principle}{4}{0}{1}
+\beamer@sectionintoc {2}{Variants of anthropic principle}{5}{0}{2}
+\beamer@sectionintoc {3}{Parametrized universe}{6}{0}{3}
+\beamer@sectionintoc {4}{Possible physical interpretation}{7}{0}{4}

@@ -1,0 +1,389 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12792,        379]
+NotebookOptionsPosition[     12256,        358]
+NotebookOutlinePosition[     12614,        374]
+CellTagsIndexPosition[     12571,        371]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"It", "'"}], "s", " ", "just", " ", "some", " ", "functions", " ",
+     "and", " ", "datas"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Delta]a", "[", "r_", "]"}], "=", 
+     FractionBox[
+      SuperscriptBox["E", 
+       FractionBox[
+        RowBox[{"-", 
+         SuperscriptBox["r", "2"]}], 
+        RowBox[{"2", 
+         SuperscriptBox["a", "2"]}]]], 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"2", "\[Pi]"}], ")"}], 
+        FractionBox["3", "2"]], 
+       SuperscriptBox["a", "3"]}]]}], ";", 
+    RowBox[{"\[Alpha]", "=", "1"}], ";", 
+    RowBox[{"a", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Vs1", "[", "r_", "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", " ", 
+        FractionBox["\[Alpha]", "r"]}], 
+       RowBox[{"Erf", "[", 
+        FractionBox["r", 
+         RowBox[{
+          SqrtBox["2"], "a"}]], "]"}]}], "+", 
+      RowBox[{"c1", " ", 
+       SuperscriptBox["a", "2"], 
+       RowBox[{"\[Delta]a", "[", "r", "]"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Vs2", "[", "r_", "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", " ", 
+        FractionBox["\[Alpha]", "r"]}], 
+       RowBox[{"Erf", "[", 
+        FractionBox["r", 
+         RowBox[{
+          SqrtBox["2"], "a"}]], "]"}]}], "+", 
+      RowBox[{"c2", " ", 
+       SuperscriptBox["a", "2"], 
+       RowBox[{"\[Delta]a", "[", "r", "]"}]}], "+", 
+      RowBox[{"d1", " ", 
+       SuperscriptBox["a", "4"], 
+       RowBox[{"Laplacian", "[", 
+        RowBox[{
+         RowBox[{"\[Delta]a", "[", "r", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], ",", 
+         "\"\<Spherical\>\""}], "]"}]}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6636535991718516`*^9, 3.663653636812845*^9}, {
+  3.663653712860422*^9, 3.663653738970104*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Lepageenergy", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.28711542`", ",", "0.183325753`", ",", "0.0703755485`", ",", 
+     "0.0371495726`", ",", "0.0229268241`", ",", "0.0155492598`", ",", 
+     "0.00534541931`", ",", "0.0012920501`"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Lepage", "'"}], "s", " ", "original", " ", "data"}], 
+   "*)"}]}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"The", " ", "problem", " ", "is", " ", "with", " ", 
+   RowBox[{"Vs2", "."}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6636536680318937`*^9, 3.663653682750767*^9}, 
+   3.663653815080191*^9}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+   "I", " ", "use", " ", "the", " ", "last", " ", "two", " ", "energy", " ", 
+    "in", " ", "the", " ", "list", " ", "\"\<Lepageenergy\>\"", " ", "to", 
+    " ", "determine", " ", "the", " ", "two", " ", "parameters", " ", "in", 
+    " ", "potential", " ", 
+    RowBox[{
+     RowBox[{"Vs2", "[", "r", "]"}], ".", 
+     RowBox[{"It", "'"}]}], "s", " ", "easy", " ", "to", " ", "think", " ", 
+    "of", " ", "using", " ", "Schroedinger", " ", 
+    RowBox[{"equation", ".", "Since"}], " ", "I", " ", 
+    RowBox[{"don", "'"}], "t", " ", "know", " ", "the", " ", "wavefunction"}],
+    ",", 
+   RowBox[{
+   "I", " ", "use", " ", "ParametricNDSolve", " ", "to", " ", "generate", " ",
+     "the", " ", "wavefunction", " ", "with", " ", "parameters", " ", "c2", 
+    " ", "and", " ", "d1", " ", "and", " ", "use", " ", "FindRoot", " ", "to",
+     " ", "determine", " ", "the", " ", "specific", " ", "values", " ", "of", 
+    " ", 
+    RowBox[{"them", "."}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6636536888133264`*^9, 3.6636536895945845`*^9}, {
+  3.6636537434388657`*^9, 3.6636539618094573`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"sol2a", "=", 
+  RowBox[{"ParametricNDSolve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Vs2", "[", "r", "]"}], " ", 
+         RowBox[{"f", "[", "r", "]"}]}], "-", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], " ", 
+         RowBox[{
+          RowBox[{"f", "''"}], "[", "r", "]"}]}]}], "\[Equal]", 
+       RowBox[{
+        RowBox[{"Lepageenergy", "[", 
+         RowBox[{"[", "7", "]"}], "]"}], 
+        RowBox[{"f", "[", "r", "]"}]}]}], ",", 
+      RowBox[{
+       RowBox[{"f", "[", "1000", "]"}], "\[Equal]", "0"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "'"}], "[", "1000", "]"}], "\[Equal]", 
+       RowBox[{"-", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "6"}]]}]}]}], "}"}], ",", "f", ",", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "1000", ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"c2", ",", "d1"}], "}"}], ",", 
+    RowBox[{"MaxSteps", "\[Rule]", "Infinity"}], ",", 
+    RowBox[{"WorkingPrecision", "\[Rule]", "30"}], ",", 
+    RowBox[{"MaxStepFraction", "\[Rule]", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "3"}]]}], ",", 
+    RowBox[{"AccuracyGoal", "\[Rule]", "8"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"sol2b", "=", 
+  RowBox[{"ParametricNDSolve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Vs2", "[", "r", "]"}], " ", 
+         RowBox[{"f", "[", "r", "]"}]}], "-", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], " ", 
+         RowBox[{
+          RowBox[{"f", "''"}], "[", "r", "]"}]}]}], "\[Equal]", 
+       RowBox[{
+        RowBox[{"Lepageenergy", "[", 
+         RowBox[{"[", "8", "]"}], "]"}], 
+        RowBox[{"f", "[", "r", "]"}]}]}], ",", 
+      RowBox[{
+       RowBox[{"f", "[", "1000", "]"}], "\[Equal]", "0"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "'"}], "[", "1000", "]"}], "\[Equal]", 
+       RowBox[{"-", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "6"}]]}]}]}], "}"}], ",", "f", ",", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "1000", ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"c2", ",", "d1"}], "}"}], ",", 
+    RowBox[{"MaxSteps", "\[Rule]", "Infinity"}], ",", 
+    RowBox[{"WorkingPrecision", "\[Rule]", "30"}], ",", 
+    RowBox[{"MaxStepFraction", "\[Rule]", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "3"}]]}], ",", 
+    RowBox[{"AccuracyGoal", "\[Rule]", "8"}]}], "]"}]}]}], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"FindRoot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"f", "[", 
+          RowBox[{"c2", ",", "d1"}], "]"}], "[", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], "]"}], "\[Equal]", "0"}], "/.", "sol2a"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"f", "[", 
+          RowBox[{"c2", ",", "d1"}], "]"}], "[", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], "]"}], "\[Equal]", "0"}], "/.", "sol2b"}]}], 
+     "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"c2", ",", 
+        RowBox[{"-", "50"}], ",", 
+        RowBox[{"-", "10"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"d1", ",", 
+        RowBox[{"-", "20"}], ",", 
+        RowBox[{"-", "1"}]}], "}"}]}], "}"}], ",", 
+    RowBox[{"WorkingPrecision", "\[Rule]", "30"}], ",", 
+    RowBox[{"MaxIterations", "\[Rule]", "100"}], ",", 
+    RowBox[{"AccuracyGoal", "\[Rule]", "Infinity"}], ",", 
+    RowBox[{"PrecisionGoal", "\[Rule]", "8"}], ",", 
+    RowBox[{"DampingFactor", "\[Rule]", "2"}]}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"The", " ", "problem", " ", "occurs", " ", "here"}], ",", 
+    RowBox[{"no", " ", "matter", " ", "what", " ", "I", " ", "did"}], ",", 
+    RowBox[{"it", " ", "kept", " ", "giving", " ", "me", " ", 
+     RowBox[{"this", ":", "\[IndentingNewLine]", 
+      RowBox[{"\"\<\!\(\*
+StyleBox[\"FindRoot\", \"MessageName\"]\)\!\(\*
+StyleBox[\"::\", \"MessageName\"]\)\!\(\*
+StyleBox[\"cvmit\", \"MessageName\"]\): \>\"", "\:65e0\:6cd5\:5728", " \[NoBreak]", 
+       RowBox[{"\\!", 
+        RowBox[{"\\(", 
+         RowBox[{"\\*", 
+          RowBox[{"RowBox", "[", 
+           RowBox[{"{", 
+            RowBox[{"\\\"", "100", "\\\""}], "}"}], "]"}]}], "\\)"}]}], "\[NoBreak] ", 
+       RowBox[{
+       "\:6b21\:8fed\:4ee3\:4e2d\:6536\:655b\:5230\:8981\:6c42\:7684\:51c6\
+\:786e\:5ea6\:6216\:8005\:7cbe\:5ea6", ".", " ", 
+        RowBox[{"\\!", 
+         RowBox[{"\\(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"\\*", 
+               RowBox[{"ButtonBox", "[", "\\\""}]}], "\[RightSkeleton]"}], 
+             "\\\""}], ",", " ", 
+            RowBox[{"ButtonStyle", "->", 
+             RowBox[{"\\\"", "Link", "\\\""}]}], ",", " ", 
+            RowBox[{"ButtonFrame", "->", "None"}], ",", " ", 
+            RowBox[{"ButtonData", ":>", 
+             RowBox[{"\\\"", 
+              RowBox[{"paclet", ":", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"ref", "/", "message"}], "/", "FindRoot"}], "/", 
+                 "cvmit"}], "\\\""}]}]}]}], ",", " ", 
+            RowBox[{"ButtonNote", " ", "->", " ", 
+             RowBox[{"\\\"", 
+              RowBox[{"FindRoot", "::", "cvmit"}], "\\\""}]}]}], "]"}], 
+          "\\)"}]}]}], "\"\<\>\""}]}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox["c2", 
+     RowBox[{"4", "\[Pi]"}]], ",", 
+    FractionBox["d1", 
+     RowBox[{"4", "\[Pi]"}]]}], "}"}], "/.", "%"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"c2", ",", "d1"}], "]"}], "[", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], "]"}], "/.", "sol2a"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"c2", ",", "d1"}], "]"}], "[", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], "]"}], "/.", "sol2b"}]}], "}"}], "/.", "%%", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Examine", " ", "the", " ", "error", " ", "of", " ", "the", " ", 
+    "solution", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"don", "'"}], "t", " ", "blame", " ", "me", " ", "if", " ", 
+       RowBox[{"it", "'"}], "s", " ", "rough"}], ",", 
+      RowBox[{"I", " ", "just", " ", "want", " ", "to", " ", "see", " ", 
+       RowBox[{"how", "'"}], "s", " ", "the", " ", "result"}]}], ")"}]}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.6636540478572297`*^9, 3.6636542260464506`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "results", " ", "are", " ", "supposed", " ", "to", " ", "be", 
+    " ", "like", " ", 
+    RowBox[{"this", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c2", "=", 
+     RowBox[{"4", "\[Pi]", "*", 
+      RowBox[{"-", "3.18"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"d1", "=", 
+     RowBox[{"4", "\[Pi]", "*", "0.199"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.66365399699732*^9, 3.66365403134144*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+   "When", " ", "the", " ", "variables", " ", "are", " ", "more", " ", "than",
+     " ", "one", " ", "in", " ", "FindRoot"}], ",", 
+   RowBox[{
+   "I", " ", "found", " ", "it", " ", "much", " ", "harder", " ", "to", " ", 
+    "get", " ", "a", " ", "good", " ", 
+    RowBox[{"result", ".", 
+     RowBox[{"Why", "'"}]}], "s", " ", 
+    RowBox[{"that", "?", "How"}], " ", "to", " ", "fix", " ", 
+    RowBox[{"this", "?"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.663654252312318*^9, 3.6636543167973795`*^9}}]
+},
+WindowSize->{873, 981},
+WindowMargins->{{Automatic, 414}, {Automatic, 24}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7412\:670821\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2011, 63, 185, "Input"],
+Cell[2572, 85, 446, 13, 72, "Input"],
+Cell[3021, 100, 231, 5, 31, "Input"],
+Cell[3255, 107, 1148, 23, 112, "Input"],
+Cell[4406, 132, 2605, 77, 143, "Input"],
+Cell[7014, 211, 4146, 113, 276, "Input"],
+Cell[11163, 326, 524, 15, 72, "Input"],
+Cell[11690, 343, 562, 13, 52, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

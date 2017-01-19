@@ -1,0 +1,303 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\phixp}{\phi^+(x)}
+\newcommand{\phixm}{\phi^-(x)}
+\newcommand{\phiyp}{\phi^+(y)}
+\newcommand{\phiym}{\phi^-(y)}
+
+
+
+\newcommand{\Tscr}{\mathscr{T}}
+\newcommand{\Cscr}{\mathscr{C}}
+\newcommand{\N}[1]{N\Bqty{#1}}
+\newcommand{\T}[1]{T\Bqty{#1}}
+\newcommand{\conphi}[2]{\contraction{}{\phi}{_1}{\phi}\phi_{#1}\phi_{#2}}
+\newcommand{\conphit}[3]{\contraction{}{\phi}{_{1}{#2}}{\phi}\phi_{#1}{#2}\phi_{#3}}
+%\newcommand{\contra}{\contraction{}{}}
+
+
+\title{Homework: Quantum Field Theory \#8}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+$T\{\phi(x)\phi(y)\}$. (Some definition are the same as P\&S so I'll skip them. The result would be $\phi^+\ket{0}=0$ and $\bra{0}\phi^-=0$.)
+\begin{align*}
+  \mel{0}{T\{\phi(x)\phi(y)\}}{0}&=\mel{0}{T\Bqty{\phixp\phiyp+\phixp\phiym+\phixm\phiyp+\phixm\phiym}}{0}\\
+  &=\mel{0}{T\Bqty{\phixp\phiyp+\phiym\phixp+\phixm\phiyp+\phixm\phiym+[\phixp,\phiym]}}{0}\\
+  &=\begin{cases}
+  [\phixp,\phiym],x^0>y^0\\
+  [\phiyp,\phixm],y^0>x^0
+  \end{cases}\\
+  &\equiv\contraction{}{\phi}{(x)}{\phi}\phi(x)\phi(y)=D_F(x-y)
+\end{align*}
+$$T\Bqty{\phi(x)\phi(y)}=N\Bqty{\phi(x)\phi(y)+\contraction{}{\phi}{(x)}{\phi}\phi(x)\phi(y)}$$
+
+{\bf2.}\quad
+$T\{\phi(x)\phi(y)\phi(z)\phi(t)\}$.
+
+For the convenience of writing we set $\phi(x_n)$ as $\phi_n$.
+\begin{align*}
+  \mel{0}{T\Bqty{\phi_1\phi_2\phi_3\phi_4}}{0}&=\mel{0}{T\Bqty{(\phi_1^+\phi_2^++\phi_1^-\phi_2^++\phi_1^+\phi_2^-+\phi_1^-\phi_2^-)\phi_3\phi_4}}{0}\\
+  \intertext{we set $x^0>y^0>z^0>t^0$ for now}
+  &=\mel{0}{(\phi_1^+\phi_2^++\phi_1^+\phi_2^-)\phi_3\phi_4}{0}\\
+  &=\mel{0}{(\phi_1^+\phi_2^++\phi_1^+\phi_2^-)(\phi_3^+\phi_4^++\phi_3^-\phi_4^++\phi_3^+\phi_4^-+\phi_3^-\phi_4^-)}{0}\\
+  &=\mel{0}{(\phi_1^+\phi_2^++\phi_1^+\phi_2^-)(\phi_3^+\phi_4^-+\phi_3^-\phi_4^-)}{0}\\
+  &=\mel{0}{(\phi_1^+\phi_2^++[\phi_1^+,\phi_2^-])([\phi_3^+,\phi_4^-]+\phi_3^-\phi_4^-)}{0}\\
+  &=\mel{0}{\phi_1^+\phi_2^+[\phi_3^+,\phi_4^-]+\phi_1^+\phi_2^+\phi_3^-\phi_4^-+[\phi_1^+,\phi_2^-]\phi_3^-\phi_4^-}{0}+[\phi_1^+,\phi_2^-][\phi_3^+,\phi_4^-]\\
+  &=\mel{0}{\phi_1^+\phi_2^+\phi_3^-\phi_4^-}{0}+[\phi_1^+,\phi_2^-][\phi_3^+,\phi_4^-]\\
+  &=\mel{0}{\phi_1^+([\phi_2^+,\phi_3^-]+\phi_3^-\phi_2^+)\phi_4^-}{0}+[\phi_1^+,\phi_2^-][\phi_3^+,\phi_4^-]\\
+  &=\mel{0}{[\phi_1^+,\phi_4^-][\phi_2^+,\phi_3^-]+\phi_4^-\phi_1^+[\phi_2^+,\phi_3^-]+\phi_1^+\phi_3^-\phi_4^-\phi_2^++\phi_1^+\phi_3^-[\phi_2^+,\phi_4^-]}{0}+[\phi_1^+,\phi_2^-][\phi_3^+,\phi_4^-]\\
+  &=[\phi_1^+,\phi_4^-][\phi_2^+,\phi_3^-]+[\phi_3^-,\phi_1^+][\phi_2^+,\phi_4^-]+[\phi_1^+,\phi_2^-][\phi_3^+,\phi_4^-]
+\end{align*}
+Same for other time order, so
+$$\mel{0}{T\Bqty{\phi_1\phi_2\phi_3\phi_4}}{0}=\contraction{}{\phi}{_1}{\phi}\phi_1\phi_2\contraction{}{\phi}{_1}{\phi}\phi_3\phi_4+\contraction{}{\phi}{_1}{\phi}\phi_1\phi_3\contraction{}{\phi}{_1}{\phi}\phi_2\phi_4+\contraction{}{\phi}{_1}{\phi}\phi_1\phi_4\contraction{}{\phi}{_1}{\phi}\phi_2\phi_3$$
+\begin{align*}
+  T\Bqty{\phi_1\phi_2\phi_3\phi_4}=N\Big\{\phi_1\phi_2\phi_3\phi_4+\phi_1\phi_2\conphi{3}{4}+\conphi{1}{2}\phi_3\phi_4+\phi_1\conphit{2}{\phi_3}{4}+\conphit{1}{\phi_2}{3}\phi_4+\phi_1\conphi{2}{3}\phi_4+\conphit{1}{\phi_2\phi_3}{4}\\+\contraction{}{\phi}{_1}{\phi}\phi_1\phi_2\contraction{}{\phi}{_1}{\phi}\phi_3\phi_4+\contraction{}{\phi}{_1}{\phi}\phi_1\phi_3\contraction{}{\phi}{_1}{\phi}\phi_2\phi_4+\contraction{}{\phi}{_1}{\phi}\phi_1\phi_4\contraction{}{\phi}{_1}{\phi}\phi_2\phi_3\Big\}
+\end{align*}
+For more strict prove:
+
+for $x^0>y^0>z^0>t^0$
+\begin{align*}
+  T\Bqty{\phi_1\phi_2\phi_3\phi_4}&=(\phi_1^+\phi_2^++\phi_1^-\phi_2^++\phi_1^+\phi_2^-+\phi_1^-\phi_2^-)\phi_3\phi_4\\
+  &=N\Bqty{\phi_1\phi_2}\phi_3\phi_4+\conphi{1}{2}\phi_3\phi_4\\
+  &=\N{\phi_1\phi_2}(\phi_3^+\phi_4^++\phi_3^-\phi_4^++\phi_3^+\phi_4^-+\phi_3^-\phi_4^-)+\conphi{1}{2}\N{\phi_3\phi_4}++\conphi{1}{2}\conphi{3}{4}\\
+  &=\N{\phi_1\phi_2}\N{\phi_3\phi_4}+\N{\phi_1\phi_2}\conphi{3}{4}+\conphi{1}{2}\N{\phi_3\phi_4}+\conphi{1}{2}\conphi{3}{4}
+\end{align*}
+now we look at the first term
+\begin{align*}
+  \N{\phi_1\phi_2}\N{\phi_3\phi_4}&=(\phi_1^+\phi_2^++\phi_1^-\phi_2^++\phi_2^-\phi_1^++\phi_1^-\phi_2^-)(\phi_3^+\phi_4^++\phi_3^-\phi_4^++\phi_4^-\phi_3^++\phi_3^-\phi_4^-)\\
+  &=\phi_1^+\phi_2^+\phi_3^+\phi_4^++\phi_1^+\phi_2^+\phi_3^-\phi_4^++\phi_1^+\phi_2^+\phi_4^-\phi_3^++\phi_1^+\phi_2^+\phi_3^-\phi_4^-+\phi_1^-\phi_2^+\phi_3^+\phi_4^++\phi_1^-\phi_2^+\phi_3^-\phi_4^++\phi_1^-\phi_2^+\phi_4^-\phi_3^++\phi_1^-\phi_2^+\phi_3^-\phi_4^-\\
+  &+\phi_2^-\phi_1^+\phi_3^+\phi_4^++\phi_2^-\phi_1^+\phi_3^-\phi_4^++\phi_2^-\phi_1^+\phi_4^-\phi_3^++\phi_2^-\phi_1^+\phi_3^-\phi_4^-+\phi_1^-\phi_2^-\phi_3^+\phi_4^++\phi_1^-\phi_2^-\phi_3^-\phi_4^++\phi_1^-\phi_2^-\phi_4^-\phi_3^++\phi_1^-\phi_2^-\phi_3^-\phi_4^-
+  \intertext{note that $\N{\phi_1\phi_2\phi_3\phi_4}=\phi_1^+\phi_2^+\phi_3^+\phi_4^++\phi_4^-\phi_1^+\phi_2^+\phi_3^++\phi_1^-\phi_2^+\phi_3^+\phi_4^++\phi_2^-\phi_1^+\phi_3^+\phi_4^++\phi_3^-\phi_1^+\phi_2^+\phi_4^++\phi_1^-\phi_2^-\phi_3^+\phi_4^++\phi_1^-\phi_3^-\phi_2^+\phi_4^++\phi_1^-\phi_4^-\phi_2^+\phi_3^++\phi_2^-\phi_3^-\phi_1^+\phi_4^++\phi_2^-\phi_4^-\phi_1^+\phi_3^++\phi_3^-\phi_4^-\phi_1^+\phi_2^+
+  +\phi_1^-\phi_2^-\phi_3^-\phi_4^++\phi_1^-\phi_2^-\phi_4^-\phi_3^++\phi_1^-\phi_3^-\phi_4^-\phi_2^++\phi_2^-\phi_3^-\phi_4^-\phi_1^++\phi_1^-\phi_2^-\phi_3^-\phi_4^-$}
+  &=\N{\phi_1\phi_2\phi_3\phi_4}+\phi_1^+\conphi{2}{3}\phi_4^++\conphit{1}{\phi_2^+}{3}\phi_4^++\phi_1^+\conphi{2}{4}\phi_3^++\conphit{1}{\phi_2^+}{4}\phi_3^++\phi_1^+\conphi{2}{3}\phi_4^-+\conphit{1}{\phi_2^+}{3}\phi_4^-\\
+  &+\phi_3^-\phi_1^+\conphi{2}{4}+\phi_3^-\conphit{1}{\phi_2^+}{4}+\phi_1^-\conphi{2}{3}\phi_4^++\phi_1^-\conphit{2}{\phi_3^+}{4}+\phi_1^-\conphi{2}{3}\phi_4^-+\phi_1^-\conphit{2}{\phi_3^-}{4}+\conphit{1}{\phi_2^-}{3}\phi_4^++\conphit{1}{\phi_2^-\phi_3^+}{4}\\
+  &+\phi_2^-\conphi{1}{3}\phi_4^-+\phi_2^-\conphit{1}{\phi_3^-}{4}\\
+  %&=\N{\phi_1\phi_2\phi_3\phi_4}+\phi_1^+\phi_4^+[\phi_2^+,\phi_3^-]+\\
+  &=\N{\phi_1\phi_2\phi_3\phi_4}+\N{\phi_1\phi_4}\conphi{2}{3}+\contraction[2ex]{}{\phi}{_1\phi_2\phi_3}{\phi}\contraction{\phi_1}{\phi}{_2}{\phi}\phi_1\phi_2\phi_3\phi_4+\N{\phi_2\phi_4}\conphi{1}{3}+\contraction{}{\phi}{_1\phi_2}{\phi}\contraction[2ex]{\phi_1}{\phi}{_2\phi_3}{\phi}\phi_1\phi_2\phi_3\phi_4+\N{\phi_1\phi_3}\conphi{2}{4}+\N{\phi_2\phi_3}\conphi{1}{4}
+\end{align*}
+and similar for the rest time orderings.
+
+Or:
+\begin{align*}
+  T\Bqty{\phi_1\phi_2\phi_3\phi_4}&=(\phi_1^+\phi_2^++\phi_1^-\phi_2^++\phi_1^+\phi_2^-+\phi_1^-\phi_2^-)(\phi_3^+\phi_4^++\phi_3^-\phi_4^++\phi_3^+\phi_4^-+\phi_3^-\phi_4^-)\\
+  &=(1^+2^+3^+4^++1^+2^+3^-4^++1^+2^+3^+4^-+1^+2^+3^-4^-)+(1^-2^+3^+4^++1^-2^+3^-4^++1^-2^+3^+4^-+1^-2^+3^-4^-)\\
+  &+(1^+2^-3^+4^++1^+2^-3^-4^++1^+2^-3^+4^-+1^+2^-3^-4^-)+(1^-2^-3^+4^++1^-2^-3^-4^++1^-2^-3^+4^-+1^-2^-3^-4^-)\\
+  &=\N{1234}+(1^+\contraction{}{2}{}{3} 234^++\contraction{}{1}{2^+}{3}12^+34^+)+(1^+2^+\contraction{}{3}{}{4} 34+1^+\contraction{}{2}{3^=}{4} 23^+4+\contraction{}{1}{2^=2^=}{4} 12^+3^+4)+(1^+\contraction{}{2}{}{3} 234^-+\contraction{}{1}{2^+}{3} 12^+34^-+3^-\contraction{}{2}{3^-}{4} 21^+4+\contraction{}{1}{2^-3^=}{4} 13^-2^+4)\\
+  &+(1^-\contraction{}{2}{}{3}23 4^+)+(1^-2^+\contraction{}{3}{}{4}34+1^-\contraction{}{2}{3^+}{4} 23^+4)+(1^-\contraction{}{2}{}{3}23 4^-+1^-\contraction{}{2}{3^=}{4}2 3^-4)\;+(\contraction{}{1}{}{2}12 3^+4^+)+(\contraction{}{1}{}{2}123^-4^++\contraction{}{1}{2^=}{3} 12^-34^+)\\
+  &+(\contraction{}{1}{}{2}12 3^+4^-+2^-1^+\contraction{}{3}{}{4}34+\contraction{}{1}{2^-3^+}{4}12^-3^+4)+(\contraction{}{1}{}{2}12 3^-4^-+\contraction{}{ 1}{2^-}{3}12^-34^-+\contraction{}{1}{2^-2^=}{4} 12^-3^-4)+(1^-2^-\contraction{}{3}{}{4}34)\\
+  &=\N{1234}+(1^+\contraction{}{2}{}{3} 234^++1^+\contraction{}{2}{}{3} 234^-+1^-\contraction{}{2}{}{3}23 4^++1^-\contraction{}{2}{}{3}23 4^-)+(\contraction{}{1}{2^=2^=}{4} 12^+3^+4+\contraction{}{1}{2^-3^=}{4} 13^-2^+4+\contraction{}{1}{2^-3^+}{4}12^-3^+4+\contraction{}{1}{2^-2^=}{4} 12^-3^-4)\\
+  &+(\contraction{}{1}{2^+}{3}12^+34^++\contraction{}{1}{2^+}{3} 12^+34^-+\contraction{}{1}{2^=}{3} 12^-34^++\contraction{}{ 1}{2^-}{3}12^-34^-)+(1^+\contraction{}{2}{3^=}{4} 23^+4+3^-\contraction{}{2}{3^-}{4} 21^+4+1^-\contraction{}{2}{3^+}{4} 23^+4+1^-\contraction{}{2}{3^=}{4}2 3^-4)\\
+  &+(1^+2^+\contraction{}{3}{}{4} 34+1^-2^+\contraction{}{3}{}{4}34+2^-1^+\contraction{}{3}{}{4}34+1^-2^-\contraction{}{3}{}{4}34)+(\contraction{}{1}{}{2}12 3^+4^++\contraction{}{1}{}{2}123^-4^++\contraction{}{1}{}{2}12 3^+4^-+\contraction{}{1}{}{2}12 3^-4^-)\\
+  &=\N{\phi_1\phi_2\phi_3\phi_4}+\N{\phi_1\phi_4}\conphi{2}{3}+\contraction[2ex]{}{\phi}{_1\phi_2\phi_3}{\phi}\contraction{\phi_1}{\phi}{_2}{\phi}\phi_1\phi_2\phi_3\phi_4+\N{\phi_2\phi_4}\conphi{1}{3}+\contraction{}{\phi}{_1\phi_2}{\phi}\contraction[2ex]{\phi_1}{\phi}{_2\phi_3}{\phi}\phi_1\phi_2\phi_3\phi_4+\N{\phi_1\phi_3}\conphi{2}{4}+\N{\phi_2\phi_3}\conphi{1}{4}\\
+  &+\N{\phi_1\phi_2}\conphi{3}{4}+\conphi{1}{2}\N{\phi_3\phi_4}+\conphi{1}{2}\conphi{3}{4}
+\end{align*}
+
+{\bf3.}\quad
+$T\Bqty{\psi(x)\bar\psi(y)}$.
+
+Set
+$$\psi^+(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vbp}}}\sum_su^s(p)a^s_{\vbp}e^{-ip\cdot x}$$
+$$\psi^-(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vbp}}}\sum_sv^s(p)b^{s\dagger}_{\vbp}e^{ip\cdot x}$$
+$$\bar\psi^+(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vbp}}}\sum_s\bar v^s(p)b^s_{\vbp}e^{-ip\cdot x}$$
+$$\bar\psi^-(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vbp}}}\sum_s\bar u^s(p)a^{s\dagger}_{\vbp}e^{ip\cdot x}$$
+and
+$$\psi^+(x)\ket{0}=\bar\psi^+(x)\ket{0}=0$$
+$$\bra{0}\psi^-(x)=\bra{0}\bar\psi^-(x)=0$$
+%Now we evaluate the correlation function (we ignore the variables since we can distinguish them by the conjugation)
+%\begin{align*}
+%  \mel{0}{T\Bqty{\psi(x)\bar\psi(y)}}{0}&=\mel{0}{}{0}
+%\end{align*}
+Assuming $x^0>y^0$ (we ignore the variables since we can distinguish them by the conjugation)
+\begin{align*}
+  \T{\psi(x)\bar\psi(y)}&=\psi^+\bar\psi^++\psi^+\bar\psi^-+\psi^-\bar\psi^++\psi^-\bar\psi^-=\N{\psi\bar\psi}+\bqty{\{\psi^+,\bar\psi^-\}\equiv\contraction{}{\psi}{}{\bar\psi}\psi\bar\psi=S_F(x-y)}
+\end{align*}
+and for $x^0<y^0$
+\begin{align*}
+  \T{\psi(x)\bar\psi(y)}&=-(\bar\psi^+\psi^++\bar\psi^+\psi^-+\bar\psi^-\psi^++\bar\psi^-\psi^-)=\N{\psi\bar\psi}+\bqty{-\{\bar\psi^+,\psi^-\}\equiv\contraction{}{\psi}{}{\psi}\psi\bar\psi}
+\end{align*}
+so
+$$\T{\psi(x)\bar\psi(y)}=\N{\psi\bar\psi}+\contraction{}{\psi}{}{\bar\psi}\psi\bar\psi$$
+
+{\bf4.}\quad
+$T\Bqty{A_{\mu}(x)A_{\nu}(y)}$.
+
+Same as above, define
+$$A_{\mu}^+(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\abs{\vb{k}}}}\sum_{\la}a^{\la}_{\vbk}\epsilon^{\la}_{\mu}(k)e^{-ik\cdot x}$$
+$$A_{\mu}^-(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\abs{\vb{k}}}}\sum_{\la}{a^{\la}_{\vbk}}^{\dagger}{\epsilon^{\la}_{\mu}}^*(k)e^{ik\cdot x}$$
+As spin-1 field ($x^0>y^0$)
+\begin{align*}
+  T\Bqty{A_{\mu}(x)A_{\nu}(y)}&=A_{\mu}^+A_{\nu}^++A_{\mu}^+A_{\nu}^-+A_{\mu}^-A_{\nu}^++A_{\mu}^-A_{\nu}^-=\N{A_{\mu}(x)A_{\nu}(y)}+\contraction{}{A}{_{\mu}(x)}{A} A_{\mu}(x)A_{\nu}(y)
+\end{align*}
+where
+$$\contraction{}{A}{_{\mu}(x)}{A} A_{\mu}(x)A_{\nu}(y)\equiv\begin{cases}
+[A_{\mu}^+,A_{\nu}^-],x^0>y^0\\
+[A_{\nu}^+,A_{\mu}^-],y^0>x^0
+\end{cases}$$
+
+{\bf5.}\quad
+Repeat $S=Te^{\cdots\int\cdots}$.
+
+First in interaction picture, the S matrix
+$$S_{fi}=\braket{f}{\psi(\infty)}=\mel{f}{U(\infty,-\infty)}{i}=\mel{f}{S_I}{i}$$
+and the Schr\"odinger equation in interaction picture
+$$i\dv{t}U(t_f,t_i)=H_I(t_f)U(t_f,t_i)$$
+so
+\begin{align*}
+  \ket{\psi(t)}_I&=\ket{i}+(-i)\int_{-\infty}^{t}\dd t_1H_I(t_1)\ket{\psi(t_1)}_I\\
+  &=\ket{i}+(-i)\int_{-\infty}^{t}\dd t_1H_I(t_1)(\ket{i}+(-i)\int_{-\infty}^{t_1}\dd t_2H_I(t_2)\ket{\psi(t_2)}_I)
+\end{align*}
+and such on and on till
+$$S=\sum_{n=0}^{\infty}(-i)^n\int_{-\infty}^{t}\dd t_1\int_{-\infty}^{t_1}\dd t_2 \cdots\int_{-\infty}^{t_{n-1}}\dd t_n H_I(t_1)H_I(t_2)\cdots H_I(t_n) $$
+Now a little tweak on the integral variables:
+\begin{align*}
+  &\int_{t_0}^{t}\dd t_1\int_{t_0}^{t_1}\dd t_2  H_I(t_1)H_I(t_2),\;\;t_1>t_2\\
+  =&\int_{t_0}^{t}\dd t_2\int_{t_0}^{t_2}\dd t_1  H_I(t_2)H_I(t_1),\;\;t_2>t_1\\
+  =&\frac{1}{2}\int_{t_0}^{t}\dd t_1\int_{t_0}^{t}\dd t_2  T\{H_I(t_1)H_I(t_2)\}
+\end{align*}
+so
+\begin{align*}
+  S&=\sum_{n=0}^{\infty}\frac{(-i)^n}{2^n}\int_{-\infty}^{t}\dd t_1\int_{-\infty}^{t}\dd t_2 \cdots\int_{-\infty}^{t}\dd t_n T\{H_I(t_1)H_I(t_2)\cdots H_I(t_n)\}|_{t=\infty}\\
+  &=Te^{-i\int_{-\infty}^{\infty}\dd tH_I(t)}\\
+  &=Te^{i\int_{-\infty}^{\infty}\dd^4 x\lag_I(x)}
+\end{align*}
+{\bf6.}\quad
+$\lag=\lag_{KG}-\frac{g}{3!}\phi^3$.
+\begin{enumerate}[(i)]
+  \item Write down the T matrix of $\mel{p}{S}{p}$ to $g^2$ order and draw corresponding Feynman diagram.
+
+  The T matrix is
+  $$\mel{p}{iT}{p}=\mel{p}{T\{\frac{1}{2!}(\frac{-ig}{3!})^2\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi\phi\}}{p}$$
+  so with a few contractions
+  $$\mel{p}{iT}{p}=(-ig)^2\contraction[1.5ex]{}{\bra{p}}{\int\dd^4x}{\phi}\contraction[1.5ex]{\bra{p}\int\dd^4x\phi}{\phi}{\phi\int\dd^4y}{\phi}\contraction[2.5ex]{\bra{p}\int\dd^4x\phi\phi}{\phi}{\int\dd^4y\phi}{\phi}\contraction[1.5ex]{\bra{p}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi}{\phi}{}{\ket{p}}\bra{p}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi\phi\ket{p}\times (\text{Symmetry factor})$$
+  where $(\text{Symmetry factor})=2$.
+
+  The corresponding feynman diagram
+  \begin{center}
+    \feynmandiagram [layered layout, horizontal=x to y] {
+    i[particle=p] -- [scalar] x[dot]-- [scalar, half left] y[dot] -- [scalar] f[particle=p],
+    x -- [scalar, half right] y,
+    };
+  \end{center}
+
+  \item Write down some things for $\mel{p_1p_2}{S}{p_Ap_B}$. Calculate $\dv{\sigma}{\Omega}$ and $\sigma_{tot}$.
+
+  The T matrix is
+  $$\mel{p_1p_2}{iT}{p_Ap_B}=\mel{p_1p_2}{T\{\frac{1}{2!}(\frac{-ig}{3!})^2\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi\phi\}}{p_Ap_B}$$
+  so with a few contractions
+  $$\mel{p_1p_2}{iT}{p_Ap_B}=(-ig)^2\contraction[1.5ex]{}{\bra{p_1}}{p_2\int\dd^4x}{\phi}\contraction[2.5ex]{p_1}{\bra{p_2}}{\int\dd^4x\phi}{\phi}\contraction[1.5ex]{\bra{p_1p_2}\int\dd^4x\phi\phi}{\phi}{\int\dd^4x}{\phi}\contraction[1.5ex]{\bra{p_1p_2}\int\dd^4x\phi\phi\phi\int\dd^4y\phi}{\phi}{\phi}{\bra{p_A}}\contraction[2.5ex]{\bra{p_1p_2}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi}{\phi}{p_A}{\bra{p_B}} \bra{p_1p_2}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi\phi\ket{p_Ap_B}
+  \times (\text{Symmetry factor})$$
+  where $(\text{Symmetry factor})=1$ (stands for all tree level process).
+
+  The corresponding feynman diagram
+  \begin{center}
+    \feynmandiagram [layered layout, horizontal=x to y] {
+    i1[particle=$p_A$] -- [scalar] x[dot] --[scalar] y[dot] --[scalar] f1[particle=$p_1$] ,
+    i2[particle=$p_B$] -- [scalar] x,
+    y--[scalar] f2[particle=$p_2$],
+    };
+  \end{center}
+  The cross section:
+  $$\dv{\s}{\Omega}|_{CM}=\frac{\abs{\mathcal{M}}^2}{64\pi^2E_{CM}^2}$$
+  and
+  \begin{align*}
+    \mel{p_1p_2}{iT}{p_Ap_B}&=(-ig)^2\int\dd^4x\int\dd^4y\int\frac{\dd^4p}{(2\pi)^4}e^{ip_1\cdot x}e^{ip_2\cdot x}e^{-ip_A\cdot y}e^{-ip_B\cdot y}\frac{i}{p^2-m^2}e^{-ip\cdot(x-y)}\\
+    &=(-ig)^2\int\dd^4p(2\pi)^4\delta^4(p_1+p_2-p)\delta^4(p-p_A-p_B)\frac{i}{p^2-m^2}\\
+    &=(-ig)^2(2\pi)^4\delta^4(p_1+p_2-p_A-p_B)\frac{i}{(p_1+p_2)^2-m^2}
+  \end{align*}
+  so (of course you can always write it down directly from the feynman diagram)
+  $$i\mathcal{M}=-g^2\frac{i}{(p_1+p_2)^2-m^2}=i\frac{-g^2}{(p_1+p_2)^2-m^2}$$
+  Thus we have
+  $$\dv{\s}{\Omega}|_{CM}=\frac{g^4}{64\pi^2E^2_{CM}[(p_1+p_2)^2-m^2]^2}\frac{1}{2}=\frac{g^4}{2m^4}\frac{1}{64\pi^2E_{CM}^2}$$
+  and the total cross section
+  $$\s|_{CM}=\frac{g^4}{2m^4}\frac{1}{16\pi E_{CM}^2}$$
+  There's also t-channel diagram:
+  $$\mel{p_1p_2}{iT}{p_Ap_B}=(-ig)^2\contraction[1.5ex]{}{\bra{p_1}}{p_2\int\dd^4x}{\phi}\contraction[2.5ex]{p_1}{\bra{p_2}}{\int\dd^4x\phi\phi\phi\int\dd^4y\phi}{\phi}\contraction[1.5ex]{\bra{p_1p_2}\int\dd^4x\phi\phi}{\phi}{\int\dd^4x}{\phi}\contraction[2ex]{\bra{p_1p_2}\int\dd^4x\phi}{\phi}{\phi\int\dd^4x\phi\phi\phi}{\bra{p_A}}\contraction[2.5ex]{\bra{p_1p_2}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi}{\phi}{p_A}{\bra{p_B}} \bra{p_1p_2}\int\dd^4x\phi\phi\phi\int\dd^4y\phi\phi\phi\ket{p_Ap_B}
+  $$
+  and the feynman diagram for t-channel
+  \begin{center}
+    \feynmandiagram [vertical=i1 to i2] {
+    i1[particle=$p_1$] -- [scalar] x[dot]  --[scalar] f1[particle=$p_A$] ,
+    x--[scalar] y[dot],
+    i2[particle=$p_2$] --[scalar] y[dot]--[scalar] f2[particle=$p_B$],
+    };
+  \end{center}
+  and u-channel and they should be the same for the two identical out-state particles.
+
+  The scattering matrix and cross section should differ with only s, t and u.
+  $$i\mathcal{M}_t=i\frac{-g^2}{t-m^2}$$
+  and
+  $$\dv{\s_t}{\Omega}|_{CM}=\frac{g^4}{64\pi^2E^2_{CM}[t-m^2]^2}\frac{1}{2}$$
+  $$\s|_{CM}=\frac{1}{m^4-4 k^2 p^2}\frac{1}{16\pi E_{CM}^2}$$
+  where $p$ and $k$ are the momentum values of $p_A$ and $p_1$.
+\end{enumerate}
+
+
+
+
+\end{document}

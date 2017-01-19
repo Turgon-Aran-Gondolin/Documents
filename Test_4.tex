@@ -1,0 +1,56 @@
+\documentclass{ctexart}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+
+\begin{document}
+\begin{tabular}{|c|c|}
+a & b \\
+c & d\\
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+\hline
+a & b \\
+\hline
+c & d\\
+\hline
+\end{tabular}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+a & b \\ \hline
+c & d\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{table}[!hbp]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\hline
+Dimension & Name & Symbol & Expression \\
+\hline
+Length & Bohr radius & $a_0$ & $\frac{\hbar}{m_e c\alpha}$\\
+\hline
+Energy & Hartree energy &  $E_h$ & $\alpha^2 m_e c^2$\\
+\hline
+Velocity & & & $\alpha c$\\
+\hline
+\end{tabular}
+\caption{Derived atomic units}
+\end{table}
+
+\end{document}

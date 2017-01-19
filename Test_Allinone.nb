@@ -1,0 +1,295 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10287,        286]
+NotebookOptionsPosition[      9800,        265]
+NotebookOutlinePosition[     10157,        281]
+CellTagsIndexPosition[     10114,        278]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"u0", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";", 
+  RowBox[{"\[Alpha]", "=", "0.262713"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"V", "[", "r_", "]"}], ":=", 
+  FractionBox[
+   RowBox[{"-", "14.3996"}], "r"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"data1", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"txt", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"e_", "?", "NumberQ"}], "]"}], ":=", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"u", ",", "r", ",", 
+         RowBox[{"r1", "=", "i"}], ",", 
+         RowBox[{"r2", "=", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]]}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"First", "[", 
+        RowBox[{
+         RowBox[{"u", "[", "r2", "]"}], "/.", "\[IndentingNewLine]", 
+         RowBox[{"NDSolve", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"u", "''"}], "[", "r", "]"}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", 
+                   RowBox[{"(", 
+                    RowBox[{"e", "-", 
+                    RowBox[{"V", "[", "r", "]"}]}], ")"}]}], "-", 
+                  FractionBox["0", 
+                   SuperscriptBox["r", "2"]]}], ")"}], 
+                RowBox[{"u", "[", "r", "]"}]}]}], "\[Equal]", "0"}], ",", 
+             RowBox[{
+              RowBox[{"u", "[", "r1", "]"}], "\[Equal]", "u0"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"u", "'"}], "[", "r1", "]"}], "\[Equal]", 
+              RowBox[{
+               SqrtBox[
+                RowBox[{"\[Alpha]", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"V", "[", "r1", "]"}], "-", "e"}], ")"}]}]], " ", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "6"}]]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+           "u", ",", 
+           RowBox[{"{", 
+            RowBox[{"r", ",", "r1", ",", "r2"}], "}"}]}], "]"}]}], "]"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"g", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"f", "[", "e", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", ",", 
+         RowBox[{"-", "15"}], ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "15"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<E\>\"", ",", "\"\<u\>\""}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"5", "i"}], ",", 
+          RowBox[{"5", "i"}], ",", 
+          RowBox[{"5", "i"}]}], "]"}]}], ",", 
+       RowBox[{"PlotPoints", "\[Rule]", "100"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"h", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"f", "[", "e", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", ",", 
+         RowBox[{"-", "15"}], ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "15"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "50"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<E\>\"", ",", "\"\<u\>\""}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"5", "i"}], ",", 
+          RowBox[{"5", "i"}], ",", 
+          RowBox[{"5", "i"}]}], "]"}]}], ",", 
+       RowBox[{"PlotPoints", "\[Rule]", "100"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"ew", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "14"}], ",", 
+           RowBox[{"-", "13"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "4"}], ",", 
+           RowBox[{"-", "3"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "2"}], ",", 
+           RowBox[{"-", "1"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"-", "0.75"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "0.75"}], ",", 
+           RowBox[{"-", "0.5"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FindRoot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "e", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", 
+           RowBox[{"-", "0.5"}], ",", 
+           RowBox[{"-", "0.25"}]}], "}"}], ",", 
+         RowBox[{"MaxIterations", "\[Rule]", "1000"}]}], "]"}]}], "}"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"data", ",", "g"}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"txt", ",", "ew"}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "5", ",", "20", ",", "0.1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "data", 
+  "]"}], "\[IndentingNewLine]", "txt", "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.6569728318535104`*^9, 3.6569729855895596`*^9}, 
+   3.6569730189648743`*^9, {3.6569735751521235`*^9, 3.656973629090184*^9}, 
+   3.6571624136652107`*^9, {3.657162524738554*^9, 3.657162531670314*^9}, {
+   3.6571625646306143`*^9, 3.657162567917474*^9}, {3.657163840013253*^9, 
+   3.6571638692276335`*^9}, {3.6571639297870097`*^9, 3.65716399093539*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "lstol"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:7ebf\:641c\:7d22\:628a\:6b65\:957f\:964d\:4f4e\:5230\
+\:7531 AccuracyGoal \:548c PrecisionGoal \:6307\:5b9a\:7684\:5bb9\:5dee\:8303\
+\:56f4\:5185\:ff0c\:4f46\:662f\:65e0\:6cd5\:627e\:5230 merit \:51fd\:6570\
+\:7684\:5145\:8db3\:7684\:964d\:4f4e. \:60a8\:53ef\:80fd\:9700\:8981\:591a\
+\:4e8e \[NoBreak]\\!\\(\\*RowBox[{\\\"MachinePrecision\\\"}]\\)\[NoBreak] \
+\:4f4d\:5de5\:4f5c\:7cbe\:5ea6\:4ee5\:6ee1\:8db3\:8fd9\:4e9b\:5bb9\:5dee. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/FindRoot/lstol\\\", \
+ButtonNote -> \\\"FindRoot::lstol\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.656973215412181*^9, 3.657165508376954*^9, 
+  3.6572785380839033`*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6569730400588584`*^9, 3.657012602477215*^9, 
+  3.6571681379025135`*^9, 3.6572814739814415`*^9}],
+
+Cell[BoxData[
+ RowBox[{"$Aborted", "[", "]"}]], "Output",
+ CellChangeTimes->{3.6569730400588584`*^9, 3.657012602477215*^9, 
+  3.6571681379025135`*^9, 3.657281474372071*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6569730400588584`*^9, 3.657012602477215*^9, 
+  3.6571681379025135`*^9, 3.657281476465841*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6569730400588584`*^9, 3.657012602477215*^9, 
+  3.6571681379025135`*^9, 3.657281476700218*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 816},
+WindowMargins->{{219, Automatic}, {Automatic, 62}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7411\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 7696, 206, 713, "Input"],
+Cell[8278, 230, 870, 15, 65, "Message"],
+Cell[9151, 247, 152, 2, 31, "Output"],
+Cell[9306, 251, 172, 3, 31, "Output"],
+Cell[9481, 256, 150, 2, 31, "Output"],
+Cell[9634, 260, 150, 2, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

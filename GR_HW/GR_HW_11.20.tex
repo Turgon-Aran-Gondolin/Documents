@@ -1,0 +1,253 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+%\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{pstricks}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\tx}{\tilde x}
+\renewcommand{\tr}{\tilde r}
+\newcommand{\tL}{\tilde L}
+\newcommand{\hb}{\bar h}
+
+\title{Homework: General Relativity \#2}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+Assuming
+$$K^{\mu}(x)\rightarrow \tilde{K}^{\mu}(\tilde x)=\pdv{\tilde x^{\mu}}{x^{\nu}}K^{\nu}(x)$$
+$$\xi^{\mu}(x)\rightarrow \tilde{\xi}^{\mu}(\tilde x)=\pdv{\tilde x^{\mu}}{x^{\nu}}\xi^{\nu}(x)$$
+and the Lie derivative of counter-variant vector $K^{\mu}(x)$ is
+$$L_{\xi}K^{\mu}=\lim_{\epsilon\rightarrow0}\frac{K^{\mu}(P)-K^{\mu}(P\Rightarrow Q)}{\epsilon}=K^{\mu}_{,\nu}\xi^{\nu}-\xi^{\mu}_{,\nu}K^{\nu}$$
+so
+$$L_{\tilde\xi}\tilde{K}^{\mu}=\tilde K^{\mu}_{,\nu}\tilde\xi^{\nu}-\tilde\xi^{\mu}_{,\nu}\tilde K^{\nu}=\pdv{\tilde K^{\mu}}{\tilde x^{\nu}}\tilde\xi^{\nu}-\pdv{\tilde\xi^{\mu}}{\tilde x^{\nu}}\tilde K^{\nu}$$
+Then we have
+\begin{align*}
+  L_{\tilde\xi}\tilde{K}^{\mu}&=(\pdv{\tilde x^{\mu}}{x^{\alpha}}K^{\alpha}(x))_{,\nu}\tilde\xi^{\nu}-\tilde\xi^{\mu}_{,\nu}\pdv{\tilde x^{\mu}}{x^{\alpha}}K^{\alpha}(x)\\
+  &=\pdv{\tilde x^{\mu}}{x^{\alpha}}{\tilde x^{\nu}}K^{\alpha}(x)\tilde\xi^{\nu}+\pdv{\tilde x^{\mu}}{x^{\alpha}}\pdv{ K^{\a}}{\tilde x^{\nu}}\tilde\xi^{\nu}-\pdv{\tilde\xi^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\mu}}{x^{\alpha}}K^{\alpha}(x)\\
+  &=\pdv{\tilde x^{\mu}}{x^{\a}}\pdv{K^{\a}}{\tx^{\nu}}\pdv{\tx^{\nu}}{x^{\s}}\xi^{\s}-\pdv{\tx^{\mu}}{x^{\s}}\pdv{\xi^{\s}}{\tx^{\nu}}\pdv{\tx^{\nu}}{x^{\a}}K^{\a}\\
+  &=\pdv{\tx^{\mu}}{x^{\a}}\pdv{K^{\a}}{x^{\s}}\xi^{\s}-\pdv{\tx^{\mu}}{x^{\s}}\pdv{\xi^{\s}}{x^{\a}}K^{\a}\\
+  &=\pdv{\tx^{\mu}}{x^{\a}}L_{\xi}K^{\mu}
+\end{align*}
+which satisfy the trnasformation law of counter-variant vector.
+
+{\bf2.}\quad
+Prove for a complete antisymmetric tensor $H^{\mu\nu\dots\s}(x)$ of any order, $\nabla_{\rho}H^{\rho\nu\cdots\s}=\frac{1}{\sqrt{-g}}\partial_{\rho}(\sqrt{-g}H^{\rho\nu\cdots\s})$.
+
+The covariant derivative for $H$ is
+$$\nabla_{\rho}H^{\rho\nu\cdots\s}=\partial_{\rho}H^{\rho\nu\cdots\s}+\G^{\rho}_{\rho\a}H^{\a\nu\cdots\s}+\G^{\nu}_{\rho\a}H^{\rho\a\cdots\s}\cdots$$
+and note that $H$ is antisymmetric, so the rest terms vanishes. And also $\G^{\rho}_{\rho\a}=\frac{1}{\sqrt{-g}}\partial_{\a}\sqrt{-g}$
+\begin{align*}
+  \nabla_{\rho}H^{\rho\nu\cdots\s}&=\partial_{\rho}H^{\rho\nu\cdots\s}+\G^{\rho}_{\rho\a}H^{\a\nu\cdots\s}\\
+  &=\partial_{\rho}H^{\rho\nu\cdots\s}+\frac{1}{\sqrt{-g}}(\partial_{\rho}\sqrt{-g})H^{\rho\nu\cdots\s}\\
+  &=\frac{1}{\sqrt{-g}}\partial_{\rho}(\sqrt{-g}H^{\rho\nu\cdots\s})
+\end{align*}
+
+{\bf3.}\quad
+Calculate the Riemann curvature tensor on a sphere of radius $R$.
+
+The metric is
+$$\dd s^2=%-(1-\frac{2GM}{r})\dd t^2+(1-\frac{2GM}{r})^{-1}\dd r^2+
+R^2\dd\theta^2+R^2\sin^2\theta\dd\varphi^2$$
+The definition of Riemann curvature tensor is
+$$R^{\rho}_{\s\mu\nu}=\G^{\rho}_{\s\nu,\mu}-\G^{\rho}_{\s\mu,\nu}+\G^{\rho}_{\mu\la}\G^{\la}_{\s\nu}-\G^{\rho}_{\nu\la}\G^{\la}_{\mu\s}$$
+and definition of Christoffel symbol
+$$\G^{\rho}_{\mu\nu}=\frac{1}{2}g^{\rho\s}(g_{\mu\s,\nu}+g_{\nu\s,\mu}-g_{\mu\nu,\s})$$
+Note that
+$$%g^{tt}=-(1-\frac{2GM}{r})^{-1},g^{rr}=(1-\frac{2GM}{r}),
+g^{22}=R^{-2},g^{33}=\frac{1}{R^2\sin^2{\theta}}$$
+we have
+%%$$\G^{t}_{tr}=\frac{1}{2}(1-\frac{2GM}{r})^{-1}(1+\frac{2GM}{r^2})=\frac{1}{2}\frac{r^2+2GM}{r-2GM},$$
+$$\G^{2}_{33}=-\frac{1}{2}R^{-2}R^22\sin\theta\cos\theta=-\sin\theta\cos\theta,\G^{3}_{23}=\frac{1}{2}R^{-2}\sin^{-2}\theta R^22\sin\theta\cos\theta=\frac{\cos\theta}{\sin\theta}$$
+and the rest are zero.
+
+So
+\begin{align*}
+  &R^{2}_{323}=\G^{2}_{33,2}-\G^{2}_{32,3}+\G^{2}_{2\s}\G^{\s}_{33}-\G^{2}_{3\s}\G^{\s}_{23}=\sin^2\theta-\cos^2\theta+\cos^2\theta=\sin^2\theta\\
+  &R^{2}_{332}=-R^{2}_{323}=-\sin^2\theta\\
+  &R^{3}_{223}=\G^{3}_{23,2}-\G^{3}_{22,3}+\G^{3}_{2\s}\G^{\s}_{23}-\G^{3}_{3\s}\G^{\s}_{22}=-\csc\theta+\frac{\cos^2\theta}{\sin^2\theta}=-1=-R^{3}_{232}
+\end{align*}
+and the rest are zero.
+
+{\bf4.}\quad
+Radial equation
+$$(\dv{ r}{\tau})^2=E^2-(1-\frac{2GM}{r})(1+\frac{L^2}{r^2})$$
+when $r\rightarrow\infty$, it becomes
+$$(\dv{ r}{\tau})^2=E^2-1$$
+In SR
+$$\dv{r}{\tau}=p_r$$
+and here we don't have any angular quantity, so the former one becomes
+$$\vb{p}^2=E^2-1$$
+which is exactly the mass-energy equation in SR.
+
+For a mass point, if it can travel to infinity, we can assume it's at rest there. It's easy to know that if $\frac{L}{GM}>4$ and $E>1$ it can travel there.
+
+{\bf5.}\quad
+To calculate the minimum circular orbit radius of bound state, we have
+$$\dv{r}U^2=0\;\;\text{and }\dv[2]{r}U^2=0$$
+we know that
+$$U^2=(1-\frac{2GM}{r})(1+\frac{L^2}{r^2})=1-\frac{2}{\tilde r}+\frac{\tL^2}{\tr^2}-\frac{2\tL^2}{\tr^3}$$
+where $\tL=\frac{L}{GM}$ and $\tr=\frac{r}{GM}$.
+
+Applying the conditions given the first line, we have
+$$\frac{1}{\tr^2}-\frac{\tL^2}{\tr^3}+\frac{3\tL^2}{\tr^4}=0$$
+and
+$$-\frac{2}{\tr^3}+\frac{3\tL^2}{\tr^4}-\frac{12\tL^2}{\tr^5}=0$$
+so we have
+$$\tr=6$$
+
+{\bf6.}\quad
+Prove that $-\frac{1}{2}(h^{,\a}_{\mu\nu,\a}+\eta_{\mu\nu}h^{,\a\b}_{\a\b}-h^{,\a}_{\mu\a,\nu}-h^{,\a}_{\nu\a,\mu})=8\pi GT_{\mu\nu}$.
+
+The Ricci tensor (weak field condition applied) is
+$$R_{\mu\nu}=-\frac{1}{2}(h^{,\a}_{\mu\nu,\a}+h_{,\mu\nu}-h^{\a}_{\mu,\a,\nu}-h^{\a}_{\nu,\a,\mu})$$
+and its trace
+$$R=-(h^{,\a}_{,\a}-h^{,\a\b}_{\a\b})$$
+The trace-reverse tensor is
+$$\bar R_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}\eta_{\mu\nu}R=-\frac{1}{2}(h^{,\a}_{\mu\nu,\a}+h_{,\mu\nu}-h^{\a}_{\mu,\a,\nu}-h^{\a}_{\nu,\a,\mu}-\eta_{\mu\nu}h^{,\a}_{,\a}+\eta_{\mu\nu}h^{,\a\b}_{\a\b})$$
+which is exactly the Einstein tensor $G$.
+
+Now we know
+$$h^{,\a}_{\mu\nu,\a}-\frac{1}{2}\eta_{\mu\nu}h^{,\a}_{,\a}=\hb^{,\a}_{\mu\nu,\a}$$
+$$\hb^{,\a}_{\nu\a,\mu}=h^{,\a}_{\nu\a,\mu}-\frac{1}{2}\eta_{\nu\a}h^{,\a}_{,\mu}=h^{,\a}_{\nu\a,\mu}-\frac{1}{2}h_{,\mu\nu}$$
+$$\hb^{,\a}_{\mu\a,\nu}=h^{,\a}_{\mu\a,\nu}-\frac{1}{2}\eta_{\mu\a}h^{,\a}_{,\nu}=h^{,\a}_{\mu\a,\nu}-\frac{1}{2}h_{,\mu\nu}$$
+and the rest terms
+$$\eta_{\mu\nu}h^{,\a\b}_{\a\b}-\frac{1}{2}\eta_{\mu\nu}h^{,\a}_{,\a}=\eta_{\mu\nu}(h^{,\a\b}_{\a\b}-\frac{1}{2}\eta_{\a\b}h^{,\a\b}=\eta_{\mu\nu}\hb^{,\a\b}_{\a\b})$$
+
+From the Einstein equation
+$$G_{\mu\nu}=8\pi GT_{\mu\nu}$$
+we have
+$$-\frac{1}{2}(\hb^{,\a}_{\mu\nu,\a}+\eta_{\mu\nu}\hb^{,\a\b}_{\a\b}-\hb^{,\a}_{\mu\a,\nu}-\hb^{,\a}_{\nu\a,\mu})=8\pi GT_{\mu\nu}$$
+
+{\bf7.}\quad
+Define $A_{\pm}=A_{11}\mp iA_{12}$. Under the rotation
+$$\Pmqty{\tx\\\tilde y}=\Pmqty{\cos\theta&\sin\theta\\-\sin\theta&\cos\theta}\Pmqty{x\\y}$$
+we have
+$$\tilde A_{\pm}=\tilde A_{11}\mp i\tilde A_{12}$$
+Now evaluate it term by term:
+
+For a counter-variant tensor of order 2
+$$\tilde A_{\mu\nu}=\pdv{x^{\a}}{\tilde x^{\mu}}\pdv{x^{\b}}{\tilde x^{\nu}}A_{\a\b}$$
+so
+\begin{align*}
+  \tilde A_{11}&=\pdv{x}{\tilde x}\pdv{x}{\tilde x}A_{11}+2\pdv{x}{\tilde x}\pdv{y}{\tilde x}A_{12}+\pdv{y}{\tilde x}\pdv{y}{\tx}A_{22}\\
+  &=\cos^2\theta A_{11}+2\cos\theta\sin\theta A_{12}+\sin^2\theta A_{22}\\
+  &=\cos2\theta A_{11}+\sin2\theta A_{12}
+\end{align*}
+and
+\begin{align*}
+  \tilde A_{12}&=\pdv{x}{\tilde x}\pdv{x}{\tilde y}A_{11}+\pdv{x}{\tx}\pdv{y}{\tilde y}A_{12}+\pdv{y}{\tx}\pdv{x}{\tilde y}A_{21}+\pdv{y}{\tx}\pdv{y}{\tilde y}A_{22}\\
+  &=-\cos\theta\sin\theta A_{11}+\cos^2\theta A_{12}-\sin^2\theta A_{21}+\sin\theta\cos\theta A_{22}\\
+  &=-\sin2\theta A_{11}+\cos2\theta A_{12}
+\end{align*}
+Thus
+\begin{align*}
+  \tilde A_{\pm}&=(\cos2\theta\pm i\sin2\theta)A_{11}+(\sin2\theta \mp i\cos2\theta)A_{12}\\
+  &=(\cos2\theta\pm i\sin2\theta)A_{11}\mp i(\cos2\theta\pm i\sin2\theta)A_{12}\\
+  &=e^{\pm2i\theta}A_{\pm}
+\end{align*}
+
+{\bf8.}\quad
+Prove $T^{G}_{\mu\nu}$ is invariant under gauge transformation.
+
+First
+$$T^G_{\mu\nu}=-\frac{1}{8\pi G}(G_{\mu\nu}-G^{(1)}_{\mu\nu})$$
+so we are to prove $G_{\mu\nu}$ and $G^{(1)}_{\mu\nu}$ are gauge-invariant.
+
+For $G_{\mu\nu}$, it's easy to know that with Lorentz gauge
+$$G_{\mu\nu}=\hb^{,\a}_{\mu\nu,\a}$$
+which is Lorentz-invariant under a given transformation $x^{\mu}\rightarrow x^{\mu}+\xi^{\mu}$ and $\xi^{,\a}_{\mu,\a}=0$. Similarly we can prove that $G^{(1)}_{\mu\nu}$ is gauge-invariant.
+
+
+To prove $\expval{T^G_{\mu\nu}}$ is gauge-invariant, first we have
+$$\expval{T^{G}_{\mu\nu}}=\frac{1}{16\pi G}(A^{\rho\s}A^*_{\rho\s}-\frac{1}{2}\abs{A^{\la}_{\la}}^2)$$
+and the gauge transformation
+$$A_{\mu\nu}\rightarrow A_{\mu\nu}+k_{\mu}X_{\nu}+k_{\nu}X_{\mu}$$
+$$A^*_{\mu\nu}\rightarrow A^*_{\mu\nu}+k_{\mu}X^*_{\nu}+k_{\nu}X^*_{\mu}$$
+so
+\begin{align*}
+  \expval{T^{G}_{\mu\nu}}&\rightarrow\frac{1}{16\pi G}\Bqty{(A^{\rho\s}+k^{\rho}X^{\s}+k^{\s}X^{\rho})(A^*_{\rho\s}+k_{\rho}X^*_{\s}+k_{\s}X^*_{\rho})-\frac{1}{2}(A^{\la}_{\la}+k^{\la}X_{\la}+k^{\la}X_{\la})({A^{\tau}_{\tau}}^*+k^{\tau}X^*_{\tau}+k^{\tau}X^*_{\tau})}\\
+  &=\frac{1}{16\pi G}\Big\{A^{\rho\s}A^*_{\rho\s}+2k^{\rho}X^{\s}A^*_{\rho\s}+2A^{\rho\s}k_{\rho}X^*_{\s}+2k^{\rho}X^{\s}k_{\rho}X^*_{\s}+2k^{\rho}X^{\s}k_{\s}X^*_{\rho}\\
+  &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;-\frac{1}{2}(AA^*+2Ak^{\tau}X^*_{\tau}+2A^*k^{\la}X_{\la}+4k^{\la}X_{\la}k^{\tau}X^*_{\tau})\Big\}
+\end{align*}
+Now we only need to prove
+$$2k^{\rho}X^{\s}A^*_{\rho\s}+2A^{\rho\s}k_{\rho}X^*_{\s}+2k^{\rho}X^{\s}k_{\rho}X^*_{\s}+2k^{\rho}X^{\s}k_{\s}X^*_{\rho}-Ak^{\tau}X^*_{\tau}-A^*k^{\la}X_{\la}-2k^{\la}X_{\la}k^{\tau}X^*_{\tau}=0$$
+From gauge condition we have $k^2=0$, so it becomes
+$$2k^{\rho}X^{\s}A^*_{\rho\s}+2k_{\rho}X^*_{\s}A^{\rho\s}-Ak^{\tau}X^*_{\tau}-A^*k^{\la}X_{\la}=0$$
+Combining $X^{\s}A^*_{\rho\s}$ and ${X^{\s}}^*A_{\rho\s}$, we can prove the result is the real part of $2X^{\s}A^*_{\rho\s}$, so it becomes
+$$k^{\rho}\Re[X^{\s}A^*_{\rho\s}]-\frac{1}{2}k^{\la}\Re[X_{\la}^*A]=k^{\rho}\Re[X^{\s}\bar A^*_{\rho\s}]=0$$
+We already know that $k\cdot A=0$ so this equation stands.
+%If we multiply $h_{\mu\nu}$ by $\xi{\k}$, we'll find a term $(iA^*_{\mu\nu}\xi_{k}-iA_{\mu\nu}\xi^*_{k})$ without exponential part which is unphysical, so it must go to zero. Therefore the formula above equals to zero.
+
+{\bf9.}\quad
+Derive the Newtonian TOV equation (see Chandrasekhar 1939).
+
+First we have
+$$m=\int_0^r4\pi r^2\rho\dd r,\;\dd m(r)=4\pi r^2\rho\dd r$$
+and use Chandrasekhar's cylinder model (an infinitesimal cylinder at distance r from the center and height $\dd r$), we have the force represented by the difference of pressure which acts on a
+$$-\dd p=\frac{Gm(r)\rho\dd r}{r^2}$$
+so
+$$p'=-\frac{Gm\rho}{r^2}$$
+
+The TOV equation is
+$$p'=-(p+\rho)\frac{Gm+4\pi Gr^3p}{r(r-2Gm)}$$
+We require $p\ll\rho$ and $m\ll r$ for non-relativistic limit, the former one also means $4\pi r^3p\ll m$, and the latter one is the requirement of flat metric. So the TOV equation becomes
+$$p'=-\rho\frac{Gm}{r^2}$$
+which meets the one from Newtonian mechanics.
+
+
+
+Einstein equation:
+$$G_{\mu\nu}=-8\pi GT_{\mu\nu}$$
+Define
+$$t_{\mu\nu}\equiv\frac{1}{8\pi G}[G_{\mu\nu}-G^{(1)}_{\mu\nu}]$$
+and
+\begin{align*}
+  G^{(1)}_{\mu\nu}=-8\pi G(T_{\mu\nu}+t_{\mu\nu})\\
+  T_{\mu\nu}=0\&G^{(1)}_{\mu\nu}=0\Longrightarrow t_{\mu\nu}=0
+\end{align*}
+which can't be right because $t_{\mu\nu}$ is the energy-momentum tensor of gravitational field.
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,179 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{slashed}
+%\usepackage{bm}
+\usepackage{dsfont}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gmn}{g^{\mu\nu}}
+\newcommand{\gnm}{g^{\nu\mu}}
+\newcommand{\gmm}{g^{\mu\mu}}
+\newcommand{\gnn}{g^{\nu\nu}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\ps}{\slashed p}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbq}{\vb{q}}
+
+
+\title{Homework: Quantum Field Theory \#4}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+%\tableofcontents
+{\bf1.}\quad
+Derive $\mel{0}{\bar\psi_b(y)\psi_a(x)}{0}$.
+
+We know the ``quantized" dirac field operators (here and in Heisenberg picture) are
+$$\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)e^{-ip\cdot x}+b^s_{\vb{p}}v^s(p)e^{ip\cdot x})$$%=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{-\vb{p}}u^s(-p)+b^s_{\vb{p}}v^s(p)e^{ip\cdot x})$$
+$$\bar\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s^{\dagger}_{\vb{p}}\bar u^s(p)e^{ip\cdot x}+b^s^{\dagger}_{\vb{p}}\bar v^s(p)e^{-ip\cdot x})$$
+So
+\begin{align*}
+  \mel{0}{\bar\psi_b(y)\psi_a(x)}{0}&=\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}}}\sum_r(a^r^{\dagger}_{\vb{k}}\bar u_b^r(k)e^{ik\cdot y}+b^r^{\dagger}_{\vb{k}}\bar v_b^r(k)e^{-ik\cdot y})\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u_a^s(p)e^{-ip\cdot x}+b^s_{\vb{p}}v_a^s(p)e^{ip\cdot x})\\
+  \intertext{since we only want the positive-frequency terms of $\bar\psi_b(y)$ and the negative-frequency terms of $\psi_a(x)$}&=\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}}}\sum_r(b^r^{\dagger}_{\vb{k}}\bar v_b^r(k)e^{-ik\cdot y})\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}v_a^s(p)e^{ip\cdot x})\\
+  \intertext{we knew that $\mel{0}{b^r^{\dagger}_{\vb{k}}b^s_{\vb{p}}}{0}=e^{-i(\vb{p-k})\cdot\vb{x}}\mel{0}{b^r^{\dagger}_{\vb{k}}b^s_{\vb{p}}}{0}$ and it implies $\vb{k}=\vb{p}$ and similarly $r=s$, so $\mel{0}{b^r^{\dagger}_{\vb{k}}b^s_{\vb{p}}}{0}=(2\pi)^3\delta^3(\vb{p-k})\delta^{rs}\cdot B(\vb{p})$ and}&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_s \bar v_b^s(p)v_a^s(p)e^{ip(x-y)}B(\vb{p})\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}(\ps-m)_{ba}e^{ip(x-y)}B(\vb{p})\\
+  \intertext{from the sign of x in the exponential factor, we can rewrite $\ps$ as $-i\slashed \partial_x$, and note that B is a constant (from Lorentz invariance)}
+  &=-(i\slashed \partial_x+m)_{ab}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}e^{ip(x-y)}B
+\end{align*}
+
+{\bf2.}\quad
+Derive $H$ and $P$ from the proper quantized Dirac field.
+
+The field operators are
+$$\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)e^{-ip\cdot x}+b^s^{\dagger}_{\vb{p}}v^s(p)e^{ip\cdot x})$$%=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{-\vb{p}}u^s(-p)+b^s_{\vb{p}}v^s(p)e^{ip\cdot x})$$
+$$\bar\psi(x)=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)e^{-ip\cdot x}+a^s^{\dagger}_{\vb{p}}\bar u^s(p)e^{ip\cdot x})$$
+And in Schr\"odinger picture
+$$\psi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)e^{i\vb{p}\cdot \vb{x}}+b^s^{\dagger}_{\vb{p}}v^s(p)e^{-i\vb{p}\cdot \vb{x}})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}$$
+$$\bar\psi(\vb{x})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)e^{i\vb{p}\cdot \vb{x}}+a^s^{\dagger}_{\vb{p}}\bar u^s(p)e^{-i\vb{p}\cdot \vb{x}})=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))e^{i\vb{p}\cdot \vb{x}}$$
+The Hamiltionian is
+$$H=\int\dd^3x\bar \psi (-i\vb{\g}\cdot\nabla+m)\psi$$
+We can write down
+\begin{align*}
+  \nabla\psi&=\nabla\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{i\vb{p}}{\sqrt{2E_{\vb{p}}}}\sum_s(a^s_{\vb{p}}u^s(p)+b^s^{\dagger}_{-\vb{p}}v^s(-p))e^{i\vb{p}\cdot \vb{x}}
+\end{align*}
+So
+\begin{align*}
+  H&=\int\dd^3x[\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))e^{i\vb{p}\cdot \vb{x}}(\g\cdot\vb{k}+m)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}}}\sum_r(a^r_{\vb{k}}u^r(k)+b^r^{\dagger}_{-\vb{k}}v^r(-k))e^{i\vb{k}\cdot \vb{x}}]\\
+  &=\int\dd^3x\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}2E_{\vb{p}}}}\sum_{s,r}[(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))(\g\cdot\vb{k}+m)(a^r_{\vb{k}}u^r(k)+b^r^{\dagger}_{-\vb{k}}v^r(-k))]e^{i(\vb{p+k})\cdot \vb{x}}\\
+  &=\int\dd^3x\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{k}}2E_{\vb{p}}}}\sum_{s,r}[(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g\cdot\vb{k}(a^r_{\vb{k}}u^r_k+b^{r\dagger}_{-\vb{k}}v^r_{-k})+m((b^s_{\vb{p}}\bar v^s_pb^{r\dagger}_{-\vb{k}}v^r_{-k}+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p}a^r_{\vb{k}}u^r_k)]e^{i(\vb{p+k})\cdot \vb{x}}\\
+  \intertext{integrate by x to remove the exponential term and}
+    &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}2E_{\vb{p}}}}\sum_{s,r}[-(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g\cdot\vb{p}(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})+m((b^s_{\vb{p}}\bar v^s_pb^{r\dagger}_{\vb{p}}v^r_{p}+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p}a^r_{\vb{-p}}u^r_{-p})]
+\end{align*}
+View it term by term:
+the mass term
+\begin{align*}
+  m((b^s_{\vb{p}}\bar v^s_pb^{r\dagger}_{\vb{p}}v^r_{p}+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p}a^r_{\vb{-p}}u^r_{-p})&=-2m^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})
+\end{align*}
+the $\g$ term
+\begin{align*}
+  (b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g\cdot\vb{p}(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})&=(b^s_{\vb{p}}\bar v^s_p+a^{s\dagger}_{-\vb{p}}\bar u^s_{-p})\g^ip_i(a^r_{\vb{-p}}u^r_{-p}+b^{r\dagger}_{\vb{p}}v^r_{p})\\
+  &=2\vb{p}^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})
+\end{align*}
+here the property $\bar u_{\s}(p)\gm u_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$ and the corresponding one for $v^s(p)$ are used ($\bar v_{\s}(p)\gm v_{\s'}(p)=2\delta_{\s\s'}p^{\mu}$, note that in the derivation both minus sign of Dirac equation and the normalization canceled and made no sign change from the result of u). Combine these and we have
+\begin{align*}
+  H&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_{s}[-2\vb{p}^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})-2m^2(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})]\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{-2E_{\vb{p}}^2}{2E_{\vb{p}}}\sum_{s}[(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})+(b^s_{\vb{p}}b^{s\dagger}_{\vb{p}}-a^{s\dagger}_{-\vb{p}}a^s_{\vb{-p}})]\\ &=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}-b^s_{\vb{p}}b^{s\dagger}_{\vb{p}})\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}+b^{s\dagger}_{\vb{p}}b^s_{\vb{p}}-(2\pi)^3\delta(0))\\\intertext{ignore the infinity term}
+  &=\int\frac{\dd^3p}{(2\pi)^3}\sum_{s}E_{\vb{p}}(a^{s\dagger}_{\vb{p}}a^s_{\vb{p}}+b^{s\dagger}_{\vb{p}}b^s_{\vb{p}})
+\end{align*}
+Similarly
+$$P=\int\dd^3x\psi^{\dagger}(-i\nabla)\psi$$
+Use the given field operator
+\begin{align*}
+  P&=\int\dd^3x\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))e^{i\vb{p}\cdot \vb{x}}\g^0\int\frac{\dd^3k}{(2\pi)^3}\frac{\vb{k}}{\sqrt{2E_{\vb{k}}}}\sum_r(a^r_{\vb{k}}u^r(k)+b^r^{\dagger}_{-\vb{k}}v^r(-k))e^{i\vb{k}\cdot \vb{x}}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vb{p}}}}\sum_s(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))\g^0\frac{-\vb{p}}{\sqrt{2E_{\vb{p}}}}\sum_r(a^r_{\vb{-p}}u^r(-p)+b^r^{\dagger}_{\vb{p}}v^r(p))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{-\vb{p}}{2E_{\vb{p}}}\sum_{s,r}(b^s_{\vb{p}}\bar v^s(p)+a^s^{\dagger}_{-\vb{p}}\bar u^s(-p))\g^0(a^r_{\vb{-p}}u^r(-p)+b^r^{\dagger}_{\vb{p}}v^r(p))\\  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{-i\vb{p}}{2E_{\vb{p}}}\sum_{s,r}(b^s_{\vb{p}} v^s^{\dagger}(p)+a^s^{\dagger}_{-\vb{p}} u^s^{\dagger}(-p))(a^r_{\vb{-p}}u^r(-p)+b^r^{\dagger}_{\vb{p}}v^r(p))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{-\vb{p}}{2E_{\vb{p}}}\sum_{s}2E_{\vb{p}}(b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{-\vb{p}}a^s_{\vb{-p}})\\
+  &=-\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{-\vb{p}}a^s_{\vb{-p}})\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(-b^s_{\vb{p}}b^s^{\dagger}_{\vb{p}}+a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}})\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}}+b^s^{\dagger}_{\vb{p}}b^s_{\vb{p}}-(2\pi)^3\delta(0))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\vb{p}\sum_{s}(a^s^{\dagger}_{\vb{p}}a^s_{\vb{p}}+b^s^{\dagger}_{\vb{p}}b^s_{\vb{p}})
+\end{align*}
+
+
+{\bf3.}\quad
+Derive $J_zb^{s\dagger}_0\ket{0}$.
+
+
+First
+$$J_z=\int\dd^3x\int\frac{\dd^3p\dd^3q}{(2\pi)^6}\frac{1}{\sqrt{2E_{\vb{p}}2E_{\vb{q}}}}e^{-i\vb{q\cdot x}}e^{i\vb{p\cdot x}}\sum_{r,s}(a_{\vb{q}}^{r\dagger}u^{r\dagger}(\vb{q})+b_{-\vb{q}}^{r}v^{r\dagger}(-\vb{q}))\frac{\Sigma^3}{2}(a^s_{\vb{p}}u^s(\vb{p})+b^{s\dagger}_{-\vb{p}}v^s(-\vb{p}))$$
+Since $J_z$ must annihilate the vacuum
+$$J_zb_0^{s\dagger}\ket{0}=[J_z,b_0^{s\dagger}]\ket{0}$$
+We know that the only nonzero term must like
+$$[b_{-\vb{q}}^{r}b^{s\dagger}_{-\vb{p}},b^{s\dagger}_0]=(2\pi)^3\delta^3(\vb{q})\delta^{rs}b^{s\dagger}_{-\vb{p}}$$
+(there must not be two terms without dagger or it annihilates the vacuum.)
+then
+\begin{align*}
+  J_zb^{s\dagger}_0\ket{0}&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_{r,s}(a_{\vb{p}}^{r\dagger}u^{r\dagger}(\vb{p})+b_{-\vb{p}}^{r}v^{r\dagger}(-\vb{p}))\frac{\Sigma^3}{2}(a^s_{\vb{p}}u^s(\vb{p})+b^{s\dagger}_{-\vb{p}}v^s(-\vb{p}))b^{s\dagger}_0\ket{0}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_{r,s}(2\pi)^3\delta^3(\vb{p})\delta^{rs}b^{s\dagger}_{-\vb{p}}v^{r\dagger}(-\vb{p})\frac{\Sigma^3}{2}v^s(-\vb{p})\ket{0}\\
+  &=\frac{1}{2E_0}\sum_sv^{s\dagger}(0)\frac{\Sigma^3}{2}v^s(0)b^{s\dagger}_0\ket{0}\\
+  \intertext{note that $$v^s(p)=\pmqty{\sqrt{p\cdot\sigma}\eta^s\\-\sqrt{p\cdot\bar\sigma}\eta^s}$$so$$v^s(0)=\pmqty{\sqrt{E}\eta^s\\-\sqrt{E}\eta^s}$$and}
+  &=\frac{1}{2E}\sum_s\pmqty{\sqrt{E}\eta^{s\dagger}&-\sqrt{E}\eta^{s\dagger}}\frac{1}{2}\pmqty{\sigma^3\\&\sigma^3}\pmqty{\sqrt{E}\eta^s\\-\sqrt{E}\eta^s}b^{s\dagger}_0\ket{0}|_{\vb{p}=0}\\
+  &=\frac{1}{4E}\sum_s\pmqty{\sqrt{E}\eta^{s\dagger}\sigma^3&-\sqrt{E}\eta^{s\dagger}\sigma^3}\pmqty{\sqrt{E}\eta^s\\-\sqrt{E}\eta^s}b^{s\dagger}_0\ket{0}|_{\vb{p}=0}\\  &=\frac{1}{2}\sum_s\eta^{s\dagger}\sigma^3\eta^sb^{s\dagger}_0\ket{0}
+\end{align*}
+For $\eta^{s}=\pmqty{1\\0}$, we have the eigenvalue for $J_z$ is $\frac{1}{2}$. For $\eta^{s}=\pmqty{0\\1}$, we have the eigenvalue for $J_z$ is $-\frac{1}{2}$.
+
+{\bf4.}\quad
+Derive charge operator Q.
+
+First we know that
+$$Q=\int\dd^3x\psi^{\dagger}(x)\psi(x)$$
+From the field operators given above, we have (due to the $delta^{\rs}$ that bound to appear in the normalization of $u$ and $v$ I write all spin indices into s)
+\begin{align*}
+  Q&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_s(b^s_{\vbp}\bar v^s(p)+a^{s\dagger}_{-\vbp}\bar u^s(-p))\g^0(a^s_{-\vbp}u^s(-p)+b^{s\dagger}_{\vbp}v^s(p))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_s(b^s_{\vbp} v^s^{\dagger}(p)+a^{s\dagger}_{-\vbp}u^s^{\dagger}(-p))(a^s_{-\vbp}u^s(-p)+b^{s\dagger}_{\vbp}v^s(p))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\sum_s(b^s_{\vbp} v^s^{\dagger}(p)b^{s\dagger}_{\vbp}v^s(p)+a^{s\dagger}_{-\vbp}u^s^{\dagger}(-p)a^s_{-\vbp}u^s(-p))\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\sum_s(a^{s\dagger}_{\vbp}a^s_{\vbp}+b^s_{\vbp} b^{s\dagger}_{\vbp})\\
+  \intertext{cancel the infinity term }
+  &=\int\frac{\dd^3p}{(2\pi)^3}\sum_s(a^{s\dagger}_{\vbp}a^s_{\vbp}- b^{s\dagger}_{\vbp}b^s_{\vbp})
+\end{align*}
+
+
+
+
+\end{document}

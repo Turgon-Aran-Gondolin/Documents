@@ -1,0 +1,150 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+%\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{pstricks}
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
+
+
+\title{Homework: General Relativity \#3}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+Turtle coordinate
+$$\tilde t=t+2GM\ln{\abs{\frac{r}{2GM}-1}},\tilde r=r$$
+so
+\begin{align*}
+  \dd \tilde t&=\dd t+2GM\frac{{\frac{1}{2GM}}}{{\frac{r}{2GM}-1}}\dd r\\
+  &=\dd t+(\frac{r}{2GM}-1)^{-1}\dd r
+\end{align*}
+The original Schwarzschild metric is
+$$\dd s^2=-(1-\frac{2GM}{r})\dd t^2+(1-\frac{2GM}{r})^{-1}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)$$
+After coordinate transformation (without explicit 'tilde')
+\begin{align*}
+  \dd s^2&=-(1-\frac{2GM}{r})(\dd t-(\frac{r}{2GM}-1)^{-1}\dd r)^2+(1-\frac{2GM}{r})^{-1}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(1-\frac{2GM}{r})(\dd t^2-2(\frac{r}{2GM}-1)^{-1}\dd t\dd r+(\frac{r}{2GM}-1)^{-2}\dd r^2)+(1-\frac{2GM}{r})^{-1}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(1-\frac{2GM}{r})\dd t^2+2(1-\frac{2GM}{r})(\frac{r}{2GM}-1)^{-1}\dd t\dd r-(1-\frac{2GM}{r})(\frac{r}{2GM}-1)^{-2}\dd r^2+(1-\frac{2GM}{r})^{-1}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(1-\frac{2GM}{r})\dd t^2+\frac{4GM}{r}\dd t\dd r-\frac{(2GM)^2}{r(r-2GM)}\dd r^2+\frac{r}{r-2GM}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(1-\frac{2GM}{r})\dd t^2+\frac{4GM}{r}\dd t\dd r-\frac{(2GM)^2-r^2}{r(r-2GM)}\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(1-\frac{2GM}{r})\dd t^2+\frac{4GM}{r}\dd t\dd r+(1+\frac{2GM}{r})\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-\dd t^2+\dd r^2+r^2(\dd\theta^2+\sin^2\theta\dd\phi^2)+\frac{2GM}{r}\dd t^2+\frac{4GM}{r}\dd t\dd r+\frac{2GM}{r}\dd r^2\\
+  &=-\dd t^2+\dd r^2+r^2\dd\Omega^2+\frac{2GM}{r}(\dd t+\dd r)^2
+\end{align*}
+
+{\bf2.}\quad
+The reversed Eddington metric.
+\begin{enumerate}
+  \item $\dd s^2=-\dd t^2+\dd r^2+r^2\dd\Omega^2+\frac{2GM}{r}(\dd t+\dd r)^2$.
+  $$g_{\mu\nu}=\Pmqty{-(1-\frac{2GM}{r})&\frac{2GM}{r}&0&0\\\frac{2GM}{r}&(1+\frac{2GM}{r})&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta}$$
+  \begin{align*}
+    g^{\mu\nu}=\Pmqty{-1-\frac{2GM}{r}&\frac{2GM}{r}&0&0\\\frac{2GM}{r}&1-\frac{2GM}{r}&0&0\\0&0&r^{-2}&0\\0&0&0&r^{-2}\sin^{-2}\theta}
+  \end{align*}
+  \item $\dd s^2=-(1-\frac{2GM}{r})\dd\tilde t^2+2\dd\tilde t\dd r+r^2\dd\Omega^2$.
+  $$g_{\mu\nu}=\Pmqty{-(1-\frac{2GM}{r})&1&0&0\\1&0&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta}$$
+  \begin{align*}
+    g^{\mu\nu}=\Pmqty{0&1&0&0\\1&1-\frac{2GM}{r}&0&0\\0&0&r^{-2}&0\\0&0&0&r^{-2}\sin^{-2}\theta}
+  \end{align*}
+\end{enumerate}
+
+{\bf3.}\quad
+Under the conformally flat coordinate condition
+$$r=\rho(1+\frac{GM}{2\rho})^2$$
+and
+$$\dd r=\dd(\rho+GM+\frac{(GM)^2}{4\rho})=(1-\frac{(GM)^2}{4\rho^2})\dd\rho$$
+the Schwarzschild metric becomes
+\begin{align*}
+  \dd s^2&=-(1-\frac{2GM}{\rho(1+\frac{GM}{2\rho})^2})\dd t^2+(1-\frac{2GM}{\rho(1+\frac{GM}{2\rho})^2})^{-1}\dd (\rho(1+\frac{GM}{2\rho})^2)^2+(\rho(1+\frac{GM}{2\rho})^2)^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-(\frac{4\rho^2-4GM\rho+G^2M^2}{4\rho^2+4GM\rho+G^2M^2})\dd t^2+(\frac{4\rho^2-4GM\rho+G^2M^2}{4\rho^2+4GM\rho+G^2M^2})^{-1}(1-\frac{(GM)^2}{4\rho^2})^2\dd\rho^2+(1+\frac{GM}{2\rho})^4\rho^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-\frac{(1-\frac{GM}{2\rho})^2}{(1+\frac{GM}{2\rho})^2}\dd t^2+\frac{(1+\frac{GM}{2\rho})^2}{(1-\frac{GM}{2\rho})^2}(1-\frac{GM}{2\rho})^2(1+\frac{GM}{2\rho})^2\dd\rho^2+(1+\frac{GM}{2\rho})^4\rho^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-\frac{(1-\frac{GM}{2\rho})^2}{(1+\frac{GM}{2\rho})^2}\dd t^2+(1+\frac{GM}{2\rho})^4\dd\rho^2+(1+\frac{GM}{2\rho})^4\rho^2(\dd\theta^2+\sin^2\theta\dd\phi^2)\\
+  &=-\frac{(1-\frac{GM}{2\rho})^2}{(1+\frac{GM}{2\rho})^2}\dd t^2+(1+\frac{GM}{2\rho})^4[\dd\rho^2+\rho^2(\dd\theta^2+\sin^2\theta\dd\phi^2)]
+\end{align*}
+
+{\bf4.}\quad
+From
+$$(-1-\frac{2Mr(r^2+a^2)}{\Delta\rho^2})E^2+\frac{4Mar}{\Delta\rho^2}EL+\frac{\rho^2-2Mr}{\Delta\rho^2\sin^2\theta}L^2+\frac{\rho^2}{\Delta}(\dv{r}{\tau})^2+\rho^2(\dv{\theta}{\tau})^2=-1$$
+where $\Delta=r^2-2Mr+a^2$, $\rho^2=r^2+a^2\cos^2\theta$, derive the radial equation if $\theta=\frac{\pi}{2}$.
+
+If $\theta=\frac{\pi}{2}$, $\rho^2=r^2$
+$$(-1-\frac{2Mr(r^2+a^2)}{\Delta r^2})E^2+\frac{4Mar}{\Delta r^2}EL+\frac{r^2-2Mr}{\Delta r^2}L^2+\frac{r^2}{\Delta}(\dv{r}{\tau})^2=-1$$
+$$-2Mr(r^2+a^2)E^2+4MarEL+(r^2-2Mr)L^2+r^4(\dv{r}{\tau})^2=\Delta r^2(E^2-1)$$
+$$-2Mr(r^2+a^2)E^2+4MarEL+(\Delta-a^2)L^2+r^4(\dv{r}{\tau})^2=\Delta r^2(E^2-1)$$
+  \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$Q.E.D.$
+
+{\bf5.}\quad
+The action in EM field
+$$I=\int(-m\sqrt{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}+qA_{\mu}(x)\dv{x^{\mu}}{\lambda})\dd\lambda$$
+\begin{align*}
+  \delta I&=\int\Bqty{\frac{m}{2}(-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda})^{-\frac{1}{2}}(g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}+2g_{\mu\nu}\dv{\delta x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda})+qA_{\mu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}+qA_{\mu}\dv{\delta x^{\mu}}{\lambda}}\dd\lambda
+\end{align*}
+The first term
+\begin{align*}
+  &\frac{m}{2}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}+2g_{\mu\nu}\dv{\delta x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}}\\
+  =&\frac{m}{2}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}+2g_{\mu\nu}\dv{\lambda}(\delta{x^{\mu}}\dv{x^{\mu}}{\lambda})-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\lambda}}\\
+  =&\frac{m}{2}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}+2\dv{\lambda}(g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda})-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\lambda}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\lambda}}\\
+  =&\frac{m}{2}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\lambda}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\lambda}}+m\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\dv{\lambda}(g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda})
+\end{align*}
+and
+\begin{align*}
+  &m\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\dv{\lambda}(g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda})\\
+  =&m\dv{\lambda}\Bqty{\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda}}-m\Bqty{\dv{\lambda}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}}g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\mu}}{\lambda}
+\end{align*}
+Now the total derivative term can be ignored so the first term becomes
+\begin{align*}
+  &\int\frac{m}{2}(-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda})^{-\frac{1}{2}}(g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}+2g_{\mu\nu}\dv{\delta x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda})\dd \lambda\\
+  =&\frac{m}{2}\int\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}\dv{x^{\nu}}{\lambda}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\lambda}\delta{x^{\mu}}\dv{x^{\nu}}{\lambda}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\lambda}}\dd\lambda\\
+  &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad-m\int\Bqty{\dv{\lambda}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\lambda}\dv{x^{\beta}}{\lambda}}^{-\frac{1}{2}}}g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\nu}}{\lambda}\dd\lambda\\
+  \intertext{take $\lambda=\tau$}
+  =&\frac{m}{2}\int\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}}^{-\frac{1}{2}}\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\tau}\dv{x^{\nu}}{\tau}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\delta{x^{\mu}}\dv{x^{\nu}}{\tau}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\tau}}\dd\tau\\
+  &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad-m\int\Bqty{\dv{\tau}\bqty{-g_{\alpha\beta}(x)\dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}}^{-\frac{1}{2}}}g_{\mu\nu}\delta{x^{\mu}}\dv{x^{\nu}}{\tau}\dd\tau\\
+  =&\frac{m}{2}\int\Bqty{g_{\mu\nu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\tau}\dv{x^{\nu}}{\tau}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\delta{x^{\mu}}\dv{x^{\nu}}{\tau}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\tau}}\dd\tau\\
+  =&\frac{m}{2}\int\Bqty{g_{\rho\nu,\mu}\delta x^{\mu}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\delta{x^{\mu}}\dv{x^{\nu}}{\tau}-2g_{\mu\nu}\delta x^{\mu}\dv[2]{x^{\nu}}{\tau}}\dd\tau\\
+  =&\frac{m}{2}\int\Bqty{g_{\rho\nu,\mu}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}-2g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}-2g_{\mu\nu}\dv[2]{x^{\nu}}{\tau}}\delta{x^{\mu}}\dd\tau
+\end{align*}
+%So
+%$$g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\dv{x^{\mu}}{\tau}+g_{\mu\nu}\dv[2]{x^{\nu}}{\tau}-\frac{1}{2} g_{\rho\nu,\mu}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}=0$$
+The rest terms
+\begin{align*}
+  &qA_{\mu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}+qA_{\mu}\dv{\delta x^{\mu}}{\lambda}\\
+  =&qA_{\mu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\lambda}+q\dv{\lambda}(A_{\mu}\delta x^{\mu})-q\dv{A_{\mu}}{\lambda}\delta x^{\mu}\\
+  \intertext{drop total derivative term, and take $\lambda=\tau$}
+  =&qA_{\mu,\rho}\delta x^{\rho}\dv{x^{\mu}}{\tau}-q\dv{A_{\mu}}{\tau}\delta x^{\mu}\\
+  =&[qA_{\rho,\mu}\dv{x^{\rho}}{\tau}-q\dv{A_{\mu}}{\tau}]\delta x^{\mu}
+\end{align*}
+So the equation of motion
+\begin{align*}
+  m[g_{\mu\nu,\rho}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}+g_{\mu\nu}\dv[2]{x^{\nu}}{\tau}-\frac{1}{2} g_{\rho\nu,\mu}\dv{x^{\rho}}{\tau}\dv{x^{\nu}}{\tau}]-qA_{\rho,\mu}\dv{x^{\rho}}{\tau}+q\dv{A_{\mu}}{\tau}=0
+\end{align*}
+
+{\bf6.}\quad
+Prove $\delta(g^{\alpha\beta}g_{\beta\gamma})=0\Longrightarrow\delta(g^{\alpha\beta})=-(\delta g^{\alpha\beta}=:g^{\alpha\mu}(\delta g_{\mu\nu})g^{\nu\beta})$.
+\begin{align*}
+  \delta(g^{\alpha\beta})&=\delta(g^{\alpha\mu}g_{\mu\nu}g^{\nu\beta})=(\delta g^{\alpha\mu})g_{\mu\nu}g^{\nu\beta}+g^{\alpha\mu}(\delta g_{\mu\nu})g^{\nu\beta}+g^{\alpha\mu}g_{\mu\nu}\delta g^{\nu\beta}\\
+  %&=\delta(g^{\alpha\mu}g^{\nu\beta})g_{\mu\nu}+(\delta g_{\mu\nu})g^{\alpha\mu}g^{\beta\nu}\\
+  %&=g^{\alpha\mu}(\delta g_{\mu\nu})g^{\nu\beta}
+  &=\delta(g^{\alpha\mu}g_{\mu\nu})g^{\nu\beta}+g^{\alpha\mu}g_{\mu\nu}\delta g^{\nu\beta}\\
+  &=g^{\alpha\mu}g_{\mu\nu}\delta g^{\nu\beta}\\
+  &=(\delta g^{\alpha\mu})g_{\mu\nu}g^{\nu\beta}\\
+  &=-g^{\alpha\mu}(\delta g_{\mu\nu})g^{\nu\beta}=-\delta g^{\alpha\beta}
+\end{align*}
+
+
+\end{document}

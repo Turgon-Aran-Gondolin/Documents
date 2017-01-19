@@ -1,0 +1,136 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+%\usepackage{bm}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\Jrsmn}{(\mathcal{J}^{\rho\sigma})^{\mu}_{\nu}}
+\newcommand{\Srs}{S^{\rho\sigma}}
+\newcommand{\bP}{\vb{P}}
+\newcommand{\bA}{\vb{A}}
+\newcommand{\ba}{\boldsymbol{\alpha}}
+\newcommand{\po}{\vb{p}_1}
+\newcommand{\ps}{\vb{p}_2}
+\newcommand{\apo}{\abs{\vb{p}_1}}
+\newcommand{\aps}{\abs{\vb{p}_2}}
+
+\title{Homework: Quantum Field Theory \#3}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad We know that
+\begin{align}
+  \gamma^0_W=\pmqty{0&1\\1&0},\;\;\;\;\gamma^i_W=\pmqty{0&\sigma^i\\-\sigma^i&0}\\
+  \gamma^0_D=\pmqty{1&0\\0&-1},\;\;\;\;\gamma^i_D=\pmqty{0&\sigma^i\\-\sigma^i&0}
+\end{align}
+and it must have the unitary transformation relation
+\begin{align}
+  \gamma^{\mu}_W=U\gamma^{\mu}_D U^{\dagger}
+\end{align}
+Now we start with $\gamma^0$. Form linear algebra, we know how to diagonalize a unitary matrix. It's easy to find
+\begin{align*}
+  U=\frac{1}{\sqrt{2}}\left(
+\begin{array}{cccc}
+ 1 & 0 & -1 & 0 \\
+ 0 & 1 & 0 & -1 \\
+ 1 & 0 & 1 & 0 \\
+ 0 & 1 & 0 & 1 \\
+\end{array}
+\right)
+\end{align*}
+and after verifying, it consists with the other three matrices.
+
+{\bf2.}\quad Verify $[\gamma^{\mu},S^{\rho\sigma}]=(\mathcal{J}^{\rho\sigma})^{\mu}_{\nu}\gamma^{\nu}$.
+
+From the definition of $(\mathcal{J}^{\rho\sigma})_{\mu\nu}$, we have
+\begin{align}
+  (\mathcal{J}^{\mu\nu})_{\alpha\beta}=i(\delta^{\mu}_{\alpha}\delta^{\nu}_{\beta}-\delta^{\mu}_{\beta}\delta^{\nu}_{\alpha})
+\end{align}
+which means
+\begin{align*}
+  (\mathcal{J}^{\rho\sigma})^{\mu}_{\nu}=i(g^{\rho\mu}\delta^{\sigma}_{\nu}-g^{\sigma\mu}\delta^{\rho}_{\nu})
+\end{align*}
+With $S^{\mu\nu}=\frac{i}{4}[\gm,\gn]$ and $\rho\neq\sigma$ (otherwise the entire term vanished and it's a trival situation) which means $\gr\gs=-\gs\gr$ (Of course we can compute the $g$ metrice but it would take time and this shall do the trick.)
+\begin{align*}
+  [\gamma^{\mu},S^{\rho\sigma}]&=\frac{i}{4}[\gm,[\gr,\gs]]\\
+  &=\frac{i}{4}(\gm\gr\gs-\gm\gs\gr+\gs\gr\gm-\gr\gs\gm)\\
+  &=\frac{i}{4}(2\gmr\gs-\gr\gm\gs-2\gms\gr+\gs\gm\gr+2\gmr\gs-\gs\gm\gr-2\gms\gr+\gr\gm\gs)\\
+  &=i(\gmr\gs-\gms\gr)\\&=i(\gmr\delta^{\sigma}_{\nu}-\gms\delta^{\rho}_{\nu})\gn\\&=\Jrsmn\gn
+\end{align*}
+
+{\bf3.}\quad Derive the Schr\"odinger-Pauli equation.
+
+For electron in an EM field, Dirac equation can be written as
+\begin{align}
+  [i\pdv{t}+e\phi-\ba\cdot(\bP+e\bA)-m\beta]\psi=0
+\end{align}
+where $\bP=-i\nabla$.
+Set
+\begin{align*}
+  \psi=\pmqty{\varphi\\\chi}e^{-imt}
+\end{align*}
+so that the certain part of electron rest mass can be removed. Then we have
+\begin{align*}
+  i\pdv{t}\varphi&=\bm{\sigma}\cdot(\bP+e\bA)\chi-e\phi\varphi\\
+  i\pdv{t}\chi&=\bm{\sigma}\cdot(\bP+e\bA)\varphi-e\phi\chi-2m\chi\\
+\end{align*}
+At nonrelativistic limit, we have
+\begin{align}\label{2}
+  \chi\approx\frac{1}{2m}\bm{\sigma}\cdot(\bP+e\bA)\varphi
+\end{align}
+where $\chi/\varphi\ll1$. Then
+\begin{align*}
+  i\pdv{t}\varphi&=\frac{1}{2m}\bqty{\bm{\sigma}\cdot(\bP+e\bA)}^2\varphi-e\phi\varphi
+\end{align*}
+Using
+\begin{align*}
+  \bqty{\bm{\sigma}\cdot(\bP+e\bA)}^2&=(\bP+e\bA)^2+i\bm{\sigma}\cdot\bqty{(\bP+e\bA)\times(\bP+e\bA)}\\
+  &=(\bP+e\bA)^2+ie\bm{\sigma}\cdot\bqty{\bP\times\bA+\bA\times\bP}\\
+  &=(\bP+e\bA)^2+e\bm{\sigma}\cdot(\nabla\times\bA)\\
+  &=(\bP+e\bA)^2+e\bm{\sigma}\cdot\bm{B}
+\end{align*}
+Then \eqref{2} becomes
+\begin{align}{\label{1}}
+  i\pdv{t}\varphi&=\bqty{\frac{1}{2m}(\bP+e\bA)^2+\frac{e}{2m}\bm{\sigma}\cdot\bm{B}-e\phi}\varphi\\
+  &=\bqty{\frac{1}{2m}(\bP+e\bA)^2-\bm{\mu}\cdot\bm{B}-e\phi}\varphi
+\end{align}
+where $\bm{\mu}=-\frac{e\hbar}{2mc}\bm{\sigma}$ (in our previous calculation $\hbar=c=1$) is the intrinsic magnetic moment of electron. And \eqref{1} is the standard form of the Schr\"odinger-Pauli equation.
+
+
+\end{document}

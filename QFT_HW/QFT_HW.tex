@@ -1,0 +1,1203 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{slashed}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{bm}
+\usepackage{dsfont}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gmn}{g^{\mu\nu}}
+\newcommand{\gnm}{g^{\nu\mu}}
+\newcommand{\gmm}{g^{\mu\mu}}
+\newcommand{\gnn}{g^{\nu\nu}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+
+
+
+\title{Homework: Quantum Field Theory}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+%\tableofcontents
+
+{\bf2.1}\quad(a). The first part of this question was already asked previously, so I'll skip it. The tensor form of Maxwell equations is
+\begin{align}
+ \begin{cases}
+   &\epsilon^{\mu\nu\rho\sigma}\partial_{\nu}F_{\rho\sigma}=0\\
+   &\partial_{\nu}F^{\mu\nu}=-\mu_0J^{\mu}
+ \end{cases}
+\end{align}
+where the first equation can be written as
+\begin{equation*}
+  \partial_{\rho}F_{\mu\nu}+\partial_{\mu}F_{\nu\rho}+\partial_{\nu}F_{\rho\mu}=0
+\end{equation*}
+Identifying $E^i=-F^{0i}$ and $\epsilon^{ijk}B^k=-F^{ij}$, we can have (where we already know $J^{\mu}={\rho c,J^x,J^y,J^z}$)
+\begin{align*}
+&\partial{\nu}F^{0\nu}=-\mu_0J^0=-c\mu_0\rho\\
+=-&\frac{1}{c}(\div{\vb{E}})
+\end{align*}
+which leads to
+\begin{align}
+\div{\vb{E}}=\frac{\rho}{\varepsilon_0}
+\end{align}
+And that's the first one of the standard form Maxwell equations.
+
+The fourth one (often known as the Ampere's Law) can be derived from this one as well. The spatial part of this equation is
+\begin{align*}
+\partial_{\nu}F^{i\nu}=-\mu_0J^i
+\end{align*}
+We have
+\begin{align*}
+  &\partial_{\nu}F^{i\nu}=-\mu_0J^i\\
+  =&\partial_0\frac{E^i}{c}-\varepsilon^{ijk}\partial_jB^k-\varepsilon^{ikj}\partial_kB^j\\
+  =&\partial_t\frac{E^i}{c^2}-\curl{\vb{B}}
+\end{align*}
+Then
+\begin{align}
+ \curl{\vb{B}}=\mu_0\vb{J}+\mu_0\varepsilon_0\pdv{\vb{E}}{t}
+\end{align}
+
+For the rest two equations, we need the first equation in our tensor form Maxwell equations. Given
+\begin{equation*}
+  \partial_{\rho}F_{\mu\nu}+\partial_{\mu}F_{\nu\rho}+\partial_{\nu}F_{\rho\mu}=0
+\end{equation*}
+we have
+\begin{align*}
+&\partial_iF^{0j}+\partial_0F^{ij}+\partial_jF^{i0}=0\\
+=&-\partial_iE^j-\varepsilon^{ijk}\partial_0B^k+\partial_jE^i\\
+\end{align*}
+Then we have
+\begin{align}
+\curl{\vb{E}}=-\pdv{\vb{B}}{t}
+\end{align}
+This is the second one of the Maxwell equations (known as the Faraday's Law). To obtain our last equation, we have (let $\rho=1,\mu=2,\nu=3$)
+\begin{align*}
+&\partial_{1}F_{23}+\partial_{2}F_{31}+\partial_{3}F_{12}=0\\
+=&\varepsilon^{231}\partial_1B^1+\varepsilon^{312}\partial_2B^2+\varepsilon^{123}\partial_3B^3\\
+=&\div{\vb{B}}
+\end{align*}
+So we have
+\begin{align}
+\div{\vb{B}}=0
+\end{align}
+Now we have all the four Maxwell equation in the standard form. Notice that the question is about a EM field with {\bf{no sources}}, so any terms contains the current $J^{\mu}$ in the equations we get should be eliminated. The rest should be easy so I'll skip it again.
+
+\makebox{\phantom{2.1}}\quad(b). From the definition in the book, we have
+\begin{align}
+T^{\mu\nu}=\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\nu'}\phi g^{\nu'\nu}-\mathcal{L}g^{\mu\nu}
+\end{align}
+And write down the Lagrangian density
+\begin{align}
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{align}
+we have the energy-momentum tensor
+\begin{align}
+T^{\mu\nu}=-F^{\mu\lambda}\partial_{\nu}A^{\lambda}+\frac{1}{4}g^{\mu\nu}F_{\lambda\sigma}F^{\lambda\sigma}
+\end{align}
+Adding an additional term $K^{\lambda\mu\nu}=F^{\mu\lambda}A^{\nu}$, we have
+\begin{align*}
+\hat{T}^{\mu\nu}&=T^{\mu\nu}+\partial_{\lambda}K^{\lambda\mu\nu}\\
+&=\frac{1}{4}g^{\mu\nu}F_{\lambda\sigma}F^{\lambda\sigma}-F^{\mu\lambda}\partial_{\nu}A^{\lambda}+F^{\mu\lambda}\partial_{\lambda}A^{\nu}+(\partial_{\lambda}F^{\mu\lambda})A^{\nu}
+\end{align*}
+The last term vanish when equation of motion is applied. Now we have
+\begin{align}
+  \hat{T}^{\mu\nu}&=\frac{1}{4}g^{\mu\nu}F_{\lambda\sigma}F^{\lambda\sigma}+F^{\mu\lambda}F_{\lambda}^{\nu}
+\end{align}
+and it's symmatric.
+
+The energy is the $\hat{T}^{00}$ term
+\begin{align*}
+  \mathcal{E}&=\hat{T}^{00}\\
+  &=\frac{1}{4}g^{00}F_{\lambda\sigma}F^{\lambda\sigma}+F^{0\lambda}F_{\lambda}^{0}\\
+  &=\frac{1}{4}(F_{0\sigma}F^{0\sigma}+F_{\lambda0}F^{\lambda0}+F_{ij}F^{ij})+F^{0\lambda}F^0_{\lambda}\\
+  &=\frac{1}{4}F_{ij}F^{ij}+\frac{1}{2}F_{0i}F^{0i}-F^{0i}F^{0i'}g^{ii'}\\
+  &=\frac{1}{4}g_{ii'}g_{jj'}F^{ij}F^{ij}+\frac{1}{2}g_{00}g_{ii'}F^{0i}F^{0i}-F^{0i}F^{0i'}g^{ii'}\\
+  &=\frac{1}{4}F^{ij}F^{ij}-\frac{1}{2}F^{0i}F^{0i}+F^{0i}F^{0i'}\\
+  &=\frac{1}{2}\abs{\vb{B}}^2+\frac{1}{2}\abs{\vb{E}}^2\\
+\end{align*}
+which is exactly the standard electromagnetic energy. The momentum density can be derived in the same way, which is given by the $\hat{T}^{0i}$ term
+\begin{align*}
+   \vb{S}&=\hat{T}^{0i}\\
+   &=\frac{1}{4}g^{0i}F_{\lambda\sigma}F^{\lambda\sigma}+F^{0\lambda}F_{\lambda}^{i}\\
+   &=F^{0j'}F^{ji}g_{jj'}\\
+   &=-(-E^j)(-\epsilon^{jik}B^k)\\
+   &=\epsilon{ijk}E^jB^k
+\end{align*}
+So
+\begin{align}
+  \vb{S}=\vb{E}\times\vb{B}
+\end{align}
+{\bf2.2}\quad(a) The action S is
+\begin{align}
+S=\int\dd^4x (\partial_{\mu}\phi^*\partial^{\mu}\phi-m^2\phi*\phi)
+\end{align}
+And we can write down the Lagrangian as
+\begin{align}
+\mathcal{L}=\partial_{\mu}\phi^*\partial^{\mu}\phi-m^2\phi^*\phi
+\end{align}
+To write down the Hamiltionian we have
+\begin{align}
+  \pi=\pdv{\mathcal{L}}{\dot{\phi}}=\dot{\phi^*}, \;\;\pi^* =\pdv{\mathcal{L}}{\dot{\phi^*}}=\dot{\phi}
+\end{align}
+and Hamiltionian density is
+\begin{align}
+  \nonumber\mathcal{H}&=\pi\dot{\phi}+\pi^*\dot{\phi^*}-\mathcal{L}\\
+  \nonumber&=\pi\pi^*+\pi^*\pi-\pi\pi^*+\nabla{\phi^*}\cdot\nabla{\phi}+m^2\phi^*\phi\\
+  &=\pi^*\pi+\nabla{\phi^*}\cdot\nabla{\phi}+m^2\phi^*\phi
+\end{align}
+The commutation relations is
+\begin{align}
+  [\phi(\vb{x}),\pi(\vb{y})]=[\phi^*(\vb{x}),\pi^*(\vb{y})]=i\delta^3(\vb{x}-\vb{y})
+\end{align}
+And the equation of motion can be derived by Euler-Lagarange equation
+\begin{align*}
+  &\partial_{\mu}\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}-\pdv{\mathcal{L}}{\phi}=0\\
+  =&\square\phi^*+m^2\phi^*
+\end{align*}
+and
+\begin{align*}
+  &\partial_{\mu}\pdv{\mathcal{L}}{(\partial_{\mu}\phi^*)}-\pdv{\mathcal{L}}{\phi^*}=0\\
+  =&\square\phi+m^2\phi
+\end{align*}
+Now we have the typical Klein-Gordon equation
+\begin{align}
+  &(\square+m^2)\phi=0\\
+  &(\square+m^2)\phi^*=0
+\end{align}
+\makebox{\phantom{2.1}}\quad(b).
+Firstly we write down $\phi$, $\phi^*$, $\pi$, $\pi^*$, $\nabla \phi$ and $\nabla\phi^*$ explicitly
+\begin{align}
+  \phi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}+b_{\vb{p}}e^{-ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}+b_{-\vb{p}})e^{ip\cdot x}\\
+  \phi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}+b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}\\
+  \pi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}e^{-ip\cdot x}-b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{-\vb{p}}-b_{\vb{p}}^{\dagger})e^{ip\cdot x}\\
+  \pi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}i\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}-b_{\vb{p}}e^{-ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}i\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}^{\dagger}-b_{-\vb{p}})e^{ip\cdot x}\\
+  \nabla\phi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}-b_{\vb{p}}e^{-ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}+b_{-\vb{p}})e^{ip\cdot x}\\
+  \nabla\phi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}i\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}-b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}
+\end{align}
+The Hamiltionian is
+\begin{align}
+  \nonumber H&=\int\dd^3x(\pi^*\pi+\nabla{\phi^*}\cdot\nabla{\phi}+m^2\phi^*\phi)\\
+  \nonumber&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2\omega_{\vb{p}}}[\omega_{\vb{p}}^2(\ac{-p}\ad{-p}-\ac{-p}\bc{p}-\bd{p}\ad{-p}+\bd{p}\bc{p})+\abs{\vb{p}}^2(\ad{p}\ac{p}+\ad{p}\bd{-p}+\bc{-p}\ac{p}+\bc{-p}\bd{-p})\\\nonumber&\phantom{=}+m^2(\ad{p}\ac{p}+\ad{p}\bd{-p}+\bc{-p}\ac{p}+\bc{-p}\bd{-p})]\\
+  \nonumber&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2\omega_{\vb{p}}}[\omega_{\vb{p}}^2(\ac{p}\ad{p}+\bd{p}\bc{p})+(\abs{\vb{p}}^2+m^2)(\ad{p}\ac{p}+\bc{p}\bd{p})-(\omega_{\vb{p}}^2-\abs{\vb{p}}^2-m^2)(\ac{-p}\bc{p}+\bd{p}\ad{-p})]\\
+  \nonumber&=\int\frac{\dd^3p}{(2\pi)^3}\frac{\omp{p}}{2}(\ac{p}\ad{p}+\bd{p}\bc{p}+\ad{p}\ac{p}+\bc{p}\bd{p})\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\omp{p}(\ad{p}\ac{p}+\bd{p}\bc{p}+\frac{1}{2}[\ac{p},\ad{p}]+\frac{1}{2}[\bc{p},\bd{p}])
+\end{align}
+Thus we can see it contains two sets of particle with mass m.
+
+\makebox{\phantom{2.1}}\quad(c).
+The conserved charge is
+\begin{align}
+  Q=\int\dd^3x\frac{i}{2}(\phi^*\pi^*-\pi\phi)
+\end{align}
+Expand it and we can get
+\begin{align}
+  \nonumber Q&=\int\dd^3x\frac{i}{2}(\phi^*\pi^*-\pi\phi)\\
+  \nonumber &=\frac{i}{2}\int\frac{\dd^3p}{(2\pi)^3}(-\frac{i}{2})[(\ad{p}+\bc{-p})(\ac{p}-\bd{-p})+(\ad{p}-\bc{-p})(\ac{p}+\bd{-p})]\\
+  \nonumber&=\intphead{p}\frac{1}{4}(\ad{p}\ac{p}-\ad{p}\bd{-p}+\bc{-p}\ac{p}-\bc{p}\bd{p}+\ad{p}\ac{p}+\ad{p}\bd{-p}-\bc{-p}\ac{p}-\bc{p}\bd{p})\\
+  &=\intphead{p}\frac{1}{2}(\ad{p}\ac{p}-\bc{p}\bd{p})
+\end{align}
+Apparently, $a$ and $b$ stand for different charges of two particles.
+
+\makebox{\phantom{2.1}}\quad(d). Assuming we have two complex Klein-Gordon field, written as $\phi_a(x)$, where $a=1, 2$. There're now 4 conserved charges, one is the same as $Q$ in (c), the other three is given by
+\begin{align}
+  Q^i=\int\dd^3x\frac{i}{2}(\phi_a^*(\sigma^i)_{ab}\pi_b^*-\pi_a(\sigma^i)_{ab}\phi_b)
+\end{align}
+where $\sigma ^i$ is the Pauli matrice. We can prove it using Noether's theorem.
+
+First, the new Lagrangian would be
+\begin{align}
+  \lag=\sum\limits_m(\partial_{\mu}\phi^*_m\partial^{\mu}\phi_m-m^2\phi^*_m\phi_m)
+\end{align}
+
+
+We know that the Lagrangian is invariant under $U(N)$ and $SU(N)$ group, then the four generator can be given. The generator of $U(1)$ group is corresponding to the conserved charge $Q$ given above in (c). The generators of $SU(2)$ provides the transformations for the rest of conserved charges
+\begin{align*}
+  \phi_a&\rightarrow \phi_a-i\alpha (J^k)_{ab}\phi_b\\
+  \phi_b^*&\rightarrow\phi_b^*+i\alpha\phi_a^*(J^k)_{ab}
+\end{align*}
+and by Noether's theorem we can have
+\begin{align*}
+  j^{\mu}&=\sum\limits_m\pdv{\lag}{(\partial_{\mu}\phi_m)}\Delta\phi_m\\
+  &=-\partial^{\mu}\phi^*_mi (J^k)_{mn}\phi_n+ i\phi_n^*(J^k)_{nm}\partial_{\mu}\phi_m
+\end{align*}
+The conserved charge is
+\begin{align*}
+  Q^k&=\int\dd^3xj^0\\
+  &=i\int\dd^3x(\phi_a^*(\sigma^k)_{ab}\pi^*_b-\pi_a  (\sigma^k)_{ab}\phi_b)
+\end{align*}
+Now we have all four conserved charges.
+
+The commutation relation then is
+\begin{align*}
+  [Q^i,Q^j]&=-\frac{1}{4}\int\dd^3x\dd^3y[\phi_a^*(\sigma^i)_{ab}\pi_b^*-\pi_a(\sigma^i)_{ab}\phi_b,\phi_c^*(\sigma^j)_{cd}\pi_d^*-\pi_c(\sigma^j)_{cd}\phi_d]\\
+  &=-\frac{1}{4}\int\dd^3x\dd^3y([\phi_a^*(\sigma^i)_{ab}\pi_b^*,\phi_c^*(\sigma^j)_{cd}\pi_d^*]-[\phi_a^*(\sigma^i)_{ab}\pi_b^*,\pi_c(\sigma^j)_{cd}\phi_d]\\&\phantom{=}-[\pi_a(\sigma^i)_{ab}\phi_b,\phi_c^*(\sigma^j)_{cd}\pi_d^*]+[\pi_a(\sigma^i)_{ab}\phi_b,\pi_c(\sigma^j)_{cd}\phi_d])
+\end{align*}
+We view it by each and every terms. Note that $(\sigma ^i)_{ab}$ is a number, and here only $[\phi^*,\pi^*]$ and $[\phi,\pi]$ are non-zero, so we have
+\begin{align*}
+  &[\phi_a^*(\sigma^i)_{ab}\pi_b^*,\phi_c^*(\sigma^j)_{cd}\pi_d^*]=\phi_a^*(\sigma^i)_{ab}[\pi_b^*,\phi_c^*](\sigma^j)_{cd}\pi_d^*+\phi^*_c(\sigma^j)_{cd}[\phi_a^*,\pi_d^*](\sigma^i)_{ab}\pi_b^*
+\end{align*}
+and
+\begin{align*}
+  &[\pi_a(\sigma^i)_{ab}\phi_b,\pi_c(\sigma^j)_{cd}\phi_d]=\pi_c(\sigma^j)_{cd}[\pi_a,\phi_d](\sigma^i)_{ab}\phi_b+\pi_a(\sigma^i)_{ab}[\phi_b,\pi_c](\sigma^j)_{cd}\phi_d
+\end{align*}
+Then
+\begin{align}
+  \nonumber [Q^i,Q^j]=&-\frac{1}{4}\int\dd^3x\dd^3y(\phi_a^*(\sigma^i)_{ab}[\pi_b^*,\phi_c^*](\sigma^j)_{cd}\pi_d^*+\phi^*_c(\sigma^j)_{cd}[\phi_a^*,\pi_d^*](\sigma^i)_{ab}\pi_b^*\\\nonumber&+\pi_c(\sigma^j)_{cd}[\pi_a,\phi_d](\sigma^i)_{ab}\phi_b+\pi_a(\sigma^i)_{ab}[\phi_b,\pi_c](\sigma^j)_{cd}\phi_d)\\
+  \nonumber=&\frac{1}{4}\int\dd^3x\dd^3yi\delta^3(x-y)\{\phi_a^*(\sigma^i)_{ab}\del{c}{b}(\sigma^j)_{cd}\pi_d^*-\phi^*_c(\sigma^j)_{cd}\del{a}{d}(\sigma^i)_{ab}\pi_b^*\\\nonumber&+\pi_c(\sigma^j)_{cd}\del{a}{d}(\sigma^i)_{ab}\phi_b-\pi_a(\sigma^i)_{ab}\del{b}{c}(\sigma^j)_{cd}\phi_d)\}
+\end{align}
+From the commutation relations of angular momentum we have
+\begin{align*}
+  (\sigma^i)_{ab}(\sigma^j)_{bd}-(\sigma^j)_{ab}(\sigma^i)_{bd}=2\epsilon^{ijk}(\sigma^k)_{ad}
+\end{align*}
+And
+\begin{align}
+  \nonumber [Q^i,Q^j]=&\frac{1}{4}\int\dd^3xi\{\phi_a^*(\sigma^i)_{ab}(\sigma^j)_{bd}\pi_d^*-\phi^*_c(\sigma^i)_{ab}(\sigma^j)_{ca}\pi_b^*+\pi_c(\sigma^j)_{ca}(\sigma^i)_{ab}\phi_b-\pi_a(\sigma^j)_{bd}(\sigma^i)_{ab}\phi_d)\}\\
+  \nonumber=&\frac{1}{4}\int\dd^3xi\{\phi_a^*(\sigma^i)_{ab}(\sigma^j)_{bd}\pi_d^*-\phi^*_a(\sigma^j)_{ab}(\sigma^i)_{bd}\pi_d^*+\pi_a(\sigma^j)_{ab}(\sigma^i)_{bd}\phi_d-\pi_a(\sigma^i)_{ab}(\sigma^j)_{bd}\phi_d)\}\\
+  \nonumber=&\frac{i}{2}\int\dd^3x\{\phi^*_a\epsilon^{ijk}(\sigma^k)_{ab}\pi_b^*-\pi_a\epsilon^{ijk}(\sigma^k)_{ab}\phi_b\}\\
+  =&i\epsilon^{ijk}Q^k
+\end{align}
+Obviously $[Q^i,Q^i]=0$ so I'll skip the discussion about it.
+If we have n identical complex scalar fields, then $Q$ should fit the commutation relations for SU(N) group (or just to say SU(N) or SO(2N) group Lie algebra). There will be $n(2n-1)$ conserved charges.
+
+{\bf2.3}\quad The correlation function
+\begin{align}
+  \mel{0}{\phi(x)\phi(y)}{0}=D(x-y)=\intphead{p}\frac{1}{2E_{\vb{p}}}e^{-ip\cdot(x-y)}
+\end{align}
+If $(x-y)$ is spacelike, we have $(x-y)^2=-r^2$. Then the correlation function is (I'll skip some details but the process is easy)
+\begin{align}
+  D(x-y)&=\frac{1}{(2\pi)^2}\int^{\infty}_{0}\dd p\frac{p^2}{2E_{\vb{p}}}\frac{e^{ipr}-e^{-ipr}}{ipr}\\
+  &=\frac{1}{8\pi^2r}\int^{\infty}_0\dd p\frac{psin(pr)}{\sqrt{p^2+m^2}}
+\end{align}
+Using the known relation (can be found in mathworld)
+\begin{align}
+  K_0(z)=\int_0^{\infty}\frac{cos(zt)}{\sqrt{t^2+1}}\dd t
+\end{align}
+we can derive
+\begin{align*}
+  K_0'(mr)=-\frac{1}{m}\int^{\infty}_{0}\dd p\frac{psin(pr)}{\sqrt{p^2+m^2}}
+\end{align*}
+So
+\begin{align}
+  D(x-y)=-\frac{m}{8\pi^2r}K_0'(mr)
+\end{align}
+And from another known relation of $K_1$ we can derive
+\begin{align*}
+  K_1(z)&=\frac{\Gamma(\frac{1}{2})\cdot2z}{\sqrt{\pi}}\int^{\infty}_0\frac{cos(t)\dd t}{(t^2+z^2)^{\frac{3}{2}}}\\
+  &=-2\int^{\infty}_0\dv{z}\frac{cos(t)\dd t}{(t^2+z^2)^{\frac{1}{2}}}\\
+  &=-2\dv{z}K_0(z)
+\end{align*}
+Then we have our final result
+\begin{align}
+  D(x-y)=\frac{m}{4\pi^2r}K_1(mr)
+\end{align}
+
+{\bf3.1}\quad(a). First we have the commutation relations in the book
+\begin{align}
+  [J^{\mu\nu},J^{\rho\sigma}]=i(g^{\nu\rho}J^{\mu\sigma}-g^{\mu\rho}J^{\nu\sigma}-g^{\nu\sigma}J^{\mu\rho}+g^{\mu\sigma}J^{\nu\rho})
+\end{align}
+Define the generators of rotations and boosts as
+\begin{align}
+  L^i=\frac{1}{2}\epsilon^{ijk}J^{jk}, \;\;K^i=J^{0i}
+\end{align}
+The commutation relations of the combination
+\begin{align}
+  \bm{J}_+=\frac{1}{2}(\bm{L}+i\bm{K}),\;\;\bm{J}_-=\frac{1}{2}(\bm{L}-i\bm{K})
+\end{align}
+is
+\begin{align*}
+  [\bm{J}_+,\bm{J}_-]=\frac{1}{4}\qty{[\bm{L},\bm{L}]-i[\bm{L},\bm{K}]+i[\bm{K},\bm{L}]-[\bm{K},\bm{K}]}
+\end{align*}
+Apparently $[\bm{L},\bm{L}]=0, [\bm{K},\bm{K}]=0$, and $[\bm{L},\bm{K}]=-[\bm{K},\bm{L}]$. Since (in Minkowski spacetime)
+\begin{align*}
+  [L^i,K^i]&=\frac{1}{2}\epsilon^{ijk}[J^{jk},J^{0i}]\\
+  &=\frac{1}{2}\epsilon^{ijk}i\qty{g^{ji}J^{k0}-g^{ki}J^{j0}}\\
+  &=0
+\end{align*}
+So $[J_+,J_-]=0$.
+Now we evaluate the separate commutation relations between $J_+$ and $J_-$.
+\begin{align*}
+  [J_+^i,J_+^j]&=\frac{1}{4}\qty{[L^i,L^j]+i[L^i,K^j]+i[K^i,L^j]-[K^i,K^j]}
+\end{align*}
+Let's evaluate those terms one by one:
+
+The first term
+\begin{align*}
+  [L^i,L^j]&=\frac{1}{4}\epsilon^{ijk}\epsilon^{jk'i'}[J^{jk},J^{k'i'}]\\
+  &=\frac{i}{4}\epsilon^{ijk}\epsilon^{jk'i'}(g^{kk'}J^{ji}-g^{ki'}J^{jk'})\\
+  &=-\frac{i}{4}\epsilon^{ijk}(\epsilon^{jk'i'}\delta^{kk'}J^{ji}-\epsilon^{jk'i'}\delta^{ki'}J^{jk'})\\
+  &=-\frac{i}{4}\epsilon^{ijk}(\epsilon^{jki}J^{ji}-\epsilon^{jik}J^{ji})\\
+  &=i\epsilon^{ijk} L^k
+\end{align*}
+where $i',k'=i,k$.
+The second term
+\begin{align*}
+  [L^i,K^j']&=\frac{1}{2}\epsilon^{ijk}[J^{jk},J^{0j'}]\\
+  &=\frac{i}{2}\epsilon^{ijk}[g^{jj'}J^{k0}-g^{kj'}J^{j0}]\\
+  &=\frac{i}{2}\epsilon^{ij'k}J^{0k}+\frac{i}{2}\epsilon^{ij'j}J^{0j}\\
+  &=i\epsilon^{ij'k} K^{k}
+\end{align*}
+The third term is similar
+\begin{align*}
+  [K^i,L^j]=i\epsilon^{ijk}K^k
+\end{align*}
+The forth term is
+\begin{align*}
+  [K^i,K^j]&=[J^{0i},J^{0j}]\\
+  &=-i(g^{00}J^{ij}+g^{ij}J^{00})\\
+  &=-iJ^{ij}\\
+  &=-i\epsilon^{ijk}L^k
+\end{align*}
+And we have
+\begin{align*}
+  [J^i_+,J^j_+]&=\frac{1}{4}\qty{i\epsilon^{ijk}L^k-\epsilon^{ijk}K^{k}-\epsilon^{ijk}K^{k}+i\epsilon^{ijk}L^k}\\
+  &=i\epsilon^{ijk} J^k_+
+\end{align*}
+With similar process we can have the commutation relation of $J_-$ which is almost the same
+\begin{align*}
+  [J^i_-,J^j_-]=i\epsilon^{ijk}J^k_-
+\end{align*}
+
+\makebox{\phantom{\bf{3.1}}}\quad(b). For $(\frac{1}{2},0)$ representation, we have
+\begin{align*}
+  \bm{J}_+=\frac{1}{2}\vb{\bm{\sigma}},\;\;\bm{J}_-=0
+\end{align*}
+from which we can derive
+\begin{align*}
+  \bm{L}=\frac{1}{2}\vb{\bm{\sigma}},\;\;\bm{K}=-\frac{i}{2}\vb{\bm{\sigma}}
+\end{align*}
+We know that the transformation law is
+\begin{align*}
+  \phi_{(\frac{1}{2},0)}&\rightarrow(1-i\bm{\theta}\cdot \bm{L}-i\bm{\beta}\cdot \bm{K})\phi_{(\frac{1}{2},0)}\\
+  &=(1-i\bm{\theta}\cdot \frac{\bm{\sigma}}{2}-\bm{\beta}\cdot \frac{\bm{\sigma}}{2})\phi_{(\frac{1}{2},0)}
+\end{align*}
+And for $(0,\frac{1}{2})$ representation, we have
+\begin{align*}
+  \bm{J}_+=0,\;\;\bm{J}_-=\frac{1}{2}\vb{\bm{\sigma}}
+\end{align*}
+Similarly,the transformation law is
+\begin{align*}
+  \phi_{(0,\frac{1}{2})}&\rightarrow(1-i\bm{\theta}\cdot \bm{L}-i\bm{\beta}\cdot \bm{K})\phi_{(0,\frac{1}{2})}\\
+    &=(1-i\bm{\theta}\cdot \frac{\bm{\sigma}}{2}+\bm{\beta}\cdot \frac{\bm{\sigma}}{2})\phi_{(0,\frac{1}{2})}
+\end{align*}
+From these we can conclude
+\begin{align*}
+  \phi_{(\frac{1}{2},0)}=\psi_L,\;\;\phi_{(0,\frac{1}{2})}=\psi_R
+\end{align*}
+
+\makebox{\phantom{\bf{3.1}}}\quad(c). The identity $\bm{\sigma}^T=-\sigma^2\boldsymbol{\sigma}\sigma^2$ allows us to rewrite the $\psi_L$ transformation in the unitarily equivalent form
+\begin{align}
+  \psi'\rightarrow\psi'(1+i\bm{\theta}\cdot \frac{\bm{\sigma}}{2}+\bm{\beta}\cdot\frac{\bm{\sigma}}{2})
+\end{align}
+where $\psi'=\psi_L^T\sigma^2$.
+
+The parametrized matrix can be
+\begin{align*}
+  \begin{pmatrix}
+    V^0+V^3&V^1-iV^2\\
+    V^1+iV^2&V^0-V^3
+  \end{pmatrix}
+  =V^{\mu}\sigma_{\mu}=V^0+V^i\sigma_i
+\end{align*}
+where $\sigma_0=I$, $\sigma_i$ is the standard Pauli matrix in i direction.
+
+Using this, we have our now transformation law (higher order discarded)
+\begin{align*}
+  V^{\mu}\sigma_{\mu}&\rightarrow(1-i\bm{\theta}\cdot \frac{\bm{\sigma}}{2}+\bm{\beta}\cdot \frac{\bm{\sigma}}{2})(V^0+V^i\sigma_i)(1+i\bm{\theta}\cdot \frac{\bm{\sigma}}{2}+\bm{\beta}\cdot\frac{\bm{\sigma}}{2})\\
+  &=V^0(1+\bm{\beta}\cdot\bm{\sigma})+V^i(\sigma_i+\frac{1}{2}\beta^j\qty{\sigma^i,\sigma^j}+\frac{i}{2}\theta^j[\sigma_i,\sigma_j])\\
+  &=V^0(1+\beta^i\sigma_i)+V^i(\sigma_i-\epsilon^{ijk}\theta^j\sigma_k+\beta^i)
+\end{align*}
+So
+\begin{align*}
+  &V^0\rightarrow V^0+V^i\beta^i\\
+  &V^i\sigma_i\rightarrow V^i(\sigma_i-\epsilon^{ijk}\theta^j\sigma_k)+V^0\beta^i\sigma_i\\
+  \text{which means}\;\;\;\;\;\;&V^i\rightarrow V^i+\epsilon^{ijk}\theta^jV^k+\beta^iV^0
+\end{align*}
+This is exactly how a 4-vector transform.
+
+{\bf{3.2}}\quad Derive the \emph{Gordon identity}
+\begin{align}\label{40}
+  \bar{u}(p')\gamma^{\mu}u(p)=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}}u(p)
+\end{align}
+where $q=(p'-p)$.
+
+From the standard covariant form of Dirac equation
+\begin{align*}
+  (i\gamma^{\mu}\partial_{\mu}-m)\psi(x)=0
+\end{align*}
+and can be written as
+\begin{align}
+  \gamma^{\mu}p_{\mu}u(p)=m u(p)
+\end{align}
+From previous definition
+\begin{align*}
+  \bar{u}(p)\equiv u^{\dagger}(p)\gamma^0
+\end{align*}
+and
+\begin{align*}
+  u^{\dagger}(p)p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}=m u^{\dagger}(p)
+\end{align*}
+So we have
+\begin{align*}
+  \bar{u}(p)\gamma^0p_{\mu}^{\dagger}(\gamma^{\mu})^{\dagger}\gamma^0=m \bar{u}(p)
+\end{align*}
+Then
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\frac{\bar{u}(p')\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0}{m}\gamma^{\mu}\frac{\gamma^{\mu''}p_{\mu''}u(p)}{m}\\
+  &=\bar{u}(p')\frac{\gamma^0p'_{\mu'}^{\dagger}(\gamma^{\mu'})^{\dagger}\gamma^0\gamma^{\mu}\gamma^{\mu''}p_{\mu''}}{m^2}u(p)
+\end{align*}
+Note that $p_{\mu}$ and $\gamma$ commute, and
+\begin{align*}
+  \gamma^0(\gamma^{\mu})^{\dagger}\gamma^0&=\Pmqty{0&1\\1&0}\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}^{\dagger}\Pmqty{0&1\\1&0}\\
+  &=\Pmqty{0&\sigma^{\mu}\\-\sigma^{\mu}&0}\\&=
+  \gamma^{\mu}
+\end{align*}
+which means
+\begin{align*}
+  \bar{u}(p)\gamma^{\mu}p_{\mu}=m \bar{u}(p)
+\end{align*}
+and
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)
+\end{align*}
+
+Now we observe
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}[\gamma^{\mu},\gamma^{\nu}](p'_{\nu}-p_{\nu})\\
+  &=-\frac{1}{2}(\gamma^{\mu}\gamma^{\nu}p'_{\nu}-\gamma^{\nu}\gamma^{\mu}p'_{\nu}-\gamma^{\mu}\gamma^{\nu}p_{\nu}+\gamma^{\nu}\gamma^{\mu}p_{\nu})
+\end{align*}
+and
+\begin{align*}
+  \gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu}+2g^{\mu\nu}
+\end{align*}
+We have
+\begin{align*}
+  i\sigma^{\mu\nu}q_{\nu}&=-\frac{1}{2}(2\gamma^{\mu}\gamma^{\nu}p'_{\nu}-2g^{\mu\nu}p'_{\nu}-2\gamma^{\mu}\gamma^{\nu}p_{\nu}+2g^{\mu\nu}p_{\nu})\\&=(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})
+\end{align*}
+With this \eqref{40} becomes
+\begin{align*}
+  \bar{u}(p')\gamma^{\mu}u(p)&=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{2m}+\frac{(p'^{\mu}-p^{\mu})-\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+  %\\  &=\bar{u}(p')\bqty{\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{4 m}}u(p)
+\end{align*}
+We know that
+\begin{align*}
+  \bar{u}(p')\frac{\gamma^{\nu}p'_{\nu}\gamma^{\mu}\gamma^{\nu}p_{\nu}}{m^2}u(p)&=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-\gamma^{\nu}p'_{\nu}\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}\gamma^{\nu}p_{\nu}+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\frac{1}{2}\Bqty{\bar{u}(p')\frac{-m\gamma^{\nu}\gamma^{\mu}p_{\nu}+2\gamma^{\nu}p'_{\nu}g^{\mu\nu}p_{\nu}-\gamma^{\mu}p'_{\nu}\gamma^{\nu}m+2p'_{\nu}g^{\mu\nu}\gamma^{\nu}p_{\nu}}{m^2}u(p)}\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}+p^{\mu}}{m}-\frac{\gamma^{\nu}\gamma^{\mu}p_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{-\gamma^{\mu}\gamma^{\nu}p'_{\nu}+\gamma^{\mu}p'_{\nu}\gamma^{\nu}}{2m}}u(p)\\
+  &=\bar{u}(p')\bqty{\frac{p'^{\mu}}{m}-\frac{\gamma^{\mu}\gamma^{\nu}(p'_{\nu}-p_{\nu})}{2m}}u(p)
+\end{align*}
+And it consists with the former one.
+
+
+{\bf3.4\quad Majorana fermions}
+
+(a). Equation for $\chi$ as a massive field
+\begin{align}
+  i\bar{\sigma}\cdot\partial{\chi}-im\sigma^2\chi^*=0
+\end{align}
+The transformation laws would be
+\begin{align*}
+  \chi'(x)=\trh\chi(\Lambda^{-1}x)
+\end{align*}
+where $\trh=e^{-\frac{i}{2}(\theta-i\beta)\cdot\sigma}$.
+
+Now the transformation
+\begin{align*}
+  i\bar{\sigma}\cdot\partial{\chi}-im\sigma^2\chi^*&\rightarrow i\bar{\sigma}^{\mu}\cdot(\Lambda^{-1})^{\nu}_{\mu}\partial_{\nu}\trh{\chi}(\Lambda^{-1}x)-im\sigma^2\trh\chi^*(\Lambda^{-1}x)
+\end{align*}
+Using the relation
+\begin{align*}
+  \trh^{-1}\gamma^{\mu}\trh=\Lambda^{\mu}_{\nu}\gamma^{\nu}
+\end{align*}
+and the transformation relation becomes
+\begin{align*}
+  i\bar{\sigma}\cdot\partial{\chi}-im\sigma^2\chi^*&\rightarrow i\trh\Lambda^{\mu}_{\rho}\bar{\sigma}^{\rho}\cdot(\Lambda^{-1})^{\nu}_{\mu}\partial_{\nu}{\chi}(\Lambda^{-1}x)-im\sigma^2\trh\chi^*(\Lambda^{-1}x)\\
+  &=\trh[i\bar{\sigma}^{\nu}\cdot\partial_{\nu}{\chi}-im\sigma^2\chi^*](\Lambda^{-1}x)\\
+  &=0
+\end{align*}
+We can draw the conclusion that our equation for $\chi$ is relativistically invariant.
+
+Then we must prove that this equation implies the Klein-Gordon equation.
+We can rewrite our equation and its complex-conjugate form as
+\begin{align*}
+  \bar{\sigma}^{\mu}\cdot\partial_{\mu}{\chi}=m\sigma^2\chi^*\\
+  \bar{\sigma}^{*\mu}\cdot\partial_{\mu}{\chi^*}=m\sigma^2\chi
+\end{align*}
+Solve this set of equations and we have
+\begin{align*}
+  \chi^*=\frac{\bar{\sigma}^{\mu}\cdot\partial_{\mu}{\chi}}{m\sigma^2}
+\end{align*}
+which leads to
+\begin{align*}
+  \bar{\sigma}^{*\mu}\cdot\partial_{\mu}\frac{\bar{\sigma}^{\mu}\cdot\partial_{\mu}{\chi}}{m\sigma^2}=m\sigma^2\chi
+\end{align*}
+and it means
+\begin{align*}
+  -\partial_{\mu}\partial^{\mu}\chi=m^2\chi
+\end{align*}
+which is exactly the Klein-Gordon equation we want.
+
+(b). The classical action is
+\begin{align}
+  S=\int\dd^4x\bqty{\chi^{\dagger}i\bar{\sigma}^{\mu}\partial_{\mu}\chi+\frac{im}{2}(\chi^T\sigma^2\chi-\chi^{\dagger}\sigma^2\chi^*)}
+\end{align}
+(where $\chi^{\dagger}=(\chi^*)^T$ and recall that for Grassmann numbers $(\alpha\beta)^*=\beta^*\alpha^*$) and its complex-conjugate is
+
+(First
+\begin{align*}
+  \chi^{\dagger}i\bar{\sigma}^{\mu}\partial_{\mu}\chi=\chi^*_ai\bar{\sigma^{\mu}}_{ab}\partial_{\mu}\chi_b
+\end{align*}
+and
+\begin{align*}
+  (\chi^*_ai\bar{\sigma^{\mu}}_{ab}\partial_{\mu}\chi_b)^*=\partial_{\mu}\chi_b^*i\bar{\sigma^{\mu}}_{ba}\chi_a
+\end{align*}
+)
+\begin{align*}
+  S^*&=-\int\dd^4x\bqty{\partial_{\mu}\chi^{\dagger}i(\bar{\sigma}^{\mu})^{\dagger}\chi+\frac{im}{2}(\chi^{\dagger}(\sigma^2)^{\dagger}\chi^*-\chi^T(\sigma^2)^{\dagger}\chi)}\\
+  &=\int\dd^4x\bqty{\chi^{\dagger}i\bar{\sigma}^{\mu}\partial_{\mu}\chi+\frac{im}{2}(\chi^T\sigma^2\chi-\chi^{\dagger}\sigma^2\chi^*)-\partial_{\mu}(\chi^{\dagger}i\bar{\sigma}^{\mu}\chi)}\\
+  &=S
+\end{align*}
+
+To derive the equation of motion out of this action
+\begin{align*}
+  \delta S&=\delta\int\dd^4x\bqty{\chi^*_ai\bar{\sigma^{\mu}}_{ab}\partial_{\mu}\chi_b+\frac{im}{2}(\chi_a\sigma^2_{ab}\chi_b-\chi^*_a\sigma^2_{ab}\chi^*_b)}=0
+\end{align*}
+and
+\begin{align*}
+  \pdv{S}{\chi_1^*}=i\bar{\sigma^{\mu}}_{12}\partial_{\mu}\chi_2-\frac{im}{2}\sigma^2_{12}\chi_2^*\\
+  \pdv{S}{\chi_2^*}=i\bar{\sigma^{\mu}}_{21}\partial_{\mu}\chi_1-\frac{im}{2}\sigma^2_{21}\chi_1^*
+\end{align*}
+and
+\begin{align*}
+  \pdv{S}{(\partial_{\mu}\chi_a)}=\chi^*_bi\bar{\sigma^{\mu}}_{ba}
+\end{align*}
+and
+\begin{align*}
+  \pdv{S}{\chi_a}=\frac{im}{2}\sigma^2_{ab}\chi{b}
+\end{align*}
+Combine these and we have the Majorana equation above.
+
+(c). We already knew that
+\begin{align*}
+  \psi_L(x)=\chi_1(x),\;\;\;\;\psi_R(x)=i\sigma^2\chi^*_2(x)
+\end{align*}
+The Dirac Lagrangian is
+\begin{align}
+  \lag=\bar{\psi}(i\gamma^{\mu}\partial_{\mu}-m)\psi
+\end{align}
+where $\bar{\psi}\equiv\psi^{\dagger}\gamma^0$. It can be written as
+\begin{align*}
+  \lag&=\Pmqty{\psi_L^{\dagger}&\psi_R^{\dagger}}\Pmqty{0&1\\1&0}\pqty{i\Pmqty{0&\sigma^{\mu}\\\bar{\sigma}^{\mu}&0}\partial_{\mu}-m}\Pmqty{\psi_L\\\psi_R}\\
+  &=\Pmqty{\psi_R^{\dagger}&\psi_L^{\dagger}}\pqty{i\Pmqty{0&\sigma^{\mu}\\\bar{\sigma}^{\mu}&0}\partial_{\mu}-m\Pmqty{1&0\\0&1}}\Pmqty{\psi_L\\\psi_R}\\
+  &=i\psi_L^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\psi_L+i\psi_R^{\dagger}\sigma^{\mu}\partial_{\mu}\psi_R-m\psi_R^{\dagger}\psi_L-m\psi_L^{\dagger}\psi_R\\
+  &=i\chi_1^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_1+\sigma^2\chi_2^T\sigma^{\mu}\partial_{\mu}(i\sigma^2\chi^*_2)+mi\sigma^2\chi^T_2\chi_1-m\chi_1^{\dagger}i\sigma^2\chi^*_2\\
+  &=i\chi_1^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_1+i\chi_2^T\bar{\sigma}^{\mu T}\partial_{\mu}\chi^*_2+im(\chi^T_2\sigma^2\chi_1-\chi_1^{\dagger}\sigma^2\chi^*_2)
+\end{align*}
+here $\sigma^2\sigma^{\mu}=\bar{\sigma}^{\mu T}\sigma^2$ was used. Since
+\begin{align*}
+  i\chi_2^T\bar{\sigma}^{\mu T}\partial_{\mu}\chi^*_2&=(i\chi_2^T\bar{\sigma}^{\mu T}\partial_{\mu}\chi_2^*)^T\\
+  &=-i\partial_{\mu}\chi_2^{\dagger}\bar{\sigma}^{\mu}\chi_2
+\end{align*}
+we have (discard the boundary term)
+\begin{align*}
+  \lag&=i\chi_1^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_1-i\chi_2^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_2+im(\chi^T_2\sigma^2\chi_1-\chi_1^{\dagger}\sigma^2\chi^*_2)
+\end{align*}
+Now we can rewrite the Lagrangian as
+\begin{align*}
+  \lag=i\chi^{\dagger}_i\bar{\sigma}^{\mu}\partial_{\mu}\chi_i+\frac{im_{ij}}{2}(\chi^T_i\sigma^2\chi_j-\chi_i^{\dagger}\sigma^2\chi^*_j)
+\end{align*}
+where the mass matrix is given by
+\begin{align*}
+  m=\Pmqty{0&m\\m&0}
+\end{align*}
+(d). The divergence of the first current
+\begin{align*}
+  \partial_{\mu}J^{\mu}&=\partial_{\mu}(\chi^{\dagger}\bar{\sigma}^{\mu}\chi)\\
+  &=\partial_{\mu}\chi^{\dagger}\bar{\sigma}^{\mu}\chi+\chi^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi\\
+  &=\chi^T m\sigma^2\chi+\chi^{\dagger}m\sigma^2\chi^*
+\end{align*}
+$\partial_{\mu}J^{\mu}=0$ only when $m=0$.
+
+The divergence of the second current
+\begin{align*}
+  \partial_{\mu} J^{\mu}&=\partial_{\mu}(\chi_1^{\dagger}\bar{\sigma}^{\mu}\chi_1-\chi_2^{\dagger}\bar{\sigma}^{\mu}\chi_2)\\
+  &=\partial_{\mu}\chi_1^{\dagger}\bar{\sigma}^{\mu}\chi_1+\chi_1^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_1-\partial_{\mu}\chi_2^{\dagger}\bar{\sigma}^{\mu}\chi_2-\chi_2^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}\chi_2\\
+  &=m\chi_2^T\sigma^2\chi_1+\chi_1^{\dagger}m\sigma^2\chi_2^*-m\chi_1^T\sigma^2\chi_2-\chi_2^{\dagger}m\sigma^2\chi_1^*\\
+  &=0
+\end{align*}
+since $\chi^T_2\sigma^2\chi_1=\chi^T_1\sigma^2\chi_2$.
+
+The action for N free massive 2-component fermion fields with O(N) symmetry would be
+\begin{align*}
+  S=\int\dd^4x \bqty{i\chi^{\dagger}_i\bar{\sigma}^{\mu}\partial_{\mu}\chi_i+\frac{im}{2}(\chi^T_i\sigma^2\chi_i-\chi_i^{\dagger}\sigma^2\chi^*_i)}
+\end{align*}
+
+(e). Quantize the Majorana theory.
+
+$$H=\int\dd^3x[\chi^{\dagger}i\vb{\sigma}\cdot\nabla\chi+\frac{im}{2}(\chi^{\dagger}\s^2\chi^*-\chi^T\s^2\chi)]$$
+
+The basic idea is to give a canonical anti-commutation relation and use it to derive the other commutation relations and write the field operators as creation and annihilation operators.
+
+
+{\bf3.6\quad Fierz Transformations.} Let $u_i$, $i=1,...,4$, be four 4-component Dirac spinors. In the text, we proved the Fierz rearrangement formulae (3.78) and (3.79). The first of these formulae can be written in 4-component notation as
+\begin{align}
+  \bar{u}_1\gamma^{\mu}(\frac{1+\gamma^5}{2})u_2\bar{u}_3\gamma_{\mu}(\frac{1+\gamma^5}{2})u_4=-\bar{u}_1\gamma^{\mu}(\frac{1+\gamma^5}{2})u_4\bar u_3\gamma_{\mu}(\frac{1+\gamma^5}{2})u_2
+\end{align}
+In fact, there are similar rearrangement formulae for any product
+\begin{align}
+  (\bar{u}_1\Gamma^Au_2)(\bar{u}_3\Gamma^Bu_4)
+\end{align}
+where $\Gamma^A, \,\Gamma^B$ are any of the 16 combinations of Dirac matrices listed in Section 3.4.
+
+(a). To begin, normalize the 16 matrices $\Gamma^A$ to the convention
+\begin{align}
+  \tr[\Gamma^A\Gamma^B]=4\delta^{AB}
+\end{align}
+This gives $\Gamma^A=\Bqty{1,\gamma^0,i\gamma^j,...}$; write all 16 elements of this set.
+
+First for the scalar $\mathds{1}$ and the vector $\gamma_{\mu}\rightarrow\{\gamma^0,\,i\gamma^i\}$ (in 4-dimension) the normalization convention is automatically satisfied.
+
+For the tensor $\sigma^{\mu\nu}=\frac{i}{2}[\gamma^{\mu},\gamma^{\nu}]$,
+\begin{align*}
+  \tr[[\gamma^{\mu},\gamma^{\nu}][\gamma^{\mu},\gamma^{\nu}]]&=\tr[\gm\gn\gm\gn-\gn\gm\gm\gn-\gm\gn\gn\gm+\gn\gm\gn\gm]\\
+  &=\tr[\gm\gn\gm\gn-(2\gmn-\gm\gn)\gm\gn-\gm\gn(2\gmn-\gm\gn)+(2\gmn-\gm\gn)(2\gmn-\gm\gn)]\\
+  &=\tr\left[\right.\gm\gn\gm\gn-2\gmn\gm\gn+\gm\gn\gm\gn-2\gm\gn\gmn+\gm\gn\gm\gn\\
+  &\;\;\;+4\gmn\gmn-2\gmn\gm\gn-2\gm\gn\gmn+\gm\gn\gm\gn\left.\right]\\
+  &=\tr[4\gm\gn\gm\gn-8\gmn\gm\gn+4\gmn\gmn]\\
+  &=16(\gmn\gmn-\gmm\gnn+\gmn\gnm)-32\gmn\gmn+4\gmn\gmn\\
+  &=-16\gmm\gnn+4\gmn\gmn
+\end{align*}
+and use the relation $\gm\gn=-\gn\gm$ for $\mu\neq\nu$ (otherwise the whole equation vanished)
+\begin{align*}
+  \tr[\sigma^{\mu\nu}\sigma^{\mu\nu}]&=-\frac{1}{4}\tr[\gm\gn\gm\gn-\gn\gm\gm\gn-\gm\gn\gn\gm+\gn\gm\gn\gm]\\
+  &=4\gmm\gnn\\
+  &=\begin{cases}
+  +4,\;\;\text{if $\mu=\nu$ or $\mu\neq0\&\nu\neq0$}\\
+  -4,\;\;\text{if $\mu\text{ or }\nu=1$}
+  \end{cases}
+\end{align*}
+So the tensor $\sigma^{\mu\nu}$ must be normalized like:
+\begin{align*}
+  \sigma^{0i},\;\;\;-\sigma^{ij}
+\end{align*}
+where $i,j$ stands for $1,\,2,\,3$.
+
+For the pseudovector $\gamma^{\mu}\gamma^5$,
+\begin{align*}
+  \tr[\gm\gamma^5\gm\gamma^5]&=\tr[\gm\gamma^5\gamma^5\gm]\\
+  &=\tr[\gm\gm \mathds{1}]\\
+  &=\tr[\gmm \mathds{1}]\\
+  &=\begin{cases}
+  +4,\;\text{if $\mu=0$}\\
+  -4,\;\text{if $\mu=1,2,3$}
+  \end{cases}
+\end{align*}
+which gives the following normalization
+\begin{align*}
+  \gamma^0\gamma^5,\;\;\;i\gamma^i\gamma^5
+\end{align*}
+where $i=1,2,3$.
+
+For the pseudoscalar $\gamma^5$,
+\begin{align*}
+  \tr[\gamma^5\gamma^5]=\tr[\mathds{1}]=4
+\end{align*}
+so the normalization must be $\gamma^5$.
+
+(b). Write the general Fierz identity as an equation
+\begin{align}
+  (\bar u_1\Gamma^Au_2)(\bar u_3\Gamma^Bu_4)=\sum_{C,D}C^{AB}_{\;\;\;\;\;CD}(\bar u_1\Gamma^Cu_4)(\bar u_3\Gamma^Du_2),
+\end{align}
+with unknown coefficients $C^{AB}_{\;\;\;\;\;CD}$. Using the compleleness of the 16 $\Gamma^A$ matrices, show that
+\begin{align}
+  C^{AB}_{\;\;\;\;\;CD}=\frac{1}{16}\tr[\Gamma^C\Gamma^A\Gamma^D\Gamma^B].
+\end{align}
+
+We can write
+\begin{align*}
+  (\bar u_1\Gamma^Au_2)(\bar u_3\Gamma^Bu_4)=\bar u^a_1u_2^b\bar u^c_3 u^d_4M_{abcd}
+\end{align*}
+where
+\begin{align*}
+  M_{abcd}=\Gamma^A_{ab}\Gamma^B_{cd}
+\end{align*}
+Define the 16 matrices $G_{cb}$ by $(G_{cb})_{ad}=G_{abcd}$, we then find
+\begin{align*}
+  M_{abcd}&=\sum_{r,s}(G_{rs})_{ad}\delta^r_c\delta^s_d\\
+  &=\sum_{r,s}(G_{rs})_{ad}(H^{rs})_{cb}
+\end{align*}
+where $(H^{rs})_{cb}=\delta^r_c\delta^s_d$. Now according to the completeness of the 16 matrices basis, we can expand $M$ and $H$ into
+\begin{align*}
+  \Gamma^A_{ab}\Gamma^B_{cd}=\sum_{C,D}C^{AB}_{CD}\Gamma^C_{ad}\Gamma^D_{cb}
+\end{align*}
+then
+\begin{align*}
+  (\bar u_1\Gamma^Au_2)(\bar u_3\Gamma^Bu_4)=\sum_{C,D}C^{AB}_{\;\;\;\;\;CD}(\bar u_1\Gamma^Cu_4)(\bar u_3\Gamma^Du_2)
+\end{align*}
+(Actually our derivation is completely based on this relation, especially when we construct the two matrices, we constructed them based on this relation. )
+
+Now we have
+\begin{align*}
+  \Gamma^A_{ab}\Gamma^B_{cd}&=C^{AB}_{CD}\Gamma^C_{ad}\Gamma^D_{cb}\\
+  \Gamma^A_{ab}\Gamma^B_{cd}\Gamma^C_{da}\Gamma^D_{bc}&=C^{AB}_{CD}\Gamma^C_{ad}\Gamma^D_{cb}\Gamma^C_{da}\Gamma^D_{bc}\\
+  \Gamma^C_{da}\Gamma^A_{ab}\Gamma^D_{bc}\Gamma^B_{cd}&=C^{AB}_{CD}\Gamma^C_{ad}\Gamma^C_{da}\Gamma^D_{cb}\Gamma^D_{bc}
+\end{align*}
+which means
+\begin{align*}
+  \tr[CADB]=C^{AB}_{CD}\tr[C^2]\tr[D^2]\\
+  C^{AB}_{CD}=\frac{1}{16}\tr[CADB]
+\end{align*}
+
+(c). Work out explicitly the Fierz transformation laws for the products $(\bar u_1u_2)(\bar u_3u_4)$ and $(\bar u_1\gamma^{\mu}u_2)(\bar u_3\gamma_{\mu}u_4)$.
+
+For the first one, we have $\Gamma^A=\Gamma^B=1$, so
+\begin{align*}
+  (\bar u_1u_2)(\bar u_3u_4)=\frac{1}{4}\sum_C(\bar u_1\Gamma^Cu_4)(\bar u_3\Gamma^Cu_2)
+\end{align*}
+
+For the second one
+\begin{align*}
+  (\bar u_1\gamma^{\mu}u_2)(\bar u_3\gamma_{\mu}u_4)
+\end{align*}
+if $\mu=0$, it's exactly the same as before. And if $\mu=i=1,2,3$, only use the given relation, we have $\Gamma^A=\Gamma^B=1$ again, and
+\begin{align*}
+  (\bar u_1\gamma^{\mu}u_2)(\bar u_3\gamma_{\mu}u_4)=\sum_C\eta_C(\bar u_1\Gamma^Cu_4)(\bar u_3\Gamma^Cu_2)
+\end{align*}
+where $\eta_C=1$ for a scalar $\Gamma^C$, $\eta_C=-1$ for a pseudoscalar one, $\eta_C=-\frac{1}{2}$ for a vector one and $\frac{1}{2}$ for a pseudovector one.
+
+
+{\bf3.7}\quad(a). Consider the C, P, T transformation, given thje antisymmetric tensor $\bar\psi\sigma^{\mu\nu}\psi$, we have
+\begin{align*}
+  \bar\psi\sigma^{\mu\nu}\psi\rightarrow P\bar\psi\sigma^{\mu\nu}\psi P\\
+  \bar\psi\sigma^{\mu\nu}\psi\rightarrow T\bar\psi\sigma^{\mu\nu}\psi T\\
+  \bar\psi\sigma^{\mu\nu}\psi\rightarrow C\bar\psi\sigma^{\mu\nu}\psi C
+\end{align*}
+For parity
+\begin{align*}
+  P\bar\psi\sigma^{\mu\nu}\psi P&=P\bar\psi PP\sigma^{\mu\nu}\psi P\\
+  &=\eta_a^*\eta_a\bar\psi\gamma^0\sigma^{\mu\nu}\gamma^0\psi \\
+  &=\frac{i}{2}\bar\psi\gamma^0[\gm,\gn]\gamma^0\psi\\
+  &=\frac{i}{2}\bar\psi(\gamma^0\gm\gn\gamma^0-\gamma^0\gn\gm\gamma^0)\psi\\
+  &=\frac{i}{2}\bar\psi((2g^{0\mu}-\gm\gamma^0)(2g^{\nu0}-\gamma^0\gn)-(2g^{0\nu}-\gn\gamma^0)(2g^{\mu0}-\gamma^0\gm))\psi\\
+  &=\frac{i}{2}\bar\psi(4g^{0\mu}g^{\nu0}-2g^{0\mu}\gamma^0\gn-2\gm\gamma^0g^{\nu0}+\gm\gamma^0\gamma^0\gn-4g^{0\nu}g^{\mu0}+2g^{\mu0}\gn\gamma^0+2g^{0\nu}\gamma^0\gm-\gn\gamma^0\gamma^0\gm)\psi\\
+  &=\frac{i}{2}\bar\psi(2g^{0\mu}[\gn,\gamma^0]+[\gm,\gn]+2g^{0\nu}[\gamma^0,\gm])\psi
+\end{align*}
+Apparently, we have
+\begin{align*}
+  P\bar\psi\sigma^{\mu\nu}\psi P&=(-1)^{\mu}(-1)^{\nu}\bar\psi\sigma^{\mu\nu}\psi
+\end{align*}
+For time reveral
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T&=T\bar\psi TT\sigma^{\mu\nu}\psi T\\
+  &=\bar\psi (-\gamma^1\gamma^3) \sigma^{\mu\nu}^*(\gamma^1\gamma^3)\psi\\
+  &=-\frac{i}{2}\bar\psi (-\gamma^1\gamma^3) [\gm^*,\gn^*](\gamma^1\gamma^3)\psi\\
+  &=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3\gn^*\gm^*\gamma^1\gamma^3-\gamma^1\gamma^3\gm^*\gn^*\gamma^1\gamma^3)\psi
+\end{align*}
+If $\mu$ or $\nu$ equals to $2$, and the other is not, then
+$$[\gm^*,\gn^*]=-[\gm,\gn]$$
+Under this circumstance, if the other equals to 1 or 3, then
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T&=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3) [\gm,\gn](\gamma^1\gamma^3)\psi\\
+  &=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (\gm\gn-\gn\gm)(\gamma^1\gamma^3)\psi\\
+  &=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (2\gm\gn)(\gamma^1\gamma^3)\psi\\
+  &=-i\bar\psi\gm\gn\psi\\
+  &=-\frac{i}{2}\bar\psi [\gm,\gn]\psi\\
+  &=-\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+($$\begin{array}{rclc}
+  \g^1\g^3&\g^2\g^1&\g^1\g^3&=\g^2\g^1\\
+  &\g^1\g^2&&=\g^1\g^2\\
+  &\g^2\g^3&&=\g^2\g^3\\
+  &\g^3\g^2&&=\g^3\g^2\\
+\end{array}$$
+)
+if the other equals to 0, then
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T&=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (2\gm\gn)(\gamma^1\gamma^3)\psi\\
+  &=\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+If none of $\mu$ and $\nu$ equals to 2
+$$[\gm^*,\gn^*]=[\gm,\gn]$$
+Then if $\mu$ and $\nu$ equals to 1 or 3, and the other equals to 0
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T&=-\frac{i}{2}\bar\psi (-\gamma^1\gamma^3) [\gm^*,\gn^*](\gamma^1\gamma^3)\psi\\
+  &= \frac{i}{2}\bar\psi (\gamma^1\gamma^3) [\gm,\gn](\gamma^1\gamma^3)\psi\\
+  &=\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (\gm\gn-\gn\gm)(\gamma^1\gamma^3)\psi\\
+  &=\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (2\gm\gn)(\gamma^1\gamma^3)\psi\\\intertext{after twice minus sign insert}
+  &=\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+and if $\mu$ and $\nu$ equal to 1 and 3 (or vice versa)
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T&=-\frac{i}{2}\bar\psi (\gamma^1\gamma^3) (2\gm\gn)(\gamma^1\gamma^3)\psi\\
+  &=\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+So
+\begin{align*}
+  T\bar\psi\sigma^{\mu\nu}\psi T=-(-1)^{\mu}(-1)^{\nu}\bar\psi\sigma^{\mu\nu}\psi
+\end{align*}
+Similarly, we have
+\begin{align*}
+  C\bar\psi\s^{\mu\nu}\psi C=-\bar\psi\s^{\mu\nu}\psi
+\end{align*}
+
+(b). For complex Klein-Gordon field, we have
+\begin{align}
+  \phi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}+b_{\vb{p}}e^{-ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}+b_{-\vb{p}})e^{ip\cdot x}\\
+  \phi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}+b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+  =\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}\\
+%  \pi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}e^{-ip\cdot x}-b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+%  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{-\vb{p}}-b_{\vb{p}}^{\dagger})e^{ip\cdot x}\\
+%  \pi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}i\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}-b_{\vb{p}}e^{-ip\cdot x})
+%  =\int\frac{\dd^3p}{(2\pi)^3}i\sqrt{\frac{\omega_{\vb{p}}}{2}}(a_{\vb{p}}^{\dagger}-b_{-\vb{p}})e^{ip\cdot x}\\
+%  \nabla\phi^*(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}e^{ip\cdot x}-b_{\vb{p}}e^{-ip\cdot x})
+%  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}+b_{-\vb{p}})e^{ip\cdot x}\\
+%  \nabla\phi(\vb{x})&=\int\frac{\dd^3p}{(2\pi)^3}i\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}-b_{\vb{p}}^{\dagger}e^{ip\cdot x})
+%  =\int\frac{\dd^3p}{(2\pi)^3}(-i)\frac{\vb{p}}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}
+\end{align}
+Use $P$ operator to act on $\phi$
+\begin{align*}
+  P\phi(t,\vb{x})P=\phi(t,-\vb{x})
+\end{align*}
+and
+\begin{align*}
+  &P\phi(t,\vb{x})P=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{i(Et+\vb{p}\cdot\vb{x})}=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}+b_{-\vb{p}}^{\dagger})e^{ip\cdot x}\\
+  =&P\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}P\\
+  =&\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}P(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})Pe^{ip\cdot x}\\
+  \Longrightarrow&Pa_{\vb{p}}P=a_{-\vb{p}},\;\;\;\;Pb_{\vb{p}}^{\dagger}P=b_{-\vb{p}}^{\dagger}\\
+  \intertext{Similarly, act on $\phi^*$, we have}&Pa_{\vb{p}}^{\dagger}P=a_{-\vb{p}}^{\dagger},\;\;\;\;Pb_{\vb{p}}P=b_{-\vb{p}}
+\end{align*}
+And for $T$
+$$T\phi(t,\vb{x})T=\phi(-t,\vb{x})$$
+and
+\begin{align*}
+  &T\phi(t,\vb{x})T=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{i(-Et-\vb{p}\cdot\vb{x})}=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}+b_{-\vb{p}}^{\dagger})e^{-ip\cdot x}\\
+  =&T\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}T\\
+  =&\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}T(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})Te^{ip\cdot x}\\
+  \Longrightarrow&Ta_{\vb{p}}T=a_{-\vb{p}},\;\;\;\;Tb_{\vb{p}}^{\dagger}T=b_{-\vb{p}}^{\dagger}\\
+  \intertext{Similarly, act on $\phi^*$, we have}&Ta_{\vb{p}}^{\dagger}T=a_{-\vb{p}}^{\dagger},\;\;\;\;Tb_{\vb{p}}T=b_{-\vb{p}}
+\end{align*}
+Last the $C$ operator
+$$C\phi(t,\vb{x})C=\phi^*(t,\vb{x})$$
+and
+\begin{align*}
+  &C\phi(t,\vb{x})C=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}^{\dagger}+b_{-\vb{p}})e^{ip\cdot x}%=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}+b_{-\vb{p}}^{\dagger})e^{-ip\cdot x}\\
+  \\=&C\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})e^{ip\cdot x}C\\
+  =&\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}C(a_{-\vb{p}}+b_{\vb{p}}^{\dagger})Ce^{ip\cdot x}\\
+  \Longrightarrow&Ca_{\vb{p}}C=a_{-\vb{p}}^{\dagger},\;\;\;\;Cb_{\vb{p}}^{\dagger}C=b_{-\vb{p}}\\
+  \intertext{Similarly, act on $\phi^*$, we have}&Ca_{\vb{p}}^{\dagger}C=a_{-\vb{p}},\;\;\;\;Cb_{\vb{p}}C=b_{-\vb{p}}^{\dagger}
+\end{align*}
+
+For the current
+$$J^{\mu}=i(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)$$
+we can calculate its transformation under C, P, T.
+\begin{align*}
+  PJ^{\mu}P&=iP(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)P\\
+  &=i(\phi^*(t,-\vb{x})\partial^{\mu}\phi(t,-\vb{x})-\partial^{\mu}\phi^*(t,-\vb{x})\phi(t,-\vb{x}))\\
+  &=(-1)^{\mu}i(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)
+\end{align*}
+where we use the shorthand as the textbook $(-1)^{\mu}\equiv1,\mu=0$ and $(-1)^{\mu}\equiv -1,\mu=1,2,3$.
+\begin{align*}
+  TJ^{\mu}T&=iT(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)T\\
+  &=i(\phi^*(-t,\vb{x})\partial^{\mu}\phi(-t,\vb{x})-\partial^{\mu}\phi^*(-t,\vb{x})\phi(-t,\vb{x}))\\
+  &=-(-1)^{\mu}i(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)
+\end{align*}
+and
+\begin{align*}
+  CJ^{\mu}C&=iC(\phi^*\partial^{\mu}\phi-\partial^{\mu}\phi^*\phi)C\\
+  &=i(\phi(t,\vb{x})\partial^{\mu}\phi^*(t,\vb{x})-\partial^{\mu}\phi(t,\vb{x})\phi^*(t,\vb{x}))\\
+  &=i(\phi\partial^{\mu}\phi^*-\partial^{\mu}\phi\phi^*)\\
+  &=-J^{\mu}
+\end{align*}
+
+(c). See Weinberg 5.8.
+
+Define $A$ built from $\phi$ and $B$ built from $\psi$. To make them Lorentz invariant, we can always assume $A\propto\phi^*A'\phi$ and $B\propto \bar\psi B'\psi$. Assuming the eigenvalues of CPT is 1, then
+$$CPT\; A(x) \; (CPT)^{-1}=A(-x)$$
+$$CPT\; B(x) \; (CPT)^{-1}=B^{\dagger}(-x)=B(-x)$$
+So it's invariant under CPT transformation.
+
+
+{\bf4.3\quad
+Linear sigma model.}
+
+The Hamiltionian of N scalar fields is
+$$H=\int\dd^3x(\frac{1}{2}(\Pi^i)^2+\frac{1}{2}(\nabla\Phi^i)^2+V(\Phi^2))$$
+where $(\Phi^i)^2=\bm{\Phi\cdot\Phi}$, and
+$$V(\Phi^2)=\frac{1}{2}m^2(\Phi^i)^2+\frac{\lambda}{4}((\Phi^i)^2)^2$$
+is a function symmetric under rotations of $\Phi$.
+
+(a). Show that the propagator is
+$$\contraction{}{\Phi}{^i(x)}{\Phi}\Phi^i(x)\Phi^j(y)=\delta^{ij}D_F(x-y)$$
+The interaction part of Hamiltionian is
+$$\mathcal{H}_{int}=\frac{\lambda}{4}((\Phi^i)^2)^2=\frac{\lambda}{4}\bqty{\sum_{i,j}{\Phi^i}^2{\Phi^j}^2}=\frac{\lambda}{4}\bqty{\sum_i{\Phi^i}^4+2\sum_{i<j}{\Phi^i}^2{\Phi^j}^2}$$
+it's a N scalar field $\phi^4$ theory. The tree level is
+$$\mel{0}{T\Bqty{(\frac{-i\lambda}{4})\Phi^i(x)\Phi^j(y)\bqty{\int\dd^3 z\sum_k{\Phi^k}^4+2\sum_{k<l}{\Phi^k}^2{\Phi^l}^2}}}{0}$$
+%Divide $\Phi$ into $\Phi^i$, the original $\Phi\Phi$ becomes $\sum_{i,j}\Phi^i\Phi^j$.
+and it involves two type of vertex: one with different field species $\Phi^i$ and $\Phi^j$, which has the form of $\frac{-i\lambda}{4}4!=-6i\lambda$; one with only one field species, which has the form of $\frac{-i\lambda}{4}2!2!2!=-2i\lambda$.
+
+The propagator is $\contraction{}{\Phi}{^i(x)}{\Phi}\Phi^i(x)\Phi^j(y)$. It would be ($x^0>y^0$)
+\begin{align*}
+  [\Phi^i_+(x),\Phi^j_-(y)]&=\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}[{a^i_{\vb{p}}}^{\dagger},a^j_{\vb{k}}]e^{i(k\cdot y-p\cdot x)}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}(2\pi)^3\delta^3(\vb{p-k})e^{i(k\cdot y-p\cdot x)}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}e^{ip\cdot(y-x)}\delta^{ij}\\
+  &=\delta^{ij}D_F(x-y)|_{x^0>y^0}
+\end{align*}
+Similarly, when $y^0>x^0$, the result becomes $\delta^{ij}D_F(x-y)$, which shows the propagator is exactly as showed above.
+
+
+Give the following vertex
+%\begin{tikzpicture}
+%  \begin{feynman}
+\begin{align*}
+\begin{gathered}
+    {\feynmandiagram[layered layout, vertical=f1 to p2]{
+    f1 [particle=k] -- f2 [small,dot] -- f4 [particle=l] ,
+    p2 [particle=i] -- f2 -- p3 [particle=j],
+    };}
+\end{gathered}
+  =-2i\lambda(\delta^{kl}\delta^{ij}+\delta^{ki}\delta^{lj}+\delta^{kj}\delta^{li})
+\end{align*}
+%  \end{feynman}
+%\end{tikzpicture}
+%\begin{center}
+%\begin{tikzpicture}
+%  \begin{feynman}
+%    \vertex (f1);
+%    \vertex [above left=of f1] (a) {k};
+%    \vertex [above right=of f1] (c) {l};
+%    \vertex [below left=of f1] (b) {i};
+%    \vertex [below right=of f1] (d) {j};
+%
+%    \diagram* {
+%    (a) -- (f1) -- (c),
+%    (b) -- (f1) -- (d),
+%    };
+%  \end{feynman}
+%\end{tikzpicture}
+%\end{center}
+To calculate the differential cross section $\dv{\sigma}{\Omega}$ in centre-of-mass frame, we have
+$$\dv{\s}{\Omega}=\frac{\abs{\mathcal{M}}^2}{64\pi^2E_{CM}^2}$$
+And
+\begin{align*}
+  \mathcal{M}(\Phi^k+\Phi^i\rightarrow\Phi^l+\Phi^j)=-2i\lambda(\delta^{kl}\delta^{ij}+\delta^{ki}\delta^{lj}+\delta^{kj}\delta^{li})
+\end{align*}
+From this we have $\mathcal{M}$ for scenario with different species of $\Phi$, which is showed above.
+
+So the differential cross section of two different $\Phi$ is
+$$ \dv{\s}{\Omega}=\frac{\abs{-2\lambda}^2}{64\pi^2E_{CM}^2}=\frac{\lambda^2}{16\pi^2E_{CM}^2}$$
+and of one kind of $\Phi$ it's
+$$ \dv{\s}{\Omega}=\frac{\abs{-6\lambda}^2}{64\pi^2E_{CM}^2}=\frac{9\lambda^2}{16\pi^2E_{CM}^2}$$
+For $\Phi^1+\Phi^1\rightarrow\Phi^2+\Phi^2$, do the angular integration and obtain $2\pi$ (there's a factor 2 due to the exchange of two incoming particles)
+$$\s_{tot} =\frac{\lambda^2}{8\pi E_{CM}^2}$$
+for $\Phi^1+\Phi^2\rightarrow\Phi^1+\Phi^2$
+$$\s_{tot} = \frac{\lambda^2}{4\pi E_{CM}^2}$$
+and for $\Phi^1+\Phi^1\rightarrow\Phi^1+\Phi^1$
+$$\s_{tot} = \frac{9\lambda^2}{4\pi E_{CM}^2}$$
+
+(b). Now consider the situation $m^2<0$: $m^2=-\mu^2$, the classical potential becomes
+$$V(\Phi^2)=-\frac{1}{2}\mu^2(\Phi^i)^2+\frac{\lambda}{4}((\Phi^i)^2)^2$$
+and it has a minimum
+$$\boldsymbol{\Phi}^2=\frac{\mu^2}{\lambda}$$
+Shift this field according to
+$$\Phi^i(x)=\pi^i(x),\;i=1,2,\dots,N-1$$
+$$\Phi^N(x)=v+\s(x)$$
+rewrite the Lagrangian
+$$\lag=\frac{1}{2}(\partial\s)^2-\mu^2\s^2+\frac{1}{2}(\partial\bm{\pi})^2-\lambda v\s(\s^2+\bm{\pi}^2)-\frac{1}{4}\lambda(\s^2+\bm{\pi}^2)^2$$
+The first three terms stands for the free part of this field and the rest is the interaction terms. It's clear then that $\sigma$ is a massive field with mass $\mu$ and $\pi^i$ is a massless field ($i=1,2,\dots,N-1$).
+
+
+
+
+
+{\bf Additional}\quad(a). Given the Lagrangian
+\begin{align}
+  \mathcal{L}=\frac{1}{2}(\partial_{\mu}\phi)^2-\frac{\lambda}{4!}\phi^4
+\end{align}
+and the definition of energy-momentum tensor
+\begin{align}
+  T^{\mu}_{\nu}\equiv\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\nu}\phi-\mathcal{L}\delta^{\mu}_{\nu}
+\end{align}
+Then we have
+\begin{align*}
+  T_{\mu\nu}=&\pdv{\mathcal{L}}{(\partial_{\mu'}\phi)}\partial_{\nu}\phi g_{\mu\mu'}-\mathcal{L}g_{\mu\nu}\\
+  =&\partial_{\mu}\phi\partial_{\nu}\phi-\frac{1}{2}\partial_{\mu}\phi\partial_{\nu}\phi+\frac{\lambda}{4!}\phi^4g_{\mu\nu}\\
+  =&\frac{1}{2}\partial_{\mu}\phi\partial_{\nu}\phi+\frac{\lambda}{4!}\phi^4g_{\mu\nu}
+\end{align*}
+
+
+
+
+\makebox{\phantom{\bf Additional}}\quad(b). Consider dilation transformation $\delta x^{\mu}=\alpha  x^{\mu}$, $\delta \phi=-\alpha\phi$, derive the Noether current $J_{\mu}^D$. If we add $\Delta\mathcal{L}=-\frac{1}{2}m^2\phi^2$, will this dilation symmatry still hold?
+
+According to Neother's theorem, we can derive conservation law from Lagrangian symmatry. We knew that given the least action principle and transformation relations, we have
+\begin{align}\label{deltaS}
+  \delta S=\int\dd^4x\partial_{\mu}[(\mathcal{L}g^{\mu}_{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)\delta x^{\rho}+\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\delta\phi]=0
+\end{align}
+which means
+\begin{align*}
+  \delta S=\id \partial_{\mu}[-T^{\mu}_{\rho}\delta x^{\rho}+\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\delta\phi]=0
+\end{align*}
+Then we have the corresponding current
+\begin{align*}
+  J^{\mu}=-T^{\mu}_{\rho}\delta x^{\rho}+\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\delta\phi=-T^{\mu}_{\rho}\delta x^{\rho}+\partial^{\mu}\phi\delta\phi
+\end{align*}
+By defining $j^{\mu}=-J^{\mu}/\alpha$, we have
+\begin{align*}
+  j^{\mu}=T^{\mu}_{\rho}x^{\rho}+\partial^{\mu}\phi\,\phi
+\end{align*}
+and (given $\partial_{\mu}T^{\mu}_{\rho}=0$)
+\begin{align*}
+  \partial_{\mu}j^{\mu}&=T^{\mu}_{\rho}\partial_{\mu}x^{\rho}+\phi\square\phi+\partial_{\mu}\phi\partial^{\mu}\phi\\
+  &=T^{\mu}_{\mu}+\phi\square\phi+\partial_{\mu}\phi\partial^{\mu}\phi
+\end{align*}
+From part (a), we know that
+\begin{align*}
+  T^{\mu}_{\mu}=(1-\frac{d}{2})\partial_{\mu}\phi\partial^{\mu}\phi+\frac{\lambda d}{4!}\phi^4
+\end{align*}
+where $d$ is the dimension of spacetime. From the equaton of motion, we know that
+\begin{align*}
+  \square\phi+\frac{\lambda}{3!}\phi^3=0
+\end{align*}
+Now (assuming it's a 4-d situation)
+\begin{align*}
+  \partial_{\mu}j^{\mu}=0
+\end{align*}
+
+If we add $\Delta\mathcal{L}=-\frac{1}{2}m^2\phi^2$, the Lagrangian becomes
+\begin{align}
+  \lag=\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}m^2\phi^2-\frac{\lambda}{4!}\phi^4
+\end{align}
+From our previous discussion, the energy-momentum tensor now should be
+\begin{align*}
+    T^{\mu}_{\mu}=(1-\frac{d}{2})\partial_{\mu}\phi\partial^{\mu}\phi+\frac{\lambda d}{4!}\phi^4+\frac{d}{2}m^2\phi^2
+\end{align*}
+Then (assuming it's 4-d again)
+\begin{align*}
+  \partial_{\mu}j^{\mu}&=(1-2)\partial_{\mu}\phi\partial^{\mu}\phi+\frac{4\lambda }{4!}\phi^4+2m^2\phi^2-\frac{\lambda}{3!}\phi^4+\partial_{\mu}\phi\partial^{\mu}\phi\\
+  &=2m^2\phi^2
+\end{align*}
+The current doesn't conserve so the symmatry won't hold.
+
+
+Another approach: Using the transformation relations given before, we have
+\begin{align*}
+  \delta S&=\int\dd^4x\partial_{\mu}[(\mathcal{L}g^{\mu}_{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)\alpha x^{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\alpha\phi]\\
+  &=\alpha\int\dd^4x\partial_{\mu}[(\mathcal{L}g^{\mu}_{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)x^{\rho}-\pdv{\mathcal{L}}{(\partial_{\mu}\phi)}\phi]\\
+  &=\alpha\int\dd^4x\partial_{\mu}[\frac{1}{2}\partial_{\mu'}\phi\partial^{\mu'}\phi  x^{\mu}-\frac{\lambda}{4!}\phi^4x^{\mu}-\partial^{\mu}\phi\partial_{\rho}\phi x^{\rho}-(\partial^{\mu}\phi)\phi]\\
+  &=0
+\end{align*}
+Then the integrand goes to zero
+\begin{align*}
+  \partial_{\mu}[\frac{1}{2}\partial_{\mu'}\phi\partial^{\mu'}\phi  x^{\mu}-\frac{\lambda}{4!}\phi^4x^{\mu}-\partial^{\mu}\phi\partial_{\rho}\phi x^{\rho}-(\partial^{\mu}\phi)\phi]=0
+\end{align*}
+where $J^{\mu}=\frac{1}{2}\partial_{\mu'}\phi\partial^{\mu'}\phi  x^{\mu}-\frac{\lambda}{4!}\phi^4x^{\mu}-\partial^{\mu}\phi\partial_{\rho}\phi x^{\rho}-(\partial^{\mu}\phi)\phi$ is exactly the Noether current we want.
+
+
+
+
+
+The derivation of formula \eqref{deltaS} :
+Consider a general transformation
+\begin{align*}
+  f(x)\rightarrow f'(x')
+\end{align*}
+and define
+\begin{align*}
+  \delta f\equiv f'(x')-f(x)=f'(x+\delta x^{\mu})-f(x)\cong f'(x)-f(x)+\delta x^{\mu}\partial_{\mu}f+\mathcal{O}(\delta x^2)
+\end{align*}
+and also define
+\begin{align*}
+  \delta_0 f=f'(x)-f(x)
+\end{align*}
+then
+\begin{align*}
+  \delta f=\delta_0 f+\delta x^{\mu}\partial_{\mu}f
+\end{align*}
+Now we deal with this problem from the least action principle first
+\begin{align*}
+  &\delta S=0\\
+  =&\id\delta\lag+\int\delta(\dd^4x)\lag
+\end{align*}
+And
+\begin{align*}
+  \delta\lag&=\delta_0\lag+\delta x^{\mu}\partial_{\mu}\lag\\
+  &=\pdv{\lag}{\phi}\delta_0\phi+\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0(\partial_{\mu}\phi)+\delta x^{\mu}\partial_{\mu}\lag\\
+  &=\delta x^{\mu}\partial_{\mu}\lag+(\pdv{\lag}{\phi}-\partial_{\mu}\pdv{\lag}{(\partial_{\mu}\phi)})\delta_0\phi+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0\phi)
+\end{align*}
+The other part
+\begin{align*}
+  \delta(\dd^4x)&=\pdv{\delta x^{\mu}}{x^{\mu}}\dd^4x=\partial_{\mu}(\delta x^{\mu})\lag
+\end{align*}
+which can be derived by
+\begin{align*}
+  \dd^4x'=\abs{\pdv{x'^{\mu}}{x^{\nu}}}\dd^4x=\abs{\pdv{(x^{\mu}+\delta x^{\mu})}{x^{\nu}}}\dd^4x=(1+\pdv{\delta x^{\mu}}{x^{\mu}})\dd^4x
+\end{align*}
+And the whole part of $\delta S$ becomes (applying Euler-Lagarange equation)
+\begin{align*}
+  \delta S&=\id \delta x^{\mu}\partial_{\mu}\lag+(\pdv{\lag}{\phi}-\partial_{\mu}\pdv{\lag}{(\partial_{\mu}\phi)})\delta_0\phi+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0\phi)+ \partial_{\mu}(\delta x^{\mu})\lag\\
+  &=\id \partial_{\mu}(\delta x^{\mu}\lag)+(\pdv{\lag}{\phi}-\partial_{\mu}\pdv{\lag}{(\partial_{\mu}\phi)})\delta_0\phi+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0\phi)\\
+  &=\id \partial_{\mu}(\delta x^{\mu}\lag)+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta_0\phi)
+\end{align*}
+Note that $\delta_0 \phi=\delta \phi-\delta x^{\mu}\partial_{\mu}\phi$, and
+\begin{align*}
+  \delta S&=\id \partial_{\mu}(\delta x^{\mu}\lag)+\partial_{\mu}(\pdv{\lag}{(\partial_{\mu}\phi)}\delta \phi-\pdv{\lag}{(\partial_{\mu}\phi)}\delta x^{\rho}\partial_{\rho}\phi)\\
+  &=\id \partial_{\mu}\{\delta x^{\mu}\lag+\pdv{\lag}{(\partial_{\mu}\phi)}\delta \phi-\pdv{\lag}{(\partial_{\mu}\phi)}\delta x^{\rho}\partial_{\rho}\phi\}\\
+  &=\id \partial_{\mu}\{(\lag g^{\mu}_{\rho}-\pdv{\lag}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)\delta x^{\rho}+\pdv{\lag}{(\partial_{\mu}\phi)}\delta \phi\}
+\end{align*}
+
+\end{document}

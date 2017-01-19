@@ -1,0 +1,170 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+%\usepackage{bm}
+\usepackage{extarrows}
+\usepackage{xeCJK}
+
+
+\title{Homework: General Relativity \#1}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+Longitude and latitude stand for geographic coordinates on the spherical surface (assuming earth is a perfect sphere).
+
+We set $\theta$ as longitude and $\phi$ as latitude (in the same hemisphere, otherwise a $\pi$ must be added).
+
+Then the distance would be
+\begin{align*}
+  \dd s^2=r^2(\dd\theta+\sin^2\theta\dd\phi^2)
+\end{align*}
+
+{\bf2.}\quad
+In 2-d Minkowski spacetime
+\begin{align*}
+  \dd s^2&=-c^2\dd t^2+\dd x^2\\
+  &=\pmqty{ic\dd t&\dd x}\pmqty{1&0\\0&1}\pmqty{ic\dd t\\\dd x}\\
+  &=\pmqty{c\dd t&\dd x}\pmqty{-1&0\\0&1}\pmqty{c\dd t\\\dd x}
+\end{align*}
+if $u=ct-x$, $v=ct+x$
+\begin{align*}
+  \dd s^2=-\dd u\dd v
+\end{align*}
+The new metric would be $-\frac{1}{2}\pmqty{0&1\\1&0}$.
+
+{\bf3.}\quad
+Review the 4-d form of special relativity:
+
+With the metric in Minkowski spacetime $\eta_{\mu\nu}=\pmqty{-1\\&1\\&&1\\&&&1}$ and the Lorentz transformation matrix $\Lambda$, we have $\Lambda^{\mu}{}_{\rho}\Lambda^{\nu}{}_{\sigma}\eta_{\mu\nu}=\eta_{\rho\sigma}$, which leads to $\abs{\det\Lambda}=1$.
+
+The Lorentz transformation contains 3 boosts and 3 rotations. (Here I won't write down their explicit form.) The transformation can be written as $x^{\mu}\rightarrow x'^{\mu}=\Lambda^{\mu}{}_{\nu}x^{\nu}$.
+
+{\bf4.}\quad
+The contraction of a tensor $A^{\alpha\mu}_{\beta}$: define $C^{\mu}:=A^{\alpha\mu}_{\alpha}$ or $D^{\alpha}:=A^{\alpha\mu}_{\mu}$, prove that $C^{\mu}$ or $D^{\alpha}$ is a tensor.
+
+\begin{align*}
+  &\tilde A^{\alpha\mu}_{\beta}=\pdv{\tilde x^{\alpha}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\nu}}\pdv{x^{\sigma}}{\tilde x^{\beta}}A^{\rho\nu}_{\sigma}\\\Longrightarrow&C^{\mu}:=\tilde A^{\alpha\mu}_{\alpha}=\pdv{\tilde x^{\alpha}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\nu}}\pdv{x^{\rho}}{\tilde x^{\alpha}}A^{\rho\nu}_{\rho}=\pdv{\tilde x^{\mu}}{x^{\nu}}C^{\nu}
+\end{align*}
+And we know that if $C^{\nu}$ is a tensor, it must obey the transformation law as follows
+$$\tilde C^{\mu}=\pdv{\tilde x ^{\mu}}{x^{\nu}}C^{\nu}$$
+which is exactly what we got from the contraction operation, so $C^{\mu}$ is a tensor. For $D^{\alpha}$, the prove is identical.
+
+{\bf5.}\quad
+Prove: $A^{\mu}(x)=B^{\mu}_{\alpha}(x)C^{\alpha}(x)$ for $\forall x$, if $A^{\mu}$ and $B^{\mu}_{\alpha}$ are tensors, then $C^{\alpha}$ is tensor as well.
+
+\begin{align*}
+  &\tilde A^{\mu}=\pdv{\tilde x^{\mu}}{x^{\nu}}A^{\nu}\\
+  &\tilde B^{\mu}_{\alpha}\tilde C^{\alpha}=\pdv{\tilde x^{\mu}}{x^{\nu}}\pdv{x^{\sigma}}{\tilde x^{\alpha}}B^{\nu}_{\sigma}\tilde C^{\alpha}\\
+  \Longrightarrow&\pdv{\tilde x^{\mu}}{x^{\nu}}A^{\nu}=\pdv{\tilde x^{\mu}}{x^{\nu}}\pdv{x^{\sigma}}{\tilde x^{\alpha}}B^{\nu}_{\sigma}\tilde C^{\alpha}\\
+  \intertext{From previous condition: }&\tilde C^{\alpha}=\pdv{\tilde x^{\alpha}}{x^{\sigma}}C^{\sigma}
+\end{align*}
+which is exactly the transformation law of a tensor, so $C^{\alpha}$ is a tensor.
+
+{\bf6.}\quad
+Translation: $B^{\lambda}(P\rightarrow Q)-B^{\lambda}(P)=-\Gamma^{\lambda}_{\mu\nu}(P)B^{\mu}(P)\dd x^{\nu}$. Verify the translation operation keeps the contravariant vector property.
+
+We know that
+$$\tilde\Gamma^{\tau}_{\mu\gamma}=\Gamma^{\rho}_{\alpha\sigma}\pdv{x^{\alpha}}{\tilde x^{\mu}}\pdv{x^{\sigma}}{\tilde x^{\gamma}}\pdv{\tilde x^{\tau}}{x^{\rho}}+\pdv{x^{\rho}}{\tilde x^{\mu}}{\tilde x^{\gamma}}\pdv{\tilde x^{\tau}}{x^{\rho}}$$
+Under a transformation, it becomes
+\begin{align*}
+  \tilde B^{\lambda}(P\rightarrow Q)&=\tilde B^{\lambda}(P)-\tilde\Gamma^{\lambda}_{\mu\nu}(P)\tilde B^{\mu}(P)\dd \tilde x^{\nu}\\
+  &=\pdv{\tilde x^{\lambda}}{x^{\rho}}B^{\rho}(P)-(\Gamma^{\rho}_{\alpha\sigma}\pdv{x^{\alpha}}{\tilde x^{\mu}}\pdv{x^{\sigma}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}}+\pdv{x^{\rho}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}})\pdv{\tilde x^{\mu}}{x^{\alpha}}B^{\alpha}(P)\pdv{\tilde x^{\nu}}{x^{\sigma}}\dd x^{\sigma}\\
+  &=\pdv{\tilde x^{\lambda}}{x^{\rho}}B^{\rho}(P)-\Gamma^{\rho}_{\alpha\sigma}\pdv{x^{\alpha}}{\tilde x^{\mu}}\pdv{x^{\sigma}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\alpha}}B^{\alpha}(P)\pdv{\tilde x^{\nu}}{x^{\sigma}}\dd x^{\sigma}-\pdv{x^{\rho}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\alpha}}B^{\alpha}(P)\pdv{\tilde x^{\nu}}{x^{\sigma}}\dd x^{\sigma}\\
+  &=\pdv{\tilde x^{\lambda}}{x^{\rho}}B^{\rho}(P)-\Gamma^{\rho}_{\alpha\sigma}\pdv{\tilde x^{\lambda}}{x^{\rho}}B^{\alpha}(P)\dd x^{\sigma}-\pdv{x^{\rho}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\alpha}}B^{\alpha}(P)\pdv{\tilde x^{\nu}}{x^{\sigma}}\dd x^{\sigma}
+\end{align*}
+
+If $\tilde B^{\lambda}(P\rightarrow Q)$ is a contravariant vector, it should transform as follows
+\begin{align*}
+  \tilde B^{\lambda}(P\rightarrow Q)&=(\pdv{\tilde x^{\lambda}}{x^{\rho}})_QB^{\rho}(P\rightarrow Q)\\
+  &\approx[(\pdv{\tilde x^{\lambda}}{x^{\rho}})_P+(\pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}})_P\dd x^{\alpha}](B^{\rho}(P)-\Gamma^{\rho}_{\alpha\sigma}(P)B^{\alpha}(P)\dd x^{\sigma})\\
+  &\approx(\pdv{\tilde x^{\lambda}}{x^{\rho}})_PB^{\rho}(P)-\Gamma^{\rho}_{\alpha\sigma}(P)(\pdv{\tilde x^{\lambda}}{x^{\rho}})_PB^{\alpha}(P)\dd x^{\sigma}+(\pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}})_PB^{\rho}(P)\dd x^{\alpha}
+\end{align*}
+
+We find the first two terms are exactly the same. Now to prove the translation operation keeps the contravariant vector property, we just need to figure out the last term. We can always change the pseudoindex
+\begin{align*}
+  &\pdv{x^{\rho}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\rho}}\pdv{\tilde x^{\mu}}{x^{\alpha}}B^{\alpha}(P)\pdv{\tilde x^{\nu}}{x^{\sigma}}\dd x^{\sigma}\\
+  =&\pdv{x^{\gamma}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\alpha}}B^{\rho}(P)\dd x^{\alpha}
+\end{align*}
+then we just need to prove
+$$-\pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}}=\pdv{x^{\gamma}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\alpha}}$$
+Thus
+\begin{align*}
+  \pdv{x^{\gamma}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\alpha}}B^{\rho}(P)\dd x^{\alpha}&=\pdv{\tilde x^{\nu}}(\pdv{x^{\gamma}}{\tilde x^{\mu}})\dd\tilde x^{\nu}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}B^{\rho}(P)\\
+  &=\dd(\pdv{x^{\gamma}}{\tilde x^{\mu}})\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}B^{\rho}(P)\\
+  &=[\dd(\pdv{x^{\gamma}}{\tilde x^{\mu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}})-\pdv{x^{\gamma}}{\tilde x^{\mu}}\dd(\pdv{\tilde x^{\lambda}}{x^{\gamma}})\pdv{\tilde x^{\mu}}{x^{\rho}}-\pdv{x^{\gamma}}{\tilde x^{\mu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\dd(\pdv{\tilde x^{\mu}}{x^{\rho}})]B^{\rho}(P)\\
+  &=[\dd(\pdv{\tilde x^{\lambda}}{x^{\rho}})-\dd(\pdv{\tilde x^{\lambda}}{x^{\rho}})-\dd(\pdv{\tilde x^{\lambda}}{x^{\rho}})]B^{\rho}(P)\\
+  &=-\dd(\pdv{\tilde x^{\lambda}}{x^{\rho}})B^{\rho}(P)\\
+  &=-\pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}}B^{\rho}(P)\dd x^{\alpha}
+\end{align*}
+%\begin{align*}
+%  \pdv{x^{\gamma}}{\tilde x^{\mu}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}}\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\sigma}}&=[\pdv{\tilde x^{\mu}}(\pdv{x^{\gamma}}{\tilde x^{\nu}}\pdv{\tilde x^{\lambda}}{x^{\gamma}})-\pdv{\tilde x^{\lambda}}{\tilde x^{\mu}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde x^{\nu}}]\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\sigma}}\\
+%  &=[\pdv{\tilde x^{\mu}}(\delta^{\lambda}_{\nu})-\pdv{\pdv{\tilde x^{\lambda}}{\tilde x^{\mu}}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde x^{\nu}}]\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\sigma}}\\
+%  &=-\pdv{\delta^{\lambda}_{\mu}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde x^{\nu}}\pdv{\tilde x^{\mu}}{x^{\rho}}\pdv{\tilde x^{\nu}}{x^{\sigma}}=0
+%\end{align*}
+%and
+%\begin{align*}
+%  \pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}}\pdv{\tilde x^{\alpha}}{x^{\sigma}}B^{\rho}&=\pdv{\tilde x^{\lambda}}{x^{\rho}}{x^{\alpha}}\pdv{\tilde x^{\alpha}}{x^{\sigma}}\pdv{x^{\rho}}{\tilde x^{\alpha}}\pdv{\tilde x^{\alpha}}{x^{\gamma}} B^{\gamma}
+%  \\&=[\pdv{x^{\alpha}}(\pdv{\tilde x^{\lambda}}{x^{\rho}}\pdv{x^{\rho}}{\tilde x^{\alpha}})-\pdv{ x^{\rho}}{x^{\alpha}}{\tilde x^{\alpha}}\pdv{\tilde x^{\lambda}}{x^{\rho}}]\pdv{\tilde x^{\alpha}}{x^{\sigma}}\pdv{\tilde x^{\alpha}}{x^{\gamma}}B^{\gamma}\\
+%  &=0
+%\end{align*}
+So we have proved that the last terms meet, which means $\tilde B^{\lambda}(P\rightarrow Q)$ is a contravariant vector, the contravariant property is intact during the translation process.
+
+
+{\bf7.}\quad
+In a 2-d spherical surface $(\theta,\phi)$, we have a metric
+$$\dd s^2=r^2(\dd \theta^2+\sin^2\theta\dd \phi^2)$$
+and the metric tensor
+$$g=\pmqty{r^2\\&r^2\sin^2\theta}$$
+The expression of Christoffel symbol is
+$$\Gamma^{\alpha}_{\mu\nu}=\frac{1}{2}g^{\alpha\lambda}(g_{\mu\lambda,\nu}+g_{\nu\lambda,\mu}-g_{\mu\nu,\lambda})$$
+We apply the metric tensor to it and have
+$$g_{\mu\lambda,\nu}=r^2\sin2\theta\delta_{\mu}^1\delta_{\lambda}^1\delta_{\nu}^1$$
+$$g_{\nu\lambda,\mu}=r^2\sin2\theta\delta_{\mu}^1\delta_{\lambda}^1\delta_{\nu}^1$$
+$$g_{\mu\nu,\lambda}=r^2\sin2\theta\delta_{\mu}^1\delta_{\lambda}^1\delta_{\nu}^1$$
+And
+\begin{align*}
+  \Gamma^{\alpha}_{\mu\nu}&=\frac{1}{2}g^{\alpha\lambda}(2r^2\sin2\theta\delta_{\mu}^1\delta_{\lambda}^1\delta_{\nu}^1)\\
+  &=\frac{1}{2}g^{\alpha1}r^2\sin2\theta\delta^1_{\mu}\delta^1_{\nu}\\
+  &=\frac{1}{2}r^4\sin2\theta\sin^2\theta\delta^1_{\mu}\delta^1_{\nu}\delta_1^{\alpha}
+\end{align*}
+
+
+
+
+{\bf8.}\quad
+Prove $R_{\mu\nu}=R_{\nu\mu}$.
+
+We know that $R_{\mu\nu}=R_{\mu\rho\nu}^{\rho}$, from Ricci identity, we have
+$$R_{\mu\rho\nu}^{\rho}+R_{\nu\mu\rho}^{\rho}+R_{\rho\nu\mu}^{\rho}=0$$
+And the antisymmetric characteristic of Riemann curvature tensor gives
+$$R_{\rho\nu\mu}^{\rho}=0$$
+So
+$$R_{\mu\rho\nu}^{\rho}+R_{\nu\mu\rho}^{\rho}=0$$
+From the antisymmetry we can also have
+$$R_{\nu\mu\rho}^{\rho}=-R_{\nu\rho\mu}^{\rho}$$
+So
+$$R_{\mu\rho\nu}^{\rho}=R_{\nu\rho\mu}^{\rho}$$
+That is
+$$R_{\mu\nu}=R_{\nu\mu}.$$
+
+
+
+
+
+\end{document}

@@ -1,0 +1,190 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+
+\geometry{left=1cm,right=1cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\ac}[1]{a_{\vb{#1}}}
+\newcommand{\ad}[1]{a_{\vb{#1}}^{\dagger}}
+\newcommand{\bc}[1]{b_{\vb{#1}}}
+\newcommand{\bd}[1]{b_{\vb{#1}}^{\dagger}}
+\newcommand{\omp}[1]{\omega_{\vb{#1}}}
+\newcommand{\intphead}[1]{\int\frac{\dd^3#1}{(2\pi)^3}}
+\newcommand{\del}[2]{\delta_{#1#2}}
+\newcommand{\id}{\int\dd^4x}
+\newcommand{\lag}{\mathcal{L}}
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\trh}{\Lambda_{\frac{1}{2}}}
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+
+
+
+
+\newcommand{\Tscr}{\mathscr{T}}
+\newcommand{\Cscr}{\mathscr{C}}
+
+
+\title{Homework: Quantum Field Theory \#6}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+{\bf1.}\quad
+Derive equal-time commutation relations $[A^i(x),\pi^j(y)]$ and $[A_{\mu}(x),A_{\nu}(y)]$.
+
+The quantized Proca field is
+$$A_{\mu}(x)=\int\frac{\dd^3 p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vbp}}}\sum_{\lambda}[a^{\la}_{\vbp}\epsilon^{\la}_{\mu}(p)e^{-ip\cdot x}+{a^{\la}_{\vbp}}^{\dagger}{\epsilon^{\la}_{\mu}}^*(p)e^{ip\cdot x}]$$
+where $\lambda$ can only be $1,2,3$. Thus
+$$\pi_{i}(x)=-\dot{A}_{i}-\partial_iA_0=i\int\frac{\dd^3 p}{(2\pi)^3}\sqrt{\frac{E_{\vbp}}{2}}\sum_{\lambda}[a^{\la}_{\vbp}\epsilon^{\la}_{i}(p)e^{-ip\cdot x}-{a^{\la}_{\vbp}}^{\dagger}{\epsilon^{\la}_{i}}^*(p)e^{ip\cdot x}]-i\int\frac{\dd^3 p}{(2\pi)^3}\frac{p_i}{\sqrt{2E_{\vbp}}}\sum_{\lambda}[a^{\la}_{\vbp}\epsilon^{\la}_{0}(p)e^{-ip\cdot x}-{a^{\la}_{\vbp}}^{\dagger}{\epsilon^{\la}_{0}}^*(p)e^{ip\cdot x}]$$
+And naturally
+\begin{align*}
+  [A^i(x),\pi^j(y)]&=i\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\sum_{\la,\la'}\Bigg\{\sqrt{\frac{E_{\vbk}}{4E_{\vbp}}}(-2)[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]\epsilon^{\la}_{i}(p){\epsilon^{\la'}_{j}}^*(k)e^{-ip\cdot x}e^{ik\cdot y}\\
+  &+\frac{k_j}{2\sqrt{E_{\vbp}E_{\vbk}}}[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]\epsilon^{\la}_{i}(p)e^{-ip\cdot x}{\epsilon_0^{\la'}}^*(k)e^{ik\cdot y}+\frac{k_j}{2\sqrt{E_{\vbp}E_{\vbk}}}[a^{\la'}_{\vbk},{a^{\la}_{\vbp}}^{\dagger}]\epsilon^{\la'}_{0}(k)e^{-ik\cdot y}{\epsilon_{i}^{\la}}^*(p)e^{ip\cdot x}\Bigg\}\\
+  \intertext{we have $[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]=(2\pi)^3\delta^3(\vbp-\vbk)\delta^{\la\la'}$ and $\sum_{\la}\epsilon_{\mu}^{\la}{\epsilon_{\nu}^{\la}}^*=-g_{\mu\nu}+\frac{p_{\mu}p_{\nu}}{m^2}$}
+  &=i\int\frac{\dd^3p}{(2\pi)^3}\sum_{\la}\Bqty{-\epsilon^{\la}_i(p){\epsilon^{\la}_j}^*(p)e^{-ip\cdot{(x-y)}}+\frac{p_j}{2E_{\vbp}}[\epsilon^{\la}_{i}(p){\epsilon^{\la}_0}^*(p)e^{-ip\cdot{(x-y)}}+\epsilon^{\la}_0(p){\epsilon^{\la}_{i}}^*(p)e^{ip\cdot{(x-y)}}]}\\
+  &=i\int\frac{\dd^3p}{(2\pi)^3}\Bqty{g_{ij}-\frac{p_ip_j}{m^2}+\frac{p_j}{2E_{\vbp}}[\delta_{i0}+\frac{p_ip_0}{m^2}-\delta_{i0}+\frac{p_ip_0}{m^2}]}e^{-ip\cdot(x-y)}\\
+  &=i\int\frac{\dd^3p}{(2\pi)^3}\Bqty{g_{ij}-\frac{p_ip_j}{m^2}[1-\frac{p_0}{E_{\vbp}}]}\\
+  &=-i\delta^{ij}\delta^3{(\vb{x-y})}
+\end{align*}
+
+Now
+\begin{align*}
+  [A_{\mu}(x),A_{\nu}(y)]&=\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{4E_{\vbp}E_{\vbk}}}\sum_{\la,\la'}\Bqty{[a^{\la}_{\vbp},{a^{\la'}_{\vbk}}^{\dagger}]\epsilon^{\la}_{\mu}(p)e^{-ip\cdot x}{\epsilon^{\la'}_{\nu}}^*(k)e^{ik\cdot y}-[a^{\la'}_{\vbk},{a^{\la}_{\vbp}}^{\dagger}]\epsilon^{\la'}_{\nu}(k)e^{-ik\cdot y}{\epsilon^{\la}_{\mu}}^*(k)e^{ip\cdot x}}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vbp}}\sum_{\la}\Bqty{\epsilon^{\la}_{\mu}(p){\epsilon^{\la}_{\nu}}^*(p)e^{-ip\cdot(x-y)}-\epsilon^{\la}_{\nu}(p){\epsilon^{\la}_{\mu}}^*(p)e^{ip\cdot{(x-y)}}}\\
+  &=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vbp}}\Bqty{(-g_{\mu\nu}+\frac{p_{\mu}p_{\nu}}{m^2})e^{-ip\cdot(x-y)}-(-g_{\nu\mu}+\frac{p_{\nu}p_{\mu}}{m^2})e^{ip\cdot{(x-y)}}}\\
+  \intertext{set $\Delta(x-y)=[\phi(x),\phi(y)]$}
+  &=[-g_{\mu\nu}-\frac{\partial_{\mu}\partial_{\nu}}{m^2}]\Delta(x-y)
+\end{align*}
+
+{\bf2.}\quad
+Prove $\displaystyle\theta(x)=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd s\frac{e^{-isx}}{s+i\epsilon}=\frac{1}{2\pi i}\int_{-\infty}^{\infty}\dd s\frac{e^{+isx}}{s-i\epsilon}$.
+
+The Heaviside step function
+$$\theta(x)=\begin{cases}
+  1,\;\;x>0\\
+  0,\;\;x<0
+\end{cases}$$
+Use contour integral (given $x>0$, the contour is closed below),
+\begin{align*}
+  \frac{i}{2\pi}\int_{-\infty}^{\infty}\dd s\frac{e^{-isx}}{s+i\epsilon}&=-\frac{i}{2\pi}2\pi ie^{-\epsilon x}=e^{-\epsilon x}=1
+\end{align*}
+and if  $x<0$, the contour is closed above and therefore equals to 0. Then we have the Heaviside step function.
+
+Similarly, we can perform the same analysis on the other representation.
+
+{\bf3.}\quad
+Calculate $\mel{0}{T\phi(x)\phi(y)}{0}$.
+
+From the definition of time-ordering operator, we have
+\begin{align*}
+  \mel{0}{T\phi(x)\phi(y)}{0}&=\mel{0}{\theta(x^0-y^0)\phi(x)\phi(y)+\theta(y^0-x^0)\phi(y)\phi(x)}{0}
+\end{align*}
+and we take a look at the first term
+\begin{align*}
+  \mel{0}{\theta(x^0-y^0)\phi(x)\phi(y)}{0}&=\mel{0}{\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}(a_{\vb{p}}e^{-ip\cdot x}+a_{\vb{p}}^{\dagger}e^{ip\cdot x})\int\frac{\dd^3q}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{q}}}}(a_{\vb{q}}e^{-iq\cdot y}+a_{\vb{q}}^{\dagger}e^{iq\cdot y})}{0}\\
+  &=\mel{0}{\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{\dd^3q}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\vb{p}}}}\frac{1}{\sqrt{2\omega_{\vb{q}}}}[a_{\vb{p}},a_{\vb{q}}^{\dagger}]e^{-ip\cdot x}e^{iq\cdot y}}{0}\\
+  \intertext{we knew that $[a_{\vb{p}},a_{\vb{q}}^{\dagger}]=(2\pi)^3\delta^3(\vb{p-q})$, so}
+  &=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2\omega_{\vb{p}}}e^{-ip\cdot (x-y)}\\
+  &=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}e^{-iE_{\vbp} (x^0-y^0)+i\vb{p\cdot(x-y)}}\\
+  &=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{1}{E_{\vb{p}}}\frac{e^{-i(p^0+E_{\vbp})(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{p^0+i\epsilon}\\
+  \intertext{make the new $p^0=(p^0+E_{\vbp})$}
+  &=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{e^{-ip^0(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{(E_{\vbp})(p^0-E_{\vbp}+i\epsilon)}
+  %\intertext{redefine $A$ and $B$ to compensate the coefficient and change the name of $A$ and $B$}
+  %&=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{e^{-ip^0(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{(p^0-E_{\vbp}-i\epsilon)(p^0+E_{\vbp}+i\epsilon)}\\
+  %&=\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dd^4p}{(2\pi)^4}\frac{i}{{p^0}^2-E_{\vbp}^2+i\epsilon}e^{-ip\cdot(x-y)}
+\end{align*}
+The next term is similar and then we have the whole propagator
+\begin{align*}
+  \mel{0}{T\phi(x)\phi(y)}{0}&=\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{e^{-ip^0(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{(E_{\vbp})(p^0-E_{\vbp}+i\epsilon)}-\frac{i}{2}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{e^{-ip^0(x^0-y^0)}e^{i\vb{p\cdot(x-y)}}}{(E_{\vbp})(p^0+E_{\vbp}+i\epsilon)}\\
+  & =\frac{i}{2E_{\vbp}}\int_{-\infty}^{\infty}\frac{\dd p^0\dd^3p}{(2\pi)^4}\frac{2E_{\vbp} e^{-ip\cdot{(x-y)}}}{{p^0}^2-E_{\vbp}^2+i\epsilon}\\
+  &=\int\frac{\dd^4p}{(2\pi)^4}\frac{i}{{p^0}^2-E_{\vbp}^2+i\epsilon} e^{-ip\cdot{(x-y)}}
+\end{align*}
+and now we have the Klein-Gordon propagator.
+%{{\bf Look at here.}\uparrow}
+
+
+{\bf4.}\quad
+Calculate $\mel{0}{T\psi_a(x)\bar\psi_b(x)}{0}$.
+
+From before, we knew that
+\begin{align*}
+  \mel{0}{T\psi_a(x)\bar\psi_b(x)}{0}=\mel{0}{\theta(x^0-y^0)\psi_a(x)\bar\psi_b(x)-\theta(x^0-y^0)\bar\psi_b(x)\psi_a(x)}{0}
+\end{align*}
+Like before we take a look at the first term
+\begin{align*}
+  \mel{0}{\theta(x^0-y^0)\psi_a(x)\bar\psi_b(x)}{0}&=\frac{i}{2\pi}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\intphead{p}\frac{1}{2E_{\vbp}}\sum_su^s_a(p)\bar u^s_b(p)e^{-ip\cdot(x-y)}\\
+  &=\frac{i}{2\pi}(i\pars_x+m)_{ab}\int_{-\infty}^{\infty}\dd p^0\frac{e^{-ip^0(x^0-y^0)}}{p^0+i\epsilon}\intphead{p}\frac{1}{2E_{\vbp}}e^{-ip\cdot(x-y)}\\
+  \intertext{so}
+  \mel{0}{T\psi_a(x)\bar\psi_b(x)}{0}&=(i\pars_x+m)_{ab}\mel{0}{\theta(x^0-y^0)\phi(x)\phi(y)}{0}+(i\pars_x+m)_{ab}\mel{0}{\theta(y^0-x^0)\phi(y)\phi(x)}{0}
+\end{align*}
+and similarly we can derive the propagator.
+
+{\bf5.}\quad
+$\ket{\phi}=c_0\ket{0}+c_1\ket{\phi_1}$
+
+    $\;\;\;\;\;\;\;\ket{\phi_1}=\int{\dd^3qf(\vb{q})[{a^3}^{\dagger}(\vb{q})-{a^0}^{\dagger}(\vb{q})]}\ket{0}$
+
+    Calculate $\mel{\phi}{A_{\mu}}{\phi}=\partial_{\mu}\Lambda(x)$.
+
+Given the commutation relation
+$$[a^{\la}(k),{a^{\la'}}^{\dagger}(p)]=-g^{\la\la'}(2\pi)^3\delta^3(\vb{k-p})$$
+and the field operator
+$$A_{\mu}(x)=\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2\abs{\vb{k}}}}\sum_{\la}(a^{\la}_{\vbk}\epsilon^{\la}_{\mu}(k)e^{-ik\cdot x}+{a^{\la}_{\vbk}}^{\dagger}{\epsilon^{\la}_{\mu}}^*(k)e^{ik\cdot x})$$
+we can see that only terms with the structure of $aa^{\dagger}$ are non-zero, $aaa^{\dagger}$ or $a$/$a^{\dagger}$ vanishes by applying simple commutation relations, and the rest can be annihilated straight forward.
+\begin{align*}
+  \mel{0}{A_{\mu}}{\phi_1}&=c_0c_1\int\frac{\dd^3k\dd^3q}{(2\pi)^3}f(\vb{q})\frac{1}{\sqrt{2\abs{\vb{k}}}}\mel{0}{a^0_{\vb{k}}{a^0_{\vb{q}}}^{\dagger}\epsilon^0_{\mu}(k)-a^3_{\vbk}{a^3_{\vb{q}}}^{\dagger}\epsilon^3_{\mu}(k)}{0}e^{-ik\cdot x}\\
+  &=-c_0c_1\int\frac{\dd^3k}{\sqrt{2\abs{\vb{k}}}}f(\vbk)\mel{0}{\epsilon^0_{\mu}(k)+\epsilon^3_{\mu}(k)}{0}e^{-ik\cdot x}\\
+  &=-c_0c_1\int\frac{\dd^3k}{\sqrt{2\abs{\vb{k}}}}f(\vbk)\mel{0}{n_{\mu}+\frac{k_{\mu}-(k\cdot n)n_{\mu}}{k\cdot n}}{0}e^{-ik\cdot x}\\
+  &=c_0c_1\int\frac{\dd^3k}{\sqrt{2\abs{\vb{k}}}}f(\vbk)\frac{k_{\mu}}{k\cdot n}e^{-ik\cdot x}\\
+  &=\partial_{\mu}\Bqty{c_0c_1\int\frac{\dd^3k}{\sqrt{2\abs{\vb{k}}}}f(\vbk)\frac{1}{k\cdot n}e^{-ik\cdot x}}
+\end{align*}
+and $\mel{\phi_1}{A_{\mu}}{0}$ is exactly the complex conjugate of $\mel{0}{A_{\mu}}{\phi_1}$.
+$$\therefore\Lambda=c_0c_1\int\frac{\dd^3k}{\sqrt{2\abs{\vb{k}}}}f(\vbk)\frac{1}{k\cdot n}(e^{-ik\cdot x}-e^{ik\cdot x})$$.
+
+
+\end{document}

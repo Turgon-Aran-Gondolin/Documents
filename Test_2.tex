@@ -1,0 +1,69 @@
+%!mode::"Tex:UTF-8"
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+
+\newcolumntype{M}{>{$\displaystyle}c<{$}}
+\newcolumntype{L}{>{$\displaystyle}l<{$}}
+
+\newcommand\Vtextvisiblespace[1][.3em]
+{%
+	\mbox{\kern.06em\vrule height.3ex}%
+	\vbox{\hrule width#1}%
+	\hbox{\vrule height.3ex}
+}
+
+\newcommand{\cbox}[2][cyan]
+{\mathchoice
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\displaystyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\textstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptstyle#2$}}
+	{\setlength{\fboxsep}{0pt}\colorbox{#1}{$\scriptscriptstyle#2$}}
+}
+
+\newcommand{\typical}{\cbox{\phantom{A}}}
+\newcommand{\tall}{\cbox{\phantom{A^{\vphantom{x^x}}_x}}}
+\newcommand{\grande}{\cbox{\phantom{\frac{1}{xx}}}}
+\newcommand{\venti}{\cbox{\phantom{\sum_x^x}}}
+%\linespread{1.2}
+%\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\author{hys}
+\title{Notes:Scattering Theory}
+\date{}
+\begin{document}
+\maketitle
+\paragraph{}
+In the previous study,scattering theory was not been introduced in detail.The textbook just briefly shows that the whole wavefunction,the formal solution of the Schrodinger equation can be described as following:
+\begin{equation}
+\psi\pqty{r,\theta}\thickapprox A\Bqty{e^{ikz}+f\pqty{\theta}\frac{e^{ikr}}{r}},
+\end{equation}
+and thus led to the scattering amplitude $f(\theta)$.In the interest of understanding the Lippmann-Schwinger equation,I choose to start from the very beginning of scattering theory.
+
+\section{Scattering as a time-dependent perturbation}
+
+\subsection{}
+\paragraph{}
+Given the Hamiltonian $H$'s form:
+$$
+H=H_0+V(\vb*{r}),
+$$
+where    $$H_0=\frac{\vb*{p^2}}{2m},$$
+if we consider $V(\vb*{r})$ as a perturbation,and we already know that $H_0$'s eigenvectors is the plane-wave solution,set as $\ket{\vb*{k}}$,the eigenvalue can be easily written as $$E_{\vb*{k}}=\frac{\hbar^2\vb*{k}^2}{2m}.$$
+\paragraph{}
+Assuming $V\pqty{\vb*{r}}$ is time-independent(from the incoming particle's view,the potential of the scatterer $V(\vb*{r})$ is only visible during the short period of the interaction,so it's logical to consider $V(\vb*{r})$ as a time-independent value),using the time-dependent perturbation theory,the transition amplitude therefore is:
+\begin{equation}\label{}
+  \bra{n}U_I(t,t0)\ket{i}.
+\end{equation}
+
+\end{document}
