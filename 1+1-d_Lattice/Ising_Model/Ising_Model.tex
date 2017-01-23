@@ -1,0 +1,78 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{extarrows}
+%\usepackage{xeCJK}
+\usepackage{luatexja-fontspec}
+
+%\setmainfont{TeXGyreTermes}
+%\setsansfont{TeXGyreHeros}
+
+%\newcommand{\b}{\beta}
+\newcommand{\s}{\sigma}
+
+\setmainjfont[BoldFont=FandolSong-Bold]{FandolSong-Regular}
+\setsansjfont{FandolSong-Bold}
+
+\hypersetup{unicode=true}
+
+
+\title{Ising Model \& Monte Carlo method}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+Ising Model:
+\begin{itemize}
+  \item Hamiltonian of the system:
+  \begin{align*}
+    H(\sigma)&\xlongequal{\phantom{h=0}}-J\sum_{\expval{ij}}\sigma_i\sigma_j-h\sum_{j}\sigma_j\\
+    &\xlongequal{h=0}-J\sum_{\expval{ij}}\sigma_i\sigma_j
+  \end{align*}
+  $h$ is the external magnetic field (for simplicity we now consider $h=0$), and $J>0$ which means it's ferromagnetic. (And it's reasonable to consider the lowest energy state is when the spins are all +1.)
+  \item Total Energy at configuration $\{\sigma_i\}$:
+  $$E_{\{\sigma_i\}}=-J\sum_{\expval{ij}}\sigma_i\sigma_j-h\sum_{j}\sigma_j$$
+  \item Spin state $\sigma_i$ is differed by
+  $$\sigma_i=\begin{cases}
+  +1\\-1
+  \end{cases}$$
+  \item Configuration probability:
+  $$P_{\beta}(\s)=\frac{e^{-\beta H(\s)}}{Z_{\beta}}$$
+  where $\beta=(k_BT)^{-1}$ and $Z_{\beta}$ is the partition function.
+  \item Partition function:
+  $$Z_{\beta}=\sum_{\sigma}e^{-\beta H(\sigma)}$$
+
+
+
+
+\end{itemize}
+Mento Carlo Method (Metropolis Method):
+\begin{itemize}
+  \item Given $L^d$ lattice point. (For instance $d=1$, which means 1-d Ising model.)
+
+  \begin{itemize}{(1)}
+    \item Give a initial state.
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+\end{document}
