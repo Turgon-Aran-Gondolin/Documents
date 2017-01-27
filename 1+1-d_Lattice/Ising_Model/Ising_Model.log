@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016/W32TeX)  (format=lualatex 2016.8.9)  21 JAN 2017 20:10
+This is LuaTeX, Version 0.95.0 (TeX Live 2016/W32TeX)  (format=lualatex 2016.8.9)  24 JAN 2017 23:59
  restricted system commands enabled.
  file:line:error style messages enabled.
 **Ising_Model.tex
@@ -1314,7 +1314,7 @@ Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'.
-luaotfload | main : initialization completed in 0.191 seconds) (c:/texlive/2016/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+luaotfload | main : initialization completed in 0.199 seconds) (c:/texlive/2016/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
  (c:/texlive/2016/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/texlive/2016/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks23
@@ -2009,7 +2009,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.69     \item G
-              ive a initial state.
+              ive a initial state, and calculate its energy.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2021,7 +2021,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.69     \item G
-              ive a initial state.
+              ive a initial state, and calculate its energy.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2033,7 +2033,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.69     \item G
-              ive a initial state.
+              ive a initial state, and calculate its energy.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2042,45 +2042,117 @@ LaTeX Font Info:    Font shape `JT3/FandolSong-Regular(0)/bx/n' will be
 LaTeX Font Info:    Font shape `JY3/FandolSong-Regular(0)/bx/n' will be
 (Font)              scaled to size 9.6222pt on input line 69.
 
-./Ising_Model.tex:70: LaTeX Error: Something's wrong--perhaps a missing \item.
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70   \end{itemize}
+l.71     \item
+             Calculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71     \item
+             Calculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71     \item
+             Calculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71     \item C
+              alculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71     \item C
+              alculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71     \item C
+              alculate the magnetic dipole and get the phase transition point.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./Ising_Model.tex:72: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72   \end{itemize}
                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
 [1
 
 {c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
  (./Ising_Model.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `Ising_Model.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 78.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
 )
 
 Here is how much of LuaTeX's memory you used:
  24706 strings out of 495119
  125200,552014 words of node,token memory allocated
- 8075 words of node memory still in use:
-   14 hlist, 2 vlist, 5 rule, 259 glue, 31 kern, 1 glyph, 2630 attribute, 48 glue_spec, 139 attribute_list, 1 write, 16 user_defined, 2 pdf_colorstack nodes
-   avail lists: 1:4,2:21033,3:102,4:191,5:167,6:1358,7:751,8:26,9:330,10:6,11:88
+ 9311 words of node memory still in use:
+   18 hlist, 2 vlist, 5 rule, 275 glue, 31 kern, 3 glyph, 3126 attribute, 48 glue_spec, 165 attribute_list, 1 write, 20 user_defined, 6 pdf_colorstack nodes
+   avail lists: 1:4,2:23253,3:104,4:193,5:175,6:1526,7:781,8:26,9:336,10:6,11:100
  27560 multiletter control sequences out of 65536+600000
  98 fonts using 26123191 bytes
  55i,17n,79p,1062b,338s stack positions out of 5000i,500n,10000p,200000b,100000s
 <c:/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Ising_Model.pdf (1 page, 80432 bytes).
+Output written on Ising_Model.pdf (1 page, 80592 bytes).
 
 PDF statistics: 66 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
