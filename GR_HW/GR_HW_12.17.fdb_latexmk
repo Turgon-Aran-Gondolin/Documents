@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1481992766 "GR_HW_12.17.tex" "GR_HW_12.17.pdf" "GR_HW_12.17" 1481992769
-  "GR_HW_12.17.aux" 1481992769 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "GR_HW_12.17.out" 1481992768 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "GR_HW_12.17.tex" 1481992763 11519 877413acae3d022004e296a719a99ef3 ""
+["pdflatex"] 1487475135 "GR_HW_12.17.tex" "GR_HW_12.17.pdf" "GR_HW_12.17" 1487475138
+  "GR_HW_12.17.aux" 1487475137 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "GR_HW_12.17.out" 1487475137 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "GR_HW_12.17.tex" 1484818548 11519 877413acae3d022004e296a719a99ef3 ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1470740150 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1470740150 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1470740150 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -130,7 +130,7 @@
   "c:/texlive/2016/texmf-dist/tex/lualatex/luatex-def/luatex.def" 1470746445 33895 4756ae0d0766b832e4c27dc7cffdb974 ""
   "c:/texlive/2016/texmf-var/web2c/luatex/lualatex.fmt" 1470754066 1200722 b06e818b333b2eaa1476f9abc3f48a65 ""
   (generated)
-  "GR_HW_12.17.aux"
   "GR_HW_12.17.log"
-  "GR_HW_12.17.pdf"
+  "GR_HW_12.17.aux"
   "GR_HW_12.17.out"
+  "GR_HW_12.17.pdf"

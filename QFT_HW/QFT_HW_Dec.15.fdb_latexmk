@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1485680157 "QFT_HW_Dec.15.tex" "QFT_HW_Dec.15.pdf" "QFT_HW_Dec.15" 1485680169
-  "QFT_HW_Dec.15.aux" 1485680168 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "QFT_HW_Dec.15.out" 1485680160 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "QFT_HW_Dec.15.tex" 1484818549 33506 9c2d0a73ba8ffff5263194ab27c1a49f ""
+["pdflatex"] 1487426409 "QFT_HW_Dec.15.tex" "QFT_HW_Dec.15.pdf" "QFT_HW_Dec.15" 1487426422
+  "QFT_HW_Dec.15.aux" 1487426421 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "QFT_HW_Dec.15.out" 1487426412 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "QFT_HW_Dec.15.tex" 1487426406 34645 0c0c72f3c6b8977ec9e4847dcea991fb ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1470740150 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1470740150 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1470740150 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -217,7 +217,7 @@
   "c:/texlive/2016/texmf-dist/tex/lualatex/luatex-def/luatex.def" 1470746445 33895 4756ae0d0766b832e4c27dc7cffdb974 ""
   "c:/texlive/2016/texmf-var/web2c/luatex/lualatex.fmt" 1470754066 1200722 b06e818b333b2eaa1476f9abc3f48a65 ""
   (generated)
-  "QFT_HW_Dec.15.out"
-  "QFT_HW_Dec.15.log"
-  "QFT_HW_Dec.15.aux"
   "QFT_HW_Dec.15.pdf"
+  "QFT_HW_Dec.15.out"
+  "QFT_HW_Dec.15.aux"
+  "QFT_HW_Dec.15.log"

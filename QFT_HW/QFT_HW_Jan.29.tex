@@ -32,35 +32,120 @@
 
 \geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
 
-\newcommand{\gm}{\gamma^{\mu}}
-\newcommand{\gn}{\gamma^{\nu}}
-\newcommand{\gs}{\gamma^{\sigma}}
-\newcommand{\gr}{\gamma^{\rho}}
-\newcommand{\gnr}{g^{\nu\rho}}
-\newcommand{\gmr}{g^{\mu\rho}}
-\newcommand{\gms}{g^{\mu\sigma}}
-\newcommand{\gns}{g^{\nu\sigma}}
-\newcommand{\vbp}{\vb{p}}
-\newcommand{\vbk}{\vb{k}}
-\newcommand{\g}{\gamma}
-\renewcommand{\a}{\alpha}
-\renewcommand{\b}{\beta}
-\renewcommand{\t}{\theta}
-\newcommand{\la}{\lambda}
-\newcommand{\p}{\phi}
-\newcommand{\vp}{\varphi}
-\newcommand{\s}{\sigma}
-\renewcommand{\G}{\Gamma}
-\newcommand{\pars}{\slashed\partial}
-\newcommand{\ps}{\slashed p}
+\newcommand{\gm}{\gamma^{\mu}} \newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}} \newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}} \newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}} \newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}} \newcommand{\vbk}{\vb{k}} \newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha} \renewcommand{\b}{\beta} \renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda} \newcommand{\p}{\phi} \newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma} \renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial} \newcommand{\ps}{\slashed p}
 \newcommand{\ks}{\slashed k}
+\renewcommand{\G}{\Gamma}
+\newcommand{\GammaVertex}[2]{\g^{#1} F_1(q^2)+\frac{i\s^{#1 #2}q_{#2}}{2m}F_2(q^2)}
 
 \title{Homework: Quantum Field Theory \#9}
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
-{\bf1.}\quad
+{\bf6.1.}\quad
+Rosenbluth Formula.
 
+The QED vertex:
+\begin{align*}
+  \feynmandiagram[horizontal=a to b,baseline=(a.base),medium]{
+  i1 --[fermion,momentum=p] a[blob] --[fermion,momentum=p'] i2,
+  a --[photon] b ,
+  };
+  =\bar u(p')\bqty{\GammaVertex{\mu}{\nu}}u(p)
+\end{align*}
+where $q=p'-p$ and $\s^{\mu\nu}=\frac{i}{2}[\gm,\gn]$. Consider the fermions strongly interacting ones (such as protons), the form factor reflects the structure of strong interaction and therefore can only be determined by experiment. Consider a electron ($E\ll m_e$) scattering from a proton initially at rest. Show that this leads to the Rosenbluth formula
+$$\dv{\s}{\cos\theta}=\frac{\pi\a^2\bqty{(F_1^2-\frac{q^2}{4m^2}F_2^2)cos^2\frac{\theta}{2}-\frac{q^2}{2m^2}(F_1+F_2)^2\sin^2\frac{\theta}{2}}}{2E^2\bqty{1+\frac{2E}{m}\sin^2\frac{\theta}{2}}\sin^4\frac{\theta}{2}}$$
+for elastic scattering cross section, computed to leading order in $\a$.
 
+The whole diagram
+$$\feynmandiagram[horizontal=a to b,baseline=(a.base)]{
+i1 --[anti fermion,rmomentum=p'] a[blob] --[anti fermion,rmomentum=p] i2,
+a --[photon,momentum=q] b ,
+f1 --[anti fermion,rmomentum=k'] b -- [anti fermion,rmomentum=k] f2,
+};=\bar u_p(p')(-ie\G^{\mu}) u_p(p)\frac{-i}{q^2}\bar u_e(k')(-ie\g_{\mu})u_e(k)$$
+Use spin sum
+\begin{align*}
+  \frac{1}{4}\sum_{spins}\abs{\mathcal{M}}^2&=\frac{e^4}{4q^4}\sum_{spins}\Bqty{\bar u_p(p')\G^{\mu} u_p(p)\bar u_e(k')\g_{\mu}u_e(k)[\bar u_p(p')\G^{\nu} u_p(p)\bar u_e(k')\g_{\nu}u_e(k)]^{\dagger}}
+\end{align*}
+while
+\begin{align*}
+  \sum_{spins}\bar u_e(k')\g_{\mu}u_e(k)[\bar u_e(k')\g_{\nu}u_e(k)]^{\dagger}&=\sum_{spins}\bar u_e(k')\g_{\mu}\bar u_e(k)[ u_e(k)\g_{\nu}u_e(k')]\\
+  &=\sum_{spins}\tr{u_e(k')\bar u_e(k')\g_{\mu}u_e(k)\bar u_e(k)\g_{\nu}}\\
+  &=\tr{(\ks'+m_e)\g_{\mu}(\ks+m_e)\g_{\nu}}
+\end{align*}
+and
+\begin{align*}
+  &\sum_{spins}\bar u_p(p')\G^{\mu} u_p(p)\bar u_p(p')\G^{\nu} u_p(p)
+  \\=&\sum_{spins}\bar u_p(p')\Bqty{\GammaVertex{\mu}{\rho}}u_p(p)\bar u_p(p)\Bqty{\g^{\nu} F_1(q^2)-\frac{i\s^{\nu\s}q_{\s}}{2m}F_2(q^2)} u_p(p')\\
+  =&\tr{(\ps'+m)\gm(\ps+m)\gn}F_1^2+(\tr{(\ps'+m)\s^{\mu\rho}(\ps+m)\gn}-\tr{(\ps'+m)\gm(\ps+m)\s^{\nu\rho}})\frac{iq_{\rho}}{2m}F_1F_2\\&+\tr{(\ps'+m)\frac{\s^{\mu\rho}q_{\rho}}{2m}(\ps+m)\frac{\s^{\nu\s}q_{\s}}{2m}}F_2^2
+\end{align*}
+(Still need to prove $[\bar u(p')\s^{\mu\nu}u(p)]^{\dagger}=\bar u(p)\s^{\mu\nu}u(p')$, which only requires $[\bar u(p')\gm\gn u(p)]^{\dagger}=\bar u(p)\gm\gn u(p')$, so
+\begin{align*}
+  [\bar u(p')\gm\gn u(p)]^{\dagger}=(u(p))^{\dagger}\gn^{\dagger}\gm^{\dagger}{\g^0}^{\dagger}u(p')=(u(p))^{\dagger}\gn^{\dagger}\g^0\gm u(p')=(u(p))^{\dagger}\g^0\gn\gm u(p')=\bar u(p)\gn\gm u(p')
+\end{align*}
+note that there's a extra minus sign.)
 
+Now we calculate the traces term by term.
+\begin{align*}
+  \tr{(\ks'+m_e)\g_{\mu}(\ks+m_e)\g_{\nu}}&=4(k'_{\mu}k_{\nu}+k_{\mu}k'_{\nu}-k'\cdot kg_{\mu\nu})+4m_e^2g_{\mu\nu}\\\text{$m_e$ is small comparing to $m$ so we ignore it: }&=4(k'_{\mu}k_{\nu}+k_{\mu}k'_{\nu}-k'\cdot kg_{\mu\nu})
+\end{align*}
+\begin{align*}
+  \tr{(\ps'+m)\gm(\ps+m)\gn}=4(p'^{\mu}p^{\nu}+p^{\mu}p'^{\nu}-p'\cdot pg^{\mu\nu})+4m^2g^{\mu\nu}
+\end{align*}
+\begin{align*}
+  \tr{(\ps'+m)\gm\gr(\ps+m)\gn}=4m(p'^{\mu}g^{\rho\nu}+p'^{\nu}g^{\rho\mu}-p'^{\rho}g^{\mu\nu})+4m(p^{\nu}g^{\mu\rho}+p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu})
+\end{align*}
+\begin{align*}
+  \tr{(\ps'+m)\s^{\mu\rho}(\ps+m)\gn}&=\frac{i}{2}4m\{\bqty{p'^{\mu}g^{\rho\nu}+p'^{\nu}g^{\rho\mu}-p'^{\rho}g^{\mu\nu}+p^{\nu}g^{\mu\rho}+p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu}}\\&-\bqty{p'^{\rho}g^{\mu\nu}+p'^{\nu}g^{\mu\rho}-p'^{\mu}g^{\rho\nu}+p^{\nu}g^{\rho\mu}+p^{\mu}g^{\rho\nu}-p^{\rho}g^{\mu\nu}}\}\\
+  &=4m\frac{i}{2}\{2p'^{\mu}g^{\rho\nu}-2p'^{\rho}g^{\mu\nu}+2p^{\rho}g^{\mu\nu}-2p^{\mu}g^{\rho\nu}\}\\
+  &=4mi\{p'^{\mu}g^{\rho\nu}-p'^{\rho}g^{\mu\nu}+p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu}\}
+\end{align*}
+\begin{align*}
+  &\tr{(\ps'+m)\s^{\mu\rho}(\ps+m)\gn}-\tr{(\ps'+m)\gm(\ps+m)\s^{\nu\rho}}\\=&\tr{(\ps'+m)\s^{\mu\rho}(\ps+m)\gn}-\tr{(\ps+m)\s^{\nu\rho}(\ps'+m)\gm}\\
+  =&4mi\{[p'^{\mu}g^{\rho\nu}-p'^{\rho}g^{\mu\nu}+p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu}]-[p^{\nu}g^{\rho\mu}-p^{\rho}g^{\mu\nu}+p'^{\rho}g^{\mu\nu}-p'^{\nu}g^{\rho\mu}]\}\\
+  =&4mi\{p'^{\mu}g^{\rho\nu}-2p'^{\rho}g^{\mu\nu}+2p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu}-p^{\nu}g^{\rho\mu}+p'^{\nu}g^{\rho\mu}\}
+\end{align*}
+\begin{align*}
+  \tr{(\ps'+m)\frac{\s^{\mu\rho}q_{\rho}}{2m}(\ps+m)\frac{\s^{\nu\s}q_{\s}}{2m}}&=-4(p'^{\mu}p^{\nu}g^{{\rho}{\s}}-p'^{\mu}p^{\s}g^{{\rho}{\nu}}+p'^{\rho}p^{\s}g^{{\mu}{\nu}}-p'^{\rho}p^{\nu}g^{{\mu}{\s}}+p'\cdot pg^{{\mu}{\s}}g^{{\rho}{\nu}}-p'\cdot pg^{{\mu}{\nu}}g^{{\rho}{\s}}+p'^{\nu}p^{\mu}g^{{\rho}{\s}}\\
+  &-p'^{\nu}p^{\rho}g^{{\mu}{\s}}+p'^{\s}p^{\rho}g^{{\mu}{\nu}}-p'^{\s}p^{\mu}g^{{\rho}{\nu}})\frac{q_{\rho}}{2m}\frac{q_{\s}}{2m}+4m^2(g^{\mu\nu}g^{\rho\s}-g^{\rho\nu}g^{\mu\s})\frac{q_{\rho}}{2m}\frac{q_{\s}}{2m}\\
+  &=-\frac{1}{m^2}(p'^{\mu}p^{\nu}q^2-p'^{\mu}(p\cdot q)q^{\nu}+(p'\cdot q)(p\cdot q)g^{{\mu}{\nu}}-(p'\cdot q)p^{\nu}q^{\mu}+(p'\cdot p)q^{\mu}q^{\nu}-(p'\cdot p)g^{{\mu}{\nu}}q^2\\&+p'^{\nu}p^{\mu}q^2-p'^{\nu}(p\cdot q)q^{\mu}+(p'\cdot q)(p\cdot q)g^{{\mu}{\nu}}-(p'\cdot q)p^{\mu}q^{\nu})+(g^{\mu\nu}q^2-q^{\nu}q^{\mu})\\
+  &=-\frac{1}{m^2}(p'^{\mu}p^{\nu}q^2-p'^{\mu}(p\cdot q)q^{\nu}+2(p'\cdot q)(p\cdot q)g^{{\mu}{\nu}}-(p'\cdot q)p^{\nu}q^{\mu}+(p'\cdot p)q^{\mu}q^{\nu}-(p'\cdot p)g^{{\mu}{\nu}}q^2\\&+p'^{\nu}p^{\mu}q^2-p'^{\nu}(p\cdot q)q^{\mu}-(p'\cdot q)p^{\mu}q^{\nu})+(g^{\mu\nu}q^2-q^{\nu}q^{\mu})
+\end{align*}
+(Trace of six gamma matrices: (the Latin letters are just for convienece)
+\begin{align*}
+  \tr{\g^a\g^b\g^c\g^d\g^e\g^f}&=2g^{ab}\tr{\g^c\g^d\g^e\g^f}-2g^{ac}\tr{\g^b\g^d\g^e\g^f}+2g^{ad}\tr{\g^b\g^c\g^e\g^f}\\&-2g^{ae}\tr{\g^b\g^c\g^d\g^f}+2g^{af}\tr{\g^b\g^c\g^d\g^e}-\tr{\g^a\g^b\g^c\g^d\g^e\g^f}\\
+  &=4\{g^{ab}(g^{cd}g^{ef}-g^{ce}g^{df}+g^{cf}g^{de})-g^{ac}(g^{bd}g^{ef}-g^{be}g^{df}+g^{bf}g^{de})+g^{ad}(g^{bc}g^{ef}-g^{be}g^{cf}+g^{bf}g^{ce})\\&-g^{ae}(g^{bc}g^{df}-g^{bd}g^{cf}+g^{bf}g^{cd})+g^{af}(g^{bc}g^{de}-g^{bd}g^{ce}+g^{be}g^{cd})\}
+\end{align*}
+and what we need is $a$ and $d$ to contract with momentum and $b,c$ \& $e,f$ reversed and cancelled, so
+\begin{align*}
+  \frac{1}{4}\tr{\ps'[\g^b,\g^c]\ps[\g^e,\g^f]}
+  &=p'_ap_d\{[g^{ab}(g^{cd}g^{ef}-g^{ce}g^{df}+g^{cf}g^{de})-g^{ac}(g^{bd}g^{ef}-g^{be}g^{df}+g^{bf}g^{de})+g^{ad}(g^{bc}g^{ef}-g^{be}g^{cf}+g^{bf}g^{ce})\\&-g^{ae}(g^{bc}g^{df}-g^{bd}g^{cf}+g^{bf}g^{cd})+g^{af}(g^{bc}g^{de}-g^{bd}g^{ce}+g^{be}g^{cd})]\\
+  &+[-g^{ac}(g^{bd}g^{ef}-g^{be}g^{df}+g^{bf}g^{de})+g^{ab}(g^{cd}g^{ef}-g^{ce}g^{df}+g^{cf}g^{de})-g^{ad}(g^{cb}g^{ef}-g^{ce}g^{bf}+g^{cf}g^{be})\\&+g^{ae}(g^{cb}g^{df}-g^{cd}g^{bf}+g^{cf}g^{bd})-g^{af}(g^{cb}g^{de}-g^{cd}g^{be}+g^{ce}g^{bd})]\\
+  &+[-g^{ab}(g^{cd}g^{fe}-g^{cf}g^{de}+g^{ce}g^{df})+g^{ac}(g^{bd}g^{fe}-g^{bf}g^{de}+g^{be}g^{df})-g^{ad}(g^{bc}g^{fe}-g^{bf}g^{ce}+g^{be}g^{cf})\\&+g^{af}(g^{bc}g^{de}-g^{bd}g^{ce}+g^{be}g^{cd})-g^{ae}(g^{bc}g^{df}-g^{bd}g^{cf}+g^{bf}g^{cd})]\\
+  &+[g^{ac}(g^{bd}g^{fe}-g^{bf}g^{de}+g^{be}g^{df})-g^{ab}(g^{cd}g^{fe}-g^{cf}g^{de}+g^{ce}g^{df})+g^{ad}(g^{cb}g^{fe}-g^{cf}g^{be}+g^{ce}g^{bf})\\&-g^{af}(g^{cb}g^{de}-g^{cd}g^{be}+g^{ce}g^{bd})+g^{ae}(g^{cb}g^{df}-g^{cd}g^{bf}+g^{cf}g^{bd})]\}\\
+  &=p'_ap_d\{4g^{ab}g^{cf}g^{de}-4g^{ab}g^{ce}g^{df}+4g^{ac}g^{be}g^{df}-4g^{ac}g^{bf}g^{de}+4g^{ad}g^{bf}g^{ce}-4g^{ad}g^{be}g^{cf}\\&+4g^{ae}g^{bd}g^{cf}-4g^{ae}g^{bf}g^{cd}+4g^{af}g^{be}g^{cd}-4g^{af}g^{bd}g^{ce}\}\\
+  &=4(p'^bp^eg^{cf}-p'^bp^fg^{ce}+p'^cp^fg^{be}-p'^cp^eg^{bf}+p'\cdot pg^{bf}g^{ce}-p'\cdot pg^{be}g^{cf}+p'^ep^bg^{cf}\\&-p'^ep^cg^{bf}+p'^fp^cg^{be}-p'^fp^bg^{ce})
+\end{align*}
+Trace of two sigma bilinear:
+\begin{align*}
+  \tr{\s^{\mu\rho}\s^{\nu\s}}&=-\frac{1}{4}\{\tr{\gm\gr\gn\gs}-\tr{\gr\gm\gn\gs}-\tr{\gm\gr\gs\gn}+\tr{\gr\gm\gs\gn}\}\\
+  &=-\{(g^{\mu\rho}g^{\nu\s}-g^{\mu\nu}g^{\rho\s}+g^{\mu\s}g^{\rho\nu})-(g^{\mu\rho}g^{\nu\s}-g^{\rho\nu}g^{\mu\s}+g^{\rho\s}g^{\mu\nu})-(g^{\mu\rho}g^{\nu\s}-g^{\mu\s}g^{\rho\nu}+g^{\mu\nu}g^{\rho\s})\\&+(g^{\mu\rho}g^{\nu\s}-g^{\rho\s}g^{\mu\nu}+g^{\rho\nu}g^{\mu\s})\}\\
+  &=4(g^{\mu\nu}g^{\rho\s}-g^{\rho\nu}g^{\mu\s})
+\end{align*}
+)
+
+The invariant amplitude
+\begin{align*}
+  \frac{1}{4}\sum_{spins}\abs{\mathcal{M}}^2&=\frac{e^4}{q^4}(k'_{\mu}k_{\nu}+k_{\mu}k'_{\nu}-k'\cdot kg_{\mu\nu})\Big\{(p'^{\mu}p^{\nu}+p^{\mu}p'^{\nu}-p'\cdot pg^{\mu\nu}+m^2g^{\mu\nu})F_1^2\\
+  &-m(p'^{\mu}g^{\rho\nu}-2p'^{\rho}g^{\mu\nu}+2p^{\rho}g^{\mu\nu}-p^{\mu}g^{\rho\nu}-p^{\nu}g^{\rho\mu}+p'^{\nu}g^{\rho\mu})\frac{q_{\rho}}{2m}F_1F_2\\&+[-\frac{1}{m^2}(p'^{\mu}p^{\nu}q^2-p'^{\mu}(p\cdot q)q^{\nu}+2(p'\cdot q)(p\cdot q)g^{{\mu}{\nu}}-(p'\cdot q)p^{\nu}q^{\mu}+(p'\cdot p)q^{\mu}q^{\nu}-(p'\cdot p)g^{{\mu}{\nu}}q^2\\&+p'^{\nu}p^{\mu}q^2-p'^{\nu}(p\cdot q)q^{\mu}-(p'\cdot q)p^{\mu}q^{\nu})+(g^{\mu\nu}q^2-q^{\nu}q^{\mu})]F_2^2\Big\}\\
+  &=\frac{e^4}{q^4}\Big\{ [(k'\cdot p')(k\cdot p)+(k'\cdot p)(k\cdot p')-(p'\cdot p)(k'\cdot k)+m^2(k'\cdot k)+(k\cdot p')(k'\cdot p)+(k\cdot p)(k'\cdot p')-(p\cdot p')(k\cdot k')\\&+m^2(k\cdot k')-2(k\cdot k')(p\cdot p')+4(k\cdot k')(p\cdot p')-4m^2(k\cdot k')]F_1^2-   \Big\}\\
+  &=\frac{e^4}{q^4}\Big\{ [2(k'\cdot p')(k\cdot p)+2(k'\cdot p)(k\cdot p')-2m^2(k'\cdot k)]F_1^2-   \Big\}
+\end{align*}
 \end{document}

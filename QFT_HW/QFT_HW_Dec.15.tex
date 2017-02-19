@@ -66,7 +66,8 @@ Yukawa theory.
   \item $e^+e^-\rightarrow\mu^+\mu^-$. $H_I=\int\dd^3x[g_1\bar\psi_e\psi_e\phi+g_2\bar\psi_{\mu}\psi_{\mu}\phi]$, derive the $\mathcal{M}$ of the lowest order, calculate $\sum_{spins}\abs{\mathcal{M}}^2$ ,$\dv{\s}{\Omega}$ and $\s$.
   \begin{align*}
     iT&=\mel{kk'}{Te^{-i\Bqty{g_1\int\dd^4x\bar\psi_e\psi_e\phi+g_2\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi}}}{pp'}\\
-    &=\contraction[2.5ex]{}{\bra{k}}{k' g_2\int\dd^4x\bar\psi_{\mu}}{\psi_{\mu}}\contraction[1.5ex]{k}{\bra{k'}}{g_1\int\dd^4x}{\psi_{\mu}}\contraction[1.5ex]{\bra{kk'} g_2\int\dd^4x\bar\psi_{\mu}\psi_{\mu}}{\phi}{g_2\int\dd^4y\bar\psi_{e}\psi_{e}}{\phi}\contraction[2.5ex]{\bra{kk'} g_1\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_2\int\dd^4y}{\bar\psi}{_{e}\psi_{e}\phi p}{\ket{p'}}\contraction[3.5ex]{\bra{kk'} g_1\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_2\int\dd^4y\bar\psi_{e}}{\psi}{_{e}\phi}{\ket{p}}\bra{kk'} g_2\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_1\int\dd^4y\bar\psi_{e}\psi_{e}\phi \ket{pp'}\\
+    &=\contraction[2.5ex]{}{\bra{k}}{k' g_2\int\dd^4x\bar\psi_{\mu}}{\psi_{\mu}}\contraction[1.5ex]{k}{\bra{k'}}{g_1\int\dd^4x}{\psi_{\mu}}\contraction[1.5ex]{\bra{kk'}
+    g_2\int\dd^4x\bar\psi_{\mu}\psi_{\mu}}{\phi}{g_2\int\dd^4y\bar\psi_{e}\psi_{e}}{\phi}\contraction[2.5ex]{\bra{kk'} g_1\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_2\int\dd^4y}{\bar\psi}{_{e}\psi_{e}\phi p}{\ket{p'}}\contraction[3.5ex]{\bra{kk'} g_1\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_2\int\dd^4y\bar\psi_{e}}{\psi}{_{e}\phi}{\ket{p}}\bra{kk'} g_2\int\dd^4x\bar\psi_{\mu}\psi_{\mu}\phi  g_1\int\dd^4y\bar\psi_{e}\psi_{e}\phi \ket{pp'}\\
     &=g_1g_2\int\dd^4x\dd^4y\bar u_{\mu}^se^{ik\cdot x}v^{s'}_{\mu}e^{ik'\cdot x}\int\frac{\dd^4q}{(2\pi)^4}\frac{i}{q^2-m^2}e^{-iq\cdot(x-y)}\bar v^re^{-ip'\cdot y}u^{r'}e^{-ip\cdot y}\\
     &=g_1g_2\bar u_{\mu}^sv^{s'}_{\mu}\int\frac{\dd^4q}{(2\pi)^4}\frac{i}{q^2-m^2}\bar v^ru^{r'}(2\pi)^4\delta^4(k+k'-q)(2\pi)^4\delta^4(q-p-p')\\
     &=\bar u^s(k)g_2v^{s'}(k')\frac{i}{(p+p')^2-m^2}\bar v^r(p')g_1u^{r'}(p)(2\pi)^4\delta^4(p+p'-k-k')
@@ -178,7 +179,8 @@ Trace technology.
   \end{align*}
   \item $\tr{\g^5\gm\gn\gr\gs}$
 
-  For a proof of identity 6, the same trick still works unless $ {\displaystyle (\mu \nu \rho \sigma )\,}$ is some permutation of (0123), so that all 4 gammas appear. The anticommutation rules imply that interchanging two of the indices changes the sign of the trace, so $ {\displaystyle \operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma }\gamma ^{5})\,}$ must be proportional to ${\displaystyle \epsilon ^{\mu \nu \rho \sigma }\,}$$ {\displaystyle (\epsilon ^{0123}=\eta ^{0\mu }\eta ^{1\nu }\eta ^{2\rho }\eta ^{3\sigma }\epsilon _{\mu \nu \rho \sigma }=\eta ^{00}\eta ^{11}\eta ^{22}\eta ^{33}\epsilon _{0123}=-1)\,}$. The proportionality constant is ${\displaystyle 4i\,}$, as can be checked by plugging in $ {\displaystyle (\mu \nu \rho \sigma )=(0123)\,} $, writing out $ {\displaystyle \gamma ^{5}\,}$, and remembering that the trace of the identity is 4.
+  For a proof of identity 6, the same trick still works unless $ {\displaystyle (\mu \nu \rho \sigma )\,}$ is some permutation of (0123), so that all 4 gammas appear. The anticommutation rules imply that interchanging two of the indices changes the sign of the trace, so $ {\displaystyle \operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma }\gamma ^{5})\,}$ must be proportional to ${\displaystyle \epsilon ^{\mu \nu \rho \sigma }\,}$
+  $ {\displaystyle (\epsilon ^{0123}=\eta ^{0\mu }\eta ^{1\nu }\eta ^{2\rho }\eta ^{3\sigma }\epsilon _{\mu \nu \rho \sigma }=\eta ^{00}\eta ^{11}\eta ^{22}\eta ^{33}\epsilon _{0123}=-1)\,}$. The proportionality constant is ${\displaystyle 4i\,}$, as can be checked by plugging in $ {\displaystyle (\mu \nu \rho \sigma )=(0123)\,} $, writing out $ {\displaystyle \gamma ^{5}\,}$, and remembering that the trace of the identity is 4.
   %\begin{align*}
   %  \tr{\g^5\gm\gn\gr\gs}&=2g^{\rho\s}\tr{\g^5\gm\gn}-\tr{\g^5\gm\gn\gs\gr}\\
   %  &=2g^{\rho\s}\tr{\g^5\gm\gn}-2g^{\s\nu}\tr{\g^5\gm\gr}+\tr{\g^5\gm\gs\gn\gr}\\
@@ -264,7 +266,8 @@ The differential cross section ($\theta$ is the angle between the initial muon a
   \dv{\s}{\Omega}|_{CM}&=\frac{1}{2E_p2E_{k}\abs{v_p-v_{k}}}\frac{\abs{\vb{p'}}}{(2\pi)^24E_{CM}}\frac{1}{4}\sum_{spins}\abs{\mathcal{M}}^2\\
   \intertext{for our problem we set $\abs{v_p-v_{k}}=1$ first and we'll plug it back later, $E_{p}=\omega$}
   &=\frac{1}{2\omega2E_{k}}\frac{\abs{\vb{p'}}}{(2\pi)^24E_{CM}}\frac{8e^4}{q^4}[(p\cdot k)(p'\cdot k')+(p\cdot k')(p'\cdot k)-m_{\mu}^2(p\cdot p')]\\
-  \intertext{and $$p=(\omega,\omega\hat z), k=(E_k,-\omega\hat z), p'=(\omega_{p'},\vb{\omega_{p'}}), k'=(E_{k'},-\vb{\omega_{p'}}),\vb{\omega_{p'}}=(-\omega_{p'}\sin\theta,0,-\omega_{p'}\cos\theta)$$ which explicitly is $$p=(\omega,\omega\hat z), k=(E_k,-\omega\hat z), p'=(\omega_{p'},-\omega_{p'}\sin\theta,0,-\omega_{p'}\cos\theta), k'=(E_{k'},\omega_{p'}\sin\theta,0,\omega_{p'}\cos\theta)$$so $$p\cdot k=\omega E_k+\omega^2, p'\cdot k'=\omega_{p'}(\omega+E_k), E_k^2=\omega^2+m_{\mu}^2, p\cdot k'=\omega^2+\omega E_k-\omega\omega_{p'}-\omega\omega_{p'}\cos\theta, p'\cdot k=\omega_{p'}E_k-\omega\omega_{p'}\cos\theta$$$$p\cdot p'=\omega\omega_{p'}(1+\cos\theta), q^2=(p'-p)^2=2\omega_{p'}\omega(1-\cos\theta)$$and gives}
+  \intertext{and $$p=(\omega,\omega\hat z), k=(E_k,-\omega\hat z), p'=(\omega_{p'},\vb{\omega_{p'}}), k'=(E_{k'},-\vb{\omega_{p'}}),\vb{\omega_{p'}}=(-\omega_{p'}\sin\theta,0,-\omega_{p'}\cos\theta)$$ which explicitly is $$p=(\omega,\omega\hat z), k=(E_k,-\omega\hat z), p'=(\omega_{p'},-\omega_{p'}\sin\theta,0,-\omega_{p'}\cos\theta),
+  k'=(E_{k'},\omega_{p'}\sin\theta,0,\omega_{p'}\cos\theta)$$so $$p\cdot k=\omega E_k+\omega^2, p'\cdot k'=\omega_{p'}(\omega+E_k), E_k^2=\omega^2+m_{\mu}^2, p\cdot k'=\omega^2+\omega E_k-\omega\omega_{p'}-\omega\omega_{p'}\cos\theta, p'\cdot k=\omega_{p'}E_k-\omega\omega_{p'}\cos\theta$$$$p\cdot p'=\omega\omega_{p'}(1+\cos\theta), q^2=(p'-p)^2=2\omega_{p'}\omega(1-\cos\theta)$$and gives}
   &=\frac{1}{2\omega2E_{k}}\frac{\abs{\vb{p'}}}{(2\pi)^24E_{CM}}\frac{8e^4}{q^4}[(\omega E_k+\omega^2)(\omega_{p'}(\omega+E_k))+(\omega^2+\omega E_k-\omega\omega_{p'}-\omega\omega_{p'}\cos\theta)(\omega_{p'}E_k-\omega\omega_{p'}\cos\theta)\\&-m_{\mu}^2(\omega\omega_{p'}(1+\cos\theta))]\\
   &=\frac{1}{2\omega2E_{k}}\frac{\abs{\vb{p'}}}{(2\pi)^24E_{CM}}\frac{8e^4}{q^4}[\omega E_k\omega_{p'}\omega+\omega E_k\omega_{p'}E_k+\omega^2\omega_{p'}\omega+\omega^2\omega_{p'}E_k+\omega^2\omega_{p'}E_k-\omega^2\omega\omega_{p'}\cos\theta+\omega E_k\omega_{p'}E_k\\
   &-\omega E_k\omega\omega_{p'}\cos\theta-\omega\omega_{p'}\omega_{p'}E_k+\omega\omega_{p'}\omega\omega_{p'}\cos\theta-\omega\omega_{p'}\cos\theta\omega_{p'}E_k+\omega\omega_{p'}\cos\theta\omega\omega_{p'}\cos\theta-m_{\mu}^2\omega\omega_{p'}(1+\cos\theta)\\
@@ -491,7 +494,7 @@ $$i\mathcal{M}_2=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\frac{1}{k^2(
     &=\frac{1}{(4\pi)^{d/2}\Gamma(d/2)}\Delta^{d/2-2}B(2-d/2,d/2)\\
     &=\frac{\G(2-d/2)}{(4\pi)^{d/2}\G(2)}\Delta^{d/2-2}\\\intertext{use the approximation $\G(2-d/2)=\G(\epsilon/2)=\frac{2}{\epsilon}-\g+\mathcal{O}(\epsilon)$ where $\epsilon=4-d$ and $\g$ is the Euler-Mascheroni constant, note that this approximation takes effect near $d=4$}
     &\xrightarrow{d\rightarrow4}\frac{\frac{2}{\epsilon}-\g+\mathcal{O}(\epsilon)}{(4\pi)^{2}}(1-\frac{1}{2}\ln{\frac{\Delta}{4\pi}}\epsilon+\mathcal{O}(\epsilon^2))\\
-    &=\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g-\ln{\Delta}+\ln{4\pi}+\mathcal{O}(\epsilon))\\
+    &=\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g-\ln{\Delta}+\ln{4\pi}+\mathcal{O}(\epsilon))s
     %&=\frac{1}{(4\pi)^{d/2}\Gamma(d/2)}\int_{\Delta}^{\infty}\dd k_E\frac{(k_E-\Delta)^{d/2-1}}{k_E^2}\\
   \end{align*}
   Now
@@ -499,18 +502,26 @@ $$i\mathcal{M}_2=\frac{(-i\lambda)^2}{2}\int\frac{\dd^4k}{(2\pi)^4}\frac{1}{k^2(
     i\mathcal{M}_2(p^2)&=\frac{-i\lambda^2}{2}\int_0^1\dd x\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g-\ln{\Delta}+\ln{4\pi}+\mathcal{O}(\epsilon))\\
     &=\frac{-i\lambda^2}{2}\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g+2-\ln{(-p^2)}+\ln{4\pi}+\mathcal{O}(\epsilon))
   \end{align*}
+  $$i\mathcal{M}(s)=-i\la-\frac{i\lambda^2}{2}\frac{1}{(4\pi)^{2}}(\frac{2}{\epsilon}-\g+2-\ln{(-p^2)}+\ln{4\pi}+\mathcal{O}(\epsilon))$$
   Isolate the divergent term
   $$\frac{-i\lambda^2}{(4\pi)^{2}\epsilon}$$
+  $$\mathcal{M}(s)=-\la-\frac{\lambda^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s)})$$
   Follow the same procedure
-  $$\la_R=\lambda+\frac{\la^2}{16\pi^2\epsilon}$$
+  $$\la_R=\lambda+\frac{\la^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})$$
   $$\la=\la_R+a\la_R^2$$
-  $$\la_R=\la_R+a\la_R^2+\frac{la_R^2}{16\pi^2\epsilon}$$
-  $$a=-\frac{1}{16\pi^2\epsilon}$$
-  $$\la=\la_R-\frac{\la_R^2}{16\pi^2\epsilon}$$
-  $$\mathcal{M}=-\la-\frac{\la^2}{16\pi^2\epsilon}=-\la_R+$$
-  and the bare "charge" of our scalar field theory is
-  $$\frac{\lambda^2-\lambda_R^2}{\lambda_R^2}=\frac{-\lambda^2}{(4\pi)^{2}\epsilon}$$
+  $$\la_R=\la_R+a\la_R^2+\frac{(\la_R+a\la_R^2)^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})=\la_R+a\la_R^2+\frac{\la_R^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})$$
+  $$a=-\frac{1}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})$$
+  $$\la=\la_R-\frac{\la_R^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})$$
+  $$\mathcal{M}(s)=-\la-\frac{\lambda^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s)})=-\la_R+\frac{\la_R^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s_0)})-\frac{\lambda_R^2}{32\pi^2}(\frac{2}{\epsilon}-\ln{(-s)})=-\la_R+\frac{\la_R^2}{32\pi^2}\ln{\frac{s}{s_0}}$$
+  which is exactly the same as cutoff regularization.
 
+  The field strength renormalization factor follows, from LSZ formula:
+  \begin{align*}
+    &\int\frac{\dd^4 p_1}{(2\pi)^4}e^{ip_1\cdot x_1}\frac{\dd^4 p_2}{(2\pi)^4}e^{ip_2\cdot x_2}\frac{\dd^4 k_1}{(2\pi)^4}e^{-ik_1\cdot y_1}\frac{\dd^4k_2}{(2\pi)^4}e^{-ik_2\cdot y_2}\mel{\Omega}{T\{\phi(x_1)\phi(x_2)\phi(y_1)\phi(y_2)\}}{\Omega}\\
+    =&Z^2\frac{1}{p_1^2-m^2}\frac{1}{p_2^2-m^2}\frac{1}{k_1^2-m^2}\frac{1}{k_2^2-m^2}\mel{p_1p_2}{S}{k_1k_2}
+  \end{align*}
+  $$Z^2\mathcal{M}\sim Z\la=(1+\delta Z)(\la_R+a\la_R^2)=\la_R+\la_R\delta Z+a\la^2_R=\la_R$$
+  $$\delta Z=-a\la_R\Longrightarrow \la_R\delta Z=-a\la_R^2$$
 \end{enumerate}
 
 \end{document}
