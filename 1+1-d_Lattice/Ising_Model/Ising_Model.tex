@@ -45,7 +45,7 @@ Ising Model:
     &\xlongequal{h=0}-J\sum_{\expval{ij}}\sigma_i\sigma_j
   \end{align*}
   $h$ is the external magnetic field (for simplicity we now consider $h=0$), and $J>0$ which means it's ferromagnetic. (And it's reasonable to consider the lowest energy state is when the spins are all +1.)
-  \item Total Energy at configuration $\{\sigma_i\}$:
+  \item Total Energy at configuration $\{\sigma_i \}$:
   $$E_{\{\sigma_i\}}=-J\sum_{\expval{ij}}\sigma_i\sigma_j-h\sum_{j}\sigma_j$$
   \item Spin state $\sigma_i$ is differed by
   $$\sigma_i=\begin{cases}
@@ -65,13 +65,19 @@ Mento Carlo Method (Metropolis Method):
 
   \begin{itemize}{(1)}
     \item Give a initial state, and calculate its energy.
-    \item  
+    \item
     \item Calculate the magnetic dipole and get the phase transition point.
   \end{itemize}
 \end{itemize}
 
 
-
+\begin{itemize}[1.]
+  \item 随机生成态s1
+  \item 随机生成态s2
+  \item 计算s1与s2的权重p1，p2（$p=exp[-H(s)$]）
+  \item 如果$p2>p1$，s2为第二取样点
+  \item 如果p2<=p1,生成随机数r，如果$r<=\frac{p2}{p1}$,s2为第二取样点，否则s1为第二个取样点。
+\end{itemize}
 
 
 
