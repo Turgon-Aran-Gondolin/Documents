@@ -10,7 +10,7 @@
 \usepackage{xcolor}
 \usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
 \usepackage{array}
-\usepackage{longtable}
+\usepackage{longtable} 
 \usepackage{multirow}
 \usepackage{comment}
 \usepackage{graphicx}
@@ -20,6 +20,8 @@
 \usepackage{extarrows}
 %\usepackage{xeCJK}
 \usepackage{luatexja-fontspec}
+\usepackage{enumerate} %itemize things with customized indicator(enumerator).
+\usepackage{listings} %Code insert. Can also provide syntax highlighting if ``xcolor'' is loaded.
 
 %\setmainfont{TeXGyreTermes}
 %\setsansfont{TeXGyreHeros}
@@ -38,7 +40,7 @@
 \begin{document}
 \maketitle
 Ising Model:
-\begin{itemize}
+\begin{enumerate}
   \item Hamiltonian of the system:
   \begin{align*}
     H(\sigma)&\xlongequal{\phantom{h=0}}-J\sum_{\expval{ij}}\sigma_i\sigma_j-h\sum_{j}\sigma_j\\
@@ -56,29 +58,27 @@ Ising Model:
   where $\beta=(k_BT)^{-1}$ and $Z_{\beta}$ is the partition function.
   \item Partition function:
   $$Z_{\beta}=\sum_{\sigma}e^{-\beta H(\sigma)}$$
-
-
-\end{itemize}
+\end{enumerate}
 Mento Carlo Method (Metropolis Method):
-\begin{itemize}
-  \item Given $L^d$ lattice point. (For instance $d=1$, which means 1-d Ising model.)
 
-  \begin{itemize}{(1)}
-    \item Give a initial state, and calculate its energy.
-    \item
-    \item Calculate the magnetic dipole and get the phase transition point.
-  \end{itemize}
-\end{itemize}
+Given $L^d$ lattice point. (For instance $d=1$, which means 1-d Ising model.)
+\begin{enumerate}[(1)]
+	\item Generate a initial state (let's call it state one) by pseudo random number;
+	\item Flip over a single point to generate a new state (let's call it state two);
+	\item If $E_1>E_2$, the energy of the whole system decreases, $W(1\rightarrow2)=1$, the system goes to state two;
+	\item If $E_1<E_2$, to make the whole system obey Boltzman distribution, generate a random number between 0 and 1 to compare with $W(1\rightarrow2)=e^{-\beta\Delta E}$, where $\Delta E=E_2-E_1$; if the random number is smaller than $W$, the system goes to state two, otherwise, it remains in state one;
+	\item Now we call the current state state one and go back to step 2, repeat it for sufficient many times to reach equilibrium;
+	\item Calculate the magnetization at the current temperature;
+	\item Move to the next temperature and go back to step one till a certain temperature;
+	\item Plot magnetization versus temperature and obtain the critical temperature. (However, the magnetization isn't exactly accurate, so the accuracy of critical temperature is somehow unsatisfying. The analytic result is around 2.26 with my parameters, but the result I have is near 2.0.)
+\end{enumerate}
 
+All my codes and results can be found in \url{https://github.com/Turgon-Aran-Gondolin/C_Primer_Files/tree/master/Monte_Carlo/2-d_Ising_Model}.
 
-\begin{itemize}[1.]
-  \item 随机生成态s1
-  \item 随机生成态s2
-  \item 计算s1与s2的权重p1，p2（$p=exp[-H(s)$]）
-  \item 如果$p2>p1$，s2为第二取样点
-  \item 如果p2<=p1,生成随机数r，如果$r<=\frac{p2}{p1}$,s2为第二取样点，否则s1为第二个取样点。
-\end{itemize}
-
-
+%Recommand to use mersenne twister engine to generate random number (if using C++);however, the seeding in C++ could be problematic, rightnow I'm using high resolution clock for seeding.
+%\begin{lstlisting}[language=C]
+ % mt19937_64 <name>;
+  %uniform_real_distribution <name>(<range>);
+%\end{lstlisting}
 
 \end{document}
