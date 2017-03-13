@@ -1,0 +1,115 @@
+%!mode::"Tex:UTF-8"
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\renewcommand{\L}{\Lambda}
+\newcommand{\lag}{\mathcal{L}}
+
+\title{Quantum Field Theory(Spring)}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\section{Noether's Theorem}
+\begin{itemize}
+  \item Symmetry
+  \item Lorentz/Poincare Group
+  \item Tensor analysis
+\end{itemize}
+Poincare group: 
+$$x'^{\mu}=\L^{\mu}_{\nu}x^{\nu}+a^{\mu}$$
+investigate the inverse, closure character:
+$$x''^{\mu}=\bar\L^{\mu}_{\rho}x'^{\rho}+\bar a^{\mu}=(\bar \L\L)^{\mu}_{\nu}x^{\nu}+(\bar \L^{\mu}_{\rho}a^{\rho}+\bar a^{\mu})$$
+$$(\bar \L,\bar a)\times(\L,a)=(\bar \L\L,\bar\L a+\bar a)$$
+$$x'^{\mu}=x^{\mu}+\delta x^{\mu}$$
+translation:
+$$\L^{\mu}_{\nu}=\delta^{\mu}_{\nu}+\omega^{\mu}_{\nu}$$
+\begin{align*}
+  g_{\rho\s}&=g_{\mu\nu}\L^{\mu}_{\rho}\L^{\nu}_{\s}=g_{\mu\nu}(\delta^{\mu}_{\nu''}+\omega^{\mu}_{\nu''})(\delta^{\nu}_{\nu'}+\omega^{\nu}_{\nu'}) \\
+  \delta x^{\mu}&=\omega^{\mu}_{\nu}x^{\nu}\\
+  &=\omega^{\mu\nu}x_{\nu}=\omega^{\rho\s}x_{\s}\delta^{\mu}_{\rho}=\omega^{\rho\s}x_{\s}\partial_{\rho}x^{\mu}\\
+  &=\frac{i}{2}\omega^{\rho\s}\hat L_{\rho\s}x^{\mu}
+\end{align*}
+$$\hat L_{\mu\nu}=i(x_{\mu}\partial_{\nu}-x_{\nu}\partial_{\mu})$$
+Poincare algebra: commutation relations.
+
+Local field transform under Poincare group:
+$$f(x)\rightarrow f'(x')$$
+\begin{align*}
+  \delta f\equiv f'(x')-f(x)&=f'(x+\delta x)-f(x)\\
+  f'(x)-f(x)+\delta x^{\mu}\partial_{\mu}f(x)+\mathcal(O)(\delta x)\\
+  &=\delta_0f+\delta x^{\mu}\partial_{\mu}
+\end{align*}
+$$\delta\equiv\delta_0(\text{functional change})+\delta x^{\mu}\partial_{\mu}$$
+translation: 
+$$\delta f=0=\delta_0f+\epsilon^{\mu}\partial_{\mu}f\Longrightarrow\delta_0f=-\epsilon^{\mu}\partial_{\mu}f=-i\epsilon\cdot\hat pf$$
+Lorentz:
+$$\delta_0\phi=-\delta x^{\mu}\partial_{\mu}\phi=\omega^{\mu\rho}x_{\rho}\partial_{\mu}\phi=\frac{1}{2}\omega^{\rho\s}(x_{\rho}\partial_{\s}-x_{\s}\partial_{\rho})$$
+$$\delta_0\phi=-\frac{i}{2}\omega^{\rho\s}L_{\rho\s}\phi$$
+$$\delta_0(\partial_{\mu}\phi)=-\frac{i}{2}\omega^{\rho\s}L_{\rho\s}(\partial_{\mu\phi})=\frac{i}{2}\omega^{\rho\s}S_{\rho\s}$$
+$$\Longrightarrow(S_{\mu\nu})^{\rho}_{\s}=\dots$$
+
+Noether's theorem:
+$$\delta S=\delta\int\dd^4x\lag=\int(\delta\dd^4x)\lag+\int\dd^4x\delta\lag$$
+$$\delta\dd^4x=\dd^4x(\partial_{\mu}\delta x^{\mu})$$
+\begin{align*}
+  \delta S&=\int\dd^4x[\partial_{\mu}(\lag\delta x)+\delta_0\lag]\\
+  &=\int\dd^4x[\partial_{\mu}(\lag\delta x^{\mu})+\partial_{\mu}\dv{\lag}{(\partial_{\mu}\phi)}+\text{E-L eq terms}]\\
+  &=\int_R\partial_{\mu}[\lag\delta^{\mu}_{\rho}-\dv{\lag}{(\partial_{\mu}\phi)}\partial_{\rho}\phi)\delta x^{\rho}+\dv{\lag}{(\partial_{\mu}\phi)}\delta \phi]
+\end{align*}
+
+
+
+
+\end{document}

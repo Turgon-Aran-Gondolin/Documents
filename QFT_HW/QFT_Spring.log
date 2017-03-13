@@ -1,7 +1,7 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.3.3)  8 MAR 2017 23:53
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.3.3)  3 MAR 2017 13:45
  restricted system commands enabled.
-**QFT_HW_Dec.15.tex
-(./QFT_HW_Dec.15.tex
+**QFT_Spring.tex
+(./QFT_Spring.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
@@ -1811,25 +1811,25 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks38
-) (./QFT_HW_Dec.15.aux)
-\openout1 = QFT_HW_Dec.15.aux
+) (./QFT_Spring.aux)
+\openout1 = QFT_Spring.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1839,14 +1839,14 @@ LaTeX Font Info:    ... okay on input line 60.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(25.6073pt, 563.0804pt, 25.6073pt)
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
 * v-part:(T,H,B)=(42.67912pt, 695.38536pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=563.0804pt
+* \textwidth=528.93675pt
 * \textheight=695.38536pt
-* \oddsidemargin=-46.66269pt
-* \evensidemargin=-46.66269pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
 * \topmargin=-66.59087pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -1901,7 +1901,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ))
 \AtBeginShipoutBox=\box69
-Package hyperref Info: Link coloring ON on input line 60.
+Package hyperref Info: Link coloring ON on input line 62.
 
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1912,80 +1912,78 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count179
 )
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
- (./QFT_HW_Dec.15.out) (./QFT_HW_Dec.15.out)
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
+ (./QFT_Spring.out) (./QFT_Spring.out)
 \@outlinefile=\write5
 
-\openout5 = QFT_HW_Dec.15.out
+\openout5 = QFT_Spring.out
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 62.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 64.
 
 (/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 66.
+
+(/home/huangys/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
+
 [1
 
 {/home/huangys/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.m
-ap}] [2] [3] [4]
-Overfull \hbox (9.69542pt too wide) in paragraph at lines 284--284
-[] 
- []
-
-[5] [6] [7] [8] [9] [10] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 527.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 527.
- (./QFT_HW_Dec.15.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 527.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 527.
-Package rerunfilecheck Info: File `QFT_HW_Dec.15.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 527.
+ap}] [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+ (./QFT_Spring.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
+Package rerunfilecheck Info: File `QFT_Spring.out' has not changed.
+(rerunfilecheck)             Checksum: F891CC987732A07036E3CDFAC2A80398;131.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
 )
 
 Here is how much of LuaTeX's memory you used:
- 32864 strings out of 495119
+ 31972 strings out of 495119
  125016,794899 words of node,token memory allocated
- 28686 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 4041 glue, 1 kern, 46 glue_spec, 1 write nodes
-   avail lists: 1:9,2:48,3:2141,4:17,5:598,6:1929,7:1881,8:184,9:1475,10:5,11:49
-
- 35424 multiletter control sequences out of 65536+600000
- 75 fonts using 3111367 bytes
- 66i,19n,101p,480b,1858s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 2030 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 233 glue, 1 kern, 46 glue_spec, 1 write nodes
+   avail lists: 1:9,2:40,3:103,4:13,5:153,6:804,7:376,8:45,9:358,10:3,11:34
+ 34543 multiletter control sequences out of 65536+600000
+ 78 fonts using 3235247 bytes
+ 61i,10n,80p,456b,335s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx7.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmex10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist
-/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></home/huangys/usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/huangys/usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></home/huang
-ys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb></home/huangys/usr/local/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/huangys/usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/huangys/usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/huangy
-s/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on QFT_HW_Dec.15.pdf (11 pages, 244915 bytes).
+cmbx12.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></home/huangys/usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/huangys/usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/huangys/usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/huangys/us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/
+huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy5.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb>
+Output written on QFT_Spring.pdf (2 pages, 109943 bytes).
 
-PDF statistics: 132 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 131072)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 69 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 131072)
+ 24 words of extra memory for PDF output out of 10000 (max. 10000000)
 

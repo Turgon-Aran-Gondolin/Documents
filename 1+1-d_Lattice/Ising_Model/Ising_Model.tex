@@ -73,6 +73,8 @@ Given $L^d$ lattice point. (For instance $d=1$, which means 1-d Ising model.)
 	\item Plot magnetization versus temperature and obtain the critical temperature. (However, the magnetization isn't exactly accurate, so the accuracy of critical temperature is somehow unsatisfying. The analytic result is around 2.26 with my parameters, but the result I have is near 2.0.)
 \end{enumerate}
 
+Note that my results are based on the simplification that spin has the values of only +1 and -1. Simple modification can expand it to vector (which obviously make it harder to calculate). But there's another complication: the spin state cannot be simply filp over.
+
 All my codes and results can be found in \url{https://github.com/Turgon-Aran-Gondolin/C_Primer_Files/tree/master/Monte_Carlo/2-d_Ising_Model}.
 
 %Recommand to use mersenne twister engine to generate random number (if using C++);however, the seeding in C++ could be problematic, rightnow I'm using high resolution clock for seeding.
