@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.3.3)  9 MAR 2017 23:31
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.3.3)  17 MAR 2017 14:37
  restricted system commands enabled.
 **GFT_HW_Mar.7.tex
 (./GFT_HW_Mar.7.tex
@@ -1940,25 +1940,25 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 {/home/huangys/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.m
 ap}] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
  (./GFT_HW_Mar.7.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
 Package rerunfilecheck Info: File `GFT_HW_Mar.7.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
 )
 
 Here is how much of LuaTeX's memory you used:
  32643 strings out of 495119
  125016,794899 words of node,token memory allocated
- 3115 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 388 glue, 1 kern, 46 glue_spec, 1 write nodes
-   avail lists: 1:9,2:40,3:572,4:12,5:205,6:891,7:1301,8:131,9:800,10:5,11:31
+ 3381 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 426 glue, 1 kern, 46 glue_spec, 1 write nodes
+   avail lists: 1:9,2:40,3:570,4:12,5:205,6:888,7:1263,8:129,9:800,10:5,11:31
  35223 multiletter control sequences out of 65536+600000
  75 fonts using 3111367 bytes
- 61i,18n,98p,482b,1474s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 61i,18n,98p,478b,1474s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmex10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/typ
@@ -1973,7 +1973,7 @@ cm/cmr5.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr7.pfb></home/huangys/usr/local/texlive/2016/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></home/huangys/usr/local/texlive/2016/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on GFT_HW_Mar.7.pdf (2 pages, 129697 bytes).
+Output written on GFT_HW_Mar.7.pdf (2 pages, 132547 bytes).
 
 PDF statistics: 70 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream
