@@ -120,9 +120,69 @@ $$\lag=-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}+\frac{1}{2}\mu^2A^{\mu}A_{\mu}+\bar\psi(
 and the interaction part
 $$\lag_I=e\bar\psi\gm\psi A_{\mu}$$
 ($\lag=-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}+\frac{1}{2}\mu^2A^{\mu}A_{\mu}+\bar\psi(i\slashed \partial-m)\psi+e\bar\psi\gm\psi A_{\mu}$). The corresponding Hamiltonian is 
-$$\mathcal{H}=$$
+$$\mathcal{H}_I=A^{\mu}J_{\mu}+\frac{1}{2\mu^2}J_0^2=-e\bar\psi\gm\psi A_{\mu}+\frac{e^2}{2{\mu^2}}\bar\psi\g^0\psi\bar\psi\g_0\psi$$
+and we have the propagator
+\begin{align*}
+  \mel{0}{T\{A_{\mu}(x)A_{\nu}(y)\}}{0}=\int\frac{\dd^4k}{(2\pi)^4}e^{-ik\cdot(x-y)}\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-{\mu^2}+i\epsilon}+\frac{i}{{\mu^2}}\delta^4(x-y)\delta_{\mu}^0\delta_{\nu}^0
+\end{align*}
+and 
+\begin{align*}
+  \mel{k_1k_2}{T\{-i\mathcal{H}_I\}}{p_1p_2}&=i\mel{k_1k_2}{T\{e\bar\psi\gm\psi A_{\mu}-\frac{e^2}{2\mu^2}\bar\psi\g^0\psi\bar\psi\g_0\psi\}}{p_1p_2}
+\end{align*}
+At tree level(to $e^2$ order), the first part must be
+\begin{align*}
+  -e^2\mel{k_1k_2}{T\{\bar\psi\gm\psi A_{\mu}\bar\psi\gn\psi A_{\nu}\}}{p_1p_2}&
+\end{align*}
+so generally we have two diagrams
+\begin{align*}
+  \feynmandiagram[horizontal=x to y,baseline=(x.base)]{
+	f1 --[fermion]y --[fermion]i1,
+	f2 --[fermion]x --[fermion]i2,
+	x--[photon]y,
+  };\text{and}
+  \feynmandiagram[horizontal=f2 to f1,baseline=(x.base)]{
+	f1 --[anti fermion]x[blob] --[anti fermion]i1,
+	f2 --[anti fermion]x --[anti fermion]i2,
+	f1 --[draw=none]f2,
+	i1 --[draw=none]i2,
+  };
+\end{align*}
+with some exchange in external legs.
 
+The contribution of the first one is 
+\begin{align*}
+  -\frac{1}{e^2}i\mathcal{M}_1=&\feynmandiagram[horizontal=x to y,baseline=(x.base)]{
+	f1 --[fermion]y --[fermion]i1,
+	f2 --[fermion]x --[fermion]i2,
+	x--[photon]y,
+  };+
+  \begin{tikzpicture}[baseline=(x.base)]
+	\begin{feynman}
+	  \diagram[horizontal=x to y]{
+	    f1 --[fermion]y --[draw=none]i1,
+	    f2 --[fermion]x --[draw=none]i2,
+	    x--[photon]y,
+      };
+	  \diagram*{
+		(i1) --[anti fermion](x),
+		(i2) --[anti fermion](y),
+	  };
+	\end{feynman}
+  \end{tikzpicture}\\
+  =&\bar u(k_1)\gm u(p_1)[\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-{\mu^2}+i\epsilon}+\frac{i}{{\mu^2}}\delta_{\mu}^0\delta_{\nu}^0]\bar u(k_2)\gn u(p_2)
+  -\bar u(k_2)\gm u(p_1)[\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-{\mu^2}+i\epsilon}+\frac{i}{{\mu^2}}\delta_{\mu}^0\delta_{\nu}^0]\bar u(k_1)\gn u(p_2)\\
+  =&\bar u(k_1)\gm u(p_1)[\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-{\mu^2}+i\epsilon}]\bar u(k_2)\gn u(p_2)
+  -\bar u(k_2)\gm u(p_1)[\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-{\mu^2}+i\epsilon}]\bar u(k_1)\gn u(p_2)\\
+  &+\frac{i}{\mu^2}\bar u(k_1)\g^0 u(p_1)\bar u(k_2)\g^0 u(p_2)
+  -\frac{i}{\mu^2}\bar u(k_2)\g^0 u(p_1)\bar u(k_1)\g^0 u(p_2)
+\end{align*}
+and the second one is 
+\begin{align*}
+  i\mathcal{M}_2=&\frac{ie^2}{\mu^2}(\bar u(k_1)\g^0 u(p_1)\bar u(k_2)\g^0 u(p_2)-\bar u(k_2)\g^0 u(p_1)\bar u(k_1)\g^0 u(p_2))
+\end{align*}
+Combine these two and the incovariant terms are automatically canceled.
 
+\item Vacuum polarization of massive photon.
 
 
 
