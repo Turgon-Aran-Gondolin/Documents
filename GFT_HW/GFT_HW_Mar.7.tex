@@ -28,6 +28,7 @@
 \usepackage{mathrsfs}
 \usepackage{xparse}
 \usepackage{enumerate}
+\usepackage{extarrows}
 
 \geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
 
@@ -53,6 +54,7 @@
 \newcommand{\pars}{\slashed\partial}
 \newcommand{\ps}{\slashed p}
 \newcommand{\ks}{\slashed k}
+\newcommand{\qs}{\slashed q}
 \newcommand{\lag}{\mathcal{L}}
 
 \title{Homework: Gauge Field Theory \#1}
@@ -129,6 +131,55 @@ and
 \begin{align*}
   \mel{k_1k_2}{T\{-i\mathcal{H}_I\}}{p_1p_2}&=i\mel{k_1k_2}{T\{e\bar\psi\gm\psi A_{\mu}-\frac{e^2}{2\mu^2}\bar\psi\g^0\psi\bar\psi\g_0\psi\}}{p_1p_2}
 \end{align*}
+The feynman rules are pretty straight forward now:
+\begin{align*}
+  \begin{array}[2]{ll}
+	\contraction{}{\psi}{}{\ket{p,s}}\psi\ket{p,s}=
+	\feynmandiagram[small,layered layout,horizontal=a to b,baseline=(a.base)]{
+	  a--[fermion]b--f1,
+	  b--[photon]f2,
+	};
+	=u_s(p)&
+	\contraction{}{\bar\psi}{}{\ket{p,s}}\bar\psi\ket{p,s}=
+	\feynmandiagram[small,layered layout,horizontal=a to b,baseline=(a.base)]{
+	  a--[anti fermion]b--f1,
+	  b--[photon]f2,
+	};
+	=\bar v_s(p)\\
+	\contraction{}{\bra{k,s}}{}{\psi}\bra{k,s}\psi=
+	\feynmandiagram[small,layered layout,horizontal=b to a,baseline=(a.base)]{
+	  i1--b--[anti fermion]a,
+	  i2--[photon]b,
+	};
+	=v_s(p)
+	&\contraction{}{\bra{k,s}}{}{\bar\psi}\bra{k,s}\bar\psi=
+	\feynmandiagram[small,layered layout,horizontal=b to a,baseline=(a.base)]{
+	  i1--b--[fermion]a,
+	  i2--[photon]b,
+	};
+	=\bar u_s(p)\\
+	\text{Photon propagator: }\contraction{}{A^{\mu}}{}{A^{\nu}}A^{\mu}A^{\nu}=
+	\feynmandiagram[small,layered layout,horizontal=a to b,baseline=(a.base)]{
+	  a--[photon]b,
+	};
+	=\frac{i(-g^{\mu\nu}+\frac{k^{\mu}k^{\nu}}{\mu^2})}{k^2-\mu^2+i\epsilon}+\frac{i}{\mu^2}\delta^4(x-y)\delta^0_{\mu}\delta^0_{\nu}&
+	\text{Fermion propagator: }\contraction{}{\bar\psi}{}{\psi}\bar\psi(x)\psi(y)=
+	\feynmandiagram[small,layered layout,horizontal=a to b,baseline=(a.base)]{
+	  a--[fermion]b,
+	};
+	=\frac{i}{\ks-m+i\epsilon}\\
+	\text{3-particle vertex: }\feynmandiagram[small,layered layout,horizontal=a to b,baseline=(a.base)]{
+	  a--[photon]b--[anti fermion]f1,
+	  b--[fermion]f2,
+	};
+	=-ie\gm&
+	\text{4-particle vertex: }\feynmandiagram[small,layered layout,vertical=f1 to i1,baseline=(a.base)]{
+	  i1--[fermion]a[blob]--[fermion]f1,
+	  i2--[fermion]a--[fermion]f2,
+	};
+	=i\frac{e^2}{2\mu^2}\g^0\cross\g^0
+  \end{array}
+\end{align*}
 At tree level(to $e^2$ order), the first part must be
 \begin{align*}
   -e^2\mel{k_1k_2}{T\{\bar\psi\gm\psi A_{\mu}\bar\psi\gn\psi A_{\nu}\}}{p_1p_2}&
@@ -182,12 +233,49 @@ and the second one is
 \end{align*}
 Combine these two and the incovariant terms are automatically canceled.
 
-\item Vacuum polarization of massive photon.
+\item One loop self energy.
+  $$\feynmandiagram[horizontal=x to y,layered layout,baseline=(x.base)]{
+	i--[fermion,momentum=p]x--[fermion,momentum=p-k]y--[fermion]f,
+	x--[photon,half left,momentum=k]y,
+  };=\frac{i}{\ps-m}(-i\Sigma_2(p))\frac{i}{\ps-m}$$
+  where 
+  $$-i\Sigma_2(p)=(-ie^2)\int \frac{\dd^4k}{(2\pi)^4}\gm\frac{i}{\ks-m}\gn\frac{i(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{\mu^2})}{k^2-\mu^2}$$
+  Devide $-i\Sigma_2(p)$ into two parts (first part is exactly the same as massless QED, just without infrared divergence), we write the second part as
+  \begin{align*}
+	-i\Sigma_{2s}(p)&=-e^2\int\frac{\dd^4k}{(2\pi)^4}\gm\frac{i}{\ps-\ks-m}\gn\frac{ik_{\mu}k_{\nu}}{\mu^2(k^2-\mu^2)}\\
+	&=\frac{e^2}{\mu^2}\int\frac{\dd^4k}{(2\pi)^4}\frac{\ks^2}{(\ps-\ks-m)(k^2-\mu^2)}\\
+    &=\frac{e^2}{\mu^2}\int\frac{\dd^4k}{(2\pi)^4}\frac{k^2}{(\ps-\ks-m)(k^2-\mu^2)}
+  \end{align*}
+  Use Feynman parameters, the integral becomes
+  \begin{align*}
+	\int\frac{\dd^4k}{(2\pi)^4}\frac{k^2}{(\ps-\ks-m)(k^2-\mu^2)}&=\int\frac{\dd^4k}{(2\pi)^4}\frac{k^2(\ps-\ks+m)}{( (p-k)^2-m^2)(k^2-\mu^2)}\\
+	&=\int_0^1\dd x\int\frac{\dd^4k}{(2\pi)^4}\frac{k^2(\ps-\ks+m)}{[k^2-2xk\cdot p+xp^2-xm^2-(1-x)\mu^2+i\epsilon]^2}\\
+	&\xlongequal{l\equiv k-xp}\int_0^1\dd x\int\frac{\dd^4l}{(2\pi)^4}\frac{(l+xp)^2(\ps-\slashed l-x\ps+m)}{[l^2-\Delta+i\epsilon]^2}
+  \end{align*}
+  where $\Delta=-x(1-x)p^2+xm^2+(1-x)\mu^2$.
 
-
-
-
-
+  The numerator is (dropping terms with $l$ to odd orders)
+  \begin{align*}
+  (l+xp)^2[(1-x)\ps+m-\slashed l]&=l^2[(1-x)\ps+m]-2xl\cdot p\slashed l+x^2p^2[(1-x)\ps+m]
+  \end{align*}
+  note that the second term becomes $-\frac{1}{2}x\ps l^2$ under Lorentz invariance, so eventually the numerator is
+  $$l^2[(1-\frac{3}{2})\ps+m]+x^2p^2[(1-x)\ps+m]$$
+  Put these together
+  $$-i\Sigma_{2s}(p)=\frac{ie^2}{\mu^2}\int_0^1\dd x\int\frac{\dd^4l_E}{(2\pi)^4} \frac{-[(1-\frac{3}{2}x)\ps+m]l_E^2+x^2p^2[(1-x)\ps+m]}{[l_E^2+\Delta]^2}$$
+  Again we use dimensional regularization, the second term is given
+  $$\int\frac{\dd^4l_E}{(2\pi)^4}\frac{1}{[l_E^2+\Delta]^2}=\frac{1}{(4\pi)^2}(\frac{2}{\epsilon}-\log{\Delta}-\g+\log{(4\pi)}+\mathcal{O}(\epsilon))$$
+  where $\epsilon=4-d$, and the first term is ($d\rightarrow4$)
+  \begin{align*}
+	\int\frac{\dd^dl_E}{(2\pi)^d}\frac{l_E^2}{[l_E^2+\Delta]^2}&=\frac{1}{(4\pi)^{d/2}}\frac{d}{2}\frac{\Gamma(1-d/2)}{\Gamma(2)}(\frac{1}{\Delta})^{1-d/2}\\
+	&=-\frac{1}{(4\pi)^{d/2}}\frac{d}{2}(\frac{2}{\epsilon}-\g+1+\mathcal{O}(\epsilon))(\frac{1}{\Delta})^{1-d/2}\\
+	&=-\frac{\Delta}{8\pi^2}(\frac{2}{\epsilon}-\log\Delta+\frac{1}{2}-\g+\log(4\pi))
+  \end{align*}
+  Now we are able to collect the divergent terms:
+  $$\frac{i\a}{\pi\mu^2}\int_0^1\dd x[(1-\frac{3}{2}x)\ps+m]\frac{\Delta}{\epsilon}+x^2p^2[(1-x)\ps+m]\frac{1}{2\epsilon}$$
+  and there's also contribution from $g^{\mu\nu}$ term of the propagator
+  $$\frac{-i\a}{2\pi}\int_0^1\dd x(2\mu-x\ps)(\frac{2}{\epsilon}-\log{\Delta}-\g+\log(4\pi)+\mathcal{O}(\epsilon))\Longrightarrow \frac{-i\a}{\pi}\int_0^1\dd x(2\mu-x\ps)\frac{1}{\epsilon}$$
+  The divergent type in this topic are logarithmic divergence and square divergence, but latter can't be seen in dimensional regularization.
+  %$$\feynmandiagram[horizontal=x to f,layered layout,baseline=(x.base)]{	i--[fermion]x[blob]--[fermion]f,  };=$$
 
 
 
