@@ -54,6 +54,14 @@
 \newcommand{\ps}{\slashed p}
 \newcommand{\ks}{\slashed k}
 \newcommand{\lag}{\mathcal{L}}
+\newcommand{\da}{^{\dagger}}
+\newcommand{\sm}{^{\mu}}
+\newcommand{\sn}{^{\nu}}
+\newcommand{\smn}{^{\mu\nu}}
+\newcommand{\Dm}{D^{\mu}}
+\newcommand{\dm}{\partial^{\mu}}
+\newcommand{\Asquare}{A^{\mu}A_{\mu}}
+\newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
 
 \title{Homework: Gauge Field Theory}
 \author{Yingsheng Huang}
@@ -65,11 +73,99 @@
 	$$V(\phi)=-\frac{1}{2}\mu^2\phi^2+\frac{\la^2}{4}\phi^4$$
 	which satisfies
 	$$\phi\rightarrow-\phi$$
-	If we 
+	For such symmetry to break, we perform the following presedure:
+
+	First, the minimum of $V(\phi)$ can be found in $\phi=\pm \frac{\mu^2}{\la^2}$, and we can define $v^2=\abs{\mel{0}{\phi}{0}}^2=\frac{\mu^2}{\la}$, which yields the broken symmetry of vacuum.
+
+	By redefining the field $\phi(x)=\rho(x)+v$ such that $\rho(x)$ has the right vacuum, the Lagrangian is now
+	$$\lag=\frac{1}{2}(\partial_{\mu}\rho)^2-\mu^2\rho^2-\la^2\rho^3v-\frac{\la^2}{4}\rho^4+\frac{\mu^4}{4\la^2}$$
+	and we can see that there is no massless Goldstone particle. That's because that although the symmetry $\phi\rightarrow-\phi$ has broken, but it's discrete symmetry, therefore can't produce Goldstone particles.
+  \item {\bf{$\mathbf{R_{\xi}}$ Gauge.}} The Lagrangian is
+	$$\lag(\phi, A^{\mu})=(D^{\mu}\phi)^{\dagger}(D_{\mu}\phi)+\mu^2\phi^{\dagger}\phi-\la(\phi\da\phi)^2-\frac{1}{4}F^{\mu\nu}F_{\mu\nu} $$
+	where $D^{\mu}=\partial^{\mu}+igA\sm$, $F\smn=\dm A\sn-\partial\sn A\sm$. Also we have $\abs{\mel{0}{\phi}{0}}=v$, $v^2=\frac{\mu^2}{\la}$.
+
+	$R_{\xi}$ gauge
+	$$\lag\rightarrow\lag-\frac{1}{2\xi}(\partial\sm A_{\mu}-\xi gvb)^2$$
+	Choose $\phi$ to be $\phi=\frac{1}{\sqrt{2}}(v+h(x)+i b(x))$,
+	$$D^{\mu}\phi=\frac{1}{\sqrt{2}}[\partial\sm h+i\partial\sm b+igA\sm (v+h)-gbA\sm]=\frac{1}{\sqrt{2}}[(\partial\sm h-gbA\sm)+i(\partial\sm b+g(v+h)A\sm)]   $$
+	so the kinetic term
+	$$(D\sm\phi)\da(D_{\mu}\phi)=\frac{1}{2}[(\partial\sm h-gbA\sm)^2+(\dm b+g(v+h)A\sm)^2]  $$
+	this gives
+	\begin{align*}
+	  (D\sm\phi)\da(D_{\mu}\phi)&=\frac{1}{2}\partial\sm h\partial_{\mu}h-gb\partial\sm hA_{\mu}+\frac{1}{2}g^2b^2A^{\mu}A_{\mu}+\frac{1}{2}\partial^{\mu}b\partial_{\mu}b+g(v+h)\partial\sm bA_{\mu}+\frac{1}{2}g^2(v+h)^2A^{\mu}A_{\mu}  \\
+	  &=\frac{1}{2}\partial\sm h\partial_{\mu}h+\frac{1}{2}\partial^{\mu}b\partial_{\mu}b+\frac{1}{2}g^2v^2\Asquare+gv\partial\sm bA_{\mu}+g^2vhA^{\mu}A_{\mu}+\frac{1}{2}g^2(b^2+h^2)\Asquare+g(h\partial\sm b-b\partial\sm h)A_{\mu}
+	\end{align*}
+	now we got the kinetic terms of scalar fields $h(x)$ and $b(x)$, mass term for gauge field $A^{\mu}$, crossing term of $b$ and $A^{\mu}$, and some interacting terms in the end.
+
+	The mass term of original scala field gives
+	$$\mu^2\phi\da\phi=\frac{1}{2}\mu^2(v+h)^2-\frac{1}{2}\mu^2b^2$$
+	so the rest part of scalar field is
+	$$-\frac{b^4 \lambda }{4}-\frac{1}{2} b^2 h^2 \lambda -b^2 h \lambda  v-\frac{h^4 \lambda }{4}-h^3 \lambda  v-h^2 \mu ^2+\frac{\mu ^4}{4 \lambda }$$
+
+	Now the gauge fixing term is
+	\begin{align*}
+	  -\frac{1}{2\xi}\partial\sm A_{\mu}\partial^{\nu}A_{\nu}+gvb\partial_{\mu}A^{\mu}-\frac{\xi g^2v^2}{2}b^2
+	\end{align*}
+	we know that $F\smn F_{\mu\nu}$ can always be written in two terms, so
+	$$-\frac{1}{4}F\smn F_{\mu\nu}=-\frac{1}{2}(\partial^{\mu}A_{\nu})^2+\frac{1}{2}(1-\xi^{-1})(\partial\sm A_{\mu})^2+gvb\partial^{\mu}A_{\mu}-\frac{\xi g^2v^2}{2}b^2$$
+	and $$gvb\partial^{\mu}A_{\mu}=-gvA_{\mu}\partial^{\mu}b$$
+	the crossing term is cancelled. The last term also gives $b$ field mass $\frac{\xi g^2v^2}{2}$.
+
+	The Lagrangian is now
+	\begin{align*}
+	  \lag&=\frac{1}{2}\partial\sm h\partial_{\mu}h+\frac{1}{2}\partial^{\mu}b\partial_{\mu}b-\frac{1}{2}(\partial^{\mu}A_{\nu})^2+\frac{1}{2}(1-\xi^{-1})(\partial\sm A_{\mu})^2+\frac{1}{2}g^2v^2\Asquare-\mu^2h^2-\frac{\xi g^2v^2}{2}b^2(+\frac{\mu^4}{4\la})\\&+g^2vh\Asquare+\frac{1}{2}g^2(b^2+h^2)\Asquare+g(h\partial\sm b-b\partial\sm h)A_{\mu} -\frac{b^4 \lambda }{4} -b^2 h \lambda  v-\frac{h^4 \lambda }{4}-h^3 \lambda  v
+	\end{align*}
+  Then we have some standard 3 and 4 particle vertexs. Now we just need to deal with the propagators and the vertex with derivative.
+
+  The propagators of both scalar fields are trival, with $m_h=\sqrt{2}\mu$, $m_b=\sqrt{\xi}gv$. The propagator of the vector field is, however, a bit more complicated.  $$\Delta_A^{\mu\nu}(x-y)=\frac{g^{\mu\nu}-\frac{k^{\mu}k^{\nu}}{k^2}}{k^2-m^2+i\epsilon}+\frac{\xi\frac{k^{\mu}k^{\nu}}{k^2}}{k^2-\xi m^2+i\epsilon}$$
+  where the mass of vector field $m=gv$.
+
+  Now we'll show how to derive the propagator: Define $\lag_0$
+  $$\lag_0=-\frac{1}{2}\partial_{\mu}A^{\nu}\partial^{\mu}A_{\nu}+\frac{1}{2}(1-\xi^{-1})\partial^{\nu}A_{\mu}\partial^{\mu}A_{\nu}+\frac{1}{2}m^2A^{\nu}A_{\nu}$$
+  and $$S_0=\int \dd^4x \lag_0$$
+  Transform to momentum space
+  $$S_0=-\frac{1}{2}\int\frac{\dd^4 k}{(2\pi)^4}\Bqty{\tilde A_{\mu}(k)\pqty{g^{\mu\nu}k^2-(1-\xi^{-1})k^{\mu}k^{\nu}-m^2g^{\mu\nu}}\tilde A_{\nu}(-k)-\tilde J^{\mu}(k)\tilde A_{\mu}(-k)-\tilde J^{\mu}(-k)\tilde A_{\mu}(k)}$$
+  Define $\tilde D^{\mu\nu}(k)=g^{\mu\nu}k^2-(1-\xi^{-1})k^{\mu}k^{\nu}-m^2g^{\mu\nu}$
+  \begin{align*}
+    \tilde D^{\mu\nu}(k)&=g^{\mu\nu}k^2-(1-\xi^{-1})k^{\mu}k^{\nu}-m^2g^{\mu\nu}\\
+    &=(k^2-m^2)g^{\mu\nu}-(1-\xi^{-1})k^{\mu}k^{\nu}\\
+    &=(k^2-m^2)(g^{\mu\nu}-\frac{k^{\mu}k^{\nu}}{k^2})+(k^2-m^2)\frac{k^{\mu}k^{\nu}}{k^2}-(1-\xi^{-1})k\sm k\sn\\
+    &=(k^2-m^2)(g^{\mu\nu}-\frac{k^{\mu}k^{\nu}}{k^2})+\xi^{-1}(k^2-\xi m^2)\frac{k\sm k\sn}{k^2}
+  \end{align*}
+  then to have the result
+  $$S_0=-\frac{1}{2}\int\frac{\dd^4k}{(2\pi)^4}\tilde J_{\mu}(k)\tilde \Delta_F^{\mu\nu}(k)\tilde J_{\nu}(-k)$$
+  we must have
+  $$\tilde D_{\mu\nu}\tilde \Delta_F^{\nu\rho}=\delta_{\mu}^{\rho}$$
+  that is
+  \begin{align*}
+    &\tilde D_{\mu\nu}(k)\tilde \Delta_F^{\nu\rho}(k)=\delta_{\mu}^{\rho}\\
+    =&\Bqty{(k^2-m^2)(g_{\mu\nu}-\frac{k_{\mu}k_{\nu}}{k^2})+\xi^{-1}(k^2-\xi m^2)\frac{k_{\mu} k_{\nu}}{k^2}}\Bqty{Ag^{\nu\rho}+Bk^{\nu}k^{\rho}}\\
+    =&A(k^2-m^2)\delta^{\rho}_{\mu}-A(k^2-m^2)\frac{k_{\mu}k^{\rho}}{k^2}+\xi^{-1}(k^2-\xi m^2)Ak_{\mu}k^{\rho}+\xi^{-1}(k^2-\xi m^2)Bk_{\mu}k^{\rho}
+  \end{align*}
+  such that $A=\frac{1}{k^2-m^2+i\epsilon}$ and $B=\frac{\xi}{(k^2-\xi m^2)k^2}-\frac{1}{k^2(k^2-m^2)}$ (with the Feynman prescription). The propagator is now
+  $$\tilde \Delta_F^{\mu\nu}(k)=\frac{g\smn-\frac{k\sm k\sn}{k^2}}{k^2-m^2+i\epsilon}+\frac{\xi k\sm k\sn/k^2}{k^2-\xi m^2+i\epsilon}$$
+  We still have to deal with the term with derivative.
+%	Perform the gauge transformation
+%	$$\phi\rightarrow e^{ig\theta(x)}\phi=\phi+ig\theta\phi$$
+%	$$A^{\mu}\rightarrow A^{\mu}-\partial^{\mu}\theta$$
+%	which gives
+%	$$h\rightarrow e^{ig\theta(x)}h, b\rightarrow e^{ig\theta(x)}b$$
+%	so the kinetic term becomes
+%	\begin{align*}
+%	  (\Dm\phi)\da(D_{\mu}\phi)&=g A(x) h(x) b'(x)+g v A(x) b'(x)+\frac{1}{2} g^2 A(x)^2 b(x)^2-g A(x) b(x) h'(x)+g^2 v A(x)^2 h(x)+\frac{1}{2} g^2 A(x)^2 h(x)^2\\&+\frac{1}{2} g^2 v^2 A(x)^2+\frac{1}{2} b'(x)^2+\frac{1}{2} h'(x)^2\\
+%	  &=\frac{1}{2}b'^2+\frac{1}{2}h'^2+\frac{1}{2}g^2v^2A^2+gvb'A+g^2vhA+g(hb'-bh')A+\frac{1}{2}g^2(h^2+b^2)A^2
+%	\end{align*}
+%	here for the sack of simplicity, we write $\partial\sm f=f'(x)$. As what we hoped, this part is gauge invariant.
+%
+%	And we also have
+%	\begin{align*}
+%	  -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}=-\frac{1}{2}(\partial^{\mu}A_{\nu})^2+\frac{1}{2}(1-\xi^{-1})(\partial\sm A_{\mu})^2-\frac{\xi^{-1}}{2}[(\partial^2\theta)^2-2\partial^2\theta\partial^{\nu}A_{\nu}]+gvbe^{ig\theta}(\partial^{\mu}A_{\mu}-\partial^2\theta)-\frac{\xi g^2v^2}{2}b^2
+%	\end{align*}
+
+	\item $Z^0\rightarrow l\bar l$.
 \end{enumerate}
 
 
 
 
 \end{document}
-
