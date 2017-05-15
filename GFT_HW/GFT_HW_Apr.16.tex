@@ -142,9 +142,9 @@
     =&\Bqty{(k^2-m^2)(g_{\mu\nu}-\frac{k_{\mu}k_{\nu}}{k^2})+\xi^{-1}(k^2-\xi m^2)\frac{k_{\mu} k_{\nu}}{k^2}}\Bqty{Ag^{\nu\rho}+Bk^{\nu}k^{\rho}}\\
     =&A(k^2-m^2)\delta^{\rho}_{\mu}-A(k^2-m^2)\frac{k_{\mu}k^{\rho}}{k^2}+\xi^{-1}(k^2-\xi m^2)Ak_{\mu}k^{\rho}+\xi^{-1}(k^2-\xi m^2)Bk_{\mu}k^{\rho}
   \end{align*}
-  such that $A=\frac{1}{k^2-m^2+i\epsilon}$ and $B=\frac{\xi}{(k^2-\xi m^2)k^2}-\frac{1}{k^2(k^2-m^2)}$ (with the Feynman prescription). The propagator is now
+  such that $A=\frac{1}{k^2-m^2+i\epsilon}$ and $B=\frac{\xi}{(k^2-\xi m^2+i\epsilon)k^2}-\frac{1}{k^2(k^2-m^2+i\epsilon)}$ (with the Feynman prescription). The propagator is now
   $$\tilde \Delta_F^{\mu\nu}(k)=\frac{g\smn-\frac{k\sm k\sn}{k^2}}{k^2-m^2+i\epsilon}+\frac{\xi k\sm k\sn/k^2}{k^2-\xi m^2+i\epsilon}$$
-  We still have to deal with the term with derivative.
+
 %	Perform the gauge transformation
 %	$$\phi\rightarrow e^{ig\theta(x)}\phi=\phi+ig\theta\phi$$
 %	$$A^{\mu}\rightarrow A^{\mu}-\partial^{\mu}\theta$$
@@ -163,6 +163,124 @@
 %	\end{align*}
 
 	\item $Z^0\rightarrow l\bar l$.
+
+  Write down the Lagrangian
+   $$\lag=\lag_W-\frac{1}{4}B^{\mu\nu}B_{\mu\nu}+\pmqty{\bar \nu_L,\bar e_L,\bar e_R}i\slashed \partial\pmqty{\nu_L\\e_L\\e_R}+\lag_N+\lag_W$$
+   $$\lag_N=(\frac{gg'}{\sqrt{g^2+g'^2}}\bar e_L\gm e_L-\frac{gg'}{\sqrt{g^2+g'^2}}Y_R\bar e_R\gm e_R) A_{\mu}+(-\frac{g'^2}{\sqrt{g^2+g'^2}}Y_R\bar e_R\gm e_R+\frac{g'^2-g^2}{2\sqrt{g^2+g'^2}}\bar e_L\gm e_L)Z_{\mu}-\frac{\sqrt{g^2+g'^2}}{2}\bar \nu_L\gm\nu_L Z_{\mu}$$
+   The interaction term of Z boson and leptons is
+   $$\lag_Z= (-\frac{g'^2}{\sqrt{g^2+g'^2}}Y_R\bar e_R\gm e_R+\frac{g'^2-g^2}{2\sqrt{g^2+g'^2}}\bar e_L\gm e_L)Z_{\mu}$$
+   Note that the outstate don't have any explicit handness, so we can rewrite it as
+   $$\lag_Z=\bar e \gm(\a+\b\g^5) e Z_{\mu}$$
+   where $\a=\frac{g'^2(1-2Y_R)-g^2}{4\sqrt{g^2+g'^2}}$, $\b=\frac{-g'^2(2Y_R+1)+g^2}{4\sqrt{g^2+g'^2}}$. Take $Y_R=-1$ and $\frac{gg'}{\sqrt{g^2+g'^2}}=e$, then
+  $$\a=-\frac{e}{c_Ws_W}(\frac{1}{4}-s_W^2),\;\;\b=\frac{e}{4c_Ws_W}$$
+  where $c_W=\cos{\theta_W}=\frac{g}{\sqrt{g^2+g'^2}}$, $s_W=\sin{\theta_W}=\frac{g'}{\sqrt{g^2+g'^2}}$,
+  so that
+  $$\lag_Z=\bar e\gm(\a+\b\g^5)eZ_{\mu}$$
+  Now the Lagrangian in the full form is
+  $$\lag_Z=-\frac{e}{c_Ws_W}\bar e\gm(\frac{1-\g^5}{4}-s_W^2)eZ_{\mu}$$
+   And $m_Z=\frac{ev}{2s_Wc_W}$.
+
+  Now the amplitude is
+  \begin{align*}
+    i\mathcal{M}&=\feynmandiagram[small,horizontal=a to b,baseline=(b.base)]{
+     a[particle={\(Z^0\)}]--[boson,momentum=k]b--[fermion,momentum=\(p_1\)]f1[particle=\(l\)],
+     b--[anti fermion,rmomentum=\(p_2\)]f2[particle=\(\bar l\)],
+     },\\
+     &=i\bar u^s\gm(\a+\b\g^5)v^r\epsilon_{\mu}^{\la}
+  \end{align*}
+  And do the spin \& polarization sum
+  \begin{align*}
+    \frac{1}{3}\sum_{r,s,\la}\abs{\mathcal{M}}^2&=\frac{1}{3}\sum_{r,s,\la}[\bar u\gm(\a+\b\g^5)v\epsilon_{\mu}][\bar v\gn(\a+\b\g^5)u\epsilon_{\nu}^*]\\
+    &=\frac{1}{3}\sum_{r,s,\la}\epsilon_{\mu}\epsilon_{\nu}^*\tr{u\bar u\gm(\a+\b\g^5)v\bar v\gn(\a+\b\g^5)}\\
+    &=\frac{1}{3}(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{m_Z^2})\tr{(\ps_1+m)\gm(\a+\b\g^5)(\ps_2-m)\gn(\a+\b\g^5)}
+  \end{align*}
+  Note that
+  \begin{align*}
+    (\a+\b\g^5)(\ps-m)\gn(\a+\b\g^5)&=[\a(\ps-m)-\b(\ps+m)\g^5]\gn(\a+\b\g^5)\\
+    &=\a(\ps-m)\gn(\a+\b\g^5)+\b(\ps+m)\gn\g^5(\a+\b\g^5)\\
+    &=\a(\ps-m)\gn(\a+\b\g^5)+\b(\ps+m)\gn(\b+\a\g^5)\\
+    &=(\a^2+\b^2)\ps\gn+2\a\b\ps\gn\g^5-(\a^2-\b^2)m\gn\\
+    &=(\a'\ps-\b'm)\gn+2\a\b\ps\gn\g^5
+  \end{align*}
+  where $\a'=\a^2+\b^2$, $\b'=\a^2-\b^2$.
+
+  So the trace part becomes
+  \begin{align*}
+    \tr{(\ps_1+m)\gm[(\a'\ps_2-\b'm)\gn+2\a\b\ps_2\gn\g^5]}&=\tr{(\ps_1+m)\gm(\a'\ps_2-\b'm)\gn+2\a\b(\ps_1+m)\gm\ps_2\gn\g^5}
+  \end{align*}
+  \begin{align*}
+    \tr{(\ps_1+m)\gm(\a'\ps_2-\b'm)\gn}&=4[\a'p_1^{\mu}p_2^{\nu}+\a'p_1^{\nu}p_2^{\mu}-g^{\mu\nu}(\a'p_1\cdot p_2+\b'm^2)]
+  \end{align*}
+  \begin{align*}
+    \tr{(\ps_1+m)\gm\ps_2\gn\g^5}&=\tr{\ps_1\gm\ps_2\gn\g^5}\\
+    &=-4i\epsilon^{\rho\mu\s\nu}p_1_{\rho}p_2_{\s}
+  \end{align*}
+  and the latter term will vanish (anti symmetry multiplies symmetry).
+  \begin{align*}
+    \frac{1}{3}\sum_{r,s,\la}\abs{\mathcal{M}}^2&=\frac{4}{3}(-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{m_Z^2}) [\a'p_1^{\mu}p_2^{\nu}+\a'p_1^{\nu}p_2^{\mu}-g^{\mu\nu}(\a'p_1\cdot p_2+\b'm^2)]\\
+    &=-\frac{4}{3} [2\a'p_1\cdot p_2-4(\a'p_1\cdot p_2+\b'm^2)]+\frac{4}{3} [\frac{2}{m_Z^2}\a'(p_1\cdot k)(p_2\cdot k)-(\a'p_1\cdot p_2+\b'm^2)]\\
+    &=\frac{4}{3}[\frac{2}{m_Z^2}\a'(p_1\cdot k)(p_2\cdot k)-(\a'p_1\cdot p_2+\b'm^2)+2\a'p_1\cdot p_2+4\b'm^2]\\
+    &=\frac{4}{3}[\frac{2}{m_Z^2}\a'(p_1\cdot k)(p_2\cdot k)+\a'p_1\cdot p_2+3\b'm^2]\\
+    &=\frac{4}{3}[\frac{2}{m_Z^2}\a'(m^2+p_1\cdot p_2)^2+\a'p_1\cdot p_2+3\b'm^2]
+  \end{align*}
+  Knowing that in centre-of-mass frame
+  $$p_1\cdot p_2=E_1^2+\vb{p}_1^2=2E_1^2-m^2,\;\;E_1=\frac{m_Z}{2}$$
+  $$\frac{1}{3}\sum_{r,s,\la}\abs{\mathcal{M}}^2=\frac{4}{3}[\a'm_Z^2-(\a'-3\b')m^2]$$
+  The decay width is
+  \begin{align*}
+    \G&=\frac{1}{2m_Z}\int\frac{\dd^3p_1}{(2\pi)^3}\frac{\dd^3p_2}{(2\pi)^3}\frac{\abs{\mathcal{M}}^2}{4E_1E_2}(2\pi)^4\delta^4(k-p_1-p_2)\\
+    &=\frac{1}{2\pi m_Z}\int\dd\abs{\vb{p_1}} \abs{\vb{p_1}}^2\frac{\abs{\mathcal{M}}^2}{4E_1^2}\delta({m_Z-2E_1})\\
+    &=\frac{1}{2\pi m_Z}\int\dd E_1 \abs{\vb{p_1}}\frac{\abs{\mathcal{M}}^2}{8E_1}\delta({m_Z-2E_1})\\
+    &=\frac{\abs{\mathcal{M}}^2}{16\pi m_Z^2}\sqrt{m_Z^2-4m^2}\\
+    &=\frac{\frac{4}{3}[\a'm_Z^2-(\a'-3\b')m^2]}{16\pi m_Z^2}\sqrt{m_Z^2-4m^2}\\
+    &=\frac{\a'm_Z^2-(\a'-3\b')m^2}{12\pi m_Z^2}\sqrt{m_Z^2-4m^2}
+  \end{align*}
+  Use $m_Z=91.187GeV$, $s_W^2=0.231$, $e^2=\frac{4\pi}{128}$, we have $\G=84.032MeV$.
+  % Since they're all three particle vertex and the only difference is the coupling constant (maybe the helicity as well), we only consider vertex $G\bar l_L\gm l_L Z_{\mu}$ for now.
+%
+  % The amplitude is as following
+  % \begin{align*}
+    % i\mathcal{M}&=
+    % \feynmandiagram[small,horizontal=a to b,baseline=(b.base)]{
+    % a[particle={\(Z^0\)}]--[boson,momentum=p]b--[fermion,momentum=\(p_1\)]f1[particle=\(l_L\)],
+    % b--[anti fermion,rmomentum=\(p_2\)]f2[particle=\(\bar l_L\)],
+    % },
+    % \\
+    % &=iG\bar v_L\gm u_L\epsilon_{\mu}\\
+    % &=iG \bar v\gm\frac{1-\g^5}{2}u\epsilon_{\mu}
+  % \end{align*}
+  % If we don't take spin sum,
+  % \begin{align*}
+    % i\mathcal{M}&=iG \bar v\gm\frac{1-\g^5}{2}u\epsilon_{\mu}\\
+    % &=
+  % \end{align*}
+  % And
+  % \begin{align*}
+    % \sum_{spins}\abs{M}^2&=\sum_{spins}G^2\epsilon_{\mu}\epsilon^*_{\nu}\tr{v\bar v\gm\frac{1-\g^5}{2}u \bar u\gn\frac{1-\g^5}{2}}\\
+    % &=G^2\epsilon_{\mu}\epsilon_{\nu}^*\tr{(\ps_2-m)\gm\frac{1-\g^5}{2}(\ps_1+m)\gn\frac{1-\g^5}{2}}
+  % \end{align*}
+  % Note that
+  % \begin{align*}
+    % (1-\g^5)(\ps+m)\gn(1-\g^5)&=[(\ps+m)+(\ps-m)\g^5]\gn(1-\g^5)\\
+    % &=(\ps+m)\gn(1-\g^5)+(\ps-m)\gn(1-\g^5)\\
+    % &=2\ps\gn(1-\g^5)
+  % \end{align*}
+  % so the trace part becomes
+  % $$\frac{1}{2}\tr{(\ps_2-m)\gm\ps_1\gn(1-\g^5)}$$
+  % We know that
+  % \begin{align*}
+    % \tr{(\ps_2-m)\gm(\ps_1+m)\gn}=4[p_2^{\mu}p_1^{\nu}+p_2^{\nu}p_1^{\nu}-g^{\mu\nu}(p_1\cdot p_2+m^2)]
+  % \end{align*}
+  % and
+  % \begin{align*}
+    % \tr{(\ps_2-m)\gm\g^5(\ps_1+m)\gn\g^5}&=\tr{(\ps_2-m)\gm(\ps_1-m)\gn}\\
+
+%
+  % So we'll find the mass automatically vanishes, and the rest is
+  % \begin{align*}
+    % \sum_{spins}\abs{M}^2&=\frac{G^2}{2}\epsilon_{\mu}\epsilon_{\nu}^*\tr{\ps_2\gm\ps_1\gn(1-\g^5)}\\
+    % &=2G^2\epsilon_{\mu}\epsilon_{\nu}^*(p_2^{\mu}p_1^{\nu}+p_2^{\nu}p_1^{\mu}-p_2\cdot p_1g^{\mu\nu}+i\epsilon^{\rho\mu\s\nu}p_2_{\rho}p_1_{\s})
+
 \end{enumerate}
 
 
