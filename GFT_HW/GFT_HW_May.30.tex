@@ -1,0 +1,127 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\da}{^{\dagger}}
+\newcommand{\sm}{^{\mu}}
+\newcommand{\sn}{^{\nu}}
+\newcommand{\smn}{^{\mu\nu}}
+\newcommand{\Dm}{D^{\mu}}
+\newcommand{\dm}{\partial^{\mu}}
+\newcommand{\Asquare}{A^{\mu}A_{\mu}}
+\newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
+
+\title{Homework: Gauge Field Theory \#3}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\begin{enumerate}[{\bf 1.}]
+  \item The standard model Lagrangian without fermion part and gluon part (since we only need to consider Faddeev-Popev determinant, the effect of Higgs field can also be neglected, unless we wish to include the effect in $R_{\xi}$ gauge fixing term):
+	$$\lag=-\frac{1}{2}\Tr W^{\mu\nu}W_{\mu\nu}-\frac{1}{4}B^{\mu\nu}B_{\mu\nu}+\abs{D^{\mu}\phi}^2-V(\phi)$$
+	  note that $W$ has 3 colors, the covariant derivatives are
+	  $$D^{\mu}=\partial^{\mu}-igW^{a,\mu}T^a+ig_BB^{\mu}$$
+		and the gauge transforms are:
+
+		U(1):
+		$$B^{\mu}\rightarrow B^{\mu}-\frac{1}{g_B}\partial^{\mu}\b$$
+		$$\phi\rightarrow e^{i\b(x)}\phi$$
+		SU(2):
+		$$W^{a,\mu}\rightarrow W^{a,\mu}+\frac{1}{g}\partial^{\mu}\a^a-f^{abc}\a^bW^{c,\mu}$$
+		$$\phi\rightarrow e^{i\a^a(x)T^a}\phi$$
+		Make $\phi=\frac{1}{\sqrt{2}}(v+h(x))$
+		$$\delta h=
+	  With $R_{\xi}$ gauge, the gauge fixing term is
+	  $$\lag_{GF}=-\frac{1}{2\xi}(\partial_{\mu}W^{a,\mu}-\xi gT^a_{ij}v_jh_i)^2-\frac{1}{2\xi}(\partial_{\mu}B^{a,\mu}-\xi g_Bv_ih_i)^2$$
+
+
+	\item QED Lagrangian:
+	$$\lag=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\bar\psi(i\slashed D+m)\psi$$
+	We can add gauge fixing term
+	$$\lag_{GF}=-\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2$$
+	and ignore the fermion part, the generating functional is then
+	$$Z[J]=\int D[A]e^{i\int\dd^4x(-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2-J^{\mu}A_{\mu})}$$
+	Note that the kinetic term can be rewrite as
+	$$-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}=-\frac{1}{2}(\partial_{\mu}A^{\nu})^2+\frac{1}{2}(\partial_{\mu}A^{\mu})^2$$
+	so
+	\begin{align*}
+		Z[J]&=\int D[A]e^{i\int\dd^4x(-\frac{1}{2}(\partial_{\mu}A^{\nu})^2+\frac{1-\xi^{-1}}{2}(\partial_{\mu}A^{\mu})^2-J^{\mu}A_{\mu})}\\
+		&=\int D[A]e^{i\int\dd^4x(A_{\mu}(\frac{1}{2}g^{\mu\nu}\partial^2+\frac{1-\xi^{-1}}{2}\partial^{\mu}\partial^{\nu})A_{\nu}-J^{\mu}A_{\mu})}
+	\end{align*}
+	The propagator is then
+	$$(g^{\mu\nu}\partial^2-(1-\xi^{-1})\partial^{\mu}\partial^{\nu})\Delta_{\mu\nu}(x-y)=i\delta^4(x-y)$$
+		$$\Delta^{\mu\nu}(x-y)=\int\frac{\dd^4k}{(2\pi)^4}(-i)(\frac{g^{\mu\nu}}{k^2+i\epsilon}-\frac{(1-\xi)k^{\mu}k^{\nu}/k^2}{k^2+i\epsilon})e^{ik\cdot(x-y)}$$
+	\item BRST symmetry.
+
+	We have
+	\begin{align*}
+		\delta_B\psi=-igc^aT^a\psi,\delta_B\bar\psi=\bar\psi(-igc^aT^a)\\
+		\delta_BG^{a,\mu}=(D^{\mu})^{ab}c^b,\delta_Bc^a=\frac{1}{2}gf^{abc}c^bc^c\\
+		\delta_B\bar c^a=B^a(x),\delta_BB^a=0i,(D^{\mu})^{ab}=\partial^{\mu}\delta^{ab}+gf^{cab}G^{c,\mu}
+	\end{align*}
+	so ($T^aT^b=if^{abc}T^c+T^bT^a=if^{abc}T^c+\frac{1}{2}\delta^{ab}-T^aT^b=\frac{i}{2}f^{abc}T^c$)
+	\begin{align*}
+		&\delta_B(\delta_B\psi)=-ig(\delta_Bc^a)T^a\psi+g^2c^aT^ac^bT^b\psi=-\frac{ig^2}{2}f^{abc}c^bc^cT^a\psi+g^2c^aT^ac^bT^b\psi=0\\
+		&\delta_B^2c^a=\frac{1}{2}gf^{abc}(\frac{1}{2}gf^{bde}c^dc^ec^c-\frac{1}{2}gf^{cde}c^{b}c^{d}c^{e})=\frac{g^2}{4}(f^{eac}f^{cbd}c^bc^dc^e-f^{abc}f^{cde}c^bc^dc^e)=-\frac{g^2}{4}f^{adc}f^{ceb}c^bc^dc^e=0\\
+		&\delta_B^2\bar c^a=0\\
+		&\delta_B^2\bar\psi=\bar\psi(-igc^aT^a)(-igc^bT^b)-\bar\psi(-ig\frac{1}{2}gf^{abc}c^bc^cT^a)=\bar\psi\frac{ig^2}{2}f^{abc}c^bc^cT^a-\bar\psi g^2c^aT^ac^bT^b=0\\
+		&\delta_B^2G^{a,\mu}=\delta_B(\partial^{\mu}c^a+gf^{cab}G^{c,\mu}c^b)=\frac{1}{2}gf^{abc}\partial^{\mu}(c^bc^c)+gf^{cab}(\partial^{\mu}c^c+gf^{dce}G^{d,\mu}c^e)c^b+gf^{cab}G^{c,\mu}\frac{1}{2}gf^{bde}c^dc^e=\frac{1}{2}gf^{abc}\partial^{\mu}(c^bc^c)\\&-gf^{abc}c^b(\partial^{\mu}c^c)+g^2f^{cab}f^{dce}G^{d,\mu}c^ec^b-\frac{g^2}{2}f^{cab}f^{bde}G^{c,\mu}c^dc^e=g^2f^{cab}f^{dce}G^{d,\mu}c^ec^b+\frac{g^2}{2}f^{cab}f^{bde}G^{c,\mu}c^dc^e\\&=\frac{g^2}{2}(f^{aeb}f^{bdc}-f^{adb}f^{bec}+f^{cab}f^{bde})G^{c,\mu}c^dc^e=0
+	\end{align*}
+
+\end{enumerate}
+
+
+
+
+\end{document}
