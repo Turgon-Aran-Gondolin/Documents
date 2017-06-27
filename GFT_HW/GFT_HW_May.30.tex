@@ -68,14 +68,12 @@
 \begin{document}
 \maketitle
 \begin{enumerate}[{\bf 1.}]
-  \item The standard model Lagrangian without fermion part:
-	$$\lag=-\frac{1}{2}\Tr G^{\mu\nu}G_{\mu\nu}-\frac{1}{2}\Tr W^{\mu\nu}W_{\mu\nu}-\frac{1}{4}B^{\mu\nu}B_{\mu\nu}+\abs{D^{\mu}\phi}^2-V(\phi)$$
-	  note that $G$ has 3 colors and $W$ has 3 flavours, the covariant derivatives are
+  \item The standard model Lagrangian without fermion part and gluon part (since we only need to consider Faddeev-Popev determinant, the effect of Higgs field can also be neglected, unless we wish to include the effect in $R_{\xi}$ gauge fixing term):
+	$$\lag=-\frac{1}{2}\Tr W^{\mu\nu}W_{\mu\nu}-\frac{1}{4}B^{\mu\nu}B_{\mu\nu}+\abs{D^{\mu}\phi}^2-V(\phi)$$
+	  note that $W$ has 3 colors, the covariant derivatives are
 	  $$D^{\mu}=\partial^{\mu}-igW^{a,\mu}T^a+ig_BB^{\mu}$$
 		and the gauge transforms are:
 
-    SO(3):
-    $$G^{a,\mu}\rightarrow G^{a,\mu}+\frac{1}{g_G}\partial^{\mu}\b^a-f^{abc}\b^bG^{c,\mu}$$
 		U(1):
 		$$B^{\mu}\rightarrow B^{\mu}-\frac{1}{g_B}\partial^{\mu}\b$$
 		$$\phi\rightarrow e^{i\b(x)}\phi$$
@@ -83,22 +81,9 @@
 		$$W^{a,\mu}\rightarrow W^{a,\mu}+\frac{1}{g}\partial^{\mu}\a^a-f^{abc}\a^bW^{c,\mu}$$
 		$$\phi\rightarrow e^{i\a^a(x)T^a}\phi$$
 		Make $\phi=\frac{1}{\sqrt{2}}(v+h(x))$
-		$$\delta h=i\b(x)(v+h)(U(1))$$
-    $$\delta h=i\a^a(x)T^a(v+h)(SU(2))$$
+		$$\delta h=
 	  With $R_{\xi}$ gauge, the gauge fixing term is
-    $$\lag_{GF,gluon}=-\frac{1}{2\xi}(\partial_{\mu}G^{a,\mu})^2$$
 	  $$\lag_{GF}=-\frac{1}{2\xi}(\partial_{\mu}W^{a,\mu}-\xi gT^a_{ij}v_jh_i)^2-\frac{1}{2\xi}(\partial_{\mu}B^{a,\mu}-\xi g_Bv_ih_i)^2$$
-    Then for gluon, the FP determinant is
-    $$\frac{\delta \partial_{\mu}G^{a,\mu}}{\delta \b^b}=\frac{1}{g_G}\partial_{\mu}\partial^{\mu}\delta^{ab}-f^{abc}\partial_{\mu}G^{c,\mu}$$
-    so the ghost field part is
-    $$\lag_{FP}=\bar c_G^a(\partial^2\delta^{ab}-g_Gf^{abc}\partial_{\mu}G^{c,\mu})c_G^b$$
-    For the electro-weak part, the determinant is
-    $$\fdv{(\partial_{\mu}W^{a,\mu}-\xi gT^a_{ij}v_jh_i)}{\a^b}=\frac{1}{g}\partial^2\delta^{ab}-f^{abc}\partial_{\mu}W^{c,\mu}-i\xi gT^a_{ij}v_jT^b_{ik}(v+h)_k$$
-    $$\fdv{(\partial_{\mu}B^{a,\mu}-\xi g_Bv_ih_i)}{\b}=-\frac{1}{g_B}\partial^2-i\xi g_Bv_i(v+h)_i$$
-    The ghost fields are
-    $$\lag_{FP,W}=\bar c_W^a(\partial^2\delta^{ab}-gf^{abc}\partial_{\mu}W^{c,\mu}-i\xi gT^a_{ij}v_jT^b_{ik}(v+h)_k)c_W^b$$
-    $$\lag_{FP,B}=\bar c_B(\partial^2-i\xi g_B^2v_i(v+h)_i)c_B$$
-    It should be easy to introduce Weinberg angle. (For real SM Higgs is a doublet, and for $W^{\pm}$ the higgs part should be real scalar fields $phi^+$ and $\phi^-$ without breaking and for $Z$ and $A$ the higgs part should be complex scalar field.)
 
 
 	\item QED Lagrangian:

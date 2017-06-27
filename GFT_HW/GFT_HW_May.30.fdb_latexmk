@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1496510957 "GFT_HW_May.30.tex" "GFT_HW_May.30.pdf" "GFT_HW_May.30" 1496510959
-  "GFT_HW_May.30.aux" 1496510959 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "GFT_HW_May.30.out" 1496510959 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "GFT_HW_May.30.tex" 1496510956 6683 47da4d67e8f247b509e69ba7eb678420 ""
+["pdflatex"] 1496426272 "GFT_HW_May.30.tex" "GFT_HW_May.30.pdf" "GFT_HW_May.30" 1496426275
+  "GFT_HW_May.30.aux" 1496426274 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "GFT_HW_May.30.out" 1496426274 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "GFT_HW_May.30.tex" 1496426271 5106 20a1a07fd5173f57ee15f7badc2d4a39 ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1470740150 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1470740150 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1470740150 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -217,6 +217,6 @@
   "c:/texlive/2016/texmf-var/web2c/luatex/lualatex.fmt" 1470754066 1200722 b06e818b333b2eaa1476f9abc3f48a65 ""
   (generated)
   "GFT_HW_May.30.pdf"
-  "GFT_HW_May.30.out"
   "GFT_HW_May.30.aux"
+  "GFT_HW_May.30.out"
   "GFT_HW_May.30.log"
