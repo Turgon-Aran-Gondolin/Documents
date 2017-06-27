@@ -1,4 +1,4 @@
-PWD C:/Users/yingsheng/OneDrive/Documents/QFT_HW
+PWD C:/Users/yingsheng/OneDrive/Documents/Others
 INPUT c:/texlive/2016/texmf-var/web2c/luatex/lualatex.fmt
 INPUT ./beamer.tex
 OUTPUT beamer.log
