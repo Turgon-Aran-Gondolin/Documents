@@ -29,6 +29,7 @@
 \usepackage{xparse}
 \usepackage{enumerate}
 \usepackage{listings}
+\usepackage{gensymb}
 
 \geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
 
@@ -104,11 +105,27 @@
 		For $\omega$ meson, $I^GJ^{PC}=0^-1^{--}$. Apparently CP violation.
 
     \item Dalitz plot.
-
-
+    \includegraphics[width=4 in]{shenkeng.png}
+    
+    \includegraphics[width=4 in]{ss.png}
     \item $\eta-\eta'$ mixing.
 
     $$\eta_1=\frac{1}{\sqrt{3}}(u\bar u+d\bar d+s\bar s)$$
     $$\eta_8=\frac{1}{\sqrt{6}}(u\bar u+d\bar d-2s\bar s)$$
+    and
+    $$\pmqty{\eta\\\eta'}=\pmqty{\cos\theta_P&\sin\theta_P\\-\sin\theta_P&\cos\theta_P}\pmqty{\eta_1\\\eta_8}$$
+    For $\eta$ and $\eta'$ to have the same $s\bar s$ and $(u\bar u+d\bar d)/\sqrt{2}$ contents, it must have $\tan\theta_P=\frac{1-\sqrt{2}}{1+\sqrt{2}}$, which leads to $\theta_P=9.7\degree$.
+
+    $\omega-\phi$ mixing.
+
+    $$\omega_1=\frac{1}{\sqrt{3}}(u\bar u+d\bar d+s\bar s)$$
+    $$\omega_8=\frac{1}{\sqrt{6}}(u\bar u+d\bar d-2s\bar s)$$
+    and
+    $$\pmqty{\omega\\\phi}=\pmqty{\cos\theta&\sin\theta\\-\sin\theta&\cos\theta}\pmqty{\omega_1\\\omega_8}$$
+    To have
+    $$\omega=\frac{1}{\sqrt{2}}(u\bar u+d\bar d)$$
+    $$\phi=s\bar s$$
+    one must make $\frac{1}{\sqrt{3}}\cos\theta+\frac{2}{\sqrt{6}}\sin\theta=0$ and $-\frac{1}{\sqrt{3}}\sin\theta+\frac{1}{\sqrt{6}}\cos\theta=0$, which leads to $\tan\theta=\frac{1}{\sqrt{2}}$, $\theta=35.3\degree$.
+
 \end{enumerate}
 \end{document}

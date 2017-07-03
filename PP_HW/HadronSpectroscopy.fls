@@ -286,6 +286,8 @@ INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+INPUT c:/texlive/2017/texmf-dist/tex/latex/was/gensymb.sty
+INPUT c:/texlive/2017/texmf-dist/tex/latex/was/gensymb.sty
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -381,6 +383,12 @@ INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT ./shenkeng.png
+INPUT ./shenkeng.png
+INPUT shenkeng.png
+INPUT ./ss.png
+INPUT ./ss.png
+INPUT ss.png
 INPUT ./HadronSpectroscopy.aux
 INPUT c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb

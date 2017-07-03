@@ -1,11 +1,11 @@
 # Fdb version 3
-["lualatex"] 1498577482 "HadronSpectroscopy.tex" "HadronSpectroscopy.pdf" "HadronSpectroscopy" 1498577485
+["lualatex"] 1498583095 "HadronSpectroscopy.tex" "HadronSpectroscopy.pdf" "HadronSpectroscopy" 1498760167
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1498558854 131142 6dbae89bb06486741e2882754123d6be ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1498558855 131645 8caa45148b64b1d87561dbc70eb5b548 ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman17-regular.luc" 1498558855 125560 7ed112a0349211f9eb3659f9a35398bc ""
-  "HadronSpectroscopy.aux" 1498577485 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "HadronSpectroscopy.out" 1498577484 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "HadronSpectroscopy.tex" 1498577481 4120 cad4794731693312467f2dc98b85310b ""
+  "HadronSpectroscopy.aux" 1498558856 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "HadronSpectroscopy.out" 1498558855 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "HadronSpectroscopy.tex" 1498583094 5117 579414d6a5b7c10925f4ef97251e6bfc ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1498556018 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1498556018 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1498556018 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -213,6 +213,7 @@
   "c:/texlive/2017/texmf-dist/tex/latex/tools/enumerate.sty" 1498556997 3467 d39e40f25d5fd2b3b49a58d155063dd6 ""
   "c:/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty" 1498556997 12083 80916157594a8e4354985aaefae4f367 ""
   "c:/texlive/2017/texmf-dist/tex/latex/url/url.sty" 1498557056 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "c:/texlive/2017/texmf-dist/tex/latex/was/gensymb.sty" 1498557089 4612 29d19942d7123701aa6a3876b9ba11b1 ""
   "c:/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty" 1498557102 55589 34128738f682d033422ca125f82e5d62 ""
   "c:/texlive/2017/texmf-dist/tex/luatex/lualibs/lualibs-basic.lua" 1498556480 2685 01cf68c81eccdf10366f3f84158d2bc8 ""
   "c:/texlive/2017/texmf-dist/tex/luatex/lualibs/lualibs-boolean.lua" 1498556480 1850 abe28515dd33e8f6c416c09bca351cf8 ""
@@ -249,8 +250,10 @@
   "c:/texlive/2017/texmf-dist/tex/luatex/lualibs/lualibs-util-tpl.lua" 1498556480 7100 ccfb5023bc761673396964848d85b5e2 ""
   "c:/texlive/2017/texmf-dist/tex/luatex/luaotfload/luaotfload-characters.lua" 1498556481 1548690 99578c3eff8b68cae3da45a4a7cbfcf2 ""
   "c:/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1498557256 1296948 b43e7a596aa0720e271319abe48df8cb ""
+  "shenkeng.png" 1498582968 21954 7c8a04845b7c37fd38af1725113e8ca2 ""
+  "ss.png" 1498582899 48453 5cc333e0287a2effd7a6208eecd14709 ""
   (generated)
   "HadronSpectroscopy.pdf"
+  "HadronSpectroscopy.out"
   "HadronSpectroscopy.aux"
   "HadronSpectroscopy.log"
-  "HadronSpectroscopy.out"
