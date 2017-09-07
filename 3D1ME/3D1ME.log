@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.9.5)  7 SEP 2017 20:06
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.9.5)  7 SEP 2017 20:18
  restricted system commands enabled.
 **3D1ME.tex
 (./3D1ME.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.079 seconds
+luaotfload | main : initialization completed in 0.084 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (/home/huangys/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -2018,7 +2018,7 @@ Here is how much of LuaTeX's memory you used:
  545 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 13 attribute, 62 glue_spec, 13 attr
 ibute_list, 1 write nodes
-   avail lists: 1:10,2:831,3:139,4:23,5:200,6:944,7:495,8:142,9:676,10:3,11:23
+   avail lists: 1:10,2:819,3:139,4:23,5:195,6:937,7:503,8:142,9:644,10:3,11:26
  35708 multiletter control sequences out of 65536+600000
  101 fonts using 6349783 bytes
  61i,16n,80p,451b,337s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -2028,23 +2028,22 @@ public/lm/lmroman12-bold.otf></home/huangys/usr/local/texlive/2017/texmf-dist/fo
 nts/opentype/public/lm/lmroman12-regular.otf></home/huangys/usr/local/texlive/20
 17/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></home/huangys/usr/
 local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/h
-uangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cme
-x7.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi5.pfb></home/huangys/usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/huangys/usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/huangys/usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/huan
-gys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></
-home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb>
-Output written on 3D1ME.pdf (1 page, 122717 bytes).
+uangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi5.pfb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></home/huangys/usr/local/texlive/2017/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/huangys/usr/local/texlive/201
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/huangys/usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/huangys/us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/h
+uangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></home/huangys/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb>
+Output written on 3D1ME.pdf (1 page, 115499 bytes).
 
-PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+PDF statistics: 97 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 131072)
  32 words of extra memory for PDF output out of 10000 (max. 100000000)
 
