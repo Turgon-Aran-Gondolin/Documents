@@ -1,0 +1,84 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\renewcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\da}{^{\dagger}}
+\newcommand{\sm}{^{\mu}}
+\newcommand{\sn}{^{\nu}}
+\newcommand{\smn}{^{\mu\nu}}
+\newcommand{\Dm}{D^{\mu}}
+\newcommand{\dm}{\partial^{\mu}}
+\newcommand{\Asquare}{A^{\mu}A_{\mu}}
+\newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
+
+\title{$^3D_1$}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+$$\mel{0}{\bar c\gm c}{^3D_1}=\int\dd\Omega\sum_{\la_1\la_2 S_zm}\tr{\Pi_1\gm}\braket{1J_z}{2m;1S_z}Y_{2m}(\theta,\phi)$$
+$$\tr{\Pi_1\gm}=\frac{\sqrt{2}p^{\mu}(p\cdot\epsilon)}{E(E+m)}+\epsilon^{\mu}$$
+$$\pmqty{\mel{0}{\bar c\gm c}{^3D_1}^{(-)}\\\mel{0}{\bar c\gm c}{^3D_1}^{(0)}\\\mel{0}{\bar c\gm c}{^3D_1}^{(+)}}=\left(
+\begin{array}{cccc}
+ 0 & -\frac{2 \sqrt{\pi } \left(E^2-m^2\right)}{15 E (m+E)} & \frac{2 i \sqrt{\pi } \left(E^2-m^2\right)}{15 E (m+E)} & 0 \\
+ 0 & 0 & \frac{2 i \sqrt{2 \pi } \left(E^2-m^2\right)}{5 E (m+E)} & \frac{8 \sqrt{\pi } \left(E^2-m^2\right)}{15 E (m+E)} \\
+ 0 & -\frac{2 \sqrt{\pi } \left(E^2-m^2\right)}{15 E (m+E)} & -\frac{2 i \sqrt{\pi } \left(E^2-m^2\right)}{15 E (m+E)} & 0 \\
+\end{array}
+\right)$$
+$$\mel{0}{\bar c\gm c}{^3D_1}^{(0)}=\int\dd\Omega -\frac{e^{-i \phi } \overline{p}^{\mu } \left(\overline{p}\cdot
+   \overline{\text{$\epsilon $1}}\right) \left(6 e^{i \phi } \cos ^2(\theta )+3
+   \sqrt{2} \left(-1+e^{2 i \phi }\right) \sin (\theta ) \cos (\theta )-2 e^{i \phi
+   }\right)}{4 \sqrt{\pi } E (E+m)}$$
+
+\end{document}
