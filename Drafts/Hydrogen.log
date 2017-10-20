@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  11 OCT 2017 21:31
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  13 OCT 2017 18:45
  restricted system commands enabled.
 **Hydrogen.tex
 (./Hydrogen.tex
@@ -1866,23 +1866,23 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
  (./Hydrogen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
 Package rerunfilecheck Info: File `Hydrogen.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29756 strings out of 495077
+ 29758 strings out of 495077
  125016,794899 words of node,token memory allocated
  483 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 60 glue_spec, 1 write nodes
-   avail lists: 1:8,2:49,3:1392,4:7,5:241,6:1137,7:2132,8:120,9:1105,10:2,11:19
- 32356 multiletter control sequences out of 65536+600000
+   avail lists: 1:8,2:49,3:1392,4:7,5:247,6:1155,7:2132,8:120,9:1117,10:2,11:19
+ 32358 multiletter control sequences out of 65536+600000
  75 fonts using 3111975 bytes
  66i,19n,108p,454b,1689s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
@@ -1898,7 +1898,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2
 mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Hydrogen.pdf (2 pages, 138835 bytes).
+Output written on Hydrogen.pdf (2 pages, 141276 bytes).
 
 PDF statistics: 74 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
