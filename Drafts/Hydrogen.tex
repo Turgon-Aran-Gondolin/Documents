@@ -104,8 +104,8 @@ diagram for NRQED process is
 	{ [same layer] a -- [photon,momentum'=$k$] c},
 	{ [same layer] b-- [photon,rmomentum=$k-q$] d},
   };\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int[\dd k]\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{p_1+k}^2}{2m}+i\epsilon)}\psi(p_1)\\
-  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{p_1+k}^2}{2m})}\psi(p_1)\\
+  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int[\dd k]\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{(p_1+k)}^2}{2m})}\psi(p_1)\\
   &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2(E_1-\frac{\vb{k}^2}{2m})}\psi(p_1)
 \end{align*}
 \clearpage 
@@ -149,7 +149,25 @@ The box and crossed box diagram for QED process is
  i\mathcal{M}_1^{(1)}+i\mathcal{M}_2^{(1)}&=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-{p_1^0}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)\\
  &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2-\vb{p_1}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)
  \end{align*}
+ Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order.
 
+ Now consider operator product expansion. 
+
+ One loop scenario for NRQED case:
+ \begin{align*}
+    \mel{0}{\psi_e(0)N(0)e\int\dd^4y\bar\psi_e\psi_e A^0e\int\dd^4z\bar NNA^0}{eN}&=e^2u_N(P_N)\int[\dd k]\frac{1}{\vb{k}^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  \intertext{drop $p_1$}
+  &=\-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(P_N)\psi(p_1)
+ \end{align*}
+For QED case:
+\begin{align*}
+  \mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}&=e^2u_N(P_N)\int[\dd k]e^{-i\vb{k}\cdot\vb{x}}\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=e^2u_N(P_N)\int[\dd k]e^{-i\vb{k}\cdot\vb{x}}\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
+  &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i(\vb{k-p_1})\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
+ \end{align*}
 \end{document}
 
 
