@@ -69,6 +69,7 @@
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
+\section{Matching}
 QED Lagrangian is 
 \begin{align}
   \lag_{QED}=\bar l(i\slashed D-m)l+\bar N(i D^0)N-\lag_{\gamma}
@@ -160,7 +161,7 @@ The box and crossed box diagram for QED process is
   &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
   &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)\\
   \intertext{drop $p_1$}
-  &=\-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(P_N)\psi(p_1)
+  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(P_N)\psi(p_1)
  \end{align*}
 For QED case:
 \includegraphics[width=1.2 in]{OPE-2.eps}
@@ -172,6 +173,55 @@ For QED case:
   \intertext{drop $p_1$}
   &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
  \end{align*}
+ \section{HSET}
+ \subsection{Lagrangian}
+For scalar QED
+$$\mathcal{L}=(D_{\mu}\phi)^{\dagger}D^{\mu}\phi-m^2\phi^{\dagger}\phi$$
+In Schwartz's QFT (Chap. 35) he mentioned a choice of $\chi_v$ and $\tilde \chi_v$:
+\begin{align}
+\phi(x)=e^{-imv\cdot x}\frac{1}{\sqrt{2m}}(\chi_v(x)+\tilde\chi_v(x))
+\label{scalar}
+\end{align}
+\begin{align}
+\chi_v(x)=e^{imv\cdot x}\frac{1}{\sqrt{2m}}(iv\cdot D+m)\phi(x),\;
+\tilde\chi_v(x)=e^{imv\cdot x}\frac{1}{\sqrt{2m}}(-iv\cdot D+m)\phi(x)
+\label{scalar redefine}
+\end{align}
+Put \eqref{scalar} into \eqref{scalar redefine}, a simple relation is derived:
+$$(-iv\cdot D)\chi_v(x)=(2m+iv\cdot D)\tilde\chi_v(x)$$
+It can also be writen as 
+$$2m\tilde\chi_v=(-iv\cdot D)(\chi_v+\tilde\chi_v) $$
+Use this result 
+\begin{align*}
+  \mathcal{L}&=\frac{1}{2m}\Big\{\Bqty{[D^{\mu}(\chi_v+\tilde\chi_v)]^{\dagger}+imv^{\mu}(\chi_v+\tilde\chi_v)^{\dagger}}\Bqty{[D_{\mu}(\chi_v+\tilde\chi_v)]-imv_{\mu}(\chi_v+\tilde\chi_v)}-m^2(\chi_v+\tilde\chi_v)^{\dagger}(\chi_v+\tilde\chi_v)\Big\}\\
+  &=(\chi_v+\tilde\chi_v)^{\dagger}(iv\cdot D)(\chi_v+\tilde\chi_v)+\frac{1}{2m}[D^{\mu}(\chi_v+\tilde\chi_v)]^{\dagger}D_{\mu}(\chi_v+\tilde\chi_v)
+  \stepcounter{equation}\tag{\theequation}\label{lag0}\\
+&=(\chi_v(x)+\tilde\chi_v(x))^{\dagger}(iv\cdot D)(\chi_v(x)+\tilde\chi_v(x))+\mathcal{O}(\frac{1}{m}) \stepcounter{equation}\tag{\theequation}\label{lag1}
+\end{align*}
+(note that $D_{\mu}\phi=e^{-imv\cdot x}[D_{\mu}(\chi_v+\tilde \chi_v)-imv_{\mu}(\chi_v+\tilde\chi_v)]$ and $-imv^{\mu}[D_{\mu}(\chi_v+\tilde \chi_v)]^{\dagger}(\chi_v+\tilde \chi_v)=imv^{\mu}(\chi_v+\tilde\chi_v)^{\dagger}D_{\mu}(\chi_v+\tilde \chi_v)-total\ derivative\ term$)
+
+Use the leading order of \eqref{lag0} 
+\begin{align*}
+  \lag^{(0)}&=(\chi_v+\tilde\chi_v)^{\dagger}(iv\cdot D)(\chi_v+\tilde\chi_v)\\
+  &=\chi_v^{\dagger}iv\cdot D\chi_v+\tilde\chi_v^{\dagger}iv\cdot D(\chi_v+\tilde\chi_v)+\chi_v^{\dagger}iv\cdot D\tilde\chi_v\\
+  &=\chi_v^{\dagger}iv\cdot D\chi_v-2m\tilde\chi_v^{\dagger}\tilde\chi_v+(iv\cdot D\chi_v)^{\dagger}\tilde\chi_v\\
+&=\chi_v^{\dagger}iv\cdot D\chi_v-2m\tilde\chi_v^{\dagger}\tilde\chi_v+[(-2m-iv\cdot D)\tilde\chi_v]^{\dagger}\tilde\chi_v\\
+&=\chi_v^{\dagger}iv\cdot D\chi_v-\tilde\chi_v^{\dagger}(iv\cdot D+4m)\tilde\chi_v
+\end{align*}
+
+We can have the final form
+$$\mathcal{L}=\chi_v^{\dagger}iv\cdot D\chi_v-\tilde \chi_v^{\dagger}(iv\cdot D+4m)\tilde\chi_v+\mathcal{O}(\frac{1}{m})$$
+\subsection{Quantization}
+The anti-particle field is decoupled so we don't have to consider that for now. The equation-of-motion is 
+\begin{align*}
+  \begin{cases} 
+	v\cdot \partial\chi_v^{\dagger}=0\\
+	v\cdot\partial\chi_v=0
+  \end{cases}
+\end{align*}
+
+
+
 \end{document}
 
 
