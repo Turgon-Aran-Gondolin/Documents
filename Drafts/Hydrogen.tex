@@ -154,6 +154,8 @@ The box and crossed box diagram for QED process is
 
  Now consider operator product expansion. 
 
+ Tree level matching: \includegraphics[width=1.2 in]{OPE-00.eps} \& \includegraphics[width=1.2 in]{OPE-0.eps}
+
  One loop scenario for NRQED case:
  \includegraphics[width=1.2 in]{OPE-1.eps}
  \begin{align*}
@@ -177,6 +179,8 @@ For QED case:
  \subsection{Lagrangian}
 For scalar QED
 $$\mathcal{L}=(D_{\mu}\phi)^{\dagger}D^{\mu}\phi-m^2\phi^{\dagger}\phi$$
+where
+$$D_{\mu}=\partial_{\mu}+ieA_{\mu}$$
 In Schwartz's QFT (Chap. 35) he mentioned a choice of $\chi_v$ and $\tilde \chi_v$:
 \begin{align}
 \phi(x)=e^{-imv\cdot x}\frac{1}{\sqrt{2m}}(\chi_v(x)+\tilde\chi_v(x))
@@ -212,21 +216,56 @@ Use the leading order of \eqref{lag0}
 We can have the final form
 $$\mathcal{L}=\chi_v^{\dagger}iv\cdot D\chi_v-\tilde \chi_v^{\dagger}(iv\cdot D+4m)\tilde\chi_v+\mathcal{O}(\frac{1}{m})$$
 \subsection{Quantization}
-\subsubsection{HQET}
+\subsubsection{HQET as an example}
 The leading term of HQET Lagrangian is 
 \begin{align*}
   \lag=\bar Q_v(iv\cdot D)Q_v
 \end{align*}
-
+\begin{align*}
+  Q_v(x)=e^{imv\cdot x}\frac{1+\slashed v}{2}\psi(x)
+\end{align*}
+In free Dirac fermion theory we know that 
+\begin{align*}
+    \Bqty{\psi_a(\vb{x}),\psi_b^{\dagger}(\vb{y})}=\delta^{(3)}(\vb{x}-\vb{y})\delta_{ab}\\
+	\{a_{\vb{p}},a_{\vb{p'}}^{\dagger}\}=(2\pi)^3\delta^{(3)}(\vb{p-p'})
+\end{align*}
+also the plane wave expansion of $\psi$ is 
+\begin{align*}
+  \psi(x)&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a_{\vb{p}}u(p)e^{-ip\cdot x}\\
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2mv^0}}a_v\sqrt{m}u(v)e^{-imv\cdot x-ik\cdot x}\\
+  \intertext{using normalization of states $u(k)=\sqrt{m}u(v)$\footnotemark, $\braket{p'}{p}=2E_p(2\pi)^3 \delta^{(3)}(\vb{p'-p})$ and $\braket{v',k'}{v,k}=2v^0\delta_{vv'}(2\pi)^3 \delta^{(3)}(\vb{k'-k})$ we have $\ket{p}=\sqrt{m}\ket{v}$ ($\ket{p}=\sqrt{2E_p}a_{\vb{p}}^{\dagger}\ket{0}$ while $\ket{v,k}=\sqrt{2v^0}a_{v,\vb{k}}^{\dagger}\ket{0}$)}
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2v^0}}a_vu(v)e^{-imv\cdot x-ik\cdot x}
+\end{align*}
+\footnotetext{The relation $\bar u^s(p)\gm u^s(p)=2p^{\mu}$ can be derived using Gordon identity, same for $\bar u^s(v)\gm u^s(v)=2v^{\mu}$, but it's actually $\bar u u$.}
+Using the definition of $ Q_v(x)$
+\begin{align*}
+  Q_v(x)&=e^{imv\cdot x}\frac{1+\slashed v}{2}\psi(x)\\
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2v^0}}a_v \frac{1+\slashed v}{2}u(v)e^{-ik\cdot x}\\
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2v^0}}a_v u(v)e^{-ik\cdot x}
+\end{align*}
+The commutation relation should be 
+\begin{align*}
+  \{Q_{va}(\vb{x}),Q_{v'b}(\vb{x'})\}&=\int \frac{\dd^3k}{(2\pi)^3}\frac{\dd^3k'}{(2\pi)^3}\frac{1}{\sqrt{4v^0v'^0}}\{a_v,a_{v'}^{\dagger}\}u_a(v)u_b^{\dagger}(v')e^{-ik\cdot x+ik'\cdot x'}\\
+  \intertext{
+  using $\sum_s u_a(v)u_b^{\dagger}(v)=\frac{1}{m}\sum_s u_a(p)u^{\dagger}_b(p)=[(\slashed v+1)\g^0]_{ab}$}
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{\dd^3k'}{(2\pi)^3}\frac{1}{\sqrt{4v^0v'^0}}\{a_v,a_{v'}^{\dagger}\}[(\slashed v+1)\g^0]_{ab}e^{-ik\cdot x+ik'\cdot x'}\\
+  \intertext{assuming $\{a_v,a_{v'}\}=(2\pi)^3\delta_{vv'}\delta^{(3)}(\vb{k-k'})$}
+  &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{2v^0}[(\slashed v+1)\g^0]_{ab}e^{-ik\cdot (x-x')}\delta_{vv'}\\
+  &=[\frac{(\slashed v+1)\g^0}{2v^0}]_{ab}\delta_{vv'}\delta^{(3)}(\vb{x-x'})
+\end{align*}
 \subsubsection{HSET}
 The anti-particle field is decoupled so we don't have to consider that for now. The equation-of-motion is 
 \begin{align*}
   \begin{cases} 
-	v\cdot \partial\chi_v^{\dagger}=0\\
-	v\cdot\partial\chi_v=0
+	v\cdot D\chi_v^{\dagger}=0\\
+	v\cdot D\chi_v=0
   \end{cases}
 \end{align*}
-
+By definition
+\begin{align*}
+  \chi_v(x)&=\frac{e^{imv\cdot x}}{\sqrt{2m}}(iv\cdot D+m)\phi(x)\\
+  &=\frac{1}{\sqrt{2m}}(iv\cdot D+2m)e^{imv\cdot x}\phi(x)
+\end{align*}
 
 
 \end{document}
