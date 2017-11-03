@@ -156,6 +156,39 @@ The box and crossed box diagram for QED process is
 
  Tree level matching: \includegraphics[width=1.2 in]{OPE-00.eps} \& \includegraphics[width=1.2 in]{OPE-0.eps}
 
+ \begin{align*}
+   &\mel{0}{T\psi(x)N(0)}{pP_N} = \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{feynman}
+    \vertex (p1);
+	\vertex[right=2cm of p1] (p2);
+	\vertex at ($(p1)!0.4!(p2)+(0,2cm)$) (x) {$x$};
+	\vertex at ($(p1)!0.6!(p2)+(0,2cm)$) (0) {$0$};
+	%
+	\diagram* {
+      (p1) -- [momentum=\(p_{1}\), fermion] (x);
+	  (p2) -- [momentum'=\(P_{N}\), double distance=1pt] (0);
+    };
+  \end{feynman}
+\end{tikzpicture}= u_e(p)u_N(P_N)e^{-ip\cdot x}\\
+   &\mel{0}{T\psi_e(x)N(0)}{pP_N} = \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{feynman}
+    \vertex (p1);
+	\vertex[right=2cm of p1] (p2);
+	\vertex at ($(p1)!0.5!(p2)+(0,2cm)$) (x);
+	%
+	\diagram* {
+	  (p1) -- [momentum=\(p_{1}\), fermion] (x) [particle=$0$];
+	  (p2) -- [momentum'=\(P_{N}\), double distance=1pt] (x);
+    };
+  \end{feynman}
+\end{tikzpicture}=\psi_e(p)u_N(P_N)
+\end{align*}
+At leading order $u_e(p)=\pmqty{\psi_e(p)\\0}$.
+
+%\begin{align*}
+
+%\end{align*}
+
  One loop scenario for NRQED case:
  \includegraphics[width=1.2 in]{OPE-1.eps}
  \begin{align*}
