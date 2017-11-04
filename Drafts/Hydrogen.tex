@@ -70,7 +70,7 @@
 \begin{document}
 \maketitle
 \section{Matching}
-QED Lagrangian is 
+QED Lagrangian is
 \begin{align}
   \lag_{QED}=\bar l(i\slashed D-m)l+\bar N(i D^0)N-\lag_{\gamma}
   \label{}
@@ -96,7 +96,7 @@ In tree level
   };=-e^2\bar u_N(P_N)v^{\mu}u_N(P_N)\frac{i}{\vb{q}^2}\psi^{\dagger}(p_2)\g_{\mu}\psi(p1)
 \end{align*}
 
-The box %and crossed box 
+The box %and crossed box
 diagram for NRQED process is
 \begin{align*}
   i\mathcal{M}_{NRQED}^{(1)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
@@ -109,7 +109,7 @@ diagram for NRQED process is
   &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{(p_1+k)}^2}{2m})}\psi(p_1)\\
   &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2(E_1-\frac{\vb{k}^2}{2m})}\psi(p_1)
 \end{align*}
-\clearpage 
+\clearpage
 The box and crossed box diagram for QED process is
 \begin{align*}
   i\mathcal{M}_1^{(1)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
@@ -152,7 +152,7 @@ The box and crossed box diagram for QED process is
  \end{align*}
  Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order.
 
- Now consider operator product expansion. 
+ Now consider operator product expansion.
 
  Tree level matching: \includegraphics[width=1.2 in]{OPE-00.eps} \& \includegraphics[width=1.2 in]{OPE-0.eps}
 
@@ -211,7 +211,7 @@ For QED case:
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{0}$:
  \begin{align*}
-   \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 	\begin{feynman}
     \vertex (p1);
 	\vertex[right=3cm of p1] (p2);
@@ -236,7 +236,8 @@ For QED case:
     };
 	\end{feynman}
   \end{tikzpicture}
-  &=e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{\slashed p_1+\slashed k_1+m}{}u_N(P_N)u_e(p)
+  \\=&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{-k_1-k_2+i\epsilon}\frac{1}{-k_1+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(P_N)u_e(p)\\
+  =&
  \end{align*}
  \section{HSET}
  \subsection{Lagrangian}
@@ -256,9 +257,9 @@ In Schwartz's QFT (Chap. 35) he mentioned a choice of $\chi_v$ and $\tilde \chi_
 \end{align}
 Put \eqref{scalar} into \eqref{scalar redefine}, a simple relation is derived:
 $$(-iv\cdot D)\chi_v(x)=(2m+iv\cdot D)\tilde\chi_v(x)$$
-It can also be writen as 
+It can also be writen as
 $$2m\tilde\chi_v=(-iv\cdot D)(\chi_v+\tilde\chi_v) $$
-Use this result 
+Use this result
 \begin{align*}
   \mathcal{L}&=\frac{1}{2m}\Big\{\Bqty{[D^{\mu}(\chi_v+\tilde\chi_v)]^{\dagger}+imv^{\mu}(\chi_v+\tilde\chi_v)^{\dagger}}\Bqty{[D_{\mu}(\chi_v+\tilde\chi_v)]-imv_{\mu}(\chi_v+\tilde\chi_v)}-m^2(\chi_v+\tilde\chi_v)^{\dagger}(\chi_v+\tilde\chi_v)\Big\}\\
   &=(\chi_v+\tilde\chi_v)^{\dagger}(iv\cdot D)(\chi_v+\tilde\chi_v)+\frac{1}{2m}[D^{\mu}(\chi_v+\tilde\chi_v)]^{\dagger}D_{\mu}(\chi_v+\tilde\chi_v)
@@ -267,7 +268,7 @@ Use this result
 \end{align*}
 (note that $D_{\mu}\phi=e^{-imv\cdot x}[D_{\mu}(\chi_v+\tilde \chi_v)-imv_{\mu}(\chi_v+\tilde\chi_v)]$ and $-imv^{\mu}[D_{\mu}(\chi_v+\tilde \chi_v)]^{\dagger}(\chi_v+\tilde \chi_v)=imv^{\mu}(\chi_v+\tilde\chi_v)^{\dagger}D_{\mu}(\chi_v+\tilde \chi_v)-total\ derivative\ term$)
 
-Use the leading order of \eqref{lag0} 
+Use the leading order of \eqref{lag0}
 \begin{align*}
   \lag^{(0)}&=(\chi_v+\tilde\chi_v)^{\dagger}(iv\cdot D)(\chi_v+\tilde\chi_v)\\
   &=\chi_v^{\dagger}iv\cdot D\chi_v+\tilde\chi_v^{\dagger}iv\cdot D(\chi_v+\tilde\chi_v)+\chi_v^{\dagger}iv\cdot D\tilde\chi_v\\
@@ -280,19 +281,19 @@ We can have the final form
 $$\mathcal{L}=\chi_v^{\dagger}iv\cdot D\chi_v-\tilde \chi_v^{\dagger}(iv\cdot D+4m)\tilde\chi_v+\mathcal{O}(\frac{1}{m})$$
 \subsection{Quantization}
 \subsubsection{HQET as an example}
-The leading term of HQET Lagrangian is 
+The leading term of HQET Lagrangian is
 \begin{align*}
   \lag=\bar Q_v(iv\cdot D)Q_v
 \end{align*}
 \begin{align*}
   Q_v(x)=e^{imv\cdot x}\frac{1+\slashed v}{2}\psi(x)
 \end{align*}
-In free Dirac fermion theory we know that 
+In free Dirac fermion theory we know that
 \begin{align*}
     \Bqty{\psi_a(\vb{x}),\psi_b^{\dagger}(\vb{y})}=\delta^{(3)}(\vb{x}-\vb{y})\delta_{ab}\\
 	\{a_{\vb{p}},a_{\vb{p'}}^{\dagger}\}=(2\pi)^3\delta^{(3)}(\vb{p-p'})
 \end{align*}
-also the plane wave expansion of $\psi$ is 
+also the plane wave expansion of $\psi$ is
 \begin{align*}
   \psi(x)&=\int\frac{\dd^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a_{\vb{p}}u(p)e^{-ip\cdot x}\\
   &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2mv^0}}a_v\sqrt{m}u(v)e^{-imv\cdot x-ik\cdot x}\\
@@ -306,7 +307,7 @@ Using the definition of $ Q_v(x)$
   &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2v^0}}a_v \frac{1+\slashed v}{2}u(v)e^{-ik\cdot x}\\
   &=\int \frac{\dd^3k}{(2\pi)^3}\frac{1}{\sqrt{2v^0}}a_v u(v)e^{-ik\cdot x}
 \end{align*}
-The commutation relation should be 
+The commutation relation should be
 \begin{align*}
   \{Q_{va}(\vb{x}),Q_{v'b}(\vb{x'})\}&=\int \frac{\dd^3k}{(2\pi)^3}\frac{\dd^3k'}{(2\pi)^3}\frac{1}{\sqrt{4v^0v'^0}}\{a_v,a_{v'}^{\dagger}\}u_a(v)u_b^{\dagger}(v')e^{-ik\cdot x+ik'\cdot x'}\\
   \intertext{
@@ -317,9 +318,9 @@ The commutation relation should be
   &=[\frac{(\slashed v+1)\g^0}{2v^0}]_{ab}\delta_{vv'}\delta^{(3)}(\vb{x-x'})
 \end{align*}
 \subsubsection{HSET}
-The anti-particle field is decoupled so we don't have to consider that for now. The equation-of-motion is 
+The anti-particle field is decoupled so we don't have to consider that for now. The equation-of-motion is
 \begin{align*}
-  \begin{cases} 
+  \begin{cases}
 	v\cdot D\chi_v^{\dagger}=0\\
 	v\cdot D\chi_v=0
   \end{cases}
@@ -332,5 +333,3 @@ By definition
 
 
 \end{document}
-
-
