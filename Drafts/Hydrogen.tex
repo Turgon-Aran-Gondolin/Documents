@@ -192,24 +192,24 @@ At leading order $u_e(p)=\pmqty{\psi_e(p)\\0}$.
  One loop scenario for NRQED case:
  \includegraphics[width=1.2 in]{OPE-1.eps}
  \begin{align*}
-    \mel{0}{\psi_e(0)N(0)e\int\dd^4y\bar\psi_e\psi_e A^0e\int\dd^4z\bar NNA^0}{eN}&=e^2u_N(P_N)\int[\dd k]\frac{1}{\vb{k}^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
-  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
-  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)\\
+    \mel{0}{\psi_e(0)N(0)e\int\dd^4y\bar\psi_e\psi_e A^0e\int\dd^4z\bar NNA^0}{eN}&=e^2u_N(v_N)\int[\dd k]\frac{1}{\vb{k}^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)\\
   \intertext{drop $p_1$}
-  &=-ie^2u_N(P_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(P_N)\psi(p_1)
+  &=-ie^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(v_N)\psi(p_1)
  \end{align*}
-For QED case:
+For QED case:\footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$}
 \includegraphics[width=1.2 in]{OPE-2.eps}
 \begin{align*}
-  \mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}&=e^2u_N(P_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
-  &=e^2u_N(P_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
-  &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
-  &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
+  \mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}\text{\footnotemark}&=e^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=e^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
+  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
   \intertext{drop $p_1$}
-  &=ie^2u_N(P_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
+  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
  \end{align*}
 
- Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{0}$:
+ Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
  \begin{align*}
    &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 	\begin{feynman}
@@ -228,7 +228,7 @@ For QED case:
 	  (y1) -- [photon,rmomentum=$k_1$] (z1);
 	  (y2) -- [photon,rmomentum=$k_2$] (z2);
 	  (p1) -- [momentum=\(p_{1}\)] (y1);
-	  (p2) -- [momentum'=\(P_{N}\),double distance=1pt] (z1);
+	  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
 	  (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
 	  (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
 	  (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
@@ -236,8 +236,8 @@ For QED case:
     };
 	\end{feynman}
   \end{tikzpicture}
-  \\=&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1-k_2+i\epsilon}\frac{1}{-k_1+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(P_N)u_e(p)\\
-  =&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3 \vb{k_2}}{(2\pi)^3}e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1-k_2+i\epsilon}\frac{1}{-k_1+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(P_N)u_e(p)\\
+  \\=&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1-k_2+i\epsilon}\frac{1}{-k_1+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p)\\
+  =&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3 \vb{k_2}}{(2\pi)^3}e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1-k_2+i\epsilon}\frac{1}{-k_1+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p)\\
  \end{align*}
  \section{HSET}
  \subsection{Lagrangian}
