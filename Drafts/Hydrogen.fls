@@ -370,6 +370,9 @@ INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
+INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc
+INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc
 INPUT ./OPE-00.eps
 INPUT ./OPE-00-eps-converted-to.pdf
 INPUT OPE-00-eps-converted-to.pdf
@@ -379,12 +382,9 @@ INPUT OPE-0-eps-converted-to.pdf
 INPUT ./OPE-1.eps
 INPUT ./OPE-1-eps-converted-to.pdf
 INPUT OPE-1-eps-converted-to.pdf
-INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc
-INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc
 INPUT ./OPE-2.eps
 INPUT ./OPE-2-eps-converted-to.pdf
 INPUT OPE-2-eps-converted-to.pdf
-INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
 INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc
 INPUT C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT ./Hydrogen.aux
