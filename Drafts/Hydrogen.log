@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  7 NOV 2017 15:35
+This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  8 NOV 2017 12:06
  restricted system commands enabled.
  file:line:error style messages enabled.
 **Hydrogen.tex
@@ -23,7 +23,7 @@ Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'.
-luaotfload | main : initialization completed in 0.303 seconds
+luaotfload | main : initialization completed in 0.888 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
@@ -1752,24 +1752,24 @@ Overfull \hbox (15.58437pt too wide) in paragraph at lines 210--210
  []
 
 [3<./OPE-00-eps-converted-to.pdf><./OPE-0-eps-converted-to.pdf><./OPE-1-eps-converted-to.pdf><./OPE-2-eps-converted-to.pdf>]
-Overfull \hbox (8.95271pt too wide) in paragraph at lines 247--247
+Overfull \hbox (26.60526pt too wide) in paragraph at lines 252--252
 [] 
  []
 
 
-Overfull \hbox (8.95271pt too wide) in paragraph at lines 276--276
+Overfull \hbox (8.95271pt too wide) in paragraph at lines 281--281
 [] 
  []
 
 [4](load luc: C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc) [5] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 375.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 375.
  (./Hydrogen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 375.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 375.
 Package rerunfilecheck Info: File `Hydrogen.out' has not changed.
 (rerunfilecheck)             Checksum: 728B3D229084D90870BF824EAEFA80CB;342.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 375.
 )
 
 Here is how much of LuaTeX's memory you used:
@@ -1777,17 +1777,17 @@ Here is how much of LuaTeX's memory you used:
  125016,794899 words of node,token memory allocated
  596 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 7 glue, 1 kern, 17 attribute, 62 glue_spec, 17 attribute_list, 1 write nodes
-   avail lists: 1:10,2:5450,3:1462,4:41,5:552,6:1654,7:2348,8:657,9:1430,10:9,11:46
+   avail lists: 1:10,2:5676,3:1574,4:54,5:757,6:1690,7:2933,8:918,9:1906,10:12,11:38
  32970 multiletter control sequences out of 65536+600000
  85 fonts using 3973983 bytes
- 67i,19n,109p,740b,1776s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 67i,19n,109p,1077b,1776s stack positions out of 5000i,500n,10000p,200000b,100000s
 <c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Hydrogen.pdf (6 pages, 274975 bytes).
+/cmbx8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/201
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Hydrogen.pdf (6 pages, 294181 bytes).
 
-PDF statistics: 280 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
+PDF statistics: 288 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
  24 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 100000000)
 
