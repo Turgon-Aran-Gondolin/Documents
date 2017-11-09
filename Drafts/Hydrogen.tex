@@ -80,7 +80,7 @@ Set the NRQED Lagrangian as (take large $M$ limit where $M$ is the mass of the p
   \lag_{NRQED}=\psi^{\dagger}(iD_0+\frac{\vb{D}^2}{2m})\psi+\bar N(iD_0)N+\lag_{4-fer}+\lag_{\gamma}
   \label{}
 \end{align}
-In tree level\footnote{Note that there's no Gamma matrice in the heavy particle side, they can only appear in the QED side }
+In tree level\footnote{Note that there's no Gamma matrice in the heavy particle side, they can only appear in the QED side. }
 \begin{align*}
   i\mathcal{M}_{QED}^{(0)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
 	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
@@ -109,7 +109,7 @@ diagram for NRQED process is
   &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{(p_1+k)}^2}{2m})}\psi(p_1)\\
   &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2(E_1-\frac{\vb{k}^2}{2m})}\psi(p_1)
 \end{align*}
-\clearpage
+%\clearpage
 The box and crossed box diagram for QED process is
 \begin{align*}
   i\mathcal{M}_1^{(1)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
@@ -183,7 +183,7 @@ The box and crossed box diagram for QED process is
   \end{feynman}
 \end{tikzpicture}=\psi_e(p)u_N(P_N)
 \end{align*}
-At leading order $u_e(p)=\pmqty{\psi_e(p)\\0}$.
+At leading order $u_e(p)=\pmqty{\psi_e(p)\\0}$. (If we're only interested in the hard region contribution, which is independent of states, the leading order is independent of any on-shell momentums.)
 
 %\begin{align*}
 
@@ -205,7 +205,7 @@ For QED case:
   &=e^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
-  \intertext{drop $p_1$}
+  \intertext{drop $\vb{p_1}$}
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
 \end{align*}%\addtocounter{footnote}{-1}\stepcounter{footnote}
  \footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}
@@ -249,19 +249,36 @@ For QED case:
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )}
   \frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
-  \intertext{also define $b'$ so that $b=b'-k_1^0$ and $a'=(\vb{p_1+k_1})^2+m^2$}
+  \intertext{also define $b'$ so that $b=b'-k_1^0$ ($b'=\sqrt{a}-p_1^0+k_2^i\g_i\g^0$) and $a'=(\vb{p_1+k_1})^2+m^2$}
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2(k_1^0+p_1^0)[b'+k_1^i\g_i\g^0]-\g^0(b'-k_1^0)(k_1^0\g^0+ k_1^i\g_i)}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )\bqty{-k_1^0+i\epsilon}}
   \frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2\sqrt{a'}(b'+k_1^i\g_i\g^0)+\g^0(\sqrt{a'}-b'-p_1^0)(\sqrt{a'}\g^0-p_1^0\g^0+k_1^i\g_i)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0)}
-  \frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}
+  \frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \intertext{shift both loop momentum\footnotemark{} so that $a=\abs{\vb{k_2}}^2+m^2$ and $a'=\abs{\vb{k_1}}^2+m^2$, now $b=\sqrt{a}-k_1^0+(k_2-k_1)^i\g_i\g^0$ and $b'=\sqrt{a}+(k_2-k_1)^i\g_i\g^0$}
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a'}(\sqrt{a}+(k_2-p_1)^i\g_i\g^0)+(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a'}-p_1^0-(k_1-p_1)^i\g_i\g^0)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0){\vb{\abs{k_1-p_1}}^2\vb{\abs{k_2-k_1}}^2}}
+  u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
+  \intertext{drop $\vb{p_1}$}
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a'}(\sqrt{a}+k_2^i\g_i\g^0)+(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a'}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}
+  u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
+  \intertext{rewrite it with $a_1=a'$ and $a_2=a$}
+   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+    \frac{2\sqrt{a_1}(\sqrt{a_2}+k_2^i\g_i\g^0)+(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-\sqrt{a_1}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}
+    u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
+  \intertext{to investigate the divergent property of the integral, rewrite the integral before the shift ($a_1=\pqty{\vb{p_1+k_1}}^2+m^2$ and $a_2=\pqty{\vb{p_1+k_1+k_2}}^2+m^2$)}
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a_1}-\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-\sqrt{a_1}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}
+  u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 %  \intertext{note that the long coefficient of the first $\epsilon$ above is positive}
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   %=&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{k_2^i {\gamma }_i \left({\gamma }^0 \left(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0\right)+2 m\right)+k_1^i k_2^j \g_i\g_j-2 \left(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2} p_1^0+\vb{k_1}\cdot \vb{p_1}+{p_1^0}^2\right)+4 m^2}{4 ((\vb{p_1+k_1+k_2})^2+m^2) p_1^0 \left(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0\right)}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
  \end{align*}
- \footnotetext{With a $u_e(p_1)$ on the right hand side, $(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0(\slashed p_1+\slashed k_1+m)\g^0=(\slashed p_1+\slashed k_1+\slashed k_2+m)[2(p_1^0+k_1^0)\g^0-(\slashed p_1+\slashed k_1-m)]=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)(\slashed p_1+\slashed k_1-m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)\slashed k_1=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1-\slashed k_1\slashed p_1+\slashed k_2\slashed k_1+\slashed k_1m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2(p_1^0+k_1^0+k_2^0)-\g^0(\slashed p_1+\slashed k_1+\slashed k_2-m)]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2p_1^0+(\slashed k_1+\slashed k_2)\g^0]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1$.}
+ \addtocounter{footnote}{-1}\footnotetext{With a $u_e(p_1)$ on the right hand side, $(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0(\slashed p_1+\slashed k_1+m)\g^0=(\slashed p_1+\slashed k_1+\slashed k_2+m)[2(p_1^0+k_1^0)\g^0-(\slashed p_1+\slashed k_1-m)]=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)(\slashed p_1+\slashed k_1-m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)\slashed k_1=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1-\slashed k_1\slashed p_1+\slashed k_2\slashed k_1+\slashed k_1m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2(p_1^0+k_1^0+k_2^0)-\g^0(\slashed p_1+\slashed k_1+\slashed k_2-m)]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2p_1^0+(\slashed k_1+\slashed k_2)\g^0]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1$.}
+ \stepcounter{footnote}\footnotetext{$k_1\rightarrow k_1'=k_1+p_1$ and $k_2\rightarrow k_2'=k_1+k_2+p_1=k_1'+k_2$.}
  \begin{align*}
    &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
  \begin{feynman}
@@ -289,6 +306,36 @@ For QED case:
  \end{feynman}
   \end{tikzpicture}\\
   =&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_2^0+i\epsilon}\frac{\slashed p_1+\slashed k_1+\slashed k_2+m}{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\g^0\frac{\slashed p_1+\slashed k_1+m}{(p_1+ k_1)^2-m^2+i\epsilon}\g^0u_N(v_N)u_e(p_1)\\
+  =&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}
+  \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1}{\bqty{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}\bqty{-k_1^0-k_2^0+i\epsilon}\bqty{-k_2^0+i\epsilon}}
+  u_N(v_N)u_e(p_1)\\
+\end{align*}
+For NRQED case
+\begin{align*}
+  &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+ \begin{feynman}
+   \vertex (p1);
+ \vertex[right=3cm of p1] (p2);
+ \vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+ \vertex at ($(p1)!0.2!(x)$) (y1);
+ \vertex at ($(p2)!0.2!(x)$) (z1);
+ \vertex at ($(p1)!0.6!(x)$) (y2);
+ \vertex at ($(p2)!0.6!(x)$) (z2);
+ %
+ \diagram* {
+   (p1) -- [fermion] (x);
+   (p2) -- [double distance=1pt] (x);
+   (y1) -- [photon,rmomentum=$k_1$] (z1);
+   (y2) -- [photon,rmomentum=$k_2$] (z2);
+   (p1) -- [momentum=\(p_{1}\)] (y1);
+   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+   (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
+   (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+   (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
+   (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+   };
+ \end{feynman}
+ \end{tikzpicture}
 \end{align*}
  \section{HSET}
  \subsection{Lagrangian}
