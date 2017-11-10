@@ -212,7 +212,7 @@ For QED case:
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
  \begin{align*}
-   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+   &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 	\begin{feynman}
     \vertex (p1);
 	\vertex[right=3cm of p1] (p2);
@@ -280,7 +280,7 @@ For QED case:
  \addtocounter{footnote}{-1}\footnotetext{With a $u_e(p_1)$ on the right hand side, $(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0(\slashed p_1+\slashed k_1+m)\g^0=(\slashed p_1+\slashed k_1+\slashed k_2+m)[2(p_1^0+k_1^0)\g^0-(\slashed p_1+\slashed k_1-m)]=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)(\slashed p_1+\slashed k_1-m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(\slashed p_1+\slashed k_1+\slashed k_2+m)\slashed k_1=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1-\slashed k_1\slashed p_1+\slashed k_2\slashed k_1+\slashed k_1m)=2(p_1^0+k_1^0)(\slashed p_1+\slashed k_1+\slashed k_2+m)\g^0-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2(p_1^0+k_1^0+k_2^0)-\g^0(\slashed p_1+\slashed k_1+\slashed k_2-m)]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=2(p_1^0+k_1^0)[2p_1^0+(\slashed k_1+\slashed k_2)\g^0]-(2p_1\cdot k_1+\slashed k_2\slashed k_1)=4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1$.}
  \stepcounter{footnote}\footnotetext{$k_1\rightarrow k_1'=k_1+p_1$ and $k_2\rightarrow k_2'=k_1+k_2+p_1=k_1'+k_2$.}
  \begin{align*}
-   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+   &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
  \begin{feynman}
     \vertex (p1);
  \vertex[right=3cm of p1] (p2);
@@ -309,10 +309,13 @@ For QED case:
   =&e^4\int[dk_1][dk_2]e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}
   \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1}{\bqty{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}\bqty{-k_1^0-k_2^0+i\epsilon}\bqty{-k_2^0+i\epsilon}}
   u_N(v_N)u_e(p_1)\\
+  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )}
+  \frac{1}{-\sqrt{a}+k_1^0+p_1^0+\frac{i \epsilon }{2 \sqrt{a}}+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \end{align*}
-For NRQED case
+For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^4z_1\bar NNA^0e\int\dd^4y_2\bar\psi_e\psi_e A^0e\int\dd^4z_2\bar NNA^0}{eN}$)
 \begin{align*}
-  &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+  &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
  \begin{feynman}
    \vertex (p1);
  \vertex[right=3cm of p1] (p2);
@@ -335,7 +338,8 @@ For NRQED case
    (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
    };
  \end{feynman}
- \end{tikzpicture}
+ \end{tikzpicture}\\
+ =&e^4\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_2^0+i\epsilon}\frac{1}{p_1^0+k_1^0-m-\frac{\vb{(p_1+k_1)}^2}{2m}+i\epsilon}\frac{1}{p_1^0+k_1^0+k_2^0-m-\frac{\vb{(p_1+k_1+k_2)}^2}{2m}+i\epsilon}\psi_e(p_1)u_N(v_N)
 \end{align*}
  \section{HSET}
  \subsection{Lagrangian}
