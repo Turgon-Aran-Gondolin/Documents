@@ -245,7 +245,7 @@ For QED case:
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2(k_1^0+p_1^0)[(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)+(k_2^i\g_i+\slashed k_1)\g^0]-[\g^0(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)-k_2^i\g_i]\slashed k_1}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&
   \frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
-  \intertext{define $a=(\vb{p_1+k_1+k_2})^2+m^2$ and $b=\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0+k_2^i\g_i\g^0=\sqrt{a}-k_1^0-p_1^0+k_2^i\g_i\g^0$, and note that the long coefficient of the first $\epsilon$ above is positive}
+  \intertext{define $a=(\vb{p_1+k_1+k_2})^2+m^2$ and $b=\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0+k_2^i\g_i\g^0=\sqrt{a}-k_1^0-p_1^0+k_2^i\g_i\g^0$ (pole location is $\sqrt{a}-k_1^0-p_1^0-\frac{i\epsilon}{2\sqrt{a}}$), and note that the long coefficient of the first $\epsilon$ above is positive}
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )}
   \frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
@@ -310,8 +310,11 @@ For QED case:
   \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1}{\bqty{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}\bqty{-k_1^0-k_2^0+i\epsilon}\bqty{-k_2^0+i\epsilon}}
   u_N(v_N)u_e(p_1)\\
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )}
-  \frac{1}{-\sqrt{a}+k_1^0+p_1^0+\frac{i \epsilon }{2 \sqrt{a}}+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a_2}(\sqrt{a_2}-k_1^0+i \epsilon )}
+  \frac{1}{k_1^0+p_1^0-\sqrt{a_2}+\frac{i \epsilon }{2 \sqrt{a_2}}+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  =&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a_1}(b'+k_1^i\g_i\g^0)+\g^0(\sqrt{a_1}-b'-p_1^0)(\sqrt{a_1}\g^0-p_1^0\g^0+k_1^i\g_i)}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)}
+  \frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \end{align*}
 For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^4z_1\bar NNA^0e\int\dd^4y_2\bar\psi_e\psi_e A^0e\int\dd^4z_2\bar NNA^0}{eN}$)
 \begin{align*}
