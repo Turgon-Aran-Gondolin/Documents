@@ -243,34 +243,35 @@ For QED case:
   \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1}{\bqty{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}\bqty{-k_1^0-k_2^0+i\epsilon}\bqty{-k_1^0+i\epsilon}}
   u_N(v_N)u_e(p_1)\footnotemark\\
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2(k_1^0+p_1^0)[(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)+(k_2^i\g_i+\slashed k_1)\g^0]-[\g^0(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)-k_2^i\g_i]\slashed k_1}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&
+  \frac{2(k_1^0+p_1^0)[(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)+(k_2^i\g_i+\slashed k_1)\g^0]-[\g^0(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0)-k_2^i\g_i]\slashed k_1}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&
   \frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   \intertext{define $a=(\vb{p_1+k_1+k_2})^2+m^2$ and $b=\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0-p_1^0+k_2^i\g_i\g^0=\sqrt{a}-k_1^0-p_1^0+k_2^i\g_i\g^0$ (pole location is $\sqrt{a}-k_1^0-p_1^0-\frac{i\epsilon}{2\sqrt{a}}$), and note that the long coefficient of the first $\epsilon$ above is positive}
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )}
-  \frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a}(\sqrt{a}-p_1^0 )\bqty{-k_1^0+i\epsilon}
+	\bqty{(p_1+ k_1)^2-m^2+i\epsilon}}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   \intertext{also define $b'$ so that $b=b'-k_1^0$ ($b'=\sqrt{a}-p_1^0+k_2^i\g_i\g^0$) and $a'=(\vb{p_1+k_1})^2+m^2$}
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2(k_1^0+p_1^0)[b'+k_1^i\g_i\g^0]-\g^0(b'-k_1^0)(k_1^0\g^0+ k_1^i\g_i)}{2\sqrt{a}(\sqrt{a}-k_1^0+i \epsilon )\bqty{-k_1^0+i\epsilon}}
-  \frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(k_1^0+p_1^0)[b'+k_1^i\g_i\g^0]-\g^0(b'-k_1^0)(k_1^0\g^0+ k_1^i\g_i)}{2\sqrt{a}(\sqrt{a}-p_1^0)\bqty{-k_1^0+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}
+	{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \intertext{the pole location is $\sqrt{a'}-p_1^0-\frac{i\epsilon}{2\sqrt{a}}$}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(b'+k_1^i\g_i\g^0)+\g^0(\sqrt{a'}-b'-p_1^0)(\sqrt{a'}\g^0-p_1^0\g^0+k_1^i\g_i)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0)}
-  \frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)-(\sqrt{a'}-\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}-p_1^0-k_1^i\g_i\g^0)+2{p_1^0}^2+2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
+  u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   \intertext{shift both loop momentum\footnotemark{} so that $a=\abs{\vb{k_2}}^2+m^2$ and $a'=\abs{\vb{k_1}}^2+m^2$, now $b=\sqrt{a}-k_1^0+(k_2-k_1)^i\g_i\g^0$ and $b'=\sqrt{a}+(k_2-k_1)^i\g_i\g^0$}
-  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}+(k_2-p_1)^i\g_i\g^0)+(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a'}-p_1^0-(k_1-p_1)^i\g_i\g^0)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0){\vb{\abs{k_1-p_1}}^2\vb{\abs{k_2-k_1}}^2}}
-  u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\&
+  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_2-p_1)^i\g_i\g^0)-(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a'}-p_1^0-(k_1-p_1)^i\g_i\g^0)+2m^2+2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-p_1^0){\vb{\abs{k_1-p_1}}^2\vb{\abs{k_2-k_1}}^2}}
+  \\
   \intertext{drop $\vb{p_1}$}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}+k_2^i\g_i\g^0)+(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a'}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-p_1^0)(\sqrt{a}-\sqrt{a'}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}
+  \frac{2\sqrt{a'}(\sqrt{a}-m+k_2^i\g_i\g^0)-(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a'}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a'}m}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-m)(\sqrt{a}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
   u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
   \intertext{rewrite it with $a_1=a'$ and $a_2=a$}
    =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-    \frac{2\sqrt{a_1}(\sqrt{a_2}+k_2^i\g_i\g^0)+(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0-p_1^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-\sqrt{a_1}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}
+   \frac{2\sqrt{a_1}(\sqrt{a_2}-m+k_2^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a_1}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a_1}m}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-m)(\sqrt{a_2}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
     u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
   \intertext{to investigate the divergent property of the integral, rewrite the integral before the shift ($a_1=\pqty{\vb{p_1+k_1}}^2+m^2$ and $a_2=\pqty{\vb{p_1+k_1+k_2}}^2+m^2$)}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a_1}-\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-\sqrt{a_1}+p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)+2{p_1^0}^2+2\vb{k_1\cdot p_1}+2\sqrt{a_1}p_1^0}{4\sqrt{a_2}\sqrt{a_1}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
   u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 %  \intertext{note that the long coefficient of the first $\epsilon$ above is positive}
@@ -310,12 +311,67 @@ For QED case:
   \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(p_1^0+k_1^0)(\slashed k_1+\slashed k_2)\g^0-\slashed k_2\slashed k_1}{\bqty{(p_1+ k_1+ k_2)^2-m^2+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}\bqty{-k_1^0-k_2^0+i\epsilon}\bqty{-k_2^0+i\epsilon}}
   u_N(v_N)u_e(p_1)\\
   =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a_2}(\sqrt{a_2}-k_1^0+i \epsilon )}
-  \frac{1}{k_1^0+p_1^0-\sqrt{a_2}+\frac{i \epsilon }{2 \sqrt{a_2}}+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
-  =&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a_1}(b'+k_1^i\g_i\g^0)+\g^0(\sqrt{a_1}-b'-p_1^0)(\sqrt{a_1}\g^0-p_1^0\g^0+k_1^i\g_i)}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)}
-  \frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a_2}(\sqrt{a_2}-k_1^0+i \epsilon )
+  \bqty{k_1^0+p_1^0-\sqrt{a_2}+\frac{i \epsilon }{2 \sqrt{a_2}}+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
+u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \end{align*}
+The sum of NRQED diagram at NNLO is
+\begin{align*}
+  &-\bqty{\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{feynman}
+    \vertex (p1);
+	\vertex[right=3cm of p1] (p2);
+	\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+	\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+	\vertex at ($(p1)!0.2!(x)$) (y1);
+	\vertex at ($(p2)!0.2!(0)$) (z1);
+	\vertex at ($(p1)!0.6!(x)$) (y2);
+	\vertex at ($(p2)!0.6!(0)$) (z2);
+	%
+	\diagram* {
+	  (p1) -- [fermion] (x);
+	  (p2) -- [double distance=1pt] (0);
+	  (y1) -- [photon,rmomentum=$k_1$] (z1);
+	  (y2) -- [photon,rmomentum=$k_2$] (z2);
+	  (p1) -- [momentum=\(p_{1}\)] (y1);
+	  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+	  (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
+	  (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+	  (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
+	  (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+    };
+	\end{feynman}
+  \end{tikzpicture}+\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+ \begin{feynman}
+    \vertex (p1);
+ \vertex[right=3cm of p1] (p2);
+ \vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+ \vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+ \vertex at ($(p1)!0.2!(x)$) (y1);
+ \vertex at ($(p2)!0.2!(0)$) (z1);
+ \vertex at ($(p1)!0.6!(x)$) (y2);
+ \vertex at ($(p2)!0.6!(0)$) (z2);
+ %
+ \diagram* {
+   (p1) -- [fermion] (x);
+   (p2) -- [double distance=1pt] (0);
+   (y1) -- [photon,rmomentum'=$k_1$] (z2);
+   (y2) -- [photon,rmomentum={[distance=-3pt]$k_2$}] (z1);
+   (p1) -- [momentum=\(p_{1}\)] (y1);
+   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+   (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
+   (z1) -- [momentum'=\(P_{N}-k_2\),double distance=1pt] (z2);
+   (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
+   (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+    };
+ \end{feynman}
+  \end{tikzpicture}}\\
+  =&e^4
+\end{align*}
+
 For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^4z_1\bar NNA^0e\int\dd^4y_2\bar\psi_e\psi_e A^0e\int\dd^4z_2\bar NNA^0}{eN}$)
 \begin{align*}
   &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -442,6 +498,6 @@ By definition
   \chi_v(x)&=\frac{e^{imv\cdot x}}{\sqrt{2m}}(iv\cdot D+m)\phi(x)\\
   &=\frac{1}{\sqrt{2m}}(iv\cdot D+2m)e^{imv\cdot x}\phi(x)
 \end{align*}
-
+Obviously the plane wave expansion should be irrelevant of the heavy particle mass, which means the exponential part is $e^{-ik\cdot x}$ where $k$ marks the offshellness. 
 
 \end{document}
