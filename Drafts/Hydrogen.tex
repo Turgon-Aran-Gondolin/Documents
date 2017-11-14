@@ -269,7 +269,7 @@ For QED case:
    =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
    \frac{2\sqrt{a_1}(\sqrt{a_2}-m+k_2^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a_1}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a_1}m}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-m)(\sqrt{a_2}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
     u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
-  \intertext{to investigate the divergent property of the integral, rewrite the integral before the shift ($a_1=\pqty{\vb{p_1+k_1}}^2+m^2$ and $a_2=\pqty{\vb{p_1+k_1+k_2}}^2+m^2$)}
+	\intertext{to investigate the divergent behaviour of the integral, rewrite the integral before the shift ($a_1=\pqty{\vb{p_1+k_1}}^2+m^2$ and $a_2=\pqty{\vb{p_1+k_1+k_2}}^2+m^2$)}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)+2{p_1^0}^2+2\vb{k_1\cdot p_1}+2\sqrt{a_1}p_1^0}{4\sqrt{a_2}\sqrt{a_1}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
   u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}
@@ -369,7 +369,8 @@ The sum of NRQED diagram at NNLO is
     };
  \end{feynman}
   \end{tikzpicture}}\\
-  =&e^4
+=&e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \end{align*}
 
 For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^4z_1\bar NNA^0e\int\dd^4y_2\bar\psi_e\psi_e A^0e\int\dd^4z_2\bar NNA^0}{eN}$)
