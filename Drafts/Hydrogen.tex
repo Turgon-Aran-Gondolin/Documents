@@ -272,7 +272,10 @@ For QED case:
 	\intertext{to investigate the divergent behaviour of the integral, rewrite the integral before the shift ($a_1=\pqty{\vb{p_1+k_1}}^2+m^2$ and $a_2=\pqty{\vb{p_1+k_1+k_2}}^2+m^2$)}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}-p_1^0-k_1^i\g_i\g^0)+2{p_1^0}^2+2\vb{k_1\cdot p_1}+2\sqrt{a_1}p_1^0}{4\sqrt{a_2}\sqrt{a_1}(\sqrt{a_1}-p_1^0)(\sqrt{a_2}-p_1^0){\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
-  u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}
+  u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+  \intertext{we can see it's UV logarithm divergent and IR logarithm
+	divergent (only for the ${p_1^0}^2\approx m^2$ term). Now we must regularize it to dimention $(d-1)$}
+  =&
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 %  \intertext{note that the long coefficient of the first $\epsilon$ above is positive}
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
