@@ -206,8 +206,10 @@ For QED case:
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
   \intertext{drop $\vb{p_1}$}
-  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-m\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
+  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-m\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
+  &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2\sqrt{\vb{k}^2+m^2}[\sqrt{\vb{k}^2+m^2}-m]}u_e(p_1)
 \end{align*}%\addtocounter{footnote}{-1}\stepcounter{footnote}
+we can see there's no UV divergence here. IR divergence is presented but it's exactly the same with the NRQED one so there's nothing that needs to concern about. 
  \footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
@@ -265,7 +267,7 @@ For QED case:
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
   \frac{2\sqrt{a'}(\sqrt{a}-m+k_2^i\g_i\g^0)-(\sqrt{a'}-\sqrt{a}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a'}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a'}m}{4\sqrt{a}\sqrt{a'}(\sqrt{a'}-m)(\sqrt{a}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
   u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
-  \intertext{rewrite it with $a_1=a'$ and $a_2=a$}
+  \intertext{rewrite it with $a_1=a'$ and $a_2=a$, now $a_1=\sqrt{\abs{\vb{k_1}}^2+m^2}$ and $a_2=\sqrt{\abs{\vb{k_2}}^2+m^2}$}
    =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
    \frac{2\sqrt{a_1}(\sqrt{a_2}-m+k_2^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a_1}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a_1}m}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-m)(\sqrt{a_2}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
     u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
@@ -275,7 +277,9 @@ For QED case:
   u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   \intertext{we can see it's UV logarithm divergent and IR logarithm
 	divergent (only for the ${p_1^0}^2\approx m^2$ term). Now we must regularize it to dimention $(d-1)$}
-  =&
+  =&-e^4\int\frac{\dd^{d-1}\vb{k_1}}{(2\pi)^{d-1}}\frac{\dd^{d-1}\vb{k_2}}{(2\pi)^{d-1}}
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-m+k_2^i\g_i\g^0)-(\sqrt{a_1}-\sqrt{a_2}+(k_2-k_1)^i\g_i\g^0)(\sqrt{a_1}-m-k_1^i\g_i\g^0)+2m^2+2\sqrt{a_1}m}{4\sqrt{a_1}\sqrt{a_2}(\sqrt{a_1}-m)(\sqrt{a_2}-m){\vb{\abs{k_1}}^2\vb{\abs{k_2-k_1}}^2}}\\&
+    u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+\frac{ 2 ((\vb{p_1+k_1+k_2})^2+m^2)+2 \sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-p_1^0}{2 ((\vb{p_1+k_1+k_2})^2+m^2)}i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 %  \intertext{note that the long coefficient of the first $\epsilon$ above is positive}
 %  =&ie^4\int[\dd k_1]\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{4m^2+2k_1\cdot p_1-(\slashed k_1+2m)(-\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}+k_1^0+p_1^0)\g^0+(\slashed k_1+2m)k_2^i\g_i}{2\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}(\sqrt{(\vb{p_1+k_1+k_2})^2+m^2}-k_1^0+i \epsilon )}\\&\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0+i\epsilon}\frac{1}{(p_1+ k_1)^2-m^2+i\epsilon}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
@@ -320,8 +324,18 @@ For QED case:
   \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
   {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
 u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+\intertext{do the shift}
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
+u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
+\intertext{drop $\vb{p_1}$}
+  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
+  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
+u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
 \end{align*}
-The sum of NRQED diagram at NNLO is
+The sum of QED diagram at NNLO is
 \begin{align*}
   &-\bqty{\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 	\begin{feynman}
