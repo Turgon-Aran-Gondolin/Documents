@@ -150,7 +150,7 @@ The box and crossed box diagram for QED process is
  i\mathcal{M}_1^{(1)}+i\mathcal{M}_2^{(1)}&=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-{p_1^0}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)\\
  &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2-\vb{p_1}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)
  \end{align*}
- Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order.
+ Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order. From this we can conclude that a contact interaction is presented at $\a^2$ order with coefficient $\frac{4 \pi e^4 }{3 m^2}=\frac{(4\pi)^3\a^2}{3 m^2}$.
 
  Now consider operator product expansion.
 
@@ -198,6 +198,7 @@ At leading order $u_e(p)=\pmqty{\psi_e(p)\\0}$. (If we're only interested in the
   \intertext{drop $p_1$}
   &=-ie^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(E_1-\frac{\vb{k}^2}{2m}+i\epsilon)}\psi(p_1)=\pi ie^2\sqrt{\frac{2m}{E_1}}u_N(v_N)\psi(p_1)
  \end{align*}
+
 For QED case:
 \includegraphics[width=1.2 in]{OPE-2.eps}
 \begin{align*}
@@ -209,7 +210,7 @@ For QED case:
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2[\vb{k}^2+m^2-m\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
   &=ie^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\vb{k}^2\sqrt{\vb{k}^2+m^2}[\sqrt{\vb{k}^2+m^2}-m]}u_e(p_1)
 \end{align*}%\addtocounter{footnote}{-1}\stepcounter{footnote}
-we can see there's no UV divergence here. IR divergence is presented but it's exactly the same with the NRQED one so there's nothing that needs to concern about. 
+we can see there's no UV divergence here. IR divergence is presented but it's exactly the same with the NRQED one so there's nothing that needs to concern about.
  \footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
@@ -331,7 +332,7 @@ u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \intertext{drop $\vb{p_1}$}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  \frac{2\sqrt{a'}(\sqrt{a}-m+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+m+k_1^i\g_i\g^0)-2m^2+2\sqrt{a'}m}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-m\right)
   {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
 u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
 \end{align*}
@@ -425,6 +426,27 @@ For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^
  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}\psi_e(p_1)u_N(v_N)
 \end{align*}
 \footnotetext{Clearly in this line, if this NRQCD diagram is crossed, the second pole would become $-k_2^0+i \epsilon$ and the whole formula is zero (since both poles of $k_1^0$ would be in the same side).}
+There's also a contact term
+\begin{align*}
+  &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+ \begin{feynman}
+   \vertex (p1);
+ \vertex[right=3cm of p1] (p2);
+ \vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (x) ;
+ \vertex at ($(p1)!0.6!(x)+(0.9cm,0)$) (i);
+ %
+ \diagram* {
+   (p1) -- [fermion] (i);
+   (p2) -- [double distance=1pt] (i);
+   (p1) -- [momentum=\(p_{1}\)] (i);
+   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+   (y1) -- [momentum=\(p_{1}+k_1\)] (x);
+   (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (x);
+   };
+ \end{feynman}
+ \end{tikzpicture}
+ \\
+\end{align*}
  \section{HSET}
  \subsection{Lagrangian}
 For scalar QED
@@ -516,6 +538,6 @@ By definition
   \chi_v(x)&=\frac{e^{imv\cdot x}}{\sqrt{2m}}(iv\cdot D+m)\phi(x)\\
   &=\frac{1}{\sqrt{2m}}(iv\cdot D+2m)e^{imv\cdot x}\phi(x)
 \end{align*}
-Obviously the plane wave expansion should be irrelevant of the heavy particle mass, which means the exponential part is $e^{-ik\cdot x}$ where $k$ marks the offshellness. 
+Obviously the plane wave expansion should be irrelevant of the heavy particle mass, which means the exponential part is $e^{-ik\cdot x}$ where $k$ marks the offshellness.
 
 \end{document}
