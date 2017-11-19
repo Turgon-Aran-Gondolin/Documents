@@ -152,7 +152,7 @@ The box and crossed box diagram for QED process is
  \end{align*}
  Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order. From this we can conclude that a contact interaction is presented at $\a^2$ order with coefficient $\frac{4 \pi e^4 }{3 m^2}=\frac{(4\pi)^3\a^2}{3 m^2}$.
 
- Now consider operator product expansion.
+ Now consider operator product expansion (all matrix elements below are under momentum space unless explicitly pointed out).
 
  Tree level matching: \includegraphics[width=1.2 in]{OPE-00.eps} \& \includegraphics[width=1.2 in]{OPE-0.eps}
 
@@ -322,17 +322,17 @@ we can see there's no UV divergence here. IR divergence is presented but it's ex
   \frac{4{p_1^0}^2+2p_1^0k_1^0+2\vb{p_1}\cdot\vb{k_1}+2(k_1^0+p_1^0)[b+\slashed k_1\g^0]-\g^0b\slashed k_1}{2\sqrt{a_2}(\sqrt{a_2}-k_1^0+i \epsilon )
   \bqty{k_1^0+p_1^0-\sqrt{a_2}+\frac{i \epsilon }{2 \sqrt{a_2}}+i\epsilon}\bqty{(p_1+ k_1)^2-m^2+i\epsilon}}\frac{1}{\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a_1}+\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a_1}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
   {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
 u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \intertext{do the shift}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a'}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-p_1^0+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a_1}+\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}+p_1^0+k_1^i\g_i\g^0)-2{p_1^0}^2-2\vb{k_1\cdot p_1}+2\sqrt{a_1}p_1^0}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-p_1^0\right)
   {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
 u_N(v_N)u_e(p_1)e^{-i\vb{(p_1+k_1+k_2)}\vdot \vb{x}}\\
 \intertext{drop $\vb{p_1}$}
   =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}
-  \frac{2\sqrt{a'}(\sqrt{a}-m+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a'}+\sqrt{a}+k_2^i\g_i\g^0)(\sqrt{a'}+m+k_1^i\g_i\g^0)-2m^2+2\sqrt{a'}m}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-m\right)
+  \frac{2\sqrt{a_1}(\sqrt{a_2}-m+(k_1+k_2)^i\g_i\g^0)+(\sqrt{a_1}+\sqrt{a_2}+k_2^i\g_i\g^0)(\sqrt{a_1}+m+k_1^i\g_i\g^0)-2m^2+2\sqrt{a_1}m}{4 \sqrt{a_1} \sqrt{a_2} \left(\sqrt{a_1}+\sqrt{a_2}\right) \left(\sqrt{a_2}-m\right)
   {\vb{\abs{k_1}}^2\vb{\abs{k_2}}^2}}\\&
 u_N(v_N)u_e(p_1)e^{-i\vb{k_2}\vdot \vb{x}}\\
 \end{align*}
@@ -428,24 +428,29 @@ For NRQED case ($\mel{0}{\psi_e(0)N(0)e\int\dd^4y_1\bar\psi_e\psi_e A^0e\int\dd^
 \footnotetext{Clearly in this line, if this NRQCD diagram is crossed, the second pole would become $-k_2^0+i \epsilon$ and the whole formula is zero (since both poles of $k_1^0$ would be in the same side).}
 There's also a contact term
 \begin{align*}
-  &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+  -\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
  \begin{feynman}
    \vertex (p1);
  \vertex[right=3cm of p1] (p2);
- \vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (x) ;
- \vertex at ($(p1)!0.6!(x)+(0.9cm,0)$) (i);
+ \vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+ \vertex at ($(p1)!0.4!(x)+(0.9cm,0)$) (i);
+% \vertex[above=0.05cm of x] (text) {\(0\)};
  %
  \diagram* {
    (p1) -- [fermion] (i);
    (p2) -- [double distance=1pt] (i);
    (p1) -- [momentum=\(p_{1}\)] (i);
-   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
-   (y1) -- [momentum=\(p_{1}+k_1\)] (x);
-   (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (x);
+   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (i);
+   (i) -- [momentum=\(p_{1}+k\), half left] (x);
+   (i) -- [momentum'=\(P_{N}-k\),double distance=1pt, half right] (x);
    };
  \end{feynman}
- \end{tikzpicture}
+\end{tikzpicture}&=\frac{4\pi e^4}{3m}\int\frac{\dd^4 k}{(2\pi)^4}\frac{1}{p_1^0+k^0-m-\frac{(\vb{p_1+k})^2}{2m}+i\epsilon}\frac{1}{-k^0+i\epsilon}\psi_e(p_1)u_N(v_N)
  \\
+ &=i\frac{4\pi e^4}{3m}\int\frac{\dd^3\vb{k}}{(2\pi)^3}\frac{1}{p_1^0-m-\frac{(\vb{p_1+k})^2}{2m}+2i\epsilon}\psi_e(p_1)u_N(v_N)
+  \\\intertext{drop $\vb{p_1}$} &=i\frac{4\pi e^4}{3m}\int\frac{\dd^3\vb{k}}{(2\pi)^3}\frac{1}{
+  -\frac{\vb{k}^2}{2m}+2i\epsilon}\psi_e(p_1)u_N(v_N)
+    \\
 \end{align*}
  \section{HSET}
  \subsection{Lagrangian}

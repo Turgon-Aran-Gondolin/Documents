@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1511079178 "Hydrogen.tex" "Hydrogen.pdf" "Hydrogen" 1511079199
+["lualatex"] 1511096412 "Hydrogen.tex" "Hydrogen.pdf" "Hydrogen" 1511096430
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1498746321 132365 d4b09c44a840b0a1aa9022d75665c8cd ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1498558854 131142 6dbae89bb06486741e2882754123d6be ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1498746320 132218 e2b466ba187702a007f5298bf9b0e257 ""
@@ -9,9 +9,9 @@
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc" 1499286952 132419 cc85830f5694e94c11ac2be73035d2dc ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc" 1499286697 132314 da584aaab98d288f1509509fbf25c81b ""
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc" 1499277061 132009 73f622832de6ab5db4b40ff946443a2e ""
-  "Hydrogen.aux" 1511079198 1423 30ceefa9b4126e03edc5bbfc441a348a ""
-  "Hydrogen.out" 1511079198 342 728b3d229084d90870bf824eaefa80cb ""
-  "Hydrogen.tex" 1511079157 35980 0896a3ff8cc4ddb88bd0e131ac22957a ""
+  "Hydrogen.aux" 1511096429 1423 30ceefa9b4126e03edc5bbfc441a348a ""
+  "Hydrogen.out" 1511096429 342 728b3d229084d90870bf824eaefa80cb ""
+  "Hydrogen.tex" 1511096411 36586 00de7a1b87ae59a973b131f1796e5e32 ""
   "OPE-0.eps" 1509773423 141275 91534fce49bd24fd83d999112200c56f ""
   "OPE-00.eps" 1509773423 141815 e8a48984f00a379f64d84f3a854a3f2b ""
   "OPE-1.eps" 1509773423 144543 a1d2dc805725a918f707c37842677e62 ""
