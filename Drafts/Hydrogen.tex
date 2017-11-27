@@ -228,11 +228,11 @@ and also
 \end{align*}
 and by applying contour integral around the branch cut we can do the transformation
 \begin{align*}
-  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m^2}{\vb{k}^2\sqrt{\vb{k}^2+m^2} }&=\frac{im^2}{x}\int_{-\infty}^{\infty}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}}\\
+  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{1}{2\vb{k}^2\sqrt{\vb{k}^2+m^2} }&=\frac{i}{2x}\int_{-\infty}^{\infty}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}}\\
   \intertext{push the contour}
-  &=\frac{im^2}{x}2\pi i(\int_{+i\infty-\epsilon}^{im}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}}+\int_{im}^{+i\infty+\epsilon}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}})\\
-  &\stackrel{k\rightarrow-ik}{=\joinrel=\joinrel=\joinrel=}\frac{-2\pi m^2}{x}\sqrt{2}e^{3\pi/4}\int_{m}^{\infty}\dd k\frac{ e^{- k x}}{k  \sqrt{k^2-m^2}}\\
-  &=\frac{-2\pi m^2}{x}\sqrt{2}e^{3\pi/4}\int\dd r K_0(mx)
+  &=\frac{i}{2x}2\pi i(\int_{+i\infty-\epsilon}^{im}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}}+\int_{im}^{+i\infty+\epsilon}\dd k\frac{ e^{-i k x}}{k  \sqrt{k^2+m^2}})\\
+  &\stackrel{k\rightarrow-ik}{=\joinrel=\joinrel=\joinrel=}\frac{-2\pi }{2x}\sqrt{2}e^{3\pi/4}\int_{m}^{\infty}\dd k\frac{ e^{- k x}}{k  \sqrt{k^2-m^2}}\\
+  &=\frac{-2\pi }{2x}\sqrt{2}e^{3\pi/4}\int\dd x K_0(mx)
 \end{align*}
 
  \footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}
