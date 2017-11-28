@@ -213,27 +213,29 @@ For QED case:
 \end{align*}%\addtocounter{footnote}{-1}\stepcounter{footnote}
 we can see there's no UV divergence here. IR divergence is presented but it's exactly the same with the NRQED one so there's nothing that needs to concern about.
 
-we can divide this integral into 3 parts. The easiest part is 
-\begin{align*}
-  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m}{\vb{k}^4}&={-m\pi}  x
-\end{align*}
-and also
-\begin{align*}
-  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m^2}{\vb{k}^4\sqrt{\vb{k}^2+m^2} }&=\frac{1 }{mx}G_{1,3}^{2,1}\left(\frac{m^2 x^2}{4}|
-\begin{array}{c}
- 2 \\
- \frac{1}{2},\frac{3}{2},0 \\
-\end{array}
-\right)\\
-\end{align*}
-and by applying contour integral around the branch cut we can do the transformation
+we can divide this integral into 3 parts. 
+%The easiest part is 
+%\begin{align*}
+%  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m}{\vb{k}^4}&={-m\pi}  x
+%\end{align*}
+%and also
+%\begin{align*}
+%  \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m^2}{\vb{k}^4\sqrt{\vb{k}^2+m^2} }&=\frac{1 }{mx}G_{1,3}^{2,1}\left(\frac{m^2 x^2}{4}|
+%\begin{array}{c}
+% 2 \\
+% \frac{1}{2},\frac{3}{2},0 \\
+%\end{array}
+%\right)\\
+%\end{align*}
+%and 
+By applying contour integral around the branch cut we can transform the third part: 
 \begin{align*}
   \int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{1}{2\vb{k}^2\sqrt{\vb{k}^2+m^2} }&=-\frac{i}{2x}\int_{-\infty}^{\infty}\dd k\frac{ e^{i k x}}{k  \sqrt{k^2+m^2}}\\
   \intertext{push the contour}
   &=-\frac{i}{2x}2\pi i(\int_{+i\infty-\epsilon}^{im}\dd k\frac{ e^{i k x}}{k  \sqrt{k^2+m^2}}+\int_{im}^{+i\infty+\epsilon}\dd k\frac{ e^{i k x}}{k  \sqrt{k^2+m^2}})\\
-  &\stackrel{k\rightarrow-ik}{=\joinrel=\joinrel=\joinrel=}-\frac{-2\pi }{2x}\sqrt{2}e^{i3\pi/4}\int_{m}^{\infty}\dd k\frac{ e^{- k x}}{k  \sqrt{k^2-m^2}}\\
-  &=\frac{\pi }{x}\sqrt{2}e^{i3\pi/4}\int\dd x K_0(mx)\\
-  &=\frac{\pi^2\sqrt{2}}{2}e^{i3\pi/4}(\pmb{L}_{-1}(m x) K_0(m x)+\pmb{L}_0(m x) K_1(m x))
+  &\stackrel{k\rightarrow-ik}{=\joinrel=\joinrel=\joinrel=}-\frac{-2\pi }{2x}\int_{m}^{\infty}\dd k\frac{ e^{- k x}}{k  \sqrt{k^2-m^2}}\\
+  &=\frac{\pi }{x}\int\dd x K_0(mx)\\
+  &=\frac{\pi^2}{2}(\pmb{L}_{-1}(m x) K_0(m x)+\pmb{L}_0(m x) K_1(m x))
 \end{align*}
 If count the NRQED part in, the first part is 
 \begin{align*}
@@ -247,6 +249,7 @@ the second part is
 	-\frac{1}{2},\frac{1}{2},-1
   \end{array})
 \end{align*}
+IR divergence is completely cancelled.
  \footnotetext{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
