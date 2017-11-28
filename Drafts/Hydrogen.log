@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  27 NOV 2017 16:48
-=======
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  27 NOV 2017 16:30
->>>>>>> 2392a83f5b10e78244e82a6014b6542212b1dd4b
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  28 NOV 2017 15:25
  restricted system commands enabled.
 **Hydrogen.tex
 (./Hydrogen.tex
@@ -1944,41 +1940,41 @@ Overfull \hbox (15.5875pt too wide) in paragraph at lines 213--213
 
 [3<./OPE-00-eps-converted-to.pdf><./OPE-0-eps-converted-to.pdf><./OPE-1-eps-conv
 erted-to.pdf><./OPE-2-eps-converted-to.pdf>]
-Overfull \hbox (22.15385pt too wide) in paragraph at lines 312--312
+Overfull \hbox (22.15385pt too wide) in paragraph at lines 324--324
 [] 
  []
 
-[4]
-Overfull \hbox (8.95271pt too wide) in paragraph at lines 362--362
-[] 
- []
-
-[5]
-Overfull \hbox (7.45152pt too wide) in paragraph at lines 451--451
+[4] [5]
+Overfull \hbox (8.95271pt too wide) in paragraph at lines 374--374
 [] 
  []
 
 [6
 warning  (pdf backend): ignoring duplicate destination with the name 'Hfootnote.
 4'
-] [7] [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 572.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 572.
+]
+Overfull \hbox (7.45152pt too wide) in paragraph at lines 463--463
+[] 
+ []
+
+[7] [8] [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 584.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 584.
  (./Hydrogen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 572.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 572.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 584.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 584.
 Package rerunfilecheck Info: File `Hydrogen.out' has not changed.
 (rerunfilecheck)             Checksum: 728B3D229084D90870BF824EAEFA80CB;342.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 572.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 584.
 )
 
 Here is how much of LuaTeX's memory you used:
- 30372 strings out of 495077
+ 30373 strings out of 495077
  125016,953878 words of node,token memory allocated
  537 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 9 glue, 1 kern, 61 glue_spec, 1 write nodes
-   avail lists: 1:8,2:54,3:2582,4:54,5:954,6:3505,7:4124,8:996,9:3128,10:12,11:6
-0
+   avail lists: 1:8,2:54,3:2274,4:52,5:756,6:3662,7:3425,8:911,9:2875,10:12,11:6
+1
  32930 multiletter control sequences out of 65536+600000
  77 fonts using 3194535 bytes
  78i,21n,127p,1104b,1776s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -2010,14 +2006,10 @@ ublic/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb>
-<<<<<<< HEAD
-Output written on Hydrogen.pdf (9 pages, 365373 bytes).
-=======
-Output written on Hydrogen.pdf (9 pages, 365405 bytes).
->>>>>>> 2392a83f5b10e78244e82a6014b6542212b1dd4b
+Output written on Hydrogen.pdf (10 pages, 366791 bytes).
 
-PDF statistics: 264 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 29 named destinations out of 1000 (max. 131072)
+PDF statistics: 267 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 30 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 100000000)
 
