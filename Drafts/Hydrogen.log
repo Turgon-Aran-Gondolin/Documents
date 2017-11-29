@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  29 NOV 2017 14:47
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  29 NOV 2017 15:55
  restricted system commands enabled.
 **Hydrogen.tex
 (./Hydrogen.tex
@@ -1934,7 +1934,7 @@ File: OPE-2-eps-converted-to.pdf Graphic file (type pdf)
 Package luatex.def Info: OPE-2-eps-converted-to.pdf used on input line 204.
 (luatex.def)             Requested size: 86.72377pt x 63.5427pt.
 
-Overfull \hbox (9.43474pt too wide) in paragraph at lines 214--214
+Overfull \hbox (21.37508pt too wide) in paragraph at lines 214--214
 [] 
  []
 
@@ -2006,7 +2006,7 @@ ublic/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb>
-Output written on Hydrogen.pdf (9 pages, 367463 bytes).
+Output written on Hydrogen.pdf (9 pages, 367701 bytes).
 
 PDF statistics: 259 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams
