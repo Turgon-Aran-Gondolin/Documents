@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  29 NOV 2017 15:55
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  29 NOV 2017 16:11
  restricted system commands enabled.
 **Hydrogen.tex
 (./Hydrogen.tex
@@ -2006,7 +2006,7 @@ ublic/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb>
-Output written on Hydrogen.pdf (9 pages, 367701 bytes).
+Output written on Hydrogen.pdf (9 pages, 368015 bytes).
 
 PDF statistics: 259 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams
