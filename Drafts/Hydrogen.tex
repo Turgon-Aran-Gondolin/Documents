@@ -203,7 +203,7 @@ For QED case
 \footnote{$\mel{0}{\psi(x)N(0)e\int\dd^4y\bar\psi\g^0\psi A^0 e\int\dd^4 z \bar N NA^0}{eN}=e^2\int\dd^4y\int\dd^4z\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k^2}}e^{-ik\cdot(z-y)}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde S_e(k_1)e^{-ik_1\cdot(y-x)}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde S_N(k_2)u_N(v_N)u_e(p)e^{-ip_1\cdot y}$.}:
 \includegraphics[width=1.2 in]{OPE-2.eps}
 \begin{align*}
-  -\mel{0}{\psi(x)N(0)e^2\int\dd^4y\bar\psi\g^0\psi A^0 \int\dd^4 z \bar N NA^0}{eN}&=e^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  -\mel{0}{\psi(x)N(0)e^2\int\dd^4y\bar\psi\g^0\psi A^0 \int\dd^4 z \bar N NA^0}{eN}&=ie^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
   &=ie^2u_N(v_N)\int[\dd k]e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
   &=-e^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{(k+p_1)}\cdot\vb{x}}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
   &=-e^2u_N(v_N)\int\frac{\dd^3 k}{(2\pi)^3}e^{-i\vb{k}\cdot\vb{x}}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)\\
@@ -277,7 +277,7 @@ The final OPE coefficient should be
 \right)}{\pi m x}+(\pmb{L}_{-1}(m x) K_0(m x)+\pmb{L}_0(m x) K_1(m x))]=\frac{\a}{\pi}(\log \frac{mx}{2}+\g+1)+\mathcal{O}(x)
 \end{align*}
 
-If it's Scalar QED, the NLO contribution is 
+If it's scalar QED, the NLO contribution is 
 \begin{align*}
   \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 	\begin{feynman}
@@ -298,13 +298,14 @@ If it's Scalar QED, the NLO contribution is
 	  (z1) -- [momentum'=\(P_{N}-k\),double distance=1pt] (0);
     };
 	\end{feynman}
-  \end{tikzpicture}&=-e^2u_N(v_N)\int\frac{\dd^4k}{(2\pi)^4}e^{-i\vb{(k+p_1)\cdot x}}\frac{p_1^0+(p_1^0+k^0)}{\abs{\vb{k}}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}\\
-  &=ie^2u_N(v_N)\int\frac{\dd^4k}{(2\pi)^4}e^{-i\vb{(k+p_1)\cdot x}}\frac{p_1^0+\sqrt{(\vb{k+p_1})^2+m^2}}{2\abs{\vb{k}}^2\sqrt{(\vb{k+p_1})^2+m^2}(\sqrt{(\vb{k+p_1)^2}+m^2}-p^0_1)}\\
+  \end{tikzpicture}&=ie^2u_N(v_N)\int\frac{\dd^4k}{(2\pi)^4}e^{-i\vb{(k+p_1)\cdot x}}\frac{p_1^0+(p_1^0+k^0)}{\abs{\vb{k}}^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}\\
+  &=-e^2u_N(v_N)\int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{(k+p_1)\cdot x}}\frac{p_1^0+\sqrt{(\vb{k+p_1})^2+m^2}}{2\abs{\vb{k}}^2\sqrt{(\vb{k+p_1})^2+m^2}(\sqrt{(\vb{k+p_1)^2}+m^2}-p^0_1)}\\
   \intertext{shift $\vb{k}$ to $\vb{k-p_1}$}
-  &=ie^2u_N(v_N)\int\frac{\dd^4k}{(2\pi)^4}e^{-i\vb{k\cdot x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{(k-p_1)}^2\sqrt{\vb{k}^2+m^2}(\sqrt{\vb{k^2}+m^2}-p^0_1)}\\
+  &=-e^2u_N(v_N)\int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{p_1^0+\sqrt{\vb{k}^2+m^2}}{2\vb{(k-p_1)}^2\sqrt{\vb{k}^2+m^2}(\sqrt{\vb{k^2}+m^2}-p^0_1)}\\
   \intertext{drop $\vb{p_1}$}
-  &=ie^2u_N(v_N)\int\frac{\dd^4k}{(2\pi)^4}e^{-i\vb{k\cdot x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\abs{\vb{k}}^2\sqrt{\vb{k}^2+m^2}(\sqrt{\vb{k^2}+m^2}-m)}\\
+  &=-e^2u_N(v_N)\int\frac{\dd^3\vb{k}}{(2\pi)^3}e^{-i\vb{k\cdot x}}\frac{m+\sqrt{\vb{k}^2+m^2}}{2\abs{\vb{k}}^2\sqrt{\vb{k}^2+m^2}(\sqrt{\vb{k^2}+m^2}-m)}
 \end{align*}
+it's exactly the same with NLO QED except for a wavefunction.
 
  Two loop scenario for QED case $\mel{0}{T\psi(x)N(0)e\int\dd^4y_1\bar\psi\g^0\psi A^0 e\int\dd^4 z_1 \bar N NA^0e\int\dd^4y_2\bar\psi\g^0\psi A^0 e\int\dd^4 z_2 \bar N NA^0}{eN}$:
  \begin{align*}
