@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  30 NOV 2017 16:31
+=======
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.10.5)  30 NOV 2017 16:28
+>>>>>>> ab8fc57462c41e2a339c771411c1ba616c430818
  restricted system commands enabled.
 **Hydrogen.tex
 (./Hydrogen.tex
@@ -1973,9 +1977,15 @@ Here is how much of LuaTeX's memory you used:
  125016,953878 words of node,token memory allocated
  544 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 10 glue, 1 kern, 61 glue_spec, 1 write nodes
+<<<<<<< HEAD
    avail lists: 1:8,2:54,3:2274,4:52,5:742,6:3847,7:3425,8:911,9:3026,10:12,11:6
 5
  32934 multiletter control sequences out of 65536+600000
+=======
+   avail lists: 1:8,2:54,3:2281,4:52,5:742,6:3847,7:3304,8:928,9:3026,10:12,11:6
+5
+ 32933 multiletter control sequences out of 65536+600000
+>>>>>>> ab8fc57462c41e2a339c771411c1ba616c430818
  77 fonts using 3194535 bytes
  78i,21n,127p,1104b,1776s stack positions out of 5000i,500n,10000p,200000b,100000s
 
@@ -2006,7 +2016,11 @@ ublic/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb>
+<<<<<<< HEAD
 Output written on Hydrogen.pdf (10 pages, 372052 bytes).
+=======
+Output written on Hydrogen.pdf (10 pages, 372695 bytes).
+>>>>>>> ab8fc57462c41e2a339c771411c1ba616c430818
 
 PDF statistics: 263 PDF objects out of 1000 (max. 8388607)
  206 compressed objects within 3 object streams
