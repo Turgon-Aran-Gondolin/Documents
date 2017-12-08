@@ -1,20 +1,20 @@
-\contentsline {section}{\numberline {1}理论部分}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Lippmann-Schwinger方程}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}散射截面}{4}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}散射振幅}{5}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Born近似}{8}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}分波法和相移}{9}{subsection.1.5}
-\contentsline {section}{\numberline {2}解积分方程得到的几个短程势相移}{13}{section.2}
-\contentsline {subsection}{\numberline {2.1}球方势阱}{13}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}$\displaystyle V(r)=\frac {\alpha }{r^2}$}{14}{subsection.2.2}
-\contentsline {section}{\numberline {3}对TrueV的其他几个拟合}{14}{section.3}
-\contentsline {subsection}{\numberline {3.1}高斯势}{16}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}高斯势/r}{16}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}高斯势/r与汤川势的组合}{16}{subsection.3.3}
-\contentsline {section}{\numberline {4}用离散化矩阵本征值求解微分方程}{19}{section.4}
-\contentsline {subsection}{\numberline {4.1}氢原子S波束缚能}{19}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}势为$\displaystyle \frac {0.1}{r^2}$}{20}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}势为Lepage的真实势}{20}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}NDEigensystem}{20}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}利用谐振子离散化方程}{21}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}差分方法}{21}{subsection.4.6}
+\contentsline {section}{\numberline {1}理论部分}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Lippmann-Schwinger方程}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}散射截面}{5}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}散射振幅}{6}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Born近似}{9}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}分波法和相移}{10}{subsection.1.5}
+\contentsline {section}{\numberline {2}解积分方程得到的几个短程势相移}{14}{section.2}
+\contentsline {subsection}{\numberline {2.1}球方势阱}{14}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}$\displaystyle V(r)=\frac {\alpha }{r^2}$}{15}{subsection.2.2}
+\contentsline {section}{\numberline {3}对TrueV的其他几个拟合}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}高斯势}{17}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}高斯势/r}{17}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}高斯势/r与汤川势的组合}{17}{subsection.3.3}
+\contentsline {section}{\numberline {4}用离散化矩阵本征值求解微分方程}{20}{section.4}
+\contentsline {subsection}{\numberline {4.1}氢原子S波束缚能}{20}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}势为$\displaystyle \frac {0.1}{r^2}$}{21}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}势为Lepage的真实势}{21}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}NDEigensystem}{21}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}利用谐振子离散化方程}{22}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}差分方法}{22}{subsection.4.6}
