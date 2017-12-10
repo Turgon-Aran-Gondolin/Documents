@@ -65,11 +65,38 @@
 \newcommand{\Asquare}{A^{\mu}A_{\mu}}
 \newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
 
-\title{Local Operator divergence}
+\title{Local Operator Divergence}
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
-NRQED matrix element
+NRQED matrix element at NLO
+\begin{align*}
+   \mel{0}{\psi_e(0)N(0)(-ie)\int\dd^4y\bar\psi_e\psi_e A^0(-ie)\int\dd^4z\bar NNA^0}{eN}&=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{feynman}
+    \vertex (p1);
+	\vertex[right=2.5cm of p1] (p2);
+	\vertex at ($(p1)!0.5!(p2)+(0,2.5cm)$) (x) ;
+	\vertex at ($(p1)!0.3!(x)$) (y1);
+	\vertex at ($(p2)!0.3!(x)$) (z1);
+	%
+	\diagram* {
+	  (p1) -- [fermion] (x);
+	  (p2) -- [double distance=1pt] (x);
+	  (y1) -- [photon,rmomentum=$k_1$] (z1);
+	  (p1) -- [momentum=\(p\)] (y1);
+	  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+	  (y1) -- [momentum=\(p+k\)] (x);
+	  (z1) -- [momentum'=\(P_{N}-k\),double distance=1pt] (x);
+    };
+	\end{feynman}
+  \end{tikzpicture}\\
+  & =ie^2u_N(v_N)\int[\dd k]\frac{1}{\vb{k}^2(-k^0+i\epsilon)(^0+k^0-m-\frac{\vb{(p+k)}^2}{2m}+\frac{\vb{(p+k)}^4}{8m^3}+i\epsilon)}\psi(p)\\
+   &=e^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p})^2(E-\frac{\vb{k}^2}{2m}+\frac{\vb{k}^4}{8m^3})}\psi(p)\\
+   &=e^2u_N(v_N)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p})^2(E-\frac{\vb{k}^2}{2m})}(1-\frac{\vb{k}^4}{8m^3(E-\frac{\vb{k}^2}{2m})})\psi(p)\\
+   &=e^2u_N(v_N)\psi(p)[\frac{\pi }{2p}]
+   =e^2u_N(v_N)\psi(p)[\frac{\pi }{2mv}]
+\end{align*}
+At NNLO (where we're only interested in divergent parts)
 \begin{align*}
   &-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
  \begin{feynman}
@@ -99,9 +126,42 @@ NRQED matrix element
  \intertext{do the shift as above}
  =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}\psi_e(p)u_N(v_N)\\
  \intertext{drop $\vb{p}$}
- =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}\psi_e(p)u_N(v_N)
+ =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}\psi_e(p)u_N(v_N)\\
+ \intertext{if we add higher reltivistic correction}
+ =&-e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{{2m}}{\vb{\abs{k_1}}^2-\frac{\vb{\abs{k_1}^4}}{4m^2}}\frac{{2m}}{\vb{\abs{k_2}}^2-\frac{\vb{\abs{k_2}^4}}{4m^2}}\psi_e(p)u_N(v_N)\\
+ =&-4m^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2}(1+\frac{\vb{\abs{k_1}^2}}{4m^2})\frac{1}{\vb{\abs{k_2}}^2}(1+\frac{\vb{\abs{k_2}^2}}{4m^2})\psi_e(p)u_N(v_N)\\
 \end{align*}
-
+The integral
+\begin{align*}
+  & \int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2}(1+\frac{\vb{\abs{k_1}^2}}{4m^2})\frac{1}{\vb{\abs{k_2}}^2}(1+\frac{\vb{\abs{k_2}^2}}{4m^2})\\
+  =&\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2}(1+\frac{\vb{\abs{k_1}^2}}{4m^2})\frac{1}{\vb{\abs{k_2}}^2}(1+\frac{\vb{\abs{k_2}^2}}{4m^2})\\
+\end{align*}
+\begin{align*}
+  -\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+ \begin{feynman}
+   \vertex (p1);
+ \vertex[right=3cm of p1] (p2);
+ \vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+ \vertex at ($(p1)!0.4!(x)+(0.9cm,0)$) (i);
+% \vertex[above=0.05cm of x] (text) {\(0\)};
+ %
+ \diagram* {
+   (p1) -- [fermion] (i);
+   (p2) -- [double distance=1pt] (i);
+   (p1) -- [momentum=\(p_{1}\)] (i);
+   (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (i);
+   (i) -- [momentum=\(p_{1}+k\), half left] (x);
+   (i) -- [momentum'=\(P_{N}-k\),double distance=1pt, half right] (x);
+   };
+ \end{feynman}
+\end{tikzpicture}&=\frac{4\pi e^4}{3m}\int\frac{\dd^4 k}{(2\pi)^4}\frac{1}{p_1^0+k^0-m-\frac{(\vb{p_1+k})^2}{2m}+i\epsilon}\frac{1}{-k^0+i\epsilon}\psi_e(p_1)u_N(v_N)
+ \\
+ &=i\frac{4\pi e^4}{3m}\int\frac{\dd^3\vb{k}}{(2\pi)^3}\frac{1}{p_1^0-m-\frac{(\vb{p_1+k})^2}{2m}+2i\epsilon}\psi_e(p_1)u_N(v_N)
+  \\\intertext{drop $\vb{p_1}$} &=i\frac{4\pi e^4}{3m}\int\frac{\dd^3\vb{k}}{(2\pi)^3}\frac{1}{
+	-\frac{\vb{k}^2}{2m}+2i\epsilon}\psi_e(p_1)u_N(v_N)
+\\
+\intertext{if the dispersion relation is up to $\vb{k}^4$ then}&=\frac{4 e^4m}{3}
+\end{align*}
 
 
 \end{document}
