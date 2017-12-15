@@ -95,6 +95,7 @@ In tree level\footnote{Note that there's no Gamma matrice in the heavy particle 
 	{ [same layer] a -- [photon,momentum'=$q$] c},
   };=-e^2\bar u_N(P_N)v^{0}u_N(P_N)\frac{i}{\vb{q}^2}\psi^{\dagger}(p_2)\psi(p1)
 \end{align*}
+Expand to $v^2$ order, we have an extra vertex $\frac{\vb{p_1}^2+\vb{p_2}^2-2\vb{p_1\cdot p_2}-2i(\vb{p_1\times p_2})\cdot \bm{\sigma}}{8m^2}$ which is exactly those terms with denorminator $1/8m^2$ in BBL. 
 
 The box %and crossed box
 diagram for NRQED process is
@@ -105,9 +106,9 @@ diagram for NRQED process is
 	{ [same layer] a -- [photon,momentum'=$k$] c},
 	{ [same layer] b-- [photon,rmomentum=$k-q$] d},
   };\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int[\dd k]\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
-  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{(p_1+k)}^2}{2m})}\psi(p_1)\\
-  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2(E_1-\frac{\vb{k}^2}{2m})}\psi(p_1)
+  &=e^4\bar u_N(P_N)u_N(P_N)\psi^{\dagger}(p_2)\int[\dd k]\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(-k^0+i\epsilon)(p_1^0+k^0-m-\frac{\vb{(p_1+k)}^2}{2m}+i\epsilon)}\psi(p_1)\\
+  &=-ie^4\bar u_N(P_N)u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{\vb{k}^2(\vb{k}-\vb{q})^2(E_1-\frac{\vb{(p_1+k)}^2}{2m})}\psi(p_1)\\
+  &=-ie^4\bar u_N(P_N)u_N(P_N)\psi^{\dagger}(p_2)\int\frac{\dd^3k}{(2\pi)^3}\frac{1}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2(E_1-\frac{\vb{k}^2}{2m})}\psi(p_1)
 \end{align*}
 %\clearpage
 The box and crossed box diagram for QED process is
@@ -118,17 +119,17 @@ The box and crossed box diagram for QED process is
 	{ [same layer] a -- [photon,momentum'=$k$] c},
 	{ [same layer] b-- [photon,rmomentum=$k-q$] d},
   };\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
-  &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2(\vb{k}-\vb{q})^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
-  &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
+  &=e^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=e^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](-k^0+i\epsilon)}u_e(p_1)\\
+  &=ie^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+k_i\g^i\g^0+\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2(\vb{k}-\vb{q})^2[(\vb{k}+\vb{p_1})^2+m^2-p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
+  &=ie^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0+\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
  \end{align*}
  $i\mathcal{M}_1^{(1)}$ has infrared log divergence and no ultraviolet divergence.
  \begin{align*}
   i\mathcal{M}_2^{(1)}&=\begin{tikzpicture}[baseline=($(a)!0.5!(c)$)]
 	\begin{feynman}
 	  \diagram[horizontal=i1 to f1,layered layout,medium]{
-		i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt,momentum=$P_N+k$] b -- [double distance=1pt] f1[particle=$P_N$],
+		i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt,momentum=$P_N+k-q$] b -- [double distance=1pt] f1[particle=$P_N$],
 	i2[particle=$p_1$] -- [fermion] c -- [fermion,momentum'=$p1+k$] d -- [fermion] f2[particle=$p_2$],
 	{ [same layer] a --[draw=none] c},
 	{ [same layer] b-- [draw=none] d},
@@ -139,17 +140,17 @@ The box and crossed box diagram for QED process is
 	  };
 	\end{feynman}
   \end{tikzpicture}\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](k^0+i\epsilon)}u_e(p_1)\\
-  &=e^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](k^0+i\epsilon)}u_e(p_1)\\
-  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+k_i\g^i\g^0-\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2(\vb{k}-\vb{q})^2[(\vb{k}+\vb{p_1})^2+m^2+p_1^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
-  &=-ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0-\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2+p_1^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
+  &=e^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{(\slashed p_1+\slashed k+m)\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](k^0-q^0+i\epsilon)}u_e(p_1)\\
+  &=e^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int[\dd k]\frac{2p_1^0+\slashed k\g^0}{\vb{k}^2(\vb{k}-\vb{q})^2[(p_1+k)^2-m^2+i\epsilon](k^0-q^0+i\epsilon)}u_e(p_1)\\
+  &=-ie^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+k_i\g^i\g^0-\sqrt{(\vb{k}+\vb{p_1})^2+m^2}}{2\vb{k}^2(\vb{k}-\vb{q})^2[(\vb{k}+\vb{p_1})^2+m^2+p_2^0\sqrt{(\vb{k}+\vb{p_1})^2+m^2}]}u_e(p_1)\\
+  &=-ie^4\bar u_N(P_N)u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{p_1^0+(k_i-p_{1i})\g^i\g^0-\sqrt{\vb{k}^2+m^2}}{2(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2+p_2^0\sqrt{\vb{k}^2+m^2}]}u_e(p_1)
  \end{align*}
  $i\mathcal{M}_2^{(1)}$ has no infrared or ultraviolet divergence.
 %\includegraphics[width=0.5\textwidth]{NRQED.eps}
- \begin{align*}
- i\mathcal{M}_1^{(1)}+i\mathcal{M}_2^{(1)}&=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-{p_1^0}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)\\
- &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2-\vb{p_1}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)
- \end{align*}
+ %\begin{align*}
+ %i\mathcal{M}_1^{(1)}+i\mathcal{M}_2^{(1)}&=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2+m^2-{p_1^0}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)\\
+% &=ie^4\bar u_N(P_N)\frac{1+\g^0}{2}u_N(P_N)u_e^{\dagger}(p_2)\int\frac{\dd^3 k}{(2\pi)^3}\frac{{p_1^0}^2+k^2+m^2+(k_i-p_{1i})p_1^0\g^i\g^0}{(\vb{k}-\vb{p_1})^2(\vb{k}-\vb{p_2})^2[\vb{k}^2-\vb{p_1}^2]\sqrt{\vb{k}^2+m^2}}u_e(p_1)
+% \end{align*}
  Note that after the expansion over external momentum, $k^i$ can be converted into $p^i$ so it's actually at $p^1$ order. From this we can conclude that a contact interaction is presented at $\a^2$ order with coefficient $\frac{4 \pi e^4 }{3 m^2}=\frac{(4\pi)^3\a^2}{3 m^2}$.
 
  Now consider operator product expansion (all matrix elements below are under momentum space unless explicitly pointed out).
