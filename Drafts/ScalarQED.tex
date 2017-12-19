@@ -1,0 +1,188 @@
+\PassOptionsToPackage{naturalnames}{hyperref}
+\RequirePackage{luatex85}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+%\usepackage{axodraw4j}
+\usepackage[toc,page]{appendix}
+\usepackage{multicol}
+
+%\usepackage{luatexja-fontspec}
+
+\geometry{left=0.5cm,right=0.5cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\newcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\da}{^{\dagger}}
+\newcommand{\sm}{^{\mu}}
+\newcommand{\sn}{^{\nu}}
+\newcommand{\smn}{^{\mu\nu}}
+\newcommand{\Dm}{D^{\mu}}
+\newcommand{\dm}{\partial^{\mu}}
+\newcommand{\Asquare}{A^{\mu}A_{\mu}}
+\newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
+
+%\setmainjfont[BoldFont=FandolSong-Bold]{FandolSong-Regular}
+%\setsansjfont{FandolSong-Bold}
+%\setlength{\parindent}{2em}
+%\linespread{1.2}
+
+\title{Scalar QED}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\section{Hydrogen Wavefunction Divergence in Klein-Gordon Equation and Schr\"odinger Equation}
+
+
+\section{Non-relativistic Scalar QED (NRSQED) Matching}
+\subsection{Feynman Rules}
+\subsubsection{Scalar QED (SQED)}
+Lagrangian
+\begin{align}
+  \lag_{SQED}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2+\Phi_v^*iv\cdot D\Phi_v
+  \label{SQEDLAG}
+\end{align}
+with
+\begin{align*}
+  D_{\mu}\phi=\partial_{\mu}\phi+ieA_{\mu}\phi
+\end{align*}
+and 
+\begin{align*}
+  D_{\mu}\Phi_v=\partial_{\mu}\Phi-iZeA_{\mu}\Phi_v
+\end{align*}
+But note that no $\vb{A}$ can appear in actual calculation because here only static scalar potential exists. 
+And the Feynman rules
+\begin{multicols}{2}
+  \begin{align*}
+	\feynmandiagram[small,horizontal=a to b]{
+	a -- [momentum=$p$] b,
+    };&=\frac{i}{p^2-m^2+i\epsilon}\\
+	\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
+	  a -- [momentum=$p_1$] o,
+	  o -- [momentum=$p_2$] b,
+	  c -- [photon] o,
+	};&=-ie(p_1^{\mu}+p_2^{\mu})\\
+	\feynmandiagram[small,horizontal=a to b,baseline=(o.base)]{
+	  a -- [momentum'=$p_1$] o -- [momentum'=$p_2$] b,
+	  c -- [photon] o,
+	  d -- [photon] o,
+	};&=2ie^2g^{\mu\nu}
+  \end{align*}
+  \begin{align*}
+	\feynmandiagram[small,horizontal=a to b]{
+		a -- [momentum=$mv+k$,double distance=1pt] b,
+	};&=\frac{i}{v\cdot k}\\
+	\feynmandiagram[small,baseline=(o.base)]{
+	  a -- [double distance=1pt] o -- [double distance=1pt] b,
+	  c -- [photon] o,
+	};&=iZev^{\mu}\\\\\\
+	\feynmandiagram[small,horizontal=a to b]{
+	  a [particle=$A^0$] -- [photon,momentum=$q$] b,
+	};&=\frac{i}{\vb{q}^2}
+  \end{align*}
+\end{multicols}
+\subsubsection{NRSQED}
+Lagrangian
+\begin{align}
+  \lag_{NRSQED}=\varphi^*\pqty{iD_0+\frac{\vb{D}^2}{2m}}\varphi+\delta\lag +\Phi_v^*iv\cdot D\Phi_v
+  \label{NRSQEDLAG}
+\end{align}
+with the same notation above. Here $\vb{D}=\nabla-ie\vb{A}$.
+
+Since we need to match it to $\mathcal{O}(v^2)$ order
+\begin{align}
+  \delta\lag=(D_0\varphi)^*(D_0\varphi)=\frac{\dot{\varphi}^*\dot{\varphi}}{2m}+\frac{e^2\varphi^*\varphi A_0^2}{2m}-\frac{ie}{2m}A_0(\varphi^*\dot{\varphi}-\dot{\varphi}^*\varphi)
+  \label{<+label+>}
+\end{align}<++>
+
+Feynman rules are also the same except for the scalar electron side which becomes
+\begin{align*}
+	\feynmandiagram[small,horizontal=a to b]{
+	a -- [momentum=$p$] b,
+    };=\frac{i}{E-\frac{\vb{p}^2}{2m}+i\epsilon}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+  \feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
+	  a -- [momentum=$p_1$] o,
+	  o -- [momentum=$p_2$] b,
+	  c [particle=$A^0$] -- [photon] o,
+	};=-ie(
+\end{align*}
+We can ignore all interacting terms involving $\vb{A}$. 
+\subsection{LO}
+\subsubsection{SQED}
+\begin{align*}
+  i\mathcal{M}_{SQED}^{(0)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
+	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
+	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
+	{ [same layer] a -- [photon,momentum'=$q$] c},
+  };=-e^2v^{0}\frac{i(p_1^0+p_2^0)}{\vb{q}^2}
+\end{align*}
+\subsubsection{NRSQED}
+ \begin{align*}
+   i\mathcal{M}_{NRSQED}^{(0)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
+	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
+	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
+	{ [same layer] a -- [photon,momentum'=$q$] c},
+  };=-e^2v^{0}\frac{i}{\vb{q}^2}
+\end{align*}
+\subsection{NLO}
+\begin{align*}
+  i\mathcal{M}_{SQED}^{(1)}&=\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),medium]{
+	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt,momentum=$P_N-k^0$] b -- [double distance=1pt] f1[particle=$P_N$],
+	i2[particle=$p_1$] -- [] c -- [momentum=$p_1+k$] d -- [] f2[particle=$p_2$],
+	{ [same layer] a -- [photon,momentum'=$k$] c},
+	{ [same layer] b -- [photon,rmomentum=$k-q$] d},
+  };=-e^2v^{0}\int\frac{\dd^4k}{(2\pi)^4}\frac{i}{\vb{k}^2}\frac{}{}
+\end{align*}
+
+
+
+
+
+
+\end{document}
