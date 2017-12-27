@@ -1,0 +1,83 @@
+\message{ !name(Hydrogen.tex)}\PassOptionsToPackage{naturalnames}{hyperref}
+\RequirePackage{luatex85}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+%\usepackage{fourier}
+%\usepackage{slashbox}
+%\usepackage{intent}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+%\usepackage{axodraw4j}
+
+
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
+
+\newcommand{\gm}{\gamma^{\mu}}
+\newcommand{\gn}{\gamma^{\nu}}
+\newcommand{\gs}{\gamma^{\sigma}}
+\newcommand{\gr}{\gamma^{\rho}}
+\newcommand{\gnr}{g^{\nu\rho}}
+\newcommand{\gmr}{g^{\mu\rho}}
+\newcommand{\gms}{g^{\mu\sigma}}
+\newcommand{\gns}{g^{\nu\sigma}}
+\newcommand{\vbp}{\vb{p}}
+\newcommand{\vbk}{\vb{k}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\t}{\theta}
+\newcommand{\la}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\vp}{\varphi}
+\newcommand{\s}{\sigma}
+\newcommand{\G}{\Gamma}
+\newcommand{\pars}{\slashed\partial}
+\newcommand{\ps}{\slashed p}
+\newcommand{\ks}{\slashed k}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\da}{^{\dagger}}
+\newcommand{\sm}{^{\mu}}
+\newcommand{\sn}{^{\nu}}
+\newcommand{\smn}{^{\mu\nu}}
+\newcommand{\Dm}{D^{\mu}}
+\newcommand{\dm}{\partial^{\mu}}
+\newcommand{\Asquare}{A^{\mu}A_{\mu}}
+\newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
+
+\title{Hydrogen}
+\author{Yingsheng Huang}
+\begin{document}
+
+\message{ !name(Hydrogen.tex) !offset(183) }
+\begin{align*}
+  \int\dd^3\vb{k}(\frac{e^{-i\vb{k\cdot x}}m^2}{\vb{k}^4\sqrt{\vb{k}^2+m^2}}-\frac{m}{\vb{k}^4})=\frac{2 \pi  G_{1,3}^{2,1}\left(\frac{m^2 x^2}{4}|
+\begin{array}{c}
+ 2 \\
+ \frac{1}{2},\frac{3}{2},0 \\
+\end{array}
+\right)}{m x}
+\end{align*}
+\message{ !name(Hydrogen.tex) !offset(560) }
+
+\end{document}
