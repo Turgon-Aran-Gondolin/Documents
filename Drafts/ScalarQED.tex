@@ -31,10 +31,13 @@
 %\usepackage{axodraw4j}
 \usepackage[toc,page]{appendix}
 \usepackage{multicol}
+\usepackage{authblk}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
 
 %\usepackage{luatexja-fontspec}
 
-\geometry{left=0.5cm,right=0.5cm,top=1.5cm,bottom=2cm}
+\geometry{left=0.9cm,right=0.9cm,top=1.5cm,bottom=2cm}
 
 \newcommand{\gm}{\gamma^{\mu}}
 \newcommand{\gn}{\gamma^{\nu}}
@@ -72,13 +75,125 @@
 %\setsansjfont{FandolSong-Bold}
 %\setlength{\parindent}{2em}
 %\linespread{1.2}
+%\renewcommand\Authsep{, }
 
 \title{Scalar QED}
-\author{Yingsheng Huang}
+\author{Yingsheng Huang and Rui Yu}
+
 \begin{document}
 \maketitle
 \section{Hydrogen Wavefunction Divergence in Klein-Gordon Equation and Schr\"odinger Equation}
+\subsection{The Klein-Gordon part}
+The Klein-Gordon Hydrogen Equation is
 
+\begin{align}
+((i\partial_0+\frac{Z\alpha}{r})^2+\nabla^2-m^2)\Psi=0
+\end{align}
+ 
+For the bound state, the eigen value and the wave function are
+
+\begin{align}
+E&=m\frac{1}{\sqrt{1+\frac{\alpha^2 Z^2}{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}}}\\
+\Psi&=\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
+\end{align}
+
+where
+
+\begin{align}
+\lambda=-\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2}\ \ \ \ \ \ 
+c=\sqrt{\frac{(2k)^{2(1+\sqrt{\frac{1}{4}-Z^2\alpha^2})}}{\Gamma(2+2\sqrt{\frac{1}{4}-Z^2\alpha^2)})}}\ \ \ \ \ \ 
+k=\frac{m}{\sqrt{1+\frac{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}{\alpha^2Z^2}}}
+\end{align}
+
+c is the normaliztion factor for $\int d^3r|\Psi|^2=1$. For convenience, define
+
+\begin{align}
+\Psi '=\frac{\Psi}{2(mZ\alpha)^\frac{3}{2}}
+\end{align}
+
+Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
+
+\begin{align}
+-(Z\alpha)^2log(m r)
+\end{align}
+
+the $m$ in $log$ could be interpreted as a subtraction point $\mu$.
+
+\subsection{The schrodinger part}
+
+The Hamiltonian is
+
+\begin{align}
+H&=H_0+H_{int}\\
+H&_0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{int}=\frac{\nabla^4}{8m^3}+\frac{1}{32m^4}[-\nabla^2,[-\nabla^2,-\frac{Z\alpha}{r}]]
+\end{align}
+
+The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the second one is the Darwin term.\\
+The $H_0$ gives the radial wave functions as follows
+
+\begin{align}
+R_{n0}&=\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}\\
+R_{k0}&=\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}ke^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|e^{-imz\alpha kr}F(1+\frac{i}{k},2,2imZ\alpha kr),\ \ \ E_k=\frac{mZ^2\alpha^2k^2}{2}
+\end{align} 
+
+Within perturbation theory,$E_1^{(1)}=<\phi|H_{int}|\phi>$, in quantum mechanics, the NLO energy correction is
+
+\begin{align}
+E_1^{(1)}=E_1Z^2\alpha^2
+\end{align}
+
+The NLO corretion of the bound state wave function is
+
+\begin{align}
+\sum_{n\neq 1}a_{n1}\phi_{n00}+\int dka_{k1}\phi_{k00}
+\end{align}
+
+with 
+
+\begin{align}
+a_{n1}=\frac{<\phi_{n00}|H_{int}|\phi_{100}>}{E_1-E_n}
+\end{align}
+
+the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integration part and seperate the relativstic kinematic term and the Darwin term. Since we are only interested in the divergent part, here we give a hard cutoff $\frac{\Lambda}{m}$ as the up-limit of the integration and a also a down-limit $\lambda$, with $\lambda>>1$ (note that the following wave function have been multiplied by $2(mZ\alpha)^\frac{3}{2}$)
+
+\begin{align}
+\Phi^{(1)}(0)_{kin}=\int_\lambda^\frac{\Lambda}{m}dk \frac{2Z^2\alpha^2k^\frac{3}{2}}{2\pi(\sqrt{1-exp(-\frac{2 \pi}{k})})}(1-\frac{2}{1+k^2}exp(-\frac{2arctan(k)}{k}))e^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|
+\end{align}
+
+with the integral region we defined$(k>>1)$, it would be OK to expand the integrand in $\frac{1}{k}$ (I havn't prove it yet), then the UV divergent term is
+
+\begin{align}
+\Phi^{(1)}(0)_{kin}&=\int_\lambda^\frac{\Lambda}{m}dk(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{k})\\
+&\sim(\alpha Z)^2(\frac{\Lambda}{\pi m}+log(\frac{\Lambda}{m}))
+\end{align}
+
+The UV divergent part of Darwin term is
+\begin{align}
+\Phi^{(1)}(0)_D=-\frac{(Z\alpha)^4}{8\pi}\int_\lambda^\frac{\Lambda}{m}dkk^2e^\frac{\pi}{k}|\Gamma(1-\frac{i}{k})|^2
+\end{align}
+
+with the same trick as $(15)$, the UV divergen part is
+
+\begin{align}
+\Phi^{(1)}(0)_{D}&=-(\alpha Z)^4\int_\lambda^\frac{\Lambda}{m}dk\frac{k^2}{8\pi}+\frac{k}{8}+\frac{1}{24}\pi\\
+&\sim -\frac{(Z\alpha)^4}{8\pi}(\frac{\Lambda^3}{3m^3}+\frac{\pi\Lambda^2}{2m^2}+\frac{\pi^2\Lambda}{3m})
+\end{align}
+
+Now collect all the results we get as follow.\\
+The K-G wave function's origin UV divergence is
+
+\begin{align}
+K-G\ \ UV&:-(Z\alpha)^2log(m r)
+\end{align}
+
+The purterbative Schrodinger wave function's origin UV divergence, with a k cutoff $\frac{\Lambda}{m}$, is
+
+\begin{align}
+Kin\ \  UV&:(\alpha Z)^2(\frac{\Lambda}{\pi m}+log(\frac{\Lambda}{m}))\\
+Darwin\ \  UV&:-\frac{(Z\alpha)^4}{8\pi}(\frac{\Lambda^3}{3m^3}+\frac{\pi\Lambda^2}{2m^2}+\frac{\pi^2\Lambda}{3m})
+\end{align}
+
+All the $m$, under $\Lambda$ or in a $log$, can be interpreted as a subtraction point $\mu$.
 
 \section{Non-relativistic Scalar QED (NRSQED) Matching}
 \subsection{Feynman Rules}
@@ -98,6 +213,7 @@ and
 \end{align*}
 But note that no $\vb{A}$ can appear in actual calculation because here only static scalar potential exists. 
 And the Feynman rules
+\clearpage
 \begin{multicols}{2}
   \begin{align*}
 	\feynmandiagram[small,horizontal=a to b]{
@@ -128,7 +244,7 @@ And the Feynman rules
   \end{align*}
 \end{multicols}
 \subsubsection{NRSQED}
-Lagrangian
+Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian
 \begin{align}
   \lag_{NRSQED}=\varphi^*\pqty{iD_0+\frac{\vb{D}^2}{2m}}\varphi+\delta\lag +\Phi_v^*iv\cdot D\Phi_v
   \label{NRSQEDLAG}
@@ -150,7 +266,7 @@ We can ignore all interacting terms involving $\vb{A}$.
 
 Since we need to match it to $\mathcal{O}(v^2)$ order
 \begin{align}
-  \delta\lag=(D_0\varphi)^*(D_0\varphi)=\frac{\dot{\varphi}^*\dot{\varphi}}{2m}+\frac{e^2\varphi^*\varphi A_0^2}{2m}-\frac{ie}{2m}A_0(\varphi^*\dot{\varphi}-\dot{\varphi}^*\varphi)
+  \delta\lag=\frac{(D_0\varphi)^*(D_0\varphi)}{2m}=\frac{\dot{\varphi}^*\dot{\varphi}}{2m}+\frac{e^2\varphi^*\varphi A_0^2}{2m}-\frac{ie}{2m}A_0(\varphi^*\dot{\varphi}-\dot{\varphi}^*\varphi)
   \label{deltaLAG}
 \end{align}
 and it changes the Feynman rules to\footnote{In this note, $p^0$ is the zero component of relativistic four momentum, and $E=p^0-m$. }
@@ -167,7 +283,10 @@ and it changes the Feynman rules to\footnote{In this note, $p^0$ is the zero com
 	};&=\frac{ie^2}{2m}
 \end{align*}<++>
 
-Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out states are also changed. We must multiply them by $\sqrt{2m}$ to compensate that change. 
+Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out states are also changed. We must multiply them by $\sqrt{2E}$ to compensate that change. 
+
+Another way to achieve it is to use the transform rules of heavy scalar effective theory (HSET). 
+
 \subsection{LO}
 \subsubsection{SQED}
 \begin{align*}
@@ -183,7 +302,7 @@ Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out s
 	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
 	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
 	{ [same layer] a -- [photon,momentum'=$q$] c},
-  };=-2me^2v^{0}\frac{i(1+\frac{E_1+E_2}{2m})}{\vb{q}^2}
+  };=-2\sqrt{E_1E_2}e^2v^{0}\frac{i(1+\frac{E_1+E_2}{2m})}{\vb{q}^2}
 \end{align*}
 \subsection{NLO}
 \subsubsection{SQED}
@@ -295,7 +414,7 @@ To reproduce the singular behavior of ``Klein-Gordon Hydrogen'' wavefunction nea
 	\end{feynman}
   \end{tikzpicture}
 \end{align*}
-which doesn't have logarithm divergence\footnote{After dimensional regularization, the Gamma function in the numerator is something like $\Gamma(n-d/2)$ and Gamma function doesn't have pole at half integer. }. 
+which doesn't have logarithm divergence\footnote{After dimensional regularization, the Gamma function in the numerator is something like $\Gamma(n-d/2)$ and Gamma function doesn't have pole at half integer. We can rigorously prove this kind of diagrams do not have logarithmic divergence at one loop. }. 
 \subsection{NNLO}
 \begin{align*}
   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -398,6 +517,11 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
 
 \clearpage
 \begin{appendices}
+  Feynman parametrization used here is
+  \begin{align}
+	\frac{1}{\prod A_i^{d_i}}=\int\prod \dd x_i \delta(\sum x_i-1)\frac{\prod x_i^{d_i-1}}{\bqty{\sum x_iA_i}^{\sum d_i}}\frac{\Gamma(\sum d_i)}{\prod\Gamma(d_i)}
+	\label{FEYNMANPARA}
+  \end{align}
   Integral with the structure of the form 
   \begin{align*}
 	\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{[p^0+k_1^0-m-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon]^m}\frac{1}{[p^0+k_1^0+k_2^0-m-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon]^n}
@@ -424,8 +548,9 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
   \begin{align*}
 	&\mu^{-4\epsilon}\int_0^1\prod_{i=1}^2\dd x_i\delta(\sum x_i-1)\prod x_i^{d_i-1}\frac{\Gamma(n+1)}{\Gamma(n)}\frac{1}{(4\pi)^{n+1-\b}}\frac{\Gamma(\b+d/2)}{\Gamma(d/2)}\frac{\Gamma(n+1-\b-d/2)}{\Gamma(n+1)}\pqty{\frac{4\pi}{\a(x_i)}}^{n+1-\b-d/2}
 	\\&\int\frac{\dd^d\vb{k}_1}{(2\pi)^d}\frac{1}{\vb{(k_1-a)}^2}\frac{\vbk_1^{2\a}}{(\vb{k}_1^2-c)^m}\frac{1}{(\vb{k}_1-\Delta_2)^{n+1-\b-d/2}}\\
-	=&\mu^{-4\epsilon}\int_0^1\prod_{i=1}^2\dd x_i\delta(\sum x_i-1)\prod x_i^{d_i-1}\frac{1}{(4\pi)^{n+1-\b}}\frac{\Gamma(\b+d/2)}{\Gamma(d/2)}\frac{\Gamma(n+1-\b-d/2)}{\Gamma(n)}\pqty{\frac{4\pi}{\a(x_i)}}^{n+1-\b-d/2}\int_0^1\prod_{i=1}^3\dd y_j\delta(\sum y_j-1)\prod y_j^{d_j-1}
-	\\&\frac{\Gamma(m+n+2-\b-d/2)}{\Gamma(m)\Gamma(n+1-\b-d/2)}\frac{1}{(4\pi)^{m+n+2-\a-\b-d/2}}\frac{\Gamma(\a+d/2)}{\Gamma(d/2)}\frac{\Gamma(m+n+2-\a-\b-d)}{\Gamma(m+n+2-\b-d/2)}\pqty{\frac{4\pi}{\Delta_1}}^{m+n+2-\a-\b-d}
+	=&\mu^{-4\epsilon}\int_0^1\prod_{i=1}^2\dd x_i\delta(\sum x_i-1)\prod x_i^{d_i-1}\frac{1}{(4\pi)^{n+1-\b}}\frac{\Gamma(\b+d/2)}{\Gamma(d/2)}\frac{\Gamma(n+1-\b-d/2)}{\Gamma(n)}\pqty{\frac{4\pi}{\a(x_i)}}^{n+1-\b-d/2}\int_0^1\prod_{i=1}^3\dd y_j\delta(\sum y_j-1)
+	\\&\prod y_j^{d_j-1}
+	\frac{\Gamma(m+n+2-\b-d/2)}{\Gamma(m)\Gamma(n+1-\b-d/2)}\frac{1}{(4\pi)^{m+n+2-\a-\b-d/2}}\frac{\Gamma(\a+d/2)}{\Gamma(d/2)}\frac{\Gamma(m+n+2-\a-\b-d)}{\Gamma(m+n+2-\b-d/2)}\pqty{\frac{4\pi}{\Delta_1}}^{m+n+2-\a-\b-d}
 	\\
 	=&\mu^{-4\epsilon}\int_0^1\prod_{i=1}^2\dd x_i\delta(\sum x_i-1)\prod x_i^{d_i-1}\frac{1}{(4\pi)^{d}}\frac{\Gamma(\b+d/2)}{\Gamma(d/2)}\frac{1}{\Gamma(n)}\pqty{\frac{1}{\a(x_i)}}^{n+1-\b-d/2}
 	\\&\int_0^1\prod_{i=1}^3\dd y_j\delta(\sum y_j-1)\prod y_j^{d_j-1}\frac{\Gamma(\a+d/2)}{\Gamma(d/2)}\frac{\Gamma(m+n+2-\a-\b-d)}{\Gamma(m)}\pqty{\frac{1}{\Delta_1}}^{m+n+2-\a-\b-d}
