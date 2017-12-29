@@ -283,7 +283,7 @@ and it changes the Feynman rules to\footnote{In this note, $p^0$ is the zero com
 	};&=\frac{ie^2}{2m}
 \end{align*}<++>
 
-Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out states are also changed. We must multiply them by $\sqrt{2E}$ to compensate that change. 
+Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out states are also changed. We must multiply them by $\sqrt{2p^0}$ to compensate that change. 
 
 Another way to achieve it is to use the transform rules of heavy scalar effective theory (HSET). 
 
@@ -294,7 +294,7 @@ Another way to achieve it is to use the transform rules of heavy scalar effectiv
 	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
 	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
 	{ [same layer] a -- [photon,momentum'=$q$] c},
-  };=-e^2v^{0}\frac{i(p_1^0+p_2^0)}{\vb{q}^2}=-e^2v^0\frac{i}{\vb{q}^2}(2m+E_1+E_2)
+  };=-e^2v^{0}\frac{i(p_1^0+p_2^0)}{\vb{q}^2}=-e^2v^0\frac{i}{\vb{q}^2}(2m+2E_1)
 \end{align*}
 \subsubsection{NRSQED}
  \begin{align*}
@@ -302,8 +302,21 @@ Another way to achieve it is to use the transform rules of heavy scalar effectiv
 	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
 	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
 	{ [same layer] a -- [photon,momentum'=$q$] c},
-  };=-2\sqrt{E_1E_2}e^2v^{0}\frac{i(1+\frac{E_1+E_2}{2m})}{\vb{q}^2}
+  };=-2\sqrt{p^0_1p^0_2}e^2v^{0}\frac{i(1+\delta)}{\vb{q}^2}=-e^2v^0\times 2p_1^0\frac{i(1+\delta)}{\vb{q}^2}
 \end{align*}
+which gives
+\begin{align*}
+  \delta=\frac{p_1^0+p_2^0}{2\sqrt{p_1^0p_2^0}}\approx 1+\frac{\vb{p}_1^4-2 \vb{p}_1^2 \vb{p}_2^2+\vb{p}_2^4}{32 m^4}
+\end{align*}
+The new electron-photon vertex is 
+\begin{align*}
+	\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
+	  a -- [momentum=$p_1$] o,
+	  o -- [momentum=$p_2$] b,
+	  c [particle=$A^0$] -- [photon] o,
+	};&=2i+i\frac{\vb{p}_1^4-2 \vb{p}_1^2 \vb{p}_2^2+\vb{p}_2^4}{32 m^4}
+\end{align*}
+
 \subsection{NLO}
 \subsubsection{SQED}
 \begin{align*}
@@ -470,14 +483,8 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
    (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
    };
  \end{feynman}
- \end{tikzpicture}=16m^2(m+E)\mu^{-4\epsilon}e^4
+ \end{tikzpicture}=4m^2\mu^{-4\epsilon}e^4
  \int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}\\
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\int_0^1\dd x\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{\left(\frac{4 \pi }{\Delta_2 }\right)^{2-\frac{d}{2}} \Gamma \left(2-\frac{d}{2}\right)}{(4 \pi )^2 \Gamma (2)}\\
-  \intertext{where $\Delta_2=(1-x) \left(\vb{\abs{k_1}}^2 x-2 E m\right)$} 
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{(4\pi)^2}\int_0^1\dd x\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{(\vb{\abs{k_1}}^2-2mE/x)^{2-d/2}}\pqty{\frac{4\pi}{x(1-x)}}^{2-d/2}\Gamma(2-d/2)\\
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{(4\pi)^2}\int_0^1\dd x\int_0^1\dd y\dd z\dd t\delta(y+z+t-1)\int\frac{\dd^3 \vb{k_1}}{(2\pi)^3}\frac{zt^{1-d/2}\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2+\Delta_1]^{5-d/2}}\frac{\Gamma(5-d/2)}{\Gamma(2-d/2)}\pqty{\frac{4\pi}{x(1-x)}}^{2-d/2}\Gamma(2-d/2)\\
-  \intertext{where $\Delta_1=y(1-y)\vb{p}^2-2mE(z+t/x)$}
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{4m^2(4\pi)^2}\int_0^1\dd x\int_0^1\dd y\dd z\dd t\delta(y+z+t-1)zt^{1-d/2}\frac{d (d+2)}{4}\frac{\Gamma \left(3-d\right)}{(4 \pi )^{3-d/2} } \left(\frac{4 \pi }{\Delta_1 }\right)^{3-d} \pqty{\frac{4\pi}{x(1-x)}}^{2-d/2}\\
   =&-16m^2(m+E)\frac{1}{128 \pi ^2  m^2}(\frac{1}{d-3}+4 \log{\mu})+\text{finite terms}
 \end{align*}
 \begin{align*}
@@ -507,11 +514,6 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
  \end{feynman}
  \end{tikzpicture}=16m^2(m+E)
    \mu^{-4\epsilon}e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE]^2}\\
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{4m^2}\int_0^1\dd x\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1-p}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(1-x)\Gamma(1-d/2)}{8\pi}\pqty{\frac{4\pi}{\Delta_2}}^{1-d/2}\frac{d(d+2)}{4}\\
-  \intertext{where $\Delta_2=x(1-x)\vb{\abs{k_1}}^2-2mE(1-x)$}
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{4m^2}\int_0^1\dd x\int_0^1\dd y\dd z\dd t\frac{t^{-d/2}}{[\vb{\abs{k_1}}^2+\Delta_1]^{3-d/2}}\frac{\Gamma{(3-d/2)}}{\Gamma{(1-d/2)}}\delta(y+z+t-1)\frac{\Gamma(1-d/2)}{8\pi}\pqty{\frac{4\pi}{x(1-x)}}^{1-d/2}\frac{d(d+2)x}{4}\\
-  \intertext{where $\Delta_1=y(1-y)\vb{p}^2-2mEz-2mE\frac{t}{x }$}
-  =&16m^2(m+E)\mu^{-4\epsilon}e^4\frac{1}{4m^2}\int_0^1\dd x\int_0^1\dd y\dd z\dd t\delta(y+z+t-1)\frac{1}{(4\pi)^{3-d/2}} \left(\frac{4 \pi }{\Delta_1 }\right)^{3-d} \frac{\Gamma \left(3-d\right)}{8\pi}\pqty{\frac{4\pi}{x(1-x)}}^{1-d/2}\frac{d(d+2)x}{4}t^{-d/2}\\
   =&16m^2(m+E)\frac{15}{8192 \pi ^2  m^2}(\frac{1}{d-3}+4 \log{\mu})+\text{finite terms}
 \end{align*}
 
