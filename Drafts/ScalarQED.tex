@@ -460,10 +460,10 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
    (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
    };
  \end{feynman}
- \end{tikzpicture}\\ =&-\mu^{-2\epsilon}Z^2e^4\bqty{\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{p^0+k_1^0-m-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{p^0+k_1^0+k_2^0-m-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}
+ \end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{p^0+k_1^0-m-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{p^0+k_1^0+k_2^0-m-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}
  \\
  \intertext{do the shift as above}
- =&\mu^{-2\epsilon}Z^2e^4\bqty{\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}}=0
+ =&\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}}=0
 \end{align*}
 \begin{align*}
   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -490,9 +490,9 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
    (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
    };
  \end{feynman}
- \end{tikzpicture}=4m^2\mu^{-2\epsilon}Z^2e^4
+ \end{tikzpicture}=4m^2\mu^{2\epsilon}Z^2e^4
  \int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}\\
-  =&Z^2\a^2(\frac{1}{2(3-d)}-\log \mu)+\text{finite terms}
+  =&Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)+\text{finite terms}
 \end{align*}
 \begin{align*}
   &\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -520,7 +520,7 @@ which doesn't have logarithm divergence\footnote{After dimensional regularizatio
    };
  \end{feynman}
  \end{tikzpicture}=4m^2
-   \mu^{-2\epsilon}Z^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE]^2}\\
+   \mu^{2\epsilon}Z^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE]^2}\\
  =&0+\text{finite terms}
 \end{align*}
 
