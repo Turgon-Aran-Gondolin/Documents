@@ -243,6 +243,33 @@ And the Feynman rules
 	};&=\frac{i}{\vb{q}^2}
   \end{align*}
 \end{multicols}
+\subsubsection{NRSQED-1}
+Let's focus on the lagrangian of only a single Scalar field 
+\begin{align}
+  \lag_{SQED}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2
+\end{align}
+Substitute $\phi$ for $\phi=\frac{1}{\sqrt{2m}}e^{-imv\cdot x}(\chi_v+\bar{\chi}_v)$ with (Schwartz, Sec 35.2)
+\begin{align}
+\chi_v&=\frac{1}{\sqrt{2m}}e^{imv\cdot x}(iv\cdot D+m)\phi\\
+\bar{\chi}_v&=\frac{1}{\sqrt{2m}}e^{imv\cdot x}(-iv\cdot D+m)\phi
+\end{align}
+then
+\begin{align}
+\lag_{SQED}=\frac{1}{2m}(D_\mu(\chi_v+\bar{\chi}_v))^*D^\mu(\chi_v+\bar{\chi}_v)+(\chi_v+\bar{\chi}_v)^*iv\cdot D(\chi+\bar{\chi}_v) 
+\end{align}
+Within our calculation, we set $\vec{A}=0,v=(1,\vec{0})$. Then from $(25),(26)$ and the motion equation derived from $(27)$, we get two equation
+\begin{align}
+\bar{\chi}_v&=\frac{-iD_0}{2m}(\chi_v+\bar{\chi}_v)\\
+\frac{-iD_0}{2m}\chi_v&=\frac{\nabla^2}{4m^2}(\chi_v+\bar{\chi}_v)
+\end{align}
+And $(27)$ could be transformed as
+\begin{align}
+\lag_{SQED}=(\chi_v+\bar{\chi}_v)^*(iD_0+\frac{\nabla^2}{2m}-\frac{D_0^2}{2m})(\chi+\bar{\chi}_v) 
+\end{align}
+Substituting $(28),(29)$ iteratively, then we get the $\lag$ expanding for $v$ as
+\begin{align}
+\lag_{SQED}=\chi_v^*(iD_0+\frac{\nabla^2}{2m}+\frac{\nabla^4}{8m^3}+\frac{\nabla^6}{16m^5}+\frac{e}{32m^4}([\nabla^2,[A_0,\nabla^2]]+[A_0,\nabla^4])+\mathcal{O}(v^7))\chi_v
+\end{align}
 \subsubsection{NRSQED}
 Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian
 \begin{align}
