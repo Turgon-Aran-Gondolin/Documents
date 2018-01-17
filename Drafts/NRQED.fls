@@ -1,0 +1,4 @@
+PWD /home/huangys/Github/Documents/Drafts
+INPUT /usr/local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt
+INPUT /home/huangys/Github/Documents/Drafts/NRQED.tex
+OUTPUT NRQED.log
