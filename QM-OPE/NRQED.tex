@@ -77,24 +77,23 @@
 %\linespread{1.2}
 %\renewcommand\Authsep{, }
 
-\title{Scalar QED}
+\title{NRQED}
 \author{Yingsheng Huang and Rui Yu}
 
 \begin{document}
 \maketitle
 \section{Hydrogen Wavefunction Divergence Near Origin in Dirac Equation and Schr\"odinger Equation}
 \subsection{The Dirac part}
-The Klein-Gordon Hydrogen Equation is
+The Dirac Hydrogen Equation is
 
 \begin{align}
-	((i\partial_0+\frac{Z\alpha}{r})^2+\nabla^2-m^2)\Psi=0
+	(\mathbf{\a}\cdot \vbp+\b m-\frac{Z\a}{r} )\Psi=E\Psi
 \end{align}
 
-For the bound state, the eigen value and the wave function are
+For the bound state, the wavefunction is
 
 \begin{align}
-	E    & =m\frac{1}{\sqrt{1+\frac{\alpha^2 Z^2}{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}}} \\
-	\Psi & =\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
+		\Psi & =\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
 \end{align}
 
 where
@@ -301,11 +300,11 @@ we can add an additional vertex
 \end{align*}
 
 \section{Local Operator and Matrix Element of NRQED}
-The perterbative expansion looks like this:
-\begin{align}
-	\mel{0}{\psi(0)N(0)}{v_N}
-	\label{perterbative expansion}
-\end{align}<++>
+%The perterbative expansion looks like this:
+%\begin{align}
+%	\mel{0}{\psi(0)N(0)}{v_N}
+%	\label{perterbative expansion}
+%\end{align}<++>
 \subsection{NLO}
 \begin{align*}
 	  & \mel{0}{\psi_e(0)N(0)(-ie\mu^{-\epsilon})\int\dd^4y\bar\psi_e\psi_e A^0(-ie\mu^{-\epsilon})\int\dd^4z\bar NNA^0}{eN}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -460,6 +459,6 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 		\end{feynman}
 	\end{tikzpicture}= Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)\text{finite terms}
 \end{align*}
-
+After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Klein-Gordon wavefunction. 
 
 \end{document}
