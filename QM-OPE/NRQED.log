@@ -1,8 +1,8 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.12.8)  17 JAN 2018 16:00
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.12.8)  18 JAN 2018 16:36
  system commands enabled.
  file:line:error style messages enabled.
-**/home/huangys/Github/Documents/Drafts/ScalarQED.tex
-(/home/huangys/Github/Documents/Drafts/ScalarQED.tex
+**/home/huangys/Github/Documents/Drafts/NRQED.tex
+(/home/huangys/Github/Documents/Drafts/NRQED.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/generic/luatex85/luatex85.sty
@@ -1815,8 +1815,8 @@ Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)) (./ScalarQED.aux)
-\openout1 = ScalarQED.aux
+)) (./NRQED.aux)
+\openout1 = NRQED.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
@@ -1912,17 +1912,13 @@ LaTeX Info: Redefining \ref on input line 83.
 LaTeX Info: Redefining \pageref on input line 83.
 LaTeX Info: Redefining \nameref on input line 83.
 
-(./ScalarQED.out) (./ScalarQED.out)
+(./NRQED.out) (./NRQED.out)
 \@outlinefile=\write5
 
-\openout5 = ScalarQED.out
+\openout5 = NRQED.out
  ABD: EveryShipout initializing macros
-Overfull \hbox (25.22823pt too wide) in paragraph at lines 85--85
-[]\T1/cmr/bx/n/14.4 Hy-dro-gen Wave-func-tion Di-ver-gence in Klein-Gordon Equa
--tion and Schrödinger
- []
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 89.
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1941,67 +1937,64 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [4
 
 ]
-[5]
-Overfull \hbox (3.61731pt too wide) in paragraph at lines 494--494
-[] 
- []
+[5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 465.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 465.
+ (./NRQED.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 465.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 465.
 
-[6] [7] [8
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 601.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 601.
- (./ScalarQED.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 601.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 601.
-Package rerunfilecheck Info: File `ScalarQED.out' has not changed.
-(rerunfilecheck)             Checksum: A143C05C3D59A38349F26A385AC390DB;1205.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 601.
+Package rerunfilecheck Warning: File `NRQED.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `NRQED.out':
+(rerunfilecheck)             Before: 06A263472C4D388FEAEB1B804D217466;889
+(rerunfilecheck)             After:  D8BD5EB0B7DE6718AF8FF715E31E054E;894.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 465.
 )
 
 Here is how much of LuaTeX's memory you used:
- 30439 strings out of 495077
- 125016,794899 words of node,token memory allocated
- 543 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 4 glue, 1 kern, 4 sub_mlist, 65 glue_spec, 1 write 
-nodes
-   avail lists: 1:8,2:51,3:2688,4:15,5:294,6:1527,7:4492,8:139,9:1211,10:11,11:1
-05
- 32939 multiletter control sequences out of 65536+600000
- 78 fonts using 3236091 bytes
- 67i,19n,109p,594b,1695s stack positions out of 5000i,500n,10000p,200000b,100000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2017/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/cm-super/sfbx1000.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
-ic/cm-super/sfbx1200.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
-cm-super/sfbx1440.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-
-super/sfbx2074.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-sup
-er/sfrm0600.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/
-sfrm0700.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfr
-m0800.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm10
-00.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.
-pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on ScalarQED.pdf (8 pages, 372160 bytes).
+ 30414 strings out of 495077
+ 125016,953878 words of node,token memory allocated
+ 531 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 4 glue, 1 kern, 65 glue_spec, 1 write nodes
+   avail lists: 1:8,2:51,3:3822,4:14,5:294,6:1329,7:5123,8:139,9:1386,10:9,11:66
 
-PDF statistics: 278 PDF objects out of 1000 (max. 8388607)
- 237 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 131072)
- 160 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 32936 multiletter control sequences out of 65536+600000
+ 75 fonts using 3112131 bytes
+ 67i,19n,109p,489b,1796s stack positions out of 5000i,500n,10000p,200000b,100000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2017/texmf-dist/f
+onts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm0800.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1000.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
+cm-super/sfrm1200.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-
+super/sfrm1728.pfb>
+Output written on NRQED.pdf (6 pages, 304606 bytes).
+
+PDF statistics: 224 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 131072)
+ 120 words of extra memory for PDF output out of 10000 (max. 100000000)
 
