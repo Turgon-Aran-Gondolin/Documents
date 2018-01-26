@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1516858833 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1516858840
-  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1516858833 21779 e1fdd885d04b3f83c019c8efd17562cb ""
+["pdflatex"] 1516952840 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1516952849
+  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1516952840 24500 c7129cc3464cd24626f2fd8639832499 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1480098696 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -235,11 +235,11 @@
   "/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty" 1480098842 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty" 1480098843 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1512732801 1200669 230c99ea9f21096b71f02db11ac3d322 ""
-  "NRQED.aux" 1516858840 2178 c96a6270a17593293050ccb4fd1e25e0 ""
-  "NRQED.out" 1516858840 933 6f28057d4d08bfe589bf9c4f6b7757e5 ""
-  "NRQED.tex" 1516858833 21779 e1fdd885d04b3f83c019c8efd17562cb ""
+  "NRQED.aux" 1516952849 2232 cc77afa93e828a7157a464c24ab6bf68 ""
+  "NRQED.out" 1516952849 933 6f28057d4d08bfe589bf9c4f6b7757e5 ""
+  "NRQED.tex" 1516952840 24500 c7129cc3464cd24626f2fd8639832499 ""
   (generated)
   "NRQED.out"
-  "NRQED.aux"
   "NRQED.log"
+  "NRQED.aux"
   "NRQED.pdf"

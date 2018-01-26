@@ -107,12 +107,12 @@ $$1-\frac{\lambda^2}{8m^2}+\frac{2\gamma\lambda}{4m^2r}-\frac{\gamma^2-\gamma}{8
 
 For convenience, define
 \begin{align}
-	\Psi '=\frac{\Psi}{2(mZ\alpha)^\frac{3}{2}}
+	\psi_u '=\frac{\psi_u}{2(mZ\alpha)^\frac{3}{2}}
 \end{align}
 
-Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
+Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the logarithmic divergence comes from a term
 \begin{align}
-	-(Z\alpha)^2\log(m r)
+	-\frac{(Z\alpha)^2}{2}\log(m r)
 \end{align}
 the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
 
@@ -125,7 +125,7 @@ The Hamiltonian is
 	H & _0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{int}=\frac{\nabla^4}{8m^3}-\frac{1}{8m^2}\nabla^2\frac{Z\a}{r}+\frac{1}{4m^2}\frac{Z\a}{r^3}\bm{\s}\cdot\vb{L}
 \end{align}
 
-The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the second one is the Darwin term.\\
+The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the second one is the Darwin term. For S-wave state, it's obvious that the third term, spin-orbital interaction has no contribution. \\
 The $H_0$ gives the radial wave functions as follows
 \begin{align}
 	R_{n0} & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                \\
@@ -266,14 +266,21 @@ Rather than write down the effective electron-photon vertex up to $\mathcal{O}(v
 \begin{align*}
 	\bqty{1-\frac{(\vb{p}_1+\vb{p}_2)^2-2i(\vbp_1\cross\vbp_2)\cdot\bm{\s}}{8m^2}}
 \end{align*}
-we can add an additional vertex
-\begin{align*}
+we can add additional vertexes
+\begin{align}
 	\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
 	a -- [momentum=$p_1$,fermion] o [dot],
 	o -- [momentum=$p_2$,fermion] b,
 	c [particle=$A^0$] -- [photon] o,
-	};=ie\frac{(\vb{p}_1+\vb{p}_2)^2-2i(\vbp_1\cross\vbp_2)\cdot\bm{\s}}{8m^2}
-\end{align*}
+	};=ie\frac{(\vb{p}_1+\vb{p}_2)^2}{8m^2}
+	\;\;\;\;\text{and}\;\;\;\;
+	\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
+	a -- [momentum=$p_1$,fermion] o [square dot],
+	o -- [momentum=$p_2$,fermion] b,
+	c [particle=$A^0$] -- [photon] o,
+	};=e\frac{(\vbp_1\cross\vbp_2)\cdot\bm{\s}}{4m^2}\label{spinorbital}
+\end{align}
+
 
 \section{Local Operator and Matrix Element of NRQED}
 %The perterbative expansion looks like this:
@@ -433,11 +440,68 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}= Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)\text{finite terms}
+	\end{tikzpicture}= Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)+\text{finite terms}
 \end{align*}
-After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Klein-Gordon wavefunction. 
+After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Dirac wavefunction. 
+
+There're also spin-orbital terms, for expample the lowest order appears as the second vertex at \eqref{spinorbital}. By substituting the normal $-ie$ vertex with spin-orbital vertex, we can calculate their contribution order by order. At $Z^2\a^2$ order, there's only two diagrams
+\begin{align*}
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+			\vertex at ($(p1)!0.2!(x)$) (y1);
+			\node [square dot] at ($(y1)$) (tmp);
+			\vertex at ($(p2)!0.2!(x)$) (z1);
+			\vertex at ($(p1)!0.6!(x)$) (y2);
+			\vertex at ($(p2)!0.6!(x)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (x);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,rmomentum=$k_2$] (z2);
+			(p1) -- [momentum=\(p\),fermion] (y1);
+			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+			\vertex at ($(p1)!0.2!(x)$) (y1);
+			\vertex at ($(p2)!0.2!(x)$) (z1);
+			\vertex at ($(p1)!0.6!(x)$) (y2);
+			\node [square dot] at ($(y2)$) (tmp);
+			\vertex at ($(p2)!0.6!(x)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (x);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,rmomentum=$k_2$] (z2);
+			(p1) -- [momentum=\(p\),fermion] (y1);
+			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align*}
+The first one gives $\vbp\cdot(\bm{\s}\cross\vbp)$ and the second one ends up with $\vbk_1\cdot(\bm{\s}\cross\vbk_1)$ after integrated the first loop so they're zero. 
 \section{OPE}
 The relativistic correction part is the same as scalar ones. 
+
+The Darwin term gives an additional vertex in \eqref{spinorbital}, and that contains two diagrams
 \begin{align*}
 	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}

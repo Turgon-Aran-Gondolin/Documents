@@ -161,7 +161,7 @@ and
 	a_{k1}=\frac{2 \alpha ^4 e^{\frac{\pi }{2 k}} k m^2 Z^4  \abs{\Gamma \left(1-\frac{i}{k}\right)  }\left(\alpha ^2 k^2 m^2 Z^2-2 \alpha ^2 \left(1-\frac{i}{k}\right)^{i/k} \left(1+\frac{i}{k}\right)^{-\frac{i}{k}} m^2 Z^2 \cosh \left(\frac{\pi }{k}\right)+\alpha ^2 m^2 Z^2\right)}{\left(\alpha ^2 k^2 m^2 Z^2+\alpha ^2 m^2 Z^2\right)^2}
 \end{align*}
 
-the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integration part and seperate the relativstic kinematic term and the Darwin term. Since we are only interested in the divergent part, here we give a hard cutoff $\frac{\Lambda}{m}$ as the up-limit of the integration and a also a down-limit $\lambda$, with $\lambda>>1$ (note that the following wave function have been multiplied by $2(mZ\alpha)^\frac{3}{2}$)
+the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integration part and seperate the relativistic kinematic term and the Darwin term. Since we are only interested in the divergent part, here we give a hard cutoff $\frac{\Lambda}{m}$ as the up-limit of the integration and a also a down-limit $\lambda$, with $\lambda>>1$ (note that the following wave function have been multiplied by $2(mZ\alpha)^\frac{3}{2}$)
 
 \begin{align}
 	\Phi^{(1)}(0)_{kin}=\int_\lambda^\frac{\Lambda}{m}dk \frac{2Z^2\alpha^2k^\frac{3}{2}}{2\pi(\sqrt{1-\exp(-\frac{2 \pi}{k})})}(1-\frac{2}{1+k^2}\exp(-\frac{2\arctan(k)}{k}))e^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|
@@ -359,13 +359,13 @@ which gives
 \begin{align*}
 	\delta=\frac{p_1^0+p_2^0}{2\sqrt{p_1^0p_2^0}i}-1\approx \frac{\vb{p}_1^4-2 \vb{p}_1^2 \vb{p}_2^2+\vb{p}_2^4}{32 m^4}
 \end{align*}
-The new electron-photon vertex is
+The extra electron-photon vertex is
 \begin{align*}
 	\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
-	a -- [momentum=$p_1$] o,
+	a -- [momentum=$p_1$] o [dot],
 	o -- [momentum=$p_2$] b,
 	c [particle=$A^0$] -- [photon] o,
-	}; & =i+i\frac{\vb{p}_1^4-2 \vb{p}_1^2 \vb{p}_2^2+\vb{p}_2^4}{32 m^4}
+	}; & =-i\frac{\vb{p}_1^4-2 \vb{p}_1^2 \vb{p}_2^2+\vb{p}_2^4}{32 m^4}
 \end{align*}
 We can write the correction interacting term corresponding to $\delta$ as
 \begin{align*}
@@ -375,7 +375,7 @@ We can write the correction interacting term corresponding to $\delta$ as
 	  & =\varphi^*[\nabla^2,[\nabla^2,A_0]]\varphi
 \end{align*}
 which is exactly the Darwin term in Holstein's \emph{Advanced Topics in QM} with coefficient $1/32m^4$.
-
+  
 \iffalse\subsection{NLO}
 \subsubsection{SQED}
 \begin{align*}
@@ -772,16 +772,6 @@ In previous discussion, we mentioned that the small distance between two field o
 	\begin{align}
 		\frac{1}{A^n}=\frac{1}{\Gamma{(n)}}\int_0^\infty\dd z z^{n-1}e^{-zA}
 	\end{align}
-	Integral with the structure of the form
-	\begin{align*}
-		\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{[p^0+k_1^0-M-\frac{\vb{(p+k_1)}^2}{2M}+i\epsilon]^m}\frac{1}{[p^0+k_1^0+k_2^0-M-\frac{\vb{(p+k_1+k_2)}^2}{2M}+i\epsilon]^n}
-	\end{align*}
-	will always produce
-	\begin{align*}
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{[p^0-M-\frac{\vb{(p+k_1)}^2}{2M}]^m}\frac{1}{[p^0-M-\frac{\vb{(p+k_1+k_2)}^2}{2M}+i\epsilon]^n}
-	\end{align*}
-	with $k_1^0$ and $k_2^0$ goes to zero.
-
 	For arbitary one loop diagram of the following form, we have
 	\begin{subequations} \label{1loopgamma}
 		\begin{align}
@@ -807,7 +797,49 @@ In previous discussion, we mentioned that the small distance between two field o
 	%	=&\mu^{-4\epsilon}\int_0^1\prod_{i=1}^2\dd x_i\delta(\sum x_i-1)\prod x_i^{d_i-1}\frac{1}{(4\pi)^{d}}\frac{\Gamma(\b+d/2)}{\Gamma(d/2)}\frac{1}{\Gamma(n)}\pqty{\frac{1}{\a(x_i)}}^{n+1-\b-d/2}
 	%	\\&\int_0^1\prod_{i=1}^3\dd y_j\delta(\sum y_j-1)\prod y_j^{d_j-1}\frac{\Gamma(\a+d/2)}{\Gamma(d/2)}\frac{\Gamma(m+n+2-\a-\b-d)}{\Gamma(m)}\pqty{\frac{1}{\Delta_1}}^{m+n+2-\a-\b-d}
 	% \end{align*}<++>
-	\section{<++>}<++>
+	\section{Contour Integral}
+	If the nucleus is put on-shell, integral with the structure of the form
+	\begin{align*}
+		\int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n}
+	\end{align*}
+	will always produce
+	\begin{align*}
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E-\vb{V}_2+2i\epsilon]^n}
+	\end{align*}
+	with $k_1^0$ and $k_2^0$ goes to zero.
+
+	If the nucleus is slightly off-shell by $k$, there'll be a slight shift of energy in the non-relativistic propagators
+	\begin{align*}
+		&\int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+k^0+i\epsilon}\frac{1}{-k_1^0+k^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n}\\
+		=&\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E+k^0-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E+k^0-\vb{V}_2+2i\epsilon]^n}
+	\end{align*}
+	one example is this Green function
+	\begin{align*}
+		&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\)] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\)] (y2);
+				(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\)] (x);
+				(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{align*}
 \end{appendices}
 
 \end{document}
