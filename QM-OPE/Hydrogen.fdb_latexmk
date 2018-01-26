@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1516853229 "/home/huangys/Github/Documents/QM-OPE/Hydrogen.tex" "Hydrogen.pdf" "Hydrogen" 1516853238
+["pdflatex"] 1516961670 "/home/huangys/Github/Documents/QM-OPE/Hydrogen.tex" "Hydrogen.pdf" "Hydrogen" 1516961677
   "/home/huangys/Github/Documents/QM-OPE/Hydrogen.tex" 1516853229 41004 5dbb10641be7733c039b26b72d60f4b2 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -227,8 +227,8 @@
   "/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty" 1480098842 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty" 1480098843 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1512732801 1200669 230c99ea9f21096b71f02db11ac3d322 ""
-  "Hydrogen.aux" 1516853238 1424 2f7eed03c03d6e15b7d4af911b04fcfe ""
-  "Hydrogen.out" 1516853238 342 728b3d229084d90870bf824eaefa80cb ""
+  "Hydrogen.aux" 1516961677 1424 2f7eed03c03d6e15b7d4af911b04fcfe ""
+  "Hydrogen.out" 1516961677 342 728b3d229084d90870bf824eaefa80cb ""
   "Hydrogen.tex" 1516853229 41004 5dbb10641be7733c039b26b72d60f4b2 ""
   "OPE-0.eps" 1509620839 137809 91534fce49bd24fd83d999112200c56f ""
   "OPE-00.eps" 1509620895 138339 e8a48984f00a379f64d84f3a854a3f2b ""
@@ -236,6 +236,6 @@
   "OPE-2.eps" 1508761999 141547 f87d67308490005e120656a434ebf705 ""
   (generated)
   "Hydrogen.out"
-  "Hydrogen.aux"
   "Hydrogen.pdf"
+  "Hydrogen.aux"
   "Hydrogen.log"

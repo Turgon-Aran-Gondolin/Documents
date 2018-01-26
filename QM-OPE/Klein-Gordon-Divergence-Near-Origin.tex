@@ -34,6 +34,10 @@
 \usepackage{multicol}
 \usepackage{authblk}
 \usepackage[T1]{fontenc}
+%\usepackage{apacite}
+%\usepackage{natbib}
+%\usepackage[nottoc]{tocbibind}
+%\usepackage[backend=biber, style=brent]{biblatex}
 %\usepackage[utf8]{inputenc}
 
 %\usepackage{luatexja-fontspec}
@@ -124,7 +128,7 @@ the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
 
 \subsection{The Schr\"odinger part}
 
-By taking the non-relativistic limit of Klein-Gordon Hydrogen Hamiltonian, the effective Schr\"odinger Hamiltonian is
+By taking the non-relativistic limit of Klein-Gordon Hydrogen Hamiltonian, the effective Schr\"odinger Hamiltonian is\cite{Holstein2014}
 
 \begin{align}
 	H & =H_0+H_{int}                                                                                                                            \\
@@ -206,7 +210,7 @@ All the $m$, under $\Lambda$ or in a $\log$, can be interpreted as a subtraction
 \subsection{Operator Product Expansion}
 In the following sections we work on the quantum field theory side. Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory. For simplicity, there's no need involving any other effect the nucleus might have. Therefore, we can describe the wavefunction in terms of a matrix element $\mel{0}{\psi(x)N(0)}{0}$. The divergence of this non-local matrix element can be analyzed by operator product expansion.
 
-The operator product expansion (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
+The operator product expansion\cite{Collins1984} (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
 \begin{align}
 	\mathcal{O}_1(x)\mathcal{O}_2(y)=\sum_nC_n(x-y)\mathcal{O}_n(x)
 \end{align}
@@ -841,5 +845,9 @@ In previous discussion, we mentioned that the small distance between two field o
 		\end{tikzpicture}
 	\end{align*}
 \end{appendices}
+
+\bibliographystyle{phaip}
+
+\bibliography{QM-OPE}
 
 \end{document}
