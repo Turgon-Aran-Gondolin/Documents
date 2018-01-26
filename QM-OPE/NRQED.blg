@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: NRQED.aux
+The style file: phaip.bst
+Database file #1: QM-OPE.bib
+You've used 2 entries,
+            1868 wiz_defined-function locations,
+            581 strings with 5310 characters,
+and the built_in function-call counts, 345 in all, are:
+= -- 23
+> -- 12
+< -- 0
++ -- 4
+- -- 2
+* -- 29
+:= -- 52
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 18
+empty$ -- 36
+format.name$ -- 4
+if$ -- 76
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 11
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 17
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 16

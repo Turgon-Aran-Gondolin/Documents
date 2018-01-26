@@ -171,7 +171,7 @@ the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integ
 	\Phi^{(1)}(0)_{kin}=\int_\lambda^\frac{\Lambda}{m}dk \frac{2Z^2\alpha^2k^\frac{3}{2}}{2\pi(\sqrt{1-\exp(-\frac{2 \pi}{k})})}(1-\frac{2}{1+k^2}\exp(-\frac{2\arctan(k)}{k}))e^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|
 \end{align}
 
-with the integral region we defined$(k>>1)$, it would be OK to expand the integrand in $\frac{1}{k}$ (I havn't prove it yet), then the UV divergent term is
+with the integral region we defined$(k\ll1)$, it would be OK to expand the integrand in $\frac{1}{k}$ (I havn't prove it yet), then the UV divergent term is
 
 \begin{align}
 	\Phi^{(1)}(0)_{kin} & =\int_\lambda^\frac{\Lambda}{m}dk(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{k}) \\
@@ -208,7 +208,7 @@ All the $m$, under $\Lambda$ or in a $\log$, can be interpreted as a subtraction
 
 \section{Non-relativistic Scalar QED (NRSQED) Matching}
 \subsection{Operator Product Expansion}
-In the following sections we work on the quantum field theory side. Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory. For simplicity, there's no need involving any other effect the nucleus might have. Therefore, we can describe the wavefunction in terms of a matrix element $\mel{0}{\psi(x)N(0)}{0}$. The divergence of this non-local matrix element can be analyzed by operator product expansion.
+In the following sections we work on the quantum field theory side. Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory. For simplicity, there's no need involving any other effect the nucleus might have. Therefore, we can describe the wavefunction in terms of a matrix element $\mel{0}{\psi(x)N(0)}{0}$. The divergence of this non-local matrix element can be analyzed by operator product expansion\cite{Lepage:1997cs}.
 
 The operator product expansion\cite{Collins1984} (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
 \begin{align}
@@ -216,7 +216,7 @@ The operator product expansion\cite{Collins1984} (OPE) is to write the products 
 \end{align}
 In our case, the equation becomes
 \begin{align}
-	\mel{0}{\psi(x)N(0)}{0}=\mel{0}{C_0(x)\mathcal{O}_0(0)+\sum_nC_n(x)\mathcal{O}_n(0)}{0}\label{OPE}
+	\mel{0}{\psi(x)N(0)}{0}=\mel{0}{C_0(x)\psi(0)N(0)+\sum_nC_n(x)\mathcal{O}_n(0)}{0}\label{OPE}
 \end{align}
 The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the first term of the right hand side.
 
@@ -762,8 +762,6 @@ In previous discussion, we mentioned that the small distance between two field o
 	=&4m^2\mu^{2\epsilon}Z^2e^4
 	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}
 \end{align*}
-
-\clearpage
 
 \begin{appendices}
 	\section{Useful formulas in Feynman integrals}

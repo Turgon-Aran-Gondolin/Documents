@@ -7,6 +7,7 @@
 \usepackage{parskip}
 \usepackage{physics}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
@@ -90,7 +91,7 @@ The Dirac Hydrogen Equation is
 	(\bm{\a}\cdot \vbp+\b m-\frac{Z\a}{r} )\Psi=E\Psi
 \end{align}
 
-For the bound state, the wavefunction is
+For the bound state, the wavefunction is\cite{Darwin1928,Gordon1928}
 \begin{align}
 	\Psi^+_{1,\frac{1}{2},\frac{1}{2}}  & =\bmqty{\frac{ic\sqrt{m+E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{1 \\0}\\-\frac{c\sqrt{m-E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{\cos\theta\\\sin\theta e^{i\phi}}}\\
 	\Psi^+_{1,\frac{1}{2},-\frac{1}{2}} & =\bmqty{\frac{ic\sqrt{m+E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{0 \\1}\\-\frac{c\sqrt{m-E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{\sin\theta e^{i\phi}\\\cos\theta}}
@@ -100,7 +101,7 @@ where
 	E=m\gamma,\;\rho=2\lambda r,\;\lambda=mZ\a,\;
 	\gamma=\sqrt{1-Z^2\a^2},\;c=\sqrt{\frac{Z\a}{\Gamma(2\gamma+1)}}
 \end{align}
-c is the normalization factor for $\int d^3r|\Psi|^2=1$. 
+c is the normalization factor for $\int d^3r|\Psi|^2=1$.
 
 Only keeping the upper component $\psi_u$, we need to normalize it again so that $\int d^3r\psi_u^2=1$. We get an extra normalization factor
 $$1-\frac{\lambda^2}{8m^2}+\frac{2\gamma\lambda}{4m^2r}-\frac{\gamma^2-\gamma}{8m^2r^2}$$
@@ -121,7 +122,7 @@ the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
 The Hamiltonian is
 
 \begin{align}
-	H & =H_0+H_{int}                                                                                                                            \\
+	H & =H_0+H_{int}                                                                                                                                                      \\
 	H & _0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{int}=\frac{\nabla^4}{8m^3}-\frac{1}{8m^2}\nabla^2\frac{Z\a}{r}+\frac{1}{4m^2}\frac{Z\a}{r^3}\bm{\s}\cdot\vb{L}
 \end{align}
 
@@ -165,7 +166,7 @@ The Dirac wave function's origin UV divergence is
 
 The purterbative Schr\"odinger wave function's origin UV divergence, with a k cutoff $\frac{\Lambda}{m}$, is
 \begin{align}
-	Kin\ \  UV    & :(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))                                         \\
+	Kin\ \  UV    & :(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))                      \\
 	Darwin\ \  UV & :-\frac{\alpha ^2 \Lambda  Z^2}{2 \pi }-\frac{1}{2} \alpha ^2 Z^2 \log (\Lambda )
 \end{align}
 
@@ -313,7 +314,7 @@ we can add additional vertexes
 which doesn't have logarithm divergence. We can rigorously prove that so long as there's no dynamic photon, NRQED has no logarithmic divergence at one loop order (at least for this problem we're considering).
 \subsection{NNLO}
 \begin{align*}
-	- & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -336,8 +337,8 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}=0+\text{finite terms}                                                  \\
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -362,9 +363,7 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			};
 		\end{feynman}
 	\end{tikzpicture}
-	%=4m^2\mu^{2\epsilon}Z^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}\\
-	=Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)+\text{finite terms}\\
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -389,9 +388,9 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			};
 		\end{feynman}
 	\end{tikzpicture}
-	% =4m^2   \mu^{2\epsilon}Z^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE]^2}\\
-	=0+\text{finite terms}\\
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+\end{align*}
+\begin{align}
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -415,8 +414,8 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}= Z^2\alpha ^2(\frac{1}{4 (d-3)}-\frac{\log\mu}{2})+\text{finite terms} \\
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -440,9 +439,9 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}= Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)+\text{finite terms}
-\end{align*}
-After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Dirac wavefunction. 
+	\end{tikzpicture}
+\end{align}
+After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Dirac wavefunction.
 
 There're also spin-orbital terms, for expample the lowest order appears as the second vertex at \eqref{spinorbital}. By substituting the normal $-ie$ vertex with spin-orbital vertex, we can calculate their contribution order by order. At $Z^2\a^2$ order, there's only two diagrams
 \begin{align*}
@@ -497,39 +496,39 @@ There're also spin-orbital terms, for expample the lowest order appears as the s
 		\end{feynman}
 	\end{tikzpicture}
 \end{align*}
-The first one gives $\vbp\cdot(\bm{\s}\cross\vbp)$ and the second one ends up with $\vbk_1\cdot(\bm{\s}\cross\vbk_1)$ after integrated the first loop so they're zero. 
+The first one gives $\vbp\cdot(\bm{\s}\cross\vbp)$ and the second one ends up with $\vbk_1\cdot(\bm{\s}\cross\vbk_1)$ after integrated the first loop so they're zero.
 \section{OPE}
-The relativistic correction part is the same as scalar ones. 
+The relativistic correction part is the same as scalar ones.
 
 The Darwin term gives an additional vertex in \eqref{spinorbital}, and that contains two diagrams
 \begin{align*}
-	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
-		\vertex (p1);
-		\vertex[right=3cm of p1] (p2);
-		\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
-		\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
-		\vertex at ($(p1)!0.2!(x)$) (y1);
-		\vertex at ($(p2)!0.2!(0)$) (z1);
-		\vertex at ($(p1)!0.6!(x)$) (y2);
-		\vertex at ($(p2)!0.6!(0)$) (z2);
-		\node [dot] at ($(y2)$) (tmp);
-		%
-		\diagram* {
-		  (p1) -- [] (x);
-		  (p2) -- [double distance=1pt] (0);
-		  (y1) -- [photon,rmomentum=$k_1$] (z1);
-		  (y2) -- [photon,rmomentum=$k_2$] (z2);
-		  (p1) -- [momentum=\(p_{1}\)] (y1);
-		  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
-		  (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
-		  (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-		  (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
-		  (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
-		};
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+			\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+			\vertex at ($(p1)!0.2!(x)$) (y1);
+			\vertex at ($(p2)!0.2!(0)$) (z1);
+			\vertex at ($(p1)!0.6!(x)$) (y2);
+			\vertex at ($(p2)!0.6!(0)$) (z2);
+			\node [dot] at ($(y2)$) (tmp);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,rmomentum=$k_2$] (z2);
+			(p1) -- [momentum=\(p_{1}\)] (y1);
+			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p_{1}+k_1\)] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
+			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+			};
 		\end{feynman}
-	  \end{tikzpicture}-
-	  \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\end{tikzpicture}-
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -555,37 +554,37 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			};
 		\end{feynman}
 	\end{tikzpicture}\\
-	=&-4m^2\mu^{2\epsilon}Z^2e^4
+	= & -4m^2\mu^{2\epsilon}Z^2e^4
 	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}
 \end{align*}
 \begin{align*}
-	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
-		\vertex (p1);
-		\vertex[right=3cm of p1] (p2);
-		\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
-		\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
-		\vertex at ($(p1)!0.2!(x)$) (y1);
-		\vertex at ($(p2)!0.2!(0)$) (z1);
-		\vertex at ($(p1)!0.6!(x)$) (y2);
-		\vertex at ($(p2)!0.6!(0)$) (z2);
-		\node [dot] at ($(y1)$) (tmp);
-		%
-		\diagram* {
-		  (p1) -- [] (x);
-		  (p2) -- [double distance=1pt] (0);
-		  (y1) -- [photon,rmomentum=$k_1$] (z1);
-		  (y2) -- [photon,rmomentum=$k_2$] (z2);
-		  (p1) -- [momentum=\(p_{1}\)] (y1);
-		  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
-		  (y1) -- [momentum=\(p_{1}+k_1\)] (y2);
-		  (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-		  (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
-		  (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
-		};
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+			\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+			\vertex at ($(p1)!0.2!(x)$) (y1);
+			\vertex at ($(p2)!0.2!(0)$) (z1);
+			\vertex at ($(p1)!0.6!(x)$) (y2);
+			\vertex at ($(p2)!0.6!(0)$) (z2);
+			\node [dot] at ($(y1)$) (tmp);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,rmomentum=$k_2$] (z2);
+			(p1) -- [momentum=\(p_{1}\)] (y1);
+			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p_{1}+k_1\)] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
+			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+			};
 		\end{feynman}
-	  \end{tikzpicture}-
-	  \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\end{tikzpicture}-
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -611,8 +610,201 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			};
 		\end{feynman}
 	\end{tikzpicture}\\
-	=&-4m^2\mu^{2\epsilon}Z^2e^4
+	= & -4m^2\mu^{2\epsilon}Z^2e^4
 	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{(\vb{p}+\vb{k}_1)^2/8m^2}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
 \end{align*}
+
+\begin{appendices}
+	\section{Local Matrix Elements}
+	For any diagram with the structure of 
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\node[empty dot] at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\node[empty dot] at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%\node[empty dot] at (y1) (y10);
+				%\node[empty dot] at (y2) (y20);
+				%
+				\diagram* {
+				%(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture}&
+	\end{flalign*}
+	where the empty dot stands for any type of vertex involved, it can be written down as 
+	\begin{align*}
+		&-4m^2\mu^{2\epsilon}Z^2e^4\bqty{\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}\\
+		=&-4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
+	\end{align*}
+	All diagrams at NNLO are
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture} &\\
+		= & -4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}&\\
+		= & 0+\text{finite terms}&
+	\end{flalign*}
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				\vertex at ($(y1)!0.5!(z1)$) (t);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),insertion=0.5,fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture}            &                 \\
+		= & -4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		= & Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)+\text{finite terms}&
+	\end{flalign*}
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				\vertex at ($(y1)!0.5!(z1)$) (t);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),insertion=0.5,fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture} &\\
+		= & -4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		= & 0+\text{finite terms}&
+	\end{flalign*}
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\node [dot] at ($(y1)$) (tmp);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture}   &                                         \\
+		= & -4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		= & Z^2\alpha ^2(\frac{1}{4 (d-3)}-\frac{\log\mu}{2})+\text{finite terms}&
+	\end{flalign*}
+	\begin{flalign*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\node [dot] at ($(y2)$) (tmp);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\),fermion] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),fermion] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\),fermion] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
+		\end{tikzpicture} &                                 \\
+		= & -4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		= & Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)+\text{finite terms}&
+	\end{flalign*}
+
+\end{appendices}
+
+\bibliographystyle{phaip}
+\bibliography{QM-OPE}
 
 \end{document}
