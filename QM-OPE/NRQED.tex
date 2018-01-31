@@ -57,6 +57,7 @@
 \renewcommand{\t}{\theta}
 \newcommand{\la}{\lambda}
 \newcommand{\p}{\phi}
+\newcommand{\ka}{\kappa}
 \newcommand{\vp}{\varphi}
 \newcommand{\s}{\sigma}
 \newcommand{\G}{\Gamma}
@@ -79,11 +80,14 @@
 %\linespread{1.2}
 %\renewcommand\Authsep{, }
 
+\allowdisplaybreaks
+
 \title{NRQED}
 \author{Yingsheng Huang and Rui Yu}
 
 \begin{document}
 \maketitle
+\section*{Introduction}
 \section{Hydrogen Wavefunction Divergence Near Origin in Dirac Equation and Schr\"odinger Equation}
 \subsection{The Dirac part}
 The Dirac Hydrogen Equation is
@@ -120,7 +124,6 @@ the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
 \subsection{The Schr\"odinger part}
 
 The Hamiltonian is
-
 \begin{align}
 	H & =H_0+H_{int}                                                                                                                                                      \\
 	H & _0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{int}=\frac{\nabla^4}{8m^3}-\frac{1}{8m^2}\nabla^2\frac{Z\a}{r}+\frac{1}{4m^2}\frac{Z\a}{r^3}\bm{\s}\cdot\vb{L}
@@ -130,32 +133,28 @@ The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the 
 The $H_0$ gives the radial wave functions as follows
 \begin{align}
 	R_{n0} & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                \\
-	R_{k0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}ke^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|e^{-imz\alpha kr}F(1+\frac{i}{k},2,2imZ\alpha kr),\ \ \ E_k=\frac{mZ^2\alpha^2k^2}{2}
-\end{align}
-
-Within perturbation theory,$E_1^{(1)}=<\phi|H_{int}|\phi>$, in quantum mechanics, the NLO energy correction is
-\begin{align}
-	E_1^{(1)}=E_1Z^2\alpha^2
+	R_{\kappa0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}\kappa e^\frac{\pi}{2\kappa}|\Gamma(1-\frac{i}{\kappa})|e^{-imz\alpha \kappa r}F(1+\frac{i}{\kappa},2,2imZ\alpha \kappa r),\ \ \ E_\kappa=\frac{mZ^2\alpha^2\kappa^2}{2}
 \end{align}
 
 The NLO corretion of the bound state wave function is
 \begin{align}
-	\sum_{n\neq 1}a_{n1}\phi_{n00}+\int dka_{k1}\phi_{k00}
+	\sum_{n\neq 1}a_{n1}\phi_{n00}+\int \dd\ka a_{\ka1}\phi_{\ka00}
 \end{align}
 with
 \begin{align}
-	a_{n1}=\frac{<\phi_{n00}|H_{int}|\phi_{100}>}{E_1-E_n}
+	a_{n1}=\frac{\mel{\phi_{n00}}{H_{int}}{\phi_{100}}}{E_1-E_n}
 \end{align}
 
 The relativistic correction is the same with Klein-Gordon equation
 \begin{align}
-	\Phi^{(1)}(0)_{kin} & =\int_\lambda^\frac{\Lambda}{m}dk(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{k}) \\
-	                    & \sim(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))
+	R^{(1)}(0)_{kin} & =\int^\Lambda\dd\ka(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{\ka}) \\
+	                    & \sim(\alpha Z)^2(\frac{\Lambda}{\pi }+\log{\Lambda})
 \end{align}
 
 The UV divergent part of Darwin term is
 \begin{align}
-	\Phi^{(1)}(0)_D\sim-\frac{\alpha ^2 \Lambda  Z^2}{2 \pi }-\frac{1}{2} \alpha ^2 Z^2 \log (\Lambda )
+	R^{(1)}(0)_D&=\int^{\Lambda}\dd \ka\pqty{-\frac{\alpha ^2 e^{\frac{\pi }{2 \kappa }} \kappa  Z^2 \abs{ \Gamma \left(\frac{-i+\kappa }{\kappa }\right)} }{\kappa ^2+1}}\psi_{\ka00}
+	\\&\sim-\frac{\alpha ^2 \Lambda  Z^2}{2 \pi }-\frac{1}{2} \alpha ^2 Z^2 \log (\Lambda )
 \end{align}
 
 Now collect all the results we get as follow.\\
@@ -164,13 +163,11 @@ The Dirac wave function's origin UV divergence is
 	Dirac\ \ UV & :\frac{Z^2\a^2}{16m^2r^2}+\frac{Z\a}{2mr}-\frac{(Z\alpha)^2}{2}\log(m r)
 \end{align}
 
-The purterbative Schr\"odinger wave function's origin UV divergence, with a k cutoff $\frac{\Lambda}{m}$, is
+The purterbative Schr\"odinger wave function's origin UV divergence, with a $\ka$ cutoff $\Lambda$, is
 \begin{align}
-	Kin\ \  UV    & :(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))                      \\
+	Kin\ \  UV    & :(\alpha Z)^2(\frac{\Lambda}{\pi }+\log{\Lambda})                      \\
 	Darwin\ \  UV & :-\frac{\alpha ^2 \Lambda  Z^2}{2 \pi }-\frac{1}{2} \alpha ^2 Z^2 \log (\Lambda )
 \end{align}
-
-All the $m$, under $\Lambda$ or in a $\log$, can be interpreted as a subtraction point $\mu$.
 
 \section{Non-relativistic QED (NRQED) Matching}
 \subsection{Feynman Rules}
@@ -190,6 +187,8 @@ and
 \end{align*}
 But note that no $\vb{A}$ can appear in actual calculation because here only static scalar potential exists.
 And the Feynman rules are standard QED and HQET Feynman rules except that photons only appear as zero component of Coulomb gauge photon to describe Coulomb potential exchange.
+
+\begin{minipage}{\linewidth}
 \begin{multicols}{2}
 	\begin{align*}
 		\feynmandiagram[small,horizontal=a to b]{
@@ -202,7 +201,7 @@ And the Feynman rules are standard QED and HQET Feynman rules except that photon
 		}; & =-ie\gm                                     \\
 		\feynmandiagram[small,horizontal=a to b]{
 		a [particle=$A^0$] -- [photon,momentum=$q$] b,
-		}; & =\frac{i}{\vb{q}^2}
+		}; & =\frac{i}{\vb{q}^2}\\
 	\end{align*}
 	\begin{align*}
 		\feynmandiagram[small,horizontal=a to b]{
@@ -211,10 +210,13 @@ And the Feynman rules are standard QED and HQET Feynman rules except that photon
 		\feynmandiagram[small,baseline=(o.base)]{
 		a -- [double distance=1pt] o -- [double distance=1pt] b,
 		c -- [photon] o,
-		}; & =iZev^{\mu}
+		}; & =iZev^{\mu}\\
 	\end{align*}
 \end{multicols}
-Here $v$ satisfies $v^2=1$ and the $k$ with it stands for the offshellness of the propagating momentum.
+\end{minipage}
+
+
+Here $v$ satisfies on-shell condition $v^2=1$ and the $k$ with it stands for the offshellness of the propagating momentum.
 \subsubsection{NRQED}
 Using the Foldy-Wouthuysen transformation, we can have the Lagrangian
 \begin{align}
@@ -441,7 +443,7 @@ which doesn't have logarithm divergence. We can rigorously prove that so long as
 		\end{feynman}
 	\end{tikzpicture}
 \end{align}
-After summing those all together, we can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Dirac wavefunction.
+After summing those all together, we get $$Z^2\alpha ^2\pqty{\frac{1}{4 (d-3)}-\frac{\log\mu}{2}}.$$We can see that the coefficient of $\log\mu$ is exact the same as which of $\log\Lambda$ in the Schr\"odinger wavefunction with $\vbp^4$ relativistic correction and of $\log r$ in Dirac wavefunction.
 
 There're also spin-orbital terms, for expample the lowest order appears as the second vertex at \eqref{spinorbital}. By substituting the normal $-ie$ vertex with spin-orbital vertex, we can calculate their contribution order by order. At $Z^2\a^2$ order, there's only two diagrams
 \begin{align*}
@@ -555,7 +557,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 		\end{feynman}
 	\end{tikzpicture}\\
 	= & -4m^2\mu^{2\epsilon}Z^2e^4
-	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}
 \end{align*}
 \begin{align*}
 	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
@@ -611,7 +613,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 		\end{feynman}
 	\end{tikzpicture}\\
 	= & -4m^2\mu^{2\epsilon}Z^2e^4
-	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{(\vb{p}+\vb{k}_1)^2/8m^2}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{(\vb{p}+\vb{k}_1)^2/8m^2}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
 \end{align*}
 
 \begin{appendices}
@@ -649,7 +651,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 	\begin{align*}
 		&-4m^2\mu^{2\epsilon}Z^2e^4\bqty{\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}\\
 		=&-4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}
 	\end{align*}
 	All diagrams at NNLO are
 	\begin{flalign*}
@@ -678,7 +680,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			\end{feynman}
 		\end{tikzpicture} &\\
 		= & -4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}&\\
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{1}{\vb{\abs{k_2}}^2-2mE}&\\
 		= & 0+\text{finite terms}&
 	\end{flalign*}
 	\begin{flalign*}
@@ -708,7 +710,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			\end{feynman}
 		\end{tikzpicture}            &                 \\
 		= & -4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
 		= & Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)+\text{finite terms}&
 	\end{flalign*}
 	\begin{flalign*}
@@ -738,7 +740,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			\end{feynman}
 		\end{tikzpicture} &\\
 		= & -4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
 		= & 0+\text{finite terms}&
 	\end{flalign*}
 	\begin{flalign*}
@@ -768,7 +770,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			\end{feynman}
 		\end{tikzpicture}   &                                         \\
 		= & -4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
 		= & Z^2\alpha ^2(\frac{1}{4 (d-3)}-\frac{\log\mu}{2})+\text{finite terms}&
 	\end{flalign*}
 	\begin{flalign*}
@@ -798,7 +800,7 @@ The Darwin term gives an additional vertex in \eqref{spinorbital}, and that cont
 			\end{feynman}
 		\end{tikzpicture} &                                 \\
 		= & -4m^2\mu^{2\epsilon}Z^2e^4
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{(\vb{k}_1+\vb{k}_2)^2/8m^2}{\vb{\abs{k_2}}^2-2mE}&\\
 		= & Z^2\alpha ^2(\frac{1}{2 (d-3)}-\log\mu)+\text{finite terms}&
 	\end{flalign*}
 

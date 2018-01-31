@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Klein-Gordon-Divergence-Near-Origin.aux
 The style file: phaip.bst
 Database file #1: QM-OPE.bib
-You've used 2 entries,
+You've used 7 entries,
             1868 wiz_defined-function locations,
-            574 strings with 5370 characters,
-and the built_in function-call counts, 324 in all, are:
-= -- 24
-> -- 12
-< -- 0
-+ -- 4
-- -- 2
-* -- 12
-:= -- 57
-add.period$ -- 2
-call.type$ -- 2
-change.case$ -- 0
+            611 strings with 6170 characters,
+and the built_in function-call counts, 1313 in all, are:
+= -- 103
+> -- 49
+< -- 1
++ -- 16
+- -- 9
+* -- 72
+:= -- 190
+add.period$ -- 7
+call.type$ -- 7
+change.case$ -- 1
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 20
-empty$ -- 37
-format.name$ -- 4
-if$ -- 73
+cite$ -- 7
+duplicate$ -- 77
+empty$ -- 142
+format.name$ -- 16
+if$ -- 311
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 4
-newline$ -- 13
-num.names$ -- 2
-pop$ -- 16
+int.to.str$ -- 7
+missing$ -- 10
+newline$ -- 35
+num.names$ -- 7
+pop$ -- 42
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 6
+skip$ -- 46
 stack$ -- 0
-substring$ -- 0
-swap$ -- 2
-text.length$ -- 0
+substring$ -- 51
+swap$ -- 22
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 2
-width$ -- 3
-write$ -- 22
+while$ -- 11
+width$ -- 8
+write$ -- 64

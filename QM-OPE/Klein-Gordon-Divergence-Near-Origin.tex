@@ -61,6 +61,7 @@
 \renewcommand{\t}{\theta}
 \newcommand{\la}{\lambda}
 \newcommand{\p}{\phi}
+\newcommand{\ka}{\kappa}
 \newcommand{\vp}{\varphi}
 \newcommand{\s}{\sigma}
 \newcommand{\G}{\Gamma}
@@ -77,11 +78,15 @@
 \newcommand{\Asquare}{A^{\mu}A_{\mu}}
 \newcommand{\partialsquare}[2]{\partial^{\mu}{#1}\partial_{\mu}{#2}}
 
+\newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
+
 %\setmainjfont[BoldFont=FandolSong-Bold]{FandolSong-Regular}
 %\setsansjfont{FandolSong-Bold}
 %\setlength{\parindent}{2em}
 %\linespread{1.2}
 %\renewcommand\Authsep{, }
+
+%\allowdisplaybreaks
 
 \title{Divergence of Klein-Gordon Hydrogen Wavefunction Near Origin}
 \author{Yingsheng Huang and Rui Yu}
@@ -89,6 +94,9 @@
 \begin{document}
 \maketitle
 \section*{Introduction}
+
+
+
 \section{Divergence in Klein-Gordon Equation and Schr\"odinger Equation}
 \subsection{Klein-Gordon Equation Solution}
 The Klein-Gordon Hydrogen Equation is
@@ -97,108 +105,92 @@ The Klein-Gordon Hydrogen Equation is
 	((i\partial_0+\frac{Z\alpha}{r})^2+\nabla^2-m^2)\Psi=0
 \end{align}
 
-For the bound state, the eigen value and the wave function are
-
+For the bound state, the eigen value and the wave function are\cite{Greiner2000}
 \begin{align}
 	E    & =m\frac{1}{\sqrt{1+\frac{\alpha^2 Z^2}{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}}} \\
 	\Psi & =\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
 \end{align}
-
 where
-
 \begin{align}
 	\lambda=-\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2}\ \ \ \ \ \
 	c=\sqrt{\frac{(2k)^{2(1+\sqrt{\frac{1}{4}-Z^2\alpha^2})}}{\Gamma(2+2\sqrt{\frac{1}{4}-Z^2\alpha^2)})}}\ \ \ \ \ \
 	k=\frac{m}{\sqrt{1+\frac{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}{\alpha^2Z^2}}}
 \end{align}
-
 c is the normaliztion factor for $\int d^3r|\Psi|^2=1$. For convenience, define
-
 \begin{align}
 	\Psi '=\frac{\Psi}{2(mZ\alpha)^\frac{3}{2}}
 \end{align}
 
 Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
-
 \begin{align}
-	-(Z\alpha)^2\log(m r)
+	R(r)&\sim-(Z\alpha)^2\log(m Z \a r)\\
+	\Psi(\vb{r})&\sim-(Z\alpha)^2\log(m Z \a r)/\sqrt{4\pi}
 \end{align}
-
-the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
+the $m$ in $\log$ could be interpreted as a subtraction point $\mu$. This divergence is discussed by many papers\cite{Chen2007,Chen2009}.
 
 \subsection{The Schr\"odinger part}
 
 By taking the non-relativistic limit of Klein-Gordon Hydrogen Hamiltonian, the effective Schr\"odinger Hamiltonian is\cite{Holstein2014}
-
 \begin{align}
-	H & =H_0+H_{int}                                                                                                                            \\
-	H & _0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{int}=\frac{\nabla^4}{8m^3}+\frac{1}{32m^4}[-\nabla^2,[-\nabla^2,-\frac{Z\alpha}{r}]]
+	H & =H_0+H_{int} ,\;\;H_{int}=H_{kin}+H_{Darwin}+\mathcal{O}(v^6)                                                                                                                           \\
+	H & _0=-\frac{\nabla^2}{2m}-\frac{Z\alpha}{r},\ \ \ H_{kin}=\frac{\nabla^4}{8m^3},\ \ \ H_{Darwin}=\frac{1}{32m^4}[-\nabla^2,[-\nabla^2,-\frac{Z\alpha}{r}]]
 \end{align}
+The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the second one is the Darwin term.
 
-The first term of $H_{int}$ is the relativistic kinematic $v^2$ correction, the second one is the Darwin term.\\
 The $H_0$ gives the radial wave functions as follows
-
 \begin{align}
-	R_{n0} & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                \\
-	R_{k0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}ke^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|e^{-imz\alpha kr}F(1+\frac{i}{k},2,2imZ\alpha kr),\ \ \ E_k=\frac{mZ^2\alpha^2k^2}{2}
+	R_{n0}       & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                                                             \\
+	R_{\kappa 0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}\kappa e^\frac{\pi}{2\kappa}|\Gamma(1-\frac{i}{\kappa})|e^{-imz\alpha \kappa r}F(1+\frac{i}{\kappa},2,2imZ\alpha \kappa r),\ \ \ E_{\kappa}=\frac{mZ^2\alpha^2\kappa^2}{2}
 \end{align}
-
-Within perturbation theory,$E_1^{(1)}=<\phi|H_{int}|\phi>$, in quantum mechanics, the NLO energy correction is
-
-\begin{align}
-	E_1^{(1)}=E_1Z^2\alpha^2
-\end{align}
+where the relation between dimentionalless $\ka$ and the actual momentum $\vbk$ is $\kappa=\frac{\abs{\vbk}}{m Z \a}$, and the normaliztion of continuum spectrum is followed by $$\int r^2\dd rR_{\ka' l}R_{\ka l}=\delta(k'-k).$$
 
 The NLO corretion of the bound state wave function is
-
 \begin{align}
-	\sum_{n\neq 1}a_{n1}\phi_{n00}+\int dka_{k1}\phi_{k00}
+	\sum_{n\neq 1}a_{n1}\phi_{n00}+\int d\ka a_{1}\phi_{\ka00}
 \end{align}
-
 with
-
 \begin{align*}
-	a_{n1}=\frac{<\phi_{n00}|H_{int}|\phi_{100}>}{E_1-E_n}=\frac{2 \alpha ^2 \sqrt{n} \left(\left(2 \left(\frac{n-1}{n+1}\right)^n-1\right) n^2+1\right) Z^2}{\left(n^2-1\right)^2}
+	a_{n1}=\frac{\mel{\phi_{n00}}{H_{kin}}{\phi_{100}}}{E_1-E_n}=\frac{2 \alpha ^2 \sqrt{n} \left(\left(2 \left(\frac{n-1}{n+1}\right)^n-1\right) n^2+1\right) Z^2}{\left(n^2-1\right)^2}
 \end{align*}
 and
 \begin{align*}
-	a_{k1}=\frac{2 \alpha ^4 e^{\frac{\pi }{2 k}} k m^2 Z^4  \abs{\Gamma \left(1-\frac{i}{k}\right)  }\left(\alpha ^2 k^2 m^2 Z^2-2 \alpha ^2 \left(1-\frac{i}{k}\right)^{i/k} \left(1+\frac{i}{k}\right)^{-\frac{i}{k}} m^2 Z^2 \cosh \left(\frac{\pi }{k}\right)+\alpha ^2 m^2 Z^2\right)}{\left(\alpha ^2 k^2 m^2 Z^2+\alpha ^2 m^2 Z^2\right)^2}
+	a_{\ka1}=\frac{\mel{\phi_{\ka00}}{H_{kin}}{\phi_{100}}}{E_1-E_{\ka}}
+	=\frac{2 \alpha ^2 \sqrt{\kappa } Z^2 \left(\frac{\left(\kappa ^2-1\right) e^{-\frac{2 \tan ^{-1}(\kappa )}{\kappa }}}{\kappa ^2+1}-e^{-\frac{2 \tan ^{-1}(\kappa )}{\kappa }}+1\right)}{\sqrt{1-e^{-\frac{2 \pi }{\kappa }}} \left(\kappa ^2+1\right)}
+	%\frac{2 \alpha ^4 e^{\frac{\pi }{2 k}} k m^2 Z^4  \abs{\Gamma \left(1-\frac{i}{k}\right)  }\left(\alpha ^2 k^2 m^2 Z^2-2 \alpha ^2 \left(1-\frac{i}{k}\right)^{i/k} \left(1+\frac{i}{k}\right)^{-\frac{i}{k}} m^2 Z^2 \cosh \left(\frac{\pi }{k}\right)+\alpha ^2 m^2 Z^2\right)}{\left(\alpha ^2 k^2 m^2 Z^2+\alpha ^2 m^2 Z^2\right)^2}
 \end{align*}
-
-the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integration part and seperate the relativistic kinematic term and the Darwin term. Since we are only interested in the divergent part, here we give a hard cutoff $\frac{\Lambda}{m}$ as the up-limit of the integration and a also a down-limit $\lambda$, with $\lambda>>1$ (note that the following wave function have been multiplied by $2(mZ\alpha)^\frac{3}{2}$)
-
+the discrete part of $(12)$ is not divergent at $r=0$. We now focus on the integration part and seperate the relativistic kinematic term and the Darwin term. Since we are only interested in the divergent part, here we give a hard cutoff $\frac{\Lambda}{m}$ as the up-limit of the integration  (note that the following wave function have been multiplied by $2(mZ\alpha)^\frac{3}{2}$)
 \begin{align}
-	\Phi^{(1)}(0)_{kin}=\int_\lambda^\frac{\Lambda}{m}dk \frac{2Z^2\alpha^2k^\frac{3}{2}}{2\pi(\sqrt{1-\exp(-\frac{2 \pi}{k})})}(1-\frac{2}{1+k^2}\exp(-\frac{2\arctan(k)}{k}))e^\frac{\pi}{2k}|\Gamma(1-\frac{i}{k})|
+	\Phi^{(1)}(0)_{kin}=\int^\frac{\Lambda}{m}d\ka \frac{2Z^2\alpha^2\ka^\frac{3}{2}}{2\pi(\sqrt{1-\exp(-\frac{2 \pi}{\ka})})}(1-\frac{2}{1+\ka^2}\exp(-\frac{2\arctan(\ka)}{\ka}))e^\frac{\pi}{2\ka}|\Gamma(1-\frac{i}{\ka})|
 \end{align}
-
-with the integral region we defined$(k\ll1)$, it would be OK to expand the integrand in $\frac{1}{k}$ (I havn't prove it yet), then the UV divergent term is
-
+with the integral region we defined$(\ka\ll1)$, it would be OK to expand the integrand in $\frac{1}{\ka}$ (I havn't prove it yet), then the UV divergent term is
 \begin{align}
-	\Phi^{(1)}(0)_{kin} & =\int_\lambda^\frac{\Lambda}{m}dk(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{k}) \\
+	R^{(1)}(0)_{kin} & =\int^\frac{\Lambda}{m}d\ka(Z\alpha)^2(\frac{1}{\pi}+\frac{1}{\ka}) \\
 	                    & \sim(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))
 \end{align}
 
+For Darwin term
+\begin{align*}
+	&a_{n1}=\frac{\mel{\phi_{n00}}{H_{Darwin}}{\phi_{100}}}{E_1-E_n}=\frac{\alpha ^4 Z^4}{4 n^{3/2}}\\
+	&a_{\ka1}=\frac{\mel{\phi_{\ka00}}{H_{Darwin}}{\phi_{100}}}{E_1-E_{\ka}}=\frac{1}{4} \alpha ^4 e^{\frac{\pi }{2 \kappa }} \kappa  Z^4 \abs {\Gamma \left(1-\frac{i}{\kappa }\right)}
+\end{align*}
 The UV divergent part of Darwin term is
 \begin{align}
-	\Phi^{(1)}(0)_D=-\frac{(Z\alpha)^4}{8\pi}\int_\lambda^\frac{\Lambda}{m}dkk^2e^\frac{\pi}{k}|\Gamma(1-\frac{i}{k})|^2
+	R^{(1)}(0)_D=-\frac{(Z\alpha)^4}{8\pi}\int^\frac{\Lambda}{m}d\ka\ka^2e^\frac{\pi}{\ka}|\Gamma(1-\frac{i}{\ka})|^2
 \end{align}
-
 with the same trick as $(15)$, the UV divergen part is
-
 \begin{align}
-	\Phi^{(1)}(0)_{D} & =-(\alpha Z)^4\int_\lambda^\frac{\Lambda}{m}dk\frac{k^2}{8\pi}+\frac{k}{8}+\frac{1}{24}\pi               \\
+	R^{(1)}(0)_{D} & =-(\alpha Z)^4\int_\lambda^\frac{\Lambda}{m}d\ka\frac{\ka^2}{8\pi}+\frac{\ka}{8}+\frac{1}{24}\pi         \\
 	                  & \sim -\frac{(Z\alpha)^4}{8\pi}(\frac{\Lambda^3}{3m^3}+\frac{\pi\Lambda^2}{2m^2}+\frac{\pi^2\Lambda}{3m})
 \end{align}
 
-Now collect all the results we get as follows.\\
-The K-G wave function's origin UV divergence is
+Now collect all the results we get as follows.
 
+The K-G wave function's origin UV divergence is
 \begin{align}
 	K-G\ \ UV & :-(Z\alpha)^2\log(m r)
 \end{align}
 
-The purterbative Schr\"odinger wave function's origin UV divergence, with a k cutoff $\frac{\Lambda}{m}$, is
-
+The purterbative Schr\"odinger wave function's origin UV divergence, with a $\ka$ cutoff $\frac{\Lambda}{m}$, is
 \begin{align}
 	Kin\ \  UV    & :(\alpha Z)^2(\frac{\Lambda}{\pi m}+\log(\frac{\Lambda}{m}))                                         \\
 	Darwin\ \  UV & :-\frac{(Z\alpha)^4}{8\pi}(\frac{\Lambda^3}{3m^3}+\frac{\pi\Lambda^2}{2m^2}+\frac{\pi^2\Lambda}{3m})
@@ -208,24 +200,10 @@ All the $m$, under $\Lambda$ or in a $\log$, can be interpreted as a subtraction
 
 \section{Non-relativistic Scalar QED (NRSQED) Matching}
 \subsection{Operator Product Expansion}
-In the following sections we work on the quantum field theory side. Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory. For simplicity, there's no need involving any other effect the nucleus might have. Therefore, we can describe the wavefunction in terms of a matrix element $\mel{0}{\psi(x)N(0)}{0}$. The divergence of this non-local matrix element can be analyzed by operator product expansion\cite{Lepage:1997cs}.
-
-The operator product expansion\cite{Collins1984} (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
-\begin{align}
-	\mathcal{O}_1(x)\mathcal{O}_2(y)=\sum_nC_n(x-y)\mathcal{O}_n(x)
-\end{align}
-In our case, the equation becomes
-\begin{align}
-	\mel{0}{\psi(x)N(0)}{0}=\mel{0}{C_0(x)\psi(0)N(0)+\sum_nC_n(x)\mathcal{O}_n(0)}{0}\label{OPE}
-\end{align}
-The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the first term of the right hand side.
-
-Intuitively, we can assume $\psi(x)$ is just the scalar field operator in scalar QED. But what we need is logarithmic divergence start at $Z^2\a^2$ order, and using relativistic scalar field operator will result in logarithmic divergence at $Z\a$ order, which, since we already know the answer to the question, is not what we want. However, since QED, or in our case, scalar QED, has no bound on how small the distance it can probe, we might observe that in order to investigate low energy physics, we can't use theory with such sensitivity in short range.
-
-The alternative is to use non-relativistic scalar QED on the scalar electron side. Through it's a non-relativistic theory thus not the first chioce when studying a relativistic problem, the natural energy cutoff it provides will be very convenient in this problem.
+In the following sections we work on the quantum field theory side. We'll use non-relativistic scalar QED (NRSQED) to describe scalar electron and heavy scalar effective theory (HSET) to describe nucleus. But first, we'll need the Feynman rules of them. 
 \subsection{Feynman Rules}
 \subsubsection{Scalar QED (SQED)}
-The Lagrangian of scalar QED is
+The Lagrangian of scalar QED (HSET included) is
 \begin{align}
 	\lag_{SQED}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2+\Phi_v^*iv\cdot D\Phi_v
 	\label{SQEDLAG}
@@ -242,9 +220,11 @@ But note that no dynamic electromagnetic field $\vb{A}$ can appear in actual cal
 
 And the Feynman rules are
 %\clearpage
-\begin{multicols}{2}
+
+\begin{minipage}{\linewidth}
+	\begin{multicols}{2}
 	\begin{align*}
-		\feynmandiagram[small,horizontal=a to b]{
+		\feynmandiagram[small,horizontal=a to b,baseline=(a.base)]{
 		a -- [momentum=\(p\)] b,
 		}; & =\frac{i}{p^2-m^2+i\epsilon} \\
 		\feynmandiagram[small,horizontal=a to o,baseline=(o.base)]{
@@ -270,9 +250,10 @@ And the Feynman rules are
 		a [particle=$A^0$] -- [photon,momentum=$q$] b,
 		}; & =\frac{i}{\vb{q}^2}
 	\end{align*}
-\end{multicols}
+ 	\end{multicols}
+\end{minipage}
 \subsubsection{NRSQED}
-Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian
+Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian of NRSQED (HSET included)
 \begin{align}
 	\lag_{NRSQED}=\varphi^*\pqty{iD_0+\frac{\vb{D}^2}{2m}}\varphi+\delta\lag +\Phi_v^*iv\cdot D\Phi_v
 	\label{NRSQEDLAG}
@@ -379,7 +360,9 @@ We can write the correction interacting term corresponding to $\delta$ as
 	  & =\varphi^*[\nabla^2,[\nabla^2,A_0]]\varphi
 \end{align*}
 which is exactly the Darwin term in Holstein's \emph{Advanced Topics in QM} with coefficient $1/32m^4$.
-  
+
+Since there's no logarithmic divergence in one loop (which we'll mention it soon), we don't need to match the effective couplings to the next order. Even if we do so, in $\a^2$ order, higher order corrections of interactions can only appear in one-loop or tree level. Next step, we'll calculate the logarithmic divergence of local matrix elements. 
+
 \iffalse\subsection{NLO}
 \subsubsection{SQED}
 \begin{align*}
@@ -465,13 +448,29 @@ which is exactly the Darwin term in Holstein's \emph{Advanced Topics in QM} with
 \subsubsection{NRSQED}\fi
 
 \section{Local Operator and Matrix Element of NRSQED}
-To reproduce the singular behavior of ``Klein-Gordon Hydrogen'' wavefunction near origin, we can try OPE. But the dependence of x in OPE can be taken as a regularization scheme and thus the result should be the same as local one without renormalization. And the logarithmic terms of x in OPE can be reproduced by the logarithmic divergence of local operators. Since in the study of Klein-Gordon equation we know that the wavefunction only contains logarithmic divergence at the origin so that's the only type of divergence we're looking for.
-\subsection{NLO}
-It's obvious that the tree level has no divergence of any kind, so we'll start at one loop. 
+Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory, as mentioned before. For simplicity, and also the goal of replicating divergence produced by Klein-Gordon equation, there's no need involving any other effect the nucleus might have. And as pionted out by Bodwin, Braaten and Lepage in 1995\cite{Bodwin1995}, when discussing heavy quarkonium problem, non-relativistic Coulomb gauge wavefunction can be defined as NRQCD Bethe-Salpeter $Q\bar Q$ wavefunction, evaluated at equal time. As an analogy, we can define NRQED wavefunction in the same fashion. Therefore, we can describe the radial wavefunction in terms of a matrix element 
+\begin{align}
+	R(x)=\mel{0}{\psi(x)N(0)}{0}.\label{wavefunction}
+\end{align}
+Customarily, the divergence of this kind of non-local matrix element in quantum field theory is analyzed by operator product expansion (OPE)\cite{Lepage:1997cs}.
 
-First we define $\epsilon=3-d$. After dimensional regularization, the Gamma function in the numerator is something like $\Gamma(n-d/2)$ and Gamma function doesn't have pole at half integer. We can prove that any one-loop diagram involved does not have logarithmic divergence, for example
+To reproduce the singular behavior of ``Klein-Gordon Hydrogen'' wavefunction near origin, we could try OPE. But the dependence of x in this non-local matrix element can also be taken as a regularization scheme and thus the result should be the same as local one
+$$\mel{0}{\psi(0)N(0)}{0}$$
+without renormalization (except for the choice of different regulators). And the logarithmic terms of x in \eqref{wavefunction} can be reproduced by the logarithmic divergence of local operators. From what we learned in the discussion of Klein-Gordon equation in quantum mechanics, we know that the wavefunction only contains logarithmic divergence at the origin so that's the only type of divergence we're looking for. In this section, we'll isolate the logarithmic divergence using dimensional regularization, and reproduce what we obtained in quantum mechanics perturbation theory. 
+
+Intuitively, we can assume $\psi(x)$ is just the scalar field operator in scalar QED. But what we need is logarithmic divergence start at $Z^2\a^2$ order, and using relativistic scalar field operator will result in logarithmic divergence at $Z\a$ order, which, since we already know the answer to the question, is not what we want. However, since QED, or in our case, scalar QED, has no bound on how small the distance it can probe, we might observe that in order to investigate low energy physics, we can't use theory with such sensitivity in short range.
+
+The alternative is to use non-relativistic scalar QED on the scalar electron side. Through it's a non-relativistic theory thus not the first chioce when studying a relativistic problem, the natural energy cutoff it provides will be very convenient in this problem.
+
+First we define $\epsilon=3-d$ and on-shell momentum $P_N=m_Nv_N$, also the momentum of scalar electron is $p=(E,\vbp)$ and the momentum of nucleus is $P_N+k$.
+\subsection{NLO}
+It's obvious that the tree level has no divergence of any kind, so we'll start at one loop.
+
+After dimensional regularization, the Gamma function in the numerator is something like $\Gamma(n-d/2)$ and Gamma function doesn't have pole at half integer. We can prove that any one-loop diagram involved does not have logarithmic divergence.
+\begin{comment}
+, for example
 \begin{align*}
-	  & \mel{0}{\psi_e(0)N(0)(-ie\mu^{-\epsilon})\int\dd^4y\bar\psi_e\psi_e A^0(-iZe\mu^{-\epsilon})\int\dd^4z\bar NNA^0}{eN}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	  & \mel{0}{\psi_e(0)N(0)(-ie\mu^{-\epsilon})\int\dd^4y\bar\psi_e\psi_e A^0(-iZe\mu^{-\epsilon})\int\dd^4z\bar NNA^0}{0}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=2.5cm of p1] (p2);
@@ -484,15 +483,19 @@ First we define $\epsilon=3-d$. After dimensional regularization, the Gamma func
 			(p2) -- [double distance=1pt] (x);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
 			(p1) -- [momentum=\(p\)] (y1);
-			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
-			(y1) -- [momentum=\(p+k\)] (x);
-			(z1) -- [momentum'=\(P_{N}-k\),double distance=1pt] (x);
+			(p2) -- [momentum'=$(P_{N}\text{=}m_{N}v_{N})+k$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\)] (x);
+			(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (x);
 			};
 		\end{feynman}
 	\end{tikzpicture}
 \end{align*}
-which doesn't have logarithm divergence.
+which doesn't have logarithmic divergence.
+\end{comment}
 \subsection{NNLO}
+Since we're calculating Green function, the nucleus is off-shell by $k$. Although the effect is just a shift in electron energy (see Appendix \ref{appendix:contour}), it's convenient for us to redefine $E'=E+k^0$. 
+
+All the Feynman rules we need are derived above except for one: on the top of the diagram, the joint point stands for composite operator $\psi(0)N(0)$, whose Feynman rule is just $1$; if it's seperated a little, it stands for non-local fields in operator product expansion and can be treated as a exponential factor $e^{-i \vbk \cdot \vb{x}}$ where $\vbk$ is the momentum of the cloest line in the electron side. 
 \begin{align*}
 	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
@@ -510,20 +513,26 @@ which doesn't have logarithm divergence.
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
 			(y2) -- [photon,rmomentum=$k_2$] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
-			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(p2) -- [momentum'=$P_{N}+k$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\)] (y2);
-			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (z2);
 			(y2) -- [momentum=\(p+k_1+k_2\)] (x);
-			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+			(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int[dk_1][dk_2]\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}
+	\end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{[dk_1]}{\vb{\abs{k_1}}^2}\frac{[dk_2]}{\vb{\abs{k_2}}^2}\frac{1}{k^0-k_1^0-k_2^0+i\epsilon}\frac{1}{k^0-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}
 	\\
-	\intertext{integrate out the temporal component of loop momentum, then perform a shift on them}
-	=&\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}}=\text{finite terms}
+	\intertext{integrate out the temporal component of loop momentum, then perform shifts $\vbk_1\rightarrow\vbk_1-\vbp$ and $\vbk_2\rightarrow\vbk_2-\vbk_1-\vbp$ on them}
+	=&\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E'-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E'-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}}\\
+	=&4m^2Z^2\alpha ^2 \mu^{2\epsilon}\int_0^1\dd x_1\dd x_2\delta (x_1 +x_2-1)
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\left(\vbk_1^2-\frac{2 mE }{x_1}\right)^{2-d/2}	}\\&
+	\bqty{ 2^{4-d} \pi ^{2-\frac{d}{2}} \left(x_1-x_1^2\right)^{\frac{d}{2}-2} \Gamma \left(2-\frac{d}{2}\right)}\\
+	=&4m^2Z^2 \alpha ^2\mu^{2\epsilon}\int_0^1\dd x_1\dd x_2\dd y_1\dd y_2\dd y_3 \delta (x_1 +x_2-1) \delta (y_1+y_2+y_3-1)   \frac{2^{4-2 d} \pi ^{2-d} \left(x_1 -x_1 ^2\right)^{\frac{d}{2}-2} y_3^{1-\frac{d}{2}} \Gamma (4-d)}{\left(p^2 y_1-p^2 y_1^2-\frac{2m E  y_3}{ x_1 }-2 m E y_2\right)^{4-d}}\\
+	=&\text{finite terms}
 \end{align*}
+Actually, after integrated the temporal part, we can determine from superficial divergence that unless the power of the numerator is higher than $\vbk^2$, the diagram can not be divergent. We can do so by adding relativistic corrections 
 \begin{align*}
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -540,19 +549,32 @@ which doesn't have logarithm divergence.
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
 			(y2) -- [photon,rmomentum=$k_2$] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
-			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(p2) -- [momentum'=$P_{N}+k$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
-			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (z2);
 			(y2) -- [momentum=\(p+k_1+k_2\)] (x);
-			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+			(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}=4m^2\mu^{2\epsilon}Z^2e^4
-	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}\\
+	\end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{[dk_1]}{\vb{\abs{k_1}}^2}\frac{[dk_2]}{\vb{\abs{k_2}}^2}\frac{1}{k^0-k_1^0-k_2^0+i\epsilon}\frac{1}{k^0-k_1^0+i\epsilon}\frac{(\vbp+\vbk_1)^4/8m^3}{\bqty{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}^2}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}\\
+	=&4m^2\mu^{2\epsilon}Z^2e^4
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\\
+	\intertext{after integrated $\vbk_2$, the integral becomes}
+	=&4m^2\mu^{2\epsilon}
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\left(\vbk_1^2-\frac{2 mE' }{x_1}\right)^{2-d/2}	}
+	\bqty{\alpha ^2 2^{4-d} \pi ^{2-\frac{d}{2}}Z^2 \Gamma \left(2-\frac{d}{2}\right)\left(x_1-x_1^2\right)^{\frac{d}{2}-2}}\\
+	=&Z^2\alpha ^2\mu^{2\epsilon}\int_0^1\dd x_1\dd x_2\dd y_1\dd y_2\dd y_3 \delta (x_1 +x_2-1) \delta (y_1+y_2+y_3-1)  \\
+	&\Bigg\{
+	2^{4-2 d} \pi ^{2-d} p^4 y_1^4 y_2 \left(x_1-x_1^2\right)^{\frac{d}{2}-2} y_3^{1-\frac{d}{2}} \Gamma (5-d) \left(\frac{1}{\frac{2 E' m x_2 y_3}{(x_1-1) x_1}-2 E' m y_2+p^2 \left(-y_1^2\right)+p^2 y_1}\right)^{5-d}\\&
+	+\frac{2^{5-2 d} \pi ^{2-d} p^2 y_1^2 y_2 \left(x_1-x_1^2\right)^{\frac{d}{2}-2} y_3^{1-\frac{d}{2}} \Gamma (4-d) \Gamma \left(\frac{d}{2}+1\right) }{\Gamma \left(\frac{d}{2}\right)}\left(\frac{1}{\frac{2 E' m x_2 y_3}{(x_1-1) x_1}-2 E' m y_2+p^2 \left(-y_1^2\right)+p^2 y_1}\right)^{4-d}\\&
+	+\frac{2^{6-2 d} \pi ^{2-d} p^2 y_1^2 y_2 \left(x_1-x_1^2\right)^{\frac{d}{2}-2} y_3^{1-\frac{d}{2}} \Gamma (4-d) \Gamma \left(\frac{d}{2}+1\right) }{ \Gamma \left(\frac{d}{2}\right )d}\left(\frac{1}{\frac{2 E' m x_2 y_3}{(x_1-1) x_1}-2 E' m y_2+p^2 \left(-y_1^2\right)+p^2 y_1}\right)^{4-d}\\&
+	+\frac{2^{4-2 d} \pi ^{2-d} y_2 \left(x_1-x_1^2\right)^{\frac{d}{2}-2} y_3^{1-\frac{d}{2}} \Gamma (3-d) \Gamma \left(\frac{d}{2}+2\right) }{\Gamma \left(\frac{d}{2}\right)}\left(\frac{1}{\frac{2 E' m x_2 y_3}{(x_1-1) x_1}-2 E' m y_2+p^2 \left(-y_1^2\right)+p^2 y_1}\right)^{3-d}
+		\Bigg\}\\
+		\intertext{finish the integration of Feynman parameters, we have}
 	= & Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)+\text{finite terms}
 \end{align*}
 \begin{align*}
-	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -569,29 +591,50 @@ which doesn't have logarithm divergence.
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
 			(y2) -- [photon,rmomentum=$k_2$] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
-			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(p2) -- [momentum'=$P_{N}+k$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\)] (y2);
-			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (z2);
 			(y2) -- [momentum=\(p+k_1+k_2\),insertion=0.5] (x);
-			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (x);
+			(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (x);
 			};
 		\end{feynman}
-	\end{tikzpicture}=4m^2
-	\mu^{2\epsilon}Z^2e^4\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE]^2}\\
-	= & 0+\text{finite terms}
+	\end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{[dk_1]}{\vb{\abs{k_1}}^2}\frac{[dk_2]}{\vb{\abs{k_2}}^2}\frac{1}{k^0-k_1^0-k_2^0+i\epsilon}\frac{1}{k^0-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{(\vbp+\vbk_2)^4/8m^3}{\bqty{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}^2}}\\
+	=&4m^2
+	\mu^{2\epsilon}Z^2e^4\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE'}\frac{\vb{\abs{k_2}}^4/4m^2}{[\vb{\abs{k_2}}^2-2mE']^2}\\
+	=&
+	\mu^{2\epsilon}Z^2e^4\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{\vb{\abs{k_1}}^2-2mE'}
+	\Bqty{1+\frac{4mE'}{\vb{\abs{k_2}}^2-2mE'}+\frac{(2mE')^2}{[\vb{\abs{k_2}}^2-2mE']^2}}\\
+	\intertext{only the highest order of $\vbk_2$ in the polynomial can contribute to the divergence, other terms are finite and can be dropped in the following calculations. This can be observed by simply counting the superficial divergence. Then one could find that by shifting $\vbk_2$ this integral becomes scaleless, thus zero under dimensional regularization}		
+	%=& Z^2 \alpha ^2
+	%\mu^{2\epsilon} 2^{4-d} \pi ^{2-\frac{d}{2}}\Gamma \left(3-\frac{d}{2}\right) 
+	%\int_0^1\dd x_1\dd x_2\dd x_3\delta (x_1+x_2+x_3-1) \left(\frac{1}{x_1-x_1^2}\right)^{3-\frac{d}{2}}\\
+	%&\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\left(\frac{1}{\vbk_2^2+\frac{2 x_2 \vbk_2\cdot \vbp}{x_1-1}+\frac{2 E' m x_3}{(x_1-1) x_1}+\frac{p^2 x_2^2}{(x_1-1) x_1}+\frac{p^2 x_2}{x_1-x_1^2}}\right)^{3-\frac{d}{2}}\\
+	= & 0+\text{finite terms.}
 \end{align*}
-we can see that the total divergence is $Z^2\a^2(\frac{1}{2(3-d)}+\log \mu)$.
+We can see that the total divergence is $$Z^2\a^2\pqty{\frac{1}{2(3-d)}+\log \mu}.$$
 
 Comparing the final result of divergence between OPE and QM wavefunctions, we can see that the coefficient of $\log{\mu}$ is consistent with which of the logarithm divergence in the asymptotic behavior of Klein-Gordon wavefunction and Schr\"odinger wavefunction with relativistic correction.
 
 \section{Operator Product Expansion and Explicitly Coordinate-dependent Divergence}
-Now that we have successfully isolated the logarithmic divergence of local operators, we can calculate the coordinate-dependent divergence that we actually encountered regarding the wavefunction. For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
+Now that we have successfully isolated the logarithmic divergence of local operators, we can calculate the coordinate-dependent divergence that we actually encountered regarding the wavefunction.
+
+The operator product expansion\cite{Collins1984} (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
+\begin{align}
+	\mathcal{O}_1(x)\mathcal{O}_2(y)=\sum_nC_n(x-y)\mathcal{O}_n(x)
+\end{align}
+In our case, the equation becomes
+\begin{align}
+	\mel{0}{\psi(x)N(0)}{0}=C_0(x)\mel{0}{\psi(0)N(0)}{0}+\sum_nC_n(x)\mel{0}{\mathcal{O}_n(0)}{0}\label{OPE}
+\end{align}
+The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the coefficient of the first term in the right hand side. The matrix element $\mel{0}{\psi(0)N(0)}{0}$, is exactly what we calculated in the last section. 
+
+For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
 \begin{align}
 	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\tikzfeynmanset{
 			my blob/.style={
 					/tikzfeynman/blob,
-					/tikz/minimum size=30pt,
+					/tikz/minimum size=35pt,
 				},
 			%every vertex/.style={my blob},
 		}
@@ -618,123 +661,123 @@ Now that we have successfully isolated the logarithmic divergence of local opera
 	\end{tikzpicture}
 	=
 	\bqty{\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
-		\tikzfeynmanset{
-			my blob/.style={
-					/tikzfeynman/blob,
-					/tikz/minimum size=30pt,
-				},
-			%every vertex/.style={my blob},
-		}
-		\begin{feynman}
-			\vertex (p1) {$p$};
-			\vertex[right=2cm of p1] (p2) {$P_N$};
-			\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
-			\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
-			\vertex at ($(p1)!0.5!(x)$) (y1);
-			\vertex at ($(p2)!0.5!(0)$) (z1);
-			\vertex at ($(y1)!0.5!(z1)$) (o);
-			\node[my blob] at (o) (o1);
-			%
-			\diagram* {
-			(p1) --  (o1);
-			(p2) -- [double distance=1pt] (o1);
-			%(y1) -- [photon,rmomentum=$k_1$] (z1);
-			%(p1) -- [] (y1);
-			%(p2) -- [double distance=1pt] (z1);
-			(o1) -- [out=150, in=210] (0);
-			(o1) -- [out=30, in=330,double distance=1pt] (0);
-			};
-		\end{feynman}
-	\end{tikzpicture}-UV}
+			\tikzfeynmanset{
+				my blob/.style={
+						/tikzfeynman/blob,
+						/tikz/minimum size=35pt,
+					},
+				%every vertex/.style={my blob},
+			}
+			\begin{feynman}
+				\vertex (p1) {$p$};
+				\vertex[right=2cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
+				\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
+				\vertex at ($(p1)!0.5!(x)$) (y1);
+				\vertex at ($(p2)!0.5!(0)$) (z1);
+				\vertex at ($(y1)!0.5!(z1)$) (o);
+				\node[my blob] at (o) (o1);
+				%
+				\diagram* {
+				(p1) --  (o1);
+				(p2) -- [double distance=1pt] (o1);
+				%(y1) -- [photon,rmomentum=$k_1$] (z1);
+				%(p1) -- [] (y1);
+				%(p2) -- [double distance=1pt] (z1);
+				(o1) -- [out=150, in=210] (0);
+				(o1) -- [out=30, in=330,double distance=1pt] (0);
+				};
+			\end{feynman}
+		\end{tikzpicture}-UV}
 	+
 	\bqty{\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
-		\tikzfeynmanset{
-			my blob/.style={
-					/tikzfeynman/blob,
-					/tikz/minimum size=30pt,
-				},
-			%every vertex/.style={my blob},
-		}
-		\begin{feynman}
-			\vertex (p1) {$p$};
-			\vertex[right=2cm of p1] (p2) {$P_N$};
-			\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) {$x$};
-			\vertex at ($(p1)!0.6!(p2)+(0,3cm)$) (0) {$0$};
-			\vertex at ($(p1)!0.5!(x)$) (y1);
-			\vertex at ($(p2)!0.5!(0)$) (z1);
-			\vertex at ($(y1)!0.5!(z1)$) (o);
-			\node[my blob] at (o) (o1);
-			%
-			\diagram* {
-			(p1) --  (o1);
-			(p2) -- [double distance=1pt] (o1);
-			%(y1) -- [photon,rmomentum=$k_1$] (z1);
-			%(p1) -- [] (y1);
-			%(p2) -- [double distance=1pt] (z1);
-			(o1) -- [out=150, in=210] (x);
-			(o1) -- [out=30, in=330,double distance=1pt] (0);
-			};
-		\end{feynman}
-	\end{tikzpicture}-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
-		\tikzfeynmanset{
-			my blob/.style={
-					/tikzfeynman/blob,
-					/tikz/minimum size=30pt,
-				},
-			%every vertex/.style={my blob},
-		}
-		\begin{feynman}
-			\vertex (p1) {$p$};
-			\vertex[right=2cm of p1] (p2) {$P_N$};
-			\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
-			\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
-			\vertex at ($(p1)!0.5!(x)$) (y1);
-			\vertex at ($(p2)!0.5!(0)$) (z1);
-			\vertex at ($(y1)!0.5!(z1)$) (o);
-			\node[my blob] at (o) (o1);
-			%
-			\diagram* {
-			(p1) --  (o1);
-			(p2) -- [double distance=1pt] (o1);
-			%(y1) -- [photon,rmomentum=$k_1$] (z1);
-			%(p1) -- [] (y1);
-			%(p2) -- [double distance=1pt] (z1);
-			(o1) -- [out=150, in=210] (0);
-			(o1) -- [out=30, in=330,double distance=1pt] (0);
-			};
-		\end{feynman}
-	\end{tikzpicture}+UV}	
+			\tikzfeynmanset{
+				my blob/.style={
+						/tikzfeynman/blob,
+						/tikz/minimum size=35pt,
+					},
+				%every vertex/.style={my blob},
+			}
+			\begin{feynman}
+				\vertex (p1) {$p$};
+				\vertex[right=2cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) {$x$};
+				\vertex at ($(p1)!0.6!(p2)+(0,3cm)$) (0) {$0$};
+				\vertex at ($(p1)!0.5!(x)$) (y1);
+				\vertex at ($(p2)!0.5!(0)$) (z1);
+				\vertex at ($(y1)!0.5!(z1)$) (o);
+				\node[my blob] at (o) (o1);
+				%
+				\diagram* {
+				(p1) --  (o1);
+				(p2) -- [double distance=1pt] (o1);
+				%(y1) -- [photon,rmomentum=$k_1$] (z1);
+				%(p1) -- [] (y1);
+				%(p2) -- [double distance=1pt] (z1);
+				(o1) -- [out=150, in=210] (x);
+				(o1) -- [out=30, in=330,double distance=1pt] (0);
+				};
+			\end{feynman}
+		\end{tikzpicture}-\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\tikzfeynmanset{
+				my blob/.style={
+						/tikzfeynman/blob,
+						/tikz/minimum size=35pt,
+					},
+				%every vertex/.style={my blob},
+			}
+			\begin{feynman}
+				\vertex (p1) {$p$};
+				\vertex[right=2cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
+				\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
+				\vertex at ($(p1)!0.5!(x)$) (y1);
+				\vertex at ($(p2)!0.5!(0)$) (z1);
+				\vertex at ($(y1)!0.5!(z1)$) (o);
+				\node[my blob] at (o) (o1);
+				%
+				\diagram* {
+				(p1) --  (o1);
+				(p2) -- [double distance=1pt] (o1);
+				%(y1) -- [photon,rmomentum=$k_1$] (z1);
+				%(p1) -- [] (y1);
+				%(p2) -- [double distance=1pt] (z1);
+				(o1) -- [out=150, in=210] (0);
+				(o1) -- [out=30, in=330,double distance=1pt] (0);
+				};
+			\end{feynman}
+		\end{tikzpicture}+UV}
 \end{align}
-so by using our previous results, we only have to compute the second term, which is in fact a Fourier transformation. 
+so by using our previous results, we only have to compute the second term, which is in fact a Fourier transformation.
 
-In previous discussion, we mentioned that the small distance between two field operators in OPE can be treated as a regularization scheme, so we can safely assume that only OPE diagrams correspondent with logarithmic divergent local operator diagrams contains $\log x$ terms. Therefore, in this case, only one diagram is considered. 
+In previous discussion, we mentioned that the small distance between two field operators in OPE can be treated as a regularization scheme, so we can safely assume that only OPE diagrams correspondent with logarithmic divergent local operator diagrams contains $\log x$ terms. Therefore, in this case, only one diagram is considered. Here we'll jump to the 3-dimension integral without temporal component (for details about involved contour integral, see Appendix \ref{appendix:contour}). 
 \begin{align*}
-	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
-		\vertex (p1);
-		\vertex[right=3cm of p1] (p2);
-		\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
-		\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
-		\vertex at ($(p1)!0.2!(x)$) (y1);
-		\vertex at ($(p2)!0.2!(0)$) (z1);
-		\vertex at ($(p1)!0.6!(x)$) (y2);
-		\vertex at ($(p2)!0.6!(0)$) (z2);
-		%
-		\diagram* {
-		  (p1) -- [] (x);
-		  (p2) -- [double distance=1pt] (0);
-		  (y1) -- [photon,rmomentum=$k_1$] (z1);
-		  (y2) -- [photon,rmomentum=$k_2$] (z2);
-		  (p1) -- [momentum=\(p_{1}\)] (y1);
-		  (p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
-		  (y1) -- [momentum=\(p_{1}+k_1\),insertion=0.5] (y2);
-		  (z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-		  (y2) -- [momentum=\(p_{1}+k_1+k_2\)] (x);
-		  (z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
-		};
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+			\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+			\vertex at ($(p1)!0.2!(x)$) (y1);
+			\vertex at ($(p2)!0.2!(0)$) (z1);
+			\vertex at ($(p1)!0.6!(x)$) (y2);
+			\vertex at ($(p2)!0.6!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,rmomentum=$k_2$] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [momentum=\(p+k_1+k_2\)] (x);
+			(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+			};
 		\end{feynman}
-	  \end{tikzpicture}-
-	  \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	\end{tikzpicture}-
+	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
@@ -759,8 +802,8 @@ In previous discussion, we mentioned that the small distance between two field o
 			};
 		\end{feynman}
 	\end{tikzpicture}\\
-	=&4m^2\mu^{2\epsilon}Z^2e^4
-	\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE]^2}\frac{1}{\vb{\abs{k_2}}^2-2mE}
+	= & 4m^2\mu^{2\epsilon}Z^2e^4
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\numberthis\label{tempformminus}
 \end{align*}
 
 \begin{appendices}
@@ -800,24 +843,27 @@ In previous discussion, we mentioned that the small distance between two field o
 	%	\\&\int_0^1\prod_{i=1}^3\dd y_j\delta(\sum y_j-1)\prod y_j^{d_j-1}\frac{\Gamma(\a+d/2)}{\Gamma(d/2)}\frac{\Gamma(m+n+2-\a-\b-d)}{\Gamma(m)}\pqty{\frac{1}{\Delta_1}}^{m+n+2-\a-\b-d}
 	% \end{align*}<++>
 	\section{Contour Integral}
+	\label{appendix:contour}
 	If the nucleus is put on-shell, integral with the structure of the form
-	\begin{align*}
-		\int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n}
-	\end{align*}
+	\begin{align}
+		\int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+i\epsilon}\frac{1}{-k_1^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n}\label{pretemporal}
+	\end{align}
 	will always produce
-	\begin{align*}
-		\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E-\vb{V}_2+2i\epsilon]^n}
-	\end{align*}
+	\begin{align}
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E-\vb{V}_2+2i\epsilon]^n}\label{halfgreen}
+	\end{align}
 	with $k_1^0$ and $k_2^0$ goes to zero.
 
 	If the nucleus is slightly off-shell by $k$, there'll be a slight shift of energy in the non-relativistic propagators
 	\begin{align*}
-		&\int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+k^0+i\epsilon}\frac{1}{-k_1^0+k^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n}\\
-		=&\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\dd^3\vb{k_2}}{(2\pi)^3}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E+k^0-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E+k^0-\vb{V}_2+2i\epsilon]^n}
+		  & \int[dk_1][dk_2]f(\vb{k}_1,\vb{k}_2)\frac{1}{-k_1^0-k_2^0+k^0+i\epsilon}\frac{1}{-k_1^0+k^0+i\epsilon}\frac{1}{[E+k_1^0-\vb{V}_2+i\epsilon]^m}\frac{1}{[E+k_1^0+k_2^0-\vb{V}_2+i\epsilon]^n} \\
+		= & \int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}f(\vb{k}_1,\vb{k}_2)\frac{1}{[E+k^0-\vb{V}_1+2i\epsilon]^m}\frac{1}{[E+k^0-\vb{V}_2+2i\epsilon]^n}
 	\end{align*}
-	one example is this Green function
+	If we define $E'=E+k^0$, the structure falls back to \eqref{halfgreen}.
+
+	One example is this Green function
 	\begin{align*}
-		&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 			\begin{feynman}
 				\vertex (p1);
 				\vertex[right=3cm of p1] (p2);
@@ -833,15 +879,78 @@ In previous discussion, we mentioned that the small distance between two field o
 				(y1) -- [photon,rmomentum=$k_1$] (z1);
 				(y2) -- [photon,rmomentum=$k_2$] (z2);
 				(p1) -- [momentum=\(p\)] (y1);
-				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(p2) -- [momentum'=$P_{N}+k\text{=}m_{N}v_{N}+k$,double distance=1pt] (z1);
 				(y1) -- [momentum=\(p+k_1\)] (y2);
 				(z1) -- [momentum'=\(P_{N}+k-k_1\),double distance=1pt] (z2);
 				(y2) -- [momentum=\(p+k_1+k_2\)] (x);
 				(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (x);
 				};
 			\end{feynman}
+		\end{tikzpicture}\\ =&-\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{[dk_1]}{\vb{\abs{k_1}}^2}\frac{[dk_2]}{\vb{\abs{k_2}}^2}\frac{1}{k^0-k_1^0-k_2^0+i\epsilon}\frac{1}{k^0-k_1^0+i\epsilon}\frac{1}{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}\\
+		=&\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{1}{E'-\frac{\vb{\abs{k_1}}^2}{2m}+2i\epsilon}\frac{1}{E'-\frac{\vb{\abs{k_2}}^2}{2m}+2i\epsilon}}\\
+		=& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.5!(p2)+(0,3.5cm)$) (x) ;
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(x)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(x)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (x);
+				(y1) -- [photon,rmomentum'=\(k_1-p\)] (z1);
+				(y2) -- [photon,rmomentum'=\(k_2-k_1\)] (z2);
+				(p1) -- [momentum=\(p\)] (y1);
+				(p2) -- [momentum'=$P_{N}+k\text{=}m_{N}v_{N}+k$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(k_1\)] (y2);
+				(z1) -- [momentum'=\(P_{N}+k+p-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(k_2\)] (x);
+				(z2) -- [momentum'=\(P_{N}+k+p-k_2\),double distance=1pt] (x);
+				};
+			\end{feynman}
 		\end{tikzpicture}
 	\end{align*}
+	As for any OPE diagram, it's just a regular local one multiplied by a exponential factor, and since we're choosing $x=(0,\vb{x})$, this factor can be included into $f(\vb{k}_1,\vb{k}_2)$ in \eqref{pretemporal}. That means it also becomes \eqref{halfgreen}. We also performed a momentum shift in the computation of regular local ones, what we did is basicly assign $\vbk_2$ to the upper photon line and after the contour integral, we reassign $\vbk_2$ to the upper electron line. Therefore the exponential factor will always becomes $e^{-i\vbk_2\cdot \vb{x}}$ in the end. 
+
+	For example, 
+	\begin{align*}
+		& \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+			\begin{feynman}
+				\vertex (p1);
+				\vertex[right=3cm of p1] (p2);
+				\vertex at ($(p1)!0.4!(p2)+(0,3.5cm)$) (x) {$x$};
+				\vertex at ($(p1)!0.6!(p2)+(0,3.5cm)$) (0) {$0$};
+				\vertex at ($(p1)!0.2!(x)$) (y1);
+				\vertex at ($(p2)!0.2!(0)$) (z1);
+				\vertex at ($(p1)!0.6!(x)$) (y2);
+				\vertex at ($(p2)!0.6!(0)$) (z2);
+				%
+				\diagram* {
+				(p1) -- [] (x);
+				(p2) -- [double distance=1pt] (0);
+				(y1) -- [photon,rmomentum=$k_1$] (z1);
+				(y2) -- [photon,rmomentum=$k_2$] (z2);
+				(p1) -- [momentum=\(p\)] (y1);
+				(p2) -- [momentum'=$P_{N}\text{=}m_{N}v_{N}$,double distance=1pt] (z1);
+				(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
+				(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+				(y2) -- [momentum=\(p+k_1+k_2\)] (x);
+				(z2) -- [momentum'=\(P_{N}-k_1-k_2\),double distance=1pt] (0);
+				};
+			\end{feynman}
+		\end{tikzpicture}\\=&
+		-\mu^{2\epsilon}Z^2e^4\bqty{\int\frac{[dk_1]}{\vb{\abs{k_1}}^2}\frac{[dk_2]}{\vb{\abs{k_2}}^2}\frac{e^{-i(\vbp+\vbk_1+\vbk_2)\cdot \vb{x}}}{k^0-k_1^0-k_2^0+i\epsilon}\frac{1}{k^0-k_1^0+i\epsilon}\frac{(\vbp+\vbk_1)^4/8m^3}{\bqty{E+k_1^0-\frac{\vb{(p+k_1)}^2}{2m}+i\epsilon}^2}\frac{1}{E+k_1^0+k_2^0-\frac{\vb{(p+k_1+k_2)}^2}{2m}+i\epsilon}}\\
+		=&\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{-i(\vbp+\vbk_1+\vbk_2)\cdot \vb{x}}\frac{1}{\vb{\abs{k_1}}^2}\frac{1}{\vb{\abs{k_2}}^2}\frac{(\vbp+\vbk_1)^4/8m^3}{\bqty{E'-\frac{\vb{(p+k_1)}^2}{2m}+2i\epsilon}^2}\frac{1}{E'-\frac{\vb{(p+k_1+k_2)}^2}{2m}+2i\epsilon}\\
+		\intertext{perform shifts $\vbk_1\rightarrow\vbk_1-\vbp$ and $\vbk_2\rightarrow\vbk_2-\vbk_1-\vbp$}
+		=&4m^2\mu^{2\epsilon}Z^2e^4
+		\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{-i\vbk_2\cdot \vb{x}}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}
+	\end{align*}
+	which is exactly the form in \eqref{tempformminus}.
+
 \end{appendices}
 
 \bibliographystyle{phaip}

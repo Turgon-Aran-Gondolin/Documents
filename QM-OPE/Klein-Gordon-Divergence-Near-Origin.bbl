@@ -1,9 +1,33 @@
 \begin{thebibliography}{1}
 
+\bibitem{Greiner2000}
+W.~Greiner,
+\newblock {\em Relativistic Quantum Mechanics. Wave Equations},
+\newblock Springer, 2000.
+
+\bibitem{Chen2007}
+R.~Chen,
+\newblock International Journal of Theoretical Physics {\bf 47}, 881 (2007).
+
+\bibitem{Chen2009}
+R.~Chen,
+\newblock (2009).
+
 \bibitem{Holstein2014}
 B.~R. Holstein,
 \newblock {\em Topics in Advanced Quantum Mechanics (Dover Books on Physics)},
 \newblock Dover Publications, 2014.
+
+\bibitem{Bodwin1995}
+G.~T. Bodwin, E.~Braaten, and G.~P. Lepage,
+\newblock Physical Review D {\bf 51}, 1125 (1995).
+
+\bibitem{Lepage:1997cs}
+G.~P. Lepage,
+\newblock {How to renormalize the Schrodinger equation},
+\newblock in {\em {Nuclear physics. Proceedings, 8th Jorge Andre Swieca Summer
+  School, Sao Jose dos Campos, Campos do Jordao, Brazil, January 26-February 7,
+  1997}}, pages 135--180, 1997.
 
 \bibitem{Collins1984}
 J.~C. Collins,

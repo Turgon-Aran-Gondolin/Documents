@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex NRQED"] 1516979133 "NRQED.aux" "NRQED.bbl" "NRQED" 1516979170
+["bibtex NRQED"] 1517322971 "NRQED.aux" "NRQED.bbl" "NRQED" 1517332067
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/beebe/phaip.bst" 1480098434 60978 eec28136254b30bc99f9e1bfd036aaf7 ""
-  "NRQED.aux" 1516979170 2511 244a22e57ab42e74a58838224d6215f6 ""
-  "QM-OPE.bib" 1516964921 5555 6940ffddae615b31295b74ac3a647243 ""
+  "NRQED.aux" 1517332067 2511 6499e7d169cbea827e49161722598345 ""
+  "QM-OPE.bib" 1517320366 4563 01c49a63d8f8b413be3e75ba606f7a87 ""
   (generated)
   "NRQED.blg"
   "NRQED.bbl"
-["pdflatex"] 1516979159 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1516979170
-  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1516979158 31952 bb634bdf9482eacb0e3d425d46a50e75 ""
+["pdflatex"] 1517332054 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1517332067
+  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1517332054 32257 827ff2b139f7b1621102c0ad403118e1 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1480098696 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -245,12 +245,12 @@
   "/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty" 1480098842 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty" 1480098843 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1512732801 1200669 230c99ea9f21096b71f02db11ac3d322 ""
-  "NRQED.aux" 1516979170 2511 244a22e57ab42e74a58838224d6215f6 ""
-  "NRQED.bbl" 1516979133 294 800fa564cab5bd6cb83b6efc73c6c908 "bibtex NRQED"
-  "NRQED.out" 1516979170 1038 96277470e9e0512bc730d5d7f420f695 ""
-  "NRQED.tex" 1516979158 31952 bb634bdf9482eacb0e3d425d46a50e75 ""
+  "NRQED.aux" 1517332067 2511 6499e7d169cbea827e49161722598345 ""
+  "NRQED.bbl" 1517322971 294 800fa564cab5bd6cb83b6efc73c6c908 "bibtex NRQED"
+  "NRQED.out" 1517332067 1038 738cf2640920f769e300e3270dc6003d ""
+  "NRQED.tex" 1517332054 32257 827ff2b139f7b1621102c0ad403118e1 ""
   (generated)
   "NRQED.log"
+  "NRQED.aux"
   "NRQED.pdf"
   "NRQED.out"
-  "NRQED.aux"
