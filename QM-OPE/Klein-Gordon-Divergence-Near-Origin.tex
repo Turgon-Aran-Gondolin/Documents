@@ -98,7 +98,9 @@
 
 
 \section{Divergence in Klein-Gordon Equation and Schr\"odinger Equation}
-\subsection{Klein-Gordon Equation Solution}
+\subsection{Klein-Gordon Equation Coulomb Potential Solution}
+In this section we revisit the divergence of wavefunction near origin in the framework of quantum mechanics. 
+
 The Klein-Gordon Hydrogen Equation is
 
 \begin{align}
@@ -123,8 +125,8 @@ c is the normaliztion factor for $\int d^3r|\Psi|^2=1$. For convenience, define
 
 Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
 \begin{align}
-	R(r)&\sim-(Z\alpha)^2\log(m Z \a r)\\
-	\Psi(\vb{r})&\sim-(Z\alpha)^2\log(m Z \a r)/\sqrt{4\pi}
+	R(r)&\sim-(Z\alpha)^2\log(2m Z \a r)\\
+	\Psi(\vb{r})&\sim-(Z\alpha)^2\log(2m Z \a r)/\sqrt{4\pi}
 \end{align}
 the $m$ in $\log$ could be interpreted as a subtraction point $\mu$. This divergence is discussed by many papers\cite{Chen2007,Chen2009}.
 
@@ -198,9 +200,8 @@ The purterbative Schr\"odinger wave function's origin UV divergence, with a $\ka
 
 All the $m$, under $\Lambda$ or in a $\log$, can be interpreted as a subtraction point $\mu$.
 
-\section{Non-relativistic Scalar QED (NRSQED) Matching}
-\subsection{Operator Product Expansion}
-In the following sections we work on the quantum field theory side. We'll use non-relativistic scalar QED (NRSQED) to describe scalar electron and heavy scalar effective theory (HSET) to describe nucleus. But first, we'll need the Feynman rules of them. 
+\section{Scalar Non-relativistic QED (Scalar NRQED) Matching}
+In the following sections we work on the quantum field theory side. We'll use scalar NRQED to describe scalar electron and heavy scalar effective theory (HSET) to describe nucleus. But first, we'll need the Feynman rules of them. 
 \subsection{Feynman Rules}
 \subsubsection{Scalar QED (SQED)}
 The Lagrangian of scalar QED (HSET included) is
@@ -252,11 +253,11 @@ And the Feynman rules are
 	\end{align*}
  	\end{multicols}
 \end{minipage}
-\subsubsection{NRSQED}
-Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian of NRSQED (HSET included)
+\subsubsection{Scalar NRQED}
+Using the transformation $\displaystyle\phi\rightarrow\frac{e^{-imt}}{\sqrt{2m}}\varphi$, we can have the Lagrangian of scalar NRQED (HSET included)
 \begin{align}
-	\lag_{NRSQED}=\varphi^*\pqty{iD_0+\frac{\vb{D}^2}{2m}}\varphi+\delta\lag +\Phi_v^*iv\cdot D\Phi_v
-	\label{NRSQEDLAG}
+	\lag_{SNRQED}=\varphi^*\pqty{iD_0+\frac{\vb{D}^2}{2m}}\varphi+\delta\lag +\Phi_v^*iv\cdot D\Phi_v
+	\label{SNRQEDLAG}
 \end{align}
 with the same notation above. Here $\vb{D}=\nabla-ie\vb{A}$.
 
@@ -294,7 +295,7 @@ and it changes the Feynman rules to\footnote{In this note, $p^0$ is the zero com
 
 Since we rescaled $\phi$ by $\frac{1}{\sqrt{2m}}$ to get $\varphi$, the in/out states are also changed. We must multiply them by $\sqrt{2p^0}$ to compensate that change.
 
-Another way to achieve it is to use the transform rules of heavy scalar effective theory (HSET). \subsubsection{NRSQED Lagrangian via HSET transformation}
+Another way to achieve it is to use the transform rules of heavy scalar effective theory (HSET). \subsubsection{Scalar NRQED Lagrangian via HSET transformation}
 Let's focus on the lagrangian of only a single Scalar field
 \begin{align}
 	\lag_{SQED}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2
@@ -332,9 +333,9 @@ Substituting $(28),(29)$ iteratively, then we get the $\lag$ expanding for $v$ a
 	{ [same layer] a -- [photon,momentum'=$q$] c},
 	};=-e^2v^{0}\frac{i(p_1^0+p_2^0)}{\vb{q}^2}=-e^2v^0\frac{i}{\vb{q}^2}(2m+2E_1)
 \end{align*}
-\subsubsection{NRSQED}
+\subsubsection{Scalar NRQED}
 \begin{align*}
-	i\mathcal{M}_{NRSQED}^{(0)} & =\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),small]{
+	i\mathcal{M}_{SNRQED}^{(0)} & =\feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$),small]{
 	i1[particle=$P_N$] -- [double distance=1pt] a -- [double distance=1pt] f1[particle=$P_N$],
 	i2[particle=$p_1$] -- [] c -- [] f2[particle=$p_2$],
 	{ [same layer] a -- [photon,momentum'=$q$] c},
@@ -445,22 +446,25 @@ Since there's no logarithmic divergence in one loop (which we'll mention it soon
 		\end{feynman}
 	\end{tikzpicture}<+content+>
 \end{align*}<++>
-\subsubsection{NRSQED}\fi
+\subsubsection{SNRQED}\fi
 
-\section{Local Operator and Matrix Element of NRSQED}
-Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of neucleus, or rather to say, Coulomb potential, with heavy scalar effective theory, as mentioned before. For simplicity, and also the goal of replicating divergence produced by Klein-Gordon equation, there's no need involving any other effect the nucleus might have. And as pionted out by Bodwin, Braaten and Lepage in 1995\cite{Bodwin1995}, when discussing heavy quarkonium problem, non-relativistic Coulomb gauge wavefunction can be defined as NRQCD Bethe-Salpeter $Q\bar Q$ wavefunction, evaluated at equal time. As an analogy, we can define NRQED wavefunction in the same fashion. Therefore, we can describe the radial wavefunction in terms of a matrix element 
+\section{Local Operator and Matrix Element of Scalar NRQED}
+Assuming the full theory of the scalar electron is scalar QED, we can mimic the effect of nucleus, or rather to say, Coulomb potential, with heavy scalar effective theory, as mentioned before. For simplicity, and also the goal of replicating divergence produced by Klein-Gordon equation, there's no need involving any other effect the nucleus might have. And as pionted out by Bodwin, Braaten and Lepage in 1995\cite{Bodwin1995}, when discussing heavy quarkonium problem, non-relativistic Coulomb gauge wavefunction can be defined as NRQCD Bethe-Salpeter $Q\bar Q$ wavefunction, evaluated at equal time. As an analogy, we can define NRQED wavefunction in the same fashion. Therefore, we can describe the radial wavefunction in terms of a matrix element 
 \begin{align}
-	R(x)=\mel{0}{\psi(x)N(0)}{0}.\label{wavefunction}
+	R(x)=\mel{0}{\psi(x)N(0)}{atom}.\label{wavefunction}
 \end{align}
-Customarily, the divergence of this kind of non-local matrix element in quantum field theory is analyzed by operator product expansion (OPE)\cite{Lepage:1997cs}.
+We think that the divergence of wavefunction comes from the non-local attribute of operator $\psi(x)N(0)$ rather than the state $\ket{atom}$ itself, so it can be analyzed by operator product expansion (OPE)\cite{Lepage:1997cs}. Therefore, we can transform the problem to another matrix element\footnote{Here the actual momentum of the nucleus is $P_N=m_Nv_N$ but since $m_N$ is decoupled in HSET, it can not appear anywhere in our calculations} (note that OPE is relations between operators, thus independent of where these operators are located at)
+\begin{align}	
+	\mel{0}{\psi(x)N(0)\tilde\psi(p)\tilde N(k)}{0}=\int\frac{\dd^4 p}{(2\pi)^4}\frac{\dd^4 k}{(2\pi)^4}e^{-ip\cdot y}e^{-ik\cdot z}\mel{0}{\psi(x)N(0)\psi(y)N(z)}{0}.\label{NLME}
+\end{align}	
 
 To reproduce the singular behavior of ``Klein-Gordon Hydrogen'' wavefunction near origin, we could try OPE. But the dependence of x in this non-local matrix element can also be taken as a regularization scheme and thus the result should be the same as local one
-$$\mel{0}{\psi(0)N(0)}{0}$$
+$$\mel{0}{\psi(0)N(0)\tilde\psi(p)\tilde N(k)}{0}$$
 without renormalization (except for the choice of different regulators). And the logarithmic terms of x in \eqref{wavefunction} can be reproduced by the logarithmic divergence of local operators. From what we learned in the discussion of Klein-Gordon equation in quantum mechanics, we know that the wavefunction only contains logarithmic divergence at the origin so that's the only type of divergence we're looking for. In this section, we'll isolate the logarithmic divergence using dimensional regularization, and reproduce what we obtained in quantum mechanics perturbation theory. 
 
 Intuitively, we can assume $\psi(x)$ is just the scalar field operator in scalar QED. But what we need is logarithmic divergence start at $Z^2\a^2$ order, and using relativistic scalar field operator will result in logarithmic divergence at $Z\a$ order, which, since we already know the answer to the question, is not what we want. However, since QED, or in our case, scalar QED, has no bound on how small the distance it can probe, we might observe that in order to investigate low energy physics, we can't use theory with such sensitivity in short range.
 
-The alternative is to use non-relativistic scalar QED on the scalar electron side. Through it's a non-relativistic theory thus not the first chioce when studying a relativistic problem, the natural energy cutoff it provides will be very convenient in this problem.
+The alternative is to use scalar NRQED on the scalar electron side. Through it's a non-relativistic theory thus not the first chioce when studying a relativistic problem, the natural energy cutoff it provides will be very convenient in this problem.
 
 First we define $\epsilon=3-d$ and on-shell momentum $P_N=m_Nv_N$, also the momentum of scalar electron is $p=(E,\vbp)$ and the momentum of nucleus is $P_N+k$.
 \subsection{NLO}
@@ -616,7 +620,7 @@ We can see that the total divergence is $$Z^2\a^2\pqty{\frac{1}{2(3-d)}+\log \mu
 Comparing the final result of divergence between OPE and QM wavefunctions, we can see that the coefficient of $\log{\mu}$ is consistent with which of the logarithm divergence in the asymptotic behavior of Klein-Gordon wavefunction and Schr\"odinger wavefunction with relativistic correction.
 
 \section{Operator Product Expansion and Explicitly Coordinate-dependent Divergence}
-Now that we have successfully isolated the logarithmic divergence of local operators, we can calculate the coordinate-dependent divergence that we actually encountered regarding the wavefunction.
+Now that we have successfully isolated the logarithmic divergence of local operators, we can calculate the coordinate-dependent divergence that we actually encountered regarding the wavefunction. As mentioned before, we can achieve that via OPE. 
 
 The operator product expansion\cite{Collins1984} (OPE) is to write the products of several local operators evaluated at different points, in the limit of those points approaching each other, as a series of composite local operators, i.e.
 \begin{align}
@@ -624,25 +628,29 @@ The operator product expansion\cite{Collins1984} (OPE) is to write the products 
 \end{align}
 In our case, the equation becomes
 \begin{align}
-	\mel{0}{\psi(x)N(0)}{0}=C_0(x)\mel{0}{\psi(0)N(0)}{0}+\sum_nC_n(x)\mel{0}{\mathcal{O}_n(0)}{0}\label{OPE}
+	\psi(x)N(0)=C_0(x)\psi(0)N(0)+\sum_nC_n(x)\mathcal{O}_n(0)\label{OPE}
 \end{align}
-The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the coefficient of the first term in the right hand side. The matrix element $\mel{0}{\psi(0)N(0)}{0}$, is exactly what we calculated in the last section. 
+The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the coefficient of the first term in the right hand side. Since it's an equation for operators, we can also write it down as matrix elements
+\begin{align}
+	\mel{0}{\psi(x)N(0)}{0}=C_0(x)\psi(0)N(0)+\sum_nC_n(x)\mathcal{O}_n(0)\label{OPEME}
+\end{align}
+The matrix element $\mel{0}{\psi(0)N(0)}{0}$, is exactly what we calculated in the last section. 
 
-For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
+For any type of diagrams on the left hand side of equation \eqref{OPEME}, we have
 \begin{align}
 	\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\tikzfeynmanset{
 			my blob/.style={
 					/tikzfeynman/blob,
-					/tikz/minimum size=35pt,
+					/tikz/minimum size=30pt,
 				},
 			%every vertex/.style={my blob},
 		}
 		\begin{feynman}
 			\vertex (p1) {$p$};
-			\vertex[right=2cm of p1] (p2) {$P_N$};
-			\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) {$x$};
-			\vertex at ($(p1)!0.6!(p2)+(0,3cm)$) (0) {$0$};
+			\vertex[right=1.75cm of p1] (p2) {$P_N$};
+			\vertex at ($(p1)!0.4!(p2)+(0,2.5cm)$) (x) {$x$};
+			\vertex at ($(p1)!0.6!(p2)+(0,2.5cm)$) (0) {$0$};
 			\vertex at ($(p1)!0.5!(x)$) (y1);
 			\vertex at ($(p2)!0.5!(0)$) (z1);
 			\vertex at ($(y1)!0.5!(z1)$) (o);
@@ -664,15 +672,15 @@ For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
 			\tikzfeynmanset{
 				my blob/.style={
 						/tikzfeynman/blob,
-						/tikz/minimum size=35pt,
+						/tikz/minimum size=30pt,
 					},
 				%every vertex/.style={my blob},
 			}
 			\begin{feynman}
 				\vertex (p1) {$p$};
-				\vertex[right=2cm of p1] (p2) {$P_N$};
-				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
-				\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
+				\vertex[right=1.75cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,2.5cm)$) (x) ;
+				\vertex at ($(p1)!0.5!(p2)+(0,2.5cm)$) (0) ;
 				\vertex at ($(p1)!0.5!(x)$) (y1);
 				\vertex at ($(p2)!0.5!(0)$) (z1);
 				\vertex at ($(y1)!0.5!(z1)$) (o);
@@ -694,15 +702,15 @@ For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
 			\tikzfeynmanset{
 				my blob/.style={
 						/tikzfeynman/blob,
-						/tikz/minimum size=35pt,
+						/tikz/minimum size=30pt,
 					},
 				%every vertex/.style={my blob},
 			}
 			\begin{feynman}
 				\vertex (p1) {$p$};
-				\vertex[right=2cm of p1] (p2) {$P_N$};
-				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) {$x$};
-				\vertex at ($(p1)!0.6!(p2)+(0,3cm)$) (0) {$0$};
+				\vertex[right=1.75cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,2.5cm)$) (x) {$x$};
+				\vertex at ($(p1)!0.6!(p2)+(0,2.5cm)$) (0) {$0$};
 				\vertex at ($(p1)!0.5!(x)$) (y1);
 				\vertex at ($(p2)!0.5!(0)$) (z1);
 				\vertex at ($(y1)!0.5!(z1)$) (o);
@@ -722,15 +730,15 @@ For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
 			\tikzfeynmanset{
 				my blob/.style={
 						/tikzfeynman/blob,
-						/tikz/minimum size=35pt,
+						/tikz/minimum size=30pt,
 					},
 				%every vertex/.style={my blob},
 			}
 			\begin{feynman}
 				\vertex (p1) {$p$};
-				\vertex[right=2cm of p1] (p2) {$P_N$};
-				\vertex at ($(p1)!0.4!(p2)+(0,3cm)$) (x) ;
-				\vertex at ($(p1)!0.5!(p2)+(0,3cm)$) (0) ;
+				\vertex[right=1.75cm of p1] (p2) {$P_N$};
+				\vertex at ($(p1)!0.4!(p2)+(0,2.5cm)$) (x) ;
+				\vertex at ($(p1)!0.5!(p2)+(0,2.5cm)$) (0) ;
 				\vertex at ($(p1)!0.5!(x)$) (y1);
 				\vertex at ($(p2)!0.5!(0)$) (z1);
 				\vertex at ($(y1)!0.5!(z1)$) (o);
@@ -748,7 +756,7 @@ For any type of diagrams on the left hand side of equation \eqref{OPE}, we have
 			\end{feynman}
 		\end{tikzpicture}+UV}
 \end{align}
-so by using our previous results, we only have to compute the second term, which is in fact a Fourier transformation.
+where $UV$ stands for the ultraviolet divergent part in the local matrix elements. So by using our previous results, we only have to compute the second term, which is in fact a Fourier transformation.
 
 In previous discussion, we mentioned that the small distance between two field operators in OPE can be treated as a regularization scheme, so we can safely assume that only OPE diagrams correspondent with logarithmic divergent local operator diagrams contains $\log x$ terms. Therefore, in this case, only one diagram is considered. Here we'll jump to the 3-dimension integral without temporal component (for details about involved contour integral, see Appendix \ref{appendix:contour}). 
 \begin{align*}
@@ -803,7 +811,12 @@ In previous discussion, we mentioned that the small distance between two field o
 		\end{feynman}
 	\end{tikzpicture}\\
 	= & 4m^2\mu^{2\epsilon}Z^2e^4
-	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\numberthis\label{tempformminus}
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4/4m^2}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\numberthis\label{tempformminus}\\
+	= & 4m^2\mu^{2\epsilon}Z^2e^4\int_0^1\dd x_1\dd x_2\dd x_3\delta(1-x_1-x_2-x_3)
+	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\\&
+	\frac{3 x_3 \left(\vbk_2^4 x_2^4+2 \vbk_2^2 \vbp^2 x_2^2 x_1^2+4 \vbk_2^2 x_2^3 x_1 \vbk_2\cdot\vbp+4 \vbp^2 x_2 x_1^3 \vbk_2\cdot\vbp+4 x_2^2 x_1^2 (\vbk_2\cdot\vbp)^2+\vbp^4 x_1^4\right)}{32 \pi }\\&
+	\left(\frac{1}{\vbk_2^2 x_2-(-\vbk_2 x_2-\vbp x_1)^2-2 E m x_3+\vbp^2 x_1}\right)^{5/2}+\frac{3 x_3 \left(\frac{10}{3} \vbk_2^2 x_2^2+\frac{20}{3} x_2 x_1 \vbk_2\cdot\vbp+\frac{10}{3} \vbp^2 x_1^2\right)}{32 \pi } \\&
+	\left(\frac{1}{\vbk_2^2 x_2-(-\vbk_2 x_2-\vbp x_1)^2-2 E m x_3+\vbp^2 x_1}\right)^{3/2}+\frac{15 x_3 }{32 \pi }\sqrt{\frac{1}{\vbk_2^2 x_2-(-\vbk_2 x_2-\vbp x_1)^2-2 E m x_3+\vbp^2 x_1}}
 \end{align*}
 
 \begin{appendices}
