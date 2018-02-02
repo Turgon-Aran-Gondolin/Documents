@@ -1,18 +1,20 @@
-\BOOKMARK [1][-]{section.1}{Divergence in Klein-Gordon Equation and Schr\366dinger Equation}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Klein-Gordon Equation Coulomb Potential Solution}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{The Schr\366dinger part}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Scalar Non-relativistic QED \(Scalar NRQED\) Matching}{}% 4
-\BOOKMARK [2][-]{subsection.2.1}{Feynman Rules}{section.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Scalar QED \(SQED\)}{subsection.2.1}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Scalar NRQED}{subsection.2.1}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Scalar NRQED Lagrangian via HSET transformation}{subsection.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.2}{LO Matching}{section.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.1}{SQED}{subsection.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Scalar NRQED}{subsection.2.2}% 11
-\BOOKMARK [1][-]{section.3}{Local Operator and Matrix Element of Scalar NRQED}{}% 12
-\BOOKMARK [2][-]{subsection.3.1}{NLO}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.2}{NNLO}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Operator Product Expansion and Explicitly Coordinate-dependent Divergence}{}% 15
-\BOOKMARK [1][-]{section*.4}{Appendices}{}% 16
-\BOOKMARK [1][-]{Appendix.A}{Useful formulas in Feynman integrals}{}% 17
-\BOOKMARK [1][-]{Appendix.B}{Contour Integral}{}% 18
+\BOOKMARK [0][-]{section*.1}{Divergence of Klein-Gordon Hydrogen Wavefunction Near Origin}{}% 1
+\BOOKMARK [1][-]{section*.2}{Introduction}{section*.1}% 2
+\BOOKMARK [1][-]{section*.3}{Divergence in Klein-Gordon Equation and Schr\366dinger Equation}{section*.1}% 3
+\BOOKMARK [2][-]{section*.4}{Klein-Gordon Equation Coulomb Potential Solution}{section*.3}% 4
+\BOOKMARK [2][-]{section*.5}{The Schr\366dinger part}{section*.3}% 5
+\BOOKMARK [1][-]{section*.6}{Scalar Non-relativistic QED \(Scalar NRQED\) Matching}{section*.1}% 6
+\BOOKMARK [2][-]{section*.7}{Feynman Rules}{section*.6}% 7
+\BOOKMARK [3][-]{section*.8}{Scalar QED \(SQED\)}{section*.7}% 8
+\BOOKMARK [3][-]{section*.9}{Scalar NRQED Lagrangian via HSET transformation}{section*.7}% 9
+\BOOKMARK [2][-]{section*.10}{LO Matching}{section*.6}% 10
+\BOOKMARK [3][-]{section*.11}{SQED}{section*.10}% 11
+\BOOKMARK [3][-]{section*.12}{Scalar NRQED}{section*.10}% 12
+\BOOKMARK [1][-]{section*.13}{Local Operator and Matrix Element of Scalar NRQED}{section*.1}% 13
+\BOOKMARK [2][-]{section*.14}{Next Leading Order}{section*.13}% 14
+\BOOKMARK [2][-]{section*.15}{Next-to-Next Leading Order}{section*.13}% 15
+\BOOKMARK [1][-]{section*.16}{Operator Product Expansion and Explicitly Coordinate-dependent Divergence}{section*.1}% 16
+\BOOKMARK [1][-]{section*.19}{Renormalization Group Equation}{section*.1}% 17
+\BOOKMARK [1][-]{section*.20}{Useful formulas in Feynman integrals}{section*.1}% 18
+\BOOKMARK [1][-]{section*.21}{Contour Integral}{section*.1}% 19
+\BOOKMARK [1][-]{section*.22}{References}{section*.1}% 20

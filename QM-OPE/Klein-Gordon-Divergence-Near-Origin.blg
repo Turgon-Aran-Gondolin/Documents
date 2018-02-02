@@ -1,46 +1,70 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Klein-Gordon-Divergence-Near-Origin.aux
-The style file: phaip.bst
-Database file #1: QM-OPE.bib
-You've used 7 entries,
-            1868 wiz_defined-function locations,
-            611 strings with 6170 characters,
-and the built_in function-call counts, 1313 in all, are:
-= -- 103
-> -- 49
-< -- 1
-+ -- 16
-- -- 9
-* -- 72
-:= -- 190
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 1
-chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 77
-empty$ -- 142
-format.name$ -- 16
-if$ -- 311
-int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 10
-newline$ -- 35
-num.names$ -- 7
-pop$ -- 42
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: Klein-Gordon-Divergence-Near-OriginNotes.bib
+Database file #2: QM-OPE.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (72) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (-1) disabled
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+Warning--missing journal in Chen2009
+Warning--empty year in Chen2009
+Warning--missing journal in Kawamura2009a
+Warning--empty year in Kawamura2009a
+Warning--missing journal in Ellis2016
+Warning--empty year in Ellis2016
+You've used 16 entries,
+            5847 wiz_defined-function locations,
+            1711 strings with 18033 characters,
+and the built_in function-call counts, 10924 in all, are:
+= -- 779
+> -- 170
+< -- 63
++ -- 70
+- -- 36
+* -- 1500
+:= -- 1207
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 67
+chr.to.int$ -- 16
+cite$ -- 22
+duplicate$ -- 1056
+empty$ -- 869
+format.name$ -- 99
+if$ -- 2094
+int.to.chr$ -- 1
+int.to.str$ -- 24
+missing$ -- 121
+newline$ -- 101
+num.names$ -- 39
+pop$ -- 510
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 74
 quote$ -- 0
-skip$ -- 46
+skip$ -- 416
 stack$ -- 0
-substring$ -- 51
-swap$ -- 22
-text.length$ -- 1
+substring$ -- 289
+swap$ -- 852
+text.length$ -- 19
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 11
-width$ -- 8
-write$ -- 64
+top$ -- 8
+type$ -- 190
+warning$ -- 6
+while$ -- 33
+width$ -- 0
+write$ -- 160
+(There were 6 warnings)
