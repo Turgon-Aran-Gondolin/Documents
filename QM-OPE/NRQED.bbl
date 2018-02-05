@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{3}%
+\begin{thebibliography}{6}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,6 +50,10 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
+\bibitem [{Note1()}]{Note1}%
+  \BibitemOpen
+  \bibinfo {note} {This wavefunction checks out with Bethe's, except for an
+  extra $i$.}\BibitemShut {Stop}%
 \bibitem [{\citenamefont {Darwin}(1928)}]{Darwin1928}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~G.}\ \bibnamefont
@@ -73,4 +77,12 @@
   {\emph {\bibinfo {title} {Quantum Mechanics of One- and Two-Electron Atoms
   (Dover Books on Physics)}}}\ (\bibinfo  {publisher} {Dover Publications},\
   \bibinfo {year} {2008})\BibitemShut {NoStop}%
+\bibitem [{Note2()}]{Note2}%
+  \BibitemOpen
+  \bibinfo {note} {Note that there's no Gamma matrice in the heavy particle
+  side, they can only appear in the QED side.}\BibitemShut {Stop}%
+\bibitem [{Note3()}]{Note3}%
+  \BibitemOpen
+  \bibinfo {note} {Which contains both Darwin and spin-orbital
+  terms}\BibitemShut {NoStop}%
 \end{thebibliography}%

@@ -1,7 +1,7 @@
     % !TEX program = lualatex
 \PassOptionsToPackage{naturalnames}{hyperref}
 \RequirePackage{luatex85}
-\documentclass[aps,prd,preprint,showkeys,10pt]{revtex4-1}
+\documentclass[aps,prd,preprint,showkeys,notitlepage,10pt]{revtex4-1}
 %\documentclass{article}
 
 \usepackage{geometry}
@@ -88,11 +88,13 @@
 
 \newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
 
+%--------------------------------LuaLaTeX Fonts------------------------------
 %\setmainjfont[BoldFont=FandolSong-Bold]{FandolSong-Regular}
 %\setsansjfont{FandolSong-Bold}
 %\setlength{\parindent}{2em}
 %\linespread{1.2}
 %\renewcommand\Authsep{, }
+%----------------------------------END---------------------------------------
 
 \allowdisplaybreaks
 
@@ -126,9 +128,6 @@
 Chinese Academy of Sciences, Beijing 100049, China}
 \affiliation{School of Physics, University of Chinese Academy of Sciences, Beijing 100049, China}
 
-
-
-
 \begin{abstract}
 
 \end{abstract}
@@ -136,10 +135,7 @@ Chinese Academy of Sciences, Beijing 100049, China}
 
 \maketitle
 
-
 \section*{Introduction}
-
-
 
 \section{Divergence in Klein-Gordon Equation and Schr\"odinger Equation}
 \subsection{Klein-Gordon Equation Coulomb Potential Solution}
@@ -968,7 +964,7 @@ Renormalization group equation
 	\begin{align}
 		\int\dd^3\vbk e^{i[\a \vbk^2-2 \vb{v}\cdot \vbk]}=\pqty{\frac{\pi}{\a}}^{3/2}e^{-i\vb{v}^2/\a+3i\pi/4}
 	\end{align}
-	Sometimes we might also need it in Euclidean d dimension
+	Sometimes we might also need it in Euclidean d-dimension
 	\begin{align}
 		\int\dd^d\vbk e^{i[\a \vbk^2-2 \vb{v}\cdot \vbk]}=\pqty{\frac{\pi}{\a}}^{d/2}e^{-i\vb{v}^2/\a+id\pi/4}
 	\end{align}
