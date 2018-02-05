@@ -96,7 +96,7 @@ The Dirac Hydrogen Equation is
 	(\bm{\a}\cdot \vbp+\b m-\frac{Z\a}{r} )\Psi=E\Psi
 \end{align}
 
-For the bound state, the wavefunction is\cite{Darwin1928,Gordon1928,Bethe2008}
+For the bound state, the wavefunction\footnote{This wavefunction checks out with Bethe's, except for an extra $i$. } is\cite{Darwin1928,Gordon1928,Bethe2008}
 \begin{align}
 	\Psi^+_{1,\frac{1}{2},\frac{1}{2}}  & =\bmqty{\frac{ic\sqrt{m+E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{1 \\0}\\-\frac{c\sqrt{m-E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{\cos\theta\\\sin\theta e^{i\phi}}}\\
 	\Psi^+_{1,\frac{1}{2},-\frac{1}{2}} & =\bmqty{\frac{ic\sqrt{m+E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{0 \\1}\\-\frac{c\sqrt{m-E}\rho^{\gamma}e^{-\frac{\rho}{2}}}{r}\sqrt{\frac{1}{4\pi}}\bmqty{\sin\theta e^{i\phi}\\\cos\theta}}
@@ -108,7 +108,7 @@ where
 \end{align}
 c is the normalization factor for $\int d^3r|\Psi|^2=1$.
 
-Only keeping the upper component $\psi_u$, we need to normalize it again so that $\int d^3r\psi_u^2=1$. We get an extra normalization factor
+Only keeping the upper component $\psi_u$, we need to normalize it again so that $\int d^3r\psi_u^2\approx1$. We get an extra normalization factor
 $$1-\frac{\lambda^2}{8m^2}+\frac{2\gamma\lambda}{4m^2r}-\frac{\gamma^2-\gamma}{8m^2r^2}$$
 
 For convenience, define
@@ -118,7 +118,7 @@ For convenience, define
 
 Now $\Psi '$ is dimensionless and expand it in $\alpha$, we get the logarithmic divergence comes from a term
 \begin{align}
-	-\frac{(Z\alpha)^2}{2}\log(m r)
+	R(r)\sim-\frac{(Z\alpha)^2}{2}\log(2m Z\a r)
 \end{align}
 the $m$ in $\log$ could be interpreted as a subtraction point $\mu$.
 
@@ -136,6 +136,11 @@ The $H_0$ gives the radial wave functions as follows
 	R_{n0}      & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                                                           \\
 	R_{\kappa0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}\kappa e^\frac{\pi}{2\kappa}|\Gamma(1-\frac{i}{\kappa})|e^{-imz\alpha \kappa r}F(1+\frac{i}{\kappa},2,2imZ\alpha \kappa r),\ \ \ E_\kappa=\frac{mZ^2\alpha^2\kappa^2}{2}
 \end{align}
+\begin{figure}[!tbhp]
+	\centering
+	\includegraphics[width=4 in]{QM-Dirac-1.pdf}
+	\caption{Comparison between Dirac wavefunction and Schr\"odinger wavefunction near origin. }
+\end{figure}
 
 The NLO corretion of the bound state wave function is
 \begin{align}

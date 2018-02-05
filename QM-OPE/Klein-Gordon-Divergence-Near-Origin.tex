@@ -188,7 +188,12 @@ The $H_0$ gives the radial wave functions as follows
 	R_{n0}       & =\frac{2(mZ\alpha)^\frac{3}{2}}{n^\frac{3}{2}}e^{-\frac{mZ\alpha}{n}r}F(1-n,2,\frac{2mZ\alpha r}{n}),\ \ \ E_n=-\frac{Z^2\alpha^2m}{2n^2}                                                                             \\
 	R_{\kappa 0} & =\sqrt{\frac{2}{\pi}}(mZ\alpha)^\frac{3}{2}\kappa e^\frac{\pi}{2\kappa}|\Gamma(1-\frac{i}{\kappa})|e^{-imz\alpha \kappa r}F(1+\frac{i}{\kappa},2,2imZ\alpha \kappa r),\ \ \ E_{\kappa}=\frac{mZ^2\alpha^2\kappa^2}{2}
 \end{align}
-where the relation between dimentionalless $\ka$ and the actual momentum $\vbk$ is $\kappa=\frac{\abs{\vbk}}{m Z \a}$, and the normaliztion of continuum spectrum is followed by $$\int r^2\dd rR_{\ka' l}R_{\ka l}=\delta(k'-k).$$
+where the relation between dimentionalless $\ka$ and the actual momentum $\vbk$ is $\kappa=\frac{\abs{\vbk}}{m Z \a}$, and the normaliztion of continuum spectrum is followed by $$\int r^2\dd rR_{\ka' l}R_{\ka l}=\delta(\ka'-\ka).$$
+\begin{figure}
+	\centering
+	\includegraphics[width=4 in]{QM-KG-1.pdf}
+	\caption{Comparison between Klein-Gordon wavefunction and Schr\"odinger wavefunction}
+\end{figure}
 
 The NLO corretion of the bound state wave function is
 \begin{align}
@@ -944,18 +949,28 @@ Renormalization group equation
 	\begin{align}
 		\frac{1}{A^n}=\frac{1}{\Gamma{(n)}}\int_0^\infty\dd z z^{n-1}e^{-zA}
 	\end{align}
+	where $A$ is real and $A>0$ or
+	\begin{align}
+		\frac{1}{A^n}=\frac{(-i)^{n}}{\Gamma{(n)}}\int_0^\infty\dd z z^{n-1}e^{izA}
+	\end{align}
+	if $A$ is complex and $\Im A>0$ or $A>0$ and $0<n<1$. 
+
 	We can apply it to each propagator and that's alpha parameterization\cite{Smirnov2006}
 	\begin{align}
 		\tilde D_{F,l}(p)=\frac{iZ_l(p)}{(p^2-m_l^2+i\epsilon)^{a_l}}=iZ_l\bqty{\eval{\pqty{\frac{1}{2i}\pdv{u_l}}e^{2iu_l\cdot p}}_{u_l=0}}\frac{(-i)^{a_l}}{\Gamma{(a_l)}}\int_0^{\infty}\dd \a_l \a_l^{a_l-1}e^{i(p^2-m_l^2)\a_l}
 		\label{ALPHAPARA}
 	\end{align}
-	In three dimension, alpha representation is slightly different from 3+1 dimension. We only need Gaussian integrals in three dimension
+	In three dimension, alpha representation is slightly different from 3+1 dimension. We only need Gaussian integrals in three dimension ($q_j$ is real and $\a>0$)
 	\begin{align}
-		\int_{-\infty}^{\infty}\dd k_je^{-i(\a k_j^2-2q_jk_j)}=\sqrt{\frac{\pi}{\a}}e^{iq_j^2/\a-i\pi/4},\;\;j=1,2,3
+		\int_{-\infty}^{\infty}\dd k_je^{i(\a k_j^2-2q_jk_j)}=\sqrt{\frac{\pi}{\a}}e^{-iq_j^2/\a+i\pi/4},\;\;j=1,2,3
 	\end{align}
 	thus
 	\begin{align}
-		\int\dd^3\vbk e^{i[(\vbk-\vbp)^2-m_l^2]\a_l}=e^{i(\vbp^2-m_l^2)\a_l}
+		\int\dd^3\vbk e^{i[\a \vbk^2-2 \vb{v}\cdot \vbk]}=\pqty{\frac{\pi}{\a}}^{3/2}e^{-i\vb{v}^2/\a+3i\pi/4}
+	\end{align}
+	Sometimes we might also need it in Euclidean d dimension
+	\begin{align}
+		\int\dd^d\vbk e^{i[\a \vbk^2-2 \vb{v}\cdot \vbk]}=\pqty{\frac{\pi}{\a}}^{d/2}e^{-i\vb{v}^2/\a+id\pi/4}
 	\end{align}
 
 	For arbitary one loop diagram of the following form in three dimension, we have

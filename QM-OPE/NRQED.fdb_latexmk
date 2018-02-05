@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex NRQED"] 1517561231 "NRQED.aux" "NRQED.bbl" "NRQED" 1517561242
+["bibtex NRQED"] 1517811013 "NRQED.aux" "NRQED.bbl" "NRQED" 1517811086
   "/usr/local/texlive/texmf-local/bibtex/bst/revtex/apsrev4-1.bst" 1281387665 71518 fec93f06df0c073f83d2330456bd19c2 ""
-  "NRQED.aux" 1517561242 2643 f853376d42309087d10e6b998cf79c6e ""
-  "QM-OPE.bib" 1517561209 9346 b3340735edb28b75e1b1a82754be796d ""
+  "NRQED.aux" 1517811086 2827 231e3dac67488347306c212a4ae627ef ""
+  "QM-OPE.bib" 1517564374 9742 d8332859d37f82da230dc5980100404b ""
   (generated)
   "NRQED.bbl"
   "NRQED.blg"
-["pdflatex"] 1517561231 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1517561242
-  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1517561220 32373 aa56ab739cbb7b2a501aa5f2b419e017 ""
+["pdflatex"] 1517811075 "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" "NRQED.pdf" "NRQED" 1517811086
+  "/home/huangys/Github/Documents/QM-OPE/NRQED.tex" 1517811074 32658 398c45042cf3df49afcd81d9d1b0814f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1480098696 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -73,6 +73,7 @@
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1480098733 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1480098733 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1480098733 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1480098733 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb" 1480098733 36912 b448ef9ad9d7228ec3c6e71005136d55 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1480098733 31809 8670ca339bf94e56da1fc21c80635e2a ""
@@ -253,12 +254,13 @@
   "/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty" 1480098842 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty" 1480098843 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1512732801 1200669 230c99ea9f21096b71f02db11ac3d322 ""
-  "NRQED.aux" 1517561242 2643 f853376d42309087d10e6b998cf79c6e ""
-  "NRQED.bbl" 1517561231 3592 db1b0c0d07f1d76d26fd7cd5889f902b "bibtex NRQED"
-  "NRQED.out" 1517561242 1038 55f72c769f3d43aafb8cfb1ae00f760e ""
-  "NRQED.tex" 1517561220 32373 aa56ab739cbb7b2a501aa5f2b419e017 ""
+  "NRQED.aux" 1517811086 2827 231e3dac67488347306c212a4ae627ef ""
+  "NRQED.bbl" 1517811013 3592 db1b0c0d07f1d76d26fd7cd5889f902b "bibtex NRQED"
+  "NRQED.out" 1517811086 1038 d5535fdfc086a443c6e608592c0d1e73 ""
+  "NRQED.tex" 1517811074 32658 398c45042cf3df49afcd81d9d1b0814f ""
+  "QM-Dirac-1.pdf" 1517810243 5632 f018aff2e03e93ce960bec7229364d4d ""
   (generated)
-  "NRQED.aux"
-  "NRQED.out"
   "NRQED.pdf"
   "NRQED.log"
+  "NRQED.aux"
+  "NRQED.out"
