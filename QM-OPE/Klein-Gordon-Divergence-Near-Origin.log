@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  12 FEB 2018 17:16
+This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  12 FEB 2018 19:49
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Ori
@@ -36,7 +36,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.332 seconds
+luaotfload | main : initialization completed in 0.380 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
@@ -1908,4 +1908,167 @@ LaTeX Font Info:    ... okay on input line 120.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS t
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count195
+\scratchdimen=\dimen284
+\scratchbox=\box83
+\nofMPsegments=\count196
+\nofMParguments=\count197
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count198
+\MPscratchDim=\dimen285
+\MPnumerator=\count199
+\makeMPintoPDFobject=\count266
+\everyMPtoPDFconversion=\toks42
+) (c:/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(c:/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
+8.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG
+,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(c:/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+
+))
+\AtBeginShipoutBox=\box84
+Package hyperref Info: Link coloring ON on input line 120.
+
+(c:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(c:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count267
+)
+LaTeX Info: Redefining \ref on input line 120.
+LaTeX Info: Redefining \pageref on input line 120.
+LaTeX Info: Redefining \nameref on input line 120.
+
+(./Klein-Gordon-Divergence-Near-Origin.out)
+(./Klein-Gordon-Divergence-Near-Origin.out)
+\@outlinefile=\write6
+
+\openout6 = Klein-Gordon-Divergence-Near-Origin.out
+
+ABD: EveryShipout initializing macros
+Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 120.
+
+\openout3 = Klein-Gordon-Divergence-Near-OriginNotes.bib
+LaTeX Font Info:    Try loading font information for U+msa on input line 136.
+
+(c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 136.
+
+(c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 136.
+
+(c:/texlive/2017/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<QM-KG-1.pdf, id=138, 361.35pt x 217.81375pt>
+File: QM-KG-1.pdf Graphic file (type pdf)
+ <use QM-KG-1.pdf>
+Package luatex.def Info: QM-KG-1.pdf used on input line 194.
+(luatex.def)             Requested size: 289.07999pt x 174.25122pt.
+ [3] [4<./QM-KG-1.pdf>] Excluding 'comment' comment.
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 274--350
+[]$[]$ $[]$ 
+ []
+
+[5] [6] [7] [8] Excluding 'comment' comment.
+Overfull \hbox (4.77946pt too wide) in paragraph at lines 611--611
+[] 
+ []
+
+
+Overfull \hbox (20.37671pt too wide) in paragraph at lines 654--654
+[] 
+ []
+
+[9]
+Overfull \hbox (20.37671pt too wide) in paragraph at lines 692--692
+[] 
+ []
+
+[10] [11] [12]
+Overfull \hbox (23.12149pt too wide) in paragraph at lines 993--993
+[] 
+ []
+
+[13] [14] [15]
+Overfull \hbox (4.77946pt too wide) in paragraph at lines 1140--1140
+[] 
+ []
+
+
+Overfull \hbox (20.37671pt too wide) in paragraph at lines 1176--1176
+[] 
+ []
+
+[16] (./Klein-Gordon-Divergence-Near-Origin.bbl) [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1186.
+
+(./Klein-Gordon-Divergence-Near-Origin.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1186.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1186.
+Package rerunfilecheck Info: File `Klein-Gordon-Divergence-Near-Origin.out' has 
+not changed.
+(rerunfilecheck)             Checksum: 946D9281F22A03094BFDBF59CE4C7A0C;1618.
+)
+
+Here is how much of LuaTeX's memory you used:
+ 32486 strings out of 494481
+ 156279,953878 words of node,token memory allocated
+ 644 words of node memory still in use:
+   11 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 4 sub_mlist, 20 attribute, 66 glue
+_spec, 20 attribute_list, 1 pdf_action nodes
+   avail lists: 1:11,2:7102,3:3101,4:136,5:701,6:7014,7:5863,8:182,9:2725,10:12,
+11:620
+ 35471 multiletter control sequences out of 65536+600000
+ 86 fonts using 3689319 bytes
+ 70i,21n,127p,917b,1704s stack positions out of 5000i,500n,10000p,200000b,100000s
+{c:/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2017/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/c
+mex7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2017/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pf
+b><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2017/
+texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/texlive/2017/texmf-dist/fonts/typ
+e1/public/lm/lmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmr12.p
+fb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2017/t
+exmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2017/texmf-dist/fonts/type1
+/public/lm/lmri10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmri9.pf
+b>
+Output written on Klein-Gordon-Divergence-Near-Origin.pdf (17 pages, 534267 byte
+s).
+
+PDF statistics: 438 PDF objects out of 1000 (max. 8388607)
+ 382 compressed objects within 4 object streams
+ 111 named destinations out of 1000 (max. 131072)
+ 189 words of extra memory for PDF output out of 10000 (max. 100000000)
+

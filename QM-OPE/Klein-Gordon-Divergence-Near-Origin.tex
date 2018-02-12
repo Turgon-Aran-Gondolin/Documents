@@ -982,12 +982,14 @@ Due to the presence of Fourier factor, it might be more natural to choose alpha 
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{2i\vb{u}\cdot \vbk_1}e^{i(\vbk_1-\vbp)^2\a_1}\\&e^{i(\vbk_1-\vbk_2)^2\a_2}e^{i(\vb{\abs{k_1}}^2-2mE')\a_3}e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}e^{-i\vb{k}_2\cdot\vb{x}} \Bigg]\\
 	= & 2\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}
-	e^{-i\vb{k}_2} e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}\\&
-	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3]}\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}e^{i[(\a_1+\a_2+\a_3)\abs{\vbk_1}^2+2(\vb{u}+\a_1\vbp+\a_2\vbk_2)\cdot\vbk_1]} \Bigg]\\
+	e^{-i\vb{k}_2\cdot\vb{x}} e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}
+	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3]}\\&
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}e^{i[(\a_1+\a_2+\a_3)\abs{\vbk_1}^2+2(\vb{u}+\a_1\vbp+\a_2\vbk_2)\cdot\vbk_1]} \Bigg]\\
 	=&2\mu^{2\epsilon}Z^2\a^2\pi^2
-	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}
-	e^{-i\vb{k}_2} e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}\\&
-	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3]}(\frac{\pi}{\a})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}
+	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}
+	(\frac{\pi}{\a_4})^{d/2}e^{-i\vb{x}^2/{\a_4}+id\pi/4}
+	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3-2mE'\a_4]}\\&
+	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}
 \end{align*}
 
 
