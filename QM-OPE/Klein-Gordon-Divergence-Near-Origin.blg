@@ -26,45 +26,45 @@ Warning--missing journal in Kawamura2009a
 Warning--empty year in Kawamura2009a
 Warning--missing journal in Ellis2016
 Warning--empty year in Ellis2016
-You've used 16 entries,
+You've used 17 entries,
             5847 wiz_defined-function locations,
-            1711 strings with 18033 characters,
-and the built_in function-call counts, 10924 in all, are:
-= -- 779
+            1714 strings with 18225 characters,
+and the built_in function-call counts, 11188 in all, are:
+= -- 811
 > -- 170
 < -- 63
-+ -- 70
++ -- 72
 - -- 36
-* -- 1500
-:= -- 1207
-add.period$ -- 16
-call.type$ -- 16
-change.case$ -- 67
-chr.to.int$ -- 16
-cite$ -- 22
-duplicate$ -- 1056
-empty$ -- 869
+* -- 1533
+:= -- 1240
+add.period$ -- 17
+call.type$ -- 17
+change.case$ -- 72
+chr.to.int$ -- 17
+cite$ -- 23
+duplicate$ -- 1074
+empty$ -- 885
 format.name$ -- 99
-if$ -- 2094
+if$ -- 2143
 int.to.chr$ -- 1
-int.to.str$ -- 24
-missing$ -- 121
-newline$ -- 101
+int.to.str$ -- 25
+missing$ -- 122
+newline$ -- 104
 num.names$ -- 39
-pop$ -- 510
+pop$ -- 520
 preamble$ -- 1
-purify$ -- 74
+purify$ -- 78
 quote$ -- 0
-skip$ -- 416
+skip$ -- 427
 stack$ -- 0
-substring$ -- 289
-swap$ -- 852
+substring$ -- 303
+swap$ -- 865
 text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 8
-type$ -- 190
+type$ -- 201
 warning$ -- 6
 while$ -- 33
 width$ -- 0
-write$ -- 160
+write$ -- 164
 (There were 6 warnings)

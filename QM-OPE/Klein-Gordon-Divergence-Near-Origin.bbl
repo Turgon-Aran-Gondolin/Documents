@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{16}%
+\begin{thebibliography}{17}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -110,6 +110,11 @@
   \bibinfo {note} {Here the actual momentum of the nucleus is $P_N=m_Nv_N$ but
   since $m_N$ is decoupled in HSET, it can not appear anywhere in our
   calculations.}\BibitemShut {Stop}%
+\bibitem [{Note4()}]{Note4}%
+  \BibitemOpen
+  \bibinfo {note} {Actually in the HSET side only energy conservation is kept,
+  but for formality we write four momentum in the diagram. So we may wrote $k$
+  on the HSET side but what we meant was $k^0$.}\BibitemShut {Stop}%
 \bibitem [{\citenamefont {Collins}(1984)}]{Collins1984}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~C.}\ \bibnamefont

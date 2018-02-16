@@ -574,7 +574,7 @@ which doesn't have logarithmic divergence.
 \subsection{Next-to-Next Leading Order}
 Since we're calculating Green function, the nucleus is off-shell by $k$. Although the effect is just a shift in electron energy (see Appendix \ref{appendix:contour}), it's convenient for us to define $E'=E+k^0$.
 
-All the Feynman rules we need are derived above except for one: on the top of the diagram, the joint point stands for composite operator $\psi(0)N(0)$, whose Feynman rule is just $1$; if it's seperated a little, it stands for non-local fields in operator product expansion and can be treated as a exponential factor $e^{-i \vbk \cdot \vb{x}}$ where $\vbk$ is the momentum of the cloest line in the electron side.
+All the Feynman rules we need are derived above except for one: on the top of the diagram, the joint point stands for composite operator $\psi(0)N(0)$, whose Feynman rule is just $1$; if it's seperated a little, it stands for non-local fields in operator product expansion and can be treated as a exponential factor $e^{-i \vbk \cdot \vb{x}}$ where $\vbk$ is the momentum of the cloest line in the electron side\footnote{Actually in the HSET side only energy conservation is kept, but for formality we write four momentum in the diagram. So we may wrote $k$ on the HSET side but what we meant was $k^0$. }.
 \begin{align*}
 	&\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
@@ -734,9 +734,9 @@ Customarily, OPE is discussed in the framework of renormalizable theorys, but th
 \end{align}
 Here we choose equal-time plane to discuss this problem. The logarithmic divergence, which is the highest order of divergence on the left hand side, only appears in the coefficient of the first term in the right hand side. Since it's an equation for operators, we can also write it down as matrix elements
 \begin{align}
-	\mel{0}{\psi(\vb{x})N(0)}{0}=C_0(\vb{x})\mel{0}{\psi(0)N(0)}{0}+\sum_nC_n(\vb{x})\mel{0}{\mathcal{O}_n(0)}{0}\label{OPEME}
+	\mel{0}{\psi(\vb{x})N(0)\tilde\psi(p)\tilde N(k)}{0}=C_0(\vb{x})\mel{0}{\psi(0)N(0)\tilde\psi(p)\tilde N(k)}{0}+\sum_nC_n(\vb{x})\mel{0}{\mathcal{O}_n(0)\tilde\psi(p)\tilde N(k)}{0}\label{OPEME}
 \end{align}
-The matrix element $\mel{0}{\psi(0)N(0)}{0}$, is exactly what we calculated in the last section.
+The matrix element $\mel{0}{\psi(0)N(0)\tilde\psi(p)\tilde N(k)}{0}$, is exactly what we calculated in the last section.
 
 For any type of diagrams on the left hand side of equation \eqref{OPEME}, we have
 \begin{align}
@@ -926,28 +926,31 @@ Conventionally we choose Feynman parameterization
 	= & 16\mu^{2\epsilon}Z^2\a^2\pi^2\int_0^1\dd x_1\dd x_2\dd x_3\delta(1-x_1-x_2-x_3)
 	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\\&
 	\Bigg\{\frac{3 x_3 \left(\vbk_2^4 x_2^4+2 \vbk_2^2 \vbp^2 x_2^2 x_1^2+4 \vbk_2^2 x_2^3 x_1 \vbk_2\cdot\vbp+4 \vbp^2 x_2 x_1^3 \vbk_2\cdot\vbp+4 x_2^2 x_1^2 (\vbk_2\cdot\vbp)^2+\vbp^4 x_1^4\right)}{32 \pi }(x_2 - x_2^2)^{-5/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\frac{\vbp^2 \left(x_1-x_1^2\right) -2 E' m x_3}{x_2-x_2^2}  \right)^{-5/2}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1  }{1-x_2}+\frac{\vbp^2 \left(x_1-x_1^2\right) -2 E' m x_3}{x_2-x_2^2}  \right)^{-5/2}
 	+\frac{3 x_3 \left(\frac{10}{3} \vbk_2^2 x_2^2+\frac{20}{3} x_2 x_1 \vbk_2\cdot\vbp+\frac{10}{3} \vbp^2 x_1^2\right)}{32 \pi }(x_2 - x_2^2)^{-3/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\frac{\vbp^2 \left(x_1-x_1^2\right) -2 E' m x_3}{x_2-x_2^2}  \right)^{-3/2}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\frac{\vbp^2 \left(x_1-x_1^2\right) -2 E' m x_3}{x_2-x_2^2}  \right)^{-3/2}
 	+\frac{15 x_3 }{32 \pi }(x_2 - x_2^2)^{-1/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\frac{\vbp^2 \left( x_1-x_1^2\right)-2 E' m x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}\\
-	\intertext{since we're to calculate the short distance limit, which means the loop momentum $\abs{\vbk_2}$ must be close to $m$, the natural cutoff of SNRQED, and also if we assume the external momentum and energy satisfy $\abs{\vbp}\ll m$ and $2mE'\ll m^2$, we can safely drop some terms (there're some terms involving Feynman parameters that can't be dropped but we'll naively neglect them for now) and get}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1  }{1-x_2}+\frac{\vbp^2 \left( x_1-x_1^2\right)-2 E' m x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}\\
+	\intertext{since we're to calculate the short distance limit, which means the loop momentum $\abs{\vbk_2}$ must be close to $m$, the natural cutoff of SNRQED, and also if we assume the external momentum and energy satisfy $\abs{\vbp}\ll m$ and $2mE'\ll m^2$, we can safely drop some terms such as the $\vb{k}_2\cdot p$ terms (there're some terms involving Feynman parameters that can't be dropped but we'll naively neglect them for now) and get}
 	= & 2\mu^{2\epsilon}Z^2\a^2%\pi^2
 	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}=\frac{ Z^2 \alpha^2}{d-3}- Z^2\alpha ^2 \log (2x)-\frac{1}{2} \gamma  Z^2 \alpha ^2+Z^2\alpha ^2 -\frac{1}{2} Z^2\alpha ^2  \log \pi -2Z^2\a^2\log\mu
 \end{align*}
-Ideally the 2 in the last line should not exist if we compare the result to \eqref{DIV}, but the reality says otherwise. There must be something wrong about the simplification we did earlier. Of course we can speculate that the last loop must take the form of $\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}$ in hard region multiplied by some factors and it has the same UV behavior as the local one, therefore we can guess the factor must be $\frac{1}{16\pi^2}$. 
+Ideally the 2 in the last line should not exist if we compare the result to \eqref{DIV}, but the reality says otherwise. There must be something wrong about the simplification we did earlier. 
+
+Of course we can speculate that the last loop must take the form of $\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}$ in hard region multiplied by some factors and it has the same UV behavior as the local one, therefore we can guess the factor must be $\frac{1}{16\pi^2}$. 
 
 If we put the external line on-shell, the outcome doesn't change
 \begin{align*}
 	& 16\mu^{2\epsilon}Z^2\a^2\pi^2\int_0^1\dd x_1\dd x_2\dd x_3\delta(1-x_1-x_2-x_3)
 	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_2}}^2-\vbp^2}\\&
 	\Bigg\{\frac{3 x_3 \left(\vbk_2^4 x_2^4+2 \vbk_2^2 \vbp^2 x_2^2 x_1^2+4 \vbk_2^2 x_2^3 x_1 \vbk_2\cdot\vbp+4 \vbp^2 x_2 x_1^3 \vbk_2\cdot\vbp+4 x_2^2 x_1^2 (\vbk_2\cdot\vbp)^2+\vbp^4 x_1^4\right)}{32 \pi }(x_2 - x_2^2)^{-5/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\vbp^2\frac{ \left(x_1-x_1^2\right) - x_3}{x_2-x_2^2}  \right)^{-5/2}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\vbp^2\frac{ \left(x_1-x_1^2\right) - x_3}{x_2-x_2^2}  \right)^{-5/2}
 	+\frac{3 x_3 \left(\frac{10}{3} \vbk_2^2 x_2^2+\frac{20}{3} x_2 x_1 \vbk_2\cdot\vbp+\frac{10}{3} \vbp^2 x_1^2\right)}{32 \pi }(x_2 - x_2^2)^{-3/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\vbp^2\frac{\left(x_1-x_1^2\right) - x_3}{x_2-x_2^2}  \right)^{-3/2}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\vbp^2\frac{\left(x_1-x_1^2\right) - x_3}{x_2-x_2^2}  \right)^{-3/2}
 	+\frac{15 x_3 }{32 \pi }(x_2 - x_2^2)^{-1/2}\\&
-	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 x_2 }{x_2-x_2^2}+\vbp^2\frac{ \left( x_1-x_1^2\right)- x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}
+	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\vbp^2\frac{ \left( x_1-x_1^2\right)- x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}
 \end{align*}
+If we only throw out the $\vbk_2\cdot\vbp$ terms, the integral is still hard to crack, even in this case. But the $\vbp^2$ terms can't be neglected, so it might be a dead end. 
 \paragraph{Alpha Parametrization}
 Due to the presence of Fourier factor, it might be more natural to choose alpha parameterization
 \begin{align*}
@@ -979,19 +982,60 @@ Due to the presence of Fourier factor, it might be more natural to choose alpha 
 	= & 16\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{-i\vb{k}_2\cdot\vb{x}}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\\
 	= & 16\mu^{2\epsilon}Z^2\a^2\pi^2\frac{(-i)^4}{(2i)^4}
-	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{2i\vb{u}\cdot \vbk_1}e^{i(\vbk_1-\vbp)^2\a_1}\\&e^{i(\vbk_1-\vbk_2)^2\a_2}e^{i(\vb{\abs{k_1}}^2-2mE')\a_3}e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}e^{-i\vb{k}_2\cdot\vb{x}} \Bigg]\\
+	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{2i\vb{u}\cdot \vbk_1}e^{i(\vbk_1-\vbp)^2\a_1}\\&e^{i(\vbk_1-\vbk_2)^2\a_2}e^{i(\vb{\abs{k_1}}^2-2mE')\a_3}e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}e^{-i\vb{k}_2\cdot\vb{x}} \eval{\Bigg]}_{\vb{u}=0}\\
 	= & 2\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}
 	e^{-i\vb{k}_2\cdot\vb{x}} e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}
 	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3]}\\&
-	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}e^{i[(\a_1+\a_2+\a_3)\abs{\vbk_1}^2+2(\vb{u}+\a_1\vbp+\a_2\vbk_2)\cdot\vbk_1]} \Bigg]\\
+	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}e^{i[(\a_1+\a_2+\a_3)\abs{\vbk_1}^2+2(\vb{u}+\a_1\vbp+\a_2\vbk_2)\cdot\vbk_1]} \eval{\Bigg]}_{\vb{u}=0}\\
 	=&2\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}
 	(\frac{\pi}{\a_4})^{d/2}e^{-i\vb{x}^2/{\a_4}+id\pi/4}
 	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3-2mE'\a_4]}\\&
-	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}
+	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}\eval{\Bigg]}_{\vb{u}=0}\\
+	=&2\mu^{2\epsilon}Z^2\a^2\pi^2
+	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}
+	(\frac{\pi}{\a_4})^{d/2}e^{-i\vb{x}^2/{\a_4}+id\pi/4}
+	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3-2mE'\a_4]}\\&
+	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}\eval{\Bigg]}_{\vb{u}=0}
 \end{align*}
-
+\paragraph{Momentum Space}
+In momentum space the matrix element remained to be evaluated is 
+\begin{align*}
+	\mel{0}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)}{0}=%\int\dd^3 \vb{x}e^{i\vb{q}\cdot \vb{x}}\mel{0}{\psi(\vb{x})N(0)\tilde\psi(p)\tilde N(k)}{0}
+	\int\dd^4 xe^{iq\cdot x}\mel{0}{\psi(x)N(0)\tilde\psi(p)\tilde N(k)}{0}
+\end{align*}
+So the diagram is evaluated
+\begin{align*}
+	& \mel{N}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)\pqty{\int e\psi\psi}^2\pqty{\int eNN}^2}{eN}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.!(p2)+(0,3cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,3cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.25!(x)$) (y1);
+			\vertex at ($(p2)!0.25!(0)$) (z1);
+			\vertex at ($(p1)!0.65!(x)$) (y2);
+			\vertex at ($(p2)!0.65!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\)] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [rmomentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			};
+		\end{feynman}
+	\end{tikzpicture}                     \\
+	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon}\\
+	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
+	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+\end{align*}
 
 \section{Renormalization Group Equation\label{sec:rge}}
 Renormalization group equation

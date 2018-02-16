@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  12 FEB 2018 19:49
+This is LuaTeX, Version 1.0.4 (TeX Live 2017/W32TeX)  (format=lualatex 2017.6.27)  16 FEB 2018 22:41
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Ori
@@ -36,7 +36,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.380 seconds
+luaotfload | main : initialization completed in 0.363 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
@@ -2003,42 +2003,42 @@ Overfull \hbox (20.37671pt too wide) in paragraph at lines 692--692
  []
 
 [10] [11] [12]
-Overfull \hbox (23.12149pt too wide) in paragraph at lines 993--993
+Overfull \hbox (23.12149pt too wide) in paragraph at lines 1001--1001
 [] 
  []
 
 [13] [14] [15]
-Overfull \hbox (4.77946pt too wide) in paragraph at lines 1140--1140
+Overfull \hbox (4.77946pt too wide) in paragraph at lines 1184--1184
 [] 
  []
 
-
-Overfull \hbox (20.37671pt too wide) in paragraph at lines 1176--1176
+[16]
+Overfull \hbox (20.37671pt too wide) in paragraph at lines 1220--1220
 [] 
  []
 
-[16] (./Klein-Gordon-Divergence-Near-Origin.bbl) [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1186.
+[17] (./Klein-Gordon-Divergence-Near-Origin.bbl) [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1230.
 
 (./Klein-Gordon-Divergence-Near-Origin.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1186.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1186.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1230.
 Package rerunfilecheck Info: File `Klein-Gordon-Divergence-Near-Origin.out' has 
 not changed.
-(rerunfilecheck)             Checksum: 946D9281F22A03094BFDBF59CE4C7A0C;1618.
+(rerunfilecheck)             Checksum: 49D0D92866438B889DFE4EB30D6929E1;1618.
 )
 
 Here is how much of LuaTeX's memory you used:
- 32486 strings out of 494481
+ 32496 strings out of 494481
  156279,953878 words of node,token memory allocated
  644 words of node memory still in use:
    11 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 4 sub_mlist, 20 attribute, 66 glue
 _spec, 20 attribute_list, 1 pdf_action nodes
-   avail lists: 1:11,2:7102,3:3101,4:136,5:701,6:7014,7:5863,8:182,9:2725,10:12,
+   avail lists: 1:11,2:7138,3:3154,4:140,5:741,6:7014,7:5872,8:190,9:2870,10:12,
 11:620
- 35471 multiletter control sequences out of 65536+600000
+ 35478 multiletter control sequences out of 65536+600000
  86 fonts using 3689319 bytes
- 70i,21n,127p,917b,1704s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 70i,21n,127p,917b,1762s stack positions out of 5000i,500n,10000p,200000b,100000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
@@ -2064,11 +2064,11 @@ fb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2017/t
 exmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2017/texmf-dist/fonts/type1
 /public/lm/lmri10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmri9.pf
 b>
-Output written on Klein-Gordon-Divergence-Near-Origin.pdf (17 pages, 534267 byte
+Output written on Klein-Gordon-Divergence-Near-Origin.pdf (18 pages, 541950 byte
 s).
 
-PDF statistics: 438 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 131072)
+PDF statistics: 445 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 114 named destinations out of 1000 (max. 131072)
  189 words of extra memory for PDF output out of 10000 (max. 100000000)
 
