@@ -1,20 +1,20 @@
 # Fdb version 3
-["bibtex Klein-Gordon-Divergence-Near-Origin"] 1518791026 "Klein-Gordon-Divergence-Near-Origin.aux" "Klein-Gordon-Divergence-Near-Origin.bbl" "Klein-Gordon-Divergence-Near-Origin" 1518792105
-  "Klein-Gordon-Divergence-Near-Origin.aux" 1518792104 5891 8a9188704e05402b14aa5b01cdc49750 ""
-  "Klein-Gordon-Divergence-Near-OriginNotes.bib" 1518792104 627 5e4724441feb6cb93fd5416fde561a8c ""
+["bibtex Klein-Gordon-Divergence-Near-Origin"] 1519481602 "Klein-Gordon-Divergence-Near-Origin.aux" "Klein-Gordon-Divergence-Near-Origin.bbl" "Klein-Gordon-Divergence-Near-Origin" 1519483189
+  "Klein-Gordon-Divergence-Near-Origin.aux" 1519483188 5892 e910ae11b0acb9eb3e0b3d2a80b03d40 ""
+  "Klein-Gordon-Divergence-Near-OriginNotes.bib" 1519483188 627 5e4724441feb6cb93fd5416fde561a8c ""
   "QM-OPE.bib" 1517874406 9931 d8332859d37f82da230dc5980100404b ""
   "c:/texlive/2017/texmf-dist/bibtex/bst/revtex/apsrev4-1.bst" 1498556766 71518 fec93f06df0c073f83d2330456bd19c2 ""
   (generated)
-  "Klein-Gordon-Divergence-Near-Origin.blg"
   "Klein-Gordon-Divergence-Near-Origin.bbl"
-["pdflatex"] 1518792077 "c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Origin.tex" "Klein-Gordon-Divergence-Near-Origin.pdf" "Klein-Gordon-Divergence-Near-Origin" 1518792105
+  "Klein-Gordon-Divergence-Near-Origin.blg"
+["pdflatex"] 1519483155 "c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Origin.tex" "Klein-Gordon-Divergence-Near-Origin.pdf" "Klein-Gordon-Divergence-Near-Origin" 1519483189
   "C:/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1498558854 131142 6dbae89bb06486741e2882754123d6be ""
-  "Klein-Gordon-Divergence-Near-Origin.aux" 1518792104 5891 8a9188704e05402b14aa5b01cdc49750 ""
-  "Klein-Gordon-Divergence-Near-Origin.bbl" 1518791027 8990 96c6a768b8e0e9ff6ad101f6cc427e54 "bibtex Klein-Gordon-Divergence-Near-Origin"
-  "Klein-Gordon-Divergence-Near-Origin.out" 1518792104 1618 49d0d92866438b889dfe4eb30d6929e1 ""
-  "Klein-Gordon-Divergence-Near-Origin.tex" 1518792075 69307 a928070b62a66904e4aca5001220772b ""
+  "Klein-Gordon-Divergence-Near-Origin.aux" 1519483188 5892 e910ae11b0acb9eb3e0b3d2a80b03d40 ""
+  "Klein-Gordon-Divergence-Near-Origin.bbl" 1519481603 8990 96c6a768b8e0e9ff6ad101f6cc427e54 "bibtex Klein-Gordon-Divergence-Near-Origin"
+  "Klein-Gordon-Divergence-Near-Origin.out" 1519483188 1681 58577bb89b2d6419c8356d745e6aad95 ""
+  "Klein-Gordon-Divergence-Near-Origin.tex" 1519483154 79781 f62629ef66fd6f2682bdc0c594b4ef76 ""
   "QM-KG-1.pdf" 1517874406 5302 de4e4bdabf66be7309257a68665c919d ""
-  "c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Origin.tex" 1518792075 69307 a928070b62a66904e4aca5001220772b ""
+  "c:/Users/Yingsheng/OneDrive/Documents/QM-OPE/Klein-Gordon-Divergence-Near-Origin.tex" 1519483154 79781 f62629ef66fd6f2682bdc0c594b4ef76 ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1498556018 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1498556018 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1498556018 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -296,7 +296,7 @@
   "c:/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1498557256 1296948 b43e7a596aa0720e271319abe48df8cb ""
   (generated)
   "Klein-Gordon-Divergence-Near-Origin.aux"
+  "Klein-Gordon-Divergence-Near-Origin.out"
   "Klein-Gordon-Divergence-Near-Origin.log"
   "Klein-Gordon-Divergence-Near-Origin.pdf"
-  "Klein-Gordon-Divergence-Near-Origin.out"
   "Klein-Gordon-Divergence-Near-OriginNotes.bib"

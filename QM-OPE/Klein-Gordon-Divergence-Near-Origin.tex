@@ -932,16 +932,16 @@ Conventionally we choose Feynman parameterization
 	+\frac{15 x_3 }{32 \pi }(x_2 - x_2^2)^{-1/2}\\&
 	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1  }{1-x_2}+\frac{\vbp^2 \left( x_1-x_1^2\right)-2 E' m x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}\\
 	\intertext{since we're to calculate the short distance limit, which means the loop momentum $\abs{\vbk_2}$ must be close to $m$, the natural cutoff of SNRQED, and also if we assume the external momentum and energy satisfy $\abs{\vbp}\ll m$ and $2mE'\ll m^2$, we can safely drop some terms such as the $\vb{k}_2\cdot p$ terms (there're some terms involving Feynman parameters that can't be dropped but we'll naively neglect them for now) and get}
-	= & 2\mu^{2\epsilon}Z^2\a^2%\pi^2
+	= & 2\mu^{2\epsilon}Z^2\a^2                                                         %\pi^2
 	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}=\frac{ Z^2 \alpha^2}{d-3}- Z^2\alpha ^2 \log (2x)-\frac{1}{2} \gamma  Z^2 \alpha ^2+Z^2\alpha ^2 -\frac{1}{2} Z^2\alpha ^2  \log \pi -2Z^2\a^2\log\mu
 \end{align*}
-Ideally the 2 in the last line should not exist if we compare the result to \eqref{DIV}, but the reality says otherwise. There must be something wrong about the simplification we did earlier. 
+Ideally the 2 in the last line should not exist if we compare the result to \eqref{DIV}, but the reality says otherwise. There must be something wrong about the simplification we did earlier.
 
-Of course we can speculate that the last loop must take the form of $\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}$ in hard region multiplied by some factors and it has the same UV behavior as the local one, therefore we can guess the factor must be $\frac{1}{16\pi^2}$. 
+Of course we can speculate that the last loop must take the form of $\frac{e^{-i\vb{k}_2\cdot\vb{x}}-1}{\abs{\vbk_2}^3}$ in hard region multiplied by some factors and it has the same UV behavior as the local one, therefore we can guess the factor must be $\frac{1}{16\pi^2}$.
 
 If we put the external line on-shell, the outcome doesn't change
 \begin{align*}
-	& 16\mu^{2\epsilon}Z^2\a^2\pi^2\int_0^1\dd x_1\dd x_2\dd x_3\delta(1-x_1-x_2-x_3)
+	  & 16\mu^{2\epsilon}Z^2\a^2\pi^2\int_0^1\dd x_1\dd x_2\dd x_3\delta(1-x_1-x_2-x_3)
 	\int\frac{\dd^d\vb{k_2}}{(2\pi)^d}\bqty{e^{-i\vb{k}_2\cdot\vb{x}}-1}\frac{1}{\vb{\abs{k_2}}^2-\vbp^2}\\&
 	\Bigg\{\frac{3 x_3 \left(\vbk_2^4 x_2^4+2 \vbk_2^2 \vbp^2 x_2^2 x_1^2+4 \vbk_2^2 x_2^3 x_1 \vbk_2\cdot\vbp+4 \vbp^2 x_2 x_1^3 \vbk_2\cdot\vbp+4 x_2^2 x_1^2 (\vbk_2\cdot\vbp)^2+\vbp^4 x_1^4\right)}{32 \pi }(x_2 - x_2^2)^{-5/2}\\&
 	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\vbp^2\frac{ \left(x_1-x_1^2\right) - x_3}{x_2-x_2^2}  \right)^{-5/2}
@@ -950,7 +950,7 @@ If we put the external line on-shell, the outcome doesn't change
 	+\frac{15 x_3 }{32 \pi }(x_2 - x_2^2)^{-1/2}\\&
 	\left(  \vbk_2^2-\frac{2 \vbk_2\cdot \vbp x_1 }{1-x_2}+\vbp^2\frac{ \left( x_1-x_1^2\right)- x_3}{x_2-x_2^2}  \right)^{-1/2}\Bigg\}
 \end{align*}
-If we only throw out the $\vbk_2\cdot\vbp$ terms, the integral is still hard to crack, even in this case. But the $\vbp^2$ terms can't be neglected, so it might be a dead end. 
+If we only throw out the $\vbk_2\cdot\vbp$ terms, the integral is still hard to crack, even in this case. But the $\vbp^2$ terms can't be neglected, so it might be a dead end.
 \paragraph{Alpha Parametrization}
 Due to the presence of Fourier factor, it might be more natural to choose alpha parameterization
 \begin{align*}
@@ -978,7 +978,7 @@ Due to the presence of Fourier factor, it might be more natural to choose alpha 
 			(z2) -- [momentum'=\(P_{N}+k-k_1-k_2\),double distance=1pt] (0);
 			};
 		\end{feynman}
-	\end{tikzpicture}                     \\
+	\end{tikzpicture}                    \\
 	= & 16\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}\frac{\dd^d\vb{k_2}}{(2\pi)^d}e^{-i\vb{k}_2\cdot\vb{x}}\frac{1}{\vb{\abs{k_1-p}}^2}\frac{1}{\vb{\abs{k_2-k_1}}^2}\frac{\vb{\abs{k_1}}^4}{[\vb{\abs{k_1}}^2-2mE']^2}\frac{1}{\vb{\abs{k_2}}^2-2mE'}\\
 	= & 16\mu^{2\epsilon}Z^2\a^2\pi^2\frac{(-i)^4}{(2i)^4}
@@ -988,31 +988,47 @@ Due to the presence of Fourier factor, it might be more natural to choose alpha 
 	e^{-i\vb{k}_2\cdot\vb{x}} e^{i(\vb{\abs{k_2}}^2-2mE')\a_4}
 	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3]}\\&
 	\int\frac{\dd^d\vb{k_1}}{(2\pi)^d}e^{i[(\a_1+\a_2+\a_3)\abs{\vbk_1}^2+2(\vb{u}+\a_1\vbp+\a_2\vbk_2)\cdot\vbk_1]} \eval{\Bigg]}_{\vb{u}=0}\\
-	=&2\mu^{2\epsilon}Z^2\a^2\pi^2
+	= & 2\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}
 	(\frac{\pi}{\a_4})^{d/2}e^{-i\vb{x}^2/{\a_4}+id\pi/4}
 	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3-2mE'\a_4]}\\&
 	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}\eval{\Bigg]}_{\vb{u}=0}\\
-	=&2\mu^{2\epsilon}Z^2\a^2\pi^2
+	= & 2\mu^{2\epsilon}Z^2\a^2\pi^2
 	\int_0^{\infty}\dd\a_1\dd\a_2\dd\a_3\dd\a_4\Bigg[\a_3\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}\pqty{\pdv{\vb{u}}\cdot\pdv{\vb{u}}}
 	(\frac{\pi}{\a_4})^{d/2}e^{-i\vb{x}^2/{\a_4}+id\pi/4}
 	e^{i[\abs{\vbp}^2\a_1+\abs{\vbk_2}^2\a_2-2mE'\a_3-2mE'\a_4]}\\&
 	(\frac{\pi}{\a_1+\a_2+\a_3})^{d/2}e^{i(\vb{u}+\a_1\vbp+\a_2\vbk_2)^2/(\a_1+\a_2+\a_3)+id\pi/4}\eval{\Bigg]}_{\vb{u}=0}
 \end{align*}
-\paragraph{Momentum Space}
-In momentum space the matrix element remained to be evaluated is 
+\subsection{Momentum Space}
+In momentum space the matrix element remained to be evaluated is
 \begin{align*}
-	\mel{0}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)}{0}=%\int\dd^3 \vb{x}e^{i\vb{q}\cdot \vb{x}}\mel{0}{\psi(\vb{x})N(0)\tilde\psi(p)\tilde N(k)}{0}
+	\mel{0}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)}{0}=                  %\int\dd^3 \vb{x}e^{i\vb{q}\cdot \vb{x}}\mel{0}{\psi(\vb{x})N(0)\tilde\psi(p)\tilde N(k)}{0}
 	\int\dd^4 xe^{iq\cdot x}\mel{0}{\psi(x)N(0)\tilde\psi(p)\tilde N(k)}{0}
 \end{align*}
-So the diagram is evaluated
+The NLO diagram is one-loop in momentum space
 \begin{align*}
-	& \mel{N}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)\pqty{\int e\psi\psi}^2\pqty{\int eNN}^2}{eN}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	&\mel{0}{\tilde\psi(q)N(0)\tilde\psi(p)\tilde N(k)\pqty{\int\dd y e\psi\psi A^0}\pqty{\int\dd z ZeNNA^0}}{0}\\
+	=&	Ze^2\int\dd^4 xe^{iq\cdot x}\int\dd^4 t_1e^{ip\cdot t_1}\int\dd y\dd z\int\dd^4 t_2e^{ik\cdot t_2}\int\frac{\dd^4p_1}{(2\pi)^4}\tilde D_e(p_1)e^{ip_1\cdot (y-x)}\int\frac{\dd^4p_2}{(2\pi)^4}\tilde D_e(p_2)e^{ip_2\cdot (y-t_1)}\\ 
+	&\int\frac{\dd^4p_3}{(2\pi)^4}\tilde D_N(p_3)e^{-ip_3\cdot z}
+	\int\frac{\dd^4p_4}{(2\pi)^4}\tilde D_N(p_4)e^{ip_4\cdot (z-t_2)}\int\frac{\dd^4p_5}{(2\pi)^4}\tilde D_A(p_5)e^{ip_5\cdot (z-y)}\\
+	=&  Ze^2 \int\frac{\dd^4p_1}{(2\pi)^4}\frac{\dd^4p_2}{(2\pi)^4}\frac{\dd^4p_3}{(2\pi)^4}\frac{\dd^4p_4}{(2\pi)^4}\frac{\dd^4p_5}{(2\pi)^4}\tilde D_e(p_1)\tilde D_e(p_2)\tilde D_N(p_3)\tilde D_N(p_4)\tilde D_A(p_5)\\ 
+	&\int\dd^4 x e^{i(q-p_1)\cdot x}\int\dd^4 t_1 e^{i(p-p_2)\cdot t_1}\int\dd^4 t_2 e^{i(k-p_4)\cdot t_2}\int\dd^4 y e^{i(p_1+p_2-p_5)\cdot y}\int\dd^4z  e^{i(-p_3+p_4+p_5)\cdot z}\\ 
+	=&  Ze^2 \tilde D_e(q)\tilde D_e(p)\tilde D_N(k)\tilde D_N(k)\tilde D_A(p+q)\\ 
+	=& \feynmandiagram[small,vertical=a to c,baseline=(b.base)]{
+		a [particle=x] -- [rmomentum=q] b [particle=y] -- [rmomentum=p] c [particle=\(t_1\)],
+		d [particle=0] -- [rmomentum=k] e [particle=z] -- [rmomentum'=k] f [particle=\(t_2\)],
+		b -- [photon,momentum=p+q] e,
+	};\\
+	=& Ze^2
+\end{align*}
+The NNLO diagram is evaluated
+\begin{flalign*}
+	   &\mel{0}{\tilde\psi(q)N(0)\pqty{\int e\psi\psi A^0}^2\pqty{\int ZeNNA^0}^2}{e(p)N(k)}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=3cm of p1] (p2);
-			\vertex at ($(p1)!0.!(p2)+(0,3cm)$) (x) {$\vb{x}$};
-			\vertex at ($(p1)!1!(p2)+(0,3cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.!(p2)+(0,2.5cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,2.5cm)$) (0) {$\vb{0}$};
 			\vertex at ($(p1)!0.25!(x)$) (y1);
 			\vertex at ($(p2)!0.25!(0)$) (z1);
 			\vertex at ($(p1)!0.65!(x)$) (y2);
@@ -1031,10 +1047,140 @@ So the diagram is evaluated
 			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
 			};
 		\end{feynman}
-	\end{tikzpicture}                     \\
-	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon}\\
-	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
-	=&\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+	\end{tikzpicture}        &                                                                      \\
+	= & Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
+	= &  Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                              &  \\
+	= & Z^2e^4(-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}&
+\end{flalign*}
+After integrated two out of three Feynman parameters and apply the on-shell condition, the integral becomes
+\begin{align*}
+	  & \int_0^1\dd x_3\frac{1}{8\pi}\Bigg\{-2 {\vb{p}}\cdot {\vb{q}} ({x_3}-1) \left(\sqrt{-\frac{1}{{x_3} \left({\vb{p}}^2+{\vb{q}}^2 ({x_3}-1)\right)}}+\sqrt{-\frac{1}{{x_3} \left({\vb{p}}^2 ({x_3}-1)+{\vb{p}}^2\right)}}\right)
+	\\&+{\vb{p}}^2 \left(\frac{1}{\sqrt{{x_3} \left(-{\vb{p}}^2-{\vb{q}}^2 ({x_3}-1)\right)}}-2 \sqrt{-\frac{{x_3}}{{\vb{p}}^2 ({x_3}-1)+{\vb{p}}^2}}+\frac{1}{\sqrt{{x_3} \left({\vb{p}}^2 (-({x_3}-1))-{\vb{p}}^2\right)}}\right)
+	\\&+{\vb{q}}^2 \left(-2 \sqrt{-\frac{{x_3}}{{\vb{p}}^2+{\vb{q}}^2 ({x_3}-1)}}+\frac{1}{\sqrt{{x_3} \left(-{\vb{p}}^2-{\vb{q}}^2 ({x_3}-1)\right)}}+\frac{1}{\sqrt{{x_3} \left({\vb{p}}^2 (-({x_3}-1))-{\vb{p}}^2\right)}}\right)\Bigg\}
+	\\&\big(-4 {\vb{p}}^4 {x_3}+{\vb{p}}^4+4 ({\vb{p}}\cdot {\vb{q}})^2 ({x_3}-1)^2 -2 {\vb{p}}^2 {\vb{q}}^2 (2{x_3}^2+2x_3-1) -4 {\vb{p}}\cdot {\vb{q}} \left({\vb{p}}^2 ({x_3}-1)+2 {\vb{p}}^2 {x_3}+{\vb{q}}^2 ({x_3}-1)\right)
+	+{\vb{q}}^4\big)^{-1}
+\end{align*}
+As for the relativistic correction one, the diagram is
+\begin{align*}
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.!(p2)+(0,2.5cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,2.5cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.25!(x)$) (y1);
+			\vertex at ($(p2)!0.25!(0)$) (z1);
+			\vertex at ($(p1)!0.65!(x)$) (y2);
+			\vertex at ($(p2)!0.65!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [rmomentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			};
+		\end{feynman}
+	\end{tikzpicture}\\
+	= &  Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
+	= & Z^2e^4 (-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
+	= &  Z^2e^4(-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+\end{align*}
+and also
+\begin{align*}
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.!(p2)+(0,2.5cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,2.5cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.25!(x)$) (y1);
+			\vertex at ($(p2)!0.25!(0)$) (z1);
+			\vertex at ($(p1)!0.65!(x)$) (y2);
+			\vertex at ($(p2)!0.65!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),insertion=0.33,insertion=0.67] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [rmomentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			};
+		\end{feynman}
+	\end{tikzpicture} &   \\
+	=& Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}}^2\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon}\\
+	=& Z^2e^4(-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{p+k_1}}^8/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
+	=& Z^2e^4(-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{k_1}}^8/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+\end{align*}
+\begin{align*}
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.!(p2)+(0,2.5cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,2.5cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.25!(x)$) (y1);
+			\vertex at ($(p2)!0.25!(0)$) (z1);
+			\vertex at ($(p1)!0.65!(x)$) (y2);
+			\vertex at ($(p2)!0.65!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),insertion={[style=red]0.5}] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [rmomentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			};
+		\end{feynman}
+	\end{tikzpicture}                                                                                                                                                                                                                                                                                 \\
+	= &  Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^6}{16m^5}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
+	= & Z^2e^4 (-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^6/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                                                                                 \\
+	= &  Z^2e^4(-2mi)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^6/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+\end{align*}
+\begin{align*}
+	  & \begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+		\begin{feynman}
+			\vertex (p1);
+			\vertex[right=3cm of p1] (p2);
+			\vertex at ($(p1)!0.!(p2)+(0,2.5cm)$) (x) {$\vb{x}$};
+			\vertex at ($(p1)!1!(p2)+(0,2.5cm)$) (0) {$\vb{0}$};
+			\vertex at ($(p1)!0.25!(x)$) (y1);
+			\vertex at ($(p2)!0.25!(0)$) (z1);
+			\vertex at ($(p1)!0.65!(x)$) (y2);
+			\vertex at ($(p2)!0.65!(0)$) (z2);
+			%
+			\diagram* {
+			(p1) -- [] (x);
+			(p2) -- [double distance=1pt] (0);
+			(y1) -- [photon,rmomentum=$k_1$] (z1);
+			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(p1) -- [momentum=\(p\)] (y1);
+			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
+			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
+			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
+			(y2) -- [rmomentum=\(q\),insertion=0.5] (x);
+			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			};
+		\end{feynman}
+	\end{tikzpicture}                                                                                                                                                                                                                                                                 &   \\
+	= & Z^2e^4 \frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
+	= &  Z^2e^4(-2mi)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                             &   \\
+	= & Z^2e^4 (-2mi)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}                                                 &
 \end{align*}
 
 \section{Renormalization Group Equation\label{sec:rge}}
