@@ -149,13 +149,13 @@ In this section we revisit the divergence of wavefunction near origin in the fra
 
 The Klein-Gordon Hydrogen Equation is
 \begin{align}
-	\bqty{\pqty{i\partial_0+\frac{Z\alpha}{r}}^2+\nabla^2-m^2}\varphi=0
+	\bqty{\pqty{i\partial_0+\frac{Z\alpha}{r}}^2+\nabla^2-m^2}\psi=0
 \end{align}
 
 For the bound state, the eigen value and the wave function are\cite{Greiner2000}
 \begin{align}
 	E    & =m\frac{1}{\sqrt{1+\frac{\alpha^2 Z^2}{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}}} \\
-	\varphi & =\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
+	\psi & =\frac{c}{\sqrt{4\pi}}e^{-kr}r^\lambda
 \end{align}
 where
 \begin{align}
@@ -163,23 +163,23 @@ where
 	c=\sqrt{\frac{(2k)^{2(1+\sqrt{\frac{1}{4}-Z^2\alpha^2})}}{\Gamma(2+2\sqrt{\frac{1}{4}-Z^2\alpha^2)})}}\ \ \ \ \ \
 	k=\frac{m}{\sqrt{1+\frac{(\frac{1}{2}+\sqrt{\frac{1}{4}-Z^2\alpha^2})^2}{\alpha^2Z^2}}}
 \end{align}
-c is the normaliztion factor for $\int d^3r|\varphi|^2=1$. The exponential part 
+c is the normaliztion factor for $\int d^3r|\psi|^2=1$. The exponential part 
 $$e^{-kr}=e^{-\frac{\sqrt{2} \alpha  m r Z}{\sqrt{\sqrt{1-4 \alpha ^2 Z^2}+1}}}$$
 can be expanded to 
 \begin{align*}
-	e^{-\frac{\alpha ^2 r Z^2}{2 a}-\frac{r}{a}+\mathcal{O}(Z^2\a^2)}
+	e^{-\frac{r}{a}-\frac{Z^2\alpha ^2 r }{2 a}+\mathcal{O}(Z^2\a^2)}
 \end{align*}
 where $a=\frac{1}{mZ\a}$. 
 
-For convenience, rescale $\varphi$ by the origin value of Schr\"odinger wavefunction
+For convenience, rescale $\psi$ by the origin value of Schr\"odinger wavefunction
 \begin{align}
-	\varphi '=\frac{\varphi}{2(mZ\alpha)^\frac{3}{2}}
+	\psi '=\frac{\psi}{2(mZ\alpha)^\frac{3}{2}}
 \end{align}
 
-Now $\varphi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
+Now $\psi '$ is dimensionless and expand it in $\alpha$, we get the origin divergence comes from a term
 \begin{align}
 	R(r)         & \sim-(Z\alpha)^2\log(2m Z \a r)             \\
-	\varphi(\vb{r}) & \sim-(Z\alpha)^2\log(2m Z \a r)/\sqrt{4\pi}
+	\psi(\vb{r}) & \sim-(Z\alpha)^2\log(2m Z \a r)/\sqrt{4\pi}
 \end{align}
 the $m$ in $\log$ could be interpreted as a subtraction point $\mu$. This divergence is discussed by many papers\cite{Chen2007,Chen2009}.
 
@@ -200,9 +200,14 @@ The $H_0$ gives the radial wave functions as follows
 where the relation between dimentionalless $\ka$ and the actual momentum $\vbk$ is $\kappa=\frac{\abs{\vbk}}{m Z \a}$, and the normaliztion of continuum spectrum is followed by $$\int r^2\dd rR_{\ka' l}R_{\ka l}=\delta(\ka'-\ka).$$
 \begin{figure}
 	\centering
-	\includegraphics[width=4 in]{QM-KG-1.pdf}
-	\caption{Comparison between Klein-Gordon wavefunction and Schr\"odinger wavefunction}
+	\includegraphics[width=3.9 in]{K-G-fig.pdf}
+	\caption{Comparison between Klein-Gordon wavefunction and Schr\"odinger wavefunction, with parameters set at $Z=1$, $\a=0.2$, $m=1$. }
 \end{figure}
+
+The Klein-Gordon wavefunctioon can be factorized by Schr\"odinger wavefunction
+\begin{align*}
+	\psi(r)\approx\bqty{1-\frac{1}{4} \alpha ^2 \left(Z^2 (4 \log (2mZ\alpha r)+4 \gamma -9)\right)}\phi_{100}(r)
+\end{align*}
 
 The NLO corretion of the bound state wave function is
 \begin{align}
@@ -264,7 +269,7 @@ In the following sections we work on the quantum field theory side. We'll use sc
 \subsubsection{Scalar QED (SQED)}
 The Lagrangian of scalar QED (HSET included, and we might use $N$ instead of $\Phi_v$ in the following contents) is
 \begin{align}
-	\lag_{SQED}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2+\Phi_v^*iv\cdot D\Phi_v
+	\lag_{SQED+HSET}=\abs{D_{\mu}\phi}^2-m^2\abs{\phi}^2+\Phi_v^*iv\cdot D\Phi_v
 	\label{SQEDLAG}
 \end{align}
 with the covariant derivative defined as
@@ -368,7 +373,7 @@ Substitute $\phi$ for $\phi=\frac{1}{\sqrt{2m}}e^{-imv\cdot x}(\varphi_v+\bar{\v
 \end{align}
 then
 \begin{align}
-	\lag_{SNRQED}=\frac{1}{2m}(D_\mu(\varphi_v+\bar{\varphi}_v))^*D^\mu(\varphi_v+\bar{\varphi}_v)+(\varphi_v+\bar{\varphi}_v)^*iv\cdot D(\varphi+\bar{\varphi}_v)\label{LAGSQEDHSET}
+	\lag_{SNRQED+HSET}=\frac{1}{2m}(D_\mu(\varphi_v+\bar{\varphi}_v))^*D^\mu(\varphi_v+\bar{\varphi}_v)+(\varphi_v+\bar{\varphi}_v)^*i D^0(\varphi+\bar{\varphi}_v)\label{LAGSQEDHSET}
 \end{align}
 Thus we can have the leading order Lagrangian by setting $v=(1,\vb{0})$
 \begin{align}
@@ -399,7 +404,7 @@ From \eqref{HSET1}, \eqref{HSET2} and the motion equation derived from \eqref{LA
 \end{align}
 And \eqref{LAGSQEDHSET} could be transformed as
 \begin{align}
-	\lag_{SQED}=(\varphi_v+\bar{\varphi}_v)^*(iD_0+\frac{\nabla^2}{2m}-\frac{D_0^2}{2m})(\varphi+\bar{\varphi}_v)
+	\lag_{SNRQED}=(\varphi_v+\bar{\varphi}_v)^*(iD_0+\frac{\nabla^2}{2m}-\frac{D_0^2}{2m})(\varphi+\bar{\varphi}_v)
 \end{align}
 Substituting \eqref{HSET3}, \eqref{HSET4} iteratively, then we get the $\lag$ expanding for $v$ as
 \begin{align}
@@ -407,6 +412,14 @@ Substituting \eqref{HSET3}, \eqref{HSET4} iteratively, then we get the $\lag$ ex
 \end{align}
 We can transform $\varphi^*[\nabla^4,A_0]\varphi$ to $(\nabla^4A^0\varphi)^*\varphi-\varphi^*\nabla^4A^0\varphi$, note that the Lagrangian is real so this term should vanish.
 
+We can translate $A^0$ as an instant Coulomb potential. Taking the leading order interaction as an example, all involved terms are
+\begin{align*}
+	\lag^{(0)}_{Coulomb}=-\varphi_v^*eA^0\varphi_v+\Phi_v^*ZeA^0\Phi_v=-e(\varphi_v^*\varphi_v-Z\Phi_v^*\Phi_v)A^0
+\end{align*}
+Define $J^0=-e(\varphi_v^*\varphi_v-Z\Phi_v^*\Phi_v)$, we have
+\begin{align*}
+	V_{Coul}=\frac{1}{2}\int\dd^3x\int\dd^3y\frac{J^0(\vb{x})J^0(\vb{y})}{4\pi(\vb{x-y})}
+\end{align*}
 
 \subsection{LO Matching}
 \subsubsection{SQED}
@@ -1015,9 +1028,24 @@ In momentum space the matrix element remained to be evaluated is
 	\mel{0}{\tilde\varphi(q)N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}=                  %\int\dd^3 \vb{x}e^{i\vb{q}\cdot \vb{x}}\mel{0}{\varphi(\vb{x})N(0)\tilde\varphi(p)\tilde N(k)}{0}
 	\int\dd^4 xe^{iq\cdot x}\mel{0}{\varphi(x)N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}
 \end{align*}
+The LO diagram is just a Taylor expansion in momentum space
+\begin{align*}
+	&\mel{0}{\tilde\varphi(\vb{q})N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}=\int\dd^3 \vb{x}e^{-i\vb{q\cdot x}}\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\mel{0}{\varphi(x)N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}\\
+	=&\int\dd^3 \vb{x}e^{-i\vb{q\cdot x}}\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde D_e(k_1)e^{i(k_1\cdot t_1+\vb{k_1\cdot x})}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde D_N(k_2)e^{ik_2\cdot t_2}\\
+	=&\int\dd^3 \vb{x}e^{-i\vb{q\cdot x}}\tilde D_e(p)\tilde D_N(k)e^{i\vb{p\cdot x}}\\
+	=&\frac{-2mi}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}\delta^{(3)}(\vb{q-p})
+\end{align*}
+and coordinate space
+\begin{align*}
+	&\mel{0}{\varphi(\vb{x})N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}=\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\mel{0}{\varphi(x)N(0)\tilde\varphi^*(p)\tilde N^*(k)}{0}\\
+	=&\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\int\frac{\dd^4k_1}{(2\pi)^4}\tilde D_e(k_1)e^{i(k_1\cdot t_1+\vb{k_1\cdot x})}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde D_N(k_2)e^{ik_2\cdot t_2}\\
+	=&\int\frac{\dd^4k_1}{(2\pi)^4}\frac{\dd^4k_2}{(2\pi)^4}\tilde D_e(k_1)\tilde D_N(k_2)e^{i\vb{k_1\cdot x}}\int\dd^4 t_1e^{-i(p-k_1)\cdot t_1}\int\dd^4 t_2e^{-i(k-k_2)\cdot t_2}\\
+	=&\tilde D_e(p)\tilde D_N(k)e^{i\vb{p\cdot x}}\\
+	=&\frac{-2mi}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}\pqty{e^{i\vb{p\cdot x}}\approx 1+\mathcal{O}(\vb{p})}
+\end{align*}
 The NLO diagram is one-loop in momentum space
 \begin{align*}
-	&\mel{0}{\tilde\varphi(q)N(0)\tilde\varphi^*(p)\tilde N^*(k)\pqty{\int\dd y (-ie)\varphi^*\varphi A^0}\pqty{\int\dd z (-iZe)N^*NA^0}}{0}\\
+	&\mel{0}{\tilde\varphi(\vb{q})N(0)\tilde\varphi^*(p)\tilde N^*(k)\pqty{\int\dd y (-ie)\varphi^*\varphi A^0}\pqty{\int\dd z (-iZe)N^*NA^0}}{0}\\
 	=&-Ze^2\int\dd^3 \vb{x} e^{-i\vb{q}\cdot \vb{x}}\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\mel{0}{\varphi(\vb{x})N(0)\varphi^*(t_1) N^*(t_2)\pqty{\int\dd y \varphi^*\varphi A^0}\pqty{\int\dd z N^*NA^0}}{0}\\
 	=&-Ze^2\int\dd^3 \vb{x} e^{-i\vb{q}\cdot \vb{x}}\int\dd^4 t_1e^{-ip\cdot t_1}\int\dd^4 t_2e^{-ik\cdot t_2}\int\dd y\dd z\int\frac{\dd^4k_1}{(2\pi)^4}\tilde D_e(k_1)e^{i(k_1\cdot y+\vb{k_1\cdot x})}\int\frac{\dd^4k_2}{(2\pi)^4}\tilde D_e(k_2)e^{-ik_2\cdot (y-t_1)}\\&
 	\int\frac{\dd^4k_3}{(2\pi)^4}\tilde D_N(k_3)e^{ik_3\cdot z}\int\frac{\dd^4k_4}{(2\pi)^4}\tilde D_N(k_4)e^{-ik_4\cdot (z-t_2)}\int\frac{\dd^4k_5}{(2\pi)^4}\tilde D_A(k_5)e^{-ik_5\cdot (z-y)}\\
@@ -1083,12 +1111,17 @@ The NLO OPE diagram in coordinate space is (details in Appendix \ref{wick}, quit
 		\end{feynman}
 	\end{tikzpicture}\\ 
 	=&-  Ze^2 \int\frac{\dd^4k_1}{(2\pi)^4}e^{i\vb{k_1\cdot x}}\tilde D_e(k_1)\tilde D_e(p)\tilde D_N(-k_1+p+k)\tilde D_N(k)\tilde D_A(p-k_1)\\ 
-	=&-iZe^2 (-2m)^2\frac{i}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}\int\frac{\dd^3k_1}{(2\pi)^3}e^{i\vb{k_1\cdot x}}\frac{i}{\abs{\vb{k_1}}^2-2m(k^0+p^0)-4mi\epsilon}\frac{i}{\abs{\vb{k_1-p}}^2}
+	=&-iZe^2 (-2m)^2\frac{i}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}e^{i\vb{k_1\cdot x}}\frac{i}{\abs{\vb{k_1}}^2-2m(k^0+p^0)-4mi\epsilon}\frac{i}{\abs{\vb{k_1-p}}^2}\\
+	\intertext{assuming $\vbk_1$ is much larger than $\vb{p}$, $\vb{k}$ or $p^0$, $k^0$, we can observe the UV behavior easier by discarding them}
+	\approx&iZe^2(-2m)^2\frac{i}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{e^{i\vb{k_1\cdot x}}}{\abs{\vb{k_1}}^4}
 \end{align*}
-
+Despite the obvious IR divergence, there's UV structure proportional to $x$: 
+$$-iZe^2(-2m)^2 \frac{x}{8 \pi }\frac{i}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}
+=-i\pqty{mZ\a  x}\frac{2mi}{\abs{\vb{p}}^2-2mp^0-2mi\epsilon}\frac{i}{k^0+i\epsilon}$$
+ 
 Similar procedure can be done with the relativistic insertion
 \begin{flalign*}
-	\mel{0}{\tilde\varphi(q)N(0)\tilde\varphi^*(p)\tilde N^*(k)\pqty{\int\dd y (-ie)\varphi^*\varphi A^0}\pqty{\int\dd z (-iZe)N^*NA^0}\pqty{\int\dd t \varphi^*\pqty{-i\frac{{\bm{\nabla}}^4}{8m^3}}\varphi}}{0}
+	\mel{0}{\tilde\varphi(\vb{q})N(0)\tilde\varphi^*(p)\tilde N^*(k)\pqty{\int\dd y (-ie)\varphi^*\varphi A^0}\pqty{\int\dd z (-iZe)N^*NA^0}\pqty{\int\dd t \varphi^*\pqty{-i\frac{{\bm{\nabla}}^4}{8m^3}}\varphi}}{0}
 \end{flalign*}
 which leads to 
 \begin{align*}
@@ -1119,7 +1152,7 @@ which leads to
 \end{align*}
 The NNLO diagram is evaluated
 \begin{align*}
-	   &\mel{0}{\tilde\varphi^*(q)N^*(0)\pqty{\int (-ie)\varphi\varphi A^0}^2\pqty{\int (-iZe)NNA^0}^2}{e(p)N(v_N)}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
+	   &\mel{0}{\tilde\varphi^*(\vb{q})N^*(0)\pqty{\int (-ie)\varphi\varphi A^0}^2\pqty{\int (-iZe)NNA^0}^2}{e(p)N(v_N)}=\begin{tikzpicture}[baseline=($(p1)!0.5!(x)$)]
 		\begin{feynman}
 			\vertex (p1);
 			\vertex[right=2.4cm of p1] (p2);
@@ -1683,20 +1716,20 @@ As for the relativistic correction one, the diagram are: middle insertion
 			(p1) -- [] (x);
 			(p2) -- [double distance=1pt] (0);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
-			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(y2) -- [photon,momentum=\(p-q+k_1\)] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
 			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
 			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-			(y2) -- [rmomentum=\(q\)] (x);
-			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			(y2) -- [momentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p-q\),double distance=1pt] (0);
 			};
 		\end{feynman}
 	\end{tikzpicture}\\
-	= &  Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
-	= & Z^2e^4 i(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
-	= & i Z^2e^4(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
-	= & i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_q-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+	= &  Z^2e^4\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
+	= & Z^2e^4 i(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
+	= & i Z^2e^4(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
+	= & i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_p-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
 \end{align*}
 upper insertion
 \begin{flalign*}
@@ -1715,20 +1748,20 @@ upper insertion
 			(p1) -- [] (x);
 			(p2) -- [double distance=1pt] (0);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
-			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(y2) -- [photon,momentum=\(p-q+k_1\)] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
 			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\)] (y2);
 			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-			(y2) -- [rmomentum=\(q\),insertion=0.5] (x);
-			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			(y2) -- [momentum=\(q\),insertion=0.5] (x);
+			(z2) -- [momentum'=\(P_{N}+p-q\),double distance=1pt] (0);
 			};
 		\end{feynman}
 	\end{tikzpicture}        &                                                                      \\
-	= & Z^2e^4 \frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
-	= &  i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                              &  \\
-	= &i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}&\\ 
-	= & i Z^2e^4(-2m)^2\frac{-i\bqty{\vb{q}^4/4m^2}}{\bqty{\abs{\vb{q}}^2-2mE_q-2mi\epsilon}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}&
+	= & Z^2e^4 \frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
+	= &  i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-2mi}{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                              &  \\
+	= &i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}&\\ 
+	= & i Z^2e^4(-2m)^2\frac{-i\bqty{\vb{q}^4/4m^2}}{\bqty{\abs{\vb{q}}^2-2mE_p-2mi\epsilon}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{1}{\abs{\vb{k_1}}^2-2mE_p-4mi\epsilon}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}&
 \end{flalign*}
 double middle insertion
 \begin{align*}
@@ -1747,20 +1780,20 @@ double middle insertion
 			(p1) -- [] (x);
 			(p2) -- [double distance=1pt] (0);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
-			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(y2) -- [photon,momentum=\(p-q+k_1\)] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
 			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\),insertion=0.33,insertion=0.67] (y2);
 			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-			(y2) -- [rmomentum=\(q\)] (x);
-			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			(y2) -- [momentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p-q\),double distance=1pt] (0);
 			};
 		\end{feynman}
 	\end{tikzpicture} &   \\
-	=& Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}}^2\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon}\\
-	=&i Z^2e^4(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{p+k_1}}^8/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
-	=&i Z^2e^4(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{k_1}}^8/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
-	=&i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_q-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{k_1}}^8/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+	=& Z^2e^4\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}}^2\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon}\\
+	=&i Z^2e^4(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{p+k_1}}^8/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}\\
+	=&i Z^2e^4(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{k_1}}^8/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
+	=&i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_p-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{\abs{\vb{k_1}}^8/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^3}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
 \end{align*}
 middle $\vb{p}^6$ insertion
 \begin{align*}
@@ -1779,20 +1812,20 @@ middle $\vb{p}^6$ insertion
 			(p1) -- [] (x);
 			(p2) -- [double distance=1pt] (0);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
-			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(y2) -- [photon,momentum=\(p-q+k_1\)] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
 			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\),insertion={[style=red]0.5}] (y2);
 			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-			(y2) -- [rmomentum=\(q\)] (x);
-			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			(y2) -- [momentum=\(q\)] (x);
+			(z2) -- [momentum'=\(P_{N}+p-q\),double distance=1pt] (0);
 			};
 		\end{feynman}
 	\end{tikzpicture}                                                                                                                                                                                                                                                                                 \\
-	= &  Z^2e^4\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^6}{16m^5}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
-	= & Z^2e^4 i(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^6/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                                                                                 \\
-	= & i Z^2e^4(-2m)\frac{i}{E_q-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^6/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
-	= & i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_q-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^6/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
+	= &  Z^2e^4\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^6}{16m^5}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} \\
+	= & Z^2e^4 i(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^6/16m^4}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                                                                                 \\
+	= & i Z^2e^4(-2m)\frac{i}{E_p-\frac{\vb{q}^2}{2m}}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^6/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}\\
+	= & i Z^2e^4(-2m)^2\frac{i}{\abs{\vb{q}}^2-2mE_p-2mi\epsilon}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^6/16m^4}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}
 \end{align*}
 middle and upper insertion
 \begin{align*}
@@ -1811,20 +1844,20 @@ middle and upper insertion
 			(p1) -- [] (x);
 			(p2) -- [double distance=1pt] (0);
 			(y1) -- [photon,rmomentum=$k_1$] (z1);
-			(y2) -- [photon,momentum=\(p+q+k_1\)] (z2);
+			(y2) -- [photon,momentum=\(p-q+k_1\)] (z2);
 			(p1) -- [momentum=\(p\)] (y1);
 			(p2) -- [momentum'=$P_{N}$,double distance=1pt] (z1);
 			(y1) -- [momentum=\(p+k_1\),insertion=0.5] (y2);
 			(z1) -- [momentum'=\(P_{N}-k_1\),double distance=1pt] (z2);
-			(y2) -- [rmomentum=\(q\),insertion=0.5] (x);
-			(z2) -- [momentum'=\(P_{N}+p+q\),double distance=1pt] (0);
+			(y2) -- [momentum=\(q\),insertion=0.5] (x);
+			(z2) -- [momentum'=\(P_{N}+p-q\),double distance=1pt] (0);
 			};
 		\end{feynman}
 	\end{tikzpicture}     &   \\
-	= & Z^2e^4 \frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
-	= & i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                             &   \\
-	= & Z^2e^4 i(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_q-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}                                                 & \\
-	=&i Z^2e^4(-2m)^2\frac{-i\bqty{\vb{q}^4/4m^2}}{\bqty{\abs{\vb{q}}^2-2mE_q-2mi\epsilon}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}                                &
+	= & Z^2e^4 \frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^4k_1}{(2\pi)^4}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\bqty{-i\frac{\abs{\vb{p+k_1}}^4}{8m^3}}\frac{i}{E_p+k_1^0-\frac{\abs{\vb{p+k_1}}^2}{2m}+i\epsilon}\frac{i}{\abs{\vb{p+q+k_1}}^2}\frac{i}{\abs{\vb{k_1}}^2}\frac{i}{-k_1^0+i\epsilon} &\\
+	= & i Z^2e^4(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{p+k_1}}^4/4m^2}{\bqty{\abs{\vb{p+k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{p+q+k_1}}^2}\frac{1}{\abs{\vb{k_1}}^2}                                             &   \\
+	= & Z^2e^4 i(-2m)\frac{i\bqty{\frac{\vb{q}^4}{8m^3}}}{\bqty{E_p-\frac{\vb{q}^2}{2m}}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}                                                 & \\
+	=&i Z^2e^4(-2m)^2\frac{-i\bqty{\vb{q}^4/4m^2}}{\bqty{\abs{\vb{q}}^2-2mE_p-2mi\epsilon}^2}\int\frac{\dd^3\vb{k_1}}{(2\pi)^3}\frac{-\abs{\vb{k_1}}^4/4m^2}{\abs{\bqty{\vb{k_1}}^2-2mE_p-4mi\epsilon}^2}\frac{1}{\abs{\vb{k_1+q}}^2}\frac{1}{\abs{\vb{k_1-p}}^2}                                &
 \end{align*}
 
 %\end{appendices}
