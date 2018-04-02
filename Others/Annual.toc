@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{1+1-d QCD and 't Hooft model }{3}{0}{1}
+\beamer@sectionintoc {2}{Meson-meson scattering amplitude}{4}{0}{2}
+\beamer@sectionintoc {3}{Numerical Calculation}{7}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{8}{0}{4}
