@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.12.8)  3 APR 2018 12:43
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2017.12.8)  3 APR 2018 14:00
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/home/huangys/Github/Documents/Others/Annual
@@ -2194,9 +2194,13 @@ pat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on i
 nput line 43.
 
 (./Annual.nav)
+Overfull \hbox (155.3966pt too wide) in paragraph at lines 43--43
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
 \c__siunitx_mathsf_int=\count298
 LaTeX Font Info:    Try loading font information for U+msa on input line 43.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 43.
@@ -2222,14 +2226,50 @@ hkerncmss.
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 44.
 
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
 [2
 
-] (./Annual.toc) [3
+] (./Annual.toc)
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
 
-] [4
+[3
+
+] <weinberg.png, id=152, 708.6475pt x 84.315pt>
+File: weinberg.png Graphic file (type png)
+ <use weinberg.png>
+Package luatex.def Info: weinberg.png used on input line 70.
+(luatex.def)             Requested size: 361.34999pt x 42.99364pt.
+
+Overfull \hbox (14.15488pt too wide) in paragraph at lines 70--70
+[]  
+ []
+
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[4
+
+<./weinberg.png>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[5
 
 ]
 Package epstopdf Info: Source file: <Feynmanrules.eps>
@@ -2240,17 +2280,21 @@ Package epstopdf Info: Source file: <Feynmanrules.eps>
 (epstopdf)                    size: 14576 bytes
 (epstopdf)             Command: <repstopdf --outfile=Feynmanrules-eps-converted-
 to.pdf Feynmanrules.eps>
-(epstopdf)             \includegraphics on input line 113.
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
-
-<Feynmanrules-eps-converted-to.pdf, id=180, 347.2975pt x 82.3075pt>
+ <Feynmanrules-eps-converted-to.pdf, id=215, 347.2975pt x 82.3075pt>
 File: Feynmanrules-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Feynmanrules-eps-converted-to.pdf>
-Package luatex.def Info: Feynmanrules-eps-converted-to.pdf used on input line 11
-3.
+Package luatex.def Info: Feynmanrules-eps-converted-to.pdf used on input line 12
+4.
 (luatex.def)             Requested size: 284.52756pt x 67.43353pt.
- [5
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[6
 
 <./Feynmanrules-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <dressedquark.eps>
@@ -2261,20 +2305,26 @@ Package epstopdf Info: Source file: <dressedquark.eps>
 (epstopdf)                    size: 4507 bytes
 (epstopdf)             Command: <repstopdf --outfile=dressedquark-eps-converted-
 to.pdf dressedquark.eps>
-(epstopdf)             \includegraphics on input line 144.
+(epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
- <dressedquark-eps-converted-to.pdf, id=243, 335.2525pt x 88.33pt>
+
+<dressedquark-eps-converted-to.pdf, id=279, 335.2525pt x 88.33pt>
 File: dressedquark-eps-converted-to.pdf Graphic file (type pdf)
 
 <use dressedquark-eps-converted-to.pdf>
-Package luatex.def Info: dressedquark-eps-converted-to.pdf used on input line 14
-4.
+Package luatex.def Info: dressedquark-eps-converted-to.pdf used on input line 15
+5.
 (luatex.def)             Requested size: 227.62082pt x 56.90569pt.
 
-Overfull \vbox (6.67085pt too high) detected at line 144
+Overfull \vbox (6.67085pt too high) detected at line 155
  []
 
-[6
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[7
 
 <./dressedquark-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <BS.eps>
@@ -2285,25 +2335,40 @@ Package epstopdf Info: Source file: <BS.eps>
 (epstopdf)                    size: 6587 bytes
 (epstopdf)             Command: <repstopdf --outfile=BS-eps-converted-to.pdf BS.
 eps>
-(epstopdf)             \includegraphics on input line 175.
+(epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
 
-<BS-eps-converted-to.pdf, id=283, 257.96375pt x 125.46875pt>
+<BS-eps-converted-to.pdf, id=318, 257.96375pt x 125.46875pt>
 File: BS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use BS-eps-converted-to.pdf>
-Package luatex.def Info: BS-eps-converted-to.pdf used on input line 175.
+Package luatex.def Info: BS-eps-converted-to.pdf used on input line 186.
 (luatex.def)             Requested size: 113.81102pt x 55.35574pt.
- [7
 
-<./BS-eps-converted-to.pdf>] [8
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
 
-]
-Overfull \hbox (9.18858pt too wide) in alignment at lines 230--230
- [][][] []
+[8
+
+<./BS-eps-converted-to.pdf>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
  []
 
 [9
+
+]
+Overfull \hbox (9.18858pt too wide) in alignment at lines 241--241
+ [][][] []
+ []
+
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[10
 
 ]
 Package epstopdf Info: Source file: <quarkscattering.eps>
@@ -2314,18 +2379,28 @@ Package epstopdf Info: Source file: <quarkscattering.eps>
 (epstopdf)                    size: 7798 bytes
 (epstopdf)             Command: <repstopdf --outfile=quarkscattering-eps-convert
 ed-to.pdf quarkscattering.eps>
-(epstopdf)             \includegraphics on input line 254.
+(epstopdf)             \includegraphics on input line 265.
 Package epstopdf Info: Output file is already uptodate.
- <quarkscattering-eps-converted-to.pdf, id=387, 418.56375pt x 82.3075pt>
+ <quarkscattering-eps-converted-to.pdf, id=422, 418.56375pt x 82.3075pt>
 File: quarkscattering-eps-converted-to.pdf Graphic file (type pdf)
 
 <use quarkscattering-eps-converted-to.pdf>
 Package luatex.def Info: quarkscattering-eps-converted-to.pdf used on input line
- 254.
+ 265.
 (luatex.def)             Requested size: 284.52756pt x 55.94951pt.
- [10
 
-<./quarkscattering-eps-converted-to.pdf>] [11
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[11
+
+<./quarkscattering-eps-converted-to.pdf>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[12
 
 ]
 Package epstopdf Info: Source file: <mesonssa.eps>
@@ -2336,16 +2411,20 @@ Package epstopdf Info: Source file: <mesonssa.eps>
 (epstopdf)                    size: 22088 bytes
 (epstopdf)             Command: <repstopdf --outfile=mesonssa-eps-converted-to.p
 df mesonssa.eps>
-(epstopdf)             \includegraphics on input line 304.
+(epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
-
-<mesonssa-eps-converted-to.pdf, id=464, 541.02126pt x 221.82875pt>
+ <mesonssa-eps-converted-to.pdf, id=500, 541.02126pt x 221.82875pt>
 File: mesonssa-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mesonssa-eps-converted-to.pdf>
-Package luatex.def Info: mesonssa-eps-converted-to.pdf used on input line 304.
+Package luatex.def Info: mesonssa-eps-converted-to.pdf used on input line 315.
 (luatex.def)             Requested size: 341.43306pt x 139.99654pt.
- [12
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[13
 
 <./mesonssa-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <mesonssaaa.eps>
@@ -2356,17 +2435,22 @@ Package epstopdf Info: Source file: <mesonssaaa.eps>
 (epstopdf)                    size: 17662 bytes
 (epstopdf)             Command: <repstopdf --outfile=mesonssaaa-eps-converted-to
 .pdf mesonssaaa.eps>
-(epstopdf)             \includegraphics on input line 316.
+(epstopdf)             \includegraphics on input line 327.
 Package epstopdf Info: Output file is already uptodate.
 
-<mesonssaaa-eps-converted-to.pdf, id=515, 420.57124pt x 214.8025pt>
+<mesonssaaa-eps-converted-to.pdf, id=550, 420.57124pt x 214.8025pt>
 File: mesonssaaa-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mesonssaaa-eps-converted-to.pdf>
-Package luatex.def Info: mesonssaaa-eps-converted-to.pdf used on input line 316.
+Package luatex.def Info: mesonssaaa-eps-converted-to.pdf used on input line 327.
 
 (luatex.def)             Requested size: 284.52756pt x 145.31975pt.
- [13
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[14
 
 <./mesonssaaa-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <mesonssb.eps>
@@ -2377,19 +2461,28 @@ Package epstopdf Info: Source file: <mesonssb.eps>
 (epstopdf)                    size: 19168 bytes
 (epstopdf)             Command: <repstopdf --outfile=mesonssb-eps-converted-to.p
 df mesonssb.eps>
-(epstopdf)             \includegraphics on input line 329.
+(epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
 
-<mesonssb-eps-converted-to.pdf, id=554, 433.62pt x 231.86626pt>
+<mesonssb-eps-converted-to.pdf, id=589, 433.62pt x 231.86626pt>
 File: mesonssb-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mesonssb-eps-converted-to.pdf>
-Package luatex.def Info: mesonssb-eps-converted-to.pdf used on input line 329.
+Package luatex.def Info: mesonssb-eps-converted-to.pdf used on input line 340.
 (luatex.def)             Requested size: 284.52756pt x 152.15123pt.
- [14
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[15
 
 <./mesonssb-eps-converted-to.pdf>]
-[15
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[16
 
 ]
 Package epstopdf Info: Source file: <mesonssc.eps>
@@ -2400,13 +2493,13 @@ Package epstopdf Info: Source file: <mesonssc.eps>
 (epstopdf)                    size: 17248 bytes
 (epstopdf)             Command: <repstopdf --outfile=mesonssc-eps-converted-to.p
 df mesonssc.eps>
-(epstopdf)             \includegraphics on input line 391.
+(epstopdf)             \includegraphics on input line 402.
 Package epstopdf Info: Output file is already uptodate.
- <mesonssc-eps-converted-to.pdf, id=626, 379.4175pt x 114.4275pt>
+ <mesonssc-eps-converted-to.pdf, id=661, 379.4175pt x 114.4275pt>
 File: mesonssc-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mesonssc-eps-converted-to.pdf>
-Package luatex.def Info: mesonssc-eps-converted-to.pdf used on input line 391.
+Package luatex.def Info: mesonssc-eps-converted-to.pdf used on input line 402.
 (luatex.def)             Requested size: 227.62204pt x 68.64828pt.
 Package epstopdf Info: Source file: <replot.eps>
 (epstopdf)                    date: 2018-02-27 19:52:40
@@ -2416,18 +2509,28 @@ Package epstopdf Info: Source file: <replot.eps>
 (epstopdf)                    size: 16974 bytes
 (epstopdf)             Command: <repstopdf --outfile=replot-eps-converted-to.pdf
  replot.eps>
-(epstopdf)             \includegraphics on input line 391.
+(epstopdf)             \includegraphics on input line 402.
 Package epstopdf Info: Output file is already uptodate.
 
-<replot-eps-converted-to.pdf, id=627, 271.0125pt x 108.405pt>
+<replot-eps-converted-to.pdf, id=662, 271.0125pt x 108.405pt>
 File: replot-eps-converted-to.pdf Graphic file (type pdf)
 
 <use replot-eps-converted-to.pdf>
-Package luatex.def Info: replot-eps-converted-to.pdf used on input line 391.
+Package luatex.def Info: replot-eps-converted-to.pdf used on input line 402.
 (luatex.def)             Requested size: 170.71652pt x 68.28888pt.
- [16
 
-<./mesonssc-eps-converted-to.pdf><./replot-eps-converted-to.pdf>] [17
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[17
+
+<./mesonssc-eps-converted-to.pdf><./replot-eps-converted-to.pdf>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[18
 
 ]
 Package epstopdf Info: Source file: <2.eps>
@@ -2438,17 +2541,16 @@ Package epstopdf Info: Source file: <2.eps>
 (epstopdf)                    size: 12261 bytes
 (epstopdf)             Command: <repstopdf --outfile=2-eps-converted-to.pdf 2.ep
 s>
-(epstopdf)             \includegraphics on input line 468.
+(epstopdf)             \includegraphics on input line 479.
 Package epstopdf Info: Output file is already uptodate.
-
-<2-eps-converted-to.pdf, id=707, 240.9pt x 139.52126pt>
+ <2-eps-converted-to.pdf, id=743, 240.9pt x 139.52126pt>
 File: 2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 2-eps-converted-to.pdf>
-Package luatex.def Info: 2-eps-converted-to.pdf used on input line 468.
+Package luatex.def Info: 2-eps-converted-to.pdf used on input line 479.
 (luatex.def)             Requested size: 180.67499pt x 104.6428pt.
 
-Overfull \hbox (10.54749pt too wide) in paragraph at lines 468--468
+Overfull \hbox (10.54749pt too wide) in paragraph at lines 479--479
  [] 
  []
 
@@ -2460,20 +2562,25 @@ Package epstopdf Info: Source file: <3.eps>
 (epstopdf)                    size: 12222 bytes
 (epstopdf)             Command: <repstopdf --outfile=3-eps-converted-to.pdf 3.ep
 s>
-(epstopdf)             \includegraphics on input line 468.
+(epstopdf)             \includegraphics on input line 479.
 Package epstopdf Info: Output file is already uptodate.
-<3-eps-converted-to.pdf, id=708, 240.9pt x 139.52126pt>
+<3-eps-converted-to.pdf, id=744, 240.9pt x 139.52126pt>
 File: 3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 3-eps-converted-to.pdf>
-Package luatex.def Info: 3-eps-converted-to.pdf used on input line 468.
+Package luatex.def Info: 3-eps-converted-to.pdf used on input line 479.
 (luatex.def)             Requested size: 180.67499pt x 104.6428pt.
 
-Overfull \hbox (10.54749pt too wide) in paragraph at lines 468--468
+Overfull \hbox (10.54749pt too wide) in paragraph at lines 479--479
  [] 
  []
 
-[18
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[19
 
 <./2-eps-converted-to.pdf><./3-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <4cs.eps>
@@ -2484,17 +2591,17 @@ Package epstopdf Info: Source file: <4cs.eps>
 (epstopdf)                    size: 20156 bytes
 (epstopdf)             Command: <repstopdf --outfile=4cs-eps-converted-to.pdf 4c
 s.eps>
-(epstopdf)             \includegraphics on input line 495.
+(epstopdf)             \includegraphics on input line 506.
 Package epstopdf Info: Output file is already uptodate.
 
-<4cs-eps-converted-to.pdf, id=784, 240.9pt x 144.54pt>
+<4cs-eps-converted-to.pdf, id=819, 240.9pt x 144.54pt>
 File: 4cs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 4cs-eps-converted-to.pdf>
-Package luatex.def Info: 4cs-eps-converted-to.pdf used on input line 495.
+Package luatex.def Info: 4cs-eps-converted-to.pdf used on input line 506.
 (luatex.def)             Requested size: 180.67499pt x 108.40692pt.
 
-Overfull \hbox (10.54749pt too wide) in paragraph at lines 495--495
+Overfull \hbox (10.54749pt too wide) in paragraph at lines 506--506
  [] 
  []
 
@@ -2506,41 +2613,70 @@ Package epstopdf Info: Source file: <cs.eps>
 (epstopdf)                    size: 20447 bytes
 (epstopdf)             Command: <repstopdf --outfile=cs-eps-converted-to.pdf cs.
 eps>
-(epstopdf)             \includegraphics on input line 495.
+(epstopdf)             \includegraphics on input line 506.
 Package epstopdf Info: Output file is already uptodate.
-<cs-eps-converted-to.pdf, id=785, 240.9pt x 144.54pt>
+<cs-eps-converted-to.pdf, id=820, 240.9pt x 144.54pt>
 File: cs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use cs-eps-converted-to.pdf>
-Package luatex.def Info: cs-eps-converted-to.pdf used on input line 495.
+Package luatex.def Info: cs-eps-converted-to.pdf used on input line 506.
 (luatex.def)             Requested size: 180.67499pt x 108.40692pt.
 
-Overfull \hbox (10.54749pt too wide) in paragraph at lines 495--495
+Overfull \hbox (10.54749pt too wide) in paragraph at lines 506--506
  [] 
  []
 
-[19
 
-<./4cs-eps-converted-to.pdf><./cs-eps-converted-to.pdf>] [20
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
 
-]
-<K-G-fig.pdf, id=888, 260.975pt x 151.56625pt>
-File: K-G-fig.pdf Graphic file (type pdf)
- <use K-G-fig.pdf>
-Package luatex.def Info: K-G-fig.pdf used on input line 537.
-(luatex.def)             Requested size: 202.35622pt x 117.52275pt.
+[20
 
-Overfull \hbox (28.75867pt too wide) in paragraph at lines 537--537
- [] 
+<./4cs-eps-converted-to.pdf><./cs-eps-converted-to.pdf>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
  []
 
 [21
 
-<./K-G-fig.pdf>] [22
+] <K-G-fig.pdf, id=924, 260.975pt x 151.56625pt>
+File: K-G-fig.pdf Graphic file (type pdf)
+ <use K-G-fig.pdf>
+Package luatex.def Info: K-G-fig.pdf used on input line 548.
+(luatex.def)             Requested size: 202.35622pt x 117.52275pt.
 
-] [23
+Overfull \hbox (28.75867pt too wide) in paragraph at lines 548--548
+ [] 
+ []
 
-] Excluding 'comment' comment. [24
+
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[22
+
+<./K-G-fig.pdf>]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[23
+
+]
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[24
+
+] Excluding 'comment' comment.
+Overfull \hbox (155.3966pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/5 ([])  
+ []
+
+[25
 
 ]
 \tf@nav=\write7
@@ -2552,13 +2688,13 @@ Overfull \hbox (28.75867pt too wide) in paragraph at lines 537--537
 \tf@snm=\write9
 
 \openout9 = Annual.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 642.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 642.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 653.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 653.
  (./Annual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 642.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 642.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 653.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 653.
 Package rerunfilecheck Info: File `Annual.out' has not changed.
-(rerunfilecheck)             Checksum: E3B2C13A2946BB46CD2EC0E732342BCB;412.
+(rerunfilecheck)             Checksum: CCAA98BD9BB0DA1CB9D3FF352AA8C27F;457.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2567,14 +2703,14 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 34730 strings out of 495077
+ 34747 strings out of 495077
  100000,953878 words of node,token memory allocated
  1024 words of node memory still in use:
    14 hlist, 6 vlist, 2 rule, 2 disc, 1 local_par, 23 glue, 3 kern, 11 penalty, 
 25 glyph, 66 glue_spec, 3 write, 1 pdf_action, 8 pdf_colorstack nodes
-   avail lists: 1:14,2:39,3:351,4:168,5:335,6:1840,7:768,8:90,9:797,10:21,11:180
+   avail lists: 1:14,2:39,3:387,4:180,5:339,6:1840,7:779,8:90,9:797,10:21,11:185
 
- 36875 multiletter control sequences out of 65536+600000
+ 36885 multiletter control sequences out of 65536+600000
  59 fonts using 2450543 bytes
  57i,16n,80p,805b,716s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pf
@@ -2592,10 +2728,10 @@ ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/20
 17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Annual.pdf (24 pages, 375547 bytes).
+Output written on Annual.pdf (25 pages, 388891 bytes).
 
-PDF statistics: 1076 PDF objects out of 1200 (max. 8388607)
- 932 compressed objects within 10 object streams
- 73 named destinations out of 1000 (max. 131072)
- 109 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1111 PDF objects out of 1200 (max. 8388607)
+ 964 compressed objects within 10 object streams
+ 76 named destinations out of 1000 (max. 131072)
+ 117 words of extra memory for PDF output out of 10000 (max. 100000000)
 
