@@ -1,5 +1,6 @@
 \beamer@sectionintoc {1}{1+1-d QCD and 't Hooft model }{4}{0}{1}
-\beamer@sectionintoc {2}{External State Extraction}{9}{0}{2}
+\beamer@sectionintoc {2}{Quark-Antiquark Amplitude and Normalized Bound State Wave-function}{9}{0}{2}
 \beamer@sectionintoc {3}{Meson-meson scattering amplitude}{11}{0}{3}
 \beamer@sectionintoc {4}{Numerical Calculation}{17}{0}{4}
 \beamer@sectionintoc {5}{Conclusion}{20}{0}{5}
+\beamer@sectionintoc {6}{Divergence in Relativistic Quantum Mechanics}{21}{0}{6}
