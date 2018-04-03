@@ -15,7 +15,8 @@
     \usepackage{graphicx}
     %\usepackage{enumitem}
     \usepackage{tikz-feynman}
-    \usepackage{comment}
+	\usepackage{comment}
+	\usepackage{mathrsfs}
     
     \newcommand{\phanitem}{\phantom{\item}}
 
@@ -43,7 +44,7 @@
 \maketitle
 
 \begin{frame}
-	\frametitle{Upcoming papers}
+	\frametitle{On-going Work}
 	\begin{itemize}
 		\item Meson-meson scattering amplitude in 1+1 dimension, Guo-ying Chen, Yingsheng Huang, Yu Jia and Rui Yu.
 		\item Divergence of Klein-Gordon hydrogen atom wave-function near origin, Yingsheng Huang, Yu Jia and Rui Yu.
@@ -204,7 +205,7 @@
 	\end{equation}
 \end{frame}
 
-\section{External State Extraction}
+\section{Quark-Antiquark Amplitude and Normalized Bound State Wave-function}
 \begin{frame}
 	\frametitle{\insertsectionhead (Callen, Coote and Gross, 1976)}
 	The Bethe-Salpeter equation for the quark-antiquark scattering amplitude can be written as
@@ -225,6 +226,10 @@
 	\end{eqnarray}
 	\normalsize
 	where $x=\frac{p_-}{r_-},\ \  x^\prime=\frac{p_-^\prime}{r_-}.$
+
+\end{frame}
+
+\begin{frame}
 	\begin{figure}[hbt]
 		\begin{center}
 			% Requires \usepackage{graphicx}
@@ -232,9 +237,6 @@
 			\caption{The Bethe-Salpeter equation for quark-antiquark scattering amplitude.}\label{quarkscattering}
 		\end{center}
 	\end{figure}
-\end{frame}
-
-\begin{frame}
 	The
 	amplitude has infinite poles at $r^2=r_n^2,\ n=0,1,2\cdots$.
 	Physical interpretation of the above solution is clear, the
@@ -246,15 +248,15 @@
 		\sqrt{\frac{N_c}{\pi}}\left[\theta(x(1-x))\frac{2|r_{-}|}{\lambda}+\frac{\alpha_1}{x}+\frac{\alpha_2}{1-x}-\mu_{n}^2\right].
 	\end{equation}
 	Function $\Phi^{1,2}_n(x)$ can also be interpreted as the transition
-	amplitude between the bound state and the quark pair. 
+	amplitude between the bound state and the quark pair.
 
-	This so-called form factor serves as an external state in our amplitude calculation. 
+	This so-called form factor serves as an external state and link between bound state and quarks in our amplitude calculation.
 \end{frame}
 
 
 \section{Meson-meson scattering amplitude}
 \begin{frame}
-	\frametitle{Meson-meson scattering amplitude (Gou-ying Chen and Rui Yu)}
+	\frametitle{\insertsectionhead (Gou-ying Chen and Rui Yu)}
 	For process $A(q^a\bar q^b)+B(q^c\bar q^a)\rightarrow C(q^a\bar
 		q^b)+D(q^c\bar q^a)$ (where $a,b,c$ are different flavor indexes), the amplitude reads
 	\begin{align*}
@@ -388,9 +390,32 @@
 
 \end{frame}
 
+\iffalse\begin{frame}
+	\frametitle{Classification}
+	The 2 cases of 4 flavor scatterings are splited int 2 kindes as following.
+	\begin{align}
+		\left\{
+		\begin{aligned}
+			  & A(f_1\f_4)+B(f_2\f_1)\r C(f_3\f_4)+D(f_2\f_3) \\
+			  & iM_{41}=iM_0
+		\end{aligned}
+		\right.,
+	\end{align}
+	\begin{align}
+		\left\{
+		\begin{aligned}
+			  & A(f_1\f_4)+B(f_3\f_2)\r C(f_3\f_4)+D(f_1\f_2) \\
+			  & iM_{42}=iM_1\qquad\qquad(f_1,f_2,f_3,f_4)
+		\end{aligned}
+		\right.,
+	\end{align}
+\end{frame}\fi
+
+
+
 \section{Numerical Calculation}
 \begin{frame}
-	\frametitle{Numerical Calculation (Yingsheng Huang)}
+	\frametitle{\insertsectionhead (Yingsheng Huang)}
 	The whole process is simple:
 	\begin{enumerate}
 		\item Solve 't Hooft equation and obtain meson masses (the eigen value) and the corresponding eigen states;
@@ -408,7 +433,7 @@
 	\begin{itemize}
 		\item Cauchy principal value integration.
 
-		      The main problem in the process. In other words, it's singularity problem in numerical calculation.
+		      The main problem in the process. In other words, it's singularity problem in numerical calculation. This cause problems with light (u, s) quark
 		\item Integration accuracy and instability.
 	\end{itemize}
 \end{frame}
@@ -459,7 +484,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=2.5 in]{cs.eps}
-			\caption{Quark mass: 1.425 GeV \& 0.2547 GeV }
+			\caption{Quark mass: 1.425 GeV \& 0.2547 GeV (HE)}
 			\label{fig:csbair2}
 		\end{figure}
 	\end{minipage}
@@ -472,14 +497,21 @@
 \section{Conclusion}
 \begin{frame}
 	\frametitle{\insertsectionhead}
-	We were looking for four-quark state in 1+1-d QCD, and we thought the bump might have something to do with resonance (similar fitting with Breit-Wigner formula was done by Batiz, Pe\~na and Stabler in 2013), and that could mean exotic state.
+	\begin{itemize}
+		\item Derive 't Hooft equation (Large $N_c$ limit)
+		\item Derive normalized bound state wave-function
+		\item Calculate amplitudes
+		\item Numerical study
+		\item We were looking for four-quark state in 1+1-d QCD, and we thought the bump might have something to do with resonance (similar fitting with Breit-Wigner formula was done by Batiz, Pe\~na and Stabler in 2013), and that could mean exotic state.
 
-	But a cut through the quark line can't produce four quarks, thus four quark intermediate state seems not possible.
+		      But a cut through the quark line can't produce four quarks, thus four quark intermediate state seems not possible.
 
-	No concrete conclusion for now.
+		      No concrete conclusion for now.
+	\end{itemize}
+
 \end{frame}
 
-\begin{comment}
+
 \section{Divergence in Relativistic Quantum Mechanics}
 \begin{frame}
 	\frametitle{\insertsectionhead}
@@ -524,6 +556,18 @@
 	\end{align}
 \end{frame}
 
+\begin{frame}
+	\begin{center}
+		\LARGE
+		\begin{itemize}
+			\item This problem can be dealt with in the framework of QFT!
+			\item NRQED, HQET, OPE, Composite Operator, RGE
+		\end{itemize}
+
+	\end{center}
+\end{frame}
+
+\begin{comment}
 \section{Scalar NRQED and HQET}
 \begin{frame}
 	\frametitle{\insertsectionhead}
