@@ -1,0 +1,466 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+QCD
+\end_layout
+
+\begin_layout Section
+DIS
+\end_layout
+
+\begin_layout Subsection
+Background
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $e^{-}+Hadron\rightarrow e^{-}+X$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename pasted1.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Kinematic:
+\begin_inset Formula 
+\begin{multline*}
+q=k-k',q^{2}=\left(k-k'\right)^{2}=-Q^{2}<0,\\
+y=\frac{q\cdot p}{k\cdot p},x_{B}=\frac{Q^{2}}{2q\cdot p}=x.
+\end{multline*}
+
+\end_inset
+
+In Light-cone frame (specifically Breit frame)
+\begin_inset Formula 
+\[
+q^{\mu}=\left(q^{+},q^{-},0,0\right),p^{\mu}=\left(p^{+},\frac{m_{h}^{2}}{2p^{+}},0,0\right)
+\]
+
+\end_inset
+
+Limit (when 
+\begin_inset Formula $q^{-}\rightarrow+\infty$
+\end_inset
+
+, also 
+\begin_inset Formula $q^{+}<0$
+\end_inset
+
+): 
+\begin_inset Formula 
+\[
+Q^{2}=-2q^{+}q^{-}\rightarrow\infty,2q\cdot p\rightarrow\infty,x=\frac{-2q^{+}q^{-}}{2p^{+}q^{-}+2\frac{m_{h}^{2}q^{+}}{2p^{+}}}=-\frac{q^{+}}{p^{+}}
+\]
+
+\end_inset
+
+take 
+\begin_inset Formula $p^{+}$
+\end_inset
+
+ large, x goes to 0, and when 
+\begin_inset Formula $q^{+}$
+\end_inset
+
+ is large, x goes to 1.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Arbitrary light-cone frame: 
+\begin_inset Formula 
+\[
+q^{\mu}=\left(q^{+},q^{-},q_{\perp}\right),p^{\mu}=\left(p^{+},\frac{m_{h}^{2}}{2p^{+}},p_{\perp}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Amplitude square:
+\begin_inset Formula 
+\[
+\mathcal{\left|M\right|77}^{2}=L_{\mu\nu}\int d^{4}xd^{4}ye^{ix\cdot\left(p+q-P_{x}\right)}e^{iy\cdot\left(p+q-P_{x}\right)}\left\langle X\left|J^{\mu}\left(x\right)\right|h\right\rangle \left\langle h\left|J^{\nu}\left(y\right)\right|X\right\rangle 
+\]
+
+\end_inset
+
+Cross section:
+\begin_inset Formula 
+\[
+d\sigma=\frac{1}{2E_{k}2E_{p}\left|v_{k}-v_{p}\right|}\left(\prod_{f}\frac{d^{3}p_{f}}{\left(2\pi\right)^{3}}\frac{1}{2E_{f}}\right)\left|\mathcal{M}\right|^{2}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(k+p-k'-P_{X}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+d\Pi & =\left(\prod_{f}\frac{d^{3}p_{f}}{\left(2\pi\right)^{3}}\frac{1}{2E_{f}}\right)\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(k+p-k'-P_{X}\right)\\
+ & =\prod_{f}\frac{d^{4}p_{f}}{\left(2\pi\right)^{4}}\delta\left(p_{f}^{2}-m_{f}^{2}\right)\theta\left(p_{f}^{0}\right)\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(k+p-k'-P_{X}\right)\\
+ & =\prod_{f}\frac{d^{4}p_{f}}{\left(2\pi\right)^{4}}\delta\left(p_{f}^{2}-m_{f}^{2}\right)\theta\left(p_{f}^{+}+p_{f}^{-}\right)\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(k+p-k'-P_{X}\right)
+\end{align*}
+
+\end_inset
+
+Substite one exponential index and we get a 
+\begin_inset Formula $J_{\mu}\left(0\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The definition for 
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+W_{\mu\nu}=\frac{1}{4\pi}\int d^{4}xe^{iq\cdot x}\sum_{X}\left\langle h\left|J^{\mu}\left(x\right)\right|X\right\rangle \left\langle X\left|J^{\nu}\left(0\right)\right|h\right\rangle 
+\]
+
+\end_inset
+
+By Lorentz structure one could write
+\begin_inset Formula 
+\[
+W_{\mu\nu}=\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)F_{1}\left(x,Q^{2}\right)+\frac{\hat{p}^{\mu}\hat{p}^{\nu}}{p\cdot q}F_{2}\left(x,Q^{2}\right)
+\]
+
+\end_inset
+
+and given 
+\begin_inset Formula 
+\[
+\hat{p}^{\mu}=p^{\mu}-\frac{q\cdot p}{q^{2}}q^{\mu}.
+\]
+
+\end_inset
+
+Now assuming 
+\begin_inset Formula $f_{p}\left(x\right)$
+\end_inset
+
+ is the probability of finding a parton in point 
+\begin_inset Formula $x$
+\end_inset
+
+, determine 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+?
+\]
+
+\end_inset
+
+and gives 
+\begin_inset Formula 
+\[
+F_{2}\left(x,Q^{2}\right)=xf_{p}\left(x\right),2xF_{1}\left(x,Q^{2}\right)=F_{2}\left(x,Q^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+QCD Approach
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula 
+\[
+T^{\mu\nu}\left(q,p\right)=\frac{1}{4\pi}\int d^{4}xe^{iq\cdot x}\left\langle p\left|T\left(J^{\mu}\left(x\right)J^{\nu}\left(0\right)\right)\right|p\right\rangle 
+\]
+
+\end_inset
+
+and optical theorem tells us 
+\begin_inset Formula 
+\[
+W^{\mu\nu}\left(q,p\right)=2\text{Im}T^{\mu\nu}\left(q,p\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At leading order, 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pasted2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this tree order
+\begin_inset Formula 
+\[
+T^{\mu\nu}\left(q,p\right)=\frac{1}{4\pi}\int d^{4}xe^{iq\cdot x}\left\langle p\left|T\left(\overline{q}\left(x\right)\gamma^{\mu}q\left(x\right)\overline{q}\left(0\right)\gamma^{\nu}q\left(0\right)\right)\right|p\right\rangle 
+\]
+
+\end_inset
+
+and contract only the middle two operators, drop vacuum bubble and power
+ supressing normal order term, leave anti-quark part for later, we have
+\begin_inset Formula 
+\begin{align*}
+T^{\mu\nu}\left(q,p\right) & =\frac{1}{4\pi}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}e^{-ik\cdot x}\gamma^{\mu}\frac{\gamma\cdot k}{\left(k\right)^{2}+i\epsilon}\gamma^{\nu}\int d^{4}xe^{iq\cdot x}\left\langle p\left|T\left(\overline{q}\left(x\right)q\left(0\right)\right)\right|p\right\rangle \\
+ & =\frac{1}{4\pi}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\gamma^{\mu}\frac{\gamma\cdot\left(k+q\right)}{\left(k+q\right)^{2}+i\epsilon}\gamma^{\nu}\int d^{4}xe^{ik\cdot x}\left\langle p\left|T\left(\overline{q}\left(x\right)q\left(0\right)\right)\right|p\right\rangle 
+\end{align*}
+
+\end_inset
+
+transform to 
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+ and note that 
+\begin_inset Formula $q+k+p-P_{X}=0$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align*}
+W^{\mu\nu} & =\frac{1}{4\pi}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{d^{4}P_{X}}{\left(2\pi\right)^{4}}\delta\left(k^{2}\right)\theta\left(k^{+}+k^{-}\right)\delta\left(P_{X}^{2}\right)\theta\left(P_{X}^{+}+P_{X}^{-}\right)\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(k+p+q-P_{X}\right)\gamma^{\mu}\frac{\gamma\cdot\left(k+q\right)}{\left(k+q\right)^{2}+i\epsilon}\gamma^{\nu}\int d^{4}xe^{ik\cdot x}\left\langle p\left|T\left(\overline{q}\left(x\right)q\left(0\right)\right)\right|p\right\rangle \\
+ & =\frac{1}{2}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\left(\gamma^{\mu}\gamma\cdot\left(k+q\right)\gamma^{\nu}\delta\left(k^{2}\right)\right)_{ij}\left(\int d^{4}xe^{ik\cdot x}\left\langle p\left|T\left(\overline{q}\left(x\right)q\left(0\right)\right)\right|p\right\rangle \right)_{ji}
+\end{align*}
+
+\end_inset
+
+use scaling of 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+k^{\mu}\sim\left(1,\lambda^{2},\lambda,\lambda\right)
+\]
+
+\end_inset
+
+and define
+\begin_inset Formula 
+\[
+\hat{k}^{\mu}=\left(k^{+},0,0,0\right)
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+k^{\mu}=\hat{k}^{\mu}\left(1+\mathcal{O}\left(\lambda\right)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W^{\mu\nu}=\frac{1}{2}\int_{-\infty}^{\infty}dk^{+}\left(\gamma^{\mu}\gamma\cdot\left(\hat{k}+q\right)\gamma^{\nu}\right)_{ij}\delta\left(k^{2}\right)\int dx^{-}e^{ik^{+}x^{-}}\left\langle p\left|T\left(\overline{q}_{i}\left(x^{-}\right)q_{j}\left(0\right)\right)\right|p\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Collinear Divergence in PDF
+\end_layout
+
+\begin_layout Standard
+Consider
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pasted3.png
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{a}^{\mu\nu}=\frac{1}{4N_{c}}\int d\hat{p}^{+}\delta\left(\left(\hat{p}+q\right)^{2}\right)\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{-i}{k^{2}+i\epsilon}Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\frac{i\gamma\cdot\left(\hat{p}+q-k\right)}{\left(\hat{p}+q-k\right)^{2}+i\epsilon}\gamma^{\nu}\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]f_{q/p}\left(z\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{p}^{+}=zp^{+},\hat{p}^{\mu}=\left(\hat{p}^{+},0,0,0\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k^{\mu}\sim\left(1,\lambda^{2},\lambda,\lambda\right)
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $k$
+\end_inset
+
+ is collinear to 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{a}^{\mu\nu}=\frac{1}{4N_{c}}\int d\hat{p}^{+}\delta\left(\left(\hat{p}+q\right)^{2}\right)\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{-i}{k^{2}+i\epsilon}Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\gamma^{\nu}\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]f_{q/p}\left(z\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\rightarrow i\gamma^{+}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\gamma^{\nu}\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]\\
+= & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\left(\frac{2i\left(\left(\hat{p}+q\right)^{\nu}-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}-\gamma^{\nu}\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\right)\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]\\
+= & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\left(\frac{2i\left(\hat{p}+q-k\right)^{\nu}}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}-\gamma^{\nu}\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\right)\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}=\left(-ig_{s}T^{a}\right)\left(\delta_{\rho}^{-}-\gamma\right)
+\]
+
+\end_inset
+
+The result is
+\begin_inset Formula 
+\[
+W_{a}^{\mu\nu}=\frac{1}{4N_{c}}\int d\hat{p}^{+}\delta\left(\left(\hat{p}+q\right)^{2}\right)Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\gamma^{\nu}\gamma^{-}\right]\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{-i}{k^{2}+i\epsilon}Tr\left[\gamma^{+}\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma^{\rho}T^{a}\right)\gamma^{-}\frac{i}{-k^{+}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\right]f_{q/p}\left(z\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
