@@ -410,6 +410,14 @@ k^{\mu}\sim\left(1,\lambda^{2},\lambda,\lambda\right)
 
 \end_inset
 
+alos
+\begin_inset Formula 
+\[
+\hat{p}\cdot q=\hat{p}^{+}q^{-}
+\]
+
+\end_inset
+
 and 
 \begin_inset Formula $k$
 \end_inset
@@ -431,16 +439,6 @@ W_{a}^{\mu\nu}=\frac{1}{4N_{c}}\int d\hat{p}^{+}\delta\left(\left(\hat{p}+q\righ
 \[
 \frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\rightarrow i\gamma^{+}
 \]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\gamma^{\nu}\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]\\
-= & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\left(\frac{2i\left(\left(\hat{p}+q\right)^{\nu}-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}-\gamma^{\nu}\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\right)\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]\\
-= & Tr\left[\gamma^{\mu}\gamma\cdot\left(\hat{p}+q\right)\left(-ig_{s}\gamma^{\rho}T^{a}\right)\left(\frac{2i\left(\hat{p}+q-k\right)^{\nu}}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}-\gamma^{\nu}\frac{i\left(\gamma\cdot\left(\hat{p}+q\right)-\gamma^{-}k^{+}\right)}{\left(\hat{p}+q\right)^{2}-2\left(\hat{p}+q\right)^{-}k^{+}+i\epsilon}\right)\frac{i\gamma\cdot\left(\hat{p}-k\right)}{\left(\hat{p}-k\right)^{2}+i\epsilon}\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}\right]
-\end{align*}
 
 \end_inset
 

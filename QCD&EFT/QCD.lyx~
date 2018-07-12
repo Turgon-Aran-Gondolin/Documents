@@ -16,7 +16,7 @@
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -27,6 +27,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -446,7 +447,7 @@ W_{a}^{\mu\nu}=\frac{1}{4N_{c}}\int d\hat{p}^{+}\delta\left(\left(\hat{p}+q\righ
 
 \begin_inset Formula 
 \[
-\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}=\left(-ig_{s}T^{a}\right)\left(\delta_{\rho}^{-}-\gamma\right)
+\left(-ig_{s}\gamma_{\rho}T^{a}\right)\gamma^{-}=\left(-ig_{s}T^{a}\right)\left(2\delta_{\rho}^{-}-\gamma^{-}\gamma_{\rho}\right)
 \]
 
 \end_inset
