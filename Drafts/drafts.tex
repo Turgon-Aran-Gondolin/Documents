@@ -1,3 +1,4 @@
+%% !TeX program = xelatex
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{naturalnames}{hyperref}
 \documentclass{article}
@@ -69,12 +70,23 @@
 \maketitle
 \begin{align*}
   \feynmandiagram[horizontal=i1 to f1,layered layout,inline=($(a)!0.5!(c)$)]{
-	i1 -- [double distance=1pt] a -- [double distance=1pt] b -- [double distance=1pt] f1,
+	i1 -- [fermion,double distance=1pt] a -- [double distance=1pt] b -- [double distance=1pt] f1,
 	i2 -- [fermion] c -- [fermion] d -- [fermion] f2,
 	{ [same layer] a -- [photon] c},
 	{ [same layer] b-- [photon] d},
   };
   +
+\end{align*}
+
+\begin{align*}
+	\feynmandiagram [horizontal=a to b]
+		{ i1 -- [fermion] a -- [fermion] i2, a -- [photon] b,
+		f1 -- [fermion] b -- [fermion] f2,
+		};
+\end{align*}
+
+\begin{align*}
+	f=&\frac{1}{16\pi}\int_0^1 \dd x_1 \bqty{\frac{q^2-2q\cdot px_1+2mE'}{\sqrt{p^2x_1(1+x_1)-2mE'(1-x_1)}}-\frac{3q^2-2q\cdot px_1+2mE'}{\sqrt{2q^2+x_1(p^2(1+x_1)+2mE'-2q\cdot p)}}}\\&\times\bqty{(q^2-2q\cdot px_1+2mE')^2-4q^2(p^2x_1(1+x_1)-2mE'(1-x_1))}^{-1}
 \end{align*}
 
 \end{document}
