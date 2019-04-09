@@ -108,7 +108,7 @@
                 \node[blob] at ($(o4)!0.5!(o6)$) (o5);
             \end{feynman}
         \end{tikzpicture}&=\mel{34}{\psi^\dagger\left(-\frac{\vb{r}}{2}\right)\psi\left(\frac{\vb{r}}{2}\right)}{12}\\
-        &=(i\calA)^2\int\frac{\dd^4q}{(2\pi)^4}\frac{i}{q^0-\frac{\vb{q}^2}{2m}+i\epsilon}\frac{i}{{E-q^0-\frac{\vb{q}^2}{2m}+i\epsilon}^2}e^{i\vb{q}\cdot\vb{r}}\\
+        &=(i\calA)^2\int\frac{\dd^4q}{(2\pi)^4}\frac{i}{q^0-\frac{\vb{q}^2}{2m}+i\epsilon}\frac{i}{\bqty{E-q^0-\frac{\vb{q}^2}{2m}+i\epsilon}^2}e^{i\vb{q}\cdot\vb{r}}\\
         &=\calA^2\int\frac{\dd^3\vb{q}}{(2\pi)^3}\frac{m^2e^{i\vb{q}\cdot\vb{r}}}{\pqty{\vb{q}^2-p^2-i\epsilon}^2}\\
         &=\frac{i m^2\calA^2 e^{i p r}}{8 \pi  p}
     \end{align}
@@ -232,8 +232,53 @@
     we have
     \begin{align}
         \expval{\psi^\dagger_1\psi^\dagger_2\psi_1\psi_2^{(\Lambda)}(0)}_{\pm\vb{p}}=m^2g^{-2}(\Lambda)\calA^2
+        \label{2c}
+    \end{align}
+    The Wilson coefficient must be 
+    \begin{align}
+        -\frac{r}{8\pi}g^2(\Lambda)
+    \end{align}
+
+    \section{Contact}
+    \subsection{Definition}
+    \begin{align}
+        C=\int\dd^3R\expval{g^2\psi^\dagger_1\psi^\dagger_2\psi_1\psi_2(R)}
+    \end{align}
+    \subsection{Energy Relation}
+
+    \subsection{OPE for number density operators}
+    We have a pair of number density operators
+    \begin{align}
+        \psi_1^\dagger\psi_1(\vb{R}-\frac{1}{2}\vb{r})\;\&\; \psi_2^\dagger\psi_2(\vb{R}+\frac{1}{2}\vb{r})
+    \end{align}
+    and the diagram is 
+    \begin{align}
+        &\begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o1 to o3]{
+                    p1 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \node[empty dot] at ($(o3)!0.5!(o4)+(0,20pt)$) (ps1);
+                \node[empty dot] at ($(o3)!0.5!(o4)+(0,-20pt)$) (ps2);
+                \diagram*{
+                    (o3) --[quarter left,momentum={[arrow shorten=0.25]\(l_1\)}] (ps1);
+                    (ps1) --[quarter left,momentum={[arrow shorten=0.25]\(l_2\)}] (o4);
+                    (o3) --[quarter right,momentum'={[arrow shorten=0.25]\(P-l-1\)}] (ps2);
+                    (ps2) --[quarter right,momentum'={[arrow shorten=0.25]\(P-l_2\)}] (o4);
+                };
+                \node[blob] at ($(o1)!0.5!(o3)$) (o2);
+                \node[blob] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}\\
+        &=(i\calA)^2\int\mm{l_1}\mm{l_2}\frac{i}{l_1^0-\frac{\vb{l_1}^2}{2m}+i\epsilon}\frac{i}{{E-l_1^0-\frac{\vb{l_1}^2}{2m}+i\epsilon}}\frac{i}{l_2^0-\frac{\vb{l_2}^2}{2m}+i\epsilon}\frac{i}{{E-l_2^0-\frac{\vb{l_2}^2}{2m}+i\epsilon}}e^{i\vb{q}\cdot\vb{r}}\\
+        &=\frac{\calA^2m^2 }{16 \pi ^2 r^2}e^{2 i p r}
+    \end{align}
+    Compare with the result of Figure~2(c) \eqref{2c} we have the Wilson coefficient
+    \begin{align}
+        \frac{g^2}{16 \pi ^2 r^2}
     \end{align}
 
     \bibliography{../../QM-OPE/QM-OPE.bib}
-    \bibliographystyle{unsrt}
+    \bibliographystyle{apsrev4-1}
 \end{document}
