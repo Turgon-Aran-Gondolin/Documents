@@ -1,3 +1,4 @@
+
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{naturalnames}{hyperref}
 \documentclass{article}
@@ -67,6 +68,22 @@
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
+\section{Kinematics}
+Quark and antiquark momenta are
+\begin{align}
+    p_1=P/2+p=(E,\vb{p})
+    p_2=P/2-p=(E,-\vb{p})
+\end{align}
+where in rest frame
+\begin{align}
+    P=(2E(p),0)
+    p=(0,\vb{p})
+\end{align}
+\section{State Projection}
+The bound state is\cite{Weinberg2015}
+\begin{align}
+    \ket{P,E;J,m_j;L;S}=\int\dd\Omega_{\vb{p_1}}\sum_{s_1s_2s_zm_l}Y_l^m(\hat{\vb{p_1}})\braket{Ss_z}{S_1s_{1z}S_2s_{2z}}\braket{Jm_J}{Ss_zLm_l}\ket{\vb{p_1},s_{1z}}\ket{\vb{P-p_1},s_{2z}}
+\end{align}
 \section{$^3S_1$}
 Ignore the overall factor:
 $$\mel{0}{\bar c\gm c}{^3S_1}=\int\dd\Omega\tr[\Pi_1\gm]\propto\sqrt{2}\pi(\frac{m}{3 E}+\frac{2}{3})\epsilon^{\mu}$$
@@ -92,6 +109,9 @@ $$\left(
  0 & -\frac{2 \sqrt{2 \pi } p^2}{3 E (m+E)} & -\frac{2 i \sqrt{2 \pi } p^2}{3 E (m+E)} & 0 \\
 \end{array}
 \right)$$
-and the decay constant is $\frac{4 \sqrt{\pi } p^2}{3 E (E+m)}$ where $p=\vb{p}=E^2-m^2$.
+and the decay constant is $\frac{4 \sqrt{\pi } p^2}{3 E (E+m)}$ where $p=\vb{p}=E^2-m^2$. 
+
+\bibliography{Bib.bib}
+\bibliographystyle{apsrev4-1}
 
 \end{document}
