@@ -59,9 +59,9 @@ int main( int argc, char* argv[] ){
   /* if the number of arguments is different from the one expected then it finishes and prints the error message */
   /* for calling the program we use the script file: "run.sh" */
 
-  if( argc != 9 )
+  if( argc != 10 )
     {
-      printf( "%s <N> <seed> <g_num_trajectories> <g_init_method> <g_a> <g_M_0> <g_mu2> \n", argv[0] );
+      printf( "%s <N> <seed> <g_num_trajectories> <g_init_method> <g_a> <g_M_0> <g_mu2> <g_l> \n", argv[0] );
       return 1;
     }
 
@@ -76,9 +76,9 @@ int main( int argc, char* argv[] ){
   g_a = atof(argv[5]);
   g_M_0= atof(argv[6]);
   g_mu2= atof(argv[7]);
-  
+  g_l=  atof(argv[8]); 
   /* number of skipped trajetories */
-  g_num_MCskip = atoi(argv[8]);
+  g_num_MCskip = atoi(argv[9]);
 
   printf( "N = %i\n", N );
   printf( "seed = %i\n", seed );
@@ -88,6 +88,7 @@ int main( int argc, char* argv[] ){
   printf( "g_a = %f\n", g_a );
   printf( "g_M_0 = %f\n", g_M_0 );
   printf( "g_mu2 = %f\n", g_mu2 );
+  printf( "g_l = %f\n", g_l );
 
 
   /** initialize random number generator **/
@@ -170,22 +171,25 @@ int main( int argc, char* argv[] ){
 
     ///////* TO DO *//////////
     /* Initialization */
-    x1 =   ;
-    x2 =   ;
+    x1 =  0.0;
+    x2 =  0.0;
 
     for( t=0; t<N; t++ )
     {
       ///////* TO DO *//////////
       /* Compute here average x and average x^2 for the given trajectory */
+      
+      x1 = x1 + (g_X[t])/N;
 
+      x2 = x2 + (g_X[t]*g_X[t]/N); 
 
     }
 
 
     /** for debugging **/
-    /* printf( "x^1 %i %14.7e\n", ntraj, x1 ); */
-    /* printf( "x^2 %i %14.7e\n", ntraj, x2 ); */
-    /* printf( "acceptance %i %14.7e\n", ntraj, acceptance ); */
+     printf( "x^1 %i %14.7e\n", n_MCsteps, x1 );
+     printf( "x^2 %i %14.7e\n", n_MCsteps, x2 ); 
+     printf( "acceptance %i %14.7e\n", n_MCsteps, acceptance ); 
 
     if (n_MCsteps > g_num_MCskip ) 
     {
@@ -221,16 +225,20 @@ int main( int argc, char* argv[] ){
      and print values */
   
 
+  // calculate errors
+  double error_x1 = (total_sdx/n_MCmeas - (total_x*total_x)/pow(n_MCmeas,2))/(n_MCmeas*(n_MCmeas-1));
+  double error_x2 = (total_sdx2/n_MCmeas - (total_x2*total_x2)/pow(n_MCmeas,2))/(n_MCmeas*(n_MCmeas-1));
+  double error_acc =(total_sdacc/n_MCmeas - (total_acc*total_acc)/pow(n_MCmeas,2))/(n_MCmeas*(n_MCmeas-1));
 
-  printf( "<x>= %14.7e d(<x>)= %14.7e \n", total_x, error );
+  printf( "<x>= %14.7e d(<x>)= %14.7e \n", total_x/n_MCmeas, error_x1 );
 
 
 
-  printf( "<x^2>= %14.7e d(<x^2>)= %14.7e theor= %14.7e \n", total_x2, error, x2_CF );
+  printf( "<x^2>= %14.7e d(<x^2>)= %14.7e theor= %14.7e \n", total_x2/n_MCmeas, error_x2, x2_CF );
 
 
 
-  printf( "<Acc>= %14.7e d(<Acc>)= %14.7e \n", total_acc, error );
+  printf( "<Acc>= %14.7e d(<Acc>)= %14.7e \n", total_acc/n_MCmeas, error_acc );
 
 
   /***************/

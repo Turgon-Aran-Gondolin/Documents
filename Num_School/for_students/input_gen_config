@@ -1,0 +1,6 @@
+aomega 0.1
+Nt 500
+Nconf 500000
+delta 0.2
+output_path ./conf
+

@@ -35,6 +35,7 @@ EXTERN int g_num_MCskip;
 /* Paths */
 
 EXTERN double *g_X;
+EXTERN double g_l;
 /* EXTERN double *g_X_copy; */
 
 

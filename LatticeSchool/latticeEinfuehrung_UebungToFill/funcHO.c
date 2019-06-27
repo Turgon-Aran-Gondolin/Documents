@@ -22,6 +22,7 @@
 #include "init.h"
 #include "funcHO.h"
 #include "global.h"
+/* #include "omp.h" */
 
 
 /*************************************************
@@ -142,36 +143,50 @@ double S_ho (){
   int itest;
 
   double acceptance = 0.0;
-
+  #pragma omp parallel num_threads(4) 
+  /* #pragma omp parallel for */
   for(i=0;i<N;i++){
 
     ///////* TO DO *//////////
     /* specify neighbouring points and boundary conditions */
     if(i == 0){
-      leftneighbor  =  N-1;
+      leftneighbor  = g_X[N-1];
     }
     else{
-      leftneighbor  =  i-1;
+      leftneighbor  =  g_X[i-1];
     }
     if(i == N-1){
-      rightneighbor =  0;
+      rightneighbor =  g_X[0];
     }
     else{
-      rightneighbor =  i+1;
+      rightneighbor =  g_X[i+1];
     }
     
     ///////* TO DO *//////////
     /* Determine old action */ 
-    Sold =  ;
-    
+    //Sold =  g_a*(1/2.)*(g_M_0*(g_X[i+1]-g_X[i])*(g_X[i+1]-g_X[i])/(g_a*g_a) + g_mu2*(g_X[i]*g_X[i])) + g_a*g_l*(g_X[i]*g_X[i]*g_X[i]*g_X[i]);
+
+    Sold =  g_a*(1/2.)*(g_M_0*(rightneighbor-g_X[i])*(rightneighbor-g_X[i])/(g_a*g_a) + g_mu2*(g_X[i]*g_X[i])) + g_a*g_l*(g_X[i]*g_X[i]*g_X[i]*g_X[i]);
+
+    //for(j=0;j<N;j++){
+    //Sold = Sold +  g_a*(1/2.)*(g_M_0*(g_X[j+1]-g_X[j])*(g_X[j+1]-g_X[j])/(g_a*g_a) + g_mu2*(g_X[j]*g_X[j])) + g_a*g_l*(g_X[j]*g_X[j]*g_X[j]*g_X[j]);
+    //}
+
     ///////* TO DO *//////////
     /* Compute new proposal for coordinate */ 
-    xnew =  ;
+    xnew = gauss(); // just pick random guassian number
     
     ///////* TO DO *//////////
     /* Determine new action */
-    Snew =  ;
+    Snew =  g_a*(1/2.)*( g_M_0*(rightneighbor-xnew)*(rightneighbor-xnew)/(g_a*g_a) + g_mu2*(xnew*xnew)) + g_a*g_l*(xnew*xnew*xnew*xnew);
     
+    //Snew =  g_a*(1/2.)*(g_M_0*(xnew-g_X[i])*(xnew-g_X[i])/(g_a*g_a) + g_mu2*(g_X[i]*g_X[i])) + g_a*g_l*(g_X[i]*g_X[i]*g_X[i]*g_X[i]);
+
+    //for(j=0;j<N;j++){
+    //Snew = g_a*(1/2.)*(g_M_0*(g_X[j+1]-g_X[j])*(g_X[j+1]-g_X[j])/(g_a*g_a) + g_mu2*(g_X[j]*g_X[j])) + g_a*g_l*(g_X[j]*g_X[j]*g_X[j]*g_X[j]);
+    //}
+
+
     ///////* TO DO *//////////  
     /* perform Metropolis test: modify itest_metropolis() function below */
     itest = itest_metropolis(Sold,Snew);
@@ -183,8 +198,8 @@ double S_ho (){
     }
 
     /** for debugging **/
-    /*   printf(" Sold = %e Snew= %e \n",Sold,Snew); */  
-    /*   printf(" itest = %i \n",itest); */  
+       printf(" Sold = %e Snew= %e \n",Sold,Snew);   
+       printf(" itest = %i \n",itest);   
 
   }
 
@@ -214,10 +229,22 @@ int itest_metropolis(double Sold, double Snew) {
    ///////* TO DO *//////////
    /* Perform Metropolis test */
  
+   if(R>1){
 
-
+   // accept auto
+    itest=1;
+   }
+   else{
+   //accept condionally
+     if(R>random_number()){
+     	itest=1;
+     }
+     else{
+         itest=0;
+     }
+   }
    /** for debugging **/
-   /*printf(" R = %e \n",R);*/
+   printf(" R = %e \n",R);
    
    return itest;
    

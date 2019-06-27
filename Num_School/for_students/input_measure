@@ -1,0 +1,9 @@
+aomega 0.1
+Nt 500
+Nconf 500000
+Nskip 500
+Ndump 200000
+delta 0.2
+input_path ./conf
+output_path ./corr
+

@@ -8,7 +8,7 @@ init=0
 
 M_0=1.0
 mu2=1.00
-
+la=0.0
 #a=0.10
 a=1.0
 NT=200
@@ -21,5 +21,5 @@ Nskip=5000
 
 # Run the MAIN program "harm_osc.c"
 
-time ./harm_osc $NT $seed $num_traj $init $a $M_0 $mu2 $Nskip 
+time ./harm_osc $NT $seed $num_traj $init $a $M_0 $mu2 $la $Nskip 
 
