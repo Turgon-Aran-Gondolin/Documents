@@ -1,5 +1,6 @@
 #include <math.h>
 #include "ranlxd.h"
+#include <random>
 
 
 /* 
