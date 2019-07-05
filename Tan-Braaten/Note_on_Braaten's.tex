@@ -289,8 +289,8 @@
     \end{align}
     Together with F-H theorem 
     \begin{align}
-        &\frac{a}{2}\pdv{a}\int\dd^3R\expval{\mathcal{H}}=\frac{C}{8\pi m a}=\frac{a}{2}\dv{E}{a}\\
-        &\pdv{\omega}\int\dd^3R\expval{\mathcal{H}}=\dv{E}{\omega}
+        &\frac{a}{2}\pdv{a}\int\dd^3R\expval{\mathcal{H}}=\frac{C}{8\pi m a}+\frac{a}{2}\pdv{a}\expval{\mathcal{V}}==\frac{a}{2}\dv{E}{a}\\
+        &\pdv{\omega}\int\dd^3R\expval{\mathcal{H}}=\pdv{\omega}\expval{\mathcal{V}}=\dv{E}{\omega}
     \end{align}
 
     \subsection{OPE for number density operators}
@@ -325,6 +325,34 @@
     \begin{align}
         \frac{g^2(\Lambda)}{16 \pi ^2 r^2}
     \end{align}
+
+    \section{Reformulate in Dimensional Regularization}
+    The renormalized Hamiltonian reads
+    \begin{align}
+        \mathcal{H}=\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+Z_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4
+    \end{align}
+    We have 
+    \begin{align}
+        i\calA=\begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o1 to o3]{
+                    p1 -- o1 --[draw=none] o3 -- p3;
+                    p2 -- o1 --[draw=none] o3 -- p4;
+                };
+                \node[blob, minimum size=30pt] at ($(o1)!0.5!(o3)$) (o2);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,layered layout]{
+                    p1 -- o1 -- p3;
+                    p2 -- o1 -- p4;
+                };
+                \node[crossed dot] at (o1);
+            \end{feynman}
+        \end{tikzpicture}+\cdots
+    \end{align}
+
 
     \bibliography{Bib.bib}
     \bibliographystyle{apsrev4-1}
