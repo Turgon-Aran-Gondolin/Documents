@@ -1,10 +1,11 @@
 % !TEX program = lualatex
+% !BIB program = bibtex
 \RequirePackage{luatex85}
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{naturalnames}{hyperref}
 \documentclass{article}
-\usepackage{geometry}
-%\usepackage{fullpage}
+% \usepackage{geometry}
+\usepackage{fullpage}
 \usepackage{parskip}
 \usepackage{physics}
 \usepackage{amsmath}
@@ -34,7 +35,13 @@
 \newcommand{\calA}{\mathcal{A}}
 \newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
 \newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
+\newcommand{\mmd}[2][d]{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}
 \newcommand{\red}[1]{{\color{red}#1}}
+
+\usepackage{shellesc}
+\usetikzlibrary{external}
+% \usepgfplotslibrary{external}
+\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
 
 \title{Note on Braaten's Paper}
 \author{Yingsheng Huang}
@@ -69,7 +76,7 @@
     Define $P=p_1+p_2=(E,\vb{0})$, and $E=p^2/m$. 
     The integral equation is 
     \begin{align}
-        i\calA=-\frac{ig(\Lambda)}{m}\pqty{1+i\calA\int\mm{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\epsilon}\frac{i}{k^0-p^0-\frac{\abs{\vb{k-p}}^2}{2m}+i\epsilon}}
+        i\calA=-\frac{ig(\Lambda)}{m}\pqty{1+i\calA\int\mm{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\epsilon}\frac{i}{P^0-k^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\epsilon}}
     \end{align}
     The integral gives (redefine $\epsilon\rightarrow2m\epsilon$)
     \begin{align}
@@ -196,7 +203,7 @@
                 \node[blob] at ($(o1)!0.5!(o3)$) (o2);
             \end{feynman}
         \end{tikzpicture}&=\calA\mathcal{I}\\
-        \begin{tikzpicture}[baseline=(o1.base)]
+        \begin{tikzpicture}[baseline=(o3.base)]
             \begin{feynman}
                 \diagram[small,horizontal=o3 to o4]{
                     p1 -- o3 --[draw=none] o35[empty dot] --[draw=none] o4 --[draw=none] o6 -- p3;
@@ -209,7 +216,7 @@
                 \node[blob] at ($(o4)!0.5!(o6)$) (o5);
             \end{feynman}
         \end{tikzpicture}&=\calA\mathcal{I}\\
-        \begin{tikzpicture}[baseline=(o1.base)]
+        \begin{tikzpicture}[baseline=(o3.base)]
             \begin{feynman}
                 \diagram[small,horizontal=o3 to o4]{
                     p1 -- o3 --[draw=none] o35[empty dot] --[draw=none] o4 -- p3;
@@ -341,19 +348,188 @@
                 };
                 \node[blob, minimum size=30pt] at ($(o1)!0.5!(o3)$) (o2);
             \end{feynman}
+        \end{tikzpicture}
+        % +
+        % \begin{tikzpicture}[baseline=(o1.base)]
+        %     \begin{feynman}
+        %         \diagram[small,layered layout]{
+        %             p1 -- o1 -- p3;
+        %             p2 -- o1 -- p4;
+        %         };
+        %         \node[crossed dot] at (o1);
+        %     \end{feynman}
+        % \end{tikzpicture}+\cdots
+        \\
+        \mathcal{I}\equiv
+        \begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o1 to o4]{
+                    p1 -- o1 --[draw=none] o4 -- p3;
+                    p2 -- o1 --[draw=none] o4 -- p4;
+                };
+                \diagram*{
+                    (o1) --[half left,looseness=1.7,momentum={[arrow shorten=0.25]\(k\)}] (o4);
+                    (o1) --[half right,looseness=1.7,momentum'={[arrow shorten=0.25]\(P-k\)}] (o4);
+                };
+            \end{feynman}
+        \end{tikzpicture}
+    \end{align}
+    The integral equation is 
+    \begin{align}
+        i\calA=-\frac{iZ_gg}{m}\pqty{1+i\calA\mathcal{I}}
+    \end{align}
+    \begin{align}
+        \mathcal{I}\equiv\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\epsilon}\frac{i}{P^0-k^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\epsilon}
+    \end{align}
+    Graphically we have
+    \begin{align*}
+        \begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=p1 to p3]{
+                    p1 -- o1[blob, minimum size=30pt] -- p3;
+                    p2 -- o1 -- p4;
+                };
+                % \node[blob, minimum size=30pt] at (o1);
+            \end{feynman}
+        \end{tikzpicture}=
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,layered layout,horizontal=p1 to p3]{
+                    p1 -- o3 -- p3;
+                    p2 -- o3 -- p4;
+                };
+                \node at (o3);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,layered layout,horizontal=p1 to p3]{
+                    p1 -- o3 -- p3;
+                    p2 -- o3 -- p4;
+                };
+                \node[crossed dot,style=thick] at (o3);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o3 to o4]{
+                    p1 -- o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \diagram*{
+                    (o3) --[half left,looseness=1.7] (o4);
+                    (o3) --[half right,looseness=1.7] (o4);
+                };
+                \node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o3 to o4]{
+                    p1 -- o3[crossed dot, minimum size=8pt,style=thick] --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \diagram*{
+                    (o3) --[half left,looseness=1.7] (o4);
+                    (o3) --[half right,looseness=1.7] (o4);
+                };
+                \node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}
+    \end{align*}
+    or 
+    \begin{align*}
+        \begin{tikzpicture}[baseline=(o1.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o1 to o3]{
+                    p1 -- o1 --[draw=none] o3 -- p3;
+                    p2 -- o1 --[draw=none] o3 -- p4;
+                };
+                \node[blob, minimum size=30pt] at ($(o1)!0.5!(o3)$) (o2);
+            \end{feynman}
+        \end{tikzpicture}&=
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,layered layout,horizontal=p1 to p3]{
+                    p1 -- o3 -- p3;
+                    p2 -- o3 -- p4;
+                };
+                \node at (o3);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,layered layout,horizontal=p1 to p3]{
+                    p1 -- o3 -- p3;
+                    p2 -- o3 -- p4;
+                };
+                \node[crossed dot] at (o3);
+            \end{feynman}
         \end{tikzpicture}+
         \begin{tikzpicture}[baseline=(o1.base)]
             \begin{feynman}
-                \diagram[small,layered layout]{
-                    p1 -- o1 -- p3;
-                    p2 -- o1 -- p4;
+                \diagram[small,horizontal=o1 to o4]{
+                    p1 -- o1 --[draw=none] o4 -- p3;
+                    p2 -- o1 --[draw=none] o4 -- p4;
                 };
-                \node[crossed dot] at (o1);
+                \diagram*{
+                    (o1) --[half left,looseness=1.7] (o4);
+                    (o1) --[half right,looseness=1.7] (o4);
+                };
             \end{feynman}
-        \end{tikzpicture}+\cdots
+        \end{tikzpicture}
+        \\&+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o3 to o4]{
+                    p1 -- o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \diagram*{
+                    (o3) --[half left,looseness=1.7] (o4);
+                    (o3) --[half right,looseness=1.7] (o4);
+                };
+                \node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o3 to o4]{
+                    p1 -- o3[crossed dot, minimum size=8pt] --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \diagram*{
+                    (o3) --[half left,looseness=1.7] (o4);
+                    (o3) --[half right,looseness=1.7] (o4);
+                };
+                \node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}+
+        \begin{tikzpicture}[baseline=(o3.base)]
+            \begin{feynman}
+                \diagram[small,horizontal=o3 to o4]{
+                    p1 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+                    p2 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+                };
+                \diagram*{
+                    (o1) --[half left,looseness=1.7] (o3);
+                    (o1) --[half right,looseness=1.7] (o3);
+                    (o3) --[half left,looseness=1.7] (o4);
+                    (o3) --[half right,looseness=1.7] (o4);
+                };
+                \node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+            \end{feynman}
+        \end{tikzpicture}
+    \end{align*}
+    with one-loop counterterm. 
+    
+    The integral equals to 
+    \begin{align}
+        \mathcal{I}&=\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\epsilon}\frac{i}{k^0-P^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\epsilon}\\
+        &=\int\mmd[d]{\vb{k}}\frac{i}{P^0-\frac{\vb{k}^2}{2m}-\frac{\abs{\vb{k-P}}^2}{2m}+2i\epsilon}\\
+        &=\int\mmd[d]{\vb{k}}\frac{mi}{p^2-\vb{k}^2+i\epsilon}\\
     \end{align}
 
-
-    \bibliography{Bib.bib}
+    \bibliography{../Bib}
     \bibliographystyle{apsrev4-1}
 \end{document}
