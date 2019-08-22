@@ -1,0 +1,221 @@
+\documentclass[Note_on_Braatens.tex]{subfiles}
+
+
+\begin{document}
+\section{Perturbative view of integral equation}
+If we're to have the integral equation only with perturbative counterterms, for a start we can write
+\begin{align*}
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=p1 to p3]{
+				p1 -- o1[blob, minimum size=30pt] -- p3;
+				p2 -- o1 -- p4;
+			};
+			% \node[blob, minimum size=30pt] at (o1);
+		\end{feynman}
+	\end{tikzpicture} & =
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,layered layout,horizontal=p1 to p3]{
+				p1 -- o3 -- p3;
+				p2 -- o3 -- p4;
+			};
+			\node at (o3);
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,layered layout,horizontal=p1 to p3]{
+				p1 -- o3 -- p3;
+				p2 -- o3 -- p4;
+			};
+			\node[crossed dot] at (o3);
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o1 to o4]{
+			p1 -- o1 --[draw=none] o4 -- p3;
+			p2 -- o1 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o4);
+			(o1) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	\\&+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o3);
+			(o1) --[half right,looseness=1.7] (o3);
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o3[crossed dot, minimum size=8pt] --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\diagram*{
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}
+\end{align*}
+with one-loop counterterm. 
+
+The iterative form is
+\begin{align}
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=p1 to p3]{
+				p1 -- o1[blob, minimum size=30pt] -- p3;
+				p2 -- o1 -- p4;
+			};
+			% \node[blob, minimum size=30pt] at (o1);
+		\end{feynman}
+	\end{tikzpicture} & =
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,layered layout,horizontal=p1 to p3]{
+				p1 -- o3 -- p3;
+				p2 -- o3 -- p4;
+			};
+			\node at (o3);
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,layered layout,horizontal=p1 to p3]{
+				p1 -- o3 -- p3;
+				p2 -- o3 -- p4;
+			};
+			\node[crossed dot] at (o3);
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o1 to o4]{
+			p1 -- o1 --[draw=none] o4 -- p3;
+			p2 -- o1 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o4);
+			(o1) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	\\&+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o4 -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o3);
+			(o1) --[half right,looseness=1.7] (o3);
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o4[crossed dot, minimum size=8pt] -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o3);
+			(o1) --[half right,looseness=1.7] (o3);
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\diagram*{
+			(o1) --[half left,looseness=1.7] (o3);
+			(o1) --[half right,looseness=1.7] (o3);
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			(o4) --[half left,looseness=1.7] (o6);
+			(o4) --[half right,looseness=1.7] (o6);
+			};
+		\end{feynman}
+	\end{tikzpicture}\notag
+	\\&+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o3[crossed dot, minimum size=8pt] --[draw=none] o4 -- p3;
+			p2 -- o3 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o3[crossed dot, minimum size=8pt] --[draw=none] o4[crossed dot, minimum size=8pt] -- p3;
+			p2 -- o3 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o3[crossed dot, minimum size=8pt] --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\diagram*{
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			(o4) --[half left,looseness=1.7] (o6);
+			(o4) --[half right,looseness=1.7] (o6);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align}
+It'd appeared that we missed one diagram during the iteration: 
+\begin{align*}
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 -- o3 --[draw=none] o4[crossed dot, minimum size=8pt] -- p3;
+			p2 -- o3 --[draw=none] o4 -- p4;
+			};
+			\diagram*{
+			(o3) --[half left,looseness=1.7] (o4);
+			(o3) --[half right,looseness=1.7] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align*}
+If we add this one, the r.h.s. of the integral equation won't be finite again. Thus, only the counterterm from one loop is not sufficient enough to cancel all the divergences. 
+\end{document}
