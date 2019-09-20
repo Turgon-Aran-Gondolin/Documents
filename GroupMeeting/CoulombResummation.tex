@@ -1,0 +1,149 @@
+% !TEX program = lualatex
+\documentclass[8pt,dvipsnames,table]{beamer}
+
+% ==============================================================================
+% Language and Encoding
+% ==============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% ==============================================================================
+% Font
+% ==============================================================================
+% \usefonttheme{professionalfonts}
+% \usefonttheme{serif}
+% \usepackage{fontspec}
+% \setmainfont{Helvetica Neue}
+\usepackage{helvet}
+\usepackage{lmodern}
+
+% ==============================================================================
+% Color, style and layout
+% ==============================================================================
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{subfig}
+\usepackage{pict2e}
+\usepackage{comment}
+\usepackage{pdfpages}
+\usepackage{geometry}
+% \usepackage[paper=landscape]{typearea}
+
+% ==============================================================================
+% Math and Physics
+% ==============================================================================
+\usepackage{mathrsfs}
+\usepackage{physics}
+\usepackage{slashed}
+\usepackage{siunitx}
+\usepackage{tikz-feynman}
+
+% ==============================================================================
+% Beamer backup
+% ==============================================================================
+\usepackage{appendixnumberbeamer}
+
+% ==============================================================================
+% Theme
+% ==============================================================================
+\usetheme{metropolis}
+% \usecolortheme[snowy]{owl}
+\linespread{1.5}
+
+% ==============================================================================
+% Macros
+% ==============================================================================
+%\newcommand{\phanitem}{\phantom{\item}}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\newcommand{\s}{\sigma}
+
+% ==============================================================================
+% Color Command
+% ==============================================================================
+% \definecolor{red}{rgb}{1, 0., 0.}
+
+\newcommand{\red}[1]{{\color{OrangeRed}#1}}
+\newcommand{\orange}[1]{{\color{Bittersweet}#1}}
+\newcommand{\blue}[1]{{\color{NavyBlue}#1}}
+\newcommand{\green}[1]{{\color{ForestGreen}#1}}
+\newcommand{\purple}[1]{{\color{RedViolet}#1}}
+
+% ==============================================================================
+% Itemize style
+% ==============================================================================
+\setbeamertemplate{itemize item}{$\square$}
+
+% ==============================================================================
+% Horizontal Alignment
+% ==============================================================================
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+\newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+\makeatother
+
+% ==============================================================================
+% Graphics Path
+% ==============================================================================
+\graphicspath{{./figs/}}
+
+% ==============================================================================
+% Title Page
+% ==============================================================================
+\title{Coulomb Resummation in Top Pair Production Processes}
+\author[Y. Huang]{Yingsheng Huang}
+\institute[IHEP]{Institute of High Energy Physics}
+\date
+
+
+
+\begin{document}
+
+\begin{frame}{}
+	\maketitle
+	% \par\medskip
+	% \uncover<4->{\vsapce*{-3in}arxiv:1809.09023}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outlines}
+	\tableofcontents
+\end{frame}
+
+\begin{frame}
+	\frametitle{}
+
+	Coulomb resummation \cite{Beneke:1999qg}
+
+\end{frame}
+
+\section*{END}
+\begin{frame}[standout]
+	\Huge Questions?
+  \end{frame}
+% \begin{frame}
+% 	\begin{center}
+% 		\Huge 
+% 		\usebeamercolor[bg]{frametitle}
+% 		\emph{Thanks for your attention!}
+% 	\end{center}
+% \end{frame}
+
+\appendix
+\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+		\usebeamerfont{title}Backup\par%
+	\end{beamercolorbox}
+	\vfill
+\end{frame}
+
+\bibliography{../Bib}
+\bibliographystyle{apalike}
+
+\end{document}
