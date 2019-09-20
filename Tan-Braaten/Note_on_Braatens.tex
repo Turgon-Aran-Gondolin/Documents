@@ -148,7 +148,7 @@ where $\tilde D$ marks momentum space propagator and two external vertexes give 
 \begin{align}
 	\frac{im^2\calA^2}{8\pi p},
 \end{align}
-the first order Fourier expansion of the l.h.s.
+the first order Fourier expansion of the l.h.s.. The Wilson coefficient of this order is $1$. 
 \subsection{Higher dimensional operators}
 Figure~2(c) gives
 \begin{align}
@@ -336,6 +336,7 @@ Compare with the result of Figure~2(c) \eqref{2c} we have the Wilson coefficient
 \end{align}
 
 \section{Reformulate in Dimensional Regularization}
+\subsection{Na\"ive Dim-Reg}
 The renormalized Hamiltonian reads
 \begin{align}
 	\mathcal{H}=\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+Z_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4
@@ -476,10 +477,13 @@ Now without pre-determined scale $\mu$ we have
     \frac{1}{a} & =\frac{2 p^2}{\pi  \mu  \epsilon }+\left(\frac{4 \pi }{g}+\sqrt{-p^2-i \eta }-\frac{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }-\frac{i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }\right)                       \\
                 & \hspace{-0.4in}\Rightarrow Z_g(\mu)g=\frac{4 \pi ^2 \mu  }{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)+i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)-\pi \mu  \sqrt{-p^2-i \eta }-2 p^2/\epsilon+\pi  \mu  /a}
 \end{align}
+\subsection{PDS scheme}
+Here we adopt the power divergence subtraction (PDS) scheme by Kaplan, Savage and Wise in 1998\cite{Kaplan:1998tg}. 
 
 \appendix
 \subfile{sub-pert_inteq.tex}
 
 \bibliography{../Bib}
-\bibliographystyle{apsrev4-1}
+% \bibliographystyle{apsrev4-1}
+\bibliographystyle{phaip}
 \end{document}
