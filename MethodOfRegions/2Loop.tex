@@ -1,0 +1,97 @@
+% !TEX program = lualatex
+% !BIB program = bibtex
+\RequirePackage{luatex85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+%\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick}
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+\usepackage{extarrows}
+
+% ==============================================================================
+% Minted
+% ==============================================================================
+\usepackage{minted}
+\usemintedstyle{colorful}
+
+% ==============================================================================
+% Changes: comments and highlights
+% ==============================================================================
+\let\comment\undefined
+\usepackage[highlightmarkup=uwave]{changes}
+
+\allowdisplaybreaks
+
+% ==============================================================================
+% mathtools
+% ==============================================================================
+\newcommand\MTkillspecial[1]{% helper macro
+	\bgroup
+	\catcode`\&=9
+	\let\\\relax%
+	\scantokens{#1}%
+	\egroup
+	}
+\DeclarePairedDelimiter\BraceM\{\}
+\reDeclarePairedDelimiterInnerWrapper\BraceM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
+\let\Bqty\relax
+\newcommand{\Bqty}[1]{\BraceM*{#1}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% ==============================================================================
+% User Definition
+% ==============================================================================
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
+\newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
+\newcommand{\mmd}[2][d]{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}
+
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+\newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+\makeatother
+
+% ==============================================================================
+% Tikz-Feynman Externalization
+% ==============================================================================
+\usepackage{shellesc}
+\usetikzlibrary{external}
+% \usepgfplotslibrary{external}
+\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+
+
+\title{Two Loop Example of Method of Regions}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+
+\bibliography{Bib.bib}
+\bibliographystyle{apsrev4-1}
+\end{document}
