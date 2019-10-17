@@ -265,6 +265,7 @@ where $D$ is a real constant depends on renormalization scheme and is taken to b
 where $H_n=\sum_{i=1}^n\frac{1}{i}$ is the harmonic number, the Coulomb Green function becomes
 \begin{align}
 	G(0,0 ; E)=-\frac{m_{t} p}{4 \pi}+\frac{m_{t} p_{0}}{2 \pi} \log \left(\frac{m_{t}}{p} D\right)-\frac{m_{t} p_{0}^{2}}{2 \pi}\frac{H_{-p_{0}/p}}{p_{0}}
+	\label{G}
 \end{align}
 To include the finite width of top quark, one can perform the following replacement
 \begin{align}
@@ -353,7 +354,29 @@ The loop part is
 \begin{align}
 	\int\mmd[d]{l}\frac{i}{\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}\frac{i}{E-\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}=\int\mmd[d-1]{l}\frac{i}{E-\frac{\vb{l}^2}{m_t}+i\Gamma_t}
 \end{align}
-and this is the leading order of $G(E)$, differed by a overall sign. 
+and this is the leading order of $G(E)$, differed by a overall sign. While this integral is divergent in 3-dimension, by integrating it in $(d-1)$-dimension then take the limit, the divergence disappeared and the result in \eqref{G} is obtained. 
+
+\section{One Loop Subtraction and the Determination of the Renormalization Artifact}
+To get the exact contribution from Coulomb gluon exchanges and to avoid double counting, one must calculate the following diagram: 
+\begin{align}
+	\begin{tikzpicture}[baseline=(a.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=a to b]{
+				a[dot] --[quarter left, fermion] o1 --[quarter left, fermion] b[dot];
+				a --[quarter right, anti fermion] o2 --[quarter right, anti fermion] b;
+			};
+			\diagram*{
+				(o1) --[ghost] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align}
+and the full amplitude with this correction is obtained via replacing the leading order one. 
+\begin{align}
+	&\mu^{2(3-d)}\int\mmd[d-1]{l_1}\mmd[d-1]{l_2}\frac{1}{E-\frac{\vb{l}_1^2}{m_t}+i\Gamma_t}\frac{1}{E-\frac{\vb{l}_2^2}{m_t}+i\Gamma_t}\frac{1}{\pqty{\vb{l}_1-\vb{l}_2}^2}\\
+	&=-\frac{m_t^2}{32 \pi ^2 (d-3)}-\frac{m_t^2 (\log (-m_t (E+i \Gamma ))-2 \log (\mu )+\gamma_E -1-\log (\pi ))}{32 \pi ^2}+O\left(d-3\right)
+\end{align}
+Multiply the coupling $-g_s^2C_F=-\frac{16\pi\alpha_s}{3}$, the first logarithm is exactly what appears in \eqref{G} in this order (with an extra $-2\log{m}$ term to fix the dimension in the logarithm, in \cite{Melnikov:1994jb} they appears to have chosen a scheme with no $\mu$ presence). Now based on which scheme we choose, we may now determine the renormalization artifact $D$ and subtract the one loop level Coulomb contribution in the full QCD calculation to avoid double counting. 
 
 \appendix
 \section{Pseudoscalar Higgs Decay}
