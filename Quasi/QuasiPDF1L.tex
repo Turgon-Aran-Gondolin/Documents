@@ -3,7 +3,7 @@
 \PassOptionsToPackage{naturalnames}{hyperref}
 \documentclass{article}
 \usepackage{geometry}
-\usepackage{fullpage}
+\usepackage[cm]{fullpage}
 \usepackage{parskip}
 \usepackage{physics}
 \usepackage{amsmath}
@@ -30,6 +30,14 @@
 \usepackage{enumerate}
 \usepackage{extarrows}
 \usepackage{subcaption}
+% ==============================================================================
+% Endnotes
+% ==============================================================================
+\usepackage{enotez}
+% HOWTO: 
+% \endnote{}
+% Print the notes by adding the following to the end of the document: 
+% \printendnotes
 
 % ==============================================================================
 % Minted
@@ -61,8 +69,16 @@
 	#2
 	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
 	}
+\DeclarePairedDelimiter\bracketM{[}{]}
+\reDeclarePairedDelimiterInnerWrapper\bracketM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
 \let\Bqty\relax
+\let\bqty\relax
 \newcommand{\Bqty}[1]{\BraceM*{#1}}
+\newcommand{\bqty}[1]{\bracketM*{#1}}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
@@ -92,7 +108,49 @@
 \usepackage{shellesc}
 \usetikzlibrary{external}
 % \usepgfplotslibrary{external}
-\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
+
+% % ==============================================================================
+% % Reuse diagram
+% % ==============================================================================
+% \usepackage{environ}
+
+% \makeatletter
+% \let\orig@tikzpicture=\tikzpicture
+% \let\orig@endtikzpicture=\endtikzpicture
+% \let\env@tikzpicture@save@env=\pgfutil@empty
+% \let\env@tikzpicture@process=\pgfutil@empty
+% \RenewEnviron{tikzpicture}[1][]{%
+%   \begingroup
+%   \let\tikzpicture=\orig@tikzpicture
+%   \let\endtikzpicture=\orig@endtikzpicture
+%   \let\tikz@picname=\pgfutil@empty
+%   \begin{tikzpicture}[#1]
+%   \BODY
+%   \end{tikzpicture}
+%   \ifx\tikz@picname\pgfutil@empty
+%   \else
+%   \expandafter\gdef\csname     tikz@savedpic@\tikz@picname\expandafter\endcsname\expandafter{\BODY}
+%   \fi
+%   \endgroup
+% }
+
+% \newcommand\usetikzpicture[2][]{%
+%   \begingroup
+%   \let\tikzpicture=\orig@tikzpicture
+%   \let\endtikzpicture=\orig@endtikzpicture
+%   \let\tikz@picname=\pgfutil@empty
+%   \begin{tikzpicture}[#1]
+%   \csname tikz@savedpic@#2\endcsname
+%   \end{tikzpicture}
+%   \endgroup}
+
+% \tikzset{
+%   save picture as/.code={
+%     \gdef\tikz@picname{#1}%
+%   }
+% }
+% \makeatother
 
 \tikzfeynmanset{
 	Eikonal/.style={
@@ -283,37 +341,9 @@ In Feynman gauge, we must have the full definition of quasi PDF. For unpolarized
 \begin{align}
 	\tilde{q}(x)=\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \mathcal{P} \exp \left[i g \int_{0}^{z} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right] \psi(0)| P, S\rangle
 \end{align}
-There're following 8 diagrams. The corresponding Feynman rules are: 
-\begin{align}
-	\feynmandiagram[small, horizontal=a to g,baseline=(a.base), layered layout]{
-		a --[Eikonal,momentum=\(k\)] b --[gluon, momentum=\(k\)] g;
-		};=ig_st^an^{\mu};\qquad &\int \qquad 
-	\feynmandiagram[small, horizontal=g to a,baseline=(a.base), layered layout]{
-		a --[Eikonal,momentum'=\(k\)] b --[gluon, momentum'=\(k\)] g;
-		};=-ig_st^an^{\mu};\\
-	\feynmandiagram[small, horizontal=a to c,baseline=(b.base), layered layout]{
-		a --[Eikonal] b --[Eikonal] c;
-		b --[gluon] g;
-		};=ig_st^an^{\mu};\qquad &\int \qquad 
-	\feynmandiagram[small, horizontal=a to c,baseline=(b.base), layered layout]{
-		a --[Eikonal] b --[Eikonal] c;
-		b --[gluon] g;
-		};=-ig_st^an^{\mu};\\
-	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
-		a[dot] --[Eikonal,momentum=\(k\)] b;
-	};=\frac{i}{n\cdot k+i\epsilon};\qquad &\int \qquad 
-	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
-		a --[Eikonal,rmomentum=\(k\)] b[dot];
-	};=\frac{i}{n\cdot k+i\epsilon};\\
-	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
-		a --[fermion,momentum=\(k\)] b[dot];
-	};\qquad &\int \qquad 
-	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
-		a[dot] --[fermion,momentum=\(k\)] b;
-	};
-\end{align}
-The last line stands for the momentum conservation between two dots. There're also an extra $1/2$ factor on the outside and a Dirac delta function to eliminate all $z$-direction loop momenta. 
-
+There're following 8 diagrams. 
+\def\FDWidth{3cm} 
+\def\FDHeight{3cm}
 \begin{figure}[!htpb]
 	\centering
 	\begin{subfigure}[b]{.24\linewidth}
@@ -327,7 +357,7 @@ The last line stands for the momentum conservation between two dots. There're al
 				\vertex at ($(exa)!0.5!(a)$) (a1);
 				\vertex at ($(exb)!0.5!(b)$) (b1);
 				\diagram*{
-					(a) --[Eikonal] (b);
+					% (a) --[Eikonal] (b);
 					(exa) --[fermion] (a1) --[fermion] (a);
 					(b) --[fermion] (b1) --[fermion] (exb);
 					(b1) --[gluon] (a1);
@@ -490,13 +520,88 @@ The last line stands for the momentum conservation between two dots. There're al
 		\end{tikzpicture}
 		\caption{}
 		\label{2o-}
+	\end{subfigure}\\
+	\begin{subfigure}[b]{.24\linewidth}
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.33!(a)$) (a1);
+				\vertex at ($(exa)!0.66!(a)$) (a2);
+				\diagram*{
+					% (a) --[Eikonal] (b);
+					(exa) --[fermion] (a1) --[fermion] (a2) --[fermion] (a);
+					(b) --[fermion] (exb);
+					(a1) --[gluon, half right,looseness=2] (a2);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}[b]{.24\linewidth}
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exb)!0.33!(b)$) (b1);
+				\vertex at ($(exb)!0.66!(b)$) (b2);
+				\diagram*{
+					% (a) --[Eikonal] (b);
+					(exa) --[fermion] (a);
+					(b) --[fermion] (b2) --[fermion] (b1) --[fermion] (exb);
+					(b2) --[gluon, half right,looseness=2] (b1);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{}
 	\end{subfigure}
 	\caption{Diagrams of quasi PDF in Feynman gauge. }
 \end{figure}
+
+The corresponding Feynman rules are: 
+\begin{align}
+	\feynmandiagram[small, horizontal=a to g,baseline=(a.base), layered layout]{
+		a --[Eikonal,momentum=\(k\)] b --[gluon, momentum=\(k\)] g;
+		};=-ig_st^an^{\mu};\qquad &\int \qquad 
+	\feynmandiagram[small, horizontal=g to a,baseline=(a.base), layered layout]{
+		a --[Eikonal,momentum'=\(k\)] b --[gluon, momentum'=\(k\)] g;
+		};=ig_st^an^{\mu};\\
+	\feynmandiagram[small, horizontal=a to c,baseline=(b.base), layered layout]{
+		a --[Eikonal] b --[Eikonal] c;
+		b --[gluon] g;
+		};=-ig_st^an^{\mu};\qquad &\int \qquad 
+	\feynmandiagram[small, horizontal=a to c,baseline=(b.base), layered layout]{
+		a --[Eikonal] b --[Eikonal] c;
+		b --[gluon] g;
+		};=ig_st^an^{\mu};\\
+	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
+		a[dot] --[Eikonal,momentum=\(k\)] b;
+	};=\frac{i}{n\cdot k+i\epsilon};\qquad &\int \qquad 
+	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
+		a --[Eikonal,rmomentum=\(k\)] b[dot];
+	};=\frac{i}{n\cdot k+i\epsilon};\\
+	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
+		a --[fermion,momentum=\(k\)] b[dot];
+	};\qquad &\int \qquad 
+	\feynmandiagram[small, horizontal=a to b,baseline=(a.base)]{
+		a[dot] --[fermion,momentum=\(k\)] b;
+	};
+\end{align}
+The last line stands for the momentum conservation between two dots. There're also an extra $1/2$ factor on the outside and a Dirac delta function to eliminate all $z$-direction loop momenta. The delta function confines the sum of all momenta flow in $z$ equals to $xP^z$. 
+
 Let's take the spin sum of external states. 
 
 \def\FDWidthS{2cm} 
 \def\FDHeightS{2cm}
+\subsection{Real corrections}
+First we must deal with those real diagrams. 
+
 Diagram~\ref{2:nogl} gives
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -508,18 +613,18 @@ Diagram~\ref{2:nogl} gives
 			\vertex at ($(exa)!0.5!(a)$) (a1);
 			\vertex at ($(exb)!0.5!(b)$) (b1);
 			\diagram*{
-				(a) --[Eikonal] (b);
+				% (a) --[Eikonal] (b);
 				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
 				(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
 				(a1) --[gluon,momentum'=\(P-l\)] (b1);
 			};
 		\end{feynman}
-	\end{tikzpicture}&=\frac{1}{2}\bar u(P) \pqty{-ig_st^a\gamma_\nu} \int\mm{l}\frac{i}{\slashed l+i\epsilon}\gamma^z\frac{-ig^{\mu \nu}}{(P-l)^2} \frac{i}{\slashed l+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-(1-x)P^z)\notag\\
-	&=-i\frac{g_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^\mu \frac{\slashed l-m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l-m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2}\delta(l^z-(1-x)P^z)
+	\end{tikzpicture}&=\frac{1}{2}\bar u(P) \pqty{-ig_st^a\gamma_\nu} \int\mm{l}\frac{i}{\slashed l-m+i\epsilon}\gamma^z\frac{-ig^{\mu \nu}}{(P-l)^2+i\epsilon} \frac{i}{\slashed l-m+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-xP^z)\notag\\
+	&=-i\frac{g_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)
 \end{align}
 After spin sum: 
 \begin{align}
-	\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidthS of a,dot] (b);
@@ -528,13 +633,16 @@ After spin sum:
 			\vertex at ($(exa)!0.5!(a)$) (a1);
 			\vertex at ($(exb)!0.5!(b)$) (b1);
 			\diagram*{
-				(a) --[Eikonal] (b);
+				% (a) --[Eikonal] (b);
 				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
 				(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
 				(a1) --[gluon,momentum'=\(P-l\)] (b1);
 			};
 		\end{feynman}
-	\end{tikzpicture}&=-i\frac{g_s^2C_F}{2}\int\mm{l}\sum_s\bar u(P) \gamma^\mu \frac{\slashed l-m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l-m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2}\delta(l^z-(1-x)P^z)
+	\end{tikzpicture}&=\frac{-ig_s^2C_F}{4}\int\mm{l}\sum_s\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)\notag\\
+	&=\frac{-ig_s^2C_F}{4}\int\mm{l} \frac{\Tr{(\slashed P+m)\gamma^\mu(\slashed l+m)\gamma^z(\slashed l+m)\gamma_{\mu}}}{(l^2-m^2+i\epsilon)^2(P-l)^2}\delta(l^z-xP^z)\notag\\
+	\intertext{the numerator and the denominator of the integrand is checked out in this step with Xiong's result}
+	&=
 \end{align}
 Diagram~\ref{2/-} gives
 \begin{align}
@@ -554,8 +662,511 @@ Diagram~\ref{2/-} gives
 				(a1) --[gluon,momentum'=\(P-l\)] (o);
 			};
 		\end{feynman}
-	\end{tikzpicture}&=\frac{1}{2}\bar u(P) \gamma^z \int\mm{l}\frac{i}{l^z-P^z+i\epsilon}\pqty{-ig_st^a}\frac{-ig^{\mu z}}{(P-l)^2} \frac{i}{\slashed l+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-(1-x)P^z)\notag\\
-	&=\frac{g_s^2C_F}{2}
+	\end{tikzpicture}&=\frac{1}{2}\bar u(P) \gamma^z \int\mm{l}\frac{i}{l^z-P^z+i\epsilon}\pqty{ig_st^a}\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon} \frac{i}{\slashed l-m+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-xP^z)\notag\\
+	&=\frac{ig_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)
+\end{align}
+Take the spin sum
+\begin{align}
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}&=\sum_s\frac{ig_s^2C_F}{4}\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)\notag\\
+	&=\frac{ig_s^2C_F}{4}\int\mm{l}  \frac{\Tr{(\slashed P+m)\gamma^z(\slashed l+m)\gamma^z}}{l^2-m^2+i\epsilon}\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)\notag\\
+\end{align}
+Diagram~\ref{2-`} should be the same with Diagram~\ref{2/-}. 
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(P-l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
+				(o) --[gluon,momentum'=\(P-l\)] (b1);
+			};
+		\end{feynman}
+	\end{tikzpicture}&=\frac{1}{2}\bar u(P) \pqty{-ig_s\gamma_{\mu}t^a}\int\mm{l}\frac{i}{\slashed l-m+i\epsilon}\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon} \frac{i}{P^z-l^z+i\epsilon}\pqty{-ig_st^a}\gamma^z u(P)\delta(l^z-xP^z)\notag\\
+	&=\frac{ig_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)
+\end{align}
+
+Diagram~\ref{2-v-} is 
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,rmomentum'=\(l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}&=\frac{1}{2}\bar u(P)\gamma^z\int\mm{l}\frac{i}{l^z+i\epsilon}\pqty{ig_st^a}\frac{-ig^{zz}}{l^2+i\epsilon}\pqty{-ig_st^a}\frac{i}{-l^z+i\epsilon} u(P)\delta(l^z-(1-x)P^z)\notag\\
+	&=\frac{-ig_s^2C_F}{2}\int\mm{l}\bar u(P)\gamma^zu(P)\frac{1}{l^z+i\epsilon}\frac{1}{l^2+i\epsilon}\frac{1}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)
+\end{align}
+Take the spin sum
+\begin{align}
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,rmomentum'=\(l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	&=\sum_s\frac{-ig_s^2C_F}{4}\int\mm{l}\bar u(P)\gamma^zu(P)\frac{1}{l^z+i\epsilon}\frac{1}{l^2+i\epsilon}\frac{1}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)\notag\\
+	&=\frac{-ig_s^2C_F}{4}\int\mm{l}\Tr{(\slashed P+m)\gamma^z}\frac{1}{l^z+i\epsilon}\frac{1}{l^2+i\epsilon}\frac{1}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)
+\end{align}
+
+\subsection{Virtual corrections}
+The quark self energy diagram gives
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.33!(a)$) (a1);
+			\vertex at ($(exa)!0.66!(a)$) (a2);
+			\diagram*{
+				% (a) --[Eikonal] (b);
+				(exa) --[fermion] (a1) --[fermion] (a2) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a1) --[gluon, half right,looseness=2] (a2);
+			};
+		\end{feynman}
+	\end{tikzpicture}=\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.33!(a)$) (a1);
+			\vertex at ($(exa)!0.66!(a)$) (a2);
+			\diagram*{
+				% (a) --[Eikonal] (b);
+				(exa) --[fermion] (a1) --[fermion] (a2) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a1) --[gluon, half right,looseness=2] (a2);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align}
+Diagram~\ref{2-/}
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum'=\(P-l\)] (a);
+				(exa) --[fermion,momentum=\(l\)] (a1) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}&=\frac{1}{2P^z}\bar u(P)\gamma^z\int\mm{l}\frac{i}{l^z-P^z+i\epsilon}(-ig_st^a)\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon}\frac{i}{\slashed l-m+i\epsilon}(-ig_s\gamma_\mu)u(P)\delta(1-x)\notag\\
+	&=\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z-i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)
+\end{align}
+The other diagram \ref{2/-} is
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	&=\frac{ig_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)
+\end{align}
+The sum of both diagrams is 
+\begin{align}
+	&\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum'=\(P-l\)] (a);
+				(exa) --[fermion,momentum=\(l\)] (a1) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	\notag\\
+	&=\frac{ig_s^2C_F}{2}\int\dd z\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \bqty{e^{i(l^z-xP^z)z}-e^{i(P^z-xP^z)z}}\\
+	&=\frac{ig_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^z \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \bqty{\delta(l^z-xP^z)-\delta(P^z-xP^z)}
+\end{align}
+Here we're to take the spin sum. After integrated out $l^0$ and $\vb{l}_T$, the remaining integrand is \endnote{The constant mentioned above is 
+\begin{align*}
+	&-\frac{C_F g_s^2 \left(-\sqrt{\left(m^2+P_3^2\right) \left(\Lambda ^2+m^2+P_3^2\right)}-\frac{2 P_3^2 \left(\log  \left(2 \left(m^2+P_3^2\right)\right)\right)}{\sqrt{\left(m^2+P_3^2\right) \left(\Lambda ^2+m^2+P_3^2\right)}+m^2+P_3^2}+\Lambda  \sqrt{m^2+P_3^2}+m^2+P_3^2\right)}{16 \pi ^2 \left(P_3-l_3\right) \sqrt{m^2+P_3^2}}-\frac{C_F g_s^2}{16 \pi ^2 \text{sgn}\left(l_3-P_3\right)}\\
+	&\frac{P_3 C_F g_s^2 \left(\log  \left(l_3-P_3\right){}^2-\frac{2 \left(\log  \left(2 \left(\sqrt{\left(m^2+P_3^2\right) \left(\Lambda ^2+m^2+P_3^2\right)}-m^2-P_3^2\right)\right)\right)}{\Lambda }\right)}{16 \pi ^2 \sqrt{m^2+P_3^2}}+\frac{m^4 P_3 C_F g_s^2 \left(\Lambda -\Lambda  \sqrt{\frac{m^2+P_3^2}{\Lambda ^2+m^2+P_3^2}}\right)}{16 \pi ^2 \Lambda  \left(m^2+P_3^2\right){}^{3/2} \left(\Lambda ^2+m^2+P_3^2\right)}\\
+	&-\frac{m^2 P_3^3 C_F g_s^2 \left(\Lambda  \sqrt{\frac{m^2+P_3^2}{\Lambda ^2+m^2+P_3^2}}+\sqrt{m^2+P_3^2}\right)}{8 \pi ^2 \Lambda  \left(m^2+P_3^2\right){}^{3/2} \left(\Lambda ^2+m^2+P_3^2\right)}-\frac{P_3^5 C_F g_s^2 \left(\Lambda +\Lambda  \sqrt{\frac{m^2+P_3^2}{\Lambda ^2+m^2+P_3^2}}+2 \sqrt{m^2+P_3^2}\right)}{16 \pi ^2 \Lambda  \left(m^2+P_3^2\right){}^{3/2} \left(\Lambda ^2+m^2+P_3^2\right)}\\
+	&-\frac{\Lambda ^2 m^2 P_3 C_F g_s^2 \left(\sqrt{\frac{m^2+P_3^2}{\Lambda ^2+m^2+P_3^2}}-1\right)}{16 \pi ^2 \left(m^2+P_3^2\right){}^{3/2} \left(\Lambda ^2+m^2+P_3^2\right)}-\frac{P_3^3 C_F g_s^2 \left(\Lambda  \left(\Lambda +\Lambda  \sqrt{\frac{m^2+P_3^2}{\Lambda ^2+m^2+P_3^2}}+2 \sqrt{m^2+P_3^2}\right)-2 \sqrt{\left(m^2+P_3^2\right) \left(\Lambda ^2+m^2+P_3^2\right)}\right)}{16 \pi ^2 \left(m^2+P_3^2\right){}^{3/2} \left(\Lambda ^2+m^2+P_3^2\right)}
+\end{align*}
+multiplied by the delta function and integration. }
+\begin{align}
+	&\frac{g_s^2C_F{P^z}^3}{8\pi^2(m^2+{P^z}^2)}\int\dd l^z \frac{\delta(l^z-xP^z)-\delta(P^z-xP^z)}{{\abs{l^z-P^z}}}+\frac{g_s^2C_F{P^z}^2}{8\pi^2\sqrt{m^2+{P^z}^2}}\int\dd l^z \pqty{\frac{\log\frac{l^z-P^z}{\Lambda}}{{l^z-P^z}}}\bqty{\delta(l^z-xP^z)-\delta(P^z-xP^z)}+\text{Constant}\notag\\
+	\intertext{by setting $l^z=yP^z$, $\dd l^z (\delta(l^z-xP^z)-\delta(P^z-xP^z))=\dd y (\delta(y-x)-\delta(1-x))$}
+	&=\frac{g_s^2C_F{P^z}^3/\abs{P^z}}{8\pi^2(m^2+{P^z}^2)}\int\dd y \frac{\delta(y-x)-\delta(1-x)}{{\abs{y-1}}}+\frac{g_s^2C_F{P^z}}{8\pi^2\sqrt{m^2+{P^z}^2}}\int\dd y \pqty{\frac{\log\frac{y-1}{\Lambda/P^z}}{{y-1}}}\bqty{\delta(y-x)-\delta(1-x)}+\text{Constant}\notag
+\end{align}
+Now we can transform the integration on $y$ to plus functions\endnote{Wrong prescription: Having $\pqty{\int_{0}^{\infty}-\int_1^{\infty}}\dd xF(x)\bqty{G(x)-G(1)}=\int_0^1\dd xF_+(x)G(x)$
+\begin{align}
+	\int\dd y \frac{\delta(y-x)-\delta(1-x)}{{\abs{y-1}}}=\frac{\theta(1-x)\theta(x)}{(1-x)_+}+\frac{ \theta(-x)}{2(x-1)}+\frac{3 \theta(x-1)}{2(x-1)}+\frac{\theta(1-x)\theta(x)}{x-1}
+\end{align}
+\begin{align}
+	\int\dd y \pqty{\frac{\log\frac{y-1}{\Lambda/P^z}}{{y-1}}}\bqty{\delta(y-x)-\delta(1-x)}=\pqty{\frac{\log\frac{y-1}{\Lambda/P^z}}{{y-1}}}_+ +\frac{\log \left(\frac{x-1}{\Lambda /P^z}\right)\theta(x-1)}{x-1}+\frac{\log (1-x)\theta(1-x)}{x-1}
+\end{align}}. By redefining the plus function to an extended version: 
+\begin{align}
+	f_+(x)=f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)
+\end{align}
+The full result is 
+\begin{align}
+	\bqty{\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}}_+
+\end{align}
+Diagram~\ref{2`-} is 
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(b) --[Eikonal,momentum'=\(P-l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
+				(b1) --[gluon,rmomentum=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}&=\frac{1}{2P^z}\mm{l}\bar u(P)(-ig_s\gamma_{\mu}t^a)\frac{i(\slashed l+m)}{l^2-m^2+i\epsilon}\gamma^z\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon}\frac{i}{P^z-l^z}(ig_st^a)u(P)\delta(1-x)\notag\\
+	&=\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z-i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)\notag\\
+	&=\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum'=\(P-l\)] (a);
+				(exa) --[fermion,momentum=\(l\)] (a1) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align}
+
+
+\begin{align}
+	&\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,momentum'=\(-l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(b) --[Eikonal] (o2) --[Eikonal,momentum'=\(l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}\notag\\
+	=&\frac{g_s^2C_F}{2}\bar u(P)\gamma^z\int\mm{l}\tilde D_G^{zz}(l)\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}\delta(l^z-(1-x)P^z) u(P)-\frac{2g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) 
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon} \notag\\
+	=&g_s^2C_F\int\mm{l}\tilde D_G^{zz}(l)\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}\bqty{\delta(l^z/P^z-(1-x))-\delta(1-x)}\notag\\
+	=&\bqty{\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,momentum'=\(-l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}}_+
+\end{align}
+The final result is 
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,momentum'=\(-l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(b) --[Eikonal] (o2) --[Eikonal,momentum'=\(l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	=&\bqty{\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.7!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(l\)] (o1);
+				(b) --[Eikonal,momentum'=\(-l\)] (o2);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
+			};
+		\end{feynman}
+	\end{tikzpicture}}_+
+\end{align}
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum'=\(P-l\)] (a);
+				(exa) --[fermion,momentum=\(l\)] (a1) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}=
+	\bqty{\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}}_+
+\end{align}
+
+\section{Matching to PDF}
+The matching coefficient $Z$ is defined as
+\begin{align}
+	\tilde{q}(x)=\int_{0}^{1} \frac{d y}{y} Z\left(\frac{x}{y}, \frac{P^{z}}{\mu}\right) q(y)+\mathcal{O}\left(\frac{\Lambda_{Q C D}^{2}}{P_{z}^{2}}, \frac{M^{2}}{P_{z}^{2}}\right)
+\end{align}
+For leading order, it's
+\begin{align}
+	\delta(1-x)=\int_0^1\frac{\dd y}{y}Z\pqty{\frac{x}{y},\frac{P^z}{\mu}}\delta(1-y)
+\end{align}
+It's straightforward to get
+\begin{align}
+	Z\pqty{\frac{x}{y},\frac{P^z}{\mu}}=\delta\pqty{1-\frac{x}{y}}
+\end{align}
+The one loop matching factor is
+\begin{align}
+	&\left(1+\delta \tilde{Z}_{F}\right) \delta(1-x)+\tilde{q}^{(1)}(x) 
+	= \int_{0}^{1} \frac{d y}{y}\left[\delta\left(\frac{x}{y}-1\right)+Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)\right]\left[\left(1+\delta Z_{F}\right) \delta(1-y)+q^{(1)}(y)\right] 
 \end{align}
 
 \appendix
@@ -596,6 +1207,48 @@ State contract with field:
 and correspondingly 
 \begin{align}
 	\wick{\c{\bra{P}}\c{\bar\psi}(x)}&=\bar u(P)e^{iP\cdot x}
+\end{align}
+Plus function is defined as\cite{Collins2009}
+\begin{align}
+	\int_{0}^{1} \mathrm{d} x\left(\frac{1}{1-x}\right)_{+} T(x) \equiv \int_{0}^{1} \mathrm{d} x \frac{T(x)-T(1)}{1-x}
+\end{align}
+\begin{align}
+	\int_{0}^{1} \mathrm{d} x \frac{A(x)}{(1-x)_{+}} T(x) \equiv \int_{0}^{1} \mathrm{d} x \frac{A(x) T(x)-A(1) T(1)}{1-x}
+\end{align}
+The plus function could also be defined in a different fashion: 
+\begin{align}
+	F_{+}(x):=\lim _{\beta \rightarrow 0}\left(F(x) \theta(1-\beta-x)-\delta(1-\beta-x) \int_{0}^{1-\beta} \dd y F(y)\right)
+\end{align}
+and with a smooth test function it's defined the same way as above: 
+\begin{align}
+	\int_{0}^{1} \dd x F_{+}(x) G(x)=\int_{0}^{1} \dd x F(x)[G(x)-G(1)]
+\end{align}
+with 
+\begin{align}
+	\int_{0}^{1} \dd x F(x)_{+}=0
+\end{align}
+For a flexible lower boundary: 
+\begin{align}
+	\int_{a}^{1} \dd x F_{+}(x) G(x)=\int_{a}^{1} \dd x F(x)[G(x)-G(1)]+G(1) \int_{0}^{a} \dd x F(x)
+\end{align}
+Also if rule out some smoothness problem
+\begin{align}
+	[f(x)]_{+}=f(x)-\delta(1-x) \int_{0}^{1} f(z) \mathrm{d} z
+\end{align}
+Here we use a modified version of plus function
+\begin{align}
+	f_+(x)&=f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)\\
+	&=f(x)-\delta(1-x)\int_{-\infty}^\infty\dd l^zf(y)/P^z
+\end{align}
+The convention for path ordering is that the field with higher value of the integration variable $s$ goes to the left. 
+
+The definition of Heaviside theta function follows
+\begin{align}
+	\theta(z)=\int\frac{\dd w}{2\pi}\frac{ie^{-iwz }}{w+i\epsilon}
+\end{align}
+and here we choose 
+\begin{align}
+	\theta(0)=1
 \end{align}
 
 \section{Wick Contraction\label{sec:Wick}}
@@ -661,7 +1314,7 @@ The one loop quasi PDF is
 \end{align}
 where 
 \begin{align}
-	\tilde{\mathcal{W}}[z, 0] =\mathcal{P} \exp\left[i g_s \int_{0}^{z} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]
+	\tilde{\mathcal{W}}[z, 0] =\mathcal{P} \exp\left[-i g_s \int_{0}^{z} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]
 \end{align}
 We should rewrite the gauge link to the product of two gauge links connect to infinity
 \begin{align}
@@ -670,7 +1323,7 @@ We should rewrite the gauge link to the product of two gauge links connect to in
 and in one loop level it equals to 
 \begin{align*}
 	\mathcal{P} \exp\left[i g_s\int_{\infty}^{z} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]\mathcal{P} \exp\left[i g_s\int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]
-	=\left[i g_s \mathcal{P} \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]-\left[i g_s \mathcal{P} \int_0^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]
+	=\left[i g_s \mathcal{P} \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]-\left[i g_s \mathcal{P} \int_0^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]
 \end{align*}
 The path ordering gives
 \begin{align}
@@ -685,15 +1338,15 @@ with all momenta involved with $z'$ must be in the $z$-direction (the exponent i
 	&\langle P, S|\bar\psi_u\psi_u A_u^{\mu}\bar{\psi}(z) \gamma^z \int \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\psi(0)| P, S\rangle\\
 	=&\int\dd^4u\langle P, S|\bar\psi_u\psi_u A_u\bar{\psi}(z) \gamma^z \int \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \psi(0)| P, S\rangle\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\\
 	=&\int\dd^4u\wick{\c1{\langle P, S|}\c1{\bar\psi}_u\c2{\psi}_u \c3{A}_u\c2{\bar{\psi}}(z) \gamma^z \int \dd z^{\prime} \c3{A}^{a,z}\left(z^{\prime}+z\right) \c4{\psi}(0)\c4{| P, S\rangle}}\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\\
-	=&\int \dd z^{\prime}\int\dd^4u \bar u(P)e^{iP\cdot u}\int\mm{l_1}\tilde D_F(l_1)e^{-il_1\cdot(u-z)}\int\mm{l_2}\tilde D_G(l_2)e^{-il_2\cdot(u-z'-z)}u(P)\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\\
-	=&\int \dd z^{\prime}\int\dd^4u \int\mm{l_1}\int\mm{l_2}\int\frac{\dd w}{2\pi}\bar u(P)e^{i(P-l_1-l_2)\cdot u}e^{i(l_1+l_2)\cdot z}e^{-iwz' -il_2\cdot z'}\tilde D_F(l_1)\tilde D_G(l_2)u(P)\frac{i}{w+i\epsilon}\\
-	=&\int \dd z^{\prime}\int\mm{l}\int\frac{\dd w}{2\pi}\bar u(P)e^{iP\cdot z}e^{-iwz' +i(P-l)^z z'}\tilde D_F(l)\tilde D_G(P-l)u(P)\frac{i}{w+i\epsilon}\\
-	=&\bar u(P)e^{iP\cdot z}\int\mm{l}\tilde D_F(l)\tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)
+	=&\int \dd z^{\prime}\int\dd^4u \bar u(P)e^{iP\cdot u}\int\mm{l_1}\tilde D_F(l_1)e^{-il_1\cdot(u-z)}\gamma^z \int\mm{l_2}\tilde D_G(l_2)e^{-il_2\cdot(u-z'-z)}u(P)\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\\
+	=&\int \dd z^{\prime}\int\dd^4u \int\mm{l_1}\int\mm{l_2}\int\frac{\dd w}{2\pi}\bar u(P)e^{i(P-l_1-l_2)\cdot u}e^{i(l_1+l_2)\cdot z}e^{-iwz' -il_2\cdot z'}\tilde D_F(l_1)\gamma^z \tilde D_G(l_2)u(P)\frac{i}{w+i\epsilon}\\
+	=&\int \dd z^{\prime}\int\mm{l}\int\frac{\dd w}{2\pi}\bar u(P)e^{iP\cdot z}e^{-iwz' +i(P-l)^z z'}\tilde D_F(l)\gamma^z \tilde D_G(P-l)u(P)\frac{i}{w+i\epsilon}\\
+	=&\bar u(P)e^{iP\cdot z}\int\mm{l}\tilde D_F(l)\gamma^z \tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)
 \end{align*}
 The complete quasi PDF at one loop is
 \begin{align}
-	&-\frac{g_s^2C_F\gamma_{\mu}}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\bar u(P)e^{iP\cdot z}\int\mm{l}\tilde D_F(l)\tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)\notag\\
-	=&-\frac{g_s^2C_F\gamma_{\mu}}{2 P^z}\bar u(P)\int\mm{l}\tilde D_F(l)\tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)\delta(1-x)\notag
+	&\frac{g_s^2C_F}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\bar u(P)\gamma_{\mu}e^{iP\cdot z}\int\mm{l}\tilde D_F(l)\gamma^z \tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)\notag\\
+	=&\frac{g_s^2C_F}{2 P^z}\bar u(P)\gamma_{\mu}\int\mm{l}\tilde D_F(l)\gamma^z \tilde D_G^{\mu z}(P-l)\frac{i}{P^z-l^z+i\epsilon}u(P)\delta(1-x)\notag
 \end{align}
 multiplied by those couplings. This basically established that the momentum of a gluon equals to the momentum of the eikonal line it attaches to. We then have the Feynman rule:
 \begin{align}
@@ -704,7 +1357,7 @@ multiplied by those couplings. This basically established that the momentum of a
 		a --[Eikonal,rmomentum=\(k\)] b[dot];
 	};=\frac{i}{n\cdot k+i\epsilon}
 \end{align}
-and for the gluon-eikonal vertex on the r.h.s., an extra minus sign is added for the normal $(ig_st^a)$.
+and for the gluon-eikonal vertex on the r.h.s., an extra minus sign is added for the normal $(-ig_st^a)$.
 
 The next job is to determine the Feynman rule for 
 \begin{center}
@@ -729,13 +1382,13 @@ The next job is to determine the Feynman rule for
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidth of a,dot] (b);
-			\vertex at ($(a)!0.5!(b)$) (o);
-			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
 			\vertex at ($(a)!0.8!(b)$) (o2);
 			\vertex[below=\FDHeight of a] (exa);
 			\vertex[below=\FDHeight of b] (exb);
 			\diagram*{
-				(a) --[Eikonal] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+				(a) --[Eikonal,momentum=\(l\)] (o1) --[Eikonal,rmomentum=\(l\)] (o);
 				(exa) --[fermion,momentum=\(P\)] (a);
 				(b) --[fermion,momentum=\(P\)] (exb);
 				(o1) --[gluon, half right,momentum'=\(l\)] (o);
@@ -745,7 +1398,7 @@ The next job is to determine the Feynman rule for
 \end{center}
 The first one is
 \begin{align}
-	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \left[-i g_s \mathcal{P} \int_0^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]\left[i g_s \mathcal{P} \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]  \psi(0)| P, S\rangle
+	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \left[i g_s \mathcal{P} \int_0^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]\left[-i g_s \mathcal{P} \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]  \psi(0)| P, S\rangle
 \end{align}
 Let's look at the coupling-free form:
 \begin{align*}
@@ -759,59 +1412,201 @@ Let's look at the coupling-free form:
 	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\bar u(P)e^{iP\cdot z}\gamma^z\int\dd z'\dd z''\int\mm{l}\tilde D_G^{zz}(l)e^{-il\cdot(z''-z'-z)}u(P)\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
 	=&\bar u(P)\int \frac{\dd z}{2 \pi} e^{i (x-1) P^{z} z+il^zz}\gamma^z\int\dd z'\dd z''\int\mm{l}\tilde D_G^{zz}(l)\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(w-l)\cdot z'}e^{-i(l+h)\cdot z''} u(P)\\
 	=&\bar u(P)\int \frac{\dd z}{2 \pi} e^{-i (1-x) P^{z} z+il^zz}\gamma^z\int\mm{l}\tilde D_G^{zz}(l)\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon} u(P)\\
-	=&\bar u(P)\gamma^z\int\mm{l}\tilde D_G^{zz}(l)\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}\delta(l^z-(1-x)P^z) u(P)\\
+	=&\bar u(P)\gamma^z\int\mm{l}\tilde D_G^{zz}(l)\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}\delta(l^z-(1-x)P^z) u(P)
 \end{align*}
+One can start with a different route: 
+\begin{align}
+	\bar u(P)\int \frac{\dd z}{2 \pi} e^{-i (1-x) P^{z} z+il^zz}\gamma^z\int\dd z'\dd z''\int\mm{l}\tilde D_G^{zz}(l)\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(w-l)\cdot z'}e^{-i(l+h)\cdot z''} u(P)
+\end{align}
 The second one is 
 \begin{align}
-	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \frac{\mathcal{P} \left[i g_s \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]\left[i g_s \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \mathrm{t}^{a}\right]}{2}  \psi(0)| P, S\rangle
+	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \frac{\mathcal{P} \left[-i g_s \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]\left[-i g_s \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \mathrm{t}^{a}\right]}{2}  \psi(0)| P, S\rangle
 \end{align}
 The coupling-free form is 
 \begin{align*}
-	&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \mathcal{P} \left[ \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \right]  \psi(0)| P, S\rangle\\
-	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)  \psi(0)| P, S\rangle\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z''-z') }}{h+i\epsilon}\\
+	&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z  \mathcal{P} \left[ \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \right]  \psi(0)| P, S\rangle\\
+	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \bqty{\theta(z'-z'')+\theta(z''-z')}  \psi(0)| P, S\rangle\\
+	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \psi(0)| P, S\rangle\\
+	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)  \psi(0)| P, S\rangle\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
 	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\wick{\langle \c1P, S|\c1{\bar{\psi}}(z) \gamma^z \int \dd z^{\prime} \c2A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} \c2A^{a,z}\left(z^{\prime\prime}\right)  \c1\psi(0)| \c1P, S\rangle}
-	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z''-z') }}{h+i\epsilon}\\
+	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
 	=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\bar u(P)e^{iP\cdot z} \gamma^z \int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l)e^{-il\cdot(z''-z')}  u(P)
-	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z''-z') }}{h+i\epsilon}\\
-	=&\bar u(P)\int \frac{\dd z}{2 \pi} e^{-i (1-x) P^{z} z+il^zz} \gamma^z \int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l) 
-	\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(w-l-h)\cdot z'}e^{-i(h+l)\cdot z''} u(P)\\
-	=&\bar u(P) \gamma^z \int\mm{l}\tilde D_G^{zz}(l) 
-	\frac{i}{0+i\epsilon}\frac{i}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)u(P)
+	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
+	=&\bar u(P)\int \frac{\dd z}{2 \pi} e^{-i (1-x) P^{z} z} \gamma^z  \int\mm{l}\tilde D_G^{zz}(l) 
+	\int \dd z^{\prime} \int \dd z^{\prime\prime}\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(w-l)\cdot z'}e^{-i(h+l)\cdot z''} u(P)\\
+	=&2\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) 
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon} 
 \end{align*}
 This gives 
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
-			\node[right=\FDWidth of a,dot] (b);
-			\vertex at ($(a)!0.5!(b)$) (o);
-			\vertex at ($(a)!0.2!(b)$) (o1);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
 			\vertex at ($(a)!0.8!(b)$) (o2);
-			\vertex[below=\FDHeight of a] (exa);
-			\vertex[below=\FDHeight of b] (exb);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
 			\diagram*{
-				(a) --[Eikonal] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+				(a) --[Eikonal,momentum=\(l\)] (o1) --[Eikonal,rmomentum=\(l\)] (o);
 				(exa) --[fermion,momentum=\(P\)] (a);
 				(b) --[fermion,momentum=\(P\)] (exb);
 				(o1) --[gluon, half right,momentum'=\(l\)] (o);
 			};
 		\end{feynman}
-	\end{tikzpicture}=-\frac{g_s^2C_F}{4}\bar u(P) \gamma^z \int\mm{l}\tilde D_G^{zz}(l) 
-	\frac{i}{0+i\epsilon}\frac{i}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)u(P)
+	\end{tikzpicture}=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) 
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon} 
 \end{align}
+We can reverse the loop momentum of one of the path and add a small inflowing momentum $p$ (in the following diagrams each diagram only represents one specific path, that means the sum of both diagram is the value of the original diagram): 
+\begin{align*}
+	&\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,rmomentum=\(l-p\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}+
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,momentum=\(p+l\)] (o);
+				(exa) --[fermion,momentum=\(P\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(o1) --[gluon, half right,momentum'=\(-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}\\
+	&=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) 
+	\bqty{\frac{i}{p+i\epsilon}\frac{i}{p-l^z+i\epsilon}+ \frac{i}{p+i\epsilon}\frac{i}{p+l^z+i\epsilon} }\\
+	&=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{p+i\epsilon}\frac{2ip}{(p-l^z+i\epsilon)(p+l^z+i\epsilon)}\\
+	&=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{p-l^z+i\epsilon}\frac{2i}{p+l^z+i\epsilon}
+\end{align*}
+According to Tong, one can manually add a regulating momentum and then take the derivative to eliminate the effect. 
+\endnote{According to Tong, one can choose
+\begin{align}
+	\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{0+i\epsilon}\frac{i}{-l^z+i\epsilon} 
+	&=\lim_{p\to0}\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{p+i\epsilon}\frac{i}{p-l^z+i\epsilon}\\
+	&=\lim_{p\to0}\frac{i}{p+i\epsilon}\int\mm{l}\frac{i}{\tilde{\vb{l}}^2-{l^z}^2+i\epsilon} \frac{i}{p-l^z+i\epsilon}
+\end{align}
+where
+\begin{align}
+	\mathcal{I}\equiv\int\mm{l}\frac{i}{\tilde{\vb{l}}^2-{l^z}^2+i\epsilon} \frac{i}{p-l^z+i\epsilon}
+\end{align}
+With partial derivative operator 
+\begin{align}
+	\pdv{p}\mathcal{I}=-\int\mm{l}\frac{i}{\tilde{\vb{l}}^2-{l^z}^2+i\epsilon} \frac{i}{\bqty{p-l^z+i\epsilon}^2}
+\end{align}
+\begin{align}
+	\mathcal{I}=\pdv{p}\mathcal{I}\pqty{l^z-p}
+\end{align}
+We can evaluate the value of $\pdv{p}\mathcal{I}l^z$
+\begin{align*}
+	\frac{i}{p}\mathcal{I}l^z&=\frac{i}{p}\int\mm{l}\frac{i}{\tilde{\vb{l}}^2-{l^z}^2+i\epsilon} \frac{il^z}{p-l^z+i\epsilon}\\
+	&=\frac{i}{p}\int\mmd[3]{\tilde{\vb{l}}}\frac{-i /2}{\sqrt{\tilde{\vb{l}}^2}+p+i \epsilon }\\
+	&=\frac{ 2 p^2 (\log (p)-\log (p+i \Lambda ))+\Lambda  (\Lambda +2 i p)}{8 \pi ^2p}
+\end{align*}
+\begin{align*}
+	-\frac{i}{p}\pdv{\mathcal{I}}{p}p=-i\pdv{\mathcal{I}}{p}
+\end{align*}
+With Dim-Reg $\mathcal{I}l^z/p\to 0$. The original diagram gives 
+\begin{align}
+	-i\pdv{\mathcal{I}}{p}=i\int\mm{l}\frac{i}{\tilde{\vb{l}}^2-{l^z}^2+i\epsilon} \frac{i}{\bqty{l^z-i\epsilon}^2}
+\end{align}}
+
 Diagram~\ref{2o-} is 
 \begin{align}
-	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \frac{\mathcal{P} \left[-i g_s \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]\left[- i g_s \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}+z\right) \mathrm{t}^{a}\right]}{2}  \psi(0)| P, S\rangle
+	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \frac{\mathcal{P} \left[i g_s \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \mathrm{t}^{a}\right]\left[ i g_s \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}+z\right) \mathrm{t}^{a}\right]}{2}  \psi(0)| P, S\rangle
 \end{align}
-and it behaves exactly like \ref{2-o}, since those extra $(+z)$s will be cancelled in the Wick contraction. 
+and it behaves exactly like \ref{2-o}, since those extra $(+z)$s will be cancelled in the Wick contraction. These three diagrams are combined to form a plus function of diagram~\ref{2-v-}. 
+\endnote{Take only one combination of the theta function/one possible path
+	\begin{align*}
+		&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \theta(z'-z'')  \psi(0)| P, S\rangle\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)  \psi(0)| P, S\rangle\int\frac{\dd w}{2\pi}\frac{ie^{-iwz'' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z'-z'') }}{h+i\epsilon}\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z   \psi(0)| P, S\rangle\int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l)e^{-il\cdot(z''-z')}\int\frac{\dd w}{2\pi}\frac{ie^{-iwz'' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z'-z'') }}{h+i\epsilon}\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z   \psi(0)| P, S\rangle\int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l)\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(l+h)z'}e^{-i(w-h-l)z''}
+	\end{align*}
+	The other one is
+	\begin{align*}
+		&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \theta(z''-z')  \psi(0)| P, S\rangle\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)\int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right)  \psi(0)| P, S\rangle\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z''-z') }}{h+i\epsilon}\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z   \psi(0)| P, S\rangle\int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l)e^{-il\cdot(z'-z'')}\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ih(z''-z') }}{h+i\epsilon}\\
+		=&\int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z   \psi(0)| P, S\rangle\int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\tilde D_G^{zz}(l)\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(l+h)z''}e^{-i(w-h-l)z'}
+	\end{align*}
+	}
 
 
-\section{Diagram~\ref{1b} Comparing\label{sec:dc1}}
+\section{Comparing two different prescription of Feynman integrals}
+Take diagram~\ref{2/-} as an example (we use a boldface font with subscript 3 to symbolize the first three components of a four vector: $\tilde{\vb{l}}^{\mu}=(l^0,\vb{l}_T)$)
+\begin{align}
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+				(o) --[Eikonal,momentum=\(P-l\)] (b);
+				(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+				(b) --[fermion,momentum=\(P\)] (exb);
+				(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+	&=\frac{ig_s^2C_F}{4}\int\mm{l}  \frac{\Tr{(\slashed P+m)\gamma^z(\slashed l+m)\gamma^z}}{l^2-m^2+i\epsilon}\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)\notag\\
+	&=ig_s^2C_F\int\mm{l}  \frac{\tilde{\vb{l}}\cdot\tilde{\vb{P}}+l^z P^z-m^2}{\tilde{\vb{l}}^2-(l^z)^2-m^2+i\epsilon}\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(\tilde{\vb{P}}-\tilde{\vb{l}})^2-(P^z-l^z)^2+i\epsilon} \delta(l^z-xP^z)\notag\\
+	&=\frac{ig_s^2C_F}{2\pi P^z(x-1)}\int\mmd[3]{\tilde{\vb{l}}}  \frac{\tilde{\vb{l}}\cdot\tilde{\vb{P}}+x (P^z)^2-m^2}{\tilde{\vb{l}}^2-x^2(P^z)^2-m^2+i\epsilon}\frac{1}{(\tilde{\vb{l}}-\tilde{\vb{P}})^2-(P^z)^2(1-x)^2+i\epsilon}
+\end{align}
+\begin{align}
+	&y\pqty{\tilde{\vb{l}}^2-x^2(P^z)^2-m^2+i\epsilon}+(1-y)\pqty{(\tilde{\vb{l}}-\tilde{\vb{P}})^2-(P^z)^2(1-x)^2+i\epsilon}\notag\\
+	=&\tilde{\vb{l}}^2-x^2y(P^z)^2-ym^2 -2(1-y)\tilde{\vb{l}}\cdot \tilde{\vb{P}}+(1-y)\tilde{\vb{P}}^2-(1-y)(P^z)^2(1-x)^2+i\epsilon\notag\\
+	=&(\tilde{\vb{l}}-(1-y)\tilde{\vb{P}})^2+y(1-y)\tilde{\vb{P}}^2-x^2y(P^z)^2-ym^2-(1-y)(P^z)^2(1-x)^2+i\epsilon
+\end{align}
+\begin{align}
+	\Delta=-y(1-y)\tilde{\vb{P}}^2+x^2y(P^z)^2+ym^2+(1-y)(P^z)^2(1-x)^2
+\end{align}
+The integral is
+\begin{align}
+	&\int_0^1\dd y\int\mmd[3]{\tilde{\vb{l}}}  \frac{\tilde{\vb{l}}\cdot\tilde{\vb{P}}+x (P^z)^2-m^2}{\tilde{\vb{l}}^2-x^2(P^z)^2-m^2+i\epsilon}\frac{1}{(\tilde{\vb{l}}-\tilde{\vb{P}})^2-(P^z)^2(1-x)^2+i\epsilon}\notag\\
+	=&\int_0^1\dd y\int\mmd[3]{\tilde{\vb{l}}}\frac{(\tilde{\vb{l}}+(1-y)\tilde{\vb{P}})\cdot\tilde{\vb{P}}+x (P^z)^2-m^2}{\bqty{\tilde{\vb{l}}^2-\Delta+i\epsilon}^2}\notag\\
+	=&\int_0^1\dd y\int\mmd[3]{\tilde{\vb{l}}}\frac{\tilde{\vb{l}}\cdot\tilde{\vb{P}}+(1-y)\tilde{\vb{P}}^2+x (P^z)^2-m^2}{\bqty{\tilde{\vb{l}}^2-\Delta+i\epsilon}^2}\\
+	\intertext{The first term in the numerator vanishes}
+	=&\int_0^1\dd y\int\mmd[3]{\tilde{\vb{l}}}\frac{(1-y)\tilde{\vb{P}}^2+x (P^z)^2-m^2}{\bqty{\tilde{\vb{l}}^2-\Delta+i\epsilon}^2}\notag\\
+	\intertext{after Wick rotation}
+	=&\frac{i}{(-1)^2}\int_0^1\dd y\int\mmd[3]{\tilde{\vb{l}}}\frac{(1-y)\tilde{\vb{P}}^2+x (P^z)^2-m^2}{\bqty{\tilde{\vb{l}}^2+\Delta-i\epsilon}^2}\notag\\
+	=&i\int_0^1\dd y\frac{(1-y)\tilde{\vb{P}}^2+x (P^z)^2-m^2}{8\pi\sqrt{\Delta}}
+\end{align}
+The final result agrees with what we got from integrating $l^0$ first: 
+\begin{align}
+	&\frac{C_F g_s^2 }{32 \pi ^2 {P^z} (x-1) \sqrt{m^2+{P^z}^2}}\Bqty{{P^z}^2 x \Bqty{3 \log \left(\left| x-1\right|  \sqrt{m^2+{P^z}^2}+{P^z} (x-1)\right)-\log \left(\left| x-1\right|  \sqrt{m^2+{P^z}^2}+{P^z} (-x)+{P^z}\right)\notag\\&-3 \log \left(\sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}+m^2+{P^z}^2 x\right)+\log \left(\sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}-m^2-{P^z}^2 x\right)+2 \log ({P^z})}\notag\\&-2 {P^z} \left| x-1\right|  \sqrt{m^2+{P^z}^2}+2 \sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}}
+\end{align}
+
+\section{Diagram~\ref{1b} Comparing (Defuncted)\label{sec:dc1}}
 Let's start with
 \begin{align}
 	&\bar u(P)\int\mmd[1]{l^0}\mmd[2]{\vb{l}_T}\eval{(-ig_st^a\gamma^{\mu})\frac{i(\slashed{l}+m)}{l^2-m^2}\gamma^z\frac{i(\slashed{l}+m)}{l^2-m^2}(-ig_st^a\gamma^{\nu})\tilde D_{G\mu\nu}^A(P-l)u(P)}_{l^z=xP^z}\notag\\
 	=&-g_s^2C_F\bar u(P)\int\mmd[1]{l^0}\mmd[2]{\vb{l}_T}\eval{\gamma^{\mu}\frac{i(\slashed{l}+m)}{l^2-m^2}\gamma^z\frac{i(\slashed{l}+m)}{l^2-m^2}\gamma^{\nu}\tilde D_{G\mu\nu}^A(P-l)u(P)}_{l^z=xP^z}\notag\\
-	=&-ig_s^2C_F\bar u(P)\int\mmd[1]{l^0}\mmd[2]{\vb{l}_T}\gamma^{\mu}\frac{\slashed{l}+m}{l^2-m^2}\gamma^z\frac{\slashed{l}+m}{l^2-m^2}\gamma^{\nu}\frac{1}{(P-l)^2}u(P)\notag\\&\eval{\bqty{\bar{g}^{\mu \nu }-\frac{n^{\nu } \left(P^{\mu }-l^{\mu }\right)+n^{\mu} \left(P^{\nu }-l^{\nu }\right)}{n\cdot (P-l)}+\frac{n^2 \left(P^{\mu }-l^{\mu }\right) \left(P^{\nu }-l^{\nu }\right)}{\left(n\cdot P-n\cdot l\right)^2}}}_{l^z=xP^z}
+	=&-ig_s^2C_F\bar u(P)\int\mmd[1]{l^0}\mmd[2]{\vb{l}_T}\gamma^{\mu}\frac{\slashed{l}+m}{l^2-m^2}\gamma^z\frac{\slashed{l}+m}{l^2-m^2}\gamma^{\nu}\frac{1}{(P-l)^2+i\epsilon}u(P)\notag\\&\eval{\bqty{\bar{g}^{\mu \nu }-\frac{n^{\nu } \left(P^{\mu }-l^{\mu }\right)+n^{\mu} \left(P^{\nu }-l^{\nu }\right)}{n\cdot (P-l)}+\frac{n^2 \left(P^{\mu }-l^{\mu }\right) \left(P^{\nu }-l^{\nu }\right)}{\left(n\cdot P-n\cdot l\right)^2}}}_{l^z=xP^z}
 \end{align}
 We consider the numerator as a first step
 \begin{align}
@@ -927,6 +1722,8 @@ As we discussed earlier, it can be dissected into
 	&\frac{-2m}{\left(k^{2}-m^{2}\right)(P-k)^{2}\left(P^{z}-k^{z}\right)} &\bar u(P)u(P)\\
 	&\frac{2 \gamma^z}{\left(k^{2}-m^{2}\right)(P-k)^{2}}+\frac{2k^{z} \gamma^{z}}{\left(k^{2}-m^{2}\right)(P-k)^{2}\left(P^{z}-k^{z}\right)}-\frac{\gamma^{z}}{(P-k)^{2}\left(P^{z}-k^{z}\right)^{2}} &\bar u(P)\gamma^zu(P)
 \end{align}
+
+\printendnotes
 
 \bibliography{../Bib}
 \bibliographystyle{apsrev4-1}

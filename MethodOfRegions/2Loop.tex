@@ -86,12 +86,94 @@
 % \usepgfplotslibrary{external}
 \tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
 
+% ==============================================================================
+% Reuse diagram
+% ==============================================================================
+\usepackage{tikz}
+\usepackage{environ}
+
+\makeatletter
+\let\orig@tikzpicture=\tikzpicture
+\let\orig@endtikzpicture=\endtikzpicture
+\let\env@tikzpicture@save@env=\pgfutil@empty
+\let\env@tikzpicture@process=\pgfutil@empty
+\RenewEnviron{tikzpicture}[1][]{%
+  \begingroup
+  \let\tikzpicture=\orig@tikzpicture
+  \let\endtikzpicture=\orig@endtikzpicture
+  \let\tikz@picname=\pgfutil@empty
+  \begin{tikzpicture}[#1]
+  \BODY
+  \end{tikzpicture}
+  \ifx\tikz@picname\pgfutil@empty
+  \else
+  \expandafter\gdef\csname     tikz@savedpic@\tikz@picname\expandafter\endcsname\expandafter{\BODY}
+  \fi
+  \endgroup
+}
+
+\newcommand\usetikzpicture[2][]{%
+  \begingroup
+  \let\tikzpicture=\orig@tikzpicture
+  \let\endtikzpicture=\orig@endtikzpicture
+  \let\tikz@picname=\pgfutil@empty
+  \begin{tikzpicture}[#1]
+  \csname tikz@savedpic@#2\endcsname
+  \end{tikzpicture}
+  \endgroup}
+
+\tikzset{
+  save picture as/.code={
+    \gdef\tikz@picname{#1}%
+  }
+}
+\makeatother
+
+% \tikzfeynmanset{
+% 	Eikonal/.style={
+% 		/tikz/draw=none,
+% 		/tikz/decoration={name=none},
+% 		/tikz/postaction={
+% 			/tikz/draw,
+% 			/tikz/double distance=2pt,
+% 			% /tikzfeynman/with arrow=0.5,
+% 		},
+% 	}
+% }
+
+\def\FDWidthS{2cm} 
+\def\FDHeightS{2cm}
+
 
 \title{Two Loop Example of Method of Regions}
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
 
-\bibliography{Bib.bib}
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base),save picture as=b]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.33!(a)$) (a1);
+			\vertex at ($(exa)!0.66!(a)$) (a2);
+			\diagram*{
+				% (a) --[Eikonal] (b);
+				(exa) --[fermion] (a1) --[fermion] (a2) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a1) --[gluon, half right,looseness=2] (a2);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align}
+\begin{align}
+	\usetikzpicture{b}
+\end{align}
+
+\cite{Collins2009}
+
+\bibliography{../Bib}
 \bibliographystyle{apsrev4-1}
 \end{document}
