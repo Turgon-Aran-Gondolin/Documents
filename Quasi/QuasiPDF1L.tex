@@ -1159,7 +1159,7 @@ For leading order, it's
 \begin{align}
 	\delta(1-x)=\int_0^1\frac{\dd y}{y}Z\pqty{\frac{x}{y},\frac{P^z}{\mu}}\delta(1-y)
 \end{align}
-It's straightforward to get
+It's straightforward to get (under the assumption that the heaviside theta function $\theta(0)=0$)
 \begin{align}
 	Z\pqty{\frac{x}{y},\frac{P^z}{\mu}}=\delta\pqty{1-\frac{x}{y}}
 \end{align}
@@ -1168,6 +1168,7 @@ The one loop matching factor is
 	&\left(1+\delta \tilde{Z}_{F}\right) \delta(1-x)+\tilde{q}^{(1)}(x) 
 	= \int_{0}^{1} \frac{d y}{y}\left[\delta\left(\frac{x}{y}-1\right)+Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)\right]\left[\left(1+\delta Z_{F}\right) \delta(1-y)+q^{(1)}(y)\right] 
 \end{align}
+where $Z_F$ is independent of $x$ and $y$. In axial gauge, $Z_F$ is the fermion self energy, while in Feynman gauge, it's the combination of fermion self energy, gauge link self energy and loops between quark line and gauge link line involving only one side of the uncut diagram. 
 
 \appendix
 \section{Conventions\label{sec:conv}}
@@ -1460,7 +1461,7 @@ This gives
 \end{align}
 We can reverse the loop momentum of one of the path and add a small inflowing momentum $p$ (in the following diagrams each diagram only represents one specific path, that means the sum of both diagram is the value of the original diagram): 
 \begin{align*}
-	&\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+	&\begin{tikzpicture}[baseline=($(a)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidthS of a,dot] (b);
@@ -1471,13 +1472,13 @@ We can reverse the loop momentum of one of the path and add a small inflowing mo
 			\vertex[below=\FDHeightS of b] (exb);
 			\diagram*{
 				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,rmomentum=\(l-p\)] (o);
-				(exa) --[fermion,momentum=\(P\)] (a);
-				(b) --[fermion,momentum=\(P\)] (exb);
+				% (exa) --[fermion,momentum=\(P\)] (a);
+				% (b) --[fermion,momentum=\(P\)] (exb);
 				(o1) --[gluon, half right,momentum'=\(l\)] (o);
 			};
 		\end{feynman}
 	\end{tikzpicture}+
-	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+	\begin{tikzpicture}[baseline=($(a)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidthS of a,dot] (b);
@@ -1488,8 +1489,8 @@ We can reverse the loop momentum of one of the path and add a small inflowing mo
 			\vertex[below=\FDHeightS of b] (exb);
 			\diagram*{
 				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,momentum=\(p+l\)] (o);
-				(exa) --[fermion,momentum=\(P\)] (a);
-				(b) --[fermion,momentum=\(P\)] (exb);
+				% (exa) --[fermion,momentum=\(P\)] (a);
+				% (b) --[fermion,momentum=\(P\)] (exb);
 				(o1) --[gluon, half right,momentum'=\(-l\)] (o);
 			};
 		\end{feynman}
@@ -1499,6 +1500,214 @@ We can reverse the loop momentum of one of the path and add a small inflowing mo
 	&=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{p+i\epsilon}\frac{2ip}{(p-l^z+i\epsilon)(p+l^z+i\epsilon)}\\
 	&=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l) \frac{i}{p-l^z+i\epsilon}\frac{2i}{p+l^z+i\epsilon}
 \end{align*}
+At two loop, we hope one can still try this. Let's discuss the following diagram first
+\begin{figure}[!bhtp]
+	\centering
+	\begin{subfigure}[b]{.24\linewidth}
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.6!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.4!(b)$) (o2);
+				\vertex at ($(a)!0.6!(b)$) (o3);
+				\vertex at ($(a)!0.8!(b)$) (o4);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+					(a) --[Eikonal,momentum=\(l_1\)] (o1) --[Eikonal,momentum=\(l_2\)] (o2) --[Eikonal,rmomentum=\(l_2\)] (o3) --[Eikonal,rmomentum=\(l_1\)] (o4);
+					(exa) --[fermion,momentum=\(P\)] (a);
+					(b) --[fermion,momentum=\(P\)] (exb);
+					(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=2] (o3);
+					(o2) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=2] (o4);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}[b]{.24\linewidth}
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.6!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.4!(b)$) (o2);
+				\vertex at ($(a)!0.6!(b)$) (o3);
+				\vertex at ($(a)!0.8!(b)$) (o4);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+					(a) --[Eikonal,momentum=\(l_1\)] (o1) --[Eikonal,momentum=\(l_2\)] (o2) --[Eikonal,rmomentum=\(l_2\)] (o3) --[Eikonal,rmomentum=\(l_1\)] (o4);
+					(exa) --[fermion,momentum=\(P\)] (a);
+					(b) --[fermion,momentum=\(P\)] (exb);
+					(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=2.7] (o4);
+					(o2) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=2] (o3);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}[b]{.24\linewidth}
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.6!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.4!(b)$) (o2);
+				\vertex at ($(a)!0.6!(b)$) (o3);
+				\vertex at ($(a)!0.8!(b)$) (o4);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+					(a) --[Eikonal,momentum=\(l_1\)] (o1) --[Eikonal,momentum=\(l_2\)] (o2) --[Eikonal,rmomentum=\(l_2\)] (o3) --[Eikonal,rmomentum=\(l_1\)] (o4);
+					(exa) --[fermion,momentum=\(P\)] (a);
+					(b) --[fermion,momentum=\(P\)] (exb);
+					(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=2] (o2);
+					(o3) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=2] (o4);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\label{}
+\end{figure}
+
+It's actually
+\begin{align*}
+	\begin{tikzpicture}[baseline=($(a1)!0.5!(a4)$.base)]
+		\begin{feynman}
+			\node[dot] (a1);
+			\node[above=\FDHeight of a1,dot] (a4);
+			\node[dot] at ($(a1)!0.33!(a4)$) (a2);
+			\node[dot] at ($(a1)!0.66!(a4)$) (a3);
+			\node[right=\FDWidth of a1,dot] (b1);
+			\node[right=\FDWidth of a2,dot] (b2);
+			\node[right=\FDWidth of a3,dot] (b3);
+			\node[right=\FDWidth of a4,dot] (b4);
+			\vertex at ($(a1)!0.2!(b1)$) (o1);
+			\vertex at ($(a2)!0.4!(b2)$) (o2);
+			\vertex at ($(a3)!0.6!(b3)$) (o3);
+			\vertex at ($(a4)!0.8!(b4)$) (o4);
+			\diagram*{
+				(a1) --[Eikonal,momentum=\(l_1\)] (o1) ;
+				(a2) --[Eikonal,momentum=\(l_2\)] (o2) ;
+				(a3) --[Eikonal,rmomentum=\(l_1\)] (o3) ;
+				(a4) --[Eikonal,rmomentum=\(l_2\)] (o4) ;
+				(o1) --[gluon, quarter right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1.] (o3);
+				(o2) --[gluon, quarter right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=1.] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}=\frac{i}{l_1^z+i\epsilon}\frac{i}{l_2^z+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{-l_2^z+i\epsilon}=\frac{1}{{l_1^z}^2{l_2^z}^2}\\
+	\begin{tikzpicture}[baseline=($(a1)!0.5!(a4)$.base)]
+		\begin{feynman}
+			\node[dot] (a1);
+			\node[above=\FDHeight of a1,dot] (a4);
+			\node[dot] at ($(a1)!0.33!(a4)$) (a2);
+			\node[dot] at ($(a1)!0.66!(a4)$) (a3);
+			\node[right=\FDWidth of a1,dot] (b1);
+			\node[right=\FDWidth of a2,dot] (b2);
+			\node[right=\FDWidth of a3,dot] (b3);
+			\node[right=\FDWidth of a4,dot] (b4);
+			\vertex at ($(a1)!0.2!(b1)$) (o1);
+			\vertex at ($(a2)!0.4!(b2)$) (o2);
+			\vertex at ($(a3)!0.6!(b3)$) (o3);
+			\vertex at ($(a4)!0.8!(b4)$) (o4);
+			\diagram*{
+				(a1) --[Eikonal,momentum=\(l_1\)] (o1) ;
+				(a2) --[Eikonal,momentum=\(l_2\)] (o2) ;
+				(a3) --[Eikonal,rmomentum=\(l_2\)] (o3) ;
+				(a4) --[Eikonal,rmomentum=\(l_1\)] (o4) ;
+				(o1) --[gluon, quarter right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1.] (o4);
+				(o2) --[gluon, quarter right,momentum={[arrow shorten=0.15]\(l_2\)},looseness=1.] (o3);
+			};
+		\end{feynman}
+	\end{tikzpicture}=\frac{i}{l_1^z+i\epsilon}\frac{i}{l_2^z+i\epsilon}\frac{i}{-l_2^z+i\epsilon}\frac{i}{-l_1^z+i\epsilon}=\frac{1}{{l_1^z}^2{l_2^z}^2}\\
+	\begin{tikzpicture}[baseline=($(a1)!0.5!(a4)$.base)]
+		\begin{feynman}
+			\node[dot] (a1);
+			\node[above=\FDHeight of a1,dot] (a4);
+			\node[dot] at ($(a1)!0.33!(a4)$) (a2);
+			\node[dot] at ($(a1)!0.66!(a4)$) (a3);
+			\node[right=\FDWidth of a1,dot] (b1);
+			\node[right=\FDWidth of a2,dot] (b2);
+			\node[right=\FDWidth of a3,dot] (b3);
+			\node[right=\FDWidth of a4,dot] (b4);
+			\vertex at ($(a1)!0.2!(b1)$) (o1);
+			\vertex at ($(a2)!0.4!(b2)$) (o2);
+			\vertex at ($(a3)!0.5!(b3)$) (o3);
+			\vertex at ($(a4)!0.7!(b4)$) (o4);
+			\diagram*{
+				(a1) --[Eikonal,momentum=\(l_1\)] (o1) ;
+				(a2) --[Eikonal,rmomentum=\(l_1\)] (o2) ;
+				(a3) --[Eikonal,momentum=\(l_2\)] (o3) ;
+				(a4) --[Eikonal,rmomentum=\(l_2\)] (o4) ;
+				(o1) --[gluon, quarter right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1.] (o2);
+				(o3) --[gluon, quarter right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=1.] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}=\frac{i}{l_1^z+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{l_2^z+i\epsilon}\frac{i}{-l_2^z+i\epsilon}=\frac{1}{{l_1^z}^2{l_2^z}^2}
+\end{align*}
+with all theta function being $\prod \theta(z_i)$. 
+
+But to directly use the Feynman rules, we can impose a small momentum inflow $p$ as in the following diagram
+\begin{align*}
+	\begin{tikzpicture}[baseline=($(a)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=3in of a,dot] (b);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.4!(b)$) (o2);
+			\vertex at ($(a)!0.6!(b)$) (o3);
+			\vertex at ($(a)!0.8!(b)$) (o4);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,momentum=\(p-l_1\)] (o2) --[Eikonal,momentum=\(p-l_1-l_2\)] (o3) --[Eikonal,momentum=\(p-l_2\)] (o4);
+				(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1] (o3);
+				(o2) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=1] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}\\
+	\begin{tikzpicture}[baseline=($(a)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=3in of a,dot] (b);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.4!(b)$) (o2);
+			\vertex at ($(a)!0.6!(b)$) (o3);
+			\vertex at ($(a)!0.8!(b)$) (o4);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,momentum=\(p-l_1\)] (o2) --[Eikonal,momentum=\(p-l_1-l_2\)] (o3) --[Eikonal,momentum=\(p-l_1\)] (o4);
+				(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1] (o4);
+				(o2) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=1] (o3);
+			};
+		\end{feynman}
+	\end{tikzpicture}\\
+	\begin{tikzpicture}[baseline=($(a)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=3in of a,dot] (b);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.4!(b)$) (o2);
+			\vertex at ($(a)!0.6!(b)$) (o3);
+			\vertex at ($(a)!0.8!(b)$) (o4);
+			\diagram*{
+				(a) --[Eikonal,momentum=\(p\)] (o1) --[Eikonal,momentum=\(p-l_1\)] (o2) --[Eikonal,momentum=\(p\)] (o3) --[Eikonal,momentum=\(p-l_2\)] (o4);
+				(o1) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_1\)},looseness=1] (o2);
+				(o3) --[gluon, half right,momentum'={[arrow shorten=0.3]\(l_2\)},looseness=1] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{align*}
+Define 
+\begin{align}
+	&\mathcal{I}_1=\int\mm{l_1}\int\mm{l_2}\tilde D_G(l_1)\tilde D_G(l_2)\frac{i}{p}\Bqty{\frac{i}{p-l_1^z}\frac{i}{p-l_1^z-l_2^z}\frac{i}{p-l_2^z}}\\
+	&\mathcal{I}_2=\int\mm{l_1}\int\mm{l_2}\tilde D_G(l_1)\tilde D_G(l_2)\frac{i}{p}\Bqty{\frac{i}{p-l_1^z}\frac{i}{p-l_1^z-l_2^z}\frac{i}{p-l_1^z}}\\
+	&\mathcal{I}_3=\int\mm{l_1}\int\mm{l_2}\tilde D_G(l_1)\tilde D_G(l_2)\frac{i}{p}\Bqty{\frac{i}{p-l_1^z}\frac{i}{p}\frac{i}{p-l_2^z}}
+\end{align}
+There seems to be no way to remove the $1/p$ divergence. 
+
 According to Tong, one can manually add a regulating momentum and then take the derivative to eliminate the effect. 
 \endnote{According to Tong, one can choose
 \begin{align}

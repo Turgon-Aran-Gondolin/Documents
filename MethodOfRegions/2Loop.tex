@@ -60,10 +60,25 @@
 	#2
 	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
 	}
+\DeclarePairedDelimiter\bracketM{[}{]}
+\reDeclarePairedDelimiterInnerWrapper\bracketM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
 \let\Bqty\relax
+\let\bqty\relax
 \newcommand{\Bqty}[1]{\BraceM*{#1}}
+\newcommand{\bqty}[1]{\bracketM*{#1}}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% ==============================================================================
+% ifthen for User-definition
+% ==============================================================================
+\usepackage{ifthen}
+% HOWTO:
+% \ifthenelse{<test>}{<code for true>}{<code for false>}
 
 % ==============================================================================
 % User Definition
@@ -71,7 +86,7 @@
 \newcommand{\red}[1]{{\color{red}#1}}
 \newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
 \newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
-\newcommand{\mmd}[2][d]{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}
+\newcommand{\mmd}[2][d]{\ifthenelse{\equal{#1}{1}}{\frac{\dd {#2}}{2\pi}}{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}}
 
 \makeatletter
 \newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
@@ -84,50 +99,50 @@
 \usepackage{shellesc}
 \usetikzlibrary{external}
 % \usepgfplotslibrary{external}
-\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
 
-% ==============================================================================
-% Reuse diagram
-% ==============================================================================
-\usepackage{tikz}
-\usepackage{environ}
+% % ==============================================================================
+% % Reuse diagram
+% % ==============================================================================
+% \usepackage{tikz}
+% \usepackage{environ}
 
-\makeatletter
-\let\orig@tikzpicture=\tikzpicture
-\let\orig@endtikzpicture=\endtikzpicture
-\let\env@tikzpicture@save@env=\pgfutil@empty
-\let\env@tikzpicture@process=\pgfutil@empty
-\RenewEnviron{tikzpicture}[1][]{%
-  \begingroup
-  \let\tikzpicture=\orig@tikzpicture
-  \let\endtikzpicture=\orig@endtikzpicture
-  \let\tikz@picname=\pgfutil@empty
-  \begin{tikzpicture}[#1]
-  \BODY
-  \end{tikzpicture}
-  \ifx\tikz@picname\pgfutil@empty
-  \else
-  \expandafter\gdef\csname     tikz@savedpic@\tikz@picname\expandafter\endcsname\expandafter{\BODY}
-  \fi
-  \endgroup
-}
+% \makeatletter
+% \let\orig@tikzpicture=\tikzpicture
+% \let\orig@endtikzpicture=\endtikzpicture
+% \let\env@tikzpicture@save@env=\pgfutil@empty
+% \let\env@tikzpicture@process=\pgfutil@empty
+% \RenewEnviron{tikzpicture}[1][]{%
+%   \begingroup
+%   \let\tikzpicture=\orig@tikzpicture
+%   \let\endtikzpicture=\orig@endtikzpicture
+%   \let\tikz@picname=\pgfutil@empty
+%   \begin{tikzpicture}[#1]
+%   \BODY
+%   \end{tikzpicture}
+%   \ifx\tikz@picname\pgfutil@empty
+%   \else
+%   \expandafter\gdef\csname     tikz@savedpic@\tikz@picname\expandafter\endcsname\expandafter{\BODY}
+%   \fi
+%   \endgroup
+% }
 
-\newcommand\usetikzpicture[2][]{%
-  \begingroup
-  \let\tikzpicture=\orig@tikzpicture
-  \let\endtikzpicture=\orig@endtikzpicture
-  \let\tikz@picname=\pgfutil@empty
-  \begin{tikzpicture}[#1]
-  \csname tikz@savedpic@#2\endcsname
-  \end{tikzpicture}
-  \endgroup}
+% \newcommand\usetikzpicture[2][]{%
+%   \begingroup
+%   \let\tikzpicture=\orig@tikzpicture
+%   \let\endtikzpicture=\orig@endtikzpicture
+%   \let\tikz@picname=\pgfutil@empty
+%   \begin{tikzpicture}[#1]
+%   \csname tikz@savedpic@#2\endcsname
+%   \end{tikzpicture}
+%   \endgroup}
 
-\tikzset{
-  save picture as/.code={
-    \gdef\tikz@picname{#1}%
-  }
-}
-\makeatother
+% \tikzset{
+%   save picture as/.code={
+%     \gdef\tikz@picname{#1}%
+%   }
+% }
+% \makeatother
 
 % \tikzfeynmanset{
 % 	Eikonal/.style={
@@ -144,14 +159,18 @@
 \def\FDWidthS{2cm} 
 \def\FDHeightS{2cm}
 
-
+\newcounter{foo}
+\usepackage{pgf}
+\pgfmathsetmacro\S{1}
 \title{Two Loop Example of Method of Regions}
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
 
+% \setcounter{foo}{0}
 \begin{align}
-	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base),save picture as=b]
+	\ifthenelse{\equal{\S}{1}}{\tikzexternalenable}{\tikzexternaldisable}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidthS of a,dot] (b);
@@ -167,9 +186,8 @@
 			};
 		\end{feynman}
 	\end{tikzpicture}
-\end{align}
-\begin{align}
-	\usetikzpicture{b}
+	\pgfmathtruncatemacro\S{\S + 1}
+	% \stepcounter{foo}
 \end{align}
 
 \cite{Collins2009}
