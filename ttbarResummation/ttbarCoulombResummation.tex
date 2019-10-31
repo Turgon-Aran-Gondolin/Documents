@@ -203,7 +203,7 @@ We have two diagrams:
 		\begin{feynman}
 			\diagram[horizontal=g1 to g2]{
 			e1[particle=\(e^-\)] --[fermion] g1 --[fermion] e2[particle=\(e^+\)];
-			g1 --[photon, edge label=\(\gamma*\)] g2;
+			g1 --[photon, edge label=\(\gamma*/Z\)] g2;
 			g2 --[fermion] t1 --[boson] z[particle=\(Z\)];
 			g2 --[anti fermion] t2 --[scalar] h[particle=\(H\)];
 			t1 --[fermion,edge label=\(t\)] t2;
@@ -214,7 +214,7 @@ We have two diagrams:
 		\begin{feynman}
 			\diagram[horizontal=g1 to g2]{
 			e1[particle=\(e^-\)] --[fermion] g1 --[fermion] e2[particle=\(e^+\)];
-			g1 --[photon, edge label=\(\gamma*\)] g2;
+			g1 --[photon, edge label=\(\gamma*/Z\)] g2;
 			g2 --[fermion, half left, edge label'=\(t\)] t1 --[boson] z1;
 			g2 --[anti fermion, half right] t1 --[draw=none] z1;
 			z1 --[scalar] h[particle=\(H\)];
@@ -293,7 +293,7 @@ To the lowest order of those couplings between top quarks and external lines, we
 		\begin{feynman}
 			\diagram[horizontal=g1 to g2]{
 			% e1[particle=\(e^-\)] --[fermion] g1 --[fermion] e2[particle=\(e^+\)];
-			g1 --[photon, edge label'=\(\gamma*\),momentum=\(P\)] g2;
+			g1 --[photon, edge label'=\(\gamma*/Z\),momentum=\(P\)] g2;
 			g2 --[fermion,momentum=\(l\)] t1 --[boson,momentum=\(k\)] z[particle=\(Z\)];
 			g2 --[anti fermion,momentum'=\(P-l\)] t2 --[scalar,momentum=\(P-k\)] h[particle=\(H\)];
 			t1 --[fermion,edge label'=\(t\),momentum=\(l+k\)] t2;
@@ -304,8 +304,8 @@ To the lowest order of those couplings between top quarks and external lines, we
 		\begin{feynman}
 			\diagram[horizontal=g1 to g2]{
 			% e1[particle=\(e^-\)] --[fermion] g1 --[fermion] e2[particle=\(e^+\)];
-			g1 --[photon, edge label'=\(\gamma*\),momentum=\(P\)] g2;
-			g2 --[fermion, half left, edge label'=\(t\),momentum=\(l\)] t1 --[boson,momentum=\(P\)] z1;
+			g1 --[photon, edge label'=\(\gamma*/Z\),momentum=\(P\)] g2;
+			g2 --[fermion, half left, edge label'=\(t\),momentum=\(l\)] t1 --[boson,momentum=\(P\),edge label'=\(Z\)] z1;
 			g2 --[anti fermion, half right,momentum'=\(P-l\)] t1 --[draw=none] z1;
 			z1 --[scalar] h[particle=\(H\)];
 			z1 --[boson] z[particle=\(Z\)];
@@ -313,7 +313,22 @@ To the lowest order of those couplings between top quarks and external lines, we
 		\end{feynman}
 	\end{tikzpicture}
 \end{align*}
-The second one is well-discussed in \cite{Beneke:2013jia}. We'll start to expand the first diagram. The triangle loop is expressed as
+The second one is well-discussed in \cite{Beneke:2013jia}. Beneke et al. gave the explicit relation between the Coulomb Green function and the total cross section via optical theorem
+\begin{align}
+	\begin{aligned} \Pi_{\mu \nu}^{(X)}\left(q^{2}\right) &=i \int d^{4} x e^{i q \cdot x}\left\langle 0\left|T\left(j_{\mu}^{(X)}(x) j_{\nu}^{(X)}(0)\right)\right| 0\right\rangle \\ &=\left(q_{\mu} q_{\nu}-q^{2} g_{\mu \nu}\right) \Pi^{(X)}\left(q^{2}\right)+q_{\mu} q_{\nu} \Pi_{L}^{(X)}\left(q^{2}\right) \end{aligned}
+\end{align}
+where the vector current $j_{\mu}^{(v)}=\bar{t} \gamma_{\mu} t$ and the axial vector current $j_{\mu}^{(v)}=\bar{t} \gamma_{\mu}\gamma_5 t$
+\begin{align}
+	\begin{aligned} \sigma_{t \bar{t} X}=\sigma_{0} \times 12 \pi \operatorname{Im}[& e_{t}^{2} \Pi^{(v)}\left(q^{2}\right)-\frac{2 q^{2}}{q^{2}-M_{Z}^{2}} v_{e} v_{t} e_{t} \Pi^{(v)}\left(q^{2}\right) \\ &\left.+\left(\frac{q^{2}}{q^{2}-M_{Z}^{2}}\right)^{2}\left(v_{e}^{2}+a_{e}^{2}\right)\left(v_{t}^{2} \Pi^{(v)}\left(q^{2}\right)+a_{t}^{2} \Pi^{(a)}\left(q^{2}\right)\right)\right] \end{aligned}
+\end{align}
+However, we can directly access the amplitude. Here we hold all conventions of signs implicitly as $\eta$\cite{Romao:2012pq}. 
+
+The amplitude of the second diagram is 
+\begin{align}
+	&\bar u(p_1)\pqty{-i\eta_ee\gamma_{\mu}}u(p_2)\frac{-ig^{\mu\nu}}{P^2+i0}\tr\Bqty{(-i\eta_eeQ_t\gamma_{\nu})\frac{1+\gamma^0}{2}\notag\\&\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}\gamma_\rho\pqty{g_V^t-g_A^t\gamma^5}}\frac{1-\gamma^0}{2}}\frac{-ig^{\rho\sigma}}{P^2-M_Z^2+i0}\frac{igm_Zg_{\sigma\omega}}{\cos\theta_W}\epsilon^{\omega}(k)
+\end{align}
+
+We'll start to expand the first diagram. The triangle loop is expressed as
 \begin{align}
 	-\int\mmd[d]{l}\tr\left\{\pqty{-i\eta_eeQ_t\gamma_{\mu}}\frac{i\pqty{\slashed P-\slashed l+m_t}}{(P-l)^2-m_t^2+im_t\Gamma_t}\pqty{-i\frac{g}{2}\frac{m_t}{m_W}}\frac{i\pqty{\slashed l+\slashed k+m_t}}{(l+k)^2-m_t^2+im_t\Gamma_t}\right.\notag\\\left.\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}\gamma_\nu\pqty{g_V^t-g_A^t\gamma^5}}\frac{i\pqty{\slashed l +m_t}}{l^2-m_t^2+{im_t\Gamma_t}}\right\}
 \end{align}
@@ -336,25 +351,21 @@ and $P=(2m_t+E,\vb{0})\sim (m_t+m_tv^2,0)$, $k\sim(m_t,m_t)$. We're to put the l
 \begin{align}
 	\frac{i\pqty{\slashed l+\slashed k+m_t}}{(l+k)^2-m_t^2+im_t\Gamma_t}=\frac{i\pqty{\pqty{m_t+\epsilon+k^0}\gamma^0+(l^i+k^i)\gamma_i+m_t}}{\pqty{m_t+\epsilon+k^0}^2-(\vb{l}+\vb{k})^2-m_t^2+im_t\Gamma_t}\to \frac{i\pqty{\slashed{\tilde{k}}+m_t}}{\tilde{k}^2-m_t^2+im_t\Gamma_t}
 \end{align}
-where $\tilde{k}=(k^0+m_t,\vb{k})$. We then have an overall factor\footnote{Convention follows \cite{Romao:2012pq}. One only needs to check the sign convention $\eta$. }
+where $\tilde{k}=(k^0+m_t,\vb{k})$. To calculate the amplitude, a more appropriate way is to define a substitution rule for the top loop. We already know that in leading power
 \begin{align}
-	&-\tr{\pqty{-i\eta_eeQ_t\gamma^{\mu}}\frac{1-\gamma^0}{2}\pqty{-i\frac{g}{2}\frac{m_t}{m_W}}\frac{i\pqty{\slashed{\tilde{k}}+m_t}}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}}\frac{1+\gamma^0}{2}}\notag\\
-	&=-\pqty{-i\eta_eeQ_t}\pqty{-i\frac{g}{2}\frac{m_t}{m_W}}\frac{i}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}}\notag\\&\pushright{\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}\frac{1+\gamma^0}{2}}}\notag\\
-	&=\frac{g^2m_t}{2m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}\frac{1+\gamma^0}{2}}\notag\\
-	&=\frac{g^2m_t}{2m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}}\notag\\
-	&=\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t} \left(-g_V^t g^{0 \mu } \tilde{k}^{\nu }+g_V^t g^{0 \nu } \tilde{k}^{\mu }-g_V^t \tilde{k}^0 g^{\mu  \nu }+g_V^t m_t g^{\mu  \nu }-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\right)
+	G(E)&=\int \frac{\dd^{d-1} \mathbf{p}}{(2 \pi)^{d-1}} \frac{\dd^{d-1} \mathbf{p}^{\prime}}{(2 \pi)^{d-1}}\frac{-(2 \pi)^{d-1} \delta^{(d-1)}\left(\mathbf{p}^{\prime}-\mathbf{p}\right)}{E+i \epsilon-\frac{\mathbf{p}^{2}}{m}}\xrightarrow{\epsilon\to\Gamma_t}\int\mmd[d-1]{l}\frac{-1}{E-\frac{\vb{l}^2}{m_t}+i\Gamma_t}\\&=i\int\mmd[d]{l}\frac{i}{\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}\frac{i}{E-\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}
 \end{align}
-Considering the external states, applying Feynman gauge, and counting the electron-positron pair in, we have
-\begin{align}
-	&\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t} \left(-g_V^t g^{0 \mu } \tilde{k}^{\nu }+g_V^t g^{0 \nu } \tilde{k}^{\mu }-g_V^t \tilde{k}^0 g^{\mu  \nu }+g_V^t m_t g^{\mu  \nu }-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\right)\notag\\&\pushright{\epsilon_{\nu}(k)\frac{-i}{P^2+i0}\bar{u}(p_1)\pqty{-ie\gamma_{\mu}}u(p_2)}\notag\\
-	&=\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\frac{-i}{P^2+i0}\pqty{-ie} \notag\\&\pushright{\bar{u}(p_1)\left(-g_V^t \gamma^{0} m_t\epsilon^0(k)+g_V^t \epsilon^0(k) \slashed{\tilde{k}}-g_V^t \tilde{k}^0 \slashed\epsilon(k)+g_V^t m_t \slashed\epsilon(k)-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\gamma_{\mu}\epsilon_\nu(k)\right)u(p_2)}\notag\\
-	&=\frac{g^2m_t\pqty{-ie}}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\frac{-i}{P^2+i0} \bar{u}(p_1)\left(g_V^t \epsilon^0(k) \slashed{{k}}-g_V^t {k}^0 \slashed\epsilon(k)-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\gamma_{\mu}\epsilon_\nu(k)\right)u(p_2)
-\end{align}
-The loop part is 
-\begin{align}
-	\int\mmd[d]{l}\frac{i}{\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}\frac{i}{E-\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}=\int\mmd[d-1]{l}\frac{i}{E-\frac{\vb{l}^2}{m_t}+i\Gamma_t}
-\end{align}
-and this is the leading order of $G(E)$, differed by a overall sign. While this integral is divergent in 3-dimension, by integrating it in $(d-1)$-dimension then take the limit, the divergence disappeared and the result in \eqref{G} is obtained. 
+For the top bubble type diagram
+\begin{align*}
+	\int\mmd{l}\frac{i\pqty{\slashed l-\slashed P+m_t}}{(P-l)^2-m_t^2+im_t\Gamma_t}\Gamma\frac{i\pqty{\slashed l +m_t}}{l^2-m_t^2+{im_t\Gamma_t}}\to\frac{1-\gamma^0}{2}\Gamma\frac{1+\gamma^0}{2}iG(E)
+\end{align*}
+where $\Gamma$ is arbitrary coupling sandwiched between two top propagators. 
+
+For the top triangle diagram
+\begin{align*}
+	\int\mmd{l}\frac{i\pqty{\slashed l-\slashed P+m_t}}{(P-l)^2-m_t^2+im_t\Gamma_t}\Gamma_1\frac{i\pqty{\slashed l+\slashed k+m_t}}{(l+k)^2-m_t^2+im_t\Gamma_t}\Gamma_2\frac{i\pqty{\slashed l +m_t}}{l^2-m_t^2+{im_t\Gamma_t}}\\\to\frac{1-\gamma^0}{2}\Gamma_1\frac{i\pqty{\slashed{\tilde{k}}+m_t}}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\Gamma_2\frac{1+\gamma^0}{2}iG(E)
+\end{align*}
+
 
 \section{One Loop Subtraction and the Determination of the Renormalization Artifact}
 To get the exact contribution from Coulomb gluon exchanges and to avoid double counting, one must calculate the following diagram: 
@@ -380,6 +391,28 @@ Multiply the coupling $-g_s^2C_F=-\frac{16\pi\alpha_s}{3}$, the first logarithm 
 
 \appendix
 \section{Pseudoscalar Higgs Decay}
+
+\section{$\gamma*\to ZH$}
+We then have an overall factor\footnote{Convention follows \cite{Romao:2012pq}. One only needs to check the sign convention $\eta$. }
+\begin{align}
+	&-\tr{\pqty{-i\eta_eeQ_t\gamma^{\mu}}\frac{1-\gamma^0}{2}\pqty{-i\frac{g}{2}\frac{m_t}{m_W}}\frac{i\pqty{\slashed{\tilde{k}}+m_t}}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}}\frac{1+\gamma^0}{2}}\notag\\
+	&=-\pqty{-i\eta_eeQ_t}\pqty{-i\frac{g}{2}\frac{m_t}{m_W}}\frac{i}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\pqty{-i\eta\eta_Z\frac{g}{\cos\theta_W}}\notag\\&\pushright{\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}\frac{1+\gamma^0}{2}}}\notag\\
+	&=\frac{g^2m_t}{2m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}\frac{1+\gamma^0}{2}}\notag\\
+	&=\frac{g^2m_t}{2m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\tr{\gamma^{\mu}\frac{1-\gamma^0}{2}\pqty{\slashed{\tilde{k}}+m_t}\gamma^{\nu}\pqty{g_V^t-g_A^t\gamma^5}}\notag\\
+	&=\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t} \left(-g_V^t g^{0 \mu } \tilde{k}^{\nu }+g_V^t g^{0 \nu } \tilde{k}^{\mu }-g_V^t \tilde{k}^0 g^{\mu  \nu }+g_V^t m_t g^{\mu  \nu }-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\right)
+\end{align}
+% TODO: add Z boson intermidiating diagram
+Considering the external states, applying Feynman gauge, and counting the electron-positron pair in, we have
+\begin{align}
+	&\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t} \left(-g_V^t g^{0 \mu } \tilde{k}^{\nu }+g_V^t g^{0 \nu } \tilde{k}^{\mu }-g_V^t \tilde{k}^0 g^{\mu  \nu }+g_V^t m_t g^{\mu  \nu }-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\right)\notag\\&\pushright{\epsilon_{\nu}(k)\frac{-i}{P^2+i0}\bar{u}(p_1)\pqty{-ie\gamma_{\mu}}u(p_2)}\notag\\
+	&=\frac{g^2m_t}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\frac{-i}{P^2+i0}\pqty{-ie} \notag\\&\pushright{\bar{u}(p_1)\left(-g_V^t \gamma^{0} m_t\epsilon^0(k)+g_V^t \epsilon^0(k) \slashed{\tilde{k}}-g_V^t \tilde{k}^0 \slashed\epsilon(k)+g_V^t m_t \slashed\epsilon(k)-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\gamma_{\mu}\epsilon_\nu(k)\right)u(p_2)}\notag\\
+	&=\frac{g^2m_t\pqty{-ie}}{m_W\cos\theta_W}\frac{\eta\eta_Z\eta_eeQ_t}{\tilde{k}^2-m_t^2+im_t\Gamma_t}\frac{-i}{P^2+i0} \bar{u}(p_1)\left(g_V^t \epsilon^0(k) \slashed{{k}}-g_V^t {k}^0 \slashed\epsilon(k)-i g_A^t \epsilon ^{0 \mu  \nu  \rho}\tilde{k}_{\rho}\gamma_{\mu}\epsilon_\nu(k)\right)u(p_2)
+\end{align}
+The loop part is 
+\begin{align}
+	\int\mmd[d]{l}\frac{i}{\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}\frac{i}{E-\epsilon-\frac{\vb{l}^2}{2m_t}+\frac{i\Gamma_t}{2}}=\int\mmd[d-1]{l}\frac{i}{E-\frac{\vb{l}^2}{m_t}+i\Gamma_t}
+\end{align}
+and this is the leading order of $G(E)$, differed by a overall sign. While this integral is divergent in 3-dimension, by integrating it in $(d-1)$-dimension then take the limit, the divergence disappeared and the result in \eqref{G} is obtained. 
 
 \begin{acknowledgments}
 
