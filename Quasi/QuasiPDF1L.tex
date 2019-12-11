@@ -29,7 +29,7 @@
 \usepackage{xparse}
 \usepackage{enumerate}
 \usepackage{extarrows}
-\usepackage{subcaption}
+\usepackage[caption=false]{subfig}
 % ==============================================================================
 % Endnotes
 % ==============================================================================
@@ -103,6 +103,12 @@
 \newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
 \newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
 \makeatother
+
+\NewDocumentCommand\NL{s}{%
+  \IfBooleanTF#1%
+    {\notag\\\times}% If a star is seen
+    {\notag\\}%     If no star is seen
+}
 
 
 
@@ -211,7 +217,7 @@ Two diagrams are required with one loop corrections to quasi PDF. Detailed deriv
 \def\FDHeight{3cm}
 \begin{figure}[!htpb]
 	\centering
-	\begin{subfigure}[b]{.49\linewidth}
+	\hfil\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -229,9 +235,8 @@ Two diagrams are required with one loop corrections to quasi PDF. Detailed deriv
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
-	\begin{subfigure}[b]{.49\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -249,9 +254,8 @@ Two diagrams are required with one loop corrections to quasi PDF. Detailed deriv
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{1b}
-	\end{subfigure}
+	}\hfil
 	\caption{}
 \end{figure}
 
@@ -308,7 +312,7 @@ There're following 8 diagrams.
 \def\FDHeight{3cm}
 \begin{figure}[!htpb]
 	\centering
-	\begin{subfigure}[b]{.24\linewidth}
+	\hfil\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -326,10 +330,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2:nogl}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -348,10 +351,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2/-}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -370,10 +372,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2-`}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -392,10 +393,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2-v-}
-	\end{subfigure}\\
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil\\\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -414,10 +414,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2-/}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -436,10 +435,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2`-}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -458,10 +456,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2-o}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -480,10 +477,9 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
 		\label{2o-}
-	\end{subfigure}\\
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil\\\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -501,9 +497,8 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}\hfil
+	\subfloat[]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -521,8 +516,7 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
+	}\hfil
 	\caption{Diagrams of quasi PDF in Feynman gauge. }
 \end{figure}
 
@@ -732,24 +726,11 @@ The quark self energy diagram gives
 			(a1) --[gluon, half right,looseness=2] (a2);
 			};
 		\end{feynman}
-	\end{tikzpicture}=\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
-		\begin{feynman}
-			\node[dot] (a);
-			\node[right=\FDWidthS of a,dot] (b);
-			\vertex[below=\FDHeightS of a] (exa);
-			\vertex[below=\FDHeightS of b] (exb);
-			\vertex at ($(exa)!0.33!(a)$) (a1);
-			\vertex at ($(exa)!0.66!(a)$) (a2);
-			\diagram*{
-			% (a) --[Eikonal] (b);
-			(exa) --[fermion] (a1) --[fermion] (a2) --[fermion] (a);
-			(b) --[fermion] (exb);
-			(a1) --[gluon, half right,looseness=2] (a2);
-			};
-		\end{feynman}
 	\end{tikzpicture}
 \end{align}
-Diagram~\ref{2-/}
+and the divergence it brings should exactly cancel the divergence of all other diagrams since the operator is conserved current and all external legs are on-shell. With standard prescription, we perform a derivative operation on the self energy loop to extract the $Z_F$ factor. In the end we have $Z_F\delta(1-x)$.
+
+Diagram~\ref{2-/} corresponds to the vertex correction of a heavy-light current for HQET
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
@@ -768,7 +749,7 @@ Diagram~\ref{2-/}
 			};
 		\end{feynman}
 	\end{tikzpicture} & =\frac{1}{2P^z}\bar u(P)\gamma^z\int\mm{l}\frac{i}{l^z-P^z+i\epsilon}(-ig_st^a)\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon}\frac{i}{\slashed l-m+i\epsilon}(-ig_s\gamma_\mu)u(P)\delta(1-x)\notag \\
-	                            & =\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z-i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)
+	                            & =\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)
 \end{align}
 The other diagram \ref{2/-} is
 \begin{align}
@@ -850,9 +831,10 @@ Now we can transform the integration on $y$ to plus functions\endnote{Wrong pres
 	\end{align}
 	\begin{align}
 		\int\dd y \pqty{\frac{\log\frac{y-1}{\Lambda/P^z}}{{y-1}}}\bqty{\delta(y-x)-\delta(1-x)}=\pqty{\frac{\log\frac{y-1}{\Lambda/P^z}}{{y-1}}}_+ +\frac{\log \left(\frac{x-1}{\Lambda /P^z}\right)\theta(x-1)}{x-1}+\frac{\log (1-x)\theta(1-x)}{x-1}
-	\end{align}}. By redefining the plus function to an extended version:
+	\end{align}}.
+By redefining the plus function to an extended version:
 \begin{align}
-	f_+(x)=f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)
+	f_{\boxplus}(x)=f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)
 \end{align}
 The full result is
 \begin{align}
@@ -872,7 +854,7 @@ The full result is
 				(a1) --[gluon,momentum'=\(P-l\)] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}}_+
+		\end{tikzpicture}}_{\boxplus}
 \end{align}
 Diagram~\ref{2`-} is
 \begin{align}
@@ -892,7 +874,7 @@ Diagram~\ref{2`-} is
 			(b1) --[gluon,rmomentum=\(P-l\)] (o);
 			};
 		\end{feynman}
-	\end{tikzpicture} & =\frac{1}{2P^z}\mm{l}\bar u(P)(-ig_s\gamma_{\mu}t^a)\frac{i(\slashed l+m)}{l^2-m^2+i\epsilon}\gamma^z\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon}\frac{i}{P^z-l^z}(ig_st^a)u(P)\delta(1-x)\notag \\
+	\end{tikzpicture} & =\frac{1}{2P^z}\int\mm{l}\bar u(P)(-ig_s\gamma_{\mu}t^a)\frac{i(\slashed l+m)}{l^2-m^2+i\epsilon}\gamma^z\frac{-ig^{\mu z}}{(P-l)^2+i\epsilon}\frac{i}{P^z-l^z}(ig_st^a)u(P)\delta(1-x)\notag \\
 	                            & =\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z-i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)\notag              \\
 	                            & =\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
@@ -912,8 +894,40 @@ Diagram~\ref{2`-} is
 		\end{feynman}
 	\end{tikzpicture}
 \end{align}
+After spin sum diagram~\ref{2-/}
+\begin{align}
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.5!(b)$) (o);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+			(o) --[Eikonal,momentum'=\(P-l\)] (a);
+			(exa) --[fermion,momentum=\(l\)] (a1) --[fermion,momentum=\(P\)] (a);
+			(b) --[fermion,momentum=\(P\)] (exb);
+			(a1) --[gluon,momentum'=\(P-l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture} & =\frac{-ig_s^2C_F}{4P^z}\delta(1-x)\int\mm{l}\frac{\Tr{(\slashed P+m)\gamma^z(\slashed l+m)\gamma^z}}{l^2-m^2+i\epsilon}\frac{1}{n\cdot (l-P)+i\epsilon}\frac{1}{(P-l)^2+i\epsilon}
+\end{align}
+First we apply Feynman parametrization to the normal propagators
+\begin{align}
+	\frac{1}{l^2-m^2+i\epsilon}\frac{1}{(P-l)^2+i\epsilon}=\int_0^1\dd y\frac{1}{\bqty{(l+P (y-1))^2-ym^2 -P^2 (y-1) y}^2}
+\end{align}
+According to identity
+\begin{align}
+	\frac{1}{a^rb^s}=2^s\frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)}\int_0^\infty\dd\lambda\frac{\lambda^{s-1}}{(a+2b\lambda)^{r+s}}
+\end{align}
+the whole denominator becomes
+\begin{align}
+	\frac{2\Gamma(3)}{\Gamma(2)\Gamma(1)}\int_0^1\dd y\int_0^\infty\dd\lambda\frac{1}{\bqty{(l+\lambda  n+P (y-1))^2-ym^2 -\lambda ^2 n^2-2 \lambda  n P y-P^2 (y-1) y}^3}
+\end{align}
 
-
+The combination of diagrams~\ref{2-v-}, \ref{2-o} and \ref{2o-} is
 \begin{align}
 	  & \begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
@@ -985,8 +999,57 @@ Diagram~\ref{2`-} is
 				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
 				};
 			\end{feynman}
-		\end{tikzpicture}}_+
+		\end{tikzpicture}}_{\boxplus}
 \end{align}
+For the gauge link self energy diagram \ref{2-o}/\ref{2o-},
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+			(a) --[Eikonal,momentum=\(l\)] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+			(exa) --[fermion,momentum=\(P\)] (a);
+			(b) --[fermion,momentum=\(P\)] (exb);
+			(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture} & =-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\tilde D_G^{zz}(l)
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}\\
+	                            & =\frac{ig_s^2C_F}{2}\delta(1-x)\int\mm{l}\frac{1}{l^2+i\epsilon}
+	\frac{1}{n\cdot l+i\epsilon}\frac{1}{-n\cdot l+i\epsilon}
+\end{align}
+As mentioned before, a parametrization scheme is available for only one eikonal propagator. If there's two:
+\begin{align}
+	\frac{1}{a^re_1^{s_1}e_2^{s_2}} & =2^{s_1}\frac{\Gamma(r+s_1)}{\Gamma(r)\Gamma(s_1)}\int_0^\infty\dd\lambda_1\frac{\lambda_1^{s_1-1}}{(a+2e_1\lambda_1)^{r+s_1}}\frac{1}{e_2^{s_2}}
+		=2^{s_1+s_2}\frac{\Gamma(r+s_1)}{\Gamma(r)\Gamma(s_1)}\frac{\Gamma(r+s_1+s_2)}{\Gamma(r+s_1)\Gamma(s_2)}\int_0^\infty\dd\lambda_1\dd\lambda_2\frac{\lambda_1^{s_1-1}\lambda_2^{s_2-1}}{(a+2e_1\lambda_1+2e_2\lambda_2)^{r+s_1+s_2}}\notag\\
+	                                & =2^{s_1+s_2}\frac{\Gamma(r+s_1+s_2)}{\Gamma(r)\Gamma(s_1)\Gamma(s_2)}\int_0^\infty\dd\lambda_1\dd\lambda_2\frac{\lambda_1^{s_1-1}\lambda_2^{s_2-1}}{(a+2e_1\lambda_1+2e_2\lambda_2)^{r+s_1+s_2}}
+\end{align}
+and naturally
+\begin{align}
+	\frac{1}{a^r\prod e_i^{s_i}}=2^{\sum s_i}\frac{\Gamma(r+\sum s_i)}{\Gamma(r)\prod\Gamma(s_i)}\int_0^\infty\pqty{\prod\dd \lambda_i}\frac{\prod \lambda_i^{s_i-1}}{\pqty{a+2\sum e_i\lambda_i}^{r+\sum s_i}}
+\end{align}
+The amplitude becomes
+\begin{align}
+	  & 4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda_1\lambda_2\frac{1}{\pqty{l^2+i\epsilon}^3} \\
+	= & ig_s^2C_F\delta(1-x)(2\pi)^2\int\mmd[6]{l}\frac{1}{\pqty{l^2+i\epsilon}^3}
+\end{align}
+Clearly this is not right.
+
+We can also parametrize this as
+\begin{align}
+	4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{\lambda}{\pqty{l^2+2\lambda n\cdot l+i\epsilon}^3}=4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{1}{\pqty{l^2-\lambda^2+i\epsilon}^3}
+\end{align}
+then we can add small gluon mass to subtract the UV divergence. This way we get
+\begin{align}
+	\frac{C_F \alpha _s}{4 \pi  \epsilon }-\frac{C_F \alpha _s \log{m}}{2 \pi }
+\end{align}
+
 The final result is
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -1056,7 +1119,7 @@ The final result is
 				(o1) --[gluon, half right,momentum'=\(l\)] (o2);
 				};
 			\end{feynman}
-		\end{tikzpicture}}_+
+		\end{tikzpicture}}_{\boxplus}
 \end{align}
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -1109,7 +1172,49 @@ The final result is
 				(a1) --[gluon,momentum'=\(P-l\)] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}}_+
+		\end{tikzpicture}}_{\boxplus}
+\end{align}
+
+\section{Light Cone PDF}
+Diagram~\ref{2:nogl} gives
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+			% (a) --[Eikonal] (b);
+			(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+			(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
+			(a1) --[gluon,momentum'=\(P-l\)] (b1);
+			};
+		\end{feynman}
+	\end{tikzpicture} & =\frac{1}{2}\bar u(P) \pqty{-ig_st^a\gamma_\nu} \int\mm{l}\frac{i}{\slashed l-m+i\epsilon}\gamma^+\frac{-ig^{\mu \nu}}{(P-l)^2+i\epsilon} \frac{i}{\slashed l-m+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-xP^z)\notag \\
+	                            & =-i\frac{g_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^+\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)
+\end{align}
+After spin sum:
+\begin{align}
+	\frac{1}{2}\sum_s\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\vertex at ($(exa)!0.5!(a)$) (a1);
+			\vertex at ($(exb)!0.5!(b)$) (b1);
+			\diagram*{
+			% (a) --[Eikonal] (b);
+			(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l\)] (a);
+			(b) --[fermion,momentum=\(l\)] (b1) --[fermion,momentum=\(P\)] (exb);
+			(a1) --[gluon,momentum'=\(P-l\)] (b1);
+			};
+		\end{feynman}
+	\end{tikzpicture} & =\frac{-ig_s^2C_F}{4}\int\mm{l}\sum_s\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^+\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)\notag \\
+	                                             & =\frac{-ig_s^2C_F}{4}\int\mm{l} \frac{\Tr{(\slashed P+m)\gamma^\mu(\slashed l+m)\gamma^+(\slashed l+m)\gamma_{\mu}}}{(l^2-m^2+i\epsilon)^2(P-l)^2}\delta(l^z-xP^z)
 \end{align}
 
 \section{Matching to PDF}
@@ -1130,7 +1235,62 @@ The one loop matching factor is
 	  & \left(1+\delta \tilde{Z}_{F}\right) \delta(1-x)+\tilde{q}^{(1)}(x)
 	= \int_{0}^{1} \frac{d y}{y}\left[\delta\left(\frac{x}{y}-1\right)+Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)\right]\left[\left(1+\delta Z_{F}\right) \delta(1-y)+q^{(1)}(y)\right]
 \end{align}
-where $Z_F$ is independent of $x$ and $y$. In axial gauge, $Z_F$ is the fermion self energy, while in Feynman gauge, it's the combination of fermion self energy, gauge link self energy and loops between quark line and gauge link line involving only one side of the uncut diagram.
+where $Z_F$ is independent of $x$ and $y$. In axial gauge, $Z_F$ is the fermion self energy, while in Feynman gauge, it's the combination of fermion self energy, gauge link self energy and loops between quark line and gauge link line involving only one side of the uncut diagram. Up to one loop the equation becomes
+\begin{align*}
+	\left(1+\delta \tilde{Z}_{F}\right) \delta(1-x)+\tilde{q}^{(1)}(x)
+	  & = \int_{0}^{1} \frac{d y}{y}\left[\delta\left(\frac{x}{y}-1\right)\left(1+\delta Z_{F}\right) \delta(1-y)+\delta\left(\frac{x}{y}-1\right)q^{(1)}(y)+Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right) \delta(1-y)\right] \\
+	% \left(1+\delta \tilde{Z}_{F}\right) \delta(1-x)+\tilde{q}^{(1)}(x)
+	  & = \left(1+\delta Z_{F}\right) \delta(1-x)+q^{(1)}(x)\theta(x)\theta(1-x)+Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)
+\end{align*}
+
+We then have (note that the momentum fraction $x$ of PDF can't exceed $(0,1)$)
+\begin{align}
+	\delta \tilde{Z}_{F} \delta(1-x)+\tilde{q}^{(1)}(x) & = \delta Z_{F}\delta(1-x)+q^{(1)}(x)+Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)                          \\
+	Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)            & =\left[\delta \tilde{Z}_{F}-\delta Z_{F}\right] \delta(1-x)+\left[\tilde{q}^{(1)}(x)-q^{(1)}(x)\right]
+\end{align}
+$\delta Z_F$ and $\delta \tilde Z_F$ combined with delta functions are to be merged into $q^{(1)}$ and $\tilde q^{(1)}$ and becomes plus distribution.
+
+At two loop, we're looking at
+\begin{align}
+	  & \left(1+\delta \tilde{Z}_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)+\tilde{q}^{(2)}(x)\notag \\&
+	= \int_{0}^{1} \frac{d y}{y}\left[\delta\left(\frac{x}{y}-1\right)+Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)+Z^{(2)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)\right]\left[\left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-y)+q^{(1)}(y)+q^{(2)}(y)\right]
+\end{align}
+Then
+\begin{align}
+	  & \left(1+\delta \tilde{Z}_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)+\tilde{q}^{(2)}(x)\notag                                                                                                                                                                     \\
+	= & \int_{0}^{1} \frac{d y}{y}\Bqty{\delta\left(\frac{x}{y}-1\right)\left[\left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-y)+q^{(1)}(y)+q^{(2)}(y)\right]\notag                                                                                                                        \\&\hspace*{1in}+\left[\left(1+\delta Z_{F}^{(1)}\right) \delta(1-y)+q^{(1)}(y)\right]Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)+Z^{(2)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)\delta(1-y)}\delta(1-y)\notag\\
+	= & \left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-x)+q^{(1)}(x)+q^{(2)}(x)+\left(1+\delta Z_{F}^{(1)}\right)Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)+Z^{(2)}\left(x, \frac{p^{z}}{\mu}\right) \\
+	= & \left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-x)+q^{(1)}(x)+q^{(2)}(x)
+	+\left(1+\delta Z_{F}^{(1)}\right)\Bqty{\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-x)+\left[\tilde{q}^{(1)}(x)-q^{(1)}(x)\right]}\notag\\&\hspace*{1in}
+	+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)\Bqty{\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-\frac{x}{y})+\left[\tilde{q}^{(1)}\left(\frac{x}{y}\right)-q^{(1)}\left(\frac{x}{y}\right)\right]}
+	+Z^{(2)}\left(x, \frac{p^{z}}{\mu}\right)\notag\\
+	= & \left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-x)+q^{(1)}(x)+q^{(2)}(x)
+	+\left(1+\delta Z_{F}^{(1)}\right)\Bqty{\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-x)+\left[\tilde{q}^{(1)}(x)-q^{(1)}(x)\right]}\notag\\&\hspace*{1in}
+	+q^{(1)}(x)\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right]+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)\left[\tilde{q}^{(1)}\left(\frac{x}{y}\right)-q^{(1)}\left(\frac{x}{y}\right)\right]
+	+Z^{(2)}\left(x, \frac{p^{z}}{\mu}\right)\notag\\
+	= & \left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)+q^{(2)}(x)
+	+\left(1+\delta Z_{F}^{(1)}\right)\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-x)+\delta Z_{F}^{(1)}\tilde{q}^{(1)}(x)\notag\\&\hspace*{1in}
+	-\left(2\delta Z_{F}^{(1)}-\delta \tilde{Z}_{F}^{(1)}\right)q^{(1)}(x)+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)\left[\tilde{q}^{(1)}\left(\frac{x}{y}\right)-q^{(1)}\left(\frac{x}{y}\right)\right]
+	+Z^{(2)}\left(x, \frac{p^{z}}{\mu}\right)
+\end{align}
+and this concludes to
+\begin{align}
+	Z^{(2)}\left(x, \frac{p^{z}}{\mu}\right) & =
+	\begin{aligned}[t]
+		\left(1+\delta \tilde{Z}_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)+\tilde{q}^{(2)}(x)-\left(1+\delta Z_{F}^{(1)}+\delta Z_{F}^{(2)}\right) \delta(1-x)-q^{(1)}(x)-q^{(2)}(x)&\\-\left(1+\delta Z_{F}^{(1)}\right)Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)-\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)&
+	\end{aligned}\NL
+	                                         & =\begin{aligned}[t]
+		\left(\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}-\delta Z_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)-q^{(1)}(x)+\tilde{q}^{(2)}(x)-q^{(2)}(x)&\\-\left(1+\delta Z_{F}^{(1)}\right)Z^{(1)}\left(x, \frac{p^{z}}{\mu}\right)-\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)Z^{(1)}\left(\frac{x}{y}, \frac{p^{z}}{\mu}\right)&
+	\end{aligned}       \\
+	                                         & =\begin{aligned}[t]
+		                                                                                                                                                                                                                                                                                                        & \left(\delta \tilde{Z}_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}-\delta Z_{F}^{(1)}-\delta Z_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)-q^{(1)}(x)+\tilde{q}^{(2)}(x)-q^{(2)}(x)+\delta Z_{F}^{(1)}\tilde{q}^{(1)}(x) \\&
+		-\left(2\delta Z_{F}^{(1)}-\delta \tilde{Z}_{F}^{(1)}\right)q^{(1)}(x)+\left(1+\delta Z_{F}^{(1)}\right)\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-x)+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)\left[\tilde{q}^{(1)}\left(\frac{x}{y}\right)-q^{(1)}\left(\frac{x}{y}\right)\right] &
+	\end{aligned}\notag \\
+	                                         & =\begin{aligned}[t]
+		                                                                                                                                                                                                                                                                                                        & \left(\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}+\delta \tilde{Z}_{F}^{(2)}-\delta Z_{F}^{(2)}\right) \delta(1-x)+\tilde{q}^{(1)}(x)-q^{(1)}(x)+\tilde{q}^{(2)}(x)-q^{(2)}(x)+\delta Z_{F}^{(1)}\tilde{q}^{(1)}(x) \\&
+		-\left(2\delta Z_{F}^{(1)}-\delta \tilde{Z}_{F}^{(1)}\right)q^{(1)}(x)+\left(1+\delta Z_{F}^{(1)}\right)\left[\delta \tilde{Z}_{F}^{(1)}-\delta Z_{F}^{(1)}\right] \delta(1-x)+\int_{0}^{1} \frac{d y}{y}q^{(1)}(y)\left[\tilde{q}^{(1)}\left(\frac{x}{y}\right)-q^{(1)}\left(\frac{x}{y}\right)\right] &
+	\end{aligned}\notag \\
+\end{align}
 
 \appendix
 \section{Conventions\label{sec:conv}}
@@ -1198,11 +1358,27 @@ Also if rule out some smoothness problem
 \begin{align}
 	[f(x)]_{+}=f(x)-\delta(1-x) \int_{0}^{1} f(z) \mathrm{d} z
 \end{align}
-Here we use a modified version of plus function
+Here we use a modified version of plus function (to not confuse this with those used in \cite{Stewart:2017tvs}, we use boxplus for a plus function with integration limit from minus infinity to plus infinity)
 \begin{align}
-	f_+(x) & =f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)       \\
-	       & =f(x)-\delta(1-x)\int_{-\infty}^\infty\dd l^zf(y)/P^z
+	f_{\boxplus}(x) & =f(x)-\delta(1-x)\int_{-\infty}^\infty\dd yf(y)       \\
+	                & =f(x)-\delta(1-x)\int_{-\infty}^\infty\dd l^zf(y)/P^z
 \end{align}
+For functions as
+\begin{align}
+	\pqty{\frac{1}{1-x}}^{1-\epsilon}
+\end{align}
+instead of expanding them in $\epsilon->0$ limit, we can treat them as distributions and expand them into the combinations of delta functions and plus functions.
+\begin{align}
+	\pqty{\frac{1}{1-x}}^{1-\epsilon}&=\pqty{\frac{1}{1-x}}^{1-\epsilon}_++\delta(1-x)\int_0^1\pqty{\frac{1}{1-z}}^{1-\epsilon}\dd z\\
+	&=\pqty{\frac{1}{1-x}}^{1-\epsilon}_++\frac{\delta(1-x)}{\epsilon}\\
+	&=\pqty{\frac{1}{1-x}}_++\frac{\delta(1-x)}{\epsilon}
+\end{align}
+and
+\begin{align}
+	\pqty{\frac{1}{1-x}}^{1-\epsilon}&=\pqty{\frac{1}{1-x}}^{1-\epsilon}_{\boxplus}+\delta(1-x)\int_{-\infty}^{\infty}\pqty{\frac{1}{1-z}}^{1-\epsilon}\dd z\\
+	&=\pqty{\frac{1}{1-x}}^{1-\epsilon}_{\boxplus}+0\frac{\delta(1-x)}{\epsilon}\\
+\end{align}
+
 The convention for path ordering is that the field with higher value of the integration variable $s$ goes to the left.
 
 The definition of Heaviside theta function follows
@@ -1486,7 +1662,7 @@ We can reverse the loop momentum of one of the path and add a small inflowing mo
 At two loop, we hope one can still try this. Let's discuss the following diagram first
 \begin{figure}[!bhtp]
 	\centering
-	\begin{subfigure}[b]{.24\linewidth}
+	\subfloat[]{
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1507,9 +1683,8 @@ At two loop, we hope one can still try this. Let's discuss the following diagram
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}
+	\subfloat[]{
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1530,9 +1705,8 @@ At two loop, we hope one can still try this. Let's discuss the following diagram
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
-	\begin{subfigure}[b]{.24\linewidth}
+	}
+	\subfloat[]{
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1553,8 +1727,7 @@ At two loop, we hope one can still try this. Let's discuss the following diagram
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\caption{}
-	\end{subfigure}
+	}
 	\label{}
 \end{figure}
 
@@ -1574,7 +1747,7 @@ where the overall factor $1/4!$ is cancelled by the sum of all possible path.
 	In order to discuss the first diagram, we must perform the Wick contraction in specific order. This indicates it might be more reasonable to use $\theta_{43}\theta_{32}\theta_{21}+\theta_{41}\theta_{12}\theta_{23}$.
 	\begin{align*}
 		  & \int\prod_i\dd z_if(z_i)\bqty{\theta(z_4-z_3)\theta(z_3-z_2)\theta(z_2-z_1)+\theta(z_4-z_1)\theta(z_1-z_2)\theta(z_2-z_3)}                                                                                                                                           \\
-		  & =\int\prod_i\dd z_if(z_i)\bqty{\glprog{w_1}{(z_4-z_3)}\glprog{w_2}{(z_3-z_2)}\glprog{w_3}{(z_2-z_1)}+\glprog{w_1}{(z_4-z_1)}\glprog{w_2}{(z_1-z_2)}\glprog{w_3}{(z_2-z_3)}}                                                                \\
+		  & =\int\prod_i\dd z_if(z_i)\bqty{\glprog{w_1}{(z_4-z_3)}\glprog{w_2}{(z_3-z_2)}\glprog{w_3}{(z_2-z_1)}+\glprog{w_1}{(z_4-z_1)}\glprog{w_2}{(z_1-z_2)}\glprog{w_3}{(z_2-z_3)}}                                                                                          \\
 		  & =\int\prod_i\dd z_if(z_i)\int\frac{i\dd w_1}{2\pi}\int\frac{i\dd w_2}{2\pi}\int\frac{i\dd w_3}{2\pi}e^{-iw_1z_4}e^{iw_2z_2-iw_3z_2}\frac{e^{iw_1z_3}e^{-iw_2z_3}e^{iw_3z_1}+e^{iw_1z_1}e^{-iw_2z_1}e^{iw_3z_3}}{(w_1+i\epsilon)(w_2+i\epsilon)(w_3+i\epsilon)}       \\
 		  & =\int\prod_i\dd z_if(z_i)\int\frac{i\dd w_1}{2\pi}\int\frac{i\dd w_2}{2\pi}\int\frac{i\dd w_3}{2\pi}e^{-iw_1z_4}e^{i(w_2-w_3)z_2}\frac{e^{i(w_1-w_2)z_3}e^{iw_3z_1}+e^{i(w_1-w_2)z_1}e^{iw_3z_3}}{(w_1+i\epsilon)(w_2+i\epsilon)(w_3+i\epsilon)}                     \\
 		  & =\int\prod_i\dd z_if(z_i)\int\frac{i\dd w_1}{2\pi}\int\frac{i\dd w_2}{2\pi}\int\frac{i\dd w_3}{2\pi}\frac{4e^{-i(w_1+w_2)z_4/2}e^{i((w_1-w_2)/2-w_3)z_2}}{w_1+w_2+i\epsilon}\frac{e^{iw_2z_3}e^{iw_3z_1}+e^{iw_2z_1}e^{iw_3z_3}}{(w_1-w_2+i\epsilon)(w_3+i\epsilon)} \\
