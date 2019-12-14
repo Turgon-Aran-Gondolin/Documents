@@ -32,7 +32,7 @@
 \usepackage{xparse}
 \usepackage{enumerate}
 \usepackage{extarrows}
-\usepackage[caption=false]{subfig}\renewcommand*\thesubfigure{\arabic{subfigure}} 
+\usepackage[caption=false]{subfig}
 % ==============================================================================
 % Endnotes
 % ==============================================================================
@@ -47,6 +47,10 @@
 % ==============================================================================
 \usepackage{minted}
 \usemintedstyle{colorful}
+% HOWTO: 
+% \begin{minted}{lang}
+% 	code
+% \end{minted}{lang}
 
 % ==============================================================================
 % Changes: comments and highlights
@@ -203,8 +207,8 @@
 \section{Renormalization}
 \subsection{One loop diagrams}
 \begin{figure}[!htpb]
-	\centering\hfil
-	\subfloat[]{
+	\centering
+	\hfil\subfloat[8]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -222,11 +226,10 @@
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\label{2:nogl}
+		\label{2:--}
 	}\hfil
-	\subfloat[]{
+	\subfloat[4]{
 		\centering
-		\null\hfill%
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -243,7 +246,11 @@
 				(a1) --[gluon] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill+\hfill
+		\end{tikzpicture}
+		\label{2/-}
+	}\hfil
+	\subfloat[3]{
+		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -260,10 +267,10 @@
 				(b1) --[gluon] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill\null%
+		\end{tikzpicture}
 		\label{2-`}
 	}\hfil
-	\subfloat[]{
+	\subfloat[5]{
 		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -284,9 +291,8 @@
 		\end{tikzpicture}
 		\label{2-v-}
 	}\hfil\\\hfil
-	\subfloat[]{
+	\subfloat[1]{
 		\centering
-		\null\hfill
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -303,7 +309,11 @@
 				(a1) --[gluon] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill+\hfill
+		\end{tikzpicture}
+		\label{2-/}
+	}\hfil
+	\subfloat[7]{
+		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -320,12 +330,11 @@
 				(b1) --[gluon] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill\null
+		\end{tikzpicture}
 		\label{2`-}
 	}\hfil
-	\subfloat[]{
+	\subfloat[2]{
 		\centering
-		\null\hfill
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -342,7 +351,11 @@
 				(o1) --[gluon, half right] (o);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill+\hfill
+		\end{tikzpicture}
+		\label{2-o}
+	}\hfil
+	\subfloat[6]{
+		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -364,7 +377,6 @@
 	}\hfil\\\hfil
 	\subfloat[]{
 		\centering
-		\null\hfill
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -380,7 +392,10 @@
 				(a1) --[gluon, half right,looseness=2] (a2);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfil+\hfil
+		\end{tikzpicture}
+	}\hfil
+	\subfloat[]{
+		\centering
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -396,14 +411,14 @@
 				(b2) --[gluon, half right,looseness=2] (b1);
 				};
 			\end{feynman}
-		\end{tikzpicture}\hfill\null
+		\end{tikzpicture}
 	}\hfil
 	\caption{Diagrams of quasi PDF in Feynman gauge. }
 \end{figure}
 \subsection{Vertex corrections}
 According to \cite{Ji:2015jwa}, the vertex correction diagrams in axial gauge (which corresponds to varieties of diagrams in general covariant gauge) don't have total UV divergence. Rather, they only have subdivergence for sub-diagrams. For example the first column (which involves Figure~3), second row of Table~1 in \cite{Ji:2015jwa} is composed of $\tilde q_{11}$ and $\tilde q_{12}$, thus we can find some representative diagrams and extract those components ($l\equiv l_1+l_2, \Delta l\equiv l_1-l_2$)
 \begin{align}
-	&\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+	  & \begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidth of a,dot] (b);
@@ -429,18 +444,18 @@ Take the $l_1\gg l_2$ limit, the integrand becomes
 \begin{align}
 	\frac{1}{\bqty{\slashed l_1-m}\bqty{(P-l_1)^2}\bqty{l_1^2}\bqty{\slashed l_2-m}\bqty{(P-l_2)^2}\bqty{n\cdot(P-l_2)}}
 \end{align}
-The integral involving $l_2$ is exactly the integral of $\tilde q_{12}$. By adding the gluon self-interacting vertex we can see that the sub-diagram is logarithmic divergent. 
+The integral involving $l_2$ is exactly the integral of $\tilde q_{12}$. By adding the gluon self-interacting vertex we can see that the sub-diagram is logarithmic divergent.
 
 Take the $l_2\gg l_1$ limit, the integrand becomes
 \begin{align}
 	\frac{1}{\bqty{\slashed l_1-m}\bqty{(P-l_1)^2}\bqty{l_2^2}\bqty{\slashed l_2-m}\bqty{(P-l_2)^2}\bqty{n\cdot(P-l_2)}}
 \end{align}
 
-There's another limit where hard loop momentum flows through all paths except the one that's $\Delta l$ in our current diagram. This configuration gives a finite integral and a power-divergent integral which happens to be a scaleless integral as well. Thus this configuration won't contribute. 
+There's another limit where hard loop momentum flows through all paths except the one that's $\Delta l$ in our current diagram. This configuration gives a finite integral and a power-divergent integral which happens to be a scaleless integral as well. Thus this configuration won't contribute.
 
 What we extracted above is only the $\tilde q_{12}$ part, now we will try on the $\tilde q_{11}$ part
 \begin{align}
-	&\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+	  & \begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
 			\node[dot] (a);
 			\node[right=\FDWidth of a,dot] (b);
@@ -458,14 +473,14 @@ What we extracted above is only the $\tilde q_{12}$ part, now we will try on the
 			(bm) --[gluon,tikzmom={0.3}{}{}{$l_2$}] (am);
 			};
 		\end{feynman}
-	\end{tikzpicture}\notag\\
-	&\propto \int\mmd[d]{l_1}\mmd[d]{l_2}\frac{1}{\bqty{\slashed l_1-m}\bqty{\slashed l_1+\slashed l_2-m}\bqty{\slashed P+\slashed l_2-m}\bqty{\slashed P+\slashed l_2-m}\bqty{(P-l_1)^2}\bqty{l_2^2}}
+	\end{tikzpicture}\notag                                                                                                                                                                 \\
+	  & \propto \int\mmd[d]{l_1}\mmd[d]{l_2}\frac{1}{\bqty{\slashed l_1-m}\bqty{\slashed l_1+\slashed l_2-m}\bqty{\slashed P+\slashed l_2-m}\bqty{\slashed P+\slashed l_2-m}\bqty{(P-l_1)^2}\bqty{l_2^2}}
 \end{align}
-In the $l_1\gg l_2$ limit we have 
+In the $l_1\gg l_2$ limit we have
 \begin{align}
 	\frac{1}{\bqty{\slashed l_1-m}\bqty{\slashed l_1-m}\bqty{(P-l_1)^2}\bqty{\slashed P+\slashed l_2-m}\bqty{\slashed P+\slashed l_2-m}\bqty{l_2^2}}
 \end{align}
-and $\tilde q_{11}$ is factorized out. 
+and $\tilde q_{11}$ is factorized out.
 
 Another example is the sixth row
 \begin{align}
@@ -494,12 +509,13 @@ Take the $l_2\gg l_1$ limit, the integrand becomes
 \begin{align}
 	\frac{1}{\bqty{\slashed l_1-m}\bqty{(P-l_1)^2}\bqty{n\cdot(P-l_1)}\bqty{n\cdot(P-l_1)}\bqty{n\cdot l_2}\bqty{(P-l_2)^2}}
 \end{align}
-and the integral involving $l_2$ should give something proportional to $n\cot (P-l_1)$, thus cancels one eikonal propagator, the remainder is the integral of $\tilde q_{12}$. 
+and the integral involving $l_2$ should give something proportional to $n\cdot (P-l_1)$, thus cancels one eikonal propagator, the remainder is the integral of $\tilde q_{12}$.
 
+\clearpage
 \section{Real Diagrams}
 \subsection{All diagrams}
-Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c} lists all non-self-conjugated diagrams, excluding their conjugates. 
-\renewcommand*\thesubfigure{\roman{subfigure}} 
+Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c} lists all non-self-conjugated diagrams, excluding their conjugates.
+\renewcommand*\thesubfigure{\roman{subfigure}}
 \begin{figure}[!hbtp]
 	\centering\null\hfil
 	\subfloat[10]{
@@ -543,18 +559,18 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o13m) --[gluon,half right,looseness=1.5] (o23m);
-					(o13m) --[gluon] (o23m);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o13m) --[gluon,half right,looseness=1.5] (o23m);
+				(o13m) --[gluon] (o23m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\label{}
+		\label{re:10}
 	}\hfil
 	\subfloat[11]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
@@ -597,10 +613,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (ab13) --[gluon] (ab23) --[gluon] (b12);
-					(ab13) --[gluon,half right] (ab23);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (ab13) --[gluon] (ab23) --[gluon] (b12);
+				(ab13) --[gluon,half right] (ab23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -647,14 +663,14 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o13m) --[ghost,half right,looseness=1.5] (o23m);
-					(o13m) --[ghost] (o23m);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o13m) --[ghost,half right,looseness=1.5] (o23m);
+				(o13m) --[ghost] (o23m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -701,10 +717,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (ab13) --[ghost] (ab23) --[gluon] (b12);
-					(ab13) --[ghost,half right] (ab23);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (ab13) --[ghost] (ab23) --[gluon] (b12);
+				(ab13) --[ghost,half right] (ab23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -751,13 +767,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (o23);
-					(o13) --[white,line width=3mm] (b12);;
-					(o13) --[gluon] (b12);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (o23);
+				(o13) --[white,line width=3mm] (b12);;
+				(o13) --[gluon] (b12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -804,12 +820,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(o13) --[gluon,half right] (o23);
-					(a12) --[gluon] (b12);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(o13) --[gluon,half right] (o23);
+				(a12) --[gluon] (b12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -856,12 +872,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25);
-					(o35) --[Eikonal] (o45) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o15) --[gluon,half right] (o45);
-					(o25) --[gluon,half right] (o35);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25);
+				(o35) --[Eikonal] (o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o15) --[gluon,half right] (o45);
+				(o25) --[gluon,half right] (o35);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -908,12 +924,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25);
-					(o35) --[Eikonal] (o45) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o35) --[gluon,half right,looseness=1.5] (o15);
-					(o25) --[gluon,half right,looseness=1.5] (o45);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25);
+				(o35) --[Eikonal] (o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o35) --[gluon,half right,looseness=1.5] (o15);
+				(o25) --[gluon,half right,looseness=1.5] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -960,10 +976,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (b23) --[fermion] (b13) --[fermion] (exb);
-					(a13) --[gluon] (b13);
-					(a23) --[gluon] (b23);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (b23) --[fermion] (b13) --[fermion] (exb);
+				(a13) --[gluon] (b13);
+				(a23) --[gluon] (b23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1010,14 +1026,14 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o13m) --[fermion] (o23m);
-					(o23m) --[fermion,half left,looseness=1.5] (o13m);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o13m) --[fermion] (o23m);
+				(o23m) --[fermion,half left,looseness=1.5] (o13m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1064,11 +1080,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
-					(b) --[fermion] (b23) --[fermion] (a23) --[fermion] (a);
-					(a13) --[gluon] (b23);
-					(b13) --[white,line width=3mm] (a23);
-					(b13) --[gluon] (a23);
+				(a13) --[gluon] (b23);
+				(b13) --[white,line width=3mm] (a23);
+				(b13) --[gluon] (a23);
+				(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+				(b) --[fermion] (b23) --[fermion] (a23) --[fermion] (a);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1115,10 +1131,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
-					(b) --[fermion] (b23) --[fermion] (a23) --[fermion] (a);
-					(a13) --[gluon] (a23);
-					(b13) --[gluon] (b23);
+				(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+				(b) --[fermion] (b23) --[fermion] (a23) --[fermion] (a);
+				(a13) --[gluon] (a23);
+				(b13) --[gluon] (b23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1166,16 +1182,16 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(g1)+1/4*(0,-\FDHeight)$) (gtad);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon,half right] (o23);
-					(g1) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (g1);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon,half right] (o23);
+				(g1) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (g1);
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\label{}
+		\label{re:143}
 	}\hfil
 	\subfloat[144]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
@@ -1218,10 +1234,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(ab12)+1/4*(0,-\FDHeight)$) (gtad);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (ab12) --[gluon] (b12);
-					(ab12) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (ab12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (ab12) --[gluon] (b12);
+				(ab12) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (ab12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1263,12 +1279,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a12)!0.5!(o23)$) (g2);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (ab13) --[gluon] (a12);
-					(o23) --[gluon] (ab13);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (ab13) --[gluon] (a12);
+				(o23) --[gluon] (ab13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1304,11 +1320,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(o12) --[gluon] (ab12);
-					(a12) --[gluon] (ab12) --[gluon] (b12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(o12) --[gluon] (ab12);
+				(a12) --[gluon] (ab12) --[gluon] (b12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1343,11 +1359,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o13) --[Eikonal] (o23) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (ab13) --[gluon] (a12);
-					(ab13) --[gluon] (o23);
+				(o13) --[Eikonal] (o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (ab13) --[gluon] (a12);
+				(ab13) --[gluon] (o23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1382,10 +1398,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a14) --[gluon] (ab12) --[gluon] (b12);
-					(a34) --[gluon] (ab12);
+				(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a14) --[gluon] (ab12) --[gluon] (b12);
+				(a34) --[gluon] (ab12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1418,16 +1434,16 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a12)!0.5!(b12)$) (ab12);
 				% 
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
-				\vertex[above=10pt of ab12] (ab123);
+				\vertex at ($(ab12)+(0,1/5*\FDHeight)$) (ab123);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12);
-					(o34) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o14) --[gluon, quarter right] (ab123);
-					(o12) --[gluon] (ab123);
-					(o34) --[gluon, quarter left] (ab123);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12);
+				(o34) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o14) --[gluon, quarter right] (ab123);
+				(o12) --[gluon] (ab123);
+				(o34) --[gluon, quarter left] (ab123);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1464,13 +1480,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g13) --[gluon] (g23);
-					(g23) --[gluon] (o12);
-					(g13) --[gluon,half right] (g23);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g13) --[gluon] (g23);
+				(g23) --[gluon] (o12);
+				(g13) --[gluon,half right] (g23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1505,12 +1521,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a14) --[gluon] (ab12);
-					(a34) --[gluon] (ab12);
-					(o12) --[gluon] (ab12);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a14) --[gluon] (ab12);
+				(a34) --[gluon] (ab12);
+				(o12) --[gluon] (ab12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1547,13 +1563,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g13) --[ghost] (g23);
-					(g23) --[gluon] (o12);
-					(g13) --[ghost,half right] (g23);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g13) --[ghost] (g23);
+				(g23) --[gluon] (o12);
+				(g13) --[ghost,half right] (g23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1590,11 +1606,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o13) --[Eikonal] (o23) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a23) --[gluon] (o13);
-					(a13) --[gluon] (o23);
+				(o13) --[Eikonal] (o23) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a23) --[gluon] (o13);
+				(a13) --[gluon] (o23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1631,12 +1647,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a23) --[gluon] (o13);
-					(a13) --[gluon] (o23);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a23) --[gluon] (o13);
+				(a13) --[gluon] (o23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1675,11 +1691,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b)  --[fermion] (b13)--[fermion] (exb);
-					(a23) --[gluon] (o13);
-					(a13) --[gluon] (b13);
+				(a) --[Eikonal] (o13);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b)  --[fermion] (b13)--[fermion] (exb);
+				(a23) --[gluon] (o13);
+				(a13) --[gluon] (b13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1716,12 +1732,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14);
-					(o12) --[Eikonal] (o34) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o12);
-					(o34) --[gluon,half right,looseness=1.5] (o14);
+				(a) --[Eikonal] (o14);
+				(o12) --[Eikonal] (o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o12);
+				(o34) --[gluon,half right,looseness=1.5] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1760,12 +1776,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14);
-					(o12)--[Eikonal] (o34) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o14) --[gluon,half right] (o12);
-					(a12) --[gluon,quarter right,looseness=0.8] (o34);
+				(a) --[Eikonal] (o14);
+				(o12)--[Eikonal] (o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o14) --[gluon,half right] (o12);
+				(a12) --[gluon,quarter right,looseness=0.8] (o34);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1804,12 +1820,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12) ;
-					(o34) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o12) --[gluon,half right] (o34);
-					(a12) --[gluon] (o14);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12) ;
+				(o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o12) --[gluon,half right] (o34);
+				(a12) --[gluon] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1848,12 +1864,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (b23) --[fermion] (exb);
-					(a23) --[gluon] (b23);
-					(a13) --[white,line width=3mm] (o12);
-					(a13) --[gluon] (o12);
+				(a23) --[gluon] (b23);
+				(a13) --[white,line width=3mm] (o12);
+				(a13) --[gluon] (o12);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (b23) --[fermion] (exb);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1897,12 +1913,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-					(o45) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o35) --[gluon,half right] (o45);
-					(o15) --[gluon,half right] (o25);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
+				(o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o35) --[gluon,half right] (o45);
+				(o15) --[gluon,half right] (o25);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1946,11 +1962,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o25) --[Eikonal] (o35) --[Eikonal] (o45) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o25);
-					(o35) --[gluon,half right] (o45);
+				(o25) --[Eikonal] (o35) --[Eikonal] (o45) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o25);
+				(o35) --[gluon,half right] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1994,11 +2010,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o13) --[Eikonal] (o23) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(b12) --[gluon] (o23);
-					(a12) --[gluon] (o13);
+				(o13) --[Eikonal] (o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(b12) --[gluon] (o23);
+				(a12) --[gluon] (o13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2042,12 +2058,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-					(o45) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o25) --[gluon,half right] (o45);
-					(o35) --[gluon,half right,looseness=1.5] (o15);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
+				(o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o25) --[gluon,half right] (o45);
+				(o35) --[gluon,half right,looseness=1.5] (o15);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2091,11 +2107,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o14) --[Eikonal] (o12) --[Eikonal] (o34) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o12);
-					(o34) --[gluon,half right, looseness=1.5] (o14);
+				(o14) --[Eikonal] (o12) --[Eikonal] (o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o12);
+				(o34) --[gluon,half right, looseness=1.5] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2146,12 +2162,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12);
-					(o34) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o12);
-					(o34) --[gluon,half right, looseness=1.5] (o14);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12);
+				(o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o12);
+				(o34) --[gluon,half right, looseness=1.5] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2195,12 +2211,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o23);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (o23);
-					(o14) --[white,line width=3mm] (b12);
-					(o14) --[gluon] (b12);
+				(a12) --[gluon] (o23);
+				(o14)[dot,minimum size=30pt] --[white,line width=3mm] (b12);
+				(o14) --[gluon] (b12);
+				(a) --[Eikonal] (o14) --[Eikonal] (o23);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2244,11 +2260,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (b13) --[fermion] (exb);
-					(a13) --[gluon] (b13);
-					(a23) --[gluon] (o12);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (b13) --[fermion] (exb);
+				(a13) --[gluon] (b13);
+				(a23) --[gluon] (o12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2292,12 +2308,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (b23) --[fermion] (exb);
-					(a23) --[gluon] (b23);
-					(a13) --[white,line width=3mm] (o12);
-					(a13) --[gluon] (o12);
+				(a23) --[gluon] (b23);
+				(a13) --[white,line width=3mm] (o12);
+				(a13) --[gluon] (o12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (b23) --[fermion] (exb);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2341,12 +2357,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o13) --[Eikonal] (o23) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a23) --[gluon] (o23);
-					(a13) --[white,line width=3mm] (o13);
-					(a13) --[gluon] (o13);
+				(a23) --[gluon] (o23);
+				(a13) --[white,line width=3mm] (o13);
+				(a13) --[gluon] (o13);
+				(o13) --[Eikonal] (o23) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2390,13 +2406,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a23) --[gluon] (o23);
-					(a13) --[white,line width=3mm] (o13);
-					(a13) --[gluon] (o13);
+				(a23) --[gluon] (o23);
+				(a13) --[white,line width=3mm] (o13);
+				(a13) --[gluon] (o13);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2440,11 +2456,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o12) --[gluon] (a12);
-					(a34) --[gluon,half right,looseness=1.5] (a14);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o12) --[gluon] (a12);
+				(a34) --[gluon,half right,looseness=1.5] (a14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2488,11 +2504,11 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o12) --[gluon] (a14);
-					(a34) --[gluon,half right] (a12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o12) --[gluon] (a14);
+				(a34) --[gluon,half right] (a12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2536,10 +2552,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (b14) --[fermion] (exb);
-					(a14) --[gluon] (b14);
-					(a34) --[gluon,half right] (a12);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (b14) --[fermion] (exb);
+				(a14) --[gluon] (b14);
+				(a34) --[gluon,half right] (a12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2576,13 +2592,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g23) --[gluon] (o12);
-					(g13) --[fermion] (g23);
-					(g23) --[fermion,half left] (g13);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g23) --[gluon] (o12);
+				(g13) --[fermion] (g23);
+				(g23) --[fermion,half left] (g13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2626,10 +2642,10 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (b12);
-					(a34) --[gluon,half right,looseness=1.5] (a14);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (b12);
+				(a34) --[gluon,half right,looseness=1.5] (a14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2666,13 +2682,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(g12)!1.!-90:(o12)$) (gtad);
 				% 
 				\diagram*{
-					(o12) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g12);
-					(g12) --[gluon] (o12);
-					(g12) --[gluon,out=-90,in=-135] (gtad) --[gluon,out=45,in=0] (g12);
-					% (g12) --[gluon, out=45,in=-45,loop, min distance=1in] (g12);
+				(o12) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g12);
+				(g12) --[gluon] (o12);
+				(g12) --[gluon,out=-90,in=-135] (gtad) --[gluon,out=45,in=0] (g12);
+				% (g12) --[gluon, out=45,in=-45,loop, min distance=1in] (g12);
 				};
 				% \draw (g12) arc [gluon, start angle=180, end angle=-180, radius=0.7cm];
 				% \draw[closed,gluon] (g12) .. (gtad) .. (g12);
@@ -2683,7 +2699,33 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 	\caption{All real diagrams (excluding conjugated and self-conjugated diagrams). }
 	\label{re:c}
 \end{figure}
-\renewcommand*\thesubfigure{\alph{subfigure}} 
+\renewcommand*\thesubfigure{\alph{subfigure}}
+\clearpage
+
+\subsection{Amplitude test}
+First we take diagram~\ref{re:143} to test if the type of diagrams that is a sub-diagram involving only QCD Feynman rules on top of one loop diagram consist with our manual input.
+
+The program gives
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\linewidth]{image3.png}
+	\label{fig:image3}
+\end{figure}
+\\which translates to
+\begin{align}
+	&g_s^4\delta(-k_1^z)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2k_2^2(-p-p_e)^2(k_1+p+p_e)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}
+	\notag\\&\bqty{\pqty{g^{l10l13}g^{l12l14}-g^{l10l14}g^{l12l13}}f^{e19c13c14}f^{c10c12e19}+\pqty{g^{l10l12}g^{l13l14}-g^{l10l14}g^{l13l12}}f^{e20c12c14}f^{c10c13e20}\notag\\&+\pqty{g^{l10l12}g^{l14l13}-g^{l10l13}g^{l14l12}}f^{e21c12c13}f^{c10c14e21}}
+\end{align}
+
+Diagram~\ref{re:143} gives
+\begin{align}
+	&\frac{-ig_s^4}{2}\bar u(P)\slashed n u(P)
+	\int\mm{l_1}\mm{l_2}n_{\tau}t^i\tilde D_G^{\tau\mu,ia}(l_1)\tilde D_G^{\sigma\lambda,dj}(l_1)\tilde D_G^{\nu\rho,bc}(l_2)n_{\lambda}t^j\frac{i}{n\cdot l_1+i\epsilon}\frac{i}{-n\cdot l_1+i\epsilon}\delta(l^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]\\
+	=&\frac{\overbrace{(-1)^3i^6}^{1}g_s^4}{2}\bar u(P)\slashed n u(P)
+	\int\mm{l_1}\mm{l_2}\frac{n^{\mu}n^{\sigma}g^{\nu\rho}t^i\delta^{ia}t^j\delta^{dj}}{\bqty{l_1^2}^2\bqty{l_2^2}\bqty{n\cdot l_1}^2}\delta(l^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]
+\end{align}
+
+
 \subsection{A first attempt}
 Let's first take a look at the following diagram
 \begin{align}
@@ -2711,9 +2753,10 @@ Let's first take a look at the following diagram
 \end{align}
 And
 
+\clearpage
 \section{Virtual Diagrams (Excluding Gauge Link Self-Energy Diagrams)}
 \subsection{All diagrams}
-\renewcommand*\thesubfigure{\roman{subfigure}} 
+\renewcommand*\thesubfigure{\roman{subfigure}}
 \begin{figure}[!hbtp]
 	\centering\hfil
 	\subfloat[8]{
@@ -2743,12 +2786,12 @@ And
 				\vertex at ($(a12)!0.5!(b12)$) (ab12);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13);
-					(o23) --[Eikonal] (b); 
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (o13);
-					(o23) --[gluon] (b12);
+				(a) --[Eikonal] (o13);
+				(o23) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (o13);
+				(o23) --[gluon] (b12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2790,13 +2833,13 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g13) --[gluon] (g23);
-					(g23) --[gluon] (o12);
-					(g13) --[gluon,half right] (g23);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g13) --[gluon] (g23);
+				(g23) --[gluon] (o12);
+				(g13) --[gluon,half right] (g23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2833,12 +2876,12 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(ab12) --[gluon] (o12);
-					(a14) --[gluon] (ab12);
-					(a34) --[gluon] (ab12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a14) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(ab12) --[gluon] (o12);
+				(a14) --[gluon] (ab12);
+				(a34) --[gluon] (ab12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2875,13 +2918,13 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g13) --[ghost] (g23);
-					(g23) --[gluon] (o12);
-					(g13) --[ghost,half right] (g23);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g13) --[ghost] (g23);
+				(g23) --[gluon] (o12);
+				(g13) --[ghost,half right] (g23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2923,11 +2966,11 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o35);
-					(o25) --[gluon,half right] (o15);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o35);
+				(o25) --[gluon,half right] (o15);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -2974,11 +3017,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a13) --[gluon] (o23);
-					(a23) --[gluon] (o13);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a13) --[gluon] (o23);
+				(a23) --[gluon] (o13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3015,11 +3058,11 @@ And
 				\vertex at ($(a12)!0.5!(o23)$) (g2);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (ab13) --[gluon] (a12);
-					(o23) --[gluon] (ab13);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (ab13) --[gluon] (a12);
+				(o23) --[gluon] (ab13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3061,11 +3104,11 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o12);
-					(o34) --[gluon,half right,looseness=1.5] (o14);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o12);
+				(o34) --[gluon,half right,looseness=1.5] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3112,12 +3155,12 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a23) --[gluon] (o23);
-					(a13) --[white, line width=3mm] (o13);
-					(a13) --[gluon] (o13);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a23) --[gluon] (o23);
+				(a13) --[white, line width=3mm] (o13);
+				(a13) --[gluon] (o13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3164,11 +3207,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a14) --[gluon] (o12);
-					(a34) --[gluon,half right] (a12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a14) --[gluon] (o12);
+				(a34) --[gluon,half right] (a12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3215,11 +3258,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o12);
-					(a34) --[gluon,half right,looseness=1.5] (a14);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o12);
+				(a34) --[gluon,half right,looseness=1.5] (a14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3256,13 +3299,13 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g13);
-					(g23) --[gluon] (o12);
-					(g13) --[fermion] (g23);
-					(g23) --[fermion,half left] (g13);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g13);
+				(g23) --[gluon] (o12);
+				(g13) --[fermion] (g23);
+				(g23) --[fermion,half left] (g13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3299,12 +3342,12 @@ And
 				\vertex at ($(g12)!1.!-90:(o12)$) (gtad);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o12);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (g12);
-					(g12) --[gluon] (o12);
-					(g12) --[gluon,out=-90,in=-135] (gtad) --[gluon,out=45,in=0] (g12);
+				(a) --[Eikonal] (o12);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (g12);
+				(g12) --[gluon] (o12);
+				(g12) --[gluon,out=-90,in=-135] (gtad) --[gluon,out=45,in=0] (g12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3313,11 +3356,13 @@ And
 	\caption{All virtual diagrams (excluding conjugated and self-conjugated diagrams). }
 	\label{}
 \end{figure}
-\renewcommand*\thesubfigure{\alph{subfigure}} 
+\renewcommand*\thesubfigure{\alph{subfigure}}
 
+
+\clearpage
 \section{Gauge Link Self-Energy Diagrams}
 \subsection{All diagrams}
-\renewcommand*\thesubfigure{\roman{subfigure}} 
+\renewcommand*\thesubfigure{\roman{subfigure}}
 \begin{figure}[!hbtp]
 	\centering\hfil
 	\subfloat[8]{
@@ -3352,12 +3397,12 @@ And
 				\vertex at ($(a12)!0.5!(b12)$) (ab12);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25);
-					(o35) --[Eikonal] (o45) --[Eikonal] (b); 
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o15) --[gluon,half right] (o25);
-					(o35) --[gluon,half right] (o45);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25);
+				(o35) --[Eikonal] (o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o15) --[gluon,half right] (o25);
+				(o35) --[gluon,half right] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3409,13 +3454,13 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o13m) --[gluon,half right,looseness=1.5] (o23m);
-					(o13m) --[gluon] (o23m);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o13m) --[gluon,half right,looseness=1.5] (o23m);
+				(o13m) --[gluon] (o23m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3462,13 +3507,13 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o13m) --[ghost,half right,looseness=1.5] (o23m);
-					(o13m) --[ghost] (o23m);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o13m) --[ghost,half right,looseness=1.5] (o23m);
+				(o13m) --[ghost] (o23m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3510,12 +3555,12 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25);
-					(o35) --[Eikonal] (b);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o35);
-					(o15) --[gluon,half right] (o25);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25);
+				(o35) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o35);
+				(o15) --[gluon,half right] (o25);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3557,12 +3602,12 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25);
-					(o35) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(b12) --[gluon] (o35);
-					(o15) --[gluon,half right] (o25);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25);
+				(o35) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(b12) --[gluon] (o35);
+				(o15) --[gluon,half right] (o25);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3609,11 +3654,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(a12) --[gluon] (b12);
-					(o13) --[gluon,half right] (o23);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (b12);
+				(o13) --[gluon,half right] (o23);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3660,11 +3705,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o15) --[gluon,half right] (o45);
-					(o25) --[gluon,half right] (o35);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o15) --[gluon,half right] (o45);
+				(o25) --[gluon,half right] (o35);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3711,11 +3756,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o15) --[gluon,half right] (o25);
-					(o35) --[gluon,half right] (o45);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o15) --[gluon,half right] (o25);
+				(o35) --[gluon,half right] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3762,11 +3807,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
-					(exa) --[fermion] (a12) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(a12) --[gluon] (o25);
-					(o35) --[gluon,half right] (o45);
+				(a) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a12) --[gluon] (o25);
+				(o35) --[gluon,half right] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3799,15 +3844,15 @@ And
 				\vertex at ($(a12)!0.5!(b12)$) (ab12);
 				% 
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
-				\vertex[above=10pt of ab12] (ab123);
+				\vertex at ($(ab12)+(0,1/5*\FDHeight)$) (ab123);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o14) --[gluon, quarter right] (ab123);
-					(o12) --[gluon] (ab123);
-					(o34) --[gluon, quarter left] (ab123);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o14) --[gluon, quarter right] (ab123);
+				(o12) --[gluon] (ab123);
+				(o34) --[gluon, quarter left] (ab123);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3849,11 +3894,11 @@ And
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (b12) --[fermion] (exb);
-					(o14) --[gluon] (b12);
-					(o34) --[gluon,half right] (o12);
+				(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(o14) --[gluon] (b12);
+				(o34) --[gluon,half right] (o12);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3900,12 +3945,12 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-					(o45) --[Eikonal] (b);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o15) --[gluon,half right] (o45);
-					(o25) --[gluon,half right] (o35);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
+				(o45) --[Eikonal] (b);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o15) --[gluon,half right] (o45);
+				(o25) --[gluon,half right] (o35);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -3952,11 +3997,11 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o35) --[gluon,half right,looseness=1.5] (o15);
-					(o25) --[gluon,half right,looseness=1.5] (o45);
+				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o35) --[gluon,half right,looseness=1.5] (o15);
+				(o25) --[gluon,half right,looseness=1.5] (o45);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -4003,13 +4048,13 @@ And
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon] (o13m);
-					(o23) --[gluon] (o23m);
-					(o23m) --[fermion,half left,looseness=1.5] (o13m);
-					(o13m) --[fermion] (o23m);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon] (o13m);
+				(o23) --[gluon] (o23m);
+				(o23m) --[fermion,half left,looseness=1.5] (o13m);
+				(o13m) --[fermion] (o23m);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -4057,11 +4102,11 @@ And
 				\vertex at ($(g1)+1/4*(0,-\FDHeight)$) (gtad);
 				% 
 				\diagram*{
-					(a) --[Eikonal] (o13) --[Eikonal] (o23);
-					(exa) --[fermion] (a);
-					(b) --[fermion] (exb);
-					(o13) --[gluon,half right] (o23);
-					(g1) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (g1);
+				(a) --[Eikonal] (o13) --[Eikonal] (o23);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o13) --[gluon,half right] (o23);
+				(g1) --[gluon,out=-135,in=180] (gtad) --[gluon,out=0,in=-45] (g1);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -4070,10 +4115,13 @@ And
 	\caption{}
 	\label{}
 \end{figure}
-\renewcommand*\thesubfigure{\alph{subfigure}} 
+\renewcommand*\thesubfigure{\alph{subfigure}}
 
+\clearpage
 \section{HQET Correspondence}
 
+
+\clearpage
 \printendnotes
 
 \bibliography{../Bib}

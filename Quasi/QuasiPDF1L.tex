@@ -137,6 +137,7 @@
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
+\clearpage
 \section{Background}
 The definition of parton distribution function (PDF) is
 \begin{align}
@@ -158,6 +159,7 @@ and $\tilde{\Gamma}=\gamma^z$ in our case.
 
 To make the gauge links equal to unity, we choose light cone gauge for PDF and axial gauge for quasi PDF.
 
+\clearpage
 \section{Tree Level Matching}
 In axial gauge, the quasi PDF is
 \begin{align}
@@ -201,6 +203,7 @@ Using Gordon identity
 	                   & =\delta(1-x)
 \end{align}
 
+\clearpage
 \section{One Loop Quasi PDF (Axial Gauge)}
 First we consider the matrix element in the definition of quasi PDF
 \begin{align}
@@ -302,6 +305,7 @@ For the result of numerator simplification, see Section~\ref{sec:dc1}
 % 	\frac{2 l^4 P^3}{\left(l^3\right)^2}+\frac{16 l^2 \left(P^3\right)^2}{l^3}-\frac{8 l^2 l^0P^0 P^3}{\left(l^3\right)^2}+4 l^2 P^3-\frac{4 l^2 l^0 P^0}{l^3}-8 m^2l^3+16 l^3 \left(P^3\right)^2-\frac{32 l^0 P^0 \left(P^3\right)^2}{l^3}\notag\\-8l^0 l^3 P^0+8 \left(l^3\right)^2 P^3-24 l^0 P^0 P^3+\frac{8\left(l^0\right)^2 \left(P^0\right)^2 P^3}{\left(l^3\right)^2}+\frac{8 \left(l^0\right)^2\left(P^0\right)^2}{l^3}+8 m^2 P^3+24 \left(P^3\right)^3
 % \end{align}
 
+\clearpage
 \section{One Loop Quasi PDF (Feynman Gauge)}
 In Feynman gauge, we must have the full definition of quasi PDF. For unpolarized quasi PDF
 \begin{align}
@@ -330,7 +334,7 @@ There're following 8 diagrams.
 				};
 			\end{feynman}
 		\end{tikzpicture}
-		\label{2:nogl}
+		\label{2:--}
 	}\hfil
 	\subfloat[]{
 		\centering
@@ -558,7 +562,7 @@ Let's take the spin sum of external states.
 \subsection{Real corrections}
 First we must deal with those real diagrams.
 
-Diagram~\ref{2:nogl} gives
+Diagram~\ref{2:--} gives
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
@@ -575,7 +579,8 @@ Diagram~\ref{2:nogl} gives
 			(a1) --[gluon,momentum'=\(P-l\)] (b1);
 			};
 		\end{feynman}
-	\end{tikzpicture} & =\frac{1}{2}\bar u(P) \pqty{-ig_st^a\gamma_\nu} \int\mm{l}\frac{i}{\slashed l-m+i\epsilon}\gamma^z\frac{-ig^{\mu \nu}}{(P-l)^2+i\epsilon} \frac{i}{\slashed l-m+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-xP^z)\notag \\
+	\end{tikzpicture} 
+	& =\frac{1}{2}\bar u(P) \pqty{-ig_st^a\gamma_\nu} \int\mm{l}\frac{i}{\slashed l-m+i\epsilon}\gamma^z\frac{-ig^{\mu \nu}}{(P-l)^2+i\epsilon} \frac{i}{\slashed l-m+i\epsilon}\pqty{-ig_s\gamma_{\mu}t^a}u(P)\delta(l^z-xP^z)\notag \\
 	                            & =-i\frac{g_s^2C_F}{2}\int\mm{l}\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)
 \end{align}
 After spin sum:
@@ -596,10 +601,10 @@ After spin sum:
 			};
 		\end{feynman}
 	\end{tikzpicture} & =\frac{-ig_s^2C_F}{4}\int\mm{l}\sum_s\bar u(P) \gamma^\mu \frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma_{\mu} u(P)\frac{1}{(P-l)^2+i\epsilon}\delta(l^z-xP^z)\notag \\
-	                                             & =\frac{-ig_s^2C_F}{4}\int\mm{l} \frac{\Tr{(\slashed P+m)\gamma^\mu(\slashed l+m)\gamma^z(\slashed l+m)\gamma_{\mu}}}{(l^2-m^2+i\epsilon)^2(P-l)^2}\delta(l^z-xP^z)\notag                                         \\
-	\intertext{the numerator and the denominator of the integrand is checked out in this step with Xiong's result}
-	                                             & =
+	                                             & =\frac{-ig_s^2C_F}{4}\int\mm{l} \frac{\Tr{(\slashed P+m)\gamma^\mu(\slashed l+m)\gamma^z(\slashed l+m)\gamma_{\mu}}}{(l^2-m^2+i\epsilon)^2(P-l)^2}\delta(l^z-xP^z)
 \end{align}
+the numerator and the denominator of the integrand is checked out in this step with Xiong's result.
+
 Diagram~\ref{2/-} gives
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -707,6 +712,31 @@ Take the spin sum
 	  & =\sum_s\frac{-ig_s^2C_F}{4}\int\mm{l}\bar u(P)\gamma^zu(P)\frac{1}{l^z+i\epsilon}\frac{1}{l^2+i\epsilon}\frac{1}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)\notag \\
 	  & =\frac{-ig_s^2C_F}{4}\int\mm{l}\Tr{(\slashed P+m)\gamma^z}\frac{1}{l^z+i\epsilon}\frac{1}{l^2+i\epsilon}\frac{1}{-l^z+i\epsilon} \delta(l^z-(1-x)P^z)
 \end{align}
+
+For the final result see my Mathematica notebook (and Xiong's). 
+
+\subsection{Compare amplitudes of real corrections with Feng's code}
+Diagram~\ref{2:--} gives \\
+\includegraphics[width=\linewidth]{image2.png}\\
+which we may work out to be 
+\begin{align}
+	\eval{-i\delta_{ab}\Tr{t^at^b}g_s^2\frac{\bar u(p)\gamma^{\mu}(\slashed{k}_1+m)\slashed n(\slashed{k}_1+m)\gamma_{\mu} u(p)}{\bqty{k_1^2-m^2}^2\bqty{k_1-p}^2}\delta(k_1+p_e)}_{p_e=-x P^z,p=P,n\to z,k_1=l}
+\end{align}
+And what we got earlier is
+\begin{align}
+	-i\frac{g_s^2C_F}{2}\int\mm{l} \frac{\bar u(P) \gamma^\mu\pqty{\slashed l+m}\gamma^z\pqty{\slashed l+m}\gamma_{\mu} u(P)}{\bqty{l^2-m^2+i\epsilon}^2\bqty{(P-l)^2+i\epsilon}}\delta(l^z-xP^z)
+\end{align}
+As we can see, apart from an overall $1/2$ factor, these two are in perfect agreement. According to tree level result, we know that the $1/2$ factor wasn't implanted in the code. 
+
+Let's test out diagrams with gauge link. Diagram~\ref{2/-} gives\\
+\includegraphics[width=\linewidth]{image4.png}
+\\which turns out to be 
+
+Our previous result is 
+\begin{align}
+	\frac{ig_s^2C_F}{4}\int\mm{l}  \frac{\Tr{(\slashed P+m)\gamma^z(\slashed l+m)\gamma^z}}{l^2-m^2+i\epsilon}\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)
+\end{align}
+Clearly the momentum of gauge link propagators don't consist with each other. \red{\bf{waiting for update\dots}}
 
 \subsection{Virtual corrections}
 The quark self energy diagram gives
@@ -1175,8 +1205,11 @@ The final result is
 		\end{tikzpicture}}_{\boxplus}
 \end{align}
 
+\subsection{Compare amplitudes of virtual corrections with Feng's code}
+
+\clearpage
 \section{Light Cone PDF}
-Diagram~\ref{2:nogl} gives
+Diagram~\ref{2:--} gives
 \begin{align}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 		\begin{feynman}
@@ -1217,6 +1250,7 @@ After spin sum:
 	                                             & =\frac{-ig_s^2C_F}{4}\int\mm{l} \frac{\Tr{(\slashed P+m)\gamma^\mu(\slashed l+m)\gamma^+(\slashed l+m)\gamma_{\mu}}}{(l^2-m^2+i\epsilon)^2(P-l)^2}\delta(l^z-xP^z)
 \end{align}
 
+\clearpage
 \section{Matching to PDF}
 The matching coefficient $Z$ is defined as
 \begin{align}
@@ -1293,7 +1327,9 @@ and this concludes to
 \end{align}
 
 \appendix
+\clearpage
 \section{Conventions\label{sec:conv}}
+\subsection{QFT basics}
 The quark field $\psi$ reads
 \begin{align}
 	\psi(x)=\int \frac{\dd^{3} \vec{k}}{(2 \pi)^{3}} \frac{1}{2 E_{k}}\left[u(k) e^{-i k \cdot x} b_{k}+v(k)e^{ik\cdot x} d_{k}^{\dagger}\right]
@@ -1331,6 +1367,7 @@ and correspondingly
 \begin{align}
 	\wick{\c{\bra{P}}\c{\bar\psi}(x)} & =\bar u(P)e^{iP\cdot x}
 \end{align}
+\subsection{Plus function and Heaviside Theta function}
 Plus function is defined as\cite{Collins2009}
 \begin{align}
 	\int_{0}^{1} \mathrm{d} x\left(\frac{1}{1-x}\right)_{+} T(x) \equiv \int_{0}^{1} \mathrm{d} x \frac{T(x)-T(1)}{1-x}
@@ -1390,6 +1427,7 @@ and here we choose
 	\theta(0)=1
 \end{align}
 
+\clearpage
 \section{Wick Contraction: Axial Gauge\label{sec:WickA}}
 Take diagram \ref{1b} as an example
 \begin{center}
@@ -1425,6 +1463,7 @@ where
 \end{align}
 This indicates what the Feynman diagram actually means: a normal Feynman diagram with only 3-momentum integration, where the axial momentum is fixed by $l^z=xP^z$, and with an extra $1/4\pi$ factor.
 
+\clearpage
 \section{Wick Contraction: Feynman Gauge\label{sec:WickF}}
 \subsection{Normal Diagrams}
 Let's take diagram~\ref{2`-} as an example:
@@ -1969,6 +2008,7 @@ and it behaves exactly like \ref{2-o}, since those extra $(+z)$s will be cancell
 }
 
 
+\clearpage
 \section{Comparing two different prescription of Feynman integrals}
 Take diagram~\ref{2/-} as an example (we use a boldface font with subscript 3 to symbolize the first three components of a four vector: $\tilde{\vb{l}}^{\mu}=(l^0,\vb{l}_T)$)
 \begin{align}
@@ -2017,6 +2057,7 @@ The final result agrees with what we got from integrating $l^0$ first:
 	  & \frac{C_F g_s^2 }{32 \pi ^2 {P^z} (x-1) \sqrt{m^2+{P^z}^2}}\Bqty{{P^z}^2 x \Bqty{3 \log \left(\left| x-1\right|  \sqrt{m^2+{P^z}^2}+{P^z} (x-1)\right)-\log \left(\left| x-1\right|  \sqrt{m^2+{P^z}^2}+{P^z} (-x)+{P^z}\right)\notag \\&-3 \log \left(\sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}+m^2+{P^z}^2 x\right)+\log \left(\sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}-m^2-{P^z}^2 x\right)+2 \log ({P^z})}\notag\\&-2 {P^z} \left| x-1\right|  \sqrt{m^2+{P^z}^2}+2 \sqrt{\left(m^2+{P^z}^2\right) \left(m^2+{P^z}^2 x^2\right)}}
 \end{align}
 
+\clearpage
 \section{Diagram~\ref{1b} Comparing (Defuncted)\label{sec:dc1}}
 Let's start with
 \begin{align}
@@ -2139,6 +2180,7 @@ As we discussed earlier, it can be dissected into
 	  & \frac{2 \gamma^z}{\left(k^{2}-m^{2}\right)(P-k)^{2}}+\frac{2k^{z} \gamma^{z}}{\left(k^{2}-m^{2}\right)(P-k)^{2}\left(P^{z}-k^{z}\right)}-\frac{\gamma^{z}}{(P-k)^{2}\left(P^{z}-k^{z}\right)^{2}} & \bar u(P)\gamma^zu(P)
 \end{align}
 
+\clearpage
 \printendnotes
 
 \bibliography{../Bib}
