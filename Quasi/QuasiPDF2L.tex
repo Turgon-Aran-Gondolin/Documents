@@ -213,7 +213,7 @@
 		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
-				\node[right=\FDWidth of a,dot] (b);
+				\node[right=\FDWidth of a,dot] (b);open
 				\vertex[below=\FDHeight of a] (exa);
 				\vertex[below=\FDHeight of b] (exb);
 				\vertex at ($(exa)!0.5!(a)$) (a1);
@@ -767,12 +767,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
+				(a12) --[gluon] (o23);
+				(o13) --[white,line width=3mm] (b12);;
 				(a) --[Eikonal] (o13);
 				(o23) --[Eikonal] (b);
 				(exa) --[fermion] (a12) --[fermion] (a);
 				(b) --[fermion] (b12) --[fermion] (exb);
-				(a12) --[gluon] (o23);
-				(o13) --[white,line width=3mm] (b12);;
 				(o13) --[gluon] (b12);
 				};
 			\end{feynman}
@@ -985,7 +985,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[125]{
+	\subfloat[124]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1034,6 +1034,56 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				(o23) --[gluon] (o23m);
 				(o13m) --[fermion] (o23m);
 				(o23m) --[fermion,half left,looseness=1.5] (o13m);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
+	\subfloat[125]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (b12) --[fermion] (exb);
+				(a12) --[gluon] (ab13) --[fermion] (ab23) --[gluon] (b12);
+				(ab23) --[fermion,half left] (ab13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
@@ -1090,6 +1140,58 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
+	\null\\\null\hfil
+	\subfloat[129]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+				(a13) --[gluon] (b23);
+				(a23) --[white, line width=3mm] (b13);
+				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
+				(b) --[fermion] (b23) --[fermion] (b13) --[fermion] (exb);
+				(a23) --[gluon] (b13);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
 	\subfloat[133]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -1139,8 +1241,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 			\end{feynman}
 		\end{tikzpicture}
 		\label{}
-	}\hfil\null\\\null\hfil
-	\subfloat[143]{
+	}\hfil\subfloat[143]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2705,53 +2806,136 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 \subsection{Amplitude test}
 First we take diagram~\ref{re:143} to test if the type of diagrams that is a sub-diagram involving only QCD Feynman rules on top of one loop diagram consist with our manual input.
 
-The program gives
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=\linewidth]{image3.png}
-	\label{fig:image3}
-\end{figure}
+The program gives\\
+%\begin{figure}[!htb]
+%	\centering
+	\includegraphics[width=\linewidth]{image7.png}
+%	\caption{}
+%	\label{fig:image7}
+%\end{figure}
 \\which translates to
 \begin{align}
-	&g_s^4\delta(-k_1^z)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2k_2^2(-p-p_e)^2(k_1+p+p_e)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}
-	\notag\\&\bqty{\pqty{g^{l10l13}g^{l12l14}-g^{l10l14}g^{l12l13}}f^{e19c13c14}f^{c10c12e19}+\pqty{g^{l10l12}g^{l13l14}-g^{l10l14}g^{l13l12}}f^{e20c12c14}f^{c10c13e20}\notag\\&+\pqty{g^{l10l12}g^{l14l13}-g^{l10l13}g^{l14l12}}f^{e21c12c13}f^{c10c14e21}}
+	&g_s^4\delta(-k_1)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2k_2^2(-p-p_e)^2(k_1+p+p_e)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}
+	\notag\\&\bqty{\pqty{g^{l10l13}g^{l12l14}-g^{l10l14}g^{l12l13}}f^{e19c13c14}f^{c10c12e19}+\pqty{g^{l10l12}g^{l13l14}-g^{l10l14}g^{l13l12}}f^{e20c12c14}f^{c10c13e20}\notag\\&+\pqty{g^{l10l12}g^{l14l13}-g^{l10l13}g^{l14l12}}f^{e21c12c13}f^{c10c14e21}}\big|_{p_e=-x P^z\to -p,p=P,n\to z,k_2=l_2,n_1=n_2=n}
+\end{align}
+Taking $k_1=p+p_e-l_1$, the first line (that's excluding the four-gluon vertex) becomes
+\begin{align}
+	&g_s^4\delta(-k_1)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2k_2^2(-p-p_e)^2(k_1+p+p_e)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}\\
+	=&g_s^4\delta(l_1-p-p_e)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2l_2^2(-p-p_e)^2(2p+2p_e-l_1)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}\\
+	=&g_s^4\delta(l_1-p-p_e)\delta_{c13c14}g^{l13l14}n_1^{l10}n_1^{l12}t^{c10}t^{c12}\frac{\bar u(P)\slashed n u(P)}{2l_2^2l_1^2l_1^2n_1\cdot l_1n_2\cdot l_1}
 \end{align}
 
 Diagram~\ref{re:143} gives
 \begin{align}
 	&\frac{-ig_s^4}{2}\bar u(P)\slashed n u(P)
-	\int\mm{l_1}\mm{l_2}n_{\tau}t^i\tilde D_G^{\tau\mu,ia}(l_1)\tilde D_G^{\sigma\lambda,dj}(l_1)\tilde D_G^{\nu\rho,bc}(l_2)n_{\lambda}t^j\frac{i}{n\cdot l_1+i\epsilon}\frac{i}{-n\cdot l_1+i\epsilon}\delta(l^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]\\
+	\int\mm{l_1}\mm{l_2}n_{\tau}t^i\tilde D_G^{\tau\mu,ia}(l_1)\tilde D_G^{\sigma\lambda,dj}(l_1)\tilde D_G^{\nu\rho,bc}(l_2)n_{\lambda}t^j\frac{i}{n\cdot l_1+i\epsilon}\frac{i}{-n\cdot l_1+i\epsilon}\delta(l_1^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]\\
 	=&\frac{\overbrace{(-1)^3i^6}^{1}g_s^4}{2}\bar u(P)\slashed n u(P)
-	\int\mm{l_1}\mm{l_2}\frac{n^{\mu}n^{\sigma}g^{\nu\rho}t^i\delta^{ia}t^j\delta^{dj}}{\bqty{l_1^2}^2\bqty{l_2^2}\bqty{n\cdot l_1}^2}\delta(l^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]
+	\int\mm{l_1}\mm{l_2}\frac{n^{\mu}n^{\sigma}g^{\nu\rho}t^i\delta^{ia}t^j\delta^{dj}}{\bqty{l_1^2}^2\bqty{l_2^2}\bqty{n\cdot l_1}^2}\delta(l_1^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]
 \end{align}
-
-
-\subsection{A first attempt}
-Let's first take a look at the following diagram
-\begin{align}
-	\begin{tikzpicture}[transform shape,scale=1.2,baseline=($(a)!0.5!(exa)$.base)]
-		\begin{feynman}
-			\node[dot] (a);
-			\node[right=\FDWidth of a,dot] (b);
-			\vertex at ($(a)!0.5!(b)$) (o);
-			\vertex[below=\FDHeight of a] (exa);
-			\vertex[below=\FDHeight of b] (exb);
-			\vertex at ($(exa)!0.25!(a)$) (a1);
-			\vertex at ($(exa)!0.75!(a)$) (a2);
-			\vertex at ($(a1)!0.5!(a2)!1.2!-90:(a2)$) (g1);
-			\vertex at ($(exb)!0.5!(b)$) (b1);
-			\diagram*{
-			(o) --[Eikonal,momentum=\(P-l_1-l_2\)] (b);
-			(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l_1\)] (a2) --[fermion,momentum=\(l_1+l_2\)] (a);
-			(a1) --[gluon,half right,looseness=2] (a2);
-			(a1) --[quarter right,tikzmom'={0.2}{2mm}{-2pt}{$P-l_1$},draw=none] (g1) --[quarter right,tikzmom'={0.2}{2mm}{-2pt}{$l_2$},draw=none] (a2);
-			(b) --[fermion,momentum=\(P\)] (exb);
-			(g1) --[gluon,tikzmom'={0.2}{2mm}{-2pt}{$P-l_1-l_2$}] (o);
-			};
-		\end{feynman}
-	\end{tikzpicture}
-\end{align}
-And
+Let's compare the color indices: 
+\subsection{Numerical test (ordered as Figure~\ref{re:sc} and Figure~\ref{re:c}, $z=1/4$)}
+\subsubsection{Self-conjugated}
+\paragraph{10}
+\begin{minted}[breaklines]{mathematica}
+	(0.135095 -1.68869/s)/ep-(13.0007 -5.30516 I)/s+(0.991423 -0.424413 I)+(1.68869 log(s))/s-0.135095 log(s)
+\end{minted}
+\paragraph{11}
+\begin{minted}[breaklines]{mathematica}
+	-((2.71097 -1.0865 I)/s^3)+(13.6036 -5.53435 I)/s^2+(0.351595 -0.203718 I)/s+(-(0.345843/s^3)+1.76164/s^2+0.0648456/s)/ep+(0.345843 log(s))/s^3-(1.76164 log(s))/s^2-(0.0648456 log(s))/s-7.57481*10^-7
+\end{minted}
+\paragraph{26}
+\begin{minted}[breaklines]{mathematica}
+	(0.991423 -0.424413 I)/s-(0.563259 -0.212207 I)+(0.135095/s-0.0675475)/ep-(0.135095 log(s))/s+0.0675475 log(s)
+\end{minted}
+\paragraph{27}
+\begin{minted}[breaklines]{mathematica}
+	-((1.24375 -0.509296 I)/s^2)-(0.24875 -0.101859 I)/s+(-(0.162114/s^2)-0.0324228/s)/ep+(0.162114 log(s))/s^2+(0.0324228 log(s))/s-3.8192*10^-7
+\end{minted}
+\paragraph{52}
+\paragraph{71}
+\paragraph{87}
+\paragraph{100}
+\begin{minted}[breaklines]{mathematica}
+	-0.180127
+\end{minted}
+\paragraph{116}
+\paragraph{125}
+\begin{minted}[breaklines]{mathematica}
+	(0.194537 CV(1,3))/(ep s)+(0.885127 CV(1,3))/s-(0.194537 CV(1,3) log(s))/s-4.09664*10^-15 CV(1,3)
+\end{minted}
+\paragraph{128}
+\paragraph{133}
+\paragraph{143}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\paragraph{144}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subsubsection{Half of the remainder}
+\paragraph{2}
+\paragraph{3}
+\begin{minted}[breaklines]{mathematica}
+	-((2.67042 +2.12028 I)/s^2)-((0.260912 -1.01859 I) log(s))/s^2+(14.6734 +1.31932 I)/s-((0.324228 +3.72868*10^-9 I) log^2(s))/s+(0.222907 -5.53015*10^-9 I) log^2(s)+((0.881442 -3.43775 I) log(s))/s+(0.673891 -1.68704 I) log(s)+(13.4354 -26.5232 I)+(-((4.70467*10^-9+1.04672*10^-9 I)/s^2)-(1.49279*10^-8+4.88207*10^-9 I)/s+(-3.02109*10^-8-6.73934*10^-9 I))/ep^2+(1/ep)(-((2.61261*10^-8+1.68009*10^-8 I)/s^2)-((4.70467*10^-9+1.04672*10^-9 I) log(s))/s^2-(1.30934*10^-7+9.62535*10^-8 I)/s-((1.49279*10^-8+4.88207*10^-9 I) log(s))/s-(3.02109*10^-8+6.73934*10^-9 I) log(s)-(3.63837*10^-7+2.4728*10^-7 I))-((3.64128*10^-9+8.50597*10^-10 I) log^2(s))/s^2
+\end{minted}
+\paragraph{85}
+\paragraph{5}
+\paragraph{6}
+\paragraph{13}
+\paragraph{16}
+\begin{minted}[breaklines]{mathematica}
+	-((0.211474 +1.27324 I)/s^2)+(2.28897 -1.08225 I)/s-(4.7286 -0.668451 I)+(-(6.7167*10^-16/s^2)+0.486342/s-0.729513)/ep-(3.00378*10^-16 log(s))/s^2-(0.486342 log(s))/s+0.729513 log(s)
+\end{minted}
+\paragraph{25}
+\paragraph{88}
+\paragraph{31}
+\begin{minted}[breaklines]{mathematica}
+	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
+\end{minted}
+\paragraph{32}
+\begin{minted}[breaklines]{mathematica}
+	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
+\end{minted}
+\paragraph{38}
+\paragraph{89}
+\paragraph{40}
+\paragraph{74}
+\paragraph{54}
+\paragraph{81}
+\begin{minted}[breaklines]{mathematica}
+	((0.180127 -9.13154*10^-9 I) log(s)-(0.231946 +7.6754*10^-8 I))/ep+(1.02169 -0.565884 I) log(s)-(0.815813 -0.728676 I)-(5.2095*10^-10+1.21468*10^-8 I)/ep^2+(-0.0900633-4.02323*10^-9 I) log^2(s)
+\end{minted}
+\paragraph{84}
+\begin{minted}[breaklines]{mathematica}
+	((0.226837 -4.76795*10^-7 I)+(2.53148*10^-36+9.52697*10^-70 I)/s+(-0.0900633-5.77113*10^-8 I) log(s))/ep+(0.27463 +0.141471 I) log^2(s)-(1.20417 +0.36434 I) log(s)+(1.63449 +0.234572 I)-(6.78712*10^-8+5.87408*10^-8 I)/ep^2-(7.40521*10^-8+3.24692*10^-8 I)/s
+\end{minted}
+% \subsection{A first attempt}
+% Let's first take a look at the following diagram
+% \begin{align}
+% 	\begin{tikzpicture}[transform shape,scale=1.2,baseline=($(a)!0.5!(exa)$.base)]
+% 		\begin{feynman}
+% 			\node[dot] (a);
+% 			\node[right=\FDWidth of a,dot] (b);
+% 			\vertex at ($(a)!0.5!(b)$) (o);
+% 			\vertex[below=\FDHeight of a] (exa);
+% 			\vertex[below=\FDHeight of b] (exb);
+% 			\vertex at ($(exa)!0.25!(a)$) (a1);
+% 			\vertex at ($(exa)!0.75!(a)$) (a2);
+% 			\vertex at ($(a1)!0.5!(a2)!1.2!-90:(a2)$) (g1);
+% 			\vertex at ($(exb)!0.5!(b)$) (b1);
+% 			\diagram*{
+% 			(o) --[Eikonal,momentum=\(P-l_1-l_2\)] (b);
+% 			(exa) --[fermion,momentum=\(P\)] (a1) --[fermion,momentum=\(l_1\)] (a2) --[fermion,momentum=\(l_1+l_2\)] (a);
+% 			(a1) --[gluon,half right,looseness=2] (a2);
+% 			(a1) --[quarter right,tikzmom'={0.2}{2mm}{-2pt}{$P-l_1$},draw=none] (g1) --[quarter right,tikzmom'={0.2}{2mm}{-2pt}{$l_2$},draw=none] (a2);
+% 			(b) --[fermion,momentum=\(P\)] (exb);
+% 			(g1) --[gluon,tikzmom'={0.2}{2mm}{-2pt}{$P-l_1-l_2$}] (o);
+% 			};
+% 		\end{feynman}
+% 	\end{tikzpicture}
+% \end{align}
+% And
 
 \clearpage
 \section{Virtual Diagrams (Excluding Gauge Link Self-Energy Diagrams)}
@@ -4111,13 +4295,341 @@ And
 			\end{feynman}
 		\end{tikzpicture}
 		\label{}
-	}\hfil
-	\caption{}
+	}\hfil\null
+	\caption{All gauge link self-energy diagrams (excluding conjugated and self-conjugated diagrams). }
 	\label{}
 \end{figure}
 \renewcommand*\thesubfigure{\alph{subfigure}}
 
 \clearpage
+
+\section{Diagrams with Direct Contracting $\bar\psi(z)\psi(0)$}
+\subsection{All diagrams}
+\begin{figure}[!hbtp]
+	\centering\null\hfil
+	\subfloat[53]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+					(a13) --[gluon] (o23);
+					(b13) --[white,line width=3mm] (o13);
+					(a) --[Eikonal] (o13);
+					(o23) --[Eikonal] (b);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(b13) --[gluon] (o13);
+					(b) --[fermion,half right,looseness=1] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
+	\subfloat[76]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+					(a) --[Eikonal] (o13);
+					(o23) --[Eikonal] (b);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(a13) --[gluon] (o13);
+					(b13) --[gluon] (o23);
+					(b) --[fermion,half right,looseness=1] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil\null
+	\caption{All self-conjugated quark contraction diagrams}
+	\label{}
+\end{figure}
+\begin{figure}[!hbtp]
+	\centering\null\hfil
+	\subfloat[28]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+					(a13) --[gluon] (o23);
+					(b13) --[white,line width=3mm] (o13);
+					(a) --[Eikonal] (o13) --[Eikonal] (o23);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(b13) --[gluon] (o13);
+					(b) --[fermion,half right,looseness=1] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
+	\subfloat[29]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				% 
+				\diagram*{
+					(a13) --[gluon] (o13);
+					(b13) --[white,line width=3mm] (o23);
+					(a) --[Eikonal] (o13) --[Eikonal] (o23);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(b13) --[gluon] (o23);
+					(b) --[fermion,half right,looseness=1] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
+	\subfloat[42]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				\vertex at ($(o12)+(0,1/3*\FDHeight)$) (o123);
+				% 
+				\diagram*{
+					(a13) --[gluon] (o123);
+					(a) --[white,line width=3mm] (o12);
+					(a) --[Eikonal] (o12);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(b13) --[gluon] (o12);
+					(b) --[fermion,out=90,in=0] (o123) --[fermion,out=180,in=90] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil
+	\subfloat[132]{
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				% 
+				\vertex at ($(a)!0.33!(b)$) (o13);
+				\vertex at ($(a)!0.66!(b)$) (o23);
+				\vertex at ($(a)!0.25!(b)$) (o14);
+				\vertex at ($(a)!0.5!(b)$) (o12);
+				\vertex at ($(a)!0.75!(b)$) (o34);
+				% 
+				\vertex at ($(a)!0.2!(b)$) (o15);
+				\vertex at ($(a)!0.4!(b)$) (o25);
+				\vertex at ($(a)!0.6!(b)$) (o35);
+				\vertex at ($(a)!0.8!(b)$) (o45);
+				% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+				\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+				\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+				% 
+				\vertex at ($(exa)!0.25!(a)$) (a14);
+				\vertex at ($(exa)!0.5!(a)$) (a12);
+				\vertex at ($(exa)!0.75!(a)$) (a34);
+				\vertex at ($(exa)!0.33!(a)$) (a13);
+				\vertex at ($(exa)!0.66!(a)$) (a23);
+				% 
+				\vertex at ($(exb)!0.25!(b)$) (b14);
+				\vertex at ($(exb)!0.5!(b)$) (b12);
+				\vertex at ($(exb)!0.75!(b)$) (b34);
+				\vertex at ($(exb)!0.33!(b)$) (b13);
+				\vertex at ($(exb)!0.66!(b)$) (b23);
+				% 
+				\vertex at ($(a12)!0.33!(b12)$) (ab13);
+				\vertex at ($(a12)!0.66!(b12)$) (ab23);
+				\vertex at ($(a12)!0.5!(b12)$) (ab12);
+				% 
+				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+				\vertex at ($(o12)+(0,1/3*\FDHeight)$) (o123);
+				% 
+				\diagram*{
+					(b13) --[gluon] (o123);
+					(a) --[Eikonal] (o12);
+					(exa) --[fermion] (a13) --[fermion] (b13) --[fermion] (exb);
+					(a13) --[gluon] (o12);
+					(b) --[fermion,out=90,in=0] (o123) --[fermion,out=180,in=90] (a);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{}
+	}\hfil\null
+	\caption{All quark contraction diagrams (excluding conjugated and self-conjugated diagrams). }
+	\label{}
+\end{figure}
+
 \section{HQET Correspondence}
 
 

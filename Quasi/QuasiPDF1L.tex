@@ -118,7 +118,7 @@
 \usepackage{shellesc}
 \usetikzlibrary{external}
 % \usepgfplotslibrary{external}
-\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
+\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
 
 \tikzfeynmanset{
 	Eikonal/.style={
@@ -155,7 +155,7 @@ where
 \begin{align}
 	\tilde{\mathcal{W}}\left[z, 0\right]=\mathcal{P} \exp \left[i g \int_{0}^{z} \dd z^{\prime} n \cdot A^{a}\left(z^{\prime}\right) \mathrm{t}^{a}\right], n^\mu=(0,0,0,-1)
 \end{align}
-and $\tilde{\Gamma}=\gamma^z$ in our case.
+and $\tilde{\Gamma}=\gamma^z$ in our case. This means $n^2=-1$ and $n\cdot P=P^z$. 
 
 To make the gauge links equal to unity, we choose light cone gauge for PDF and axial gauge for quasi PDF.
 
@@ -730,13 +730,33 @@ As we can see, apart from an overall $1/2$ factor, these two are in perfect agre
 
 Let's test out diagrams with gauge link. Diagram~\ref{2/-} gives\\
 \includegraphics[width=\linewidth]{image4.png}
-\\which turns out to be 
+\\
 
 Our previous result is 
 \begin{align}
 	\frac{ig_s^2C_F}{4}\int\mm{l}  \frac{\Tr{(\slashed P+m)\gamma^z(\slashed l+m)\gamma^z}}{l^2-m^2+i\epsilon}\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon} \delta(l^z-xP^z)
 \end{align}
-Clearly the momentum of gauge link propagators don't consist with each other. \red{\bf{waiting for update\dots}}
+Clearly the momentum of gauge link propagators don't consist with each other. By applying the Delta function, we'll see that they agree with each other. 
+
+Diagram~\ref{2-v-} gives\\
+%\begin{figure}[!htb]
+%	\centering
+	\includegraphics[width=\linewidth]{image9.png}
+%	\caption{}
+%	\label{fig:image9}
+%\end{figure}
+\\and it gives
+\begin{align}
+	&-ig_s^2C_F\delta(-k_1)n_1\cdot n_2\bar u(p)\slashed nu(p)\frac{1}{(-p-p_e)^2n_1\cdot(p+p_e)n_2\cdot(p+p_e)}\\
+	&=-ig_s^2C_F\delta(k_1-p-p_e)n_1\cdot n_2\bar u(p)\slashed nu(p)\frac{1}{k_1^2n_1\cdot k_1n_2\cdot k_1}\\
+	&=ig_s^2C_F\delta(k_1-p-p_e)\bar u(p)\slashed nu(p)\frac{1}{k_1^2n_1\cdot k_1n_2\cdot k_1}\label{2-v-:code}
+\end{align}
+
+Our previous result is
+\begin{align}
+	&\frac{-ig_s^2C_F}{2}\int\mm{l}\bar u(P)\slashed nu(P)\frac{1}{l^2+i\epsilon}\frac{1}{n\cdot l+i\epsilon}\frac{1}{-n\cdot l+i\epsilon}\delta(l^z-(1-x)P^z) \\
+	&=\frac{ig_s^2C_F}{2}\int\mm{l}\delta(l^z-p^z-p_e^z)\bar u(P)\slashed nu(P)\frac{1}{l^2+i\epsilon}\frac{1}{n\cdot l+i\epsilon}\frac{1}{n\cdot l-i\epsilon} 
+\end{align}
 
 \subsection{Virtual corrections}
 The quark self energy diagram gives
@@ -1066,14 +1086,20 @@ and naturally
 \end{align}
 The amplitude becomes
 \begin{align}
-	  & 4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda_1\lambda_2\frac{1}{\pqty{l^2+i\epsilon}^3} \\
-	= & ig_s^2C_F\delta(1-x)(2\pi)^2\int\mmd[6]{l}\frac{1}{\pqty{l^2+i\epsilon}^3}
+	  & 4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda_1\dd\lambda_2\frac{1}{\pqty{l^2+i\epsilon}^3} \\
+	= & ig_s^2C_F\delta(1-x)(2\pi)^2\int\mmd[6]{l_{D+2}}\frac{1}{\pqty{l^2+i\epsilon}^3}
 \end{align}
-Clearly this is not right.
+Clearly this is not right. 
+\endnote{
+	We can also parametrize this as
+	\begin{align}
+		4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{\lambda}{\pqty{l^2+2\lambda n\cdot l+i\epsilon}^3}=4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{1}{\pqty{l^2-\lambda^2+i\epsilon}^3}
+	\end{align}
+}
 
 We can also parametrize this as
 \begin{align}
-	4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{\lambda}{\pqty{l^2+2\lambda n\cdot l+i\epsilon}^3}=4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda\frac{1}{\pqty{l^2-\lambda^2+i\epsilon}^3}
+	& -4ig_s^2C_F\delta(1-x)\int\mm{l}\int_0^\infty\dd\lambda_1\dd\lambda_2\frac{1}{\bqty{l^2+2(\lambda_1+\lambda_2) n\cdot l+(\lambda_1-\lambda_2)i\epsilon}^3} 
 \end{align}
 then we can add small gluon mass to subtract the UV divergence. This way we get
 \begin{align}
@@ -1206,6 +1232,62 @@ The final result is
 \end{align}
 
 \subsection{Compare amplitudes of virtual corrections with Feng's code}
+
+Diagram~\ref{2-/} gives\\
+%\begin{figure}[!htb]
+%	\centering
+	\includegraphics[width=\linewidth]{image5.png}
+%	\caption{}
+%	\label{fig:image5}
+%\end{figure}
+\\and it's
+\begin{align}
+	\eval{ig_s^2C_F\delta(p+p_e)\frac{\slashed n (\slashed{k}_1+m)\slashed n_1}{(k_1^2-m^2)(k_1-p)^2(n_1\cdot(k_1+p_e))}}_{p_e=-x P^z\to -p,p=P,n\to z,k_1=l,n_1=n}
+\end{align}
+
+Our previous result is
+\begin{align}
+	\frac{-ig_s^2C_F}{2P^z}\int\mm{l}\bar u(P)\gamma^z\frac{\slashed l+m}{l^2-m^2+i\epsilon}\gamma^zu(P)\frac{1}{l^z-P^z+i\epsilon}\frac{1}{(P-l)^2+i\epsilon}\delta(1-x)
+\end{align}
+these two are in agreement.
+
+Let's check the gauge link self energy diagram~\ref{2-o}: \\
+%\begin{figure}[!htb]
+%	\centering
+	\includegraphics[width=\linewidth]{image6.png}
+%	\caption{}
+%	\label{fig:image6}
+%\end{figure}
+\\and it gives
+\begin{align}
+	\eval{-ig_s^2C_Fn_1^2\bar u(p)\slashed{n} u(p) \delta(p+p_e)\frac{1}{(k_1-p-p_e)^2(k_1 \cdot n_1 +SmVar(n_1,1))}}_{p_e=-x P^z\to -p,p=P,n\to z,k_1=l,n_1=n}
+\end{align}
+After taking derivative against $SmVar$\\
+%\begin{figure}[!htb]
+%	\centering
+	\includegraphics[width=\linewidth]{image8.png}
+%	\caption{}
+%	\label{fig:image8}
+%\end{figure}
+\\it gives (applying the delta function)
+\begin{align}
+	&\eval{-ig_s^2C_Fn_1^2\bar u(p)\slashed{n} u(p) \delta(p+p_e)\frac{1}{(k_1-p-p_e)^2(k_1 \cdot n_1 )^2}}_{p_e=-x P^z\to -p,p=P,n\to z,k_1=l,n_1=n}\\
+	=&-ig_s^2C_F 2P^z \delta(P^z(1-x))\frac{1}{l^2(n \cdot l )^2}
+\end{align}
+
+Our previous result is
+\begin{align}
+	\frac{ig_s^2C_F}{2}\delta(1-x)\int\mm{l}\frac{1}{l^2+i\epsilon}
+	\frac{1}{n\cdot l+i\epsilon}\frac{1}{-n\cdot l+i\epsilon}
+\end{align}
+and there's a twice times difference (apart from the $1/2$ from definition). 
+
+The real diagram \ref{2-v-} generated by code is \eqref{2-v-:code}
+\begin{align}
+	&ig_s^2C_F\delta(k_1-p-p_e)\bar u(p)\slashed nu(p)\frac{1}{k_1^2n_1\cdot k_1n_2\cdot k_1}\\
+	&\to ig_s^2C_F2P^z\delta(l-(1-x)P^z)\frac{1}{l^2n_1\cdot ln_2\cdot l}
+\end{align}
+
 
 \clearpage
 \section{Light Cone PDF}
