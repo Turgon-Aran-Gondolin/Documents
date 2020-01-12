@@ -118,7 +118,7 @@
 \usepackage{shellesc}
 \usetikzlibrary{external}
 % \usepgfplotslibrary{external}
-\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+\tikzexternalize[shell escape=-enable-write18,prefix=./QuasiPDF1L/,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
 
 \tikzfeynmanset{
 	Eikonal/.style={

@@ -1,0 +1,328 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+\usepackage[cm]{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{simpler-wick} 
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage[caption=false]{subfig}
+% ==============================================================================
+% Endnotes
+% ==============================================================================
+\usepackage{enotez}
+% HOWTO: 
+% \endnote{}
+% Print the notes by adding the following to the end of the document: 
+% \printendnotes
+
+% ==============================================================================
+% Minted
+% ==============================================================================
+\usepackage{minted}
+\usemintedstyle{colorful}
+
+% ==============================================================================
+% Changes: comments and highlights
+% ==============================================================================
+\let\comment\undefined
+\usepackage[highlightmarkup=uwave]{changes}
+
+\allowdisplaybreaks
+
+% ==============================================================================
+% mathtools
+% ==============================================================================
+\newcommand\MTkillspecial[1]{% helper macro
+	\bgroup
+	\catcode`\&=9
+	\let\\\relax%
+	\scantokens{#1}%
+	\egroup
+	}
+\DeclarePairedDelimiter\BraceM\{\}
+\reDeclarePairedDelimiterInnerWrapper\BraceM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
+\DeclarePairedDelimiter\bracketM{[}{]}
+\reDeclarePairedDelimiterInnerWrapper\bracketM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
+\let\Bqty\relax
+\let\bqty\relax
+\newcommand{\Bqty}[1]{\BraceM*{#1}}
+\newcommand{\bqty}[1]{\bracketM*{#1}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% ==============================================================================
+% ifthen for User-definition
+% ==============================================================================
+\usepackage{ifthen}
+% HOWTO:
+% \ifthenelse{<test>}{<code for true>}{<code for false>}
+
+% ==============================================================================
+% User Definition
+% ==============================================================================
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
+\newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
+\newcommand{\mmd}[2][d]{\ifthenelse{\equal{#1}{1}}{\frac{\dd {#2}}{2\pi}}{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}}
+
+\newcommand{\glprog}[2]{\int\frac{\dd #1}{2\pi}\frac{ie^{-i#1 #2}}{#1+i\epsilon}}
+
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+\newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+\makeatother
+
+\NewDocumentCommand\NL{s}{%
+  \IfBooleanTF#1%
+    {\notag\\\times}% If a star is seen
+    {\notag\\}%     If no star is seen
+}
+
+
+
+% ==============================================================================
+% Tikz-Feynman Externalization
+% ==============================================================================
+\usepackage{shellesc}
+\usetikzlibrary{external}
+% \usepgfplotslibrary{external}
+\tikzexternalize[shell escape=-enable-write18,prefix=./QuasiPDF1LRes/,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+
+\tikzfeynmanset{
+	Eikonal/.style={
+		/tikz/draw=none,
+		/tikz/decoration={name=none},
+		/tikz/postaction={
+			/tikz/draw,
+			/tikz/double distance=2pt,
+			% /tikzfeynman/with arrow=0.5,
+		},
+	},
+	half right/.append style={
+		/tikz/looseness=2
+	},
+	half left/.append style={
+		/tikz/looseness=2
+	}
+}
+
+% ==============================================================================
+% Tikz-Feynman Auxiliary
+% ==============================================================================
+\def\FDWidth{3cm}
+\def\FDHeight{3cm}
+\def\FDWidthS{2cm}
+\def\FDHeightS{2cm}
+
+
+\title{One Loop Matching for Quasi PDF}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\clearpage
+\section{Diagrams}
+\begin{figure}[!htpb]
+	\centering\null
+	\hfil\subfloat[8]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);open
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.5!(a)$) (a1);
+				\vertex at ($(exb)!0.5!(b)$) (b1);
+				\diagram*{
+				% (a) --[Eikonal] (b);
+				(exa) --[fermion] (a1) --[fermion] (a);
+				(b) --[fermion] (b1) --[fermion] (exb);
+				(b1) --[gluon] (a1);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2:--}
+	}\hfil
+	\subfloat[4]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.5!(a)$) (a1);
+				\vertex at ($(exb)!0.5!(b)$) (b1);
+				\diagram*{
+				(o) --[Eikonal] (b);
+				(exa) --[fermion] (a1) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a1) --[gluon] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2/-}
+	}\hfil
+	\subfloat[3]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.5!(a)$) (a1);
+				\vertex at ($(exb)!0.5!(b)$) (b1);
+				\diagram*{
+				(a) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (b1) --[fermion] (exb);
+				(b1) --[gluon] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2-`}
+	}\hfil
+	\subfloat[5]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.3!(b)$) (o1);
+				\vertex at ($(a)!0.7!(b)$) (o2);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+				(a) --[Eikonal] (o1);
+				(b) --[Eikonal] (o2);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o1) --[gluon, half right] (o2);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2-v-}
+	}\hfil\null\\\null\hfil
+	\subfloat[1]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.5!(a)$) (a1);
+				\vertex at ($(exb)!0.5!(b)$) (b1);
+				\diagram*{
+				(o) --[Eikonal] (a);
+				(exa) --[fermion] (a1) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(a1) --[gluon] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2-/}
+	}\hfil
+	\subfloat[7]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\vertex at ($(exa)!0.5!(a)$) (a1);
+				\vertex at ($(exb)!0.5!(b)$) (b1);
+				\diagram*{
+				(b) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (b1) --[fermion] (exb);
+				(b1) --[gluon] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2`-}
+	}\hfil
+	\subfloat[2]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.8!(b)$) (o2);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+				(a) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o1) --[gluon, half right] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2-o}
+	}\hfil
+	\subfloat[6]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.8!(b)$) (o2);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+				(b) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o) --[gluon, half right] (o2);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2o-}
+	}\hfil\null
+	\caption{Diagrams of quasi PDF in Feynman gauge. }
+\end{figure}
+
+\end{document}

@@ -9,7 +9,7 @@
 \usepackage{physics}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
 \usepackage{array}
 \usepackage{longtable}
@@ -125,7 +125,7 @@
 \usepackage{shellesc}
 \usetikzlibrary{external}
 \usepgfplotslibrary{external}
-\tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
+\tikzexternalize[shell escape=-enable-write18,prefix=./QuasiPDF2L/,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
 
 \tikzfeynmanset{
 	Eikonal/.style={
@@ -198,6 +198,23 @@
 \def\FDHeight{3cm}
 \def\FDWidthS{2cm}
 \def\FDHeightS{2cm}
+
+
+\makeatletter
+\renewcommand\subparagraph{%
+ \@startsection {subparagraph}{5}{1em }{1.25ex \@plus 1ex
+ \@minus .2ex}{-1em}{\normalfont \normalsize \bfseries }}%
+\makeatother
+
+\newcommand{\ZR}[1]{\textcolor{LimeGreen}{#1}}
+\newcommand{\CJ}[1]{\textcolor{RoyalBlue}{#1}}
+\newcommand{\WN}[1]{\textcolor{RawSienna}{#1}}
+\newcommand{\WNZF}{\WN{Zero FIRE.py input file. }}
+\newcommand{\WNOF}{\WN{Numbers overflow. }}
+\newcommand{\WNNH}{\WN{Not handled eqn. }}
+\newcommand{\WNDIV}{\WN{Divergent integrand. }}
+\newcommand{\WNGINAC}{\WN{Failed in GiNaC\_Parallel! }}
+\newcommand{\WNDZ}{\WN{power::eval(): division by zero. }}
 
 \title{Two Loop Matching for Quasi PDF}
 \author{Yingsheng Huang}
@@ -518,7 +535,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 \renewcommand*\thesubfigure{\roman{subfigure}}
 \begin{figure}[!hbtp]
 	\centering\null\hfil
-	\subfloat[10]{
+	\subfloat[10\red{/4.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -572,7 +589,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{re:10}
 	}\hfil
-	\subfloat[11]{
+	\subfloat[11\red{/4.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -622,7 +639,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[26]{
+	\subfloat[26\red{/4.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -676,7 +693,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[27]{
+	\subfloat[27\red{/4.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -985,7 +1002,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[124]{
+	\subfloat[124\red{/4.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1039,7 +1056,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[125]{
+	\subfloat[125\red{/4.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1241,7 +1258,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 			\end{feynman}
 		\end{tikzpicture}
 		\label{}
-	}\hfil\subfloat[143]{
+	}\hfil\subfloat[143\red{/4.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1294,7 +1311,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{re:143}
 	}\hfil
-	\subfloat[144]{
+	\subfloat[144\red{/4.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1344,12 +1361,12 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null
-	\caption{All self-conjugated diagrams. }
+	\caption{All self-conjugated diagrams, \red{red n.i marks the diagram number in Ji\&Zhang's paper}. }
 	\label{re:sc}
 \end{figure}
 \begin{figure}[!htbp]
 	\centering\null\hfil
-	\subfloat[2]{
+	\subfloat[2\CJ{/1}]{
 		\centering
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -1391,7 +1408,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[3]{
+	\subfloat[3\CJ{/83}]{
 		\centering
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -1431,7 +1448,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[85]{
+	\subfloat[85\CJ{/4}\red{/3.13}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1470,7 +1487,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[5]{
+	\subfloat[5\CJ{/113}\red{/3.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1508,7 +1525,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\null\\\hfil
-	\subfloat[6]{
+	\subfloat[7\CJ{/6}\red{/4.9}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1538,8 +1555,8 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(ab12)+(0,1/5*\FDHeight)$) (ab123);
 				% 
 				\diagram*{
-				(a) --[Eikonal] (o14) --[Eikonal] (o12);
-				(o34) --[Eikonal] (b);
+				(a) --[Eikonal] (o14);
+				(o12) --[Eikonal] (o34) --[Eikonal] (b);
 				(exa) --[fermion] (a);
 				(b) --[fermion] (exb);
 				(o14) --[gluon, quarter right] (ab123);
@@ -1550,7 +1567,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[13]{
+	\subfloat[13\CJ{/14}\red{/4.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1593,7 +1610,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[16]{
+	\subfloat[16\CJ{/18}\red{/3.7}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1633,7 +1650,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[25]{
+	\subfloat[25\CJ{/22}\red{/4.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1676,7 +1693,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[88]{
+	\subfloat[88\CJ{/30}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1717,7 +1734,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[31]{
+	\subfloat[31\CJ{/106}\red{/3.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1759,7 +1776,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[32]{
+	\subfloat[32\CJ{/82}\red{/3.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1802,7 +1819,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[38]{
+	\subfloat[38\CJ{/62}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1844,7 +1861,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[89]{
+	\subfloat[89\CJ{/39}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1888,7 +1905,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[40]{
+	\subfloat[40\CJ{/97}\red{/3.15}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1932,7 +1949,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[74]{
+	\subfloat[74\CJ{/41}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -1976,7 +1993,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[54]{
+	\subfloat[54\CJ{/80}\red{/4.6}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2025,7 +2042,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[81]{
+	\subfloat[81\CJ{/55}\red{/3.14}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2073,7 +2090,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[84]{
+	\subfloat[84\CJ{/56}\red{/4.2}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2121,7 +2138,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[58]{
+	\subfloat[86\CJ{/58}\red{/4.7}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2159,8 +2176,8 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-				(o45) --[Eikonal] (b);
+				(a) --[Eikonal] (o15);
+				(o25) --[Eikonal] (o35) --[Eikonal] (o45) --[Eikonal] (b);
 				(exa) --[fermion] (a);
 				(b) --[fermion] (exb);
 				(o25) --[gluon,half right] (o45);
@@ -2170,7 +2187,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[95]{
+	\subfloat[95\CJ{/59}\red{/4.1}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2219,13 +2236,13 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\label{}
 	}\hfil\null
 	% 
-	\caption{All real diagrams (excluding conjugated diagrams). }
+	\caption{All real diagrams (excluding conjugated diagrams), \CJ{xxx marks conjugated diagram number}, \red{red n.i marks the diagram number in Ji\&Zhang's paper}. }
 	\label{re:c}
 \end{figure}
 \begin{figure}\ContinuedFloat
 	\centering
 	\null\hfil
-	\subfloat[60]{
+	\subfloat[60\CJ{/63}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2274,7 +2291,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[61]{
+	\subfloat[61\CJ{/101}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2323,7 +2340,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[64]{
+	\subfloat[64\CJ{/104}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2371,7 +2388,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[136]{
+	\subfloat[136\CJ{/102}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2420,7 +2437,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[103]{
+	\subfloat[103\CJ{/108}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2469,7 +2486,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[127]{
+	\subfloat[127\CJ{/105}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2519,7 +2536,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[131]{
+	\subfloat[131\CJ{/110}\red{/3.3}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2567,7 +2584,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[121]{
+	\subfloat[121\CJ{/111}\red{/3.5}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2605,7 +2622,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-				(a) --[Eikonal] (o12);
+				(o12) --[Eikonal] (b);
 				(exa) --[fermion] (a14) --[fermion] (a12) --[fermion] (a34) --[fermion] (a);
 				(b) --[fermion] (exb);
 				(o12) --[gluon] (a14);
@@ -2615,7 +2632,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[126]{
+	\subfloat[126\CJ{/117}\red{/3.6}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2662,7 +2679,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[123]{
+	\subfloat[123\CJ{/119}\red{/4.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2705,7 +2722,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[135]{
+	\subfloat[135\CJ{/134}\red{/3.4}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2752,7 +2769,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[139]{
+	\subfloat[142\CJ{/139}\red{/4.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2797,7 +2814,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null
-	\caption{All real diagrams (excluding conjugated and self-conjugated diagrams). }
+	\caption{All real diagrams (excluding conjugated and self-conjugated diagrams), \CJ{xxx marks conjugated diagram number}, \red{red n.i marks the diagram number in Ji\&Zhang's paper}. }
 	\label{re:c}
 \end{figure}
 \renewcommand*\thesubfigure{\alph{subfigure}}
@@ -2851,20 +2868,28 @@ Let's compare the color indices:
 \begin{minted}[breaklines]{mathematica}
 	-((1.24375 -0.509296 I)/s^2)-(0.24875 -0.101859 I)/s+(-(0.162114/s^2)-0.0324228/s)/ep+(0.162114 log(s))/s^2+(0.0324228 log(s))/s-3.8192*10^-7
 \end{minted}
-\paragraph{52}
-\paragraph{71}
-\paragraph{87}
+\paragraph{52	\WNNH}
+\paragraph{71	\WNDIV}
+\paragraph{87	\WNDIV}
 \paragraph{100}
 \begin{minted}[breaklines]{mathematica}
 	-0.180127
 \end{minted}
-\paragraph{116}
+\paragraph{116	\WNZF}
+\paragraph{124}
+\begin{minted}[breaklines]{mathematica}
+	((0.180127 CV(1,3))/s+0.180127 CV(1,3))/ep+(0.939647 CV(1,3))/s-(0.180127 CV(1,3) log(s))/s-0.180127 CV(1,3) log(s)+0.939647 CV(1,3)
+\end{minted}
 \paragraph{125}
 \begin{minted}[breaklines]{mathematica}
 	(0.194537 CV(1,3))/(ep s)+(0.885127 CV(1,3))/s-(0.194537 CV(1,3) log(s))/s-4.09664*10^-15 CV(1,3)
 \end{minted}
-\paragraph{128}
-\paragraph{133}
+\paragraph{128	\WNZF}
+\paragraph{129}
+\begin{minted}[breaklines]{mathematica}
+	((0.500352 CV(1,3))/s+0.500352 CV(1,3)+(0.0180127 -2.54985*10^-8 I)/s-(9.42776*10^-8+7.15663*10^-8 I))/ep+(2.78522 CV(1,3))/s-(0.500352 CV(1,3) log(s))/s-0.500352 CV(1,3) log(s)+2.78522 CV(1,3)+(0.526293 -0.0565893 I)/s+(0.0725309 -4.81307*10^-8 I) log(s)+(0.253132 -0.452708 I)+(0.148304 log(s))/s
+\end{minted}
+\paragraph{133	\WNZF}
 \paragraph{143}
 \begin{minted}[breaklines]{mathematica}
 	0
@@ -2873,40 +2898,147 @@ Let's compare the color indices:
 \begin{minted}[breaklines]{mathematica}
 	0
 \end{minted}
-\subsubsection{Half of the remainder}
-\paragraph{2}
+\subsubsection{Remaining diagrams}
+\paragraph{2	\WNZF}
+\subparagraph{\CJ{1}}
+\begin{minted}[breaklines]{mathematica}
+	(0.210926 -1.87371*10^-8 I)/s+(0.052147 -2.27485*10^-8 I)+(0.165116 log(s))/s-0.082558 log(s)
+\end{minted}
 \paragraph{3}
 \begin{minted}[breaklines]{mathematica}
 	-((2.67042 +2.12028 I)/s^2)-((0.260912 -1.01859 I) log(s))/s^2+(14.6734 +1.31932 I)/s-((0.324228 +3.72868*10^-9 I) log^2(s))/s+(0.222907 -5.53015*10^-9 I) log^2(s)+((0.881442 -3.43775 I) log(s))/s+(0.673891 -1.68704 I) log(s)+(13.4354 -26.5232 I)+(-((4.70467*10^-9+1.04672*10^-9 I)/s^2)-(1.49279*10^-8+4.88207*10^-9 I)/s+(-3.02109*10^-8-6.73934*10^-9 I))/ep^2+(1/ep)(-((2.61261*10^-8+1.68009*10^-8 I)/s^2)-((4.70467*10^-9+1.04672*10^-9 I) log(s))/s^2-(1.30934*10^-7+9.62535*10^-8 I)/s-((1.49279*10^-8+4.88207*10^-9 I) log(s))/s-(3.02109*10^-8+6.73934*10^-9 I) log(s)-(3.63837*10^-7+2.4728*10^-7 I))-((3.64128*10^-9+8.50597*10^-10 I) log^2(s))/s^2
 \end{minted}
-\paragraph{85}
-\paragraph{5}
-\paragraph{6}
-\paragraph{13}
+\subparagraph{\CJ{83}	\WNNH}
+\paragraph{85	\WNNH}
+\subparagraph{\CJ{4}}
+\begin{minted}[breaklines]{mathematica}
+	-((2.42703 -0.625114 I)/s)+((0.0810569 -3.18897*10^-9 I) log^2(s))/s-(0.0405285 +2.8617*10^-9 I) log^2(s)+((0.0994902 +1.01859 I) log(s))/s+(0.0313118 -0.509296 I) log(s)+(1.1822 +0.196737 I)+((-5.16401*10^-10-3.70072*10^-9 I)-(5.50793*10^-10+3.94743*10^-9 I)/s)/ep^2+(-((2.78596*10^-8+7.69087*10^-8 I)/s)-((5.50793*10^-10+3.94743*10^-9 I) log(s))/s-(5.16401*10^-10+3.70072*10^-9 I) log(s)-(3.69889*10^-8+6.98559*10^-8 I))/ep
+\end{minted}
+\paragraph{5	\WNZF}
+\subparagraph{\CJ{113}	\WNZF}
+\paragraph{7	\WNZF}
+\begin{minted}[breaklines]{mathematica}
+	Part::partw: Part 1 of {} does not exist.
+\end{minted}
+\subparagraph{\CJ{6}	\WNZF}
+\begin{minted}[breaklines]{mathematica}
+	Part::partw: Part 1 of {} does not exist.
+\end{minted}
+\paragraph{13	\WNZF}
+\subparagraph{\CJ{14}}
+\begin{minted}[breaklines]{mathematica}
+	(0.108076/s^2-0.770041/s)/ep+1.09363/s^2-6.67758/s-1.08404*10^-6
+\end{minted}
 \paragraph{16}
 \begin{minted}[breaklines]{mathematica}
 	-((0.211474 +1.27324 I)/s^2)+(2.28897 -1.08225 I)/s-(4.7286 -0.668451 I)+(-(6.7167*10^-16/s^2)+0.486342/s-0.729513)/ep-(3.00378*10^-16 log(s))/s^2-(0.486342 log(s))/s+0.729513 log(s)
 \end{minted}
-\paragraph{25}
-\paragraph{88}
-\paragraph{31}
+\subparagraph{\CJ{18}	\WNZF}
+\paragraph{25	\WNZF}
+\subparagraph{\CJ{22}}
+\begin{minted}[breaklines]{mathematica}
+	(0.0810569/s-0.054038/s^2)/ep-0.411721/s^2+0.617579/s
+\end{minted}
+\paragraph{88	\WNZF}
+\subparagraph{\CJ{30}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.394011 +1.25922*10^-8 I)/s)+(0.782248 -2.46415*10^-8 I)+(0.168118 log(s))/s-0.354249 log(s)
+\end{minted}
+\paragraph{31	\WNOF}
 \begin{minted}[breaklines]{mathematica}
 	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
 \end{minted}
-\paragraph{32}
+\subparagraph{\CJ{106}	\WNNH	\WNGINAC}
+\paragraph{32	\WNOF}
 \begin{minted}[breaklines]{mathematica}
 	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
 \end{minted}
-\paragraph{38}
-\paragraph{89}
-\paragraph{40}
-\paragraph{74}
-\paragraph{54}
+\subparagraph{\CJ{82}	\WNNH}
+\paragraph{38	\WNZF}
+\subparagraph{\CJ{62}	\WNZF}
+\paragraph{89	\WNDIV}
+\subparagraph{\CJ{39}	\WNDIV}
+\paragraph{40	\WNZF}
+\subparagraph{\CJ{97}	\WNZF}
+\paragraph{74	\WNZF}
+\subparagraph{\CJ{41}	\WNGINAC	\WNDZ}
+\paragraph{54	\WNZF}
+\subparagraph{\CJ{80}	\WNZF}
 \paragraph{81}
 \begin{minted}[breaklines]{mathematica}
 	((0.180127 -9.13154*10^-9 I) log(s)-(0.231946 +7.6754*10^-8 I))/ep+(1.02169 -0.565884 I) log(s)-(0.815813 -0.728676 I)-(5.2095*10^-10+1.21468*10^-8 I)/ep^2+(-0.0900633-4.02323*10^-9 I) log^2(s)
 \end{minted}
+\subparagraph{\CJ{55}}
+\begin{minted}[breaklines]{mathematica}
+	((0.288202 -2.40402*10^-8 I)/s-(0.432304 +3.26984*10^-8 I))/ep+(1.81157 +0.905414 I)/s-(2.71736 +1.35812 I)
+\end{minted}
+\subparagraph{\ZR{3.14}}
+\begin{minted}[breaklines]{mathematica}
+	(0.180127 log(s)-0.231946)/ep
+\end{minted}
 \paragraph{84}
+\begin{minted}[breaklines]{mathematica}
+	((0.226837 -4.91292*10^-7 I)-(0.0900633 +3.62168*10^-8 I) log(s))/ep+(0.27463 +0.141471 I) log^2(s)-(1.20417 +0.36434 I) log(s)+(1.63449 +0.234572 I)-(4.43277*10^-8+3.77952*10^-8 I)/ep^2-(7.40521*10^-8+3.24692*10^-8 I)/s
+\end{minted}
+\subparagraph{\CJ{56}}
+\begin{minted}[breaklines]{mathematica}
+	((0.216152 -1.26134*10^-7 I)-(0.144101 +4.52496*10^-8 I)/s)/ep-(1.36468 -0.29147 I)/s+((0.367358 -0.226354 I) log(s))/s-(0.696665 -0.962003 I) log(s)+(2.44396 +0.289131 I)
+\end{minted}
+\paragraph{86	\WNZF}
+\subparagraph{\CJ{58}	\WNZF}
+\paragraph{95}
+\begin{minted}[breaklines]{mathematica}
+	((0.0225158 -9.13144*10^-9 I) log(s)-(0.0289933 +1.11581*10^-7 I))/ep+(0.127711 -0.0707356 I) log(s)-(0.101978 -0.0910826 I)-(3.18099*10^-10+1.21466*10^-8 I)/ep^2+(-0.0112579-4.02319*10^-9 I) log^2(s)
+\end{minted}
+\subparagraph{\CJ{59}}
+\begin{minted}[breaklines]{mathematica}
+	((0.0360253 -2.54985*10^-8 I)/s-(0.054038 +3.46821*10^-8 I))/ep+(0.226446 +0.113176 I)/s-(0.33967 +0.169767 I)
+\end{minted}
+\paragraph{60	\WNZF}
+\subparagraph{\CJ{63}	\WNZF}
+\paragraph{61}
+\begin{minted}[breaklines]{mathematica}
+	((0.0249708 +0.0565884 I)/s-(0.0409356 +0.113177 I)-(0.0180127 log(s))/s+0.0360253 log(s))/ep+(0.121805 +0.302986 I)/s-((0.0819104 +0.0282942 I) log(s))/s+(0.123545 +0.12025 I) log(s)-(0.132015 +0.412085 I)+((-1.70997*10^-8-7.51261*10^-9 I)-(3.80204*10^-10+2.72486*10^-9 I)/s)/ep^2-1.51762*10^-7/s^2+(0.00900633 log^2(s))/s-0.0180127 log^2(s)
+\end{minted}
+\subparagraph{\CJ{101}}
+\begin{minted}[breaklines]{mathematica}
+	((0. -5.44316*10^-9 I) log(s)-(5.06726*10^-8+1.09474*10^-7 I))/ep^2+((0.0301033 -0.0353678 I) log(s)-(0.0200969 -0.045542 I)-(1.32299*10^-8+4.49679*10^-9 I)/s+(-0.0112579-3.05202*10^-9 I) log^2(s))/ep+(0.0112579 -9.07187*10^-10 I) log^3(s)-(0.0593367 -0.0353677 I) log^2(s)+(0.0923378 -0.190433 I) log(s)-(0.0423955 -0.117755 I)-(1.47432*10^-10+8.25276*10^-9 I)/ep^3-(4.6093*10^-7+4.84678*10^-8 I)/s
+\end{minted}
+\paragraph{64	\WNZF}
+\subparagraph{\CJ{104}	\WNZF}
+\paragraph{136}
+\begin{minted}[breaklines]{mathematica}
+	(-((0.00499433 +0.0113178 I)/s)+(0.000695404 +0.00565863 I)+(0.00360253 log(s))/s-0.00180128 log(s))/ep+(0.232843 -0.0984924 I)/s+((0.0363448 +0.0226354 I) log(s))/s+(0.0153548 -1.05329*10^-7 I) log(s)-(0.653916 -3.42529 I)+((-1.16122*10^-8-2.31214*10^-9 I)-(4.75779*10^-9+2.54986*10^-9 I)/s)/ep^2-2.41702*10^-7/s^2-(0.0054038 log^2(s))/s+0.00270189 log^2(s)
+\end{minted}
+\subparagraph{\CJ{102}	\WNNH}
+\paragraph{103	\WNZF}
+\subparagraph{\CJ{108}	\WNZF}
+\paragraph{127	\WNZF}
+\subparagraph{\CJ{105}	\WNZF}
+\paragraph{131}
+\begin{minted}[breaklines]{mathematica}
+	(0.027019 -0.0180127/s)/ep+0.0890396/s+(0.0180127 log(s))/s-0.027019 log(s)+0.197988
+\end{minted}
+\subparagraph{\CJ{110}	\WNZF}
+\paragraph{121	\WNZF}
+\subparagraph{\CJ{111}	\WNZF}
+\paragraph{126}
+\begin{minted}[breaklines]{mathematica}
+	-(0.478416/(ep s))-3.57259/s+(0.478416 log(s))/s
+\end{minted}
+\subparagraph{\CJ{117}}
+\begin{minted}[breaklines]{mathematica}
+	(0.337737 log(s)+(12.5141 +0.065117 I))/ep+(4.9247 +0.043133 I)/s-(7.6631 +0.248286 I) log(s)+(960.52 -2.012 I)-0.371511 log^2(s)+(0.0506606 log(s))/s
+\end{minted}
+\paragraph{123	\WNZF}
+\subparagraph{\CJ{119}}
+\begin{minted}[breaklines]{mathematica}
+	((0.108076 CV(1,3))/s-(0.0720506 CV(1,3))/s^2)/ep-(0.621011 CV(1,3))/s^2-(0.221294 CV(1,3))/s+0.51236 CV(1,3) log(s)+0.289007 CV(1,3)
+\end{minted}
+\paragraph{135	\WNZF}
+\subparagraph{\CJ{134}	\WNZF}
+\paragraph{142	\WNZF}
+\subparagraph{\CJ{139}}
 \begin{minted}[breaklines]{mathematica}
 	((0.226837 -4.76795*10^-7 I)+(2.53148*10^-36+9.52697*10^-70 I)/s+(-0.0900633-5.77113*10^-8 I) log(s))/ep+(0.27463 +0.141471 I) log^2(s)-(1.20417 +0.36434 I) log(s)+(1.63449 +0.234572 I)-(6.78712*10^-8+5.87408*10^-8 I)/ep^2-(7.40521*10^-8+3.24692*10^-8 I)/s
 \end{minted}
@@ -2943,7 +3075,7 @@ Let's compare the color indices:
 \renewcommand*\thesubfigure{\roman{subfigure}}
 \begin{figure}[!hbtp]
 	\centering\hfil
-	\subfloat[8]{
+	\subfloat[75]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -2982,11 +3114,11 @@ Let's compare the color indices:
 		\label{}
 	}\hfil
 	\caption{All self-conjugated virtual diagrams (actually there's only one). }
-	\label{}
+	\label{vir:sc}
 \end{figure}
 \begin{figure}[!hbtp]
 	\centering\hfil
-	\subfloat[8]{
+	\subfloat[8\red{/2.9}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3029,7 +3161,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[17]{
+	\subfloat[17\red{/2.12}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3071,7 +3203,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[21]{
+	\subfloat[21\red{/2.9}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3114,7 +3246,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[34]{
+	\subfloat[34\red{/2.8}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3160,7 +3292,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[45]{
+	\subfloat[45\red{/2.5}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3211,7 +3343,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[46]{
+	\subfloat[46\red{/2.13}]{
 		\centering
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
@@ -3252,7 +3384,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[51]{
+	\subfloat[51\red{/2.11}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3298,7 +3430,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[57]{
+	\subfloat[57\red{/2.6}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3339,18 +3471,18 @@ Let's compare the color indices:
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
+				(a23) --[gluon] (o23);
+				(a13) --[white, line width=3mm] (o13);
 				(a) --[Eikonal] (o13) --[Eikonal] (o23);
 				(exa) --[fermion] (a13) --[fermion] (a23) --[fermion] (a);
 				(b) --[fermion] (exb);
-				(a23) --[gluon] (o23);
-				(a13) --[white, line width=3mm] (o13);
 				(a13) --[gluon] (o13);
 				};
 			\end{feynman}
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[107]{
+	\subfloat[107\red{/2.7}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3401,7 +3533,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[130]{
+	\subfloat[130\red{/2.10}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3452,7 +3584,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[118]{
+	\subfloat[118\red{/2.9}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3495,7 +3627,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[138]{
+	\subfloat[138\red{/2.9}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3537,12 +3669,16 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\caption{All virtual diagrams (excluding conjugated and self-conjugated diagrams). }
-	\label{}
+	\caption{All virtual diagrams (excluding conjugated and self-conjugated diagrams), \red{red n.i marks the diagram number in Ji\&Zhang's paper}. }
+	\label{vir:c}
 \end{figure}
 \renewcommand*\thesubfigure{\alph{subfigure}}
 
+\subsection{Numerical test (ordered as Figure~\ref{vir:sc} and Figure~\ref{re:c}, $z=1/4$)}
+\subsubsection{Self-conjugated}
+\paragraph{75}
 
+\subsubsection{Remaining diagrams (exclude conjugated ones)}
 \clearpage
 \section{Gauge Link Self-Energy Diagrams}
 \subsection{All diagrams}
@@ -3703,7 +3839,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[33]{
+	\subfloat[33\red{/4.4}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -3797,7 +3933,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null\\\null\hfil
-	\subfloat[36]{
+	\subfloat[36\red{/4.5}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -4042,7 +4178,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[48]{
+	\subfloat[79\red{/4.3}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -4078,17 +4214,17 @@ Let's compare the color indices:
 				\vertex at ($(o12)!0.33!(a12)$) (g23);
 				% 
 				\diagram*{
-				(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
-				(exa) --[fermion] (a);
-				(b) --[fermion] (b12) --[fermion] (exb);
-				(o14) --[gluon] (b12);
-				(o34) --[gluon,half right] (o12);
+				(o14) --[Eikonal] (o12) --[Eikonal] (o34) --[Eikonal] (b);
+				(exa) --[fermion] (a12) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o34) --[gluon] (a12);
+				(o12) --[gluon,half right] (o14);
 				};
 			\end{feynman}
 		\end{tikzpicture}
 		\label{}
 	}\hfil
-	\subfloat[49]{
+	\subfloat[77\red{/4.8}]{
 		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
 			\begin{feynman}
 				\node[dot] (a);
@@ -4129,8 +4265,8 @@ Let's compare the color indices:
 				\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
 				% 
 				\diagram*{
-				(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35);
-				(o45) --[Eikonal] (b);
+				(a) --[Eikonal] (o15);
+				(o25) --[Eikonal] (o35) --[Eikonal] (o45) --[Eikonal] (b);
 				(exa) --[fermion] (a);
 				(b) --[fermion] (exb);
 				(o15) --[gluon,half right] (o45);
@@ -4296,7 +4432,7 @@ Let's compare the color indices:
 		\end{tikzpicture}
 		\label{}
 	}\hfil\null
-	\caption{All gauge link self-energy diagrams (excluding conjugated and self-conjugated diagrams). }
+	\caption{All gauge link self-energy diagrams (excluding conjugated and self-conjugated diagrams), \red{red n.i marks the diagram number in Ji\&Zhang's paper}. }
 	\label{}
 \end{figure}
 \renewcommand*\thesubfigure{\alph{subfigure}}
