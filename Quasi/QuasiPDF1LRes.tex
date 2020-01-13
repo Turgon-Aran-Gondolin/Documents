@@ -8,7 +8,7 @@
 \usepackage{physics}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
 \usepackage{array}
 \usepackage{longtable}
@@ -145,6 +145,10 @@
 \def\FDHeight{3cm}
 \def\FDWidthS{2cm}
 \def\FDHeightS{2cm}
+
+
+\newcommand{\WN}[1]{\textcolor{RawSienna}{#1}}
+\newcommand{\CJ}[1]{\textcolor{RoyalBlue}{#1}}
 
 
 \title{One Loop Matching for Quasi PDF}
@@ -324,5 +328,39 @@
 	}\hfil\null
 	\caption{Diagrams of quasi PDF in Feynman gauge. }
 \end{figure}
+
+\section{Analytic Results}
+\begin{align}
+    &\Gamma_a=\tilde{q}_{11}=\frac{\alpha_{S} C_{F}}{2 \pi}\left\{\begin{array}{cc}
+        {(x-1) \ln \frac{x-1}{x}+1,} & {x>1} \\
+        {(1-x) \ln \frac{\left(P^{z}\right)^{2}}{m^{2}}+(1-x) \ln \frac{4 x}{1-x}+1-\frac{2 x}{1-x},} & {0<x<1} \\
+        {(x-1) \ln \frac{x}{x-1}-1,} & {x<0}
+        \end{array}\right.\\
+    &\Gamma_b=\tilde{q}_{12}=\frac{\alpha_{S} C_{F}}{2 \pi}\left\{\begin{array}{ll}
+        {-\frac{2 x}{1-x} \ln \frac{x-1}{x}-\frac{1}{1-x},} & {x>1} \\
+        {\frac{2 x}{1-x} \ln \frac{\left(p^{z}\right)^{2}}{m^{2}}+\frac{2 x}{1-x} \ln \frac{4 x}{1-x}+1-\frac{x}{1-x},} & {0<x<1} \\
+        {-\frac{2 x}{1-x} \ln \frac{x}{x-1}+\frac{1}{1-x},} & {x<0}
+        \end{array}\right.\\
+    &\Gamma_d=\tilde{q}_{13}=\frac{\alpha_{S} C_{F}}{2 \pi}\left\{\begin{array}{ll}
+        {\frac{1}{1-x},} & {x>1} \\
+        {-\frac{1}{1-x},} & {0<x<1} \\
+        {-\frac{1}{1-x},} & {x<0}
+        \end{array}\right.
+\end{align}
+
+\section{Numerical Results ($z=1/4$)}
+\paragraph{Diagram a/8}
+\begin{minted}[breaklines]{mathematica}
+    (0.477465 CV(1,3) CV(2,4/3))/s-0.106103 CV(1,3) CV(2,4/3) log(s)-0.563075 CV(1,3) CV(2,4/3)
+\end{minted}
+\paragraph{Diagram b/4}
+\begin{minted}[breaklines]{mathematica}
+    0.212207 CV(1,3) CV(2,4/3) log(s)-0.273255 CV(1,3) CV(2,4/3)
+\end{minted}
+\paragraph{\CJ{Diagram c/3}}
+\begin{minted}[breaklines]{mathematica}
+    (0.339531 CV(1,3) CV(2,4/3))/s-0.509296 CV(1,3) CV(2,4/3)
+\end{minted}
+\paragraph{Diagram d/5 \WN{no input ``.m" file for FIRE. }}
 
 \end{document}
