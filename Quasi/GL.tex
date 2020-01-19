@@ -1,0 +1,665 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass{article}
+\usepackage{geometry}
+\usepackage[cm]{fullpage}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{simpler-wick} 
+\usepackage{mathrsfs}
+\usepackage{xparse}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage[caption=false]{subfig}
+% ==============================================================================
+% Endnotes
+% ==============================================================================
+\usepackage{enotez}
+% HOWTO: 
+% \endnote{}
+% Print the notes by adding the following to the end of the document: 
+% \printendnotes
+
+% ==============================================================================
+% Minted
+% ==============================================================================
+\usepackage{minted}
+\usemintedstyle{colorful}
+
+% ==============================================================================
+% Changes: comments and highlights
+% ==============================================================================
+\let\comment\undefined
+\usepackage[highlightmarkup=uwave]{changes}
+
+\allowdisplaybreaks
+
+% ==============================================================================
+% mathtools
+% ==============================================================================
+\newcommand\MTkillspecial[1]{% helper macro
+	\bgroup
+	\catcode`\&=9
+	\let\\\relax%
+	\scantokens{#1}%
+	\egroup
+	}
+\DeclarePairedDelimiter\BraceM\{\}
+\reDeclarePairedDelimiterInnerWrapper\BraceM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
+\DeclarePairedDelimiter\bracketM{[}{]}
+\reDeclarePairedDelimiterInnerWrapper\bracketM{star}{
+	\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+	#2
+	\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}
+	}
+\let\Bqty\relax
+\let\bqty\relax
+\newcommand{\Bqty}[1]{\BraceM*{#1}}
+\newcommand{\bqty}[1]{\bracketM*{#1}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% ==============================================================================
+% ifthen for User-definition
+% ==============================================================================
+\usepackage{ifthen}
+% HOWTO:
+% \ifthenelse{<test>}{<code for true>}{<code for false>}
+
+% ==============================================================================
+% User Definition
+% ==============================================================================
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
+\newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
+\newcommand{\mmd}[2][d]{\ifthenelse{\equal{#1}{1}}{\frac{\dd {#2}}{2\pi}}{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}}
+
+\newcommand{\glprog}[2]{\int\frac{\dd #1}{2\pi}\frac{ie^{-i#1 #2}}{#1+i\epsilon}}
+
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+\newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+\makeatother
+
+\NewDocumentCommand\NL{s}{%
+  \IfBooleanTF#1%
+    {\notag\\\times}% If a star is seen
+    {\notag\\}%     If no star is seen
+}
+
+
+
+% ==============================================================================
+% Tikz-Feynman Externalization
+% ==============================================================================
+\usepackage{shellesc}
+\usetikzlibrary{external}
+% \usepgfplotslibrary{external}
+\tikzexternalize[shell escape=-enable-write18,prefix=./GL/,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=diff]
+
+\tikzfeynmanset{
+	Eikonal/.style={
+		/tikz/draw=none,
+		/tikz/decoration={name=none},
+		/tikz/postaction={
+			/tikz/draw,
+			/tikz/double distance=2pt,
+			% /tikzfeynman/with arrow=0.5,
+		},
+	},
+	half right/.append style={
+		/tikz/looseness=2
+	},
+	half left/.append style={
+		/tikz/looseness=2
+	}
+}
+
+% ==============================================================================
+% Tikz-Feynman Auxiliary
+% ==============================================================================
+\def\FDWidth{3cm}
+\def\FDHeight{3cm}
+\def\FDWidthS{2cm}
+\def\FDHeightS{2cm}
+
+
+\newcommand{\WN}[1]{\textcolor{RawSienna}{#1}}
+\newcommand{\CJ}[1]{\textcolor{RoyalBlue}{#1}}
+
+
+\title{One Loop Gauge Link Self Energy}
+\author{Yingsheng Huang}
+\begin{document}
+\maketitle
+\section{One Loop}
+\renewcommand*\thesubfigure{\roman{subfigure}}
+\begin{figure}[!htpb]
+	\centering\null\hfil
+	\subfloat[g]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.8!(b)$) (o2);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+				(a) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o1) --[gluon, half right] (o);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2-o}
+	}\hfil
+	\subfloat[h]{
+		\centering
+		\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+			\begin{feynman}
+				\node[dot] (a);
+				\node[right=\FDWidth of a,dot] (b);
+				\vertex at ($(a)!0.5!(b)$) (o);
+				\vertex at ($(a)!0.2!(b)$) (o1);
+				\vertex at ($(a)!0.8!(b)$) (o2);
+				\vertex[below=\FDHeight of a] (exa);
+				\vertex[below=\FDHeight of b] (exb);
+				\diagram*{
+				(b) --[Eikonal] (o);
+				(exa) --[fermion] (a);
+				(b) --[fermion] (exb);
+				(o) --[gluon, half right] (o2);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\label{2o-}
+	}\hfil\null
+	\caption{Diagrams of quasi PDF in Feynman gauge. }
+\end{figure}
+
+The definition of the gauge link self energy diagram (diagram g) is
+\begin{align}
+	\frac{1}{2} \int \frac{\dd z}{2 \pi} e^{i x P^{z} z}\langle P, S|\bar{\psi}(z) \gamma^z \frac{\mathcal{P} \left[-i g_s \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \mathrm{t}^{a}\right]\left[-i g_s \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \mathrm{t}^{a}\right]}{2}  \psi(0)| P, S\rangle
+\end{align}
+Applying Feynman rule straightaway gives (the overall $1/2$ factor has been counted in)
+\begin{align}
+	\Gamma_g(l)=\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+			(a) --[Eikonal,momentum=\(0\)] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+			(exa) --[fermion,momentum=\(P\)] (a);
+			(b) --[fermion,momentum=\(P\)] (exb);
+			(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}=-g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{i\epsilon}\frac{i}{-l^z+i\epsilon}
+	\label{FR}
+\end{align}
+
+\subsection{Direct Contraction}
+\subsubsection{Left}
+\begin{align*}
+	  & \frac{1}{2!}\mathcal{P} \left[ \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \right]                                           \\
+	= & \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)\theta(z'-z'')                                                                    \\
+	= & \int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)\theta(z'-z'')\theta(z'')                                                                    \\
+	= & \wick{\int \dd z^{\prime} \c2A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} \c2 A^{a,z}\left(z^{\prime\prime}\right) }
+	\theta(z'-z'')\theta(z'')  \\
+	= & \int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\frac{i}{l^2+i\epsilon}e^{-il\cdot(z''-z')}
+	\theta(z'-z'')\theta(z'')  
+\end{align*}
+\subsubsection{Right}
+\begin{align*}
+	& \frac{1}{2!}\mathcal{P} \left[ \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}+z\right) \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right) \right]                                           \\
+	= & \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}+z\right) \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right)\theta(z''-z')                                                                    \\
+	= & \int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}+z\right) \int \dd z^{\prime} A^{a,z}\left(z^{\prime}+z\right)\theta(z''-z')\theta(z')                                                                    \\
+	= & \wick{\int \dd z^{\prime\prime} \c2A^{a,z}\left(z^{\prime\prime}+z\right)\int \dd z^{\prime} \c2 A^{a,z}\left(z^{\prime}+z\right) }
+	\theta(z''-z')\theta(z')  \\
+	= & \int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\frac{i}{l^2+i\epsilon}e^{-il\cdot(z''-z')}
+	\theta(z''-z')\theta(z')  \\
+\end{align*}
+\subsubsection{Summing together}
+\begin{align*}
+	\int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\frac{i}{l^2+i\epsilon}e^{-il\cdot(z''-z')}
+	\bqty{\theta(z'-z'')\theta(z'')+\theta(z''-z')\theta(z') }
+\end{align*}
+\subsection{Adding two path order together}
+\begin{align*}
+	  & \mathcal{P} \left[ \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \right]                                                       \\
+	= & \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \bqty{\theta(z'-z'')+\theta(z''-z')}                                             \\
+	= & \int_{0}^{\infty} \dd z^{\prime} A^{a,z}\left(z^{\prime}\right) \int_{0}^{\infty} \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right)                                                                                  \\
+	= & \int \dd z^{\prime} A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} A^{a,z}\left(z^{\prime\prime}\right) \int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon} \\
+	= & \wick{\int \dd z^{\prime} \c2A^{a,z}\left(z^{\prime}\right)\int \dd z^{\prime\prime} \c2 A^{a,z}\left(z^{\prime\prime}\right) }
+	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
+	= & \int \dd z^{\prime} \int \dd z^{\prime\prime} \int\mm{l}\frac{i}{l^2+i\epsilon}e^{-il\cdot(z''-z')}
+	\int\frac{\dd w}{2\pi}\frac{ie^{-iwz' }}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{ie^{-ihz'' }}{h+i\epsilon}\\
+	= & \int\mm{l}\frac{i}{l^2+i\epsilon}
+	\int \dd z^{\prime} \int \dd z^{\prime\prime}\int\frac{\dd w}{2\pi}\frac{i}{w+i\epsilon}\int\frac{\dd h}{2\pi}\frac{i}{h+i\epsilon}e^{-i(w-l)\cdot z'}e^{-i(h+l)\cdot z''} \\
+	= & \int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}
+\end{align*}
+The amplitude is
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+			(a) --[Eikonal,momentum=\(l\)] (o1) --[Eikonal,rmomentum=\(l\)] (o);
+			(exa) --[fermion,momentum=\(P\)] (a);
+			(b) --[fermion,momentum=\(P\)] (exb);
+			(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}=-\frac{g_s^2C_F}{2}\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{l^z+i\epsilon}\frac{i}{-l^z+i\epsilon}
+\end{align}
+\subsection{Adding $\Gamma_g(l)$ and $\Gamma_g(-l)$}
+\begin{align*}
+	\Gamma_g(l)=\frac{\Gamma_g(l)+\Gamma_g(-l)}{2} & =-\frac{1}{2}\bqty{g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+		\frac{i}{i\epsilon}\frac{i}{-l^z+i\epsilon}+g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+		\frac{i}{i\epsilon}\frac{i}{l^z+i\epsilon}}\\
+	                                               & =-\frac{1}{2}g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{i\epsilon}\bqty{\frac{i}{-l^z+i\epsilon}+\frac{i}{l^z+i\epsilon}}\\
+	                                               & =-\frac{1}{2}g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{i\epsilon}\frac{2 \epsilon}{{l^z}^2+\epsilon^2}\\
+	                                               & =g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}\frac{i}{l^z+i\epsilon}\frac{i}{l^z-i\epsilon} \\
+\end{align*}
+There's an overall factor of $1/2$ missing.
+\subsection{Taking derivatives}
+Add a small momentum to the gauge link line and consider an actual self energy diagram
+\begin{align}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidthS of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.3!(b)$) (o1);
+			\vertex at ($(a)!0.8!(b)$) (o2);
+			\vertex[below=\FDHeightS of a] (exa);
+			\vertex[below=\FDHeightS of b] (exb);
+			\diagram*{
+			(o1) --[Eikonal,momentum=\(k-l\)] (o);
+			(exa) --[fermion,momentum=\(P\)] (a);
+			(b) --[fermion,momentum=\(P\)] (exb);
+			(o1) --[gluon, half right,momentum'=\(l\)] (o);
+			};
+		\end{feynman}
+	\end{tikzpicture}=-g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{k^z-l^z+i\epsilon}
+\end{align}
+take the derivative
+\begin{align}
+	  & -g_s^2C_F\delta(1-x)\lim_{k^z\to0}\pdv{k^z}\bqty{(i)\int\mm{l}\frac{i}{l^2+i\epsilon}
+		\frac{i}{k^z-l^z}}\\
+	= & ig_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{\pqty{l^z}^2}
+\end{align}
+Adding $i\epsilon$ by hand and we got
+\begin{align}
+	g_s^2C_F\delta(1-x)\int\mm{l}\frac{i}{l^2+i\epsilon}
+	\frac{i}{l^z+i\epsilon}\frac{i}{l^z-i\epsilon}
+\end{align}
+
+\section{Two Loop}
+In coordinate space
+\begin{align}
+	&\langle P, S| \bar{\psi}(z) \gamma^z
+	\mathcal{P}\frac{\bqty{-ig_sn_{\mu}\int_0^\infty\dd z_1A^{a,\mu}(z_1)t^a}\bqty{-ig_sn_{\nu}\int_0^\infty\dd z_2A^{b,\nu}(z_2)t^b}\bqty{-ig_sn_{\rho}\int_0^\infty\dd z_3A^{c,\rho}(z_3)t^c}\bqty{-ig_sn_{\sigma}\int_0^\infty\dd z_4A^{d,\sigma}(z_4)t^d}}{4!}\notag\\
+	&\hspace{6in}\psi(0)| P, S\rangle
+\end{align}
+\begin{align*}
+	  & \frac{1}{4!}\mathcal{P}\bqty{\int_0^\infty\dd z_1A^{a,\mu}(z_1)}\bqty{\int_0^\infty\dd z_2A^{b,\nu}(z_2)}\bqty{\int_0^\infty\dd z_3A^{c,\rho}(z_3)}\bqty{\int_0^\infty\dd z_4A^{d,\sigma}(z_4)} \\&
+	=\bqty{\int_0^\infty\dd z_1A^{a,\mu}(z_1)}\bqty{\int_0^\infty\dd z_2A^{b,\nu}(z_2)}\bqty{\int_0^\infty\dd z_3A^{c,\rho}(z_3)}\bqty{\int_0^\infty\dd z_4A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)
+\end{align*}
+
+The amplitude for 
+\begin{center}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidth of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.4!(b)$) (o2);
+			\vertex at ($(a)!0.6!(b)$) (o3);
+			\vertex at ($(a)!0.8!(b)$) (o4);
+			\vertex[below=\FDHeight of a] (exa);
+			\vertex[below=\FDHeight of b] (exb);
+			\diagram*{
+			(a) --[Eikonal] (o1) --[Eikonal] (o2) --[Eikonal] (o3) --[Eikonal] (o4);
+			(exa) --[fermion] (a);
+			(b) --[fermion] (exb);
+			(o1) --[gluon, half right,looseness=2] (o3);
+			(o2) --[gluon, half right,looseness=2] (o4);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+is related to the color ordering $t^at^bt^at^b$. 
+
+\begin{align*}
+	&\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c2A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
+	&=\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\int\mm{l_1}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_3-z_1)}\int\mm{l_2}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_2)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_3-z_1)}\int\mm{l_2}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_2)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
+\end{align*}
+The exponent is (for simplicity we assume vectors $z_i=(0,0,0,z_i)$ and $k_i=(0,0,0,-k_i)$) 
+\begin{align*}
+	&-il_1\cdot(z_3-z_1)-il_2\cdot(z_4-z_2)-ik_1\cdot(z_1-z_2)-ik_2\cdot(z_2-z_3)-ik_3\cdot(z_3-z_4)-ik_4\cdot z_4\\
+	&=-iz_3\cdot(l_1+k_3-k_2)-iz_1\cdot(k_1-l_1)-iz_4\cdot(l_2+k_4-k_3)-iz_2\cdot(k_2-k_1-l_2)
+\end{align*}
+which gives 4 delta functions. The propagators involved are then
+\begin{align*}
+	\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{-l_1^z-l_2^z+i\epsilon}\frac{i}{-l_2^z+i\epsilon}\frac{i}{i\epsilon}
+\end{align*}
+
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c2A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\
+	&=\frac{1}{2}\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c2A^{d,\sigma}(z_4)}\bqty{
+		\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\&+\theta(z_3-z_4)\theta(z_4-z_1)\theta(z_1-z_2)\theta(z_2)
+	}\\
+	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}\frac{ -\left({l_1^z}^2+3 l_1^z l_2^z+{l_2^z}^2-\epsilon ^2\right)}{(l_1^z-i \epsilon ) (l_1^z+i \epsilon ) ( l_2^z+i\epsilon ) ( l_2^z-i\epsilon ) (l_1^z+l_2^z-i \epsilon ) (l_1^z+l_2^z+i \epsilon )}
+\end{align*}
+Taking the derivative of the former expression, we can also arrive at a divergence-free form
+\begin{align*}
+	\frac{i}{2}\lim_{p\to0}\pdv{p}\bqty{\frac{i}{p+l_1^z}\frac{i}{p+l_1^z+l_2^z}\frac{i}{p+l_2^z}}= \frac{-\pqty{{l_1^z}^2+3l_1^zl_2^z+{l_2^z}^2}}{{l_1^z}^2{l_2^z}^2(l_1^z+l_2^z)^2}
+\end{align*}
+which is equivalent to above expression. 
+
+The amplitude for 
+\begin{center}
+	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidth of a,dot] (b);
+			\vertex at ($(a)!0.6!(b)$) (o);
+			\vertex at ($(a)!0.2!(b)$) (o1);
+			\vertex at ($(a)!0.4!(b)$) (o2);
+			\vertex at ($(a)!0.6!(b)$) (o3);
+			\vertex at ($(a)!0.8!(b)$) (o4);
+			\vertex[below=\FDHeight of a] (exa);
+			\vertex[below=\FDHeight of b] (exb);
+			\diagram*{
+			(a) --[Eikonal] (o1) --[Eikonal] (o2) --[Eikonal] (o3) --[Eikonal] (o4);
+			(exa) --[fermion] (a);
+			(b) --[fermion] (exb);
+			(o1) --[gluon, half right,looseness=2] (o4);
+			(o2) --[gluon, half right,looseness=2] (o3);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+is related to the color ordering $t^at^bt^bt^a$. 
+\begin{align*}
+	&\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c2A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_3-z_1)}\int\mm{l_2}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_2)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
+\end{align*}
+The propagators involved are 
+\begin{align*}
+	\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{-l_1^z-l_2^z+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{i\epsilon}
+\end{align*}
+\begin{align*}
+	&\begin{aligned}
+		\frac{1}{2}\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c2A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\bqty{\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\+\theta(z_4-z_3)\theta(z_3-z_2)\theta(z_2-z_1)\theta(z_1)}
+	\end{aligned}\\
+	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-2 l_1^z l_2^z+\epsilon ^2}{\left({l_1^z}^2+\epsilon ^2\right)^2 \left({l_1^z}^2+2 l_1^z l_2^z+{l_2^z}^2+\epsilon ^2\right)}
+\end{align*}
+Taking the derivative of the former expression, we can also arrive at a divergence-free form
+\begin{align*}
+	\frac{i}{2}\lim_{p\to0}\pdv{p}\bqty{\frac{i}{p+l_1^z}\frac{i}{p+l_1^z+l_2^z}\frac{i}{p+l_1^z}}= \frac{-\pqty{3l_1^z+2l_2^z}}{{l_1^z}^3(l_1^z+l_2^z)^2}
+\end{align*}
+which is equivalent to above expression. 
+
+The amplitude for 
+\begin{center}
+	\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidth of a,dot] (b);
+			\vertex[below=\FDHeight of a] (exa);
+			\vertex[below=\FDHeight of b] (exb);
+			% 
+			\vertex at ($(a)!0.33!(b)$) (o13);
+			\vertex at ($(a)!0.66!(b)$) (o23);
+			\vertex at ($(a)!0.25!(b)$) (o14);
+			\vertex at ($(a)!0.5!(b)$) (o12);
+			\vertex at ($(a)!0.75!(b)$) (o34);
+			% 
+			\vertex at ($(a)!0.2!(b)$) (o15);
+			\vertex at ($(a)!0.4!(b)$) (o25);
+			\vertex at ($(a)!0.6!(b)$) (o35);
+			\vertex at ($(a)!0.8!(b)$) (o45);
+			% HOWTO: One can modify this to get vertexes lower than the gauge link line. 
+			\vertex at ($(o13)+1/4*(0,-\FDHeight)$) (o13m);
+			\vertex at ($(o23)+1/4*(0,-\FDHeight)$) (o23m);
+			% 
+			\vertex at ($(exa)!0.25!(a)$) (a14);
+			\vertex at ($(exa)!0.5!(a)$) (a12);
+			\vertex at ($(exa)!0.75!(a)$) (a34);
+			\vertex at ($(exa)!0.33!(a)$) (a13);
+			\vertex at ($(exa)!0.66!(a)$) (a23);
+			% 
+			\vertex at ($(exb)!0.25!(b)$) (b14);
+			\vertex at ($(exb)!0.5!(b)$) (b12);
+			\vertex at ($(exb)!0.75!(b)$) (b34);
+			\vertex at ($(exb)!0.33!(b)$) (b13);
+			\vertex at ($(exb)!0.66!(b)$) (b23);
+			% 
+			\vertex at ($(a12)!0.33!(b12)$) (ab13);
+			\vertex at ($(a12)!0.66!(b12)$) (ab23);
+			\vertex at ($(a12)!0.5!(b12)$) (ab12);
+			% 
+			\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+			% 
+			\diagram*{
+			(a) --[Eikonal] (o15) --[Eikonal] (o25) --[Eikonal] (o35) --[Eikonal] (o45);
+			(exa) --[fermion] (a);
+			(b) --[fermion] (exb);
+			(o15) --[gluon,half right] (o25);
+			(o35) --[gluon,half right] (o45);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+is related to the color ordering $t^at^at^bt^b$. 
+\begin{align*}
+	&\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\wick{\c1A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_3-z_1)}\int\mm{l_2}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_2)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
+\end{align*}
+The propagators involved are 
+\begin{align*}
+	\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{i\epsilon}\frac{i}{-l_2^z+i\epsilon}\frac{i}{i\epsilon}
+\end{align*}
+\begin{align*}
+	&\begin{aligned}
+		\frac{1}{4}\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\bqty{\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\+\theta(z_2-z_1)\theta(z_1-z_3)\theta(z_3-z_4)\theta(z_4)+\theta(z_1-z_2)\theta(z_2-z_4)\theta(z_4-z_3)\theta(z_3)+\theta(z_2-z_1)\theta(z_1-z_4)\theta(z_4-z_3)\theta(z_3)}
+	\end{aligned}\\
+	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{1}{\left({l_1^z}^2+\epsilon ^2\right) \left({l_2^z}^2+\epsilon ^2\right)}
+\end{align*}
+
+The amplitude for 
+\begin{center}
+	\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidth of a,dot] (b);
+			\vertex[below=\FDHeight of a] (exa);
+			\vertex[below=\FDHeight of b] (exb);
+			% 
+			\vertex at ($(a)!0.33!(b)$) (o13);
+			\vertex at ($(a)!0.66!(b)$) (o23);
+			\vertex at ($(a)!0.25!(b)$) (o14);
+			\vertex at ($(a)!0.5!(b)$) (o12);
+			\vertex at ($(a)!0.75!(b)$) (o34);
+			% 
+			\vertex at ($(exa)!0.25!(a)$) (a14);
+			\vertex at ($(exa)!0.5!(a)$) (a12);
+			\vertex at ($(exa)!0.75!(a)$) (a34);
+			% 
+			\vertex at ($(exb)!0.25!(b)$) (b14);
+			\vertex at ($(exb)!0.5!(b)$) (b12);
+			\vertex at ($(exb)!0.75!(b)$) (b34);
+			% 
+			\vertex at ($(a12)!0.33!(b12)$) (ab13);
+			\vertex at ($(a12)!0.66!(b12)$) (ab23);
+			\vertex at ($(a12)!0.5!(b12)$) (ab12);
+			% 
+			\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+			\vertex at ($(ab12)+(0,1/5*\FDHeight)$) (ab123);
+			% 
+			\diagram*{
+			(a) --[Eikonal] (o14) --[Eikonal] (o12) --[Eikonal] (o34);
+			(exa) --[fermion] (a);
+			(b) --[fermion] (exb);
+			(o14) --[gluon, quarter right] (ab123);
+			(o12) --[gluon] (ab123);
+			(o34) --[gluon, quarter left] (ab123);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+is related to
+\begin{align}
+	\langle P, S| \bar{\psi}(z) \gamma^z V_3
+	\mathcal{P}\frac{\bqty{-ig_sn_{\mu}\int_0^\infty\dd z_1A^{a,\mu}(z_1)t^a}\bqty{-ig_sn_{\nu}\int_0^\infty\dd z_2A^{b,\nu}(z_2)t^b}\bqty{-ig_sn_{\rho}\int_0^\infty\dd z_3A^{c,\rho}(z_3)t^c}}{3!}
+	\psi(0)| P, S\rangle
+\end{align}
+where 
+\begin{align*}
+	V_3=-\frac{g_s}{2} f^{d e f}\int\dd^4 t\left(\partial^{\alpha} A_{d}^{\beta}-\partial^{\beta} A_{d}^{\alpha}\right) A_{\alpha}^{e} A_{\beta}^{f}
+\end{align*}
+The gluon related contraction (one out of three, others can be obtained by exchanging $d,e,f$. )
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t\wick{\c1{\left(\partial^{\alpha} A^{d,\beta}-\partial^{\beta} A^{d,\alpha}\right)} \c2A^{e}_{\alpha} \c3A^{f}_{\beta}\c2A^{a,\mu}(z_1)\c3A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\bqty{g^{\beta\rho}\partial^{\alpha}e^{-il_1\cdot(z_3-t)}-g^{\alpha\rho}\partial^{\beta}e^{-il_1\cdot(z_3-t)}}
+	\int\mm{l_2}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_1-t)}\\&
+	\int\mm{l_3}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_3^2+i\epsilon}e^{-il_3\cdot(z_2-t)}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\bqty{g^{\beta\rho}il_1^{\alpha}-g^{\alpha\rho}il_1^{\beta}}e^{-il_1\cdot(z_3-t)}
+	\int\mm{l_2}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_1-t)}\\&
+	\int\mm{l_3}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_3^2+i\epsilon}e^{-il_3\cdot(z_2-t)}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_1^{\nu}}e^{-il_1\cdot(z_3-t)}
+	\int\mm{l_2}\frac{-i\delta^{ea}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_1-t)}\\&
+	\int\mm{l_3}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}e^{-il_3\cdot(z_2-t)}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)
+\end{align*}
+Multiplied by $n$
+\begin{align*}
+	n_{\mu}n_{\nu}n_{\rho}\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_1^{\nu}}=in^2\bqty{l_1^z-l_1^z}=0
+\end{align*}
+Contracting with different fields in the parenthesis
+\begin{align*}
+	\wick{\partial^{\alpha} \c1A^{d,\beta} \c2A^{e}_{\alpha} \c3A^{f}_{\beta}\c2A^{a,\mu}(z_1)\c3A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)}-\wick{\partial^{\beta} \c1A^{d,\alpha} \c2A^{e}_{\alpha} \c3A^{f}_{\beta}\c2A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c3A^{c,\rho}(z_3)}
+\end{align*}
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_1-t)}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_3^2+i\epsilon}\\&
+	\bqty{e^{-il_3\cdot(z_2-t)}g^{\beta\rho}\partial^{\alpha}e^{-il_1\cdot(z_3-t)}-e^{-il_1\cdot(z_3-t)}g^{\alpha\rho}\partial^{\beta}e^{-il_3\cdot(z_2-t)}}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{l_2^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}e^{-il_2\cdot(z_1-t)}e^{-il_3\cdot(z_2-t)}e^{-il_1\cdot(z_3-t)}\\&
+	\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_3^{\nu}}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)
+\end{align*}
+Make $z_1\to-z_1,t\to-t,l_2\to-l_2$, 
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{l_2^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}e^{-il_2\cdot(z_1-t)}e^{-il_3\cdot(z_2-t)}e^{-il_1\cdot(z_3-t)}\\&
+	\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_3^{\nu}}
+	\theta(-z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\
+	&=\int\mm{l_1}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{(l_1+l_3)^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{-2l_1^z+i\epsilon}\frac{i}{-2l_1^z-l_3^z+i\epsilon}
+\end{align*}
+
+
+
+
+\begin{center}
+	\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+		\begin{feynman}
+			\node[dot] (a);
+			\node[right=\FDWidth of a,dot] (b);
+			\vertex[below=\FDHeight of a] (exa);
+			\vertex[below=\FDHeight of b] (exb);
+			% 
+			\vertex at ($(a)!0.33!(b)$) (o13);
+			\vertex at ($(a)!0.66!(b)$) (o23);
+			\vertex at ($(a)!0.25!(b)$) (o14);
+			\vertex at ($(a)!0.5!(b)$) (o12);
+			\vertex at ($(a)!0.75!(b)$) (o34);
+			% 
+			\vertex at ($(a)!0.2!(b)$) (o15);
+			\vertex at ($(a)!0.4!(b)$) (o25);
+			\vertex at ($(a)!0.6!(b)$) (o35);
+			\vertex at ($(a)!0.8!(b)$) (o45);
+			% 
+			\vertex at ($(exa)!0.25!(a)$) (a14);
+			\vertex at ($(exa)!0.5!(a)$) (a12);
+			\vertex at ($(exa)!0.75!(a)$) (a34);
+			% 
+			\vertex at ($(exb)!0.25!(b)$) (b14);
+			\vertex at ($(exb)!0.5!(b)$) (b12);
+			\vertex at ($(exb)!0.75!(b)$) (b34);
+			% 
+			\vertex at ($(a12)!0.33!(b12)$) (ab13);
+			\vertex at ($(a12)!0.66!(b12)$) (ab23);
+			\vertex at ($(a12)!0.5!(b12)$) (ab12);
+			% 
+			\vertex at ($(a14)!0.5!(a34)!1.2!-90:(a34)$) (g1);
+			\vertex at ($(o12)!0.66!(a12)$) (g13);
+			\vertex at ($(o12)!0.33!(a12)$) (g23);
+			% 
+			\diagram*{
+			(o14) --[Eikonal] (o12) --[Eikonal] (o34) --[Eikonal] (b);
+			(exa) --[fermion] (a12) --[fermion] (a);
+			(b) --[fermion] (exb);
+			(o34) --[gluon] (a12);
+			(o12) --[gluon,half right] (o14);
+			};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+
+\end{document}
