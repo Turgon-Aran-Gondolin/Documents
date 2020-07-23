@@ -194,39 +194,35 @@ There're four diagrams in total:
 	\end{tikzpicture} & =\calA^2\mathcal{I}^2 \\
 	\begin{tikzpicture}[baseline=(o1.base)]
 		\begin{feynman}
-			\diagram[small,horizontal=o1 to o3]{
-			p1 -- o1 --[draw=none] o3 --[draw=none] o35[empty dot] --[draw=none] o4 -- p3;
-			p2 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 -- p4;
+			\diagram[small,horizontal=o1 to o35]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o35[empty dot] -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o35 -- p4;
 			};
 			\diagram*{
-			(o3) --[half left] (o35) --[half left] (o4);
-			(o3) --[half right] (o35) --[half right] (o4);
+			(o3) --[half left] (o35);
+			(o3) --[half right] (o35);
 			};
 			\node[blob] at ($(o1)!0.5!(o3)$) (o2);
 		\end{feynman}
 	\end{tikzpicture} & =\calA\mathcal{I}     \\
-	\begin{tikzpicture}[baseline=(o3.base)]
+	\begin{tikzpicture}[baseline=(o35.base)]
 		\begin{feynman}
-			\diagram[small,horizontal=o3 to o4]{
-			p1 -- o3 --[draw=none] o35[empty dot] --[draw=none] o4 --[draw=none] o6 -- p3;
-			p2 -- o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p4;
+			\diagram[small,horizontal=o35 to o6]{
+			p1 -- o35[empty dot] --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o35 --[draw=none] o4 --[draw=none] o6 -- p4;
 			};
 			\diagram*{
-			(o3) --[half left] (o35) --[half left] (o4);
-			(o3) --[half right] (o35) --[half right] (o4);
+			(o35) --[half left] (o4);
+			(o35) --[half right] (o4);
 			};
 			\node[blob] at ($(o4)!0.5!(o6)$) (o5);
 		\end{feynman}
 	\end{tikzpicture} & =\calA\mathcal{I}     \\
 	\begin{tikzpicture}[baseline=(o3.base)]
 		\begin{feynman}
-			\diagram[small,horizontal=o3 to o4]{
-			p1 -- o3 --[draw=none] o35[empty dot] --[draw=none] o4 -- p3;
-			p2 -- o3 --[draw=none] o35 --[draw=none] o4 -- p4;
-			};
-			\diagram*{
-			(o3) --[half left] (o35) --[half left] (o4);
-			(o3) --[half right] (o35) --[half right] (o4);
+			\diagram[small,layered layout,horizontal=p1 to p3]{
+				p1 -- o3[empty dot] -- p3;
+				p2 -- o3 -- p4;
 			};
 		\end{feynman}
 	\end{tikzpicture} & =1
@@ -292,14 +288,21 @@ We then have
 \end{align}
 using \eqref{contact}.
 \subsection{Viral Theorem}
+Given a harmonic trapping potential: 
+\begin{align}
+	V(\vb{R})=\frac{m}{2}\omega^2R^2
+\end{align}
 Dimensional analysis requires
 \begin{align}
-	\bqty{\omega\pdv{\omega}-\frac{1}{2}a\pdv{a}}\int\dd^3R\expval{\mathcal{H}}=1
+	\bqty{\omega\pdv{\omega}-\frac{1}{2}a\pdv{a}}\int\dd^3R\expval{\mathcal{H}}=\int\dd^3R\expval{\mathcal{H}}
 \end{align}
 Together with F-H theorem
 \begin{align}
-	  & \frac{a}{2}\pdv{a}\int\dd^3R\expval{\mathcal{H}}=\frac{C}{8\pi m a}+\frac{a}{2}\pdv{a}\expval{\mathcal{V}}==\frac{a}{2}\dv{E}{a} \\
-	  & \pdv{\omega}\int\dd^3R\expval{\mathcal{H}}=\pdv{\omega}\expval{\mathcal{V}}=\dv{E}{\omega}
+	  & \frac{a}{2}\pdv{a}\int\dd^3R\expval{\mathcal{H}}=\frac{C}{8\pi m a} \\
+	  & \pdv{\omega}\int\dd^3R\expval{\mathcal{H}}=\pdv{\omega}\int\dd^3R\expval{\mathcal{V}}=2\int\dd^3R\expval{\mathcal{V}}
+\end{align}
+\begin{align}
+	E=2 \int d^{3} R\langle\mathcal{V}\rangle-C /(8 \pi m a)
 \end{align}
 
 \subsection{OPE for number density operators}
