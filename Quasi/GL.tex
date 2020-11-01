@@ -351,7 +351,16 @@ In coordinate space
 	  & \frac{1}{4!}\mathcal{P}\bqty{\int_0^\infty\dd z_1A^{a,\mu}(z_1)}\bqty{\int_0^\infty\dd z_2A^{b,\nu}(z_2)}\bqty{\int_0^\infty\dd z_3A^{c,\rho}(z_3)}\bqty{\int_0^\infty\dd z_4A^{d,\sigma}(z_4)} \\&
 	=\bqty{\int_0^\infty\dd z_1A^{a,\mu}(z_1)}\bqty{\int_0^\infty\dd z_2A^{b,\nu}(z_2)}\bqty{\int_0^\infty\dd z_3A^{c,\rho}(z_3)}\bqty{\int_0^\infty\dd z_4A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)
 \end{align*}
+The coefficient of the above expression is
+\begin{align}
+	\mel{P}{\bar\psi(z)\gamma^z\psi(0)}{P}(-ig_sn^{\mu})(-ig_sn^{\nu})(-ig_sn^{\rho})(-ig_sn^{\sigma})t^at^bt^ct^d
+\end{align}
+take a trace
+\begin{align}
+	e^{-iP^zz}\Tr{(\slashed P+m)\gamma^z}\Tr{t^at^bt^ct^d}g_s^4n^{\mu}n^{\nu}n^{\rho}n^{\sigma}
+\end{align}
 
+\subsection{Diag. 50}
 The amplitude for 
 \begin{center}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -405,6 +414,29 @@ Taking the derivative of the former expression, we can also arrive at a divergen
 \end{align*}
 which is equivalent to above expression. 
 
+Adding $\epsilon$ in the definition so that the definition is $\mathcal{P}e^{-ig_s\int_0^\infty e^{-z \epsilon}n\cdot A^a(z)t^a}$, the expression becomes
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c2A^{d,\sigma}(z_4)}e^{-(z_1+z_2+z_3+z_4)\epsilon}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\
+	&=\frac{1}{2}\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c2A^{d,\sigma}(z_4)}e^{-(z_1+z_2+z_3+z_4)\epsilon}\bqty{
+		\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\&+\theta(z_3-z_4)\theta(z_4-z_1)\theta(z_1-z_2)\theta(z_2)
+	}\\
+	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-6 {l_1^z} {l_2^z}-{l_2^z}^2}{4 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z}) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+\end{align*}
+
+The full amplitude in coordinate space is
+\begin{align}
+	&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^ct^d}n^{\mu}n^{\nu}n^{\rho}n^{\sigma}\\&\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\rho}\delta^{ac}}{l_1^2+i\epsilon}\frac{-ig^{\nu\sigma}\delta^{bd}}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-6 {l_1^z} {l_2^z}-{l_2^z}^2}{4 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z}) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^at^b}\\&\int\mm{l_1}\int\mm{l_2}\frac{-in^2}{l_1^2+i\epsilon}\frac{-in^2}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-6 {l_1^z} {l_2^z}-{l_2^z}^2}{4 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z}) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^at^b}\\&\int\mm{l_1}\int\mm{l_2}\frac{i}{l_1^2+i\epsilon}\frac{i}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-6 {l_1^z} {l_2^z}-{l_2^z}^2}{4 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (  {l_2^z}+3 i\epsilon) (  {l_2^z}-3 i\epsilon) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}
+\end{align}
+
+\subsection{Diag. 37}
 The amplitude for 
 \begin{center}
 	\begin{tikzpicture}[baseline=($(a)!0.5!(exa)$.base)]
@@ -448,7 +480,24 @@ Taking the derivative of the former expression, we can also arrive at a divergen
 	\frac{i}{2}\lim_{p\to0}\pdv{p}\bqty{\frac{i}{p+l_1^z}\frac{i}{p+l_1^z+l_2^z}\frac{i}{p+l_1^z}}= \frac{-\pqty{3l_1^z+2l_2^z}}{{l_1^z}^3(l_1^z+l_2^z)^2}
 \end{align*}
 which is equivalent to above expression. 
+\begin{align*}
+	\frac{-3 {l_1^z}^2-2 {l_1^z} {l_2^z}+3 \epsilon ^2}{2({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) ({l_1^z}-3 i \epsilon ) ({l_1^z}+3 i \epsilon ) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+\end{align*}
 
+The full amplitude in coordinate space is
+\begin{align}
+	&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^ct^d}n^{\mu}n^{\nu}n^{\rho}n^{\sigma}\\&\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-2 {l_1^z} {l_2^z}+3 \epsilon ^2}{2({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) ({l_1^z}-3 i \epsilon ) ({l_1^z}+3 i \epsilon ) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^bt^a}\\&\int\mm{l_1}\int\mm{l_2}\frac{-in^2}{l_1^2+i\epsilon}\frac{-in^2}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-2 {l_1^z} {l_2^z}+3 \epsilon ^2}{2({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) ({l_1^z}-3 i \epsilon ) ({l_1^z}+3 i \epsilon ) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^bt^a}\\&\int\mm{l_1}\int\mm{l_2}\frac{i}{l_1^2+i\epsilon}\frac{i}{l_2^2+i\epsilon}\frac{-3 {l_1^z}^2-2 {l_1^z} {l_2^z}}{2({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) ({l_1^z}-3 i \epsilon ) ({l_1^z}+3 i \epsilon ) ({l_1^z}+{l_2^z}-2 i \epsilon ) ({l_1^z}+{l_2^z}+2 i \epsilon )}
+	\end{aligned}
+\end{align}
+
+\subsection{Diag. 43}
 The amplitude for 
 \begin{center}
 	\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
@@ -503,7 +552,7 @@ The amplitude for
 is related to the color ordering $t^at^at^bt^b$. 
 \begin{align*}
 	&\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\wick{\c1A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
-	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_3-z_1)}\int\mm{l_2}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_2)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_2-z_1)}\int\mm{l_2}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_3)}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
 \end{align*}
 The propagators involved are 
 \begin{align*}
@@ -513,9 +562,31 @@ The propagators involved are
 	&\begin{aligned}
 		\frac{1}{4}\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\wick{\c1A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}\bqty{\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)\\+\theta(z_2-z_1)\theta(z_1-z_3)\theta(z_3-z_4)\theta(z_4)+\theta(z_1-z_2)\theta(z_2-z_4)\theta(z_4-z_3)\theta(z_3)+\theta(z_2-z_1)\theta(z_1-z_4)\theta(z_4-z_3)\theta(z_3)}
 	\end{aligned}\\
-	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ad}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{bc}}{l_2^2+i\epsilon}\frac{1}{\left({l_1^z}^2+\epsilon ^2\right) \left({l_2^z}^2+\epsilon ^2\right)}
+	&=\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ab}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{cd}}{l_2^2+i\epsilon}\frac{1}{\left({l_1^z}^2+\epsilon ^2\right) \left({l_2^z}^2+\epsilon ^2\right)}
+\end{align*}
+\begin{align*}
+	&\int_0^\infty\dd z_1\int_0^\infty\dd z_2\int_0^\infty\dd z_3\int_0^\infty\dd z_4\wick{\c1A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)\c1A^{d,\sigma}(z_4)}e^{-(z_1+z_2+z_3+z_4)\epsilon}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\\
+	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd z_4\int\mm{l_1}\frac{-ig^{\mu\sigma}\delta^{ab}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_2-z_1)}\int\mm{l_2}\frac{-ig^{\nu\rho}\delta^{cd}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_4-z_3)}e^{-(z_1+z_2+z_3+z_4)\epsilon}\\&\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3-z_4)\theta(z_4)
+\end{align*}
+and the eikonal part is
+\begin{align*}
+	\frac{3}{8 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z})}
 \end{align*}
 
+The full amplitude in coordinate space is
+\begin{align}
+	&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^bt^ct^d}n^{\mu}n^{\nu}n^{\rho}n^{\sigma}\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\sigma}\delta^{ab}}{l_1^2+i\epsilon}\frac{-ig^{\nu\rho}\delta^{cd}}{l_2^2+i\epsilon}\frac{3}{8 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z})}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^at^bt^b}\int\mm{l_1}\int\mm{l_2}\frac{-in^2}{l_1^2+i\epsilon}\frac{-in^2}{l_2^2+i\epsilon}\frac{3}{8 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) (3 \epsilon -i {l_2^z}) (3 \epsilon +i {l_2^z})}
+	\end{aligned}\\
+	=&\begin{aligned}[t]
+		&4P^ze^{-iP^zz}g_s^4\Tr{t^at^at^bt^b}\int\mm{l_1}\int\mm{l_2}\frac{i}{l_1^2+i\epsilon}\frac{i}{l_2^2+i\epsilon}\frac{3}{8 ({l_1^z}-i \epsilon ) ({l_1^z}+i \epsilon ) ( {l_2^z}-3i \epsilon ) ( {l_2^z}+3i \epsilon )}
+	\end{aligned}
+\end{align}
+
+\subsection{Diag. 47}
 The amplitude for 
 \begin{center}
 	\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
@@ -596,23 +667,30 @@ Contracting with different fields in the parenthesis
 \end{align*}
 \begin{align*}
 	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
-	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_2^2+i\epsilon}e^{-il_2\cdot(z_1-t)}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_3^2+i\epsilon}\\&
-	\bqty{e^{-il_3\cdot(z_2-t)}g^{\beta\rho}\partial^{\alpha}e^{-il_1\cdot(z_3-t)}-e^{-il_1\cdot(z_3-t)}g^{\alpha\rho}\partial^{\beta}e^{-il_3\cdot(z_2-t)}}
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_3^2+i\epsilon}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_1-t)}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_2^2+i\epsilon}\\&
+	\bqty{e^{-il_2\cdot(z_2-t)}g^{\beta\rho}\partial^{\alpha}e^{-il_3\cdot(z_3-t)}-e^{-il_3\cdot(z_3-t)}g^{\alpha\rho}\partial^{\beta}e^{-il_2\cdot(z_2-t)}}
 	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
 	&=\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
-	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{l_2^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}e^{-il_2\cdot(z_1-t)}e^{-il_3\cdot(z_2-t)}e^{-il_1\cdot(z_3-t)}\\&
-	\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_3^{\nu}}
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_3^2+i\epsilon}\frac{-i\delta^{ea}}{l_1^2+i\epsilon}\frac{-i\delta^{fb}}{l_2^2+i\epsilon}e^{-il_1\cdot(z_1-t)}e^{-il_2\cdot(z_2-t)}e^{-il_3\cdot(z_3-t)}\\&
+	\bqty{g^{\nu\rho}il_3^{\mu}-g^{\mu\rho}il_2^{\nu}}
 	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)
 \end{align*}
 Make $z_1\to-z_1,t\to-t,l_2\to-l_2$, 
 \begin{align*}
 	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t
-	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{l_2^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}e^{-il_2\cdot(z_1-t)}e^{-il_3\cdot(z_2-t)}e^{-il_1\cdot(z_3-t)}\\&
-	\bqty{g^{\nu\rho}il_1^{\mu}-g^{\mu\rho}il_3^{\nu}}
+	\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_3^2+i\epsilon}\frac{-i\delta^{ea}}{l_1^2+i\epsilon}\frac{-i\delta^{fb}}{l_2^2+i\epsilon}e^{-il_1\cdot(z_1-t)}e^{-il_2\cdot(z_2-t)}e^{-il_3\cdot(z_3-t)}\\&
+	\bqty{g^{\nu\rho}il_3^{\mu}-g^{\mu\rho}il_2^{\nu}}
 	\theta(-z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\
-	&=\int\mm{l_1}\int\mm{l_3}\frac{-i\delta^{dc}}{l_1^2+i\epsilon}\frac{-i\delta^{ea}}{(l_1+l_3)^2+i\epsilon}\frac{-i\delta^{fb}}{l_3^2+i\epsilon}\frac{i}{-l_1^z+i\epsilon}\frac{i}{-2l_1^z+i\epsilon}\frac{i}{-2l_1^z-l_3^z+i\epsilon}
+	&=\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_3^2+i\epsilon}\frac{-i\delta^{ea}}{(l_3+l_2)^2+i\epsilon}\frac{-i\delta^{fb}}{l_2^2+i\epsilon}\frac{i}{-l_3^z+i\epsilon}\frac{i}{-2l_3^z+i\epsilon}\frac{i}{-2l_3^z-l_2^z+i\epsilon}\bqty{g^{\nu\rho}il_3^{\mu}-g^{\mu\rho}il_2^{\nu}}
 \end{align*}
-
+\begin{align*}
+	\wick{\partial^{\alpha} \c1A^{d,\beta} \c2A^{e}_{\alpha} \c3A^{f}_{\beta}\c2A^{a,\mu}(z_1)\c1A^{b,\nu}(z_2)\c3A^{c,\rho}(z_3)}-\wick{\partial^{\beta} \c1A^{d,\alpha} \c2A^{e}_{\alpha} \c3A^{f}_{\beta}\c1A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c3A^{c,\rho}(z_3)}
+\end{align*}
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\int\dd^4 t\int\mm{l_1}\int\mm{l_2}\int\mm{l_3}\frac{-i\delta^{dc}}{l_3^2+i\epsilon}\frac{-ig_{\alpha}^{\mu}\delta^{ea}}{l_1^2+i\epsilon}e^{-il_1\cdot(z_1-t)}\frac{-ig_{\beta}^{\nu}\delta^{fb}}{l_2^2+i\epsilon}\\&
+	\bqty{e^{-il_2\cdot(z_2-t)}g^{\beta\rho}\partial^{\alpha}e^{-il_3\cdot(z_3-t)}-e^{-il_3\cdot(z_3-t)}g^{\alpha\rho}\partial^{\beta}e^{-il_2\cdot(z_2-t)}}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)
+\end{align*}
 
 
 
@@ -661,5 +739,30 @@ Make $z_1\to-z_1,t\to-t,l_2\to-l_2$,
 		\end{feynman}
 	\end{tikzpicture}
 \end{center}
+is related to
+\begin{align}
+	\langle P, S| \bar{\psi}(z) \gamma^z Q_3
+	\mathcal{P}\frac{\bqty{-ig_sn_{\mu}\int_0^\infty\dd z_1A^{a,\mu}(z_1)t^a}\bqty{-ig_sn_{\nu}\int_0^\infty\dd z_2A^{b,\nu}(z_2)t^b}\bqty{-ig_sn_{\rho}\int_0^\infty\dd z_3A^{c,\rho}(z_3)t^c}}{3!}
+	\psi(0)| P, S\rangle
+\end{align}
+where
+\begin{align*}
+	Q_3=(-ig_s\gamma_{\sigma})\int\dd^4 t \bar\psi\psi A^{d,\sigma}
+\end{align*}
+\begin{align*}
+	&\int\dd z_1\int\dd z_2\int\dd z_3\wick{\c1A^{d,\sigma}(t) \c2A^{a,\mu}(z_1)\c2A^{b,\nu}(z_2)\c1A^{c,\rho}(z_3)}\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+	&=\int\dd z_1\int\dd z_2\int\dd z_3
+	\int\mm{l_1}\int\mm{l_2}\frac{-ig^{\mu\nu}\delta^{ab}}{l_1^2+i\epsilon}\frac{-ig^{\sigma\rho}\delta^{dc}}{l_2^2+i\epsilon}e^{-il_1\cdot(z_2-z_1)}e^{-il_2\cdot(z_3-t)}
+	\theta(z_1-z_2)\theta(z_2-z_3)\theta(z_3)\\ 
+\end{align*}
+The eikonal propagators are
+\begin{align*}
+	\frac{i}{-l_1^z+i\epsilon}\frac{i}{i\epsilon}\frac{i}{l_2^z+i\epsilon}
+\end{align*}
+Flip $z_1$ and $z_2$
+\begin{align}
+	-\frac{i}{-l_1^z+i\epsilon}\frac{i}{l_1^z+i\epsilon}\frac{i}{l_2^z+i\epsilon}
+\end{align}
+This covers for all diagrams involved one gauge field contracting with the would-be-divergent three gauge link fields, and the extra eikonal line behaves exactly as in one loop level. 
 
 \end{document}
