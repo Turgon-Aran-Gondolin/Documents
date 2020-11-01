@@ -220,6 +220,9 @@
 \author{Yingsheng Huang}
 \begin{document}
 \maketitle
+\tableofcontents
+
+\clearpage
 
 \section{Renormalization}
 \subsection{One loop diagrams}
@@ -527,6 +530,8 @@ Take the $l_2\gg l_1$ limit, the integrand becomes
 	\frac{1}{\bqty{\slashed l_1-m}\bqty{(P-l_1)^2}\bqty{n\cdot(P-l_1)}\bqty{n\cdot(P-l_1)}\bqty{n\cdot l_2}\bqty{(P-l_2)^2}}
 \end{align}
 and the integral involving $l_2$ should give something proportional to $n\cdot (P-l_1)$, thus cancels one eikonal propagator, the remainder is the integral of $\tilde q_{12}$.
+
+\subsection{Numerical results for one loop diagrams ($z=1/4$)}
 
 \clearpage
 \section{Real Diagrams}
@@ -1107,7 +1112,7 @@ Figure~\ref{re:sc} lists all self-conjugated real diagrams, and Figure~\ref{re:c
 		\label{}
 	}\hfil
 	\subfloat[128]{
-		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$.base)]
+		\begin{tikzpicture}[transform shape,scale=1,baseline=($(a)!0.5!(exa)$)]
 			\begin{feynman}
 				\node[dot] (a);
 				\node[right=\FDWidth of a,dot] (b);
@@ -2850,17 +2855,333 @@ Diagram~\ref{re:143} gives
 	\int\mm{l_1}\mm{l_2}\frac{n^{\mu}n^{\sigma}g^{\nu\rho}t^i\delta^{ia}t^j\delta^{dj}}{\bqty{l_1^2}^2\bqty{l_2^2}\bqty{n\cdot l_1}^2}\delta(l_1^z-(1-x)P^z) \notag\\&\left[f^{a b e} f^{c d e}\left(g^{\mu \rho} g^{\nu \sigma}-g^{\mu \sigma} g^{\nu \rho}\right)  +f^{a c e} f^{b d e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \sigma} g^{\nu \rho}\right) +f^{a d e} f^{b c e}\left(g^{\mu \nu} g^{\rho \sigma}-g^{\mu \rho} g^{\nu \sigma}\right)\right]
 \end{align}
 Let's compare the color indices: 
+\subsection{Numerical test (massless, ordered as Figure~\ref{re:sc} and Figure~\ref{re:c}, $z=1/4$)}
+\subsubsection{Self-conjugated}
+\paragraph{10}
+\begin{minted}[breaklines]{mathematica}
+	-((0.2026423672846755428877589264194553167160520680(3)*10^1)/ep)-0.13142890977(7)*10^2
+\end{minted}
+\paragraph{11}
+\begin{minted}[breaklines]{mathematica}
+	-((0.3609567167(4))/ep^2)-(0.16328193(1)*10^1)/ep-0.6455896(1)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{11 xiong}	\WNNH}
+
+\paragraph{26}
+\begin{minted}[breaklines]{mathematica}
+	-0.4052847345693513
+\end{minted}
+\paragraph{\textcolor{red}{26 xiong}}
+\begin{minted}[breaklines]{mathematica}
+	-0.405285
+\end{minted}
+\paragraph{27}
+\begin{minted}[breaklines]{mathematica}
+	-((0.1899772193(3)*10^-1)/ep^2)+(0.871746(1)*10^-2)/ep-0.4783185(9)*10^-1
+\end{minted}
+\paragraph{\textcolor{red}{27 xiong}}
+
+\paragraph{52}
+\begin{minted}[breaklines,breakbefore=-]{mathematica}
+	(0.2251581858718617143197321404660614630178356311(1)*10^-1)/ep^3+(0.302543(3)*10^-2)/ep^2-(0.947637(3)*10^-1)/ep-0.692705(2)-I 0.0(1)*10^-5
+\end{minted}
+\paragraph{71}
+\begin{minted}[breaklines,breakbefore=-/*]{mathematica}
+	-((0.4052847345693510857755178528389106334321041360(3))/ep^2)-(0.19519788014(4)*10^1)/ep-0.823627359(1)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{71 xiong}}
+
+\paragraph{87}
+\begin{minted}[breaklines]{mathematica}
+	-((0.7205061947899574858231428494913966816570740196(4))/ep)-0.5969939054(1)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{87 xiong}}
+
+\paragraph{100}
+\begin{minted}[breaklines]{mathematica}
+	-0.1801265486974893714557857123728491704142685049(1)
+\end{minted}
+\paragraph{116}
+\begin{minted}[breaklines]{mathematica}
+	(0.6291855(4)*10^-1)/ep^2-(0.5159034(4))/ep-0.1258567(2)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{116 xiong}	\WNZF AutoEnd Failed @ ALL possible bisections!}
+
+\paragraph{124}
+\begin{minted}[breaklines]{mathematica}
+	(0.2701898230462340571836785685592737556214027573(3))/ep+0.16983474990(6)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{124 xiong}}
+
+\paragraph{125}
+\begin{minted}[breaklines]{mathematica}
+	(0.5066059182(3)*10^-1)/ep^2+(0.19628268(1))/ep+0.76838637(9)
+\end{minted}
+\paragraph{\textcolor{red}{125 xiong} \WNNH}
+\paragraph{128}
+\begin{minted}[breaklines]{mathematica}
+	(0.7100744(2))/ep+0.1478379(1)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{128	xiong}}
+
+\paragraph{129}
+\begin{minted}[breaklines]{mathematica}
+	-((0.2725043(8)*10^-1)/ep^2)-(0.1354903(1))/ep+0.265727(5)*10^-1
+\end{minted}
+\paragraph{\textcolor{red}{129 xiong}}
+
+\paragraph{133}
+\begin{minted}[breaklines]{mathematica}
+	(0.2880197(3)*10^-1)/ep^2-(0.1100423(3))/ep+0.1811499(1)*10^1
+\end{minted}
+\paragraph{\textcolor{red}{133	xiong} AutoEnd Failed @ ALL possible bisections!}
+
+\paragraph{143}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\paragraph{\textcolor{red}{143 xiong}}
+
+\paragraph{144}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subsubsection{Remaining diagrams}
+\paragraph{2	\WNNH}
+
+\subparagraph{\CJ{1}	\WNNH}
+
+\paragraph{3}
+
+\subparagraph{\CJ{83}	\WNNH}
+\paragraph{85	\WNNH}
+\subparagraph{\CJ{4}}
+
+\paragraph{5	\WNZF}
+\subparagraph{\CJ{113}	\WNZF}
+\paragraph{7}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subparagraph{\CJ{6}}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\paragraph{13}
+\begin{minted}[breaklines]{mathematica}
+	(0.16042520743(9))/ep^2-(0.24060641(3))/ep-0.5034791(3)
+\end{minted}
+\subparagraph{\CJ{14}}
+\begin{minted}[breaklines]{mathematica}
+	(0.16042520743(9))/ep^2-(0.24060641(3))/ep-0.5034791(3)
+\end{minted}
+\paragraph{16}
+\begin{minted}[breaklines]{mathematica}
+	(0.72172896(3)*10^-1)/ep^2+(0.13916914(8))/ep+0.10188133(7)*10^1
+\end{minted}
+\subparagraph{\CJ{18}}
+\begin{minted}[breaklines]{mathematica}
+	(0.72172896(3)*10^-1)/ep^2+(0.13916914(8))/ep+0.10188133(7)*10^1
+\end{minted}
+\paragraph{25}
+\begin{minted}[breaklines]{mathematica}
+	(0.8443431970(5)*10^-2)/ep^2+(0.99323076(2)*10^-1)/ep+0.32267783(2)
+\end{minted}
+\subparagraph{\CJ{22}}
+\begin{minted}[breaklines]{mathematica}
+	(0.8443431970(5)*10^-2)/ep^2+(0.99323076(2)*10^-1)/ep+0.32267783(2)
+\end{minted}
+\paragraph{88}
+\begin{minted}[breaklines]{mathematica}
+	-((0.30021091(3)*10^-1)/ep^3)+(0.11491921(3)+I 0.18862808(2))/ep^2+(0.1510373(2)*10^1+I 0.13143394(4)*10^1)/ep+I 0.669150(1)*10^1+0.1158914(9)*10^2
+\end{minted}
+\subparagraph{\CJ{30}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.300210915(7)*10^-1)/ep^3)+(-0.11023898(3)-I 0.18862808(1))/ep^2+(-0.5735834(7)-I 0.13143394(4)*10^1)/ep-0.227073(4)*10^1-I 0.6691519(9)*10^1
+\end{minted}
+\paragraph{31	\WNOF}
+
+\subparagraph{\CJ{106}	\WNNH	\WNGINAC}
+\subparagraph{\ZR{3.11}}
+\paragraph{32	\WNOF}
+
+\subparagraph{\CJ{82}	\WNNH}
+\subparagraph{\ZR{3.12}}
+\paragraph{38}
+\begin{minted}[breaklines]{mathematica}
+	-((0.4503163717437234286394642809321229260356712622(3)*10^-1)/ep^2)+(-0.26393587(2)+I 0.14147106(4))/ep-0.6590036(3)+I 0.6663843(5)
+\end{minted}
+\subparagraph{\CJ{62}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.4503163717437234286394642809321229260356712622(3)*10^-1)/ep^2)+(-0.26393587(2)-I 0.14147106(1))/ep-0.65900358(7)-I 0.6663842(5)
+\end{minted}
+\paragraph{89 (3MIs)}
+\begin{minted}[breaklines,breakbefore=-+]{mathematica}
+	(0.1801265486974893714557857123728491704142685049(1))/ep^2+(0.6273774024(2))/ep+0.2771696389(5)*10^1
+\end{minted}
+\subparagraph{\CJ{39} (2MIs)}
+\begin{minted}[breaklines,breakbefore=-+]{mathematica}
+	(0.1801265486974893714557857123728491704142685049(1))/ep^2+(0.6273774024(2))/ep+0.2771696389(5)*10^1
+\end{minted}
+\paragraph{40}
+\begin{minted}[breaklines]{mathematica}
+	-((0.558142 - 0.565884 I)/ep) - (3.52786 - 2.48104 I)
+\end{minted}
+\subparagraph{\CJ{97}}
+\begin{minted}[breaklines]{mathematica}
+	(-0.5581423(1)-I 0.565884242(3))/ep-I 0.24810455(5)*10^1-0.3527861(1)*10^1
+\end{minted}
+\subparagraph{\ZR{3.15}}
+\begin{minted}[breaklines]{mathematica}
+	-(0.360253/ep)
+\end{minted}
+\paragraph{74	\WNZF}
+\subparagraph{\CJ{41}	\WNGINAC	\WNDZ}
+\paragraph{54}
+\begin{minted}[breaklines]{mathematica}
+	-((0.72050619478996(4))/ep)-I 0.226353697(2)*10^1-0.45289267(6)*10^1
+\end{minted}
+\subparagraph{\CJ{80}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.720506194789957(2))/ep)+I 0.2263536968(3)*10^1-0.45289267(5)*10^1
+\end{minted}
+\subparagraph{\ZR{4.6}}
+\paragraph{81}
+\begin{minted}[breaklines]{mathematica}
+	(0.1801265486974894(3))/ep^2+(0.78974126(8)-I 0.56588424(2))/ep+0.2441972(1)*10^1-I 0.24810455(7)*10^1
+\end{minted}
+\subparagraph{\CJ{55}}
+\begin{minted}[breaklines]{mathematica}
+	(0.18012654869749(3))/ep^2+(0.78974126(9)+I 0.565884242(4))/ep+0.24419718(8)*10^1+I 0.24810453(5)*10^1
+\end{minted}
+\subparagraph{\ZR{3.14}}
+
+\paragraph{84}
+\begin{minted}[breaklines]{mathematica}
+	(0.1395356(1)+I 0.1414710(2))/ep^2+(0.6166541(5)+I 0.3512700(5))/ep+I 0.1219312(2)*10^1+0.1898527(2)*10^1
+\end{minted}
+\subparagraph{\CJ{56}}
+\begin{minted}[breaklines]{mathematica}
+	(0.1395356(2)-I 0.1414711(2))/ep^2+(0.6166541(7)-I 0.3512700(8))/ep-I 0.1219311(2)*10^1+0.1898527(2)*10^1
+\end{minted}
+\subparagraph{\ZR{4.2}}
+\paragraph{86}
+\begin{minted}[breaklines]{mathematica}
+	-((0.900632743487447(2)*10^-1)/ep)+I 0.2829421211(4)-0.5661159(5)
+\end{minted}
+\subparagraph{\CJ{58}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.90063274348745(5)*10^-1)/ep)-I 0.282942121(3)-0.56611583(7)
+\end{minted}
+\paragraph{95}
+\begin{minted}[breaklines]{mathematica}
+	(0.2251581858718617(4)*10^-1)/ep^2+(0.9871766(7)*10^-1-I 0.70735530(2)*10^-1)/ep+0.305247(1)-I 0.3101307(3)
+\end{minted}
+\subparagraph{\CJ{59}}
+\begin{minted}[breaklines]{mathematica}
+	(0.22515818587186(3)*10^-1)/ep^2+(0.9871766(1)*10^-1+I 0.707355303(5)*10^-1)/ep+0.3052465(1)+I 0.31013067(6)
+\end{minted}
+\paragraph{60}
+\begin{minted}[breaklines]{mathematica}
+	(0.45031637(2)*10^-1)/ep^2+(0.14234890(2)-I 0.70735530(8)*10^-1)/ep+0.2902786(2)-I 0.3562536(3)
+\end{minted}
+\subparagraph{\CJ{63}}
+\begin{minted}[breaklines]{mathematica}
+	(0.4503163717437(1)*10^-1)/ep^2+(0.14234890(7)+I 0.70735530(2)*10^-1)/ep+0.2902786(8)+I 0.3562535(2)
+\end{minted}
+\paragraph{61}
+\begin{minted}[breaklines]{mathematica}
+	-((0.11257909294(3)*10^-1)/ep^3)+(-0.141816(2)*10^-1+I 0.176839(2)*10^-1)/ep^2+(-0.61242(7)*10^-2+I 0.554395(8)*10^-1)/ep+0.120741(2)+I 0.225341(2)
+\end{minted}
+\subparagraph{\CJ{101}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.11257909293593(2)*10^-1)/ep^3)+(-0.1418158(7)*10^-1-I 0.176838826(4)*10^-1)/ep^2+(-0.61242(3)*10^-2-I 0.5543947(5)*10^-1)/ep+0.120741(1)-I 0.2253407(6)
+\end{minted}
+\paragraph{64}
+\begin{minted}[breaklines]{mathematica}
+	(0.675474558(3)*10^-1)/ep^3+(0.55505288(5)-I 0.42441318(2))/ep^2+(0.24553798(8)*10^1-I 0.31694700(3)*10^1)/ep+0.5380347(5)*10^1-I 0.17422348(5)*10^2
+\end{minted}
+\subparagraph{\CJ{104}}
+\begin{minted}[breaklines]{mathematica}
+	(0.675474558(2)*10^-1)/ep^3+(0.48750543(5)+I 0.42441318(1))/ep^2+(0.19366015(6)*10^1+I 0.31694701(3)*10^1)/ep+0.2877105(4)*10^1+I 0.17422349(4)*10^2
+\end{minted}
+\paragraph{136}
+
+\subparagraph{\CJ{102}	\WNNH}
+\paragraph{103}
+\begin{minted}[breaklines]{mathematica}
+	(0.750527286(1)*10^-2)/ep^3+(0.13063137(6)*10^-1-I 0.1178926(2)*10^-1)/ep^2+(-0.281112(5)*10^-1+I 0.376194(2)*10^-1)/ep+I 0.243805(2)-0.58512(3)*10^-1
+\end{minted}
+\subparagraph{\CJ{108}}
+\begin{minted}[breaklines]{mathematica}
+	(0.7505272862(2)*10^-2)/ep^3+(0.13063137(6)*10^-1+I 0.1178926(2)*10^-1)/ep^2+(-0.281109(4)*10^-1-I 0.376194(2)*10^-1)/ep-I 0.243805(3)-0.58513(2)*10^-1
+\end{minted}
+\paragraph{127}
+\begin{minted}[breaklines]{mathematica}
+	-((0.7505272862(2)*10^-2)/ep^3)+(-0.3668912(2)*10^-1+I 0.1178926(4)*10^-1)/ep^2+(-0.1256239(4)-I 0.376194(2)*10^-1)/ep-I 0.24381(1)-0.617659(3)
+\end{minted}
+\subparagraph{\CJ{105}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.7505272862(1)*10^-2)/ep^3)+(-0.20284742(6)*10^-1-I 0.1178926(2)*10^-1)/ep^2+(0.569092(5)*10^-1+I 0.1103759(2))/ep+0.312777(2)+I 0.679341(2)
+\end{minted}
+\paragraph{131}
+\begin{minted}[breaklines]{mathematica}
+	-((0.21235731(2)*10^-1)/ep^2)-(0.7878081(2)*10^-1)/ep-0.4849994(2)
+\end{minted}
+\subparagraph{\CJ{110}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.21235731(2)*10^-1)/ep^2)-(0.7878081(2)*10^-1)/ep-0.4849994(1)
+\end{minted}
+\paragraph{121}
+\begin{minted}[breaklines]{mathematica}
+	-((0.4503163717(1)*10^-1)/ep^2)-(0.143889556(4))/ep-0.9841648(2)
+\end{minted}
+\subparagraph{\CJ{111}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.4503163717(1)*10^-1)/ep^2)-(0.143889556(4))/ep-0.9841648(2)
+\end{minted}
+\paragraph{126}
+\begin{minted}[breaklines]{mathematica}
+	(0.10132118364(2))/ep^2+(0.154882861(5))/ep+0.8068632(2)
+\end{minted}
+\subparagraph{\CJ{117}}
+\begin{minted}[breaklines]{mathematica}
+	(0.10132118364(2))/ep^2+(0.154882861(5))/ep+0.8068632(2)
+\end{minted}
+\paragraph{123}
+\begin{minted}[breaklines]{mathematica}
+	-((0.2251581859(1)*10^-1)/ep^2)+(0.27844106(4)*10^-1)/ep+0.2197552(4)*10^-1
+\end{minted}
+\subparagraph{\CJ{119}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.2251581859(1)*10^-1)/ep^2)+(0.27844106(4)*10^-1)/ep+0.2197552(4)*10^-1
+\end{minted}
+\paragraph{135}
+\begin{minted}[breaklines]{mathematica}
+	(0.8824885(6)*10^-2)/ep^2-(0.4259655(6)*10^-1)/ep-0.1357314(2)
+\end{minted}
+\subparagraph{\CJ{134}}
+\begin{minted}[breaklines]{mathematica}
+	(0.8824885(5)*10^-2)/ep^2-(0.4259655(5)*10^-1)/ep-0.1357314(2)
+\end{minted}
+\subparagraph{\ZR{3.4}}
+\paragraph{142}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subparagraph{\CJ{139}}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
 \subsection{Numerical test (ordered as Figure~\ref{re:sc} and Figure~\ref{re:c}, $z=1/4$)}
 \subsubsection{Self-conjugated}
 \paragraph{10}
 \begin{minted}[breaklines]{mathematica}
 	-13.142892209573214 - 2.0264236728467586/ep
 \end{minted}
-\paragraph{11	\WNNH}
+\paragraph{11}
 \begin{minted}[breaklines]{mathematica}
-	(-205.328+144.168 I)-(24.4828 +16.8916 I)/ep
-	(-652.386 - 1781.3200000000002*I) - (12.810300000000002 + 34.43137*I)/ep
-	(-158.815+29.824 I)-(10.6168 +14.1429 I)/ep
+	(-0.721913433451656621537641175369309494168040468603083244938 log(s)-0.214490046(8))/ep+0.721913433451656621537641175369309494168040468603083244938 log^2(s)-0.2836658516(3)*10^1 log(s)-0.327680(1)*10^1
 \end{minted}
 \paragraph{\textcolor{red}{11 xiong}	\WNNH}
 \begin{minted}[breaklines]{mathematica}
@@ -2874,9 +3195,9 @@ Let's compare the color indices:
 \begin{minted}[breaklines]{mathematica}
 	-0.405285
 \end{minted}
-\paragraph{27	\WNNH}
+\paragraph{27}
 \begin{minted}[breaklines]{mathematica}
-	-((1.24375 -0.509296 I)/s^2)-(0.24875 -0.101859 I)/s+(-(0.162114/s^2)-0.0324228/s)/ep+(0.162114 log(s))/s^2+(0.0324228 log(s))/s-3.8192*10^-7
+	(0.95364928(1)*10^-1-0.0379954438658766642914547987036478574722246996482761990896 log(s))/ep+0.0379954438658766642914547987036478574722246996482761990896 log^2(s)-0.1732949391(5) log(s)+0.174213(4)
 \end{minted}
 \paragraph{\textcolor{red}{27 xiong}}
 \begin{minted}[breaklines]{mathematica}
@@ -2897,7 +3218,7 @@ Let's compare the color indices:
 \end{minted}
 \paragraph{71}
 \begin{minted}[breaklines]{mathematica}
-	-((0.405285 log(s)+0.4237865(1))/ep)+0.202642 log^2(s)-(0.0(3)*10^-6)/s-0.152819231(3)*10^1 log(s)-I 0.0(5)*10^-7-0.4968444(1)*10^1
+	(0.40528473456935108577551785283891061393612511304014832705485 (-log(s))-0.423786494(1))/ep+0.20264236728467554288775892641945530696806255652007416352742 log^2(s)-0.1528192308(1)*10^1 log(s)-0.49684439(1)*10^1
 \end{minted}
 \paragraph{\textcolor{red}{71 xiong}}
 \begin{minted}[breaklines]{mathematica}
@@ -2970,10 +3291,13 @@ AutoEnd Failed @ ALL possible bisections!
 	0
 \end{minted}
 \subsubsection{Remaining diagrams}
-\paragraph{2	\WNZF}
-\subparagraph{\CJ{1}}
+\paragraph{2}
 \begin{minted}[breaklines]{mathematica}
-	(0.210926 -1.87371*10^-8 I)/s+(0.052147 -2.27485*10^-8 I)+(0.165116 log(s))/s-0.082558 log(s)
+	
+\end{minted}
+\subparagraph{\CJ{1}	\WNNH}
+\begin{minted}[breaklines]{mathematica}
+	-((0.455945 log(s)+0.2886892(1)+I 0.143239449(8)*10^1)/ep^2)-(0.227973 (-s) log^2(s)+s (0.0(1)*10^6-I 0.3(3)*10^6)+(1.21585+s (0.424773500(9)*10^1+I 0.15915495(6))) log(s)+0.0(1)*10^6-I 0.3(2)*10^6)/(ep s)-(3.64756 log(s))/s^2-(0.0(4)*10^6)/s^2+(I 1.0(7)*10^6)/s^2-0.0759909 log^3(s)+(0.607927 log^2(s))/s-(22.2444 log(s))/s+(0.0(2)*10^7)/s+(I 0.2(4)*10^7)/s+I 0.7957747(3)*10^-1 log^2(s)+0.212386750(4)*10^1 log^2(s)-I 0.13271482(2)*10^1 log(s)-0.214233808(5)*10^2 log(s)+0.1(2)*10^7+I 0.3(4)*10^7
 \end{minted}
 \paragraph{3}
 \begin{minted}[breaklines]{mathematica}
@@ -2985,15 +3309,25 @@ AutoEnd Failed @ ALL possible bisections!
 \begin{minted}[breaklines]{mathematica}
 	-((2.42703 -0.625114 I)/s)+((0.0810569 -3.18897*10^-9 I) log^2(s))/s-(0.0405285 +2.8617*10^-9 I) log^2(s)+((0.0994902 +1.01859 I) log(s))/s+(0.0313118 -0.509296 I) log(s)+(1.1822 +0.196737 I)+((-5.16401*10^-10-3.70072*10^-9 I)-(5.50793*10^-10+3.94743*10^-9 I)/s)/ep^2+(-((2.78596*10^-8+7.69087*10^-8 I)/s)-((5.50793*10^-10+3.94743*10^-9 I) log(s))/s-(5.16401*10^-10+3.70072*10^-9 I) log(s)-(3.69889*10^-8+6.98559*10^-8 I))/ep
 \end{minted}
-\paragraph{5	\WNZF}
-\subparagraph{\CJ{113}	\WNZF}
-\paragraph{7	\WNZF}
+\paragraph{5}
 \begin{minted}[breaklines]{mathematica}
-	Part::partw: Part 1 of {} does not exist.
+	(-((0.3419589947928899786230931883328307387152218491(3))/s)-0.12918450914(7)*10^1)/ep^2+(1/ep)(-((0.10258769843786699358692795649984922168734618543(9)*10^1)/s^2)-0.11398633159762999287436439611094361761455281466(3) log^2(s)+(0.34195899479288997862309318833283074349804313682(7) log(s))/s-(0.8382561761(1)*10^1)/s+0.12918450914(6)*10^1 log(s)-0.1470414820(6)*10^2)-(0.3077630953136009807607838694995476650620431481(3)*10^1)/s^3-(0.35406455127(4)*10^2)/s^2+(0.10258769843786699358692795649984922305000068822(2)*10^1 log(s))/s^2+0.11398633159762999287436439611094360171680492877(1) log^3(s)-(0.51293849218933496793463978249924613414931972596(7) log^2(s))/s-(0.132919978(2)*10^3)/s-0.19124846658(3)*10^1 log^2(s)+(0.104343157298(2)*10^2 log(s))/s+0.2985081056(3)*10^2 log(s)-0.17571608(1)*10^3
 \end{minted}
-\subparagraph{\CJ{6}	\WNZF}
+\subparagraph{\CJ{113}}
 \begin{minted}[breaklines]{mathematica}
-	Part::partw: Part 1 of {} does not exist.
+	(-((0.3419589947928899786230931883328307373430847421(3))/s)-0.14184965710(7)*10^1)/ep^2+(1/ep)(-((0.10258769843786699358692795649984922122454579432(9)*10^1)/s^2)-0.11398633159762999287436439611094358537143515056(3) log^2(s)+(0.34195899479288997862309318833283073307983918224(6) log(s))/s-(0.99213772376(4)*10^1)/s+0.14184965710(6)*10^1 log(s)-0.1937716819(6)*10^2)-(0.3077630953136009807607838694995476636730496358(3)*10^1)/s^3-(0.40022901557(1)*10^2)/s^2+(0.10258769843786699358692795649984921992453950185(2)*10^1 log(s))/s^2+0.11398633159762999287436439611094359096909904074(1) log^3(s)-(0.51293849218933496793463978249924612373111577138(6) log^2(s))/s-(0.166808716(2)*10^3)/s-0.24887488978(3)*10^1 log^2(s)+(0.119731312064(2)*10^2 log(s))/s+0.3760146151(3)*10^2 log(s)-0.22781445(1)*10^3
+\end{minted}
+\paragraph{7}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subparagraph{\CJ{6}}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
+\subparagraph{\ZR{4.9}}
+\begin{minted}[breaklines]{mathematica}
+	0
 \end{minted}
 \paragraph{13	\WNZF}
 \subparagraph{\CJ{14}}
@@ -3020,21 +3354,47 @@ AutoEnd Failed @ ALL possible bisections!
 	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
 \end{minted}
 \subparagraph{\CJ{106}	\WNNH	\WNGINAC}
+\subparagraph{\ZR{3.11}}
 \paragraph{32	\WNOF}
 \begin{minted}[breaklines]{mathematica}
 	-((0.162114 +1.91875*10^-8 I)/ep^3)+(-0.324228 log(s)-(92.0766 +2.65448 I))/ep^2+1/ep (-((158.541 +3.48593 I)/s)+(32.6052 +0.63662 I) log(s)-0.0405285 log^2(s)-(1.58061 log(s))/s-(1.91238*10^10+1.98727*10^10 I))-(475.619 +10.4578 I)/s^2-(12502.7 +1351.46 I)/s-(16.9633 +0.31831 I) log^2(s)-(4.74183 log(s))/s^2+0.148604 log^3(s)+(0.790305 log^2(s))/s+(81.2751 log(s))/s+(4.05197*10^10-6.80923*10^10 I) log(s)+(6.59315*10^13-1.55809*10^14 I)
 \end{minted}
 \subparagraph{\CJ{82}	\WNNH}
+\subparagraph{\ZR{3.12}}
+\paragraph{31+32}
+\begin{minted}[breaklines]{mathematica}
+	
+\end{minted}
 \paragraph{38	\WNZF}
 \subparagraph{\CJ{62}	\WNZF}
 \paragraph{89	\WNDIV}
 \subparagraph{\CJ{39}	\WNDIV}
-\paragraph{40	\WNZF}
-\subparagraph{\CJ{97}	\WNZF}
+\paragraph{40}
+\begin{minted}[breaklines]{mathematica}
+	-((0.3602531(6))/ep)+0.1978893(4) (-log(s))+I 0.5658842(7) log(s)-I 0.72868(2)-0.170150(1)*10^1
+\end{minted}
+\subparagraph{\CJ{97}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.3602531(4))/ep)+0.1978892(3) (-log(s))-I 0.5658841(5) log(s)+I 0.72868(1)-0.170150(1)*10^1
+\end{minted}
+\subparagraph{\ZR{3.15}}
+\begin{minted}[breaklines]{mathematica}
+	-(0.360253/ep)
+\end{minted}
 \paragraph{74	\WNZF}
 \subparagraph{\CJ{41}	\WNGINAC	\WNDZ}
-\paragraph{54	\WNZF}
-\subparagraph{\CJ{80}	\WNZF}
+\paragraph{54}
+\begin{minted}[breaklines]{mathematica}
+	-((0.72050619478996(4))/ep)-I 0.226353697(2)*10^1-0.45289267(6)*10^1
+\end{minted}
+\subparagraph{\CJ{80}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.720506194789957(2))/ep)+I 0.2263536968(3)*10^1-0.4528927(6)*10^1
+\end{minted}
+\subparagraph{\ZR{4.6}}
+\begin{minted}[breaklines]{mathematica}
+	-2*(0.720506/ep)
+\end{minted}
 \paragraph{81}
 \begin{minted}[breaklines]{mathematica}
 	((0.180127 -9.13154*10^-9 I) log(s)-(0.231946 +7.6754*10^-8 I))/ep+(1.02169 -0.565884 I) log(s)-(0.815813 -0.728676 I)-(5.2095*10^-10+1.21468*10^-8 I)/ep^2+(-0.0900633-4.02323*10^-9 I) log^2(s)
@@ -3045,25 +3405,43 @@ AutoEnd Failed @ ALL possible bisections!
 \end{minted}
 \subparagraph{\ZR{3.14}}
 \begin{minted}[breaklines]{mathematica}
-	(0.180127 log(s)-0.231946)/ep
+	2*(0.180127 log(s)-0.231946)/ep
 \end{minted}
 \paragraph{84}
 \begin{minted}[breaklines]{mathematica}
-	((0.226837 -4.91292*10^-7 I)-(0.0900633 +3.62168*10^-8 I) log(s))/ep+(0.27463 +0.141471 I) log^2(s)-(1.20417 +0.36434 I) log(s)+(1.63449 +0.234572 I)-(4.43277*10^-8+3.77952*10^-8 I)/ep^2-(7.40521*10^-8+3.24692*10^-8 I)/s
+	(-0.900633(1)*10^-1 log(s)-0.154217(3)-I 0.0(4)*10^-5)/ep+I 0.14147106(8) log^2(s)+0.27463050(8) log^2(s)-I 0.364339(2) log(s)-0.823115(2) log(s)+I 0.2156(8)-0.11134(8)*10^1
 \end{minted}
 \subparagraph{\CJ{56}}
 \begin{minted}[breaklines]{mathematica}
-	((0.216152 -1.26134*10^-7 I)-(0.144101 +4.52496*10^-8 I)/s)/ep-(1.36468 -0.29147 I)/s+((0.367358 -0.226354 I) log(s))/s-(0.696665 -0.962003 I) log(s)+(2.44396 +0.289131 I)
+	(-0.1125791(1) log(s)+I 0.0(3)*10^-5-0.80192(3)*10^-1)/ep-I 0.1414711(1) log^2(s)+0.2858884(1) log^2(s)+I 0.364340(2) log(s)-0.975562(2) log(s)-0.66278(3)-I 0.0(5)*10^10
 \end{minted}
-\paragraph{86	\WNZF}
-\subparagraph{\CJ{58}	\WNZF}
+\subparagraph{\ZR{4.2}}
+\begin{minted}[breaklines]{mathematica}
+	2*(0.115973 -0.0900633 log(s))/ep
+\end{minted}
+\paragraph{86}
+\begin{minted}[breaklines]{mathematica}
+	-((0.900632743487447(2)*10^-1)/ep)+I 0.2829421211(4)-0.566116(6)
+\end{minted}
+\subparagraph{\CJ{58}}
+\begin{minted}[breaklines]{mathematica}
+	-((0.9006327434874(2)*10^-1)/ep)-I 0.282942121(3)-0.56611583(7)
+\end{minted}
+\subparagraph{\ZR{4.7}}
+\begin{minted}[breaklines]{mathematica}
+	-2*(0.0900633/ep)
+\end{minted}
 \paragraph{95}
 \begin{minted}[breaklines]{mathematica}
-	((0.0225158 -9.13144*10^-9 I) log(s)-(0.0289933 +1.11581*10^-7 I))/ep+(0.127711 -0.0707356 I) log(s)-(0.101978 -0.0910826 I)-(3.18099*10^-10+1.21466*10^-8 I)/ep^2+(-0.0112579-4.02319*10^-9 I) log^2(s)
+	(0.225158185872(7)*10^-1 log(s)-0.289932(5)*10^-1)/ep+0.1277109(3) log(s)-0.112579092936(3)*10^-1 log^2(s)-I 0.707355(5)*10^-1 log(s)-0.10198(1)+I 0.9108(1)*10^-1
 \end{minted}
 \subparagraph{\CJ{59}}
 \begin{minted}[breaklines]{mathematica}
-	((0.0360253 -2.54985*10^-8 I)/s-(0.054038 +3.46821*10^-8 I))/ep+(0.226446 +0.113176 I)/s-(0.33967 +0.169767 I)
+	(0.22515818587186171431973214046606133(7)*10^-1 log(s)-0.289932(5)*10^-1)/ep+0.1277109(2) log(s)-0.11257909293593085715986607023303066(3)*10^-1 log^2(s)+I 0.707355(2)*10^-1 log(s)-0.101977(9)-I 0.9108(1)*10^-1
+\end{minted}
+\subparagraph{\ZR{4.1}}
+\begin{minted}[breaklines]{mathematica}
+	2*(0.0289932 -0.0225158 log(s))/ep
 \end{minted}
 \paragraph{60	\WNZF}
 \subparagraph{\CJ{63}	\WNZF}
@@ -3106,12 +3484,21 @@ AutoEnd Failed @ ALL possible bisections!
 \begin{minted}[breaklines]{mathematica}
 	((0.108076 CV(1,3))/s-(0.0720506 CV(1,3))/s^2)/ep-(0.621011 CV(1,3))/s^2-(0.221294 CV(1,3))/s+0.51236 CV(1,3) log(s)+0.289007 CV(1,3)
 \end{minted}
-\paragraph{135	\WNZF}
-\subparagraph{\CJ{134}	\WNZF}
-\paragraph{142	\WNZF}
+\paragraph{135}
+\begin{minted}[breaklines,breakanywhere]{mathematica}
+	-((0.75052728623953904773244046822021(1)*10^-2)/ep^2)+(-((0.2216400892176138750334863257712791698673512155(5)*10^-1)/s)+0.328355687729798333382942704846342(2)*10^-1 log(s)+0.1195769047(6))/ep-(0.6649202676528416251004589773138375479731914560(6)*10^-1)/s^2-(0.46125458376(8))/s-0.403111986217495687167289442761083(2)*10^-1 log^2(s)+(0.22164008921761387503348632577127917203974334809(4)*10^-1 log(s))/s-0.275899853(5)*10^-1 log(s)+0.935583(2)
+\end{minted}
+\subparagraph{\CJ{134}}
+\begin{minted}[breaklines,breakanywhere]{mathematica}
+	(0.93815910779942380966555(8)*10^-3)/ep^2+(-((0.1583143494(1)*10^-1)/s)+0.243921368027850190513043(1)*10^-1 log(s)+0.1710538662(7))/ep-(0.4749430483234583036431849837955982459939784269(4)*10^-1)/s^2-(0.321325679(2))/s-0.339786246441034580014865(1)*10^-1 log^2(s)+(0.15831434944(1)*10^-1 log(s))/s-0.917320947(5)*10^-1 log(s)+0.1254593(2)*10^1
+\end{minted}
+\paragraph{142}
+\begin{minted}[breaklines]{mathematica}
+	0
+\end{minted}
 \subparagraph{\CJ{139}}
 \begin{minted}[breaklines]{mathematica}
-	((0.226837 -4.76795*10^-7 I)+(2.53148*10^-36+9.52697*10^-70 I)/s+(-0.0900633-5.77113*10^-8 I) log(s))/ep+(0.27463 +0.141471 I) log^2(s)-(1.20417 +0.36434 I) log(s)+(1.63449 +0.234572 I)-(6.78712*10^-8+5.87408*10^-8 I)/ep^2-(7.40521*10^-8+3.24692*10^-8 I)/s
+	0
 \end{minted}
 % \subsection{A first attempt}
 % Let's first take a look at the following diagram
