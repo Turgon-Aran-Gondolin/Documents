@@ -1,50 +1,17 @@
 % !TEX program = lualatex
-% !BIB program = biber
-
-% ==============================================================================
-% Tutorial: Animation
-% ==============================================================================
-% \pause: for generally reveal items
-% \item<1->\n \item<2->: similar to pause, display items one by one. 
-% \only<1>{content}: only show content in slide no. 1. For replacing items in next slide. 
-
-% ==============================================================================
-% Tutorial: Fonts
-% ==============================================================================
-% math font: 
-% 	\usefonttheme[onlymath]{serif}: use serif style math font
-
-% ==============================================================================
-% Tutorial: Block environment
-% ==============================================================================
-% Three blocks: 
-% 	block
-% 	alertblock
-% 	exampleblock
-% \begin{block}{title}
-% 	content
-% \end{block}
-% \metroset{block=fill}: use background color, if not, the background is white. 
-
-% ==============================================================================
-% Tutorial: Sign and symbols
-% ==============================================================================
-% \setbeamertemplate{section in toc}[square]: set symbols in front of a section in table of content. 
-
-\documentclass[8pt,dvipsnames,table,hyperref={colorlinks,breaklinks=true,citecolor=blue}]{beamer}
+% !BIB program = bibtex
+\documentclass[8pt,dvipsnames,table]{beamer}
 
 % ==============================================================================
 % Language and Encoding
 % ==============================================================================
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-% \usepackage[square,sort]{natbib}
-\usepackage[backend=biber,style=apa]{biblatex}
 
 % ------------------------------------------------------------------------------
 % Citation
 % ------------------------------------------------------------------------------
-% \usepackage[square]{natbib}
+\usepackage[square]{natbib}
 % Usage: 
 	% \citet no parenthesis
 	% \citep with parenthesis
@@ -52,30 +19,21 @@
 	% round option for round parenthesis
 
 % ==============================================================================
-% BibLaTeX configuration
-% ==============================================================================
-\addbibresource{../Bib.bib}
-\DeclareLanguageMapping{american}{american-apa}
-
-% ==============================================================================
 % Font
 % ==============================================================================
 % \usefonttheme{professionalfonts}
 % \usefonttheme{serif}
-% \usepackage[T1]{fontspec}
+% \usepackage{fontspec}
 % \setmainfont{Helvetica Neue}
-\usepackage[scaled]{helvet}
+\usepackage{helvet}
 \usepackage{lmodern}
-% \usepackage{fourier}
-% \usepackage{kmath}
-% \usepackage[OT1]{eulervm}
-\usefonttheme[onlymath]{serif}
 
 % ==============================================================================
 % Color, style and layout
 % ==============================================================================
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{bm}
 \usepackage{subfig}
 \usepackage{pict2e}
@@ -83,6 +41,7 @@
 \usepackage{pdfpages}
 \usepackage{geometry}
 % \usepackage[paper=landscape]{typearea}
+% \usepackage{incgraph,tikz}
 
 % ==============================================================================
 % Math and Physics
@@ -105,6 +64,15 @@
 % \usecolortheme[snowy]{owl}
 \linespread{1.5}
 
+% ------------------------------------------------------------------------------
+% Animation
+% ------------------------------------------------------------------------------
+% \pause
+% \uncover<i->
+% \item<i->
+% \only<i>
+% \onslide<+->
+
 % ==============================================================================
 % ifthen for User-definition
 % ==============================================================================
@@ -113,18 +81,22 @@
 % \ifthenelse{<test>}{<code for true>}{<code for false>}
 
 % ==============================================================================
-% Macros
+% User Definition
 % ==============================================================================
-%\newcommand{\phanitem}{\phantom{\item}}
-% \newcommand{\lag}{\mathcal{L}}
-% \newcommand{\Mcal}{\mathcal{M}}
-% \newcommand{\g}{\gamma}
-% \renewcommand{\a}{\alpha}
-% \newcommand{\s}{\sigma}
-% \newcommand{\calA}{\mathcal{A}}
+% \newcommand{\red}[1]{{\color{red}#1}}
 \newcommand{\mm}[1]{\frac{\dd^4#1}{(2\pi)^4}}
 \newcommand{\mme}[1]{\frac{\dd^3\vb{#1}}{(2\pi)^3}}
 \newcommand{\mmd}[2][d]{\ifthenelse{\equal{#1}{1}}{\frac{\dd {#2}}{2\pi}}{\frac{\dd^{#1}{#2}}{(2\pi)^{#1}}}}
+
+% ==============================================================================
+% Macros
+% ==============================================================================
+%\newcommand{\phanitem}{\phantom{\item}}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\g}{\gamma}
+\renewcommand{\a}{\alpha}
+\newcommand{\s}{\sigma}
 
 % ==============================================================================
 % Color Command
@@ -155,21 +127,15 @@
 % ==============================================================================
 \graphicspath{{./}}
 
-% ==============================================================================
-% Tikz Externalization
-% ==============================================================================
-% \usepackage{shellesc}
-% \usetikzlibrary{external}
-% % \usepgfplotslibrary{external}
-% \tikzexternalize[shell escape=-enable-write18,prefix=./,system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"},up to date check=md5]
 
 % ==============================================================================
 % Title Page
 % ==============================================================================
-\title{TITLE}
+\title{RI/MOM Scheme and Quasi PDF}
 \author[Y. Huang]{Yingsheng Huang}
 \institute[IHEP]{Institute of High Energy Physics}
-\date{\today}
+\date
+
 
 
 \begin{document}
@@ -185,7 +151,19 @@
 	\tableofcontents
 \end{frame}
 
-\appendix
+\begin{frame}
+	\frametitle{RI/MOM Scheme}
+	
+	RI/MOM Scheme\citep{Martinelli:1994ty}
+
+\end{frame}
+
+{
+\setbeamercolor{background canvas}{bg=}
+\includepdf[pages={15-20}]{./Sint2.pdf}
+}
+
+\section*{END}
 \begin{frame}[standout]
 	\Huge Questions?
   \end{frame}
@@ -207,9 +185,7 @@
 	\vfill
 \end{frame}
 
-\printbibliography
-
-% \bibliography{../Bib}
-% \bibliographystyle{apalike}
+\bibliography{../Bib}
+\bibliographystyle{apalike}
 
 \end{document}

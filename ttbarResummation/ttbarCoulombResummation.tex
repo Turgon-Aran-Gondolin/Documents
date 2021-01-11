@@ -207,6 +207,7 @@ We have two diagrams:
 			g2 --[fermion] t1 --[boson] z[particle=\(Z\)];
 			g2 --[anti fermion] t2 --[scalar] h[particle=\(H\)];
 			t1 --[fermion,edge label=\(t\)] t2;
+			z --[draw=none] h;
 			};
 		\end{feynman}
 	\end{tikzpicture}
@@ -294,9 +295,10 @@ To the lowest order of those couplings between top quarks and external lines, we
 			\diagram[horizontal=g1 to g2]{
 			% e1[particle=\(e^-\)] --[fermion] g1 --[fermion] e2[particle=\(e^+\)];
 			g1 --[photon, edge label'=\(\gamma*/Z\),momentum=\(P\)] g2;
+			g2 --[anti fermion,momentum'=\(P-l\)] t2 --[scalar,momentum'=\(P-k\)] h[particle=\(H\)];
 			g2 --[fermion,momentum=\(l\)] t1 --[boson,momentum=\(k\)] z[particle=\(Z\)];
-			g2 --[anti fermion,momentum'=\(P-l\)] t2 --[scalar,momentum=\(P-k\)] h[particle=\(H\)];
 			t1 --[fermion,edge label'=\(t\),momentum=\(l+k\)] t2;
+			z --[draw=none] h;
 			};
 		\end{feynman}
 	\end{tikzpicture}

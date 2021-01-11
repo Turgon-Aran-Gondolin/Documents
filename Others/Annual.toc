@@ -1,7 +1,0 @@
-\beamer@sectionintoc {1}{Motivation}{4}{0}{1}
-\beamer@sectionintoc {2}{1+1-d QCD and 't Hooft model }{5}{0}{2}
-\beamer@sectionintoc {3}{Quark-Antiquark Amplitude and Normalized Bound State Wave-function}{10}{0}{3}
-\beamer@sectionintoc {4}{Meson-meson scattering amplitude}{12}{0}{4}
-\beamer@sectionintoc {5}{Numerical Calculation}{18}{0}{5}
-\beamer@sectionintoc {6}{Conclusion}{21}{0}{6}
-\beamer@sectionintoc {7}{Divergence in Relativistic Quantum Mechanics}{22}{0}{7}
