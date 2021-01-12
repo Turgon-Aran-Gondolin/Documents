@@ -1,3 +1,6 @@
 [submodule "LatticeSchool/ComputationalLattice/HMC/aderrors"]
 	path = LatticeSchool/ComputationalLattice/HMC/aderrors
 	url = https://gitlab.ift.uam-csic.es/alberto/aderrors
+[submodule "ucasthesis"]
+	path = ucasthesis
+	url = https://github.com/Turgon-Aran-Gondolin/ucasthesis

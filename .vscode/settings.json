@@ -1,5 +1,11 @@
 {
     "workbench.colorCustomizations": {
         "tab.unfocusedActiveBorder": "#fff0"
+    },
+    "git.ignoreLimitWarning": true,
+    "ltex.workspaceFolderDictionary": {
+        "en-US": [
+            "nonrelativistic"
+        ]
     }
 }
