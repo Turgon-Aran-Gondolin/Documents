@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.14pt}
-\beamer@sectionintoc {1}{背景}{3}{0}{1}
-\beamer@sectionintoc {2}{有效理论的构建}{5}{0}{2}
-\beamer@sectionintoc {3}{有效理论与“真实”物理的对比}{9}{0}{3}
-\beamer@sectionintoc {4}{常见误解}{16}{0}{4}
-\beamer@sectionintoc {5}{结论}{21}{0}{5}
