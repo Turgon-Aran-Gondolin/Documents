@@ -296,9 +296,10 @@
 	\begin{align}
 		\begin{tikzpicture}[baseline=(o1.base)]
 			\begin{feynman}
-				\diagram[small,horizontal=p1 to p3]{
+				\diagram[small,horizontal=p1 to p3,layered layout]{
 					p1 -- o1[blob, minimum size=30pt] -- p3;
 					p2 -- o1 -- p4;
+					{[same layer]p1,p2};
 				};
 				% \node[blob, minimum size=30pt] at (o1);
 			\end{feynman}
