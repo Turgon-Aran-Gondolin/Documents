@@ -30,6 +30,7 @@
 \usepackage{enumerate}
 \usepackage{extarrows}
 \usepackage{subfiles}
+\usepackage[square,sort,comma,numbers]{natbib}
 
 \allowdisplaybreaks
 
@@ -142,13 +143,95 @@ For simplicity, we drop the external lines and focus on the internal subgraph. C
 	  & =\int\dd^4x\int\dd^4y\int\mm{l_1}\mm{l_2}\mm{q}e^{iP\cdot y}e^{-iP\cdot x}e^{-il_1\cdot y}e^{il_2\cdot x}e^{iq\cdot (x-y)}\tilde D(l_1)\tilde D(l_2)\tilde D(q) \\
 	  & =\int\mm{q}\tilde D(P-q)\tilde D(P-q)\tilde D(q)                                                                                                                \\
 	  & =-\int\mme{q}\frac{m^2}{\pqty{\vb{q}^2-p^2-i\epsilon}^2}                                                                                                        \\
-	  & =-\frac{im^2}{8\pi p}
+	  & =-\frac{im^2}{8\pi p}\equiv \mathcal{K}
 \end{align}
 where $\tilde D$ marks momentum space propagator and two external vertexes give an $(i\calA)^2$ factor. The total contribution is
 \begin{align}
 	\frac{im^2\calA^2}{8\pi p},
 \end{align}
 the first order Fourier expansion of the l.h.s.. The Wilson coefficient of this order is $1$. 
+
+This diagram, in its full form, is 
+\begin{align}
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o1 to o3]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\node at ($(o3)!0.5!(o4)+(0,20pt)$) (ps1);
+			\node[empty dot] at ($(o3)!0.5!(o4)+(0,-20pt)$) (ps2);
+			\diagram*{
+				(o3) --[half left,looseness=1.4,momentum={[arrow shorten=0.25]\(q\)}] (o4);
+				(o3) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				(ps2) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (o4);
+			};
+			\node[blob] at ($(o1)!0.5!(o3)$) (o2);
+			\node[blob] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}= -\mathcal{K} \mathcal{A}^2
+\end{align}
+With either incoming or outgoing fermions not interacting, or both, we have 
+\begin{align}
+	\begin{tikzpicture}[baseline=(o3.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o4 to o6]{
+			p1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p3;
+			p2 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] o6 -- p4;
+			};
+			\vertex at ($(o3)!0.5!(o4)+(0,20pt)$) (ps1);
+			\node[empty dot] at ($(o3)!0.5!(o4)+(0,-20pt)$) (ps2);
+			\diagram*{
+				(ps1) --[quarter left,looseness=1.4,momentum={[arrow shorten=0.25]\(q\)}] (o4);
+				% (o3) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				(ps2) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (o4);
+				(p1) --[momentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				(p2) -- (ps1);
+			};
+			% \node[blob] at ($(o1)!0.5!(o3)$) (o2);
+			\node[blob] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}\\ 
+	\begin{tikzpicture}[baseline=(o1.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o1 to o3]{
+			p1 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] p3;
+			p2 -- o1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] p4;
+			};
+			\vertex at ($(o3)!0.5!(o4)+(0,20pt)$) (ps1);
+			\node[empty dot] at ($(o3)!0.5!(o4)+(0,-20pt)$) (ps2);
+			\diagram*{
+				(o3) --[quarter left,looseness=1.4,momentum={[arrow shorten=0.25]\(q\)}] (ps1);
+				(o3) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				% (ps2) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (o4);
+				(p4) --[rmomentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				(p3) -- (ps1);
+			};
+			\node[blob] at ($(o1)!0.5!(o3)$) (o2);
+			% \node[blob] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}\\ 
+	\begin{tikzpicture}[baseline=(o35.base)]
+		\begin{feynman}
+			\diagram[small,horizontal=o3 to o4]{
+			p1 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] p3;
+			p2 --[draw=none] o3 --[draw=none] o35 --[draw=none] o4 --[draw=none] p4;
+			};
+			\node at ($(o3)!0.5!(o4)+(0,20pt)$) (ps1);
+			\node[empty dot] at ($(o3)!0.5!(o4)+(0,-20pt)$) (ps2);
+			\diagram*{
+				% (o3) --[half left,looseness=1.4,momentum={[arrow shorten=0.25]\(q\)}] (o4);
+				% (o3) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (ps2);
+				% (ps2) --[quarter right,momentum'={[arrow shorten=0.25]\(P-q\)}] (o4);
+				(p2) -- (ps2);
+				(p4) -- (ps2);
+				(p1) -- (p3);
+			};
+			% \node[blob] at ($(o1)!0.5!(o3)$) (o2);
+			% \node[blob] at ($(o4)!0.5!(o6)$) (o5);
+		\end{feynman}
+	\end{tikzpicture}
+\end{align} 
 \subsection{Higher dimensional operators}
 Figure~2(c) gives
 \begin{align}
@@ -338,155 +421,155 @@ Compare with the result of Figure~2(c) \eqref{2c} we have the Wilson coefficient
 	\frac{g^2(\Lambda)}{16 \pi ^2 r^2}
 \end{align}
 
-\section{Reformulate in Dimensional Regularization}
-\subsection{Na\"ive Dim-Reg}
-The renormalized Hamiltonian reads
-\begin{align}
-	\mathcal{H}=\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+Z_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4
-\end{align}
-as well as
-\begin{align}
-	S=\int\dd^{d+1}x\bqty{\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+\mu^{3-d}\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4+\delta_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4}
-\end{align}
-We have
-\begin{align}
-    i\calA=
-    \begin{tikzpicture}[baseline=(o1.base)]
-		\begin{feynman}
-			\diagram[small,horizontal=p1 to p3]{
-				p1 -- o1[blob, minimum size=30pt] -- p3;
-				p2 -- o1 -- p4;
-			};
-			% \node[blob, minimum size=30pt] at (o1);
-		\end{feynman}
-	\end{tikzpicture}
-	% +
-	% \begin{tikzpicture}[baseline=(o1.base)]
-	%     \begin{feynman}
-	%         \diagram[small,layered layout]{
-	%             p1 -- o1 -- p3;
-	%             p2 -- o1 -- p4;
-	%         };
-	%         \node[crossed dot] at (o1);
-	%     \end{feynman}
-	% \end{tikzpicture}+\cdots
-	\\
-	\mathcal{I}\equiv
-	\begin{tikzpicture}[baseline=(o1.base)]
-		\begin{feynman}
-			\diagram[small,horizontal=p1 to p3]{
-				p1 -- o1[blob, minimum size=30pt] -- p3;
-				p2 -- o1 -- p4;
-			};
-			% \node[blob, minimum size=30pt] at (o1);
-		\end{feynman}
-	\end{tikzpicture}
-\end{align}
-The integral equation is
-\begin{align}
-	i\calA=-\frac{iZ_g(\mu)g}{m}\pqty{1+i\calA\mathcal{I}}
-\end{align}
-\begin{align}
-	\mathcal{I}\equiv\mu^{3-d}\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\eta}\frac{i}{P^0-k^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\eta}
-\end{align}
-Graphically we have
-\begin{align*}
-	\begin{tikzpicture}[baseline=(o1.base)]
-		\begin{feynman}
-			\diagram[small,horizontal=p1 to p3]{
-				p1 -- o1[blob, minimum size=30pt] -- p3;
-				p2 -- o1 -- p4;
-			};
-			% \node[blob, minimum size=30pt] at (o1);
-		\end{feynman}
-	\end{tikzpicture}=
-	\begin{tikzpicture}[baseline=(o3.base)]
-		\begin{feynman}
-			\diagram[small,layered layout,horizontal=p1 to p3]{
-				p1 -- o3 -- p3;
-				p2 -- o3 -- p4;
-			};
-			\node at (o3);
-		\end{feynman}
-	\end{tikzpicture}+
-	\begin{tikzpicture}[baseline=(o3.base)]
-		\begin{feynman}
-			\diagram[small,layered layout,horizontal=p1 to p3]{
-				p1 -- o3 -- p3;
-				p2 -- o3 -- p4;
-			};
-			\node[crossed dot,style=thick] at (o3);
-		\end{feynman}
-	\end{tikzpicture}+
-	\begin{tikzpicture}[baseline=(o3.base)]
-		\begin{feynman}
-			\diagram[small,horizontal=o3 to o4]{
-			p1 -- o3 --[draw=none] o4 --[draw=none] o6 -- p3;
-			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
-			};
-			\diagram*{
-			(o3) --[half left,looseness=1.7] (o4);
-			(o3) --[half right,looseness=1.7] (o4);
-			};
-			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
-		\end{feynman}
-	\end{tikzpicture}+
-	\begin{tikzpicture}[baseline=(o3.base)]
-		\begin{feynman}
-			\diagram[small,horizontal=o3 to o4]{
-			p1 -- o3[crossed dot, minimum size=8pt,style=thick] --[draw=none] o4 --[draw=none] o6 -- p3;
-			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
-			};
-			\diagram*{
-			(o3) --[half left,looseness=1.7] (o4);
-			(o3) --[half right,looseness=1.7] (o4);
-			};
-			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
-		\end{feynman}
-	\end{tikzpicture}
-\end{align*}
+% \section{Reformulate in Dimensional Regularization}
+% \subsection{Na\"ive Dim-Reg}
+% The renormalized Hamiltonian reads
+% \begin{align}
+% 	\mathcal{H}=\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+Z_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4
+% \end{align}
+% as well as
+% \begin{align}
+% 	S=\int\dd^{d+1}x\bqty{\sum_\sigma\frac{1}{2m}\nabla\psi_\sigma^{\dagger}\cdot\nabla\psi_\sigma+\mu^{3-d}\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4+\delta_g\frac{g}{m}\psi^\dagger_1\psi^\dagger_2\psi_3\psi_4}
+% \end{align}
+% We have
+% \begin{align}
+%     i\calA=
+%     \begin{tikzpicture}[baseline=(o1.base)]
+% 		\begin{feynman}
+% 			\diagram[small,horizontal=p1 to p3]{
+% 				p1 -- o1[blob, minimum size=30pt] -- p3;
+% 				p2 -- o1 -- p4;
+% 			};
+% 			% \node[blob, minimum size=30pt] at (o1);
+% 		\end{feynman}
+% 	\end{tikzpicture}
+% 	% +
+% 	% \begin{tikzpicture}[baseline=(o1.base)]
+% 	%     \begin{feynman}
+% 	%         \diagram[small,layered layout]{
+% 	%             p1 -- o1 -- p3;
+% 	%             p2 -- o1 -- p4;
+% 	%         };
+% 	%         \node[crossed dot] at (o1);
+% 	%     \end{feynman}
+% 	% \end{tikzpicture}+\cdots
+% 	\\
+% 	\mathcal{I}\equiv
+% 	\begin{tikzpicture}[baseline=(o1.base)]
+% 		\begin{feynman}
+% 			\diagram[small,horizontal=p1 to p3]{
+% 				p1 -- o1[blob, minimum size=30pt] -- p3;
+% 				p2 -- o1 -- p4;
+% 			};
+% 			% \node[blob, minimum size=30pt] at (o1);
+% 		\end{feynman}
+% 	\end{tikzpicture}
+% \end{align}
+% The integral equation is
+% \begin{align}
+% 	i\calA=-\frac{iZ_g(\mu)g}{m}\pqty{1+i\calA\mathcal{I}}
+% \end{align}
+% \begin{align}
+% 	\mathcal{I}\equiv\mu^{3-d}\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\eta}\frac{i}{P^0-k^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\eta}
+% \end{align}
+% Graphically we have
+% \begin{align*}
+% 	\begin{tikzpicture}[baseline=(o1.base)]
+% 		\begin{feynman}
+% 			\diagram[small,horizontal=p1 to p3]{
+% 				p1 -- o1[blob, minimum size=30pt] -- p3;
+% 				p2 -- o1 -- p4;
+% 			};
+% 			% \node[blob, minimum size=30pt] at (o1);
+% 		\end{feynman}
+% 	\end{tikzpicture}=
+% 	\begin{tikzpicture}[baseline=(o3.base)]
+% 		\begin{feynman}
+% 			\diagram[small,layered layout,horizontal=p1 to p3]{
+% 				p1 -- o3 -- p3;
+% 				p2 -- o3 -- p4;
+% 			};
+% 			\node at (o3);
+% 		\end{feynman}
+% 	\end{tikzpicture}+
+% 	\begin{tikzpicture}[baseline=(o3.base)]
+% 		\begin{feynman}
+% 			\diagram[small,layered layout,horizontal=p1 to p3]{
+% 				p1 -- o3 -- p3;
+% 				p2 -- o3 -- p4;
+% 			};
+% 			\node[crossed dot,style=thick] at (o3);
+% 		\end{feynman}
+% 	\end{tikzpicture}+
+% 	\begin{tikzpicture}[baseline=(o3.base)]
+% 		\begin{feynman}
+% 			\diagram[small,horizontal=o3 to o4]{
+% 			p1 -- o3 --[draw=none] o4 --[draw=none] o6 -- p3;
+% 			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+% 			};
+% 			\diagram*{
+% 			(o3) --[half left,looseness=1.7] (o4);
+% 			(o3) --[half right,looseness=1.7] (o4);
+% 			};
+% 			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+% 		\end{feynman}
+% 	\end{tikzpicture}+
+% 	\begin{tikzpicture}[baseline=(o3.base)]
+% 		\begin{feynman}
+% 			\diagram[small,horizontal=o3 to o4]{
+% 			p1 -- o3[crossed dot, minimum size=8pt,style=thick] --[draw=none] o4 --[draw=none] o6 -- p3;
+% 			p2 -- o3 --[draw=none] o4 --[draw=none] o6 -- p4;
+% 			};
+% 			\diagram*{
+% 			(o3) --[half left,looseness=1.7] (o4);
+% 			(o3) --[half right,looseness=1.7] (o4);
+% 			};
+% 			\node[blob, minimum size=25pt] at ($(o4)!0.5!(o6)$) (o5);
+% 		\end{feynman}
+% 	\end{tikzpicture}
+% \end{align*}
 
-The integral equals to
-\begin{align}
-	\mathcal{I} & =\mu^{3-d}\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\eta}\frac{i}{k^0-P^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\eta}                                      \\
-	            & =\mu^{3-d}\int\mmd[d]{\vb{k}}\frac{i}{P^0-\frac{\vb{k}^2}{2m}-\frac{\abs{\vb{k-P}}^2}{2m}+2i\eta}                                                             \\
-	            & =\mu^{3-d}\int\mmd[d]{\vb{k}}\frac{im}{p^2-\vb{k}^2+i\eta}                                                                                                    \\
-	            & =-\mu^{3-d}\frac{1}{2 \pi ^2}\frac{im}{2} \pi  \left(-p^2-i \eta \right)^{\frac{d-2}{2}} \csc \left(\frac{\pi  d}{2}\right)                                     \\
-	            & \xrightarrow{d\to 4}\frac{i m \left(p^2+i \eta \right)}{2 \pi ^2 (d-4) \mu }+\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }+\mathcal{O}(d-4)
-\end{align}
-When we set $\mu=p$, the logarithm disappears and the finite term goes to our result with cutoff regularization
-\begin{align}
-	\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }\xrightarrow{\mu\to p,\eta\to0}-\frac{m p}{4 \pi}
-\end{align}
-Similar to our previous calculation, we have
-\begin{align}
-    \mathcal{I}=-\frac{i m p^2}{2 \pi ^2 \epsilon \mu }+\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }
-\end{align}
-with $\epsilon\equiv4-d$. 
-We put it back to the integral equation
-\begin{align}
-    i\calA & =\frac{-1}{\mathcal{I}+\frac{m}{iZ_g(\mu)g}}\equiv\frac{4 i \pi/m  }{-1/a+ \sqrt{-p^2-i\eta}}
-\end{align}
-With this definition we have
-\begin{align}
-    \frac{1}{a} & =\frac{4i\pi}{m}\pqty{\mathcal{I}+\frac{m}{iZ_g(p)g}}^{(0)}             \\
-                & =\frac{2 p}{\pi  \epsilon }+\frac{4 \pi }{Z_g(p)g}                        \\
-                & \hspace{-0.4in}\Rightarrow Z_g(p)g=\frac{4 \pi  a}{1 -2 a p/(\pi\epsilon)}
-\end{align}
-We could see that $p/\epsilon$ is effectively $\Lambda$. 
+% The integral equals to
+% \begin{align}
+% 	\mathcal{I} & =\mu^{3-d}\int\mmd[d+1]{k}\frac{i}{k^0-\frac{\vb{k}^2}{2m}+i\eta}\frac{i}{k^0-P^0-\frac{\abs{\vb{k-P}}^2}{2m}+i\eta}                                      \\
+% 	            & =\mu^{3-d}\int\mmd[d]{\vb{k}}\frac{i}{P^0-\frac{\vb{k}^2}{2m}-\frac{\abs{\vb{k-P}}^2}{2m}+2i\eta}                                                             \\
+% 	            & =\mu^{3-d}\int\mmd[d]{\vb{k}}\frac{im}{p^2-\vb{k}^2+i\eta}                                                                                                    \\
+% 	            & =-\mu^{3-d}\frac{1}{2 \pi ^2}\frac{im}{2} \pi  \left(-p^2-i \eta \right)^{\frac{d-2}{2}} \csc \left(\frac{\pi  d}{2}\right)                                     \\
+% 	            & \xrightarrow{d\to 4}\frac{i m \left(p^2+i \eta \right)}{2 \pi ^2 (d-4) \mu }+\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }+\mathcal{O}(d-4)
+% \end{align}
+% When we set $\mu=p$, the logarithm disappears and the finite term goes to our result with cutoff regularization
+% \begin{align}
+% 	\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }\xrightarrow{\mu\to p,\eta\to0}-\frac{m p}{4 \pi}
+% \end{align}
+% Similar to our previous calculation, we have
+% \begin{align}
+%     \mathcal{I}=-\frac{i m p^2}{2 \pi ^2 \epsilon \mu }+\frac{i m \left(p^2+i \eta \right) \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{4 \pi ^2 \mu }
+% \end{align}
+% with $\epsilon\equiv4-d$. 
+% We put it back to the integral equation
+% \begin{align}
+%     i\calA & =\frac{-1}{\mathcal{I}+\frac{m}{iZ_g(\mu)g}}\equiv\frac{4 i \pi/m  }{-1/a+ \sqrt{-p^2-i\eta}}
+% \end{align}
+% With this definition we have
+% \begin{align}
+%     \frac{1}{a} & =\frac{4i\pi}{m}\pqty{\mathcal{I}+\frac{m}{iZ_g(p)g}}^{(0)}             \\
+%                 & =\frac{2 p}{\pi  \epsilon }+\frac{4 \pi }{Z_g(p)g}                        \\
+%                 & \hspace{-0.4in}\Rightarrow Z_g(p)g=\frac{4 \pi  a}{1 -2 a p/(\pi\epsilon)}
+% \end{align}
+% We could see that $p/\epsilon$ is effectively $\Lambda$. 
 
-Now without pre-determined scale $\mu$ we have
-\begin{align}
-    \frac{1}{a} & =\frac{2 p^2}{\pi  \mu  \epsilon }+\left(\frac{4 \pi }{g}+\sqrt{-p^2-i \eta }-\frac{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }-\frac{i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }\right)                       \\
-                & \hspace{-0.4in}\Rightarrow Z_g(\mu)g=\frac{4 \pi ^2 \mu  }{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)+i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)-\pi \mu  \sqrt{-p^2-i \eta }-2 p^2/\epsilon+\pi  \mu  /a}
-\end{align}
-\subsection{PDS scheme}
-Here we adopt the power divergence subtraction (PDS) scheme by Kaplan, Savage and Wise in 1998\cite{Kaplan:1998tg}. 
+% Now without pre-determined scale $\mu$ we have
+% \begin{align}
+%     \frac{1}{a} & =\frac{2 p^2}{\pi  \mu  \epsilon }+\left(\frac{4 \pi }{g}+\sqrt{-p^2-i \eta }-\frac{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }-\frac{i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)}{\pi  \mu }\right)                       \\
+%                 & \hspace{-0.4in}\Rightarrow Z_g(\mu)g=\frac{4 \pi ^2 \mu  }{p^2 \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)+i \eta  \log \left(-\frac{p^2+i \eta }{\mu ^2}\right)-\pi \mu  \sqrt{-p^2-i \eta }-2 p^2/\epsilon+\pi  \mu  /a}
+% \end{align}
+% \subsection{PDS scheme}
+% Here we adopt the power divergence subtraction (PDS) scheme by Kaplan, Savage and Wise in 1998\cite{Kaplan:1998tg}. 
 
-\appendix
-\subfile{sub-pert_inteq.tex}
+% \appendix
+% \subfile{sub-pert_inteq.tex}
 
 \bibliography{../Bib}
-% \bibliographystyle{apsrev4-1}
-\bibliographystyle{phaip}
+\bibliographystyle{apsrev4-1}
+% \bibliographystyle{phaip}
 \end{document}
